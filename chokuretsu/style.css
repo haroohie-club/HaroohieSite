@@ -91,18 +91,23 @@ main {
     flex: 1;
 }
 
-#download-patch-rom {
+#download-guide {
     background-color: var(--main-red-color);
     font-size: x-large;
 }
 
-#download-xdelta {
+#download-patcher {
     background-color: var(--main-blue-color);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-#download-guide {
+#download-latest {
+    background-color: var(--main-blue-color);
+    border-radius: 0 0 0 0;
+}
+
+#download-sources {
     background-color: var(--main-blue-color);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -111,8 +116,8 @@ main {
 #download-or {
     text-align: center;
     font-size: x-large;
-    margin-top: 0.4em;
-    margin-bottom: 0.4em;
+    margin-top: 0em;
+    margin-bottom: 0em;
 }
 
 .button {
