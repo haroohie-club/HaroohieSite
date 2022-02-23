@@ -22,6 +22,7 @@ body {
 main {
     flex: 2;
     display: flex;
+    margin: auto;
     max-width: 1400px;
 }
 
@@ -123,12 +124,50 @@ main {
     box-shadow: inset 0.5vh 0.5vh 0.7vh rgba(0, 0, 0, 0.2);
 }
 
+/* Input buttons */
+button {
+    filter: drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
+    border-radius: 0.5em;
+    padding: 0.5em 0.6em 0.5em 0.6em;
+    background-color: var(--main-red-color);
+    color: white;
+    font-size: larger;
+    box-shadow: inset 0.5vh 0.5vh 0.7vh rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+    filter: brightness(75%) drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
+}
+
 .button:hover {
     filter: brightness(75%) drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
 }
 
+.back-button {
+    background-color: var(--main-red-color);
+    max-width: 10em;
+    margin: auto;
+}
+
 #game-about {
     text-align: left;
+}
+
+/* Generic one-column page setup for patch and guide pages */
+.one-column {
+    flex: 2;
+    max-width: 1400px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.one-column-block {
+    flex: 2;
+    margin: auto;
+}
+
+.one-column-text {
+    max-width: 700px;
 }
 
 footer {
@@ -151,9 +190,18 @@ h1 {
     border-bottom: 0.08em solid var(--main-red-color);
 }
 
+h3 {
+    border-bottom: 0.08em solid var(--main-red-color);
+}
+
 /* Remove ugly link formatting */
 a {
     text-decoration: none;
+}
+
+/* For hiding stuff (mainly used for the patcher logic) */
+.hidden {
+    visibility: hidden;
 }
 
 /* What to do when the screen shrinks*/

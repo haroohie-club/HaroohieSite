@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="description"
+          content="English patch for Nintendo DS game The Series of Haruhi Suzumiya (Suzumiya Haruhi no Chokuretsu)"/>
+    <title>The Series of Haruhi Suzumiya - Patch ROM</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Loads the footer -->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("footer").load("footer.html");
+        });
+    </script>
+
+    <!-- Web icons -->
+    <link rel="manifest" href="manifest.json"/>
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/png" sizes="16x16"/>
+    <link rel="shortcut icon" href="assets/icons/android-chrome-192x192.png" type="image/png" sizes="192x192"/>
+
+    <!-- Google fonts (for Nunito font) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+
+    <!-- Font awesome (for icons) -->
+    <script src="https://kit.fontawesome.com/aa4c023dda.js" crossorigin="anonymous"></script>
+
+    <!-- ROM patcher scripts -->
+    <script type="text/javascript" src="../patcher/js/locale.js"></script>
+    <script type="text/javascript" src="../patcher/js/RomPatcher.js"></script>
+    <script type="text/javascript" src="../patcher/js/MarcFile.js"></script>
+    <script type="text/javascript" src="../patcher/js/crc.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/zip.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/ips.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/ups.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/aps.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/bps.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/rup.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/ppf.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/pmsr.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/vcdiff.js"></script>
+
+    <script type="text/javascript" src="../patcher/js/zip.js/zip.js"></script>
+    <!-- <script type="text/javascript" src="js/libunrar/rpc.js"></script> -->
+
+    <script type="text/javascript">
+        // CUSTOM PATCHER EXAMPLE
+        // uncomment this to build your own custom exclusive patcher for your hacks/translations
+        // user will only need to provide the ROM file, as patches will be fetched from your server!
+        // a crc (or various crcs) can be provided for source files, allowing old formats like IPS to have validation!
+        const CUSTOM_PATCHER = [
+            { //example: uncompressed file
+                file: 'releases/dummy_patch.xdelta',
+                name: 'Latest - Version 0.2 (23rd February, 2022)',
+            }
+        ];
+    </script>
+</head>
+<body>
+<main class="one-column">
+
+    <!-- Header -->
+    <div id="game-logo" class="one-column-block">
+        <object class="drop-shadow" width="40%" data="assets/game-logo.svg" type="image/svg+xml">
+            <img src="assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
+        </object>
+    </div>
+
+    <!-- Patcher app -->
+    <div class="one-column-block one-column-text">
+        <h1>Patch ROM</h1>
+        <p>Choose the original <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file to patch, then press
+            "Patch ROM" to create a patched ROM.</p>
+
+        <div>
+            <h3>Select ROM</h3>
+            <input type="file" id="input-file-rom" class="enabled"/>
+        </div>
+
+        <div>
+            <h3>Integrity checks</h3>
+            <ul>
+                <li>CRC32: <code id="crc32"></code></li>
+                <li>MD5: <code id="md5"></code></li>
+                <li>SHA-1: <code id="sha1"></code></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Select version</h3>
+            <div id="row-file-patch">
+                <input type="file" id="input-file-patch" accept=".xdelta"/>
+            </div>
+        </div>
+
+        <div>
+            <h3>Apply patch</h3>
+            <button id="button-apply" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp; Patch ROM</button>
+            <br/><p id="message-apply" class="message"></p>
+        </div>
+    </div>
+
+    <!-- Disabled ROM header options -->
+    <div class="hidden">
+        <div id="row-removeheader">
+            <input type="checkbox" id="checkbox-removeheader"/>
+            <label for="checkbox-removeheader" data-localize="remove_header">Remove header before patching</label>
+        </div>
+        <div id="row-addheader">
+            <input type="checkbox" id="checkbox-addheader"/>
+            <label for="checkbox-addheader" data-localize="add_header">Add temporary header</label>
+            <small>(<label id="headersize" for="checkbox-addheader"></label>)</small>
+        </div>
+    </div>
+
+    <!-- Disabled language selection -->
+    <div class="one-column-block hidden">
+        <div class="hidden" id="switch-container"><span id="switch-create-button"><span data-localize="creator_mode">Creator mode</span> <span
+                id="switch-create" class="switch disabled"></span></span></div>
+
+        <label for="select-language"></label><select id="select-language">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+        <option value="nl">Nederlands</option>
+        <option value="sv">Svenska</option>
+        <option value="ca">Català</option>
+        <option value="pt-br">Português Brasileiro</option>
+        <option value="ru">Russian</option>
+        <option value="ja">日本語</option>
+    </select>
+    </div>
+
+    <!-- Back button -->
+    <div class="one-column-block">
+        <a href="./">
+            <div class="button back-button">
+                <i class="fa-solid fa-rotate-left"></i> Back to home
+            </div>
+        </a>
+    </div>
+
+    <!-- Patcher attribution -->
+    <div class="one-column-block" style="text-align: center">
+        <p>This patcher uses <a href="https://github.com/marcrobledo/RomPatcher.js/">RomPatcher.js</a> by <a
+                href="https://www.marcrobledo.com/">Marc Robledo</a>, licensed under MIT.</p>
+    </div>
+</main>
+<footer></footer>
+</body>
+</html>
