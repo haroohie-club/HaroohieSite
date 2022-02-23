@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Series of Haruhi Suzumiya</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google fonts (for Nunito font) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+
+    <!-- Font awesome (for icons) -->
+    <script src="https://kit.fontawesome.com/aa4c023dda.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+    <div id="left-column">
+        <div id="ds-container">
+            <video id="ds-video" autoplay loop muted>
+                <source src="assets/demo-reel.mp4" type="video/mp4"/>
+                Your browser doesn't support HTML5 video.
+            </video>
+            <object id="ds-overlay" class="drop-shadow" width="610" height="640" data="assets/nintendo-dsi.svg"
+                    type="image/svg+xml">
+                <img src="assets/nintendo-dsi.png" alt="Nintendo DS playing The Series of Haruhi Suzumiya"/>
+            </object>
+        </div>
+    </div>
+    <div id="right-column" class="right-column-container">
+        <div id="game-logo">
+            <object class="drop-shadow" width="90%" data="assets/game-logo.svg" type="image/svg+xml">
+                <img src="assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
+            </object>
+        </div>
+        <div id="game-download-boxes">
+            <div id="sos-logo-box">
+                <object class="drop-shadow" data="assets/sos-logo.svg" width="70%" type="image/svg+xml">
+                    <img src="assets/sos-logo.png" alt="SOS Brigade logo"/>
+                </object>
+            </div>
+            <div id="download-box">
+                <h1>Get the translation</h1>
+                <div id="download-button-container">
+                    <a href="patcher">
+                        <div class="button" id="download-patch-rom">
+                            <i class="fa-solid fa-pen-to-square"></i> Patch ROM
+                        </div>
+                    </a>
+                    <b id="download-or">or</b>
+                    <a href="releases/patch_002.xdelta"><div class="button" id="download-xdelta">
+                        <i class="fa-solid fa-download"></i>&nbsp; Download .xdelta
+                    </div></a>
+                    <a href="guide"><div class="button" id="download-guide">
+                        <i class="fa-solid fa-book"></i>&nbsp; Setup guide
+                    </div></a>
+                </div>
+            </div>
+        </div>
+        <div id="game-about">
+            <h1>About the game</h1>
+            <p>Released in 2009 for the Nintendo DS, <i>Suzumiya Haruhi no Chokuretsu</i>
+                (<i>The Series of Haruhi Suzumiya</i>) is an adventure-puzzle game based
+                on the Haruhi Suzumiya series!</p>
+
+            <p>Play as Kyon in a game of coming up with copy text to put here on this
+                website. I mean, you get the idea. This text will describe the game a bit
+                and give people a brief rundown as for what they're getting into.</p>
+
+            <p>This is an unofficial translation made by <i>Haruhi</i> fans from around the
+                world. Please support the series by buying the original games & merch!</p>
+        </div>
+    </div>
+</main>
+<footer>
+    <p>Website © 2022 Haroohie Translation Club<br/>
+        Haruhi Suzumiya, the original game and related assets are<br/>
+        property of Kadokawa / SEGA / Nagaru Tanigawa / SOS Brigade
+    </p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,170 @@
+:root {
+    --main-red-color: #C02020;
+    --main-blue-color: #3790FF;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Nunito, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: auto;
+    background: rgb(54, 143, 254);
+    background: linear-gradient(180deg, rgba(54, 143, 254, 1) 0%, rgba(214, 232, 255, 1) 35%, rgba(255, 255, 255, 1) 100%);
+    justify-content: center;
+}
+
+main {
+    flex: 2;
+    display: flex;
+    max-width: 1400px;
+}
+
+/* Left column - contains Nintendo DSi vector graphic */
+#left-column {
+    flex: 1;
+    padding: 1em 0em 1em 0em;
+    min-height: 100%;
+}
+
+/* DS Overlay setup */
+#ds-container {
+    position: relative;
+    width: 22.5em;
+    height: 33.75em;
+}
+
+#ds-video {
+    position: absolute;
+    z-index: 1;
+    margin-left: 125px;
+    margin-top: 48px;
+}
+
+#ds-overlay {
+    position: absolute;
+    z-index: 2;
+}
+
+/* Right column - contains main information */
+#right-column {
+    flex: 1;
+    padding: 1em 1em 1em 1em;
+    min-height: 100%;
+}
+
+#game-logo {
+    width: 100%;
+    text-align: center;
+}
+
+/* SOS brigade logo and download box*/
+#game-download-boxes {
+    display: flex;
+    flex-direction: row;
+    flex: 3;
+}
+
+#sos-logo-box {
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    margin-top: 2em;
+}
+
+#download-box {
+    flex: 2;
+    justify-content: flex-end;
+}
+
+/* Download buttons */
+#download-button-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#download-patch-rom {
+    background-color: var(--main-red-color);
+    font-size: x-large;
+}
+
+#download-xdelta {
+    background-color: var(--main-blue-color);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#download-guide {
+    background-color: var(--main-blue-color);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#download-or {
+    text-align: center;
+    font-size: x-large;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+.button {
+    filter: drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
+    border-radius: 0.5em;
+    padding: 0.5em 0.6em 0.5em 0.6em;
+    color: white;
+    font-size: larger;
+    box-shadow: inset 0.5vh 0.5vh 0.7vh rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    filter: brightness(75%) drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
+}
+
+#game-about {
+    text-align: left;
+}
+
+footer {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(211, 211, 211, 1) 100%);
+    color: dimgray;
+    text-align: center;
+    line-height: 95%;
+    width: 100%;
+}
+
+/* Give certain elements a drop shadow */
+.drop-shadow {
+    filter: drop-shadow(0.2em 0.2em 0.1em rgba(0, 0, 0, 0.5));
+}
+
+/* Give headers their color and size */
+h1 {
+    font-size: x-large;
+    border-bottom: 0.08em solid var(--main-red-color);
+}
+
+/* Remove ugly link formatting */
+a {
+    text-decoration: none;
+}
+
+/* What to do when the screen shrinks*/
+@media screen and (max-width: 1200px) {
+    /* Move the left column (DS) below the main information */
+    #left-column {
+        flex: 0;
+        order: 2
+    }
+
+    main {
+        flex-direction: column;
+    }
+}
