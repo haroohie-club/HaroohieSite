@@ -7,6 +7,8 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Nunito, sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 body {
@@ -40,11 +42,17 @@ main {
     height: 33.75em;
 }
 
+#ds-header {
+    text-align: left;
+    padding: 0em 1em 0em 1em;
+    display: none;
+}
+
 #ds-video {
     position: absolute;
     z-index: 1;
-    margin-left: 125px;
-    margin-top: 48px;
+    margin-left: 35%;
+    margin-top: 14%;
 }
 
 #ds-overlay {
@@ -73,10 +81,9 @@ main {
 
 #sos-logo-box {
     flex: 1;
-    justify-content: flex-start;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    margin-top: 2em;
 }
 
 #download-box {
@@ -210,14 +217,43 @@ a {
 }
 
 /* What to do when the screen shrinks*/
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1240px) {
     /* Move the left column (DS) below the main information */
     #left-column {
         flex: 0;
-        order: 2
+        order: 2;
+        text-align: center;
     }
 
     main {
         flex-direction: column;
+    }
+
+    /* DS Overlay on mobile */
+    #ds-header {
+        display: block;
+    }
+
+    #ds-container {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 3em;
+    }
+
+    #ds-video {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    #ds-overlay {
+        left: -6em;
+        right: 0;
+        bottom: -4.6em;
+        margin-left: auto;
+        margin-right: auto;
+        width: 153%;
     }
 }
