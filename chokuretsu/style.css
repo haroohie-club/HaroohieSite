@@ -67,9 +67,23 @@ main {
     min-height: 100%;
 }
 
-#game-logo {
+#game-logo-container {
     width: 100%;
     text-align: center;
+}
+
+/* For the top logo and assets */
+.image-graphic {
+    max-width: 600px;
+    min-width: 300px;
+
+    /* Disable interactivity */
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 /* SOS brigade logo and download box*/
@@ -213,7 +227,7 @@ a {
 
 /* For hiding stuff (mainly used for the patcher logic) */
 .hidden {
-    visibility: hidden;
+    display: none;
 }
 
 /* What to do when the screen shrinks*/

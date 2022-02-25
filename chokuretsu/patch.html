@@ -41,29 +41,92 @@
     <script type="text/javascript" src="../patcher/js/formats/ppf.js"></script>
     <script type="text/javascript" src="../patcher/js/formats/pmsr.js"></script>
     <script type="text/javascript" src="../patcher/js/formats/vcdiff.js"></script>
-
     <script type="text/javascript" src="../patcher/js/zip.js/zip.js"></script>
     <!-- <script type="text/javascript" src="js/libunrar/rpc.js"></script> -->
 
+    <!-- GitHub API fetching -->
+    <script type="module">
+        import {request} from "https://cdn.skypack.dev/@octokit/request";
+
+        const REPO_ORG = 'WiIIiam278'
+        const REPO = 'ChokuretsuTestReleases'
+        let hasFetched = false;
+
+        var select = document.createElement('select');
+        select.disabled = true;
+        select.id = 'input-file-patch';
+        el('input-file-patch').parentElement.replaceChild(select, el('input-file-patch'));
+        select.parentElement.title = '';
+
+        request('GET /repos/{owner}/{repo}/releases', {
+            owner: REPO_ORG,
+            repo: REPO
+        }).then(releaseList => {
+            releaseList.data.forEach(release => {
+                request('GET /repos/{owner}/{repo}/releases/{release_id}/assets', {
+                    owner: REPO_ORG,
+                    repo: REPO,
+                    release_id: release.id
+                }).then(releaseAssetList => {
+                    releaseAssetList.data.forEach(releaseAsset => {
+                        let downloadUrl = releaseAsset.browser_download_url;
+                        if (downloadUrl.endsWith(".xdelta")) {
+                            let date = new Date(release.created_at);
+                            let i = CUSTOM_PATCHER.push({
+                                file: downloadUrl,
+                                byte_length: releaseAsset.size,
+                                repo_org: REPO_ORG,
+                                repo: REPO,
+                                asset_id: releaseAsset.id,
+                                name: 'Version ' + release.tag_name + " (" + date.toLocaleDateString() + ")"
+                            }) - 1;
+
+                            CUSTOM_PATCHER[i].fetchedFile = false;
+
+                            CUSTOM_PATCHER[i].selectOption = document.createElement('option');
+                            CUSTOM_PATCHER[i].selectOption.value = i;
+                            CUSTOM_PATCHER[i].selectOption.innerHTML = CUSTOM_PATCHER[i].name || CUSTOM_PATCHER[i].file;
+
+                            select.appendChild(CUSTOM_PATCHER[i].selectOption);
+
+                            if (typeof CUSTOM_PATCHER[i].patches === 'object') {
+                                for (var j = 0; j < CUSTOM_PATCHER[i].patches.length; j++) {
+                                    if (j === 0) {
+                                        CUSTOM_PATCHER[i].patches[0].selectOption = CUSTOM_PATCHER[i].selectOption;
+                                        CUSTOM_PATCHER[i].selectOption = null;
+                                    } else {
+                                        CUSTOM_PATCHER[i].patches[j].selectOption = document.createElement('option');
+                                        select.appendChild(CUSTOM_PATCHER[i].patches[j].selectOption);
+                                    }
+
+                                    CUSTOM_PATCHER[i].patches[j].selectOption.value = i + ',' + j;
+                                    CUSTOM_PATCHER[i].patches[j].selectOption.innerHTML = CUSTOM_PATCHER[i].patches[j].name || CUSTOM_PATCHER[i].patches[j].file;
+                                }
+                            }
+
+                            if (!hasFetched) {
+                                fetchPatch(i, 0, request);
+                                hasFetched = true;
+                            }
+                        }
+                    })
+                })
+            })
+            preparePatcher(request);
+        });
+    </script>
+
+
     <script type="text/javascript">
-        // CUSTOM PATCHER EXAMPLE
-        // uncomment this to build your own custom exclusive patcher for your hacks/translations
-        // user will only need to provide the ROM file, as patches will be fetched from your server!
-        // a crc (or various crcs) can be provided for source files, allowing old formats like IPS to have validation!
-        const CUSTOM_PATCHER = [
-            { //example: uncompressed file
-                file: 'releases/dummy_patch.xdelta',
-                name: 'Latest - Version 0.2 (23rd February, 2022)',
-            }
-        ];
+        let CUSTOM_PATCHER = [];
     </script>
 </head>
 <body>
 <main class="one-column">
 
     <!-- Header -->
-    <div id="game-logo" class="one-column-block">
-        <object class="drop-shadow" width="40%" data="assets/game-logo.svg" type="image/svg+xml">
+    <div id="game-logo-container" class="one-column-block">
+        <object class="image-graphic drop-shadow" width="100%" data="assets/game-logo.svg" type="image/svg+xml">
             <img src="assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
         </object>
     </div>
@@ -74,9 +137,12 @@
         <p>Choose the original <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file to patch, then press
             "Patch ROM" to create a patched ROM.</p>
 
+        <p style="text-align: center"><img src="assets/characters.png" class="image-graphic"
+                                           alt="Members of the SOS brigade"></p>
+
         <div>
             <h3>Select ROM</h3>
-            <input type="file" id="input-file-rom" class="enabled"/>
+            <input type="file" id="input-file-rom" class="enabled" accept=".nds"/>
         </div>
 
         <div>
@@ -97,8 +163,10 @@
 
         <div>
             <h3>Apply patch</h3>
-            <button id="button-apply" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp; Patch ROM</button>
-            <br/><p id="message-apply" class="message"></p>
+            <button id="button-apply" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp; Patch ROM
+            </button>
+            <br/>
+            <p id="message-apply" class="message"></p>
         </div>
     </div>
 
