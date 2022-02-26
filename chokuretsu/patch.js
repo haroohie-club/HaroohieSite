@@ -72,12 +72,6 @@ request('GET /repos/{owner}/{repo}/releases', {
         })
     })
 
-    // Sort by date
-    RELEASES;
-
-    RELEASES.forEach(release => {
-
-    })
-
+    // Prepare patcher
     preparePatcher(request);
 });
