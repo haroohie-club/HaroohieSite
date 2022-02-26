@@ -52,38 +52,28 @@
         const REPO = 'ChokuretsuTestReleases'
         let hasFetched = false;
 
-        var select = document.createElement('select');
+        const select = document.createElement('select');
         select.disabled = true;
         select.id = 'input-file-patch';
         el('input-file-patch').parentElement.replaceChild(select, el('input-file-patch'));
         select.parentElement.title = '';
 
         request('GET /repos/{owner}/{repo}/releases', {
-            /*headers: {
-                authorization: AUTH_TOKEN
-            },*/
             owner: REPO_ORG,
             repo: REPO
         }).then(releaseList => {
             releaseList.data.forEach(release => {
                 request('GET /repos/{owner}/{repo}/releases/{release_id}/assets', {
-                    /*headers: {
-                        authorization: AUTH_TOKEN
-                    },*/
                     owner: REPO_ORG,
                     repo: REPO,
                     release_id: release.id
                 }).then(releaseAssetList => {
                     releaseAssetList.data.forEach(releaseAsset => {
-                        let downloadUrl = releaseAsset.browser_download_url;
+                        let downloadUrl = CORS_PROXY + releaseAsset.browser_download_url;
                         if (downloadUrl.endsWith(".xdelta")) {
                             let date = new Date(release.created_at);
                             let i = CUSTOM_PATCHER.push({
                                 file: downloadUrl,
-                                byte_length: releaseAsset.size,
-                                repo_org: REPO_ORG,
-                                repo: REPO,
-                                asset_id: releaseAsset.id,
                                 name: 'Version ' + release.tag_name + " (" + date.toLocaleDateString() + ")"
                             }) - 1;
 
@@ -96,7 +86,7 @@
                             select.appendChild(CUSTOM_PATCHER[i].selectOption);
 
                             if (typeof CUSTOM_PATCHER[i].patches === 'object') {
-                                for (var j = 0; j < CUSTOM_PATCHER[i].patches.length; j++) {
+                                for (let j = 0; j < CUSTOM_PATCHER[i].patches.length; j++) {
                                     if (j === 0) {
                                         CUSTOM_PATCHER[i].patches[0].selectOption = CUSTOM_PATCHER[i].selectOption;
                                         CUSTOM_PATCHER[i].selectOption = null;
@@ -125,7 +115,7 @@
 
     <script type="text/javascript">
         let CUSTOM_PATCHER = [];
-        //let AUTH_TOKEN = 'token 0';
+        let CORS_PROXY = 'https://corsanywhere.herokuapp.com/'
     </script>
 </head>
 <body>
