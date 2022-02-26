@@ -10,23 +10,34 @@ select.id = 'input-file-patch';
 el('input-file-patch').parentElement.replaceChild(select, el('input-file-patch'));
 select.parentElement.title = '';
 
+// Fetch releases from GitHub API
 request('GET /repos/{owner}/{repo}/releases', {
     owner: REPO_ORG,
     repo: REPO
 }).then(releaseList => {
+    // Iterate through releases and sort by date
     releaseList.data.forEach(release => {
         request('GET /repos/{owner}/{repo}/releases/{release_id}/assets', {
             owner: REPO_ORG,
             repo: REPO,
             release_id: release.id
         }).then(releaseAssetList => {
-            releaseAssetList.data.forEach(releaseAsset => {
+            releaseAssetList.data.sort(function(a,b){
+                return new Date(b.created_at) - new Date(a.created_at);
+            }).forEach(releaseAsset => {
                 let downloadUrl = CORS_PROXY + releaseAsset.browser_download_url;
-                if (downloadUrl.endsWith(".xdelta")) {
+                if (downloadUrl.endsWith('.xdelta')) {
                     let date = new Date(release.created_at);
+                    let dateString = date.toISOString().slice(0, 10); // Format date as YYYY-MM-DD
+
+                    let nameString = 'Version ' + release.tag_name + ' (' + dateString + ')';
+                    if (CUSTOM_PATCHER.length === 0) {
+                        nameString += ' (Latest)';
+                    }
+
                     let i = CUSTOM_PATCHER.push({
                         file: downloadUrl,
-                        name: 'Version ' + release.tag_name + " (" + date.toLocaleDateString() + ")"
+                        name: nameString,
                     }) - 1;
 
                     CUSTOM_PATCHER[i].fetchedFile = false;
@@ -60,5 +71,13 @@ request('GET /repos/{owner}/{repo}/releases', {
             })
         })
     })
+
+    // Sort by date
+    RELEASES;
+
+    RELEASES.forEach(release => {
+
+    })
+
     preparePatcher(request);
 });
