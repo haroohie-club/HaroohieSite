@@ -59,17 +59,17 @@
         select.parentElement.title = '';
 
         request('GET /repos/{owner}/{repo}/releases', {
-            headers: {
+            /*headers: {
                 authorization: AUTH_TOKEN
-            },
+            },*/
             owner: REPO_ORG,
             repo: REPO
         }).then(releaseList => {
             releaseList.data.forEach(release => {
                 request('GET /repos/{owner}/{repo}/releases/{release_id}/assets', {
-                    headers: {
+                    /*headers: {
                         authorization: AUTH_TOKEN
-                    },
+                    },*/
                     owner: REPO_ORG,
                     repo: REPO,
                     release_id: release.id
@@ -125,7 +125,7 @@
 
     <script type="text/javascript">
         let CUSTOM_PATCHER = [];
-        let AUTH_TOKEN = 'token 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';
+        //let AUTH_TOKEN = 'token 0';
     </script>
 </head>
 <body>
