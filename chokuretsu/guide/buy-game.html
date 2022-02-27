@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="description"
+          content="English patch for Nintendo DS game The Series of Haruhi Suzumiya (Suzumiya Haruhi no Chokuretsu)"/>
+    <title>The Series of Haruhi Suzumiya - Setup Guide</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Loads the footer and sidebar -->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("footer").load("../footer.html");
+            $(".column-with-sidebar-bar").load("sidebar.html");
+        });
+    </script>
+
+    <!-- Web icons -->
+    <link rel="manifest" href="../manifest.json"/>
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/png" sizes="16x16"/>
+    <link rel="shortcut icon" href="../assets/icons/android-chrome-192x192.png" type="image/png" sizes="192x192"/>
+
+    <!-- Google fonts (for Nunito font) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+
+    <!-- Font awesome (for icons) -->
+    <script src="https://kit.fontawesome.com/aa4c023dda.js" crossorigin="anonymous"></script>
+
+    <!-- Platform detection script -->
+    <script src="guide.js" type="text/javascript"></script>
+</head>
+<body>
+<main id="column-with-sidebar">
+    <div class="column-with-sidebar-body">
+        <div class="one-column-text" id="game-logo-container">
+            <object class="image-graphic drop-shadow" width="100%" data="../assets/game-logo.svg" type="image/svg+xml">
+                <img src="../assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
+            </object>
+        </div>
+
+        <div class="one-column-text">
+            <h1>Buy game</h1>
+            <p>Please select which platform you'd like to play the game on. Please note that different platforms may
+                require the use of additional hardware, such as SD cards and R4 cards.</p>
+        </div>
+        <br/>
+        <div id="guide-buttons">
+            <br/>
+            <a href="../guide/">
+                <div class="button guide-button" style="float: left">
+                    <i class="fa-solid fa-angle-left"></i>&nbsp; Introduction
+                </div>
+            </a>
+            <a>
+                <div class="button guide-button" style="float: right; cursor: not-allowed"
+                     title="Please select a platform to continue.">
+                    Buying the game&nbsp; <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="column-with-sidebar-bar"></div>
+</main>
+<footer></footer>
+</body>
+</html>
