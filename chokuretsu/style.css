@@ -153,6 +153,7 @@ main {
 /* Input buttons */
 button {
     filter: drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
+    border: 0px;
     border-radius: 0.5em;
     padding: 0.5em 0.6em 0.5em 0.6em;
     background-color: var(--main-red-color);
@@ -166,6 +167,10 @@ button:disabled {
 }
 
 .button:hover {
+    filter: brightness(75%) drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
+}
+
+button:hover {
     filter: brightness(75%) drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
 }
 
@@ -190,10 +195,48 @@ button:disabled {
 .one-column-block {
     flex: 2;
     margin: auto;
+    clear: both;
 }
 
 .one-column-text {
-    max-width: 700px;
+    max-width: 750px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/* Used for the patcher interface */
+#patcher-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    padding-bottom: 3em;
+}
+
+.patcher-block {
+    flex: 2 0 45%;
+    padding-left: 1em;
+    padding-right: 1em;
+    max-width: 40%;
+    text-align: center;
+}
+
+/* Patcher file selection */
+.patcher-file-dragging {
+    border-color: #969ba6 !important;
+    color: #969ba6;
+}
+
+#patcher-file-drop input:hover {
+    border-color: #969ba6;
+    color: #969ba6;
+    cursor: pointer;
+}
+
+#input-file-rom {
+    padding: 2em 2vw;
+    border: #31343a dashed 0.2em;
+    border-radius: 0.8em;
 }
 
 footer {
@@ -217,6 +260,7 @@ h1 {
 }
 
 h3 {
+    text-align: left;
     border-bottom: 0.08em solid var(--main-red-color);
 }
 

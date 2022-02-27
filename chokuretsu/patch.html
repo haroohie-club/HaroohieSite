@@ -61,42 +61,50 @@
         </object>
     </div>
 
-    <!-- Patcher app -->
     <div class="one-column-block one-column-text">
         <h1>Patch ROM</h1>
         <p>Choose the original <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file to patch, then press
             "Patch ROM" to create a patched ROM.</p>
 
-        <p style="text-align: center"><img src="assets/characters.png" class="image-graphic" alt="Members of the SOS brigade"></p>
+        <p style="text-align: center"><img src="assets/characters.png" class="image-graphic"
+                                           alt="Members of the SOS Brigade"></p>
+    </div>
 
-        <div>
+    <!-- Patcher app -->
+    <div id="patcher-menu">
+        <div class="patcher-block">
             <h3>Select ROM</h3>
-            <input type="file" id="input-file-rom" class="enabled" accept=".nds"/>
+            <div id="patcher-file-drop" class="enabled">
+                <input type="file" id="input-file-rom" class="enabled" accept=".nds"
+                       ondragenter="this.classList.add('patcher-file-dragging');"
+                       ondragleave="this.classList.remove('patcher-file-dragging');"/>
+            </div>
         </div>
 
-        <div>
+        <div class="patcher-block">
             <h3>Integrity checks</h3>
-            <ul>
+            <ul style="text-align: left">
                 <li>CRC32: <code id="crc32"></code></li>
                 <li>MD5: <code id="md5"></code></li>
                 <li>SHA-1: <code id="sha1"></code></li>
             </ul>
         </div>
 
-        <div>
+        <div class="patcher-block">
             <h3>Select version</h3>
             <div id="row-file-patch">
                 <input type="file" id="input-file-patch" accept=".xdelta"/>
             </div>
         </div>
 
-        <div>
+        <div class="patcher-block">
             <h3>Apply patch</h3>
             <button id="button-apply" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp; Patch ROM
             </button>
             <br/>
-            <p id="message-apply" class="message"></p>
         </div>
+
+        <p id="message-apply" class="message"></p>
     </div>
 
     <!-- Disabled ROM header options -->
@@ -114,7 +122,8 @@
 
     <!-- Disabled language selection -->
     <div class="one-column-block hidden">
-        <div class="hidden" id="switch-container"><span id="switch-create-button"><span data-localize="creator_mode">Creator mode</span> <span
+        <div id="switch-container"><span id="switch-create-button"><span
+                data-localize="creator_mode">Creator mode</span> <span
                 id="switch-create" class="switch disabled"></span></span></div>
 
         <label for="select-language"></label><select id="select-language">
