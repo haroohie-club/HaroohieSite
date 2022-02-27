@@ -40,6 +40,7 @@ main {
     position: relative;
     width: 22.5em;
     height: 33.75em;
+    margin-bottom: 8em;
 }
 
 #ds-header {
@@ -182,6 +183,23 @@ button:hover {
 
 #game-about {
     text-align: left;
+}
+
+#translation-team {
+    text-align: left;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#translation-team-list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+#discord-button {
+    background-color: #5865F2;
+    max-width: 9em;
 }
 
 /* Generic one-column page setup for patch and guide pages */
