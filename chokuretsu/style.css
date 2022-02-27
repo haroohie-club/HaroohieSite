@@ -202,7 +202,7 @@ button:hover {
     max-width: 10em;
 }
 
-/* Column with sidebar page setup */
+/* Column with sidebar page setup (guide) */
 #column-with-sidebar {
     max-width: 1400px;
 }
@@ -219,8 +219,41 @@ button:hover {
     min-height: 100%;
 }
 
+#guide-buttons {
+    clear: both;
+    padding: 0 1em;
+}
 
-/* One-column page setup */
+.guide-button {
+    background-color: var(--main-blue-color);
+    max-width: 10em;
+    font-size: 1em;
+    text-align: center;
+    display: inline;
+    margin: auto;
+}
+
+#guide-option-gallery {
+    text-align: center;
+}
+
+.guide-option {
+    float: left;
+    display: inline;
+    margin: 0.5em;
+    padding: 0.5em;
+    max-width: 10em;
+    border-radius: 0.3em;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.guide-option:hover {
+    background-color: #eeeeee;
+}
+
+/* One-column page setup (patcher) */
 .one-column {
     flex: 2;
     max-width: 1400px;
@@ -311,6 +344,11 @@ h3 {
 /* Remove ugly link formatting */
 a {
     text-decoration: none;
+}
+
+/* Allows .svg images to be clicked */
+object {
+    pointer-events: none;
 }
 
 /* For hiding stuff (mainly used for the patcher logic) */
