@@ -191,7 +191,7 @@ button:hover {
     padding-right: 1em;
 }
 
-#translation-team-list {
+.two-column-list {
     columns: 2;
     -webkit-columns: 2;
     -moz-columns: 2;
@@ -199,10 +199,28 @@ button:hover {
 
 #discord-button {
     background-color: #5865F2;
-    max-width: 9em;
+    max-width: 10em;
 }
 
-/* Generic one-column page setup for patch and guide pages */
+/* Column with sidebar page setup */
+#column-with-sidebar {
+    max-width: 1400px;
+}
+
+.column-with-sidebar-body {
+    flex: 3;
+    padding: 1em 0em 1em 0em;
+    min-height: 100%;
+}
+
+.column-with-sidebar-bar {
+    flex: 1;
+    padding: 1em 0em 1em 0em;
+    min-height: 100%;
+}
+
+
+/* One-column page setup */
 .one-column {
     flex: 2;
     max-width: 1400px;
