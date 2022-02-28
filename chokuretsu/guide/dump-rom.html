@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="description"
+          content="English patch for Nintendo DS game The Series of Haruhi Suzumiya (Suzumiya Haruhi no Chokuretsu)"/>
+    <title>The Series of Haruhi Suzumiya - Setup Guide</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Loads the footer and sidebar -->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("footer").load("../footer.html");
+            $(".column-with-sidebar-bar").load("sidebar.html");
+        });
+    </script>
+
+    <!-- Web icons -->
+    <link rel="manifest" href="../manifest.json"/>
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/png" sizes="16x16"/>
+    <link rel="shortcut icon" href="../assets/icons/android-chrome-192x192.png" type="image/png" sizes="192x192"/>
+
+    <!-- Google fonts (for Nunito font) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+
+    <!-- Font awesome (for icons) -->
+    <script src="https://kit.fontawesome.com/aa4c023dda.js" crossorigin="anonymous"></script>
+
+    <!-- Platform detection script -->
+    <script src="guide.js" type="text/javascript"></script>
+</head>
+<body>
+<main id="column-with-sidebar">
+    <meta id="redirect-if-device-not-selected">
+    <div class="column-with-sidebar-body">
+        <div class="one-column-text" id="game-logo-container">
+            <object class="image-graphic drop-shadow" width="100%" data="../assets/game-logo.svg" type="image/svg+xml">
+                <img src="../assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
+            </object>
+        </div>
+
+        <a href="choose-platform.html">
+            <div class="guide-platform-indicator hidden drop-shadow">
+                <object id="guide-platform-indicator-icon" width="20em" type="image/svg+xml"></object>
+                <b id="guide-platform-indicator-text"></b>
+            </div>
+        </a>
+
+        <div class="one-column-text">
+            <h1>Dumping the ROM</h1>
+            <p>You'll now need to follow the steps to extract the ROM file from your game cartridge.</p>
+            <p>Don't worry about the cartridge not being compatible with your system - apart from Chinese (iQue)
+                Nintendo DS systems, all Nintendo DS cartridges are region-free.</p>
+            <p class="hidden emu-show">Since you selected to play on an emulator, you'll need a Nintendo DS compatible
+                system to dump the ROM. Have a look below to find the easiest method that suits you.</p>
+        </div>
+
+        <!-- Nintendo DS dump -->
+        <div class="one-column-text hidden ds-show emu-show">
+            <h3>Dumping with a Nintendo DS or DS lite</h3>
+            <p>There are two ways of dumping the game using a Nintendo DS or Nintendo DS lite system. Both require the
+                use of a Slot-1 (DS cartridge slot) flash cart.</p>
+            <p>The first method uses a Wi-Fi hack to dump over FTP. The second method uses a pair
+                of Slot-1 and Slot-2 (GBA cartridge slot) flash carts to dump the ROM directly.</p>
+
+            <h3>Dump over Wi-Fi</h3>
+            <b>Requirements:</b>
+            <ul>
+                <li>Nintendo DS or DS lite console</li>
+                <li><a href="buy-game.html"><i>Suzumiya Haruhi no Chokuretsu</i></a></li>
+                <li>Slot-1 Flash cartridge (e.g. R4 card. Also, an SD card to load stuff onto it, if necessary)</li>
+                <li>Smartphone, tablet or other device that can create a hotspot</li>
+                <li>A computer you can use to download wooddumper and connect to said hotspot with</li>
+                <li>A DS game with Wi-Fi support. It doesn't matter that the service has ended. Unfortunately, <i>Suzumiya
+                    Haruhi no Chokuretsu</i> does not have Wi-Fi support.
+                </li>
+            </ul>
+            <b>Method:</b>
+            <ol>
+                <li>Using your smartphone, tablet or other device that can create a wireless hotspot, make an unsecured
+                    (no password) or WEP-secured hotspot.
+                </li>
+                <li>On the other computer, <a
+                        href="https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/"
+                        target="_blank" class="exclude-device-href">download wooddumper</a>. Then, connect that computer
+                    to the unsecured hotspot
+                    you just created.
+                </li>
+                <li>Install the wooddumper homebrew app onto the right part of your flash cart via the SD card.</li>
+                <li>Insert the Nintendo DS game that has Nintendo Wi-Fi connection support and navigate to the
+                    menu that allows you to configure your Wi-Fi connection. Connect to the unsecured hotspot you made.
+                </li>
+                <li>Exit the game and remove the cartridge. Now, insert your flash cartridge you just put wooddumper on
+                    and navigate to run it on your DS.
+                </li>
+                <li>Follow the on-screen instructions and insert your <i>Suzumiya Haruhi no Chokuretsu</i> cart when
+                    prompted. Proceed until you are presented with an IP address to connect to using an FTP client.
+                </li>
+                <li>Using an FTP client, such as <a href="https://www.net2ftp.com/" target="_blank"
+                                                    class="exclude-device-href">net2ftp</a>, a
+                    built-in browser one or another such as <a href="https://filezilla-project.org/"
+                                                               target="_blank" class="exclude-device-href">FileZilla</a>,
+                    enter the IP address into
+                    the relevant field. You do not need to specify a username or password.
+                </li>
+                <li>Copy the <code>.nds</code> ROM file and <code>.txt</code> file to your computer. You can proceed to
+                    <a href="patch-rom.html">patching your ROM</a>.
+                </li>
+            </ol>
+
+            <h3>Dump using dual-slot flash cartridges</h3>
+            <b>Requirements:</b>
+            <ul>
+                <li>Nintendo DS or DS lite console</li>
+                <li><a href="buy-game.html"><i>Suzumiya Haruhi no Chokuretsu</i></a></li>
+                <li>Slot-1 (DS slot) Flash cartridge (e.g. R4 card)</li>
+                <li>Slot-2 (GBA slot) Flash cartridge that is compatible with your Slot-1 cart (e.g. E-Link card)</li>
+                <li>SD cards (or correct connection cables) to load and remove stuff from your flash cartridges, if
+                    necessary
+                </li>
+                <li>A computer you can use to download wooddumper</li>
+            </ul>
+
+            <b>Method:</b>
+            <ol>
+                <li>
+                    <a href="https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/"
+                       target="_blank" class="exclude-device-href">Download wooddumper</a> on your computer.
+                </li>
+                <li>Install the wooddumper homebrew app onto the right part of your Slot-1 flash cart via the SD card.
+                </li>
+                <li>Insert your Slot-1 and Slot-2 flash carts into your DS.</li>
+                <li>Open wooddumper via your flash cart.</li>
+                <li>Follow the on-screen instructions and insert your <i>Suzumiya Haruhi no Chokuretsu</i> cart when
+                    prompted. Proceed until you see that the dump has completed.
+                </li>
+                <li>Remove your Slot-2 cart and insert the SD card from it into your PC (or in the case of some carts,
+                    connect it directly to your PC)
+                </li>
+                <li>Copy the <code>.nds</code> ROM file and <code>.txt</code> file to your computer. You can proceed to
+                    <a href="patch-rom.html">patching your ROM</a>.
+                </li>
+            </ol>
+        </div>
+
+        <!-- Nintendo DSi dump -->
+        <div class="one-column-text hidden dsi-show emu-show">
+            <h3>Dumping with a Nintendo DSi</h3>
+            <p>To dump using a Nintendo DSi, we will need to install a Custom Firmware (CFW) onto the system known as
+                Twilight Menu++ and Unlaunch to let us run Godmode9i, which lets us dump the cartridge to a
+                <code>.nds</code> file.</p>
+            <b>Requirements:</b>
+            <ul>
+                <li>Nintendo DSi or Nintendo DSi XL console</li>
+                <li><a href="buy-game.html"><i>Suzumiya Haruhi no Chokuretsu</i></a></li>
+                <li>Formatted SD card with at least 2GB capacity</li>
+                <li>Computer with an SD card reader</li>
+            </ul>
+            <b>Method:</b>
+            <ol>
+                <li>Follow the steps <a href="https://dsi.cfw.guide/launching-the-exploit.html"
+                                        target="_blank" class="exclude-device-href">on dsi.cfw.guide</a> to install
+                    Twilight Menu++ and Unlaunch onto your DSi.
+                </li>
+                <li><a href="https://github.com/DS-Homebrew/GodMode9i/releases" target="_blank"
+                       class="exclude-device-href">Download GodMode9i</a>
+                    and extract the file using a utility such as 7Zip on Windows or The UnArchiver on macOS.
+                </li>
+                <li>Remove the SD card from your DSi and insert it into your computer.</li>
+                <li>Place the extracted GodMode9.nds file anywhere on your SD card.
+                </li>
+                <li>Insert the SD card back into your DSi.</li>
+                <li>Insert the <i>Suzumiya Haruhi no Chokuretsu</i> game cartridge into your DSi.</li>
+                <li>Launch Twilight Menu++ as you were shown and run GodMode9i.</li>
+                <li>Select the "NDS GAMECARD" option.</li>
+                <li>Press the <i class="fa-brands fa-adn"></i> Button to select "yes" to dump your cartridge.</li>
+                <li>When complete, you can turn off your DSi and remove the SD card from the system.</li>
+                <li>Insert the SD card back into your computer. Navigate to <code>/gm9i/out/</code> on your SD card.
+                    Copy the <code>.nds</code> file to your computer.
+                </li>
+            </ol>
+        </div>
+
+        <!-- Nintendo 3DS dump -->
+        <div class="one-column-text hidden 3ds-show emu-show">
+            <h3>Dumping with a Nintendo 3DS</h3>
+            <p>To dump using a Nintendo 3DS or 2DS console, we will need to install a Custom Firmware (CFW) onto the
+                system known as Luma3DS and bootstrap9 to let us run Godmode9i, which lets us dump the cartridge
+                to a <code>.nds</code> file.</p>
+
+            <b>Requirements:</b>
+            <ul>
+                <li>Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console</li>
+                <li>Formatted SD card with at least 2GB capacity</li>
+                <li>Computer with SD card reader</li>
+                <li>In some rare cases, you may require a DS or DSi-compatible flash cart.</li>
+            </ul>
+            <b>Method:</b>
+            <ol>
+                <li>Follow the steps <a href="https://3ds.hacks.guide/get-started" target="_blank"
+                                        class="exclude-device-href">
+                    on 3ds.hacks.guide</a> to install Luma3DS and bootstrap9 onto your 3DS.
+                </li>
+                <li>Continue <a href="https://3ds.hacks.guide/finalizing-setup" target="_blank"
+                                class="exclude-device-href">following the guide to
+                    install GodMode9</a> as well as other prerequisite homebrew software onto your 3DS.
+                </li>
+                <li>Power off your console (not just sleep mode, a full power-off)</li>
+                <li>Insert the <i>Suzumiya Haruhi no Chokuretsu</i> game cartridge into your 3DS.</li>
+                <li>Hold the START button and press the <i class="fa-solid fa-power-off"></i> Button to power on the
+                    console. This should launch GodMode9. If it doesn't, power off and try again.
+                </li>
+                <li>Use the D-Pad to navigate to <code>[C:] GAMECART</code></li>
+                <li>Press the <i class="fa-brands fa-adn"></i> Button on <code>[TitleID].nds</code> to select it. When
+                    prompted to choose a dump type, press the <i class="fa-brands fa-adn"></i> Button again.
+                </li>
+                <li>Select "Copy to 0:/gm9/out" to copy the dump to the SD card.</li>
+                <li>When the dump has completed, power off your system and remove the SD card.</li>
+                <li>Insert the SD card back into your computer. Navigate to <code>/gm9/out/</code> on your SD card. Copy
+                    the <code>.nds</code> file to your computer.
+                </li>
+            </ol>
+        </div>
+
+        <div class="one-column-text">
+            <h3>Before you proceed</h3>
+            <p>You should now have dumped your game to a <code>.nds</code> ROM file that you can patch. Move this to
+                somewhere easily accessible.</p>
+        </div>
+
+        <div id="guide-buttons">
+            <br/>
+            <a href="../guide/buy-game.html">
+                <div class="button guide-button" style="float: left">
+                    <i class="fa-solid fa-angle-left"></i>&nbsp; Buying the game
+                </div>
+            </a>
+            <a href="../guide/patch-rom.html">
+                <div class="button guide-button" style="float: right"
+                     title="Please select a platform to continue.">
+                    Patching the ROM&nbsp; <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>
+        </div>
+
+        <br/><br/>
+        <div class="one-column-block" style="text-align: center">
+            <p>ROM dumping information courtesy of <a href="https://dumping.guide/carts/nintendo/ds" target="_blank">dumping.guide</a>,
+                <a href="https://dsi.cfw.guide/" target="_blank">dsi.cfw.guide</a> & <a
+                        href="https://3ds.hacks.guide/" target="_blank">3ds.hacks.guide</a> contributors.
+            </p>
+        </div>
+    </div>
+    <div class="column-with-sidebar-bar"></div>
+</main>
+<footer></footer>
+</body>
+</html>

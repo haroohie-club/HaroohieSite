@@ -253,6 +253,26 @@ button:hover {
     background-color: #eeeeee;
 }
 
+.guide-platform-indicator {
+    background-color: var(--main-red-color);
+    color: white;
+    margin: 0 1em;
+    padding: 0.2em;
+    border-radius: 0.3em;
+    max-width: 10em;
+    text-align: center;
+}
+
+#guide-platform-indicator-icon {
+    position: relative;
+    top: 0.1em;
+}
+
+#guide-platform-indicator-text {
+    position: relative;
+    top: -0.1em;
+}
+
 /* One-column page setup (patcher) */
 .one-column {
     flex: 2;
