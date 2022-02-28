@@ -17,7 +17,7 @@ body {
     flex-direction: column;
     margin: auto;
     background: rgb(54,143,254);
-    background: linear-gradient(180deg, rgba(54,143,254,1) 0%, rgba(255,255,255,0.01) 30%);
+    background: linear-gradient(180deg, rgba(54,143,254,1) 0%, rgba(255,255,255,0.01) 15em);
     justify-content: center;
 }
 
