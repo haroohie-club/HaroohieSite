@@ -54,7 +54,26 @@
             <p>Don't worry about the cartridge not being compatible with your system - apart from Chinese (iQue)
                 Nintendo DS systems, all Nintendo DS cartridges are region-free.</p>
             <p class="hidden emu-show">Since you selected to play on an emulator, you'll need a Nintendo DS compatible
-                system to dump the ROM. Have a look below to find the easiest method that suits you.</p>
+                system to dump the ROM. Click to jump to the sections:</p>
+            <ul class="hidden emu-show">
+                <li><a href="#dump-3ds" class="exclude-device-href">Dump using Nintendo 3DS</a> (Difficulty: <i class="fa-solid fa-star"></i><i
+                        class="fa-regular fa-star"></i><i
+                        class="fa-regular fa-star"></i>)
+                </li>
+                <li><a href="#dump-dsi" class="exclude-device-href">Dump using Nintendo DSi</a> (Difficulty: <i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i
+                        class="fa-regular fa-star"></i>)
+                </li>
+                <li><a href="#dump-dual-carts" class="exclude-device-href">Dump using Nintendo DS with dual-slot flash cartridges</a> (Difficulty: <i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i
+                        class="fa-regular fa-star"></i>)
+                </li>
+                <li><a href="#dump-wi-fi" class="exclude-device-href">Dump using Nintendo DS over Wi-Fi</a> (Difficulty: <i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i>)
+                </li>
+            </ul>
+            <p class="hidden emu-show">Have a look at the different methods and pick which one suits you best.</p>
         </div>
 
         <!-- Nintendo DS dump -->
@@ -62,15 +81,18 @@
             <h3>Dumping with a Nintendo DS or DS lite</h3>
             <p>There are two ways of dumping the game using a Nintendo DS or Nintendo DS lite system. Both require the
                 use of a Slot-1 (DS cartridge slot) flash cart.</p>
-            <p>The first method uses a Wi-Fi hack to dump over File Transfer Protocol (FTP). The second method uses a pair
-                of Slot-1 and Slot-2 (GBA cartridge slot) flash carts to dump the ROM directly.</p>
+            <p>The first method uses a Wi-Fi hack to dump over File Transfer Protocol (FTP). The second method uses a
+                pair of Slot-1 and Slot-2 (GBA cartridge slot) flash carts to dump the ROM directly.</p>
 
-            <h3>Dump over Wi-Fi</h3>
+            <h4 id="dump-wi-fi">Dump over Wi-Fi</h4>
+            <b>Difficulty:</b> <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><br/>
             <b>Requirements:</b>
             <ul>
                 <li>Nintendo DS or DS lite console</li>
                 <li><a href="buy-game.html"><i>Suzumiya Haruhi no Chokuretsu</i></a></li>
-                <li>Slot-1 Flash cartridge (e.g. R4 cartridge. Also, an SD card to load stuff onto it, if necessary)</li>
+                <li>Slot-1 Flash cartridge (e.g. R4 cartridge. Also, an SD card to load stuff onto it, if necessary)
+                </li>
                 <li>Smartphone, tablet or other device that can create a Wi-Fi hotspot</li>
                 <li>A computer you can use to download wooddumper and connect to said hotspot with</li>
                 <li>A DS game with Wi-Fi support. It doesn't matter that the service has ended. Unfortunately, <i>Suzumiya
@@ -85,8 +107,7 @@
                 <li>On the other computer, <a
                         href="https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/"
                         target="_blank" class="exclude-device-href">download wooddumper</a>. Then, connect that computer
-                    to the unsecured hotspot
-                    you just created.
+                    to the unsecured hotspot you just created.
                 </li>
                 <li>Install the wooddumper homebrew app onto the right part of your flash cart via the SD card.</li>
                 <li>Insert the Nintendo DS game that has Nintendo Wi-Fi connection support and navigate to the
@@ -102,15 +123,16 @@
                                                     class="exclude-device-href">net2ftp</a>, a
                     built-in browser one or another such as <a href="https://filezilla-project.org/"
                                                                target="_blank" class="exclude-device-href">FileZilla</a>,
-                    enter the IP address into
-                    the relevant field. You do not need to specify a username or password.
+                    enter the IP address into the relevant field. You do not need to specify a username or password.
                 </li>
                 <li>Copy the <code>.nds</code> ROM file and <code>.txt</code> file to your computer. You can proceed to
                     <a href="patch-rom.html">patching your ROM</a>.
                 </li>
             </ol>
 
-            <h3>Dump using dual-slot flash cartridges</h3>
+            <h4 id="dump-dual-carts">Dump using dual-slot flash cartridges</h4>
+            <b>Difficulty:</b> <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-regular fa-star"></i><br/>
             <b>Requirements:</b>
             <ul>
                 <li>Nintendo DS or DS lite console</li>
@@ -147,7 +169,9 @@
 
         <!-- Nintendo DSi dump -->
         <div class="one-column-text hidden dsi-show emu-show">
-            <h3>Dumping with a Nintendo DSi</h3>
+            <h3 id="dump-dsi">Dumping with a Nintendo DSi</h3>
+            <b>Difficulty:</b> <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-regular fa-star"></i><br/>
             <p>To dump using a Nintendo DSi, we will need to install a Custom Firmware (CFW) onto the system known as
                 Twilight Menu++ and Unlaunch to let us run Godmode9i, which lets us dump the cartridge to an
                 <code>.nds</code> file.</p>
@@ -155,8 +179,8 @@
             <ul>
                 <li>Nintendo DSi or Nintendo DSi XL console</li>
                 <li><a href="buy-game.html"><i>Suzumiya Haruhi no Chokuretsu</i></a></li>
-                <li>Formatted SD card with at least 2GB capacity</li>
-                <li>Computer with an SD card reader</li>
+                <li>SD card with at least 2GB capacity</li>
+                <li>Computer with an SD card reader/USB SD card reader peripheral</li>
             </ul>
             <b>Method:</b>
             <ol>
@@ -185,17 +209,20 @@
 
         <!-- Nintendo 3DS dump -->
         <div class="one-column-text hidden 3ds-show emu-show">
-            <h3>Dumping with a Nintendo 3DS</h3>
+            <h3 id="dump-3ds">Dumping with a Nintendo 3DS</h3>
+            <b>Difficulty:</b> <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i
+                class="fa-regular fa-star"></i><br/>
             <p>To dump using a Nintendo 3DS or 2DS console, we will need to install a Custom Firmware (CFW) onto the
-                system known as Luma3DS and bootstrap9 to let us run Godmode9i, which lets us dump the cartridge
+                system known as Luma3DS and bootstrap9 to let us run Godmode9, which lets us dump the cartridge
                 to an <code>.nds</code> file.</p>
 
             <b>Requirements:</b>
             <ul>
                 <li>Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console</li>
-                <li>Formatted SD card with at least 2GB capacity</li>
-                <li>Computer with SD card reader</li>
-                <li>In some rare cases, you may require a DS or DSi-compatible flash cart.</li>
+                <li><a href="buy-game.html"><i>Suzumiya Haruhi no Chokuretsu</i></a></li>
+                <li>SD card with at least 2GB capacity</li>
+                <li>Computer with SD card reader/USB SD card reader peripheral</li>
+                <li>In some cases, you may need to use a DS or DSi-compatible flash cartridge.</li>
             </ul>
             <b>Method:</b>
             <ol>
@@ -232,9 +259,9 @@
 
         <div id="guide-buttons">
             <br/>
-            <a href="../guide/buy-game.html">
+            <a href="../guide/choose-platform.html">
                 <div class="button guide-button" style="float: left">
-                    <i class="fa-solid fa-angle-left"></i>&nbsp; Buying the game
+                    <i class="fa-solid fa-angle-left"></i>&nbsp; Choose platform
                 </div>
             </a>
             <a href="../guide/patch-rom.html">

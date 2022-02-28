@@ -361,6 +361,11 @@ h3 {
     border-bottom: 0.08em solid var(--main-red-color);
 }
 
+h4 {
+    text-align: left;
+    border-bottom: 0.08em solid var(--main-red-color);
+}
+
 /* Remove ugly link formatting */
 a {
     text-decoration: none;
