@@ -14,7 +14,6 @@
         $(function () {
             $("footer").load("../footer.html");
             $(".column-with-sidebar-bar").load("sidebar.html");
-            $("#where-to-buy").load("where-to-buy.html");
         });
     </script>
 
@@ -34,6 +33,7 @@
 </head>
 <body>
 <main id="column-with-sidebar">
+    <meta id="redirect-if-device-not-selected">
     <div class="column-with-sidebar-body">
         <div class="one-column-text" id="game-logo-container">
             <object class="image-graphic drop-shadow" width="100%" data="../assets/game-logo.svg" type="image/svg+xml">
@@ -49,29 +49,37 @@
         </a>
 
         <div class="one-column-text">
-            <h1>Buying the game</h1>
-            <p>First things first, regardless of what platform you're playing on, you'll need to buy a copy of the game.
-                You can pick up a copy from a number of vendors, including:</p>
-            <div id="where-to-buy"></div>
-            <h3>I already have a dumped ROM</h3>
-            <p>If you've already done this and already have a dumped <code>.nds</code> ROM file,
-                <a href="../guide/patch-rom.html">click here</a> to skip to the ROM patching section.</p>
-            <h3>I've got my cartridge, now what?</h3>
-            <p>Click through to the next step that will show you how to <a href="../guide/dump-rom.html">dump your
-                ROM</a>.</p>
+            <h1>Patching the ROM</h1>
+            <p>Once you've dumped your cartridge to a <code>.nds</code> file, patching it with the English Translation
+                can be done easily through the <a href="../patch.html" target="_blank">Patch ROM</a> tool we provide,
+                or by manually downloading the patch <code>.xdelta</code> file and using patching software, such as <a
+                        href="https://www.romhacking.net/utilities/598/" target="_blank">XDeltaUI</a> to patch your
+                ROM file.</p>
+            <h3>Online patcher</h3>
+            <ol>
+                <li>Navigate to the <a href="../patch.html" target="_blank">Patch ROM</a> tool on this site.</li>
+                <li>Drag and drop your dumped <code>.nds</code> ROM file into the "Select ROM" box.</li>
+                <li>Wait for the patcher to verify the integrity of the file.</li>
+                <li>Ensure the latest version of the patch is selected in the dropdown.</li>
+                <li>Click "Apply Patch" and your game will be automatically patched with the latest version. Save the
+                    patched ROM somewhere easily accessible. Be careful not to overwrite your original ROM, in case you
+                    need it later or if we update the patch.
+                </li>
+                <li>You can now proceed to <a href="./play-game.html">playing the game</a>.</li>
+            </ol>
 
         </div>
         <br/>
         <div id="guide-buttons">
             <br/>
-            <a href="../guide/choose-platform.html">
+            <a href="../guide/dump-rom.html">
                 <div class="button guide-button" style="float: left">
-                    <i class="fa-solid fa-angle-left"></i>&nbsp; Choose Platform
+                    <i class="fa-solid fa-angle-left"></i>&nbsp; Patching the ROM
                 </div>
             </a>
-            <a href="../guide/dump-rom.html">
+            <a href="../guide/play-game.html">
                 <div class="button guide-button" style="float: right">
-                    Dumping the ROM&nbsp; <i class="fa-solid fa-angle-right"></i>
+                    Playing the game&nbsp; <i class="fa-solid fa-angle-right"></i>
                 </div>
             </a>
         </div>
