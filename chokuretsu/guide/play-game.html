@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="description"
+          content="English patch for Nintendo DS game The Series of Haruhi Suzumiya (Suzumiya Haruhi no Chokuretsu)"/>
+    <title>The Series of Haruhi Suzumiya - Setup Guide</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Loads the footer and sidebar -->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("footer").load("../footer.html");
+            $(".column-with-sidebar-bar").load("sidebar.html");
+        });
+    </script>
+
+    <!-- Web icons -->
+    <link rel="manifest" href="../manifest.json"/>
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/png" sizes="16x16"/>
+    <link rel="shortcut icon" href="../assets/icons/android-chrome-192x192.png" type="image/png" sizes="192x192"/>
+
+    <!-- Google fonts (for Nunito font) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+
+    <!-- Font awesome (for icons) -->
+    <script src="https://kit.fontawesome.com/aa4c023dda.js" crossorigin="anonymous"></script>
+
+    <!-- Platform detection script -->
+    <script src="guide.js" type="text/javascript"></script>
+</head>
+<body>
+<main id="column-with-sidebar">
+    <meta id="redirect-if-device-not-selected">
+    <div class="column-with-sidebar-body">
+        <div class="one-column-text" id="game-logo-container">
+            <object class="image-graphic drop-shadow" width="100%" data="../assets/game-logo.svg" type="image/svg+xml">
+                <img src="../assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
+            </object>
+        </div>
+
+        <a href="choose-platform.html">
+            <div class="guide-platform-indicator hidden drop-shadow">
+                <object id="guide-platform-indicator-icon" width="20em" type="image/svg+xml"></object>
+                <b id="guide-platform-indicator-text"></b>
+            </div>
+        </a>
+
+        <div class="one-column-text">
+            <h1>Playing the game</h1>
+            <p>Now that you've got the patched ROM file, it's time to get ready to start playing!</p>
+        </div>
+
+        <!-- Playing on an emulator -->
+        <div class="one-column-text hidden emu-show">
+            <h3>Emulating the game</h3>
+            <p>There are a few options for DS emulators, but the one we recommend is MelonDS for its accuracy,
+                performance and feature set.</p>
+            <p>If you own a Wii U console, Nintendo's official Virtual Console DS emulator provides accurate emulation,
+                complimented nicely by the Wii U Gamepad, which works great with the touchscreen used frequently in
+                this game.</p>
+
+            <h4>MelonDS setup</h4>
+            <b>Requirements:</b>
+            <ul>
+                <li>Windows, macOS or Linux computer</li>
+                <li>Nintendo DS or DS lite console</li>
+                <li>Flash cartridge (e.g. R4 cartridge. Also, an SD card to load stuff onto it, if necessary)</li>
+            </ul>
+            <b>Setup:</b>
+            <ol>
+                <li><a href="https://melonds.kuribo64.net/downloads.php" target="_blank" class="exclude-device-href">Download
+                    MelonDS</a> from the project website. Put this somewhere easily accessible, such as where you put
+                    your applications or documents on your computer.
+                </li>
+                <li>Dump your Nintendo DS firmware, bios7 and bios9 using your flash cartridge. This <a
+                        href="https://www.youtube.com/watch?v=CtxSxmvwaKc" target="_blank"
+                        class="exclude-device-href">video tutorial</a> is pretty excellent at covering how to do this,
+                    otherwise:
+                    <ol>
+                        <li>Download the <a href="https://www.dropbox.com/s/bei4xcrb5gueax0/Firmware%20Dumper.zip?dl=1"
+                                            target="_blank" class="exclude-device-href">DS Firmware dumper</a> and
+                            extract the <code>dsbf_dump.nds</code> file
+                        </li>
+                        <li>Load the DS firmware dumper .nds file onto your Flash cartridge's memory in the correct spot
+                            using its' SD card or connector cable.
+                        </li>
+                        <li>Insert the flash cartridge into your Nintendo DS console.</li>
+                        <li>Turn on your system and run the <code>dsbf_dump.nds</code> application</li>
+                        <li>Wait for the firmware dump to complete. Then, power off your Nintendo DS, remove the cart
+                            and insert the flash cart's SD card into your computer (or connect it with the correct
+                            cable).
+                        </li>
+                        <li>Your flash cartridge's SD card/storage will now contain <code>BIOSNDS7.ROM</code>, <code>BIOSNDS9.ROM</code>
+                            and a <code>.BIN</code> file starting with the letters "FW". These are your Nintendo DS'
+                            ARM7 and ARM9 BIOS files and its firmware respectively.
+                        </li>
+                    </ol>
+                </li>
+                <li>Copy your ARM7, ARM9 and firmware files into the same directory as where you downloaded MelonDS
+                    to.
+                </li>
+                <li>Open MelonDS, then on the top bar menu click "Config" <i class="fa-solid fa-arrow-right"></i> "Emu
+                    settings"
+                </li>
+                <li>On the "General" tab, ensure Console Mode is set to "DS". Click through to the tab named "DS-mode"
+                </li>
+                <li>On each of the required BIOS and firmware files, select the ARM7 <code>.ROM</code>, ARM9
+                    <code>.ROM</code> and firmware <code>.BIN</code> files you ripped from your system.
+                </li>
+            </ol>
+            <b>Playing the game:</b>
+            <p>With MelonDS setup, all you need to do in order to play the game is select "File" <i
+                    class="fa-solid fa-arrow-right"></i> "Open ROM" in the top menu bar and choose the ROM file you
+                patched earlier.</p>
+            <p>MelonDS has a number of advanced features, such as configuring controllers and tweaking display
+                settings. You can check out the <a href="https://melonds.kuribo64.net/" target="_blank"
+                                                   class="exclude-device-href">MelonDS Website</a> for more information.
+            </p>
+
+            <h4>Wii U Virtual Console setup</h4>
+            <p>TBD :-)</p>
+
+            <h4>Other emulators</h4>
+            <ul>
+                <li><a href="https://desmume.org/" target="_blank" class="exclude-device-href">DeSumME</a>&#65293;Widely
+                    popular with good community support/controller compatibility.
+                </li>
+            </ul>
+        </div>
+
+        <div class="one-column-text hidden ds-show">
+            <h3>Playing on Nintendo DS or DS lite</h3>
+            <p>Playing on the Nintendo DS is as simple as placing the patched ROM onto a flash cartridge and running the
+                game. You probably already have the cartridge if you followed the setup instructions earlier.</p>
+            <b>Requirements:</b>
+            <ul>
+                <li>Nintendo DS or DS lite console</li>
+                <li>Flash cartridge (e.g. R4 cartridge. Also, an SD card to load stuff onto it, if necessary)</li>
+            </ul>
+            <b>Setup:</b>
+            <ol>
+                <li>Insert your SD card from your flash cartridge into your computer (or connect it through the correct
+                    cable if required)
+                </li>
+                <li>Drag over the patched <code>.nds</code> ROM file you previously created into the correct directory
+                    on the flash cart's storage.
+                </li>
+                <li>Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up the game and enjoy!</li>
+            </ol>
+        </div>
+
+        <div class="one-column-text hidden dsi-show">
+            <h3>Playing on Nintendo DSi</h3>
+            <p>Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting
+                the patched rom onto a SD card and making use of Twilight Menu++ on your system</p>
+
+            <h4>Via TwilightMenu++</h4>
+            <b>Requirements:</b>
+            <ul>
+                <li>Nintendo DSi or DSi XL console</li>
+                <li>TwilightMenu++ custom firmware <a href="https://dsi.cfw.guide/" target="_blank"
+                                                      class="exclude-device-href">setup on your system</a>. If you
+                    followed the guide to dumping your ROM on Nintendo DSi earlier, you've probably already done this!
+                </li>
+                <li>SD card with at least 2GB capacity</li>
+                <li>Computer with an SD card reader/USB SD card reader peripheral</li>
+            </ul>
+            <b>Setup:</b>
+            <ol>
+                <li>Insert your SD card from your DSi into your computer</li>
+                <li>Drag over the patched <code>.nds</code> ROM file you previously created into anywhere on the SD
+                    card.
+                </li>
+                <li>Remove your SD card and insert it back into your DSi.</li>
+                <li>Power on your DSi and launch Twilight Menu++.</li>
+                <li>Navigate to and run the patched ROM <code>.nds</code> you copied into your SD card and start the
+                    game. Enjoy!
+                </li>
+            </ol>
+
+            <h4>Via a flash cartridge</h4>
+            <b>Requirements:</b>
+            <ul>
+                <li>Nintendo DSi or DSi XL console</li>
+                <li>Flash cartridge (e.g. R4 cartridge. Also, an SD card to load stuff onto it, if necessary)</li>
+            </ul>
+            <b>Setup:</b>
+            <ol>
+                <li>Insert your SD card from your flash cartridge into your computer (or connect it through the correct
+                    cable if required)
+                </li>
+                <li>Drag over the patched ROM file you previously created into the correct directory on the flash cart's
+                    storage.
+                </li>
+                <li>Disconnect the flash cartridge and insert it into your Nintendo DSi. Fire up the game and enjoy!
+                </li>
+            </ol>
+        </div>
+
+        <br/>
+        <div id="guide-buttons">
+            <br/>
+            <a href="../guide/dump-rom.html">
+                <div class="button guide-button" style="float: left">
+                    <i class="fa-solid fa-angle-left"></i>&nbsp; Patching the ROM
+                </div>
+            </a>
+            <!--<a href="../guide/play-game.html">
+                <div class="button guide-button" style="float: right">
+                    Playing the game&nbsp; <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>-->
+        </div>
+    </div>
+    <div class="column-with-sidebar-bar"></div>
+</main>
+<footer></footer>
+</body>
+</html>
