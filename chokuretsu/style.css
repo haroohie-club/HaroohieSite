@@ -434,4 +434,13 @@ object {
         margin-right: auto;
         width: 153%;
     }
+
+    /* Patcher menu columns on mobile */
+    #patcher-menu {
+        flex-direction: column;
+    }
+
+    .patcher-block {
+        max-width: 100%;
+    }
 }
