@@ -28,4 +28,7 @@ request('GET /repos/{owner}/{repo}/releases/latest', {
             }
         })
     })
+}).catch(() => {
+    document.getElementById('latest-patch-download-url').href = 'https://github.com/' + REPO_ORG + '/' + REPO + '/releases/latest/';
+    document.getElementById('latest-patch-download-version').innerHTML = '';
 });

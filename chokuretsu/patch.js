@@ -5,17 +5,17 @@ const REPO_ORG = 'WiIIiam278';
 const REPO = 'ChokuretsuTestReleases';
 let hasFetched = false;
 
-const select = document.createElement('select');
-select.disabled = true;
-select.id = 'input-file-patch';
-el('input-file-patch').parentElement.replaceChild(select, el('input-file-patch'));
-select.parentElement.title = '';
-
 // Fetch releases from GitHub API
 request('GET /repos/{owner}/{repo}/releases', {
     owner: REPO_ORG,
     repo: REPO
 }).then(releaseList => {
+    const select = document.createElement('select');
+    select.disabled = true;
+    select.id = 'input-file-patch';
+    el('input-file-patch').parentElement.replaceChild(select, el('input-file-patch'));
+    select.parentElement.title = '';
+
     // Iterate through releases and sort by date
     releaseList.data.forEach(release => {
         request('GET /repos/{owner}/{repo}/releases/{release_id}/assets', {
@@ -23,7 +23,7 @@ request('GET /repos/{owner}/{repo}/releases', {
             repo: REPO,
             release_id: release.id
         }).then(releaseAssetList => {
-            releaseAssetList.data.sort(function(a,b){
+            releaseAssetList.data.sort(function (a, b) {
                 return new Date(b.created_at) - new Date(a.created_at);
             }).forEach(releaseAsset => {
                 let downloadUrl = CORS_PROXY + releaseAsset.browser_download_url;
@@ -75,4 +75,7 @@ request('GET /repos/{owner}/{repo}/releases', {
 
     // Prepare patcher
     preparePatcher(request);
+}).catch(() => {
+    document.getElementById('select-patch-version').innerHTML = 'Select patch file';
+    document.getElementById('message-apply').innerHTML = 'This page is currently experiencing heavy load; could not automatically download the latest patch.<br/>Please download the latest .xdelta patch file from <a href="" target="_blank">the GitHub release</a> and select it in the \'Select patch file\' box, then select your ROM and apply the patch.';
 });
