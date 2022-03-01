@@ -1,6 +1,7 @@
 :root {
     --main-red-color: #C02020;
     --main-blue-color: #3790FF;
+    --main-grey-color: #eeeeee;
 }
 
 html, body {
@@ -250,7 +251,7 @@ button:hover {
 }
 
 .guide-option:hover {
-    background-color: #eeeeee;
+    background-color: var(--main-grey-color);;
 }
 
 .guide-platform-indicator {
@@ -343,6 +344,18 @@ footer {
     text-align: center;
     line-height: 95%;
     width: 100%;
+}
+
+.table-of-contents {
+    background-color: var(--main-grey-color);
+    display: inline-block;
+    padding: 0.85em 0.6em;
+    border-radius: 0.5em;
+}
+
+.table-of-contents ul {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
 }
 
 /* Give certain elements a drop shadow */
