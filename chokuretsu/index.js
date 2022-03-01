@@ -3,7 +3,6 @@ import {request} from "https://cdn.skypack.dev/@octokit/request";
 
 const REPO_ORG = 'WiIIiam278';
 const REPO = 'ChokuretsuTestReleases';
-const CORS_PROXY = 'https://cors.haroohie.club/';
 
 // Fetch the latest release from GitHub API and get the patch download version and URL
 request('GET /repos/{owner}/{repo}/releases/latest', {
@@ -20,7 +19,7 @@ request('GET /repos/{owner}/{repo}/releases/latest', {
             if (hasSet) {
                 return;
             }
-            let downloadUrl = CORS_PROXY + releaseAsset.browser_download_url;
+            let downloadUrl = releaseAsset.browser_download_url;
             let version = release.data.tag_name;
             if (downloadUrl.endsWith('.xdelta')) {
                 document.getElementById('latest-patch-download-url').href = downloadUrl;
