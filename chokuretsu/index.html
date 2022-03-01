@@ -26,6 +26,9 @@
 
     <!-- Font awesome (for icons) -->
     <script src="https://kit.fontawesome.com/aa4c023dda.js" crossorigin="anonymous"></script>
+
+    <!-- Fetch the latest release -->
+    <script type="module" src="index.js"></script>
 </head>
 <body>
 <main>
@@ -86,9 +89,10 @@
                             <i class="fa-solid fa-download"></i>&nbsp; Patch ROM
                         </div>
                     </a>
-                    <a href="releases/dummy_patch.xdelta">
+                    <a href="#" id="latest-patch-download-url">
                         <div class="button" id="download-latest">
                             <i class="fa-solid fa-file-import"></i>&nbsp; Download .xdelta
+                            <span id="latest-patch-download-version"><i class="fas fa-spinner fa-pulse"></i></span>
                         </div>
                     </a>
                     <a href="https://github.com/haroohie-club">

@@ -1,7 +1,8 @@
+// Fetches the latest releases from the releases repository and presents them in a nice dropdown
 import {request} from "https://cdn.skypack.dev/@octokit/request";
 
-const REPO_ORG = 'WiIIiam278'
-const REPO = 'ChokuretsuTestReleases'
+const REPO_ORG = 'WiIIiam278';
+const REPO = 'ChokuretsuTestReleases';
 let hasFetched = false;
 
 const select = document.createElement('select');
@@ -27,7 +28,7 @@ request('GET /repos/{owner}/{repo}/releases', {
             }).forEach(releaseAsset => {
                 let downloadUrl = CORS_PROXY + releaseAsset.browser_download_url;
                 if (downloadUrl.endsWith('.xdelta')) {
-                    let date = new Date(release.created_at);
+                    let date = new Date(release.published_at);
                     let dateString = date.toISOString().slice(0, 10); // Format date as YYYY-MM-DD
 
                     let nameString = 'Version ' + release.tag_name + ' (' + dateString + ')';

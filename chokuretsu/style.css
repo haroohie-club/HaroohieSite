@@ -129,6 +129,12 @@ main {
     border-radius: 0 0 0 0;
 }
 
+#latest-patch-download-version {
+    float: right;
+    text-align: center;
+    line-height: 0.7em;
+}
+
 #download-sources {
     background-color: var(--main-blue-color);
     border-top-left-radius: 0;
