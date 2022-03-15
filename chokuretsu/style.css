@@ -17,8 +17,8 @@ body {
     min-height: 100vh;
     flex-direction: column;
     margin: auto;
-    background: rgb(54,143,254);
-    background: linear-gradient(180deg, rgba(54,143,254,1) 0%, rgba(255,255,255,0.01) 15em);
+    background: rgb(54, 143, 254);
+    background: linear-gradient(180deg, rgba(54, 143, 254, 1) 0%, rgba(255, 255, 255, 0.01) 15em);
     justify-content: center;
 }
 
@@ -67,17 +67,17 @@ main {
     flex: 1;
     padding: 1em 1em 1em 1em;
     min-height: 100%;
+    min-width: 0;
 }
 
 #game-logo-container {
-    max-width: 90%;
+    width: 90%;
     margin: auto;
     text-align: center;
 }
 
 .logo {
     max-width: 550px;
-    min-width: 225px;
 }
 
 /* Disable interactivity for image graphics */
@@ -351,8 +351,8 @@ button:hover {
 }
 
 footer {
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(235,235,235,1) 50%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(235, 235, 235, 1) 50%);
     color: dimgray;
     text-align: center;
     line-height: 95%;
@@ -416,6 +416,7 @@ object {
 
 /* What to do when the screen shrinks*/
 @media screen and (max-width: 1240px) {
+
     /* Move the left column (DS) below the main information */
     #left-column {
         flex: 0;
@@ -467,5 +468,25 @@ object {
 
     .patcher-block {
         max-width: 100%;
+    }
+
+    /* Additional limits for extra small phones */
+    @media screen and (max-width: 330px) {
+        /* Hide SOS dan logo */
+        #sos-logo-box {
+            display: none;
+        }
+
+        /* Hide the Nintendo DS gameplay video */
+        #ds {
+            display: none;
+        }
+
+        /* Make two column lists one column */
+        .two-column-list {
+            columns: 1;
+            -webkit-columns: 1;
+            -moz-columns: 1;
+        }
     }
 }
