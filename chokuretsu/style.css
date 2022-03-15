@@ -307,6 +307,10 @@ button:hover {
     padding-right: 1em;
 }
 
+li {
+    margin: 0.4em 0;
+}
+
 /* Used for the patcher interface */
 #patcher-menu {
     display: flex;
