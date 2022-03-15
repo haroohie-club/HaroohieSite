@@ -211,8 +211,12 @@ button:hover {
 }
 
 #discord-button {
-    background-color: #5865F2;
+    background-color: #5865f2;
     max-width: 10em;
+}
+
+#twitter-button {
+    background-color: #1da1f2;
 }
 
 /* Column with sidebar page setup (guide) */
@@ -247,16 +251,25 @@ button:hover {
     margin: auto;
 }
 
-#guide-option-gallery {
+#guide-platforms {
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-columns: repeat(auto-fill, 10em);
     text-align: center;
+    justify-content: center;
+}
+
+#guide-emulators {
+    max-width: 66%;
+    margin: auto;
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-columns: repeat(auto-fill, 10em);
+    text-align: center;
+    justify-content: center;
 }
 
 .guide-option {
-    float: left;
-    display: inline;
-    margin: 0.5em;
-    padding: 0.5em;
-    max-width: 10em;
     border-radius: 0.3em;
     cursor: pointer;
     text-decoration: none;
