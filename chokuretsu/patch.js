@@ -10,6 +10,11 @@ request('GET /repos/{owner}/{repo}/releases', {
     owner: REPO_ORG,
     repo: REPO
 }).then(releaseList => {
+    if (releaseList.data.length === 0) {
+        defaultToManualUpload('There are no releases yet! Come back soon!')
+        return;
+    }
+
     const select = document.createElement('select');
     select.disabled = true;
     select.id = 'input-file-patch';
@@ -76,6 +81,10 @@ request('GET /repos/{owner}/{repo}/releases', {
     // Prepare patcher
     preparePatcher(request);
 }).catch(() => {
-    document.getElementById('select-patch-version').innerHTML = 'Select patch file';
-    document.getElementById('message-apply').innerHTML = 'This page is currently experiencing heavy load; could not automatically download the latest patch.<br/>Please download the latest .xdelta patch file from <a href="" target="_blank">the GitHub release</a> and select it in the \'Select patch file\' box, then select your ROM and apply the patch.';
+    defaultToManualUpload('This page is currently experiencing heavy load; could not automatically download the latest patch.<br/>Please download the latest .xdelta patch file from the <a href="https://github.com/haroohie-club/ChokuretsuTranslationRelease" target="_blank"><i class="fa-brands fa-github"></i> GitHub releases repository</a> and select it in the \'Select patch file\' box, then select your ROM and apply the patch.')
 });
+
+function defaultToManualUpload(error) {
+    document.getElementById('select-patch-version').innerHTML = 'Select patch file';
+    document.getElementById('message-apply').innerHTML = error;
+}
