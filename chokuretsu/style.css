@@ -1,6 +1,6 @@
 :root {
-    --main-red-color: #C02020;
-    --main-blue-color: #3790FF;
+    --main-red-color: #c02020;
+    --main-blue-color: #3790ff;
     --main-grey-color: #eeeeee;
 }
 
@@ -70,16 +70,18 @@ main {
 }
 
 #game-logo-container {
-    width: 100%;
+    max-width: 90%;
+    margin: auto;
     text-align: center;
 }
 
-/* For the top logo and assets */
-.image-graphic {
-    max-width: 600px;
-    min-width: 300px;
+.logo {
+    max-width: 550px;
+    min-width: 225px;
+}
 
-    /* Disable interactivity */
+/* Disable interactivity for image graphics */
+.image-graphic {
     user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
@@ -178,6 +180,10 @@ button:disabled {
     filter: brightness(75%) drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
 }
 
+.disabled {
+    filter: brightness(75%) drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
+}
+
 button:hover {
     filter: brightness(75%) drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
 }
@@ -218,6 +224,7 @@ button:hover {
     flex: 3;
     padding: 1em 0em 1em 0em;
     min-height: 100%;
+    min-width: 800px;
 }
 
 .column-with-sidebar-bar {
@@ -418,6 +425,11 @@ object {
 
     main {
         flex-direction: column;
+    }
+
+    /* Guide page body */
+    .column-with-sidebar-body {
+        min-width: 250px;
     }
 
     /* DS Overlay on mobile */
