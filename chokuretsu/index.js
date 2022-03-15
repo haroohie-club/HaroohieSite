@@ -1,8 +1,8 @@
 // Fetches the latest release .xdelta download URL and version from the releases repository
 import {request} from "https://cdn.skypack.dev/@octokit/request";
 
-const REPO_ORG = 'WiIIiam278';
-const REPO = 'ChokuretsuTestReleases';
+const REPO_ORG = 'haroohie-club';
+const REPO = 'ChokuretsuTranslationRelease';
 
 // Fetch the latest release from GitHub API and get the patch download version and URL
 request('GET /repos/{owner}/{repo}/releases/latest', {

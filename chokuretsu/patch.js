@@ -1,8 +1,8 @@
 // Fetches the latest releases from the releases repository and presents them in a nice dropdown
 import {request} from "https://cdn.skypack.dev/@octokit/request";
 
-const REPO_ORG = 'WiIIiam278';
-const REPO = 'ChokuretsuTestReleases';
+const REPO_ORG = 'haroohie-club';
+const REPO = 'ChokuretsuTranslationRelease';
 let hasFetched = false;
 
 // Fetch releases from GitHub API
