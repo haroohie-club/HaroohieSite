@@ -55,281 +55,332 @@
         </div>
 
         <!-- Playing on an emulator -->
-        <div class="one-column-text hidden emu-show">
-            <p>
-                <b>Select where you'd like to emulate the game:</b>
-            </p>
-        </div>
-        <div id="guide-emulators">
-            <a href="#pc-emulators" class="exclude-device-href">
-                <div class="guide-option">
-                    <object class="drop-shadow" width="150em" data="../assets/emulator-icon.svg"
-                            type="image/svg+xml"></object>
-                    <b>PC Emulators</b><br/>(Windows, Mac, Linux)
-                </div>
-            </a>
-            <a href="#mobile-emulators" class="exclude-device-href">
-                <div class="guide-option">
-                    <object class="drop-shadow" width="150em" data="../assets/mobile-icon.svg"
-                            type="image/svg+xml"></object>
-                    <b>Mobile Emulators</b><br/>(iOS, Apple TV & Android)
-                </div>
-            </a>
-            <a href="#wii-u-vc" class="exclude-device-href">
-                <div class="guide-option">
-                    <object class="drop-shadow" width="150em" data="../assets/wii-u-icon.svg"
-                            type="image/svg+xml"></object>
-                    <b>Wii U</b><br/>(Virtual Console Injection)
-                </div>
-            </a>
-        </div>
-
-        <div class="one-column-text hidden emu-show">
-            <!-- PC emulators -->
-            <h3 id="pc-emulators">Emulate on Windows, macOS, or Linux</h3>
-            <div class="notice-box"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;DeSmuME is not recommended due
-                to sound emulation issues. <a href="#other-pc-emulators" class="exclude-device-href">More
-                    info&hellip;</a></div>
-            <p>There are a few options for PC DS emulators, but the one we recommend is melonDS for its emulation
-                accuracy and performance.</p>
-
-            <h4>melonDS setup</h4>
-            <b>Requirements:</b>
-            <ul>
-                <li>Windows, macOS or Linux computer</li>
-                <li>Nintendo DS or DS lite console</li>
-                <li>Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
-                </li>
-            </ul>
-            <b>Setup:</b>
-            <ol>
-                <li><a href="https://melonds.kuribo64.net/downloads.php" target="_blank" class="exclude-device-href">Download
-                    melonDS</a> from the project website. Put this somewhere easily accessible, such as where you put
-                    your applications or documents on your computer.
-                </li>
-                <li>Dump your Nintendo DS firmware, bios7 and bios9 using your flash cartridge. This <a
-                        href="https://www.youtube.com/watch?v=CtxSxmvwaKc" target="_blank"
-                        class="exclude-device-href">video tutorial</a> is pretty excellent at covering how to do this,
-                    otherwise:
-                    <ol type="i">
-                        <li>Download the <a href="https://archive.org/download/dsbf-dumper/Firmware%20Dumper.zip"
-                                            target="_blank" class="exclude-device-href">DS Firmware dumper</a> and
-                            extract the <code>dsbf_dump.nds</code> file
-                        </li>
-                        <li>Load the DS firmware dumper .nds file onto your flash cartridge's memory in the correct spot
-                            using its' SD card or connector cable.
-                        </li>
-                        <li>Insert the flash cartridge into your Nintendo DS console.</li>
-                        <li>Turn on your system and run the <code>dsbf_dump.nds</code> application</li>
-                        <li>Wait for the firmware dump to complete. Then, power off your Nintendo DS, remove the cart
-                            and insert the flash cart's SD card into your computer (or connect it with the correct
-                            cable).
-                        </li>
-                        <li>Your flash cartridge's SD card/storage will now contain <code>BIOSNDS7.ROM</code>, <code>BIOSNDS9.ROM</code>
-                            and a <code>.BIN</code> file starting with the letters "FW". These are your Nintendo DS'
-                            ARM7 and ARM9 BIOS files and its firmware respectively.
-                        </li>
-                    </ol>
-                </li>
-                <li>Copy your ARM7, ARM9 and firmware files into the same directory as where you downloaded melonDS
-                    to.
-                </li>
-                <li>Open melonDS, then on the top bar menu click "Config" <i class="fa-solid fa-arrow-right"></i> "Emu
-                    settings"
-                </li>
-                <li>On the "General" tab, ensure Console Mode is set to "DS". Click through to the tab named "DS-mode"
-                </li>
-                <li>On each of the required BIOS and firmware files, select the ARM7 <code>.ROM</code>, ARM9
-                    <code>.ROM</code> and firmware <code>.BIN</code> files you ripped from your system.
-                </li>
-            </ol>
-            <b>Playing the game:</b>
-            <p>With melonDS setup, all you need to do in order to play the game is select "File" <i
-                    class="fa-solid fa-arrow-right"></i> "Open ROM" in the top menu bar and choose the ROM file you
-                patched earlier.</p>
-            <p>melonDS has a number of advanced features, such as configuring controllers and tweaking display
-                settings. You can check out the <a href="https://melonds.kuribo64.net/" target="_blank"
-                                                   class="exclude-device-href">melonDS Website</a> for more information.
-            </p>
-
-            <h4 id="other-pc-emulators">Other PC emulators</h4>
-            <ul>
-                <li><a href="https://desmume.org/" target="_blank" class="exclude-device-href">DeSmuME</a>&#65293;Not
-                    recommended due to having issues with sound playback on cutscenes. If you can overlook that, it's
-                    still a popular emulator with good community support and configuration options.
-                </li>
-                <li><a href="https://www.nogba.com/" target="_blank">No$GBA</a>&#65293;Not recommended due to severe
-                    graphical and sound emulation accuracy issues. It's also infrequently updated and not very
-                    user-friendly.
-                </li>
-            </ul>
-
-            <!-- Emulators on mobile devices -->
-            <h3 id="mobile-emulators">Emulate on mobile devices</h3>
-            <h4>Emulate on iOS / iPadOS / tvOS</h4>
-            <div class="notice-box"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;You may experience issues with
-                sound emulation on iOS as RetroArch primarily supports DeSmuME for DS emulation and the MelonDS core is
-                not yet stable enough to use.
+        <div class="hidden emu-show">
+            <div class="one-column-text">
+                <p>
+                    <b>Select where you'd like to emulate the game:</b>
+                </p>
             </div>
-            <p>The best option for emulating on iOS and Apple TV devices is using RetroArch using the DeSmuME emulation
-                core. You don't need a jailbroken device to run RetroArch (although it is easier if you have one)</p>
-            <p>There are two methods for doing this. The first method is recommended and uses Cydia Impactor to transfer
-                the RetroArch IPA to your macOS device. For users who have a modern Mac handy that is capable of running
-                XCode, there's also an alternative method involving building RetroArch with XCode and loading it onto
-                your device, though it's a bit more complicated.</p>
-            <b>Requirements:</b>
-            <ul>
-                <li>iOS / iPadOS Device (iPhone, iPad, iPod Touch)</li>
-                <li>iTunes installed on a PC/Mac OR A Mac capable of running XCode</li>
-            </ul>
-            <b>Recommended method: Install RetroArch through Cydia Impactor</b>
-            <ol>
-                <li>Follow the steps listed in <a href="https://docs.libretro.com/guides/install-ios/"
-                                                  target="_blank">this guide</a> to install the RetroArch on your
-                    non-Jailbreak iOS device through Cydia Impactor.
-                </li>
-                <li>Follow the guide's instructions on performing a <a
-                        href="https://docs.libretro.com/guides/install-ios/?device=emu#content-transfer-via-itunes"
-                        target="_blank">"Content transfer via iTunes"</a> to transfer your patched ROM to the RetroArch
-                    content folder
-                </li>
-            </ol>
-            <b>Mac Only Method: Install RetroArch by compiling it with XCode</b>
-            <ol>
-                <li>Follow the steps listed in <a
-                        href="https://docs.libretro.com/guides/build-ios/" target="_blank">this
-                    guide</a> to install XCode on your Mac, clone RetroArch from source and build it, then transfer it
-                    to your device.
-                </li>
-                <li>Transfer the patched ROM over to your device using a third party tool such as iFunBox or iExplorer.
-                    If you're running on an Apple TV, you'll be given a Web URL you can access locally to transfer ROMs
-                    to the emulator directly.
-                </li>
-            </ol>
-
-            <h4>Emulate on Android</h4>
-            <p>The best DS emulator on Android is <a
-                    href="https://play.google.com/store/apps/details?id=com.dsemu.drastic" target="_blank">DraStic</a>,
-                which has a great interface and is simple to install, but it costs $4.99. <a
-                        href="https://play.google.com/store/apps/details?id=com.retroarch"
-                        target="_blank">RetroArch</a> is a free alternative, although it comes with the caveat of the
-                DS emulation being based on DeSmuME, which has issues emulating sound.</p>
-            <b>Requirements:</b>
-            <ul>
-                <li>Android Device with the Google Play store</li>
-                <li>Drastic ($4.99) or RetroArch (free)</li>
-            </ul>
-
-            <b>Play using DraStic Emulator</b>
-            <p>Download <a
-                    href="https://play.google.com/store/apps/details?id=com.dsemu.drastic" target="_blank">DraStic</a>
-                off the Google Play Store and transfer the patched ROM file over to it via the Android
-                file picker.</p>
-
-            <b>Play using RetroArch Emulator</b>
-            <p>Download <a href="https://play.google.com/store/apps/details?id=com.retroarch"
-                           target="_blank">RetroArch</a> off the Google Play Store and transfer the patched ROM file
-                over to it
-                via the Android file picker.</p>
-
-            <!-- Wii U VC emulator -->
-            <h3 id="wii-u-vc">Emulate on Wii U by injecting the Virtual Console</h3>
-            <p>If you own a Wii U console, Nintendo's official Virtual Console DS emulator provides accurate emulation,
-                complemented nicely by the Wii U Gamepad, which works great with the touchscreen used frequently in
-                this game.</p>
-            <p>To do this, you'll need to homebrew your Wii U, use UWUVCI to convert the ROM into a WUP (Wii U title)
-                and then install it to your system using WUP Installer GX2.</p>
-            <b>Requirements:</b>
-            <ul>
-                <li>Wii U system with internet access</li>
-                <li>SD card with at least 4GB capacity</li>
-                <li>Windows PC to run UWUVCI</li>
-            </ul>
-            <h4>Part 1 - Homebrew your Wii U</h4>
-            <div class="notice-box"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Please take caution following
-                these steps to avoid bricking your system.
+            <div id="guide-emulators">
+                <a href="#pc-emulators" class="exclude-device-href">
+                    <div class="guide-option">
+                        <object class="drop-shadow" width="150em" data="../assets/emulator-icon.svg"
+                                type="image/svg+xml"></object>
+                        <b>PC Emulators</b><br/>(Windows, Mac, Linux)
+                    </div>
+                </a>
+                <a href="#mobile-emulators" class="exclude-device-href">
+                    <div class="guide-option">
+                        <object class="drop-shadow" width="150em" data="../assets/mobile-icon.svg"
+                                type="image/svg+xml"></object>
+                        <b>Mobile Emulators</b><br/>(iOS, Apple TV & Android)
+                    </div>
+                </a>
+                <a href="#wii-u-vc" class="exclude-device-href">
+                    <div class="guide-option">
+                        <object class="drop-shadow" width="150em" data="../assets/wii-u-icon.svg"
+                                type="image/svg+xml"></object>
+                        <b>Wii U</b><br/>(Virtual Console Injection)
+                    </div>
+                </a>
             </div>
-            <ol>
-                <li>Follow the steps <a href="https://wiiu.hacks.guide/#/" target="_blank">on this guide</a> to install
-                    a CFW (Custom Firmware) Wrapper, Tiramisu, onto your system from your SD card via an exploit in the
-                    Internet Browser.
-                </li>
-                <li>Continue <a href="https://wiiu.hacks.guide/#/tiramisu/finalizing-setup?id=additional-homebrew-apps"
-                                target="_blank">following the steps</a> to install the Homebrew App Store to your
-                    system.
-                </li>
-                <li>Boot into the Homebrew App Store through Tiramisu by launching into Tiramisu on the Health & Safety
-                    screen of your console when powering it on.
-                </li>
-                <li>On the Homebrew App Store, navigate to or search for <code>WUP Installer GX2</code> (it should be
-                    near the top). Download and install it to your system, following the on-screen instructions.
-                </li>
-                <li>Once successfully installed, power off your Wii U system and remove the SD card. Re-insert it into
-                    your computer.
-                </li>
-            </ol>
+            <div class="one-column-text">
+                <!-- PC emulators -->
+                <h3 id="pc-emulators">Emulate on Windows, macOS, or Linux</h3>
+                <div class="notice-box"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;DeSmuME is not recommended
+                    due
+                    to sound emulation issues. <a href="#other-pc-emulators" class="exclude-device-href">More
+                        info&hellip;</a></div>
+                <p>There are a few options for PC DS emulators, but the one we recommend is melonDS for its emulation
+                    accuracy and performance.</p>
 
-            <h4>Part 2 - Make ROM into WUP with UWUVCI</h4>
-            <ol>
-                <li>Ensure your SD Card is back inserted into your computer</li>
-                <li>On your PC, download and install the latest release of <a
-                        href="https://github.com/stuff-by-3-random-dudes/UWUVCI-AIO-WPF/releases/" target="_blank">UWUVCI</a>.
-                    If you are prompted by Microsoft Defender/Windows StartScreen, click "More Details" and "Run
-                    Anyway". The program may take some time to download tools and data.
-                </li>
-                <li>When the program loads up, select the DS icon on the left-hand side of the screen.</li>
-                <li>Select the following options:
-                    <ol type="i">
-                        <li>On the "Base ROM" dropdown, choose "Mario Kart DS (US)" or "Mario Kart DS (EU)" (depending
-                            on your region; if you aren't in the US or EU, just pick either one, it doesn't really
-                            matter)
-                        </li>
-                        <li>Click the "Enter CKey" button. Click "Read from otp.bin" and select the <code>otp.bin</code>
-                            file on your SD card that you created earlier when installing the Custom Firmware as part of
-                            the NAND Dump process. If you don't have this for whatever reason, you'll need to find the
-                            Wii U common key and write it in manually instead.
-                        </li>
-                        <li>Click on the "Enter TKey" button. You will now need to insert the title key for Mario Kart
-                            DS for the region you selected. There's no easy way of getting this other than by looking it
-                            up online. Make sure you enter the key for the Mario Kart DS region you selected.
-                        </li>
-                        <li>Click "Choose File" next to "ROM PATH" and choose the patched <i>The Series of Haruhi
-                            Suzumiya</i> ROM file
-                        </li>
-                        <li>On the "Icon Image" box, click "Create File". Download <a
-                                href="../assets/vc-art/virtual-console-icon.png" target="_blank"
-                                download="virtual-console-icon.png">this image</a> (or use your own) and choose it under
-                            "Select File". Feel free to customise the appearance, this is the icon that will appear on
-                            your Wii U system menu. Then, click "Finish"
-                        </li>
-                        <li>On the "TV Image" box, click "Create File", enter the name of the game on the two lines
-                            ("The Series of Haruhi", "Suzumiya"), the release year (2009) and the number of players (1).
-                            Then select the same file for the icon image (or choose your own!). Then, click "Finish".
-                        </li>
-                        <li>Enter in the "Game Name" box: <code>The Series of|Haruhi Suzumiya</code></li>
-                        <li>You can also optionally choose some other pieces of art that will appear on your Wii U menu
-                            when launching the game, such as a splash image and boot sound.
-                        </li>
-                    </ol>
-                </li>
-                <li>When you're done, click "Inject". Your ROM will be injected into a Wii U WUP title.</li>
-                <li>Once done, click "WUP Installable". Wait for it to pack the WUP into the format, then click "Copy to
-                    SD". Your WUP file will be copied to the correct directory on your Wii U, so you can add it to your
-                    system using WUP Installer GX2.
-                </li>
-                <li>Remove your SD card from your computer and put it back into your Wii U.</li>
-            </ol>
+                <h4>melonDS setup</h4>
+                <b>Requirements:</b>
+                <ul>
+                    <li>Windows, macOS or Linux computer</li>
+                    <li>Nintendo DS or DS lite console</li>
+                    <li>Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as
+                        required)
+                    </li>
+                </ul>
+                <b>Setup:</b>
+                <ol>
+                    <li><a href="https://melonds.kuribo64.net/downloads.php" target="_blank"
+                           class="exclude-device-href">Download
+                        melonDS</a> from the project website. Put this somewhere easily accessible, such as where you
+                        put
+                        your applications or documents on your computer.
+                    </li>
+                    <li>Dump your Nintendo DS firmware, bios7 and bios9 using your flash cartridge. This <a
+                            href="https://www.youtube.com/watch?v=CtxSxmvwaKc" target="_blank"
+                            class="exclude-device-href">video tutorial</a> is pretty excellent at covering how to do
+                        this,
+                        otherwise:
+                        <ol type="i">
+                            <li>Download the <a href="https://archive.org/download/dsbf-dumper/Firmware%20Dumper.zip"
+                                                target="_blank" class="exclude-device-href">DS Firmware dumper</a> and
+                                extract the <code>dsbf_dump.nds</code> file
+                            </li>
+                            <li>Load the DS firmware dumper .nds file onto your flash cartridge's memory in the correct
+                                spot
+                                using its' SD card or connector cable.
+                            </li>
+                            <li>Insert the flash cartridge into your Nintendo DS console.</li>
+                            <li>Turn on your system and run the <code>dsbf_dump.nds</code> application</li>
+                            <li>Wait for the firmware dump to complete. Then, power off your Nintendo DS, remove the
+                                cart
+                                and insert the flash cart's SD card into your computer (or connect it with the correct
+                                cable).
+                            </li>
+                            <li>Your flash cartridge's SD card/storage will now contain <code>BIOSNDS7.ROM</code>,
+                                <code>BIOSNDS9.ROM</code>
+                                and a <code>.BIN</code> file starting with the letters "FW". These are your Nintendo DS'
+                                ARM7 and ARM9 BIOS files and its firmware respectively.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Copy your ARM7, ARM9 and firmware files into the same directory as where you downloaded melonDS
+                        to.
+                    </li>
+                    <li>Open melonDS, then on the top bar menu click "Config" <i class="fa-solid fa-arrow-right"></i>
+                        "Emu
+                        settings"
+                    </li>
+                    <li>On the "General" tab, ensure Console Mode is set to "DS". Click through to the tab named
+                        "DS-mode"
+                    </li>
+                    <li>On each of the required BIOS and firmware files, select the ARM7 <code>.ROM</code>, ARM9
+                        <code>.ROM</code> and firmware <code>.BIN</code> files you ripped from your system.
+                    </li>
+                </ol>
+                <b>Playing the game:</b>
+                <p>With melonDS setup, all you need to do in order to play the game is select "File" <i
+                        class="fa-solid fa-arrow-right"></i> "Open ROM" in the top menu bar and choose the ROM file you
+                    patched earlier.</p>
+                <p>melonDS has a number of advanced features, such as configuring controllers and tweaking display
+                    settings. You can check out the <a href="https://melonds.kuribo64.net/" target="_blank"
+                                                       class="exclude-device-href">melonDS Website</a> for more
+                    information.
+                </p>
 
-            <h4>Part 3 - Install WUP with WUP Installer GX2</h4>
-            <ol>
-                <li>Power on your Wii U with the SD card re-inserted.</li>
-                <li>Launch WUP Installer GX2 you previously installed through Tiramisu</li>
-                <li>Select the WUP title you created and proceed through WUP Installer GX's on-screen instructions to
-                    install the title to your system menu. You can also optionally install WUP Installer GX to your Wii
-                    U menu here, too.
-                </li>
-                <li>When the installation has completed, you can launch the game from your system menu.</li>
-            </ol>
+                <h4 id="other-pc-emulators">Other PC emulators</h4>
+                <ul>
+                    <li><a href="https://desmume.org/" target="_blank" class="exclude-device-href">DeSmuME</a>&#65293;Not
+                        recommended due to having issues with sound playback on cutscenes. If you can overlook that,
+                        it's
+                        still a popular emulator with good community support and configuration options.
+                    </li>
+                    <li><a href="https://www.nogba.com/" target="_blank">No$GBA</a>&#65293;Not recommended due to severe
+                        graphical and sound emulation accuracy issues. It's also infrequently updated and not very
+                        user-friendly.
+                    </li>
+                </ul>
+
+                <!-- Emulators on mobile devices -->
+                <h3 id="mobile-emulators">Emulate on mobile devices</h3>
+                <h4>Emulate on iOS / iPadOS / tvOS</h4>
+                <div class="notice-box"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;You may experience issues
+                    with
+                    sound emulation on iOS as RetroArch primarily supports DeSmuME for DS emulation and the MelonDS core
+                    is
+                    not yet stable enough to use.
+                </div>
+                <p>The best option for emulating on iOS and Apple TV devices is using RetroArch using the DeSmuME
+                    emulation
+                    core. You don't need a jailbroken device to run RetroArch (although it is easier if you have
+                    one)</p>
+                <p>There are two methods for doing this. The first method is recommended and uses Cydia Impactor to
+                    transfer
+                    the RetroArch IPA to your macOS device. For users who have a modern Mac handy that is capable of
+                    running
+                    XCode, there's also an alternative method involving building RetroArch with XCode and loading it
+                    onto
+                    your device, though it's a bit more complicated.</p>
+                <b>Requirements:</b>
+                <ul>
+                    <li>iOS / iPadOS Device (iPhone, iPad, iPod Touch)</li>
+                    <li>iTunes installed on a PC/Mac OR A Mac capable of running XCode</li>
+                </ul>
+                <b>Recommended method: Install RetroArch through Cydia Impactor</b>
+                <ol>
+                    <li>Follow the steps listed in <a href="https://docs.libretro.com/guides/install-ios/"
+                                                      target="_blank">this guide</a> to install the RetroArch on your
+                        non-Jailbreak iOS device through Cydia Impactor.
+                    </li>
+                    <li>Follow the guide's instructions on performing a <a
+                            href="https://docs.libretro.com/guides/install-ios/?device=emu#content-transfer-via-itunes"
+                            target="_blank">"Content transfer via iTunes"</a> to transfer your patched ROM to the
+                        RetroArch
+                        content folder
+                    </li>
+                </ol>
+                <b>Mac Only Method: Install RetroArch by compiling it with XCode</b>
+                <ol>
+                    <li>Follow the steps listed in <a
+                            href="https://docs.libretro.com/guides/build-ios/" target="_blank">this
+                        guide</a> to install XCode on your Mac, clone RetroArch from source and build it, then transfer
+                        it
+                        to your device.
+                    </li>
+                    <li>Transfer the patched ROM over to your device using a third party tool such as iFunBox or
+                        iExplorer.
+                        If you're running on an Apple TV, you'll be given a Web URL you can access locally to transfer
+                        ROMs
+                        to the emulator directly.
+                    </li>
+                </ol>
+
+                <h4>Emulate on Android</h4>
+                <p>The best DS emulator on Android is <a
+                        href="https://play.google.com/store/apps/details?id=com.dsemu.drastic"
+                        target="_blank">DraStic</a>,
+                    which has a great interface and is simple to install, but it costs $4.99. <a
+                            href="https://play.google.com/store/apps/details?id=com.retroarch"
+                            target="_blank">RetroArch</a> is a free alternative, although it comes with the caveat of
+                    the
+                    DS emulation being based on DeSmuME, which has issues emulating sound.</p>
+                <b>Requirements:</b>
+                <ul>
+                    <li>Android Device with the Google Play store</li>
+                    <li>Drastic ($4.99) or RetroArch (free)</li>
+                </ul>
+
+                <b>Play using DraStic Emulator</b>
+                <p>Download <a
+                        href="https://play.google.com/store/apps/details?id=com.dsemu.drastic"
+                        target="_blank">DraStic</a>
+                    off the Google Play Store and transfer the patched ROM file over to it via the Android
+                    file picker.</p>
+
+                <b>Play using RetroArch Emulator</b>
+                <p>Download <a href="https://play.google.com/store/apps/details?id=com.retroarch"
+                               target="_blank">RetroArch</a> off the Google Play Store and transfer the patched ROM file
+                    over to it
+                    via the Android file picker.</p>
+
+                <!-- Wii U VC emulator -->
+                <h3 id="wii-u-vc">Emulate on Wii U by injecting the Virtual Console</h3>
+                <p>If you own a Wii U console, Nintendo's official Virtual Console DS emulator provides accurate
+                    emulation,
+                    complemented nicely by the Wii U Gamepad, which works great with the touchscreen used frequently in
+                    this game.</p>
+                <p>To do this, you'll need to homebrew your Wii U, use UWUVCI to convert the ROM into a WUP (Wii U
+                    title)
+                    and then install it to your system using WUP Installer GX2.</p>
+                <b>Requirements:</b>
+                <ul>
+                    <li>Wii U system with internet access</li>
+                    <li>SD card with at least 4GB capacity</li>
+                    <li>Windows PC to run UWUVCI</li>
+                </ul>
+                <h4>Part 1 - Homebrew your Wii U</h4>
+                <div class="notice-box"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Please take caution
+                    following
+                    these steps to avoid bricking your system.
+                </div>
+                <ol>
+                    <li>Follow the steps <a href="https://wiiu.hacks.guide/#/" target="_blank">on this guide</a> to
+                        install
+                        a CFW (Custom Firmware) Wrapper, Tiramisu, onto your system from your SD card via an exploit in
+                        the
+                        Internet Browser.
+                    </li>
+                    <li>Continue <a
+                            href="https://wiiu.hacks.guide/#/tiramisu/finalizing-setup?id=additional-homebrew-apps"
+                            target="_blank">following the steps</a> to install the Homebrew App Store to your
+                        system.
+                    </li>
+                    <li>Boot into the Homebrew App Store through Tiramisu by launching into Tiramisu on the Health &
+                        Safety
+                        screen of your console when powering it on.
+                    </li>
+                    <li>On the Homebrew App Store, navigate to or search for <code>WUP Installer GX2</code> (it should
+                        be
+                        near the top). Download and install it to your system, following the on-screen instructions.
+                    </li>
+                    <li>Once successfully installed, power off your Wii U system and remove the SD card. Re-insert it
+                        into
+                        your computer.
+                    </li>
+                </ol>
+
+                <h4>Part 2 - Make ROM into WUP with UWUVCI</h4>
+                <ol>
+                    <li>Ensure your SD Card is back inserted into your computer</li>
+                    <li>On your PC, download and install the latest release of <a
+                            href="https://github.com/stuff-by-3-random-dudes/UWUVCI-AIO-WPF/releases/" target="_blank">UWUVCI</a>.
+                        If you are prompted by Microsoft Defender/Windows StartScreen, click "More Details" and "Run
+                        Anyway". The program may take some time to download tools and data.
+                    </li>
+                    <li>When the program loads up, select the DS icon on the left-hand side of the screen.</li>
+                    <li>Select the following options:
+                        <ol type="i">
+                            <li>On the "Base ROM" dropdown, choose "Mario Kart DS (US)" or "Mario Kart DS (EU)"
+                                (depending
+                                on your region; if you aren't in the US or EU, just pick either one, it doesn't really
+                                matter)
+                            </li>
+                            <li>Click the "Enter CKey" button. Click "Read from otp.bin" and select the
+                                <code>otp.bin</code>
+                                file on your SD card that you created earlier when installing the Custom Firmware as
+                                part of
+                                the NAND Dump process. If you don't have this for whatever reason, you'll need to find
+                                the
+                                Wii U common key and write it in manually instead.
+                            </li>
+                            <li>Click on the "Enter TKey" button. You will now need to insert the title key for Mario
+                                Kart
+                                DS for the region you selected. There's no easy way of getting this other than by
+                                looking it
+                                up online. Make sure you enter the key for the Mario Kart DS region you selected.
+                            </li>
+                            <li>Click "Choose File" next to "ROM PATH" and choose the patched <i>The Series of Haruhi
+                                Suzumiya</i> ROM file
+                            </li>
+                            <li>On the "Icon Image" box, click "Create File". Download <a
+                                    href="../assets/vc-art/virtual-console-icon.png" target="_blank"
+                                    download="virtual-console-icon.png">this image</a> (or use your own) and choose it
+                                under
+                                "Select File". Feel free to customise the appearance, this is the icon that will appear
+                                on
+                                your Wii U system menu. Then, click "Finish"
+                            </li>
+                            <li>On the "TV Image" box, click "Create File", enter the name of the game on the two lines
+                                ("The Series of Haruhi", "Suzumiya"), the release year (2009) and the number of players
+                                (1).
+                                Then select the same file for the icon image (or choose your own!). Then, click
+                                "Finish".
+                            </li>
+                            <li>Enter in the "Game Name" box: <code>The Series of|Haruhi Suzumiya</code></li>
+                            <li>You can also optionally choose some other pieces of art that will appear on your Wii U
+                                menu
+                                when launching the game, such as a splash image and boot sound.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>When you're done, click "Inject". Your ROM will be injected into a Wii U WUP title.</li>
+                    <li>Once done, click "WUP Installable". Wait for it to pack the WUP into the format, then click
+                        "Copy to
+                        SD". Your WUP file will be copied to the correct directory on your Wii U, so you can add it to
+                        your
+                        system using WUP Installer GX2.
+                    </li>
+                    <li>Remove your SD card from your computer and put it back into your Wii U.</li>
+                </ol>
+
+                <h4>Part 3 - Install WUP with WUP Installer GX2</h4>
+                <ol>
+                    <li>Power on your Wii U with the SD card re-inserted.</li>
+                    <li>Launch WUP Installer GX2 you previously installed through Tiramisu</li>
+                    <li>Select the WUP title you created and proceed through WUP Installer GX's on-screen instructions
+                        to
+                        install the title to your system menu. You can also optionally install WUP Installer GX to your
+                        Wii
+                        U menu here, too.
+                    </li>
+                    <li>When the installation has completed, you can launch the game from your system menu.</li>
+                </ol>
+            </div>
         </div>
 
         <div class="one-column-text hidden ds-show">
@@ -359,7 +410,7 @@
             <p>Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting
                 the patched rom onto a SD card and making use of Twilight Menu++ on your system</p>
 
-            <h4>Via TwilightMenu++</h4>
+            <h4>Via Luma3DS and TWiLightMenu</h4>
             <b>Requirements:</b>
             <ul>
                 <li>Nintendo DSi or DSi XL console</li>
@@ -399,6 +450,54 @@
                     storage.
                 </li>
                 <li>Disconnect the flash cartridge and insert it into your Nintendo DSi. Fire up the game and enjoy!
+                </li>
+            </ol>
+        </div>
+
+        <div class="one-column-text hidden 3ds-show">
+            <h3>Playing on Nintendo 3DS</h3>
+            <p>Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use of a flash cartridge, or
+                putting
+                the patched rom onto a SD card and making use of Luma3DS on your system</p>
+
+            <h4>Via TwilightMenu++</h4>
+            <b>Requirements:</b>
+            <ul>
+                <li>Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console</li>
+                <li>Luma3DS custom firmware <a href="https://3ds.cfw.guide/" target="_blank"
+                                               class="exclude-device-href">setup on your system</a> and FBI. If you
+                    followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
+                </li>
+                <li>SD card with at least 2GB capacity</li>
+                <li>Computer with an SD card reader/USB SD card reader peripheral</li>
+            </ul>
+            <b>Setup:</b>
+            <ol>
+                <li>Insert your SD card from your 3DS (hacked with Luma3DS) into your computer</li>
+                <li>Follow <a href="https://www.cfwaifu.com/twilight-menu-3ds/" target="_blank">this guide</a> to
+                    install TWiLightMenu on your 3DS using FBI. During the part where it asks you to drag over your
+                    <code>.nds</code> ROMS, drag your patched ROM <code>.nds</code> file you made earlier into the
+                    /roms/ folder.
+                </li>
+                <li>Continue following the instructions through to launching the game. Enjoy!</li>
+            </ol>
+
+            <h4>Via a flash cartridge</h4>
+            <b>Requirements:</b>
+            <ul>
+                <li>Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console</li>
+                <li>Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+                </li>
+            </ul>
+            <b>Setup:</b>
+            <ol>
+                <li>Insert your SD card from your flash cartridge into your computer (or connect it through the correct
+                    adapter if required).
+                </li>
+                <li>Drag over the patched ROM file you previously created into the correct directory on the flash cart's
+                    storage.
+                </li>
+                <li>Disconnect the flash cartridge and insert it into your Nintendo 3DS. Fire up the game and enjoy!
                 </li>
             </ol>
         </div>
