@@ -86,5 +86,5 @@ request('GET /repos/{owner}/{repo}/releases', {
 
 function defaultToManualUpload(error) {
     document.getElementById('select-patch-version').innerHTML = 'Select patch file';
-    document.getElementById('message-apply').innerHTML = error;
+    document.getElementById('message-apply').innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>&nbsp;' + error;
 }

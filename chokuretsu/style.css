@@ -160,7 +160,7 @@ main {
     box-shadow: inset 0.5vh 0.5vh 0.7vh rgba(0, 0, 0, 0.2);
 }
 
-/* Input buttons */
+/* Input items */
 button {
     filter: drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
     box-shadow: inset 0.5vh 0.5vh 0.7vh rgba(0, 0, 0, 0.2);
@@ -169,7 +169,7 @@ button {
     padding: 0.5em 0.6em 0.5em 0.6em;
     background-color: var(--main-red-color);
     color: white;
-    font-size: larger;
+    font-size: 1em;
 }
 
 button:disabled {
@@ -192,6 +192,24 @@ button:hover {
     background-color: var(--main-red-color);
     max-width: 10em;
     margin: auto;
+}
+
+input[type="radio"] {
+    appearance: none;
+    font: inherit;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+input[type="radio"]:checked {
+    background-color: var(--main-red-color);
+}
+
+.patcher-option-radio {
+    text-align: center;
 }
 
 #game-about {
@@ -326,11 +344,21 @@ li {
 
 /* Used for the patcher interface */
 #patcher-menu {
-    display: flex;
-    flex-wrap: wrap;
+    padding: 0;
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-columns: repeat(auto-fill, 45%);
+    text-align: center;
     justify-content: center;
-    flex-direction: row;
-    padding-bottom: 3em;
+}
+
+#patcher-options {
+    grid-row: auto / span 2;
+}
+
+#patcher-options-table {
+    display: inline-block;
+    text-align: left
 }
 
 .patcher-block {
@@ -353,18 +381,10 @@ li {
     cursor: pointer;
 }
 
-#input-file-rom {
+.input-file {
     padding: 2em 2vw;
     border: #31343a dashed 0.2em;
     border-radius: 0.8em;
-}
-
-.message {
-    padding: 0.3em;
-    border-radius: 0.2em;
-    color: white;
-    background-color: var(--main-blue-color);
-    filter: drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.5));
 }
 
 footer {
