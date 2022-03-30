@@ -194,6 +194,13 @@ button:hover {
     margin: auto;
 }
 
+select {
+    font-family: Nunito, sans-serif;
+    font-size: 0.9em;
+    border: black solid 0.15em;
+    border-radius: 0.3em;
+}
+
 input[type="radio"] {
     appearance: none;
     font: inherit;
@@ -210,6 +217,8 @@ input[type="radio"]:checked {
 
 .patcher-option-radio {
     text-align: center;
+    max-width: 50%;
+    width: 50%;
 }
 
 #game-about {
@@ -358,7 +367,14 @@ li {
 
 #patcher-options-table {
     display: inline-block;
-    text-align: left
+    text-align: left;
+    border-spacing: 0.2em;
+}
+
+.patcher-option-image {
+    float: right;
+    max-height: 96px;
+    padding-left: 0.2em;
 }
 
 .patcher-block {

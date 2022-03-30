@@ -27,28 +27,13 @@
     <!-- Font awesome (for icons) -->
     <script src="https://kit.fontawesome.com/aa4c023dda.js" crossorigin="anonymous"></script>
 
-    <!-- ROM patcher scripts -->
-    <script type="text/javascript" src="../patcher/js/locale.js"></script>
-    <script type="text/javascript" src="../patcher/js/RomPatcher.js"></script>
+    <!-- Patcher scripts -->
+    <script type="text/javascript" src="patch.js"></script>
+    <script type="text/javascript" src="save-as.js"></script>
     <script type="text/javascript" src="../patcher/js/MarcFile.js"></script>
-    <script type="text/javascript" src="../patcher/js/crc.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/zip.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/ips.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/ups.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/aps.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/bps.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/rup.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/ppf.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/pmsr.js"></script>
     <script type="text/javascript" src="../patcher/js/formats/vcdiff.js"></script>
+    <script type="text/javascript" src="../patcher/js/formats/zip.js"></script>
     <script type="text/javascript" src="../patcher/js/zip.js/zip.js"></script>
-
-    <!-- GitHub API fetching -->
-    <script type="module" src="patch.js"></script>
-    <script type="text/javascript">
-        let CUSTOM_PATCHER = [];
-        const CORS_PROXY = 'https://cors.haroohie.club/'
-    </script>
 
 </head>
 <body>
@@ -63,7 +48,7 @@
 
         <div class="one-column-text">
             <h1>Patch ROM</h1>
-            <div id="message-apply" class="notice-box"></div>
+            <div id="patcher-notice" class="notice-box hidden"></div>
             <p>Please select your dumped <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file (see the <a
                     href="./guide/" target="_blank">setup guide</a> for how to get this), configure the settings you'd
                 like
@@ -78,25 +63,25 @@
                     <tr>
                         <td colspan="2">
                             <img src="./assets/opening-subtitles.png" alt="Opening subtitles example picture"
-                                 style="float: right; max-height: 96px; padding-left: 0.25em"/>
+                                 class="patcher-option-image"/>
                             <b>OP/ED subtitles</b><br/>
-                            Configure whether the opening movie and end credits are subtitled in English with Japanese
-                            karaoke typesetting.
+                            Configure whether the opening movie and end credits should be subtitled in English with
+                            Japanese karaoke typesetting.
                         </td>
                     </tr>
                     <tr>
                         <td class="patcher-option-radio">
                             <div>
                                 <label>
-                                    <input type="radio" name="op-ed-subtitling" value="subtitled" checked/>
-                                    Subtitled
+                                    <input type="radio" name="op-ed-subtitling" value="subbedoped" checked/>
+                                    Subtitled<br/><small>(Recommended)</small>
                                 </label>
                             </div>
                         </td>
                         <td class="patcher-option-radio">
                             <div>
                                 <label>
-                                    <input type="radio" name="op-ed-subtitling" value="clean"/>
+                                    <input type="radio" name="op-ed-subtitling" value="cleanoped"/>
                                     Clean
                                 </label>
                             </div>
@@ -104,16 +89,16 @@
                     </tr>
                     <tr>
                         <td colspan="2"><br/><b>Voiced line subtitles</b><br/>
-                            Controls whether voiced lines in puzzle mode have supplementary English
-                            subtitles display on the bottom screen.
+                            Configure whether voiced lines in the puzzle phase should have supplementary English
+                            subtitles display on screen.
                         </td>
                     </tr>
                     <tr>
                         <td class="patcher-option-radio">
                             <div>
                                 <label>
-                                    <input type="radio" name="voice-lines-subtitling" value="subtitled" checked/>
-                                    Subtitles
+                                    <input type="radio" name="voice-lines-subtitling" value="voicesubs" checked/>
+                                    Subtitles<br/><small>(Recommended)</small>
                                 </label>
                             </div>
                         </td>
@@ -121,8 +106,8 @@
                             <div>
 
                                 <label>
-                                    <input type="radio" name="voice-lines-subtitling" value="clean"/>
-                                    None
+                                    <input type="radio" name="voice-lines-subtitling" value="novoicesubs"/>
+                                    No Subtitles
                                 </label>
                             </div>
                         </td>
@@ -133,33 +118,24 @@
             <!-- Rom selector !-->
             <div>
                 <h3>Select ROM</h3>
-                <input type="file" class="input-file enabled" accept=".nds"
+                <input type="file" id="input-file-rom" class="input-file enabled" accept=".nds"
                        ondragenter="this.classList.add('patcher-file-dragging');"
                        ondragleave="this.classList.remove('patcher-file-dragging');"/>
             </div>
 
             <!-- Patch version selector and apply button !-->
             <div>
-                <h3><span id="select-patch-version"></span> & apply</h3>
-
-                <input type="file" class="input-file enabled" accept=".nds"
-                       ondragenter="this.classList.add('patcher-file-dragging');"
-                       ondragleave="this.classList.remove('patcher-file-dragging');"/>
+                <h3>Select patch version & apply</h3>
+                <label>
+                    <b>Version:</b>&nbsp;
+                    <select id="patcher-version-dropdown">
+                        <option value="latest">Latest (v0.1) &#xFF0D; March 29, 2022</option>
+                    </select>
+                </label>
                 <br/><br/>
-                <button id="button-apply" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp;
+                <button id="patcher-patch-button" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp;
                     Patch ROM
                 </button>
-            </div>
-
-            <div style="display: none">
-                <div class="patcher-block">
-                    <h4>Integrity checks</h4>
-                    <ul style="text-align: left">
-                        <li>CRC32: <code id="crc32"></code></li>
-                        <li>MD5: <code id="md5"></code></li>
-                        <li>SHA-1: <code id="sha1"></code></li>
-                    </ul>
-                </div>
             </div>
         </div>
         <br/>
@@ -190,6 +166,14 @@
                     <i class="fa-brands fa-discord"></i>&nbsp; Join the Discord
                 </div>
             </a>
+        </div>
+
+        <!-- Attribution -->
+        <div class="one-column-text">
+            <h3>Attribution</h3>
+            <p style="text-align: center"><a href="https://github.com/marcrobledo/RomPatcher.js/">RomPatcher.js</a> by
+                <a
+                        href="https://www.marcrobledo.com/">Marc Robledo</a><br/>Licensed under MIT</p>
         </div>
     </div>
 </main>
