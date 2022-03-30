@@ -343,8 +343,6 @@ input[type="radio"]:checked {
 
 .one-column-text {
     max-width: 750px;
-    padding-left: 1em;
-    padding-right: 1em;
 }
 
 li {
@@ -353,10 +351,9 @@ li {
 
 /* Used for the patcher interface */
 #patcher-menu {
-    padding: 0;
     display: grid;
-    grid-gap: 0.5em;
-    grid-template-columns: repeat(auto-fill, 45%);
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fill, 48.5%);
     text-align: center;
     justify-content: center;
 }
@@ -528,6 +525,10 @@ object {
         /* Hide SOS dan logo */
         #sos-logo-box {
             display: none;
+        }
+
+        #patcher-menu {
+            grid-template-columns: repeat(auto-fill, 100%);
         }
 
         /* Hide the Nintendo DS gameplay video */

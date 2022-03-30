@@ -8,7 +8,7 @@ const DEBUG_MODE = true;
 const DEBUG_PATCH = '';
 
 // RomPatcher data variables
-let romFile, patchFile, patch, romFile1, romFile2, tempFile, headerSize, oldHeader;
+let romFile, patchFile, patch, tempFile, headerSize;
 
 // Run when the window loads
 window.onload = () => {
@@ -27,7 +27,6 @@ window.onload = () => {
 
     // When the Patch ROM button is pressed
     document.getElementById('patcher-patch-button').addEventListener("click", function () {
-
         let version = document.getElementById('patcher-version-dropdown').value;
 
         // Gets the file name
