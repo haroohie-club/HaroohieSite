@@ -7,11 +7,44 @@ const CORS_PROXY = 'https://cors.haroohie.club/';
 const DEBUG_MODE = true;
 const DEBUG_PATCH = '';
 
+// Available patches
+const AVAILABLE_PATCHES = [
+    {
+        version: '0.1',
+        date: 'March 29, 2022'
+    }/*,
+    {
+        version: '0.2',
+        date: 'April 2, 2022'
+    },
+    {
+        version: '0.2.1',
+        date: 'April 18, 2022'
+    },*/
+].reverse();
+
 // RomPatcher data variables
 let romFile, patchFile, patch, tempFile, headerSize;
 
 // Run when the window loads
 window.onload = () => {
+    // Initialize version list
+    let versionOptions = ''
+    for (let i = 0; i < AVAILABLE_PATCHES.length; i++) {
+        let patch = AVAILABLE_PATCHES[i];
+
+        let version = patch.version;
+        let date = patch.date;
+
+        if (i === 0) {
+            versionOptions += '<option value="' + version + '">v' + version + ' &#xFF0D; ' + date + ' &#xFF0D; Latest</option>;'
+        } else {
+            versionOptions += '<option value="' + version + '">v' + version + ' &#xFF0D; ' + date + '</option>;'
+        }
+    }
+    document.getElementById('patcher-version-dropdown').innerHTML = versionOptions;
+
+    // Unzipping library support
     let script = document.createElement('script');
     script.src = '../patcher/js/zip.js/inflate.js';
     document.getElementsByTagName('head')[0].appendChild(script);
@@ -66,9 +99,10 @@ function _parseROM() {
 function getFileName() {
     let opEdSubsConfig = document.querySelector('input[name="op-ed-subtitling"]:checked').value;
     let voicedLineConfig = document.querySelector('input[name="voice-lines-subtitling"]:checked').value;
+    let version = document.getElementById('patcher-version-dropdown').value;
 
     // Possible file names: patch-(subbedoped|cleanoped)-(voicesubs|novoicesubs).xdelta
-    return ('patch-' + opEdSubsConfig + '-' + voicedLineConfig + '.xdelta');
+    return ('patch-v' + version + '-' + opEdSubsConfig + '-' + voicedLineConfig + '.xdelta');
 }
 
 // Returns the versioned patch file with the given name from the GitHub org
