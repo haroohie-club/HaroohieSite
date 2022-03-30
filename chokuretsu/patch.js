@@ -4,8 +4,8 @@ const REPO = 'ChokuretsuTranslationRelease';
 const CORS_PROXY = 'https://cors.haroohie.club/';
 
 // Debug flags
-const DEBUG_MODE = true;
-const DEBUG_PATCH = '';
+const DEBUG_MODE = false;
+const DEBUG_PATCH = 'dummy_patch.xdelta';
 
 // Available patches
 const AVAILABLE_PATCHES = [
@@ -28,6 +28,11 @@ let romFile, patchFile, patch, tempFile, headerSize;
 
 // Run when the window loads
 window.onload = () => {
+    if (AVAILABLE_PATCHES.length === 0) {
+        showNotice('warning', 'No patches are available yet! Come back soon!')
+        return;
+    }
+
     // Initialize version list
     let versionOptions = ''
     for (let i = 0; i < AVAILABLE_PATCHES.length; i++) {
