@@ -5,22 +5,20 @@ const CORS_PROXY = 'https://cors.haroohie.club/';
 
 // Debug flags
 const DEBUG_MODE = false;
-const DEBUG_PATCH = 'dummy_patch.xdelta';
+const DEBUG_PATCH = '';
 
 // Available patches
 const AVAILABLE_PATCHES = [
+    /*
     {
-        version: '0.0',
-        date: 'March 31, 2022'
-    }/*,
-    {
-        version: '0.2',
-        date: 'April 2, 2022'
+        version: '0.1',
+        date: 'April ??, 2022'
     },
     {
-        version: '0.2.1',
-        date: 'April 18, 2022'
-    },*/
+        version: '0.2',
+        date: 'April ??, 2022'
+    },
+    */
 ].reverse();
 
 // RomPatcher data variables
@@ -29,9 +27,10 @@ let romFile, patchFile, patch, tempFile, headerSize;
 // Run when the window loads
 window.onload = () => {
     if (AVAILABLE_PATCHES.length === 0) {
-        showNotice('warning', 'No patches are available yet! Come back soon!')
+        showNotice('warning', 'There are no patches available yet! Please come back soon!')
         return;
     }
+    let patcherDropDown = document.getElementById('patcher-version-dropdown');
 
     // Initialize version list
     let versionOptions = ''
@@ -47,7 +46,8 @@ window.onload = () => {
             versionOptions += '<option value="' + version + '">v' + version + ' &#xFF0D; ' + date + '</option>;'
         }
     }
-    document.getElementById('patcher-version-dropdown').innerHTML = versionOptions;
+    patcherDropDown.innerHTML = versionOptions;
+    patcherDropDown.disabled = false;
 
     // Unzipping library support
     let script = document.createElement('script');
