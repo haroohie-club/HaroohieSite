@@ -27,133 +27,163 @@
     <!-- Font awesome (for icons) -->
     <script src="https://kit.fontawesome.com/aa4c023dda.js" crossorigin="anonymous"></script>
 
-    <!-- ROM patcher scripts -->
-    <script type="text/javascript" src="../patcher/js/locale.js"></script>
-    <script type="text/javascript" src="../patcher/js/RomPatcher.js"></script>
-    <script type="text/javascript" src="../patcher/js/MarcFile.js"></script>
-    <script type="text/javascript" src="../patcher/js/crc.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/zip.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/ips.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/ups.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/aps.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/bps.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/rup.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/ppf.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/pmsr.js"></script>
-    <script type="text/javascript" src="../patcher/js/formats/vcdiff.js"></script>
-    <script type="text/javascript" src="../patcher/js/zip.js/zip.js"></script>
-
-    <!-- GitHub API fetching -->
-    <script type="module" src="patch.js"></script>
-    <script type="text/javascript">
-        let CUSTOM_PATCHER = [];
-        const CORS_PROXY = 'https://cors.haroohie.club/'
-    </script>
+    <!-- Patcher scripts -->
+    <script type="text/javascript" src="patch.js"></script>
+    <script type="text/javascript" src="save-as.js"></script>
+    <script type="text/javascript" src="patcher/js/MarcFile.js"></script>
+    <script type="text/javascript" src="patcher/js/formats/vcdiff.js"></script>
+    <script type="text/javascript" src="patcher/js/formats/zip.js"></script>
+    <script type="text/javascript" src="patcher/js/zip.js/zip.js"></script>
 
 </head>
 <body>
-<main class="one-column">
-
-    <!-- Header -->
-    <div class="one-column-text" id="game-logo-container">
-        <object class="image-graphic logo drop-shadow" width="100%" data="./assets/game-logo.svg" type="image/svg+xml">
-            <img src="./assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
-        </object>
-    </div>
-
-    <div class="one-column-block one-column-text">
-        <h1>Patch ROM</h1>
-        <p>Choose the original <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file to patch, then press
-            "Patch ROM" to create a patched ROM.</p>
-
-        <p style="text-align: center"><img src="assets/characters.png" class="image-graphic"
-                                           alt="Members of the SOS Brigade"></p>
-    </div>
-
-    <!-- Patcher error messages -->
-    <div class="one-column-block one-column-text"><p id="message-apply" class="message"></p></div>
-
-    <!-- Patcher app -->
-    <div id="patcher-menu">
-        <div class="patcher-block">
-            <h3>Select ROM</h3>
-            <div id="patcher-file-drop" class="enabled">
-                <input type="file" id="input-file-rom" class="enabled" accept=".nds"
-                       ondragenter="this.classList.add('patcher-file-dragging');"
-                       ondragleave="this.classList.remove('patcher-file-dragging');"/>
+<main id="column-with-sidebar">
+    <div class="column-with-sidebar-body">
+        <div class="one-column-text">
+            <div id="game-logo-container">
+                <object class="image-graphic logo drop-shadow" width="100%" data="assets/game-logo.svg"
+                        type="image/svg+xml">
+                    <img src="assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
+                </object>
             </div>
-        </div>
 
-        <div class="patcher-block">
-            <h3>Integrity checks</h3>
-            <ul style="text-align: left">
-                <li>CRC32: <code id="crc32"></code></li>
-                <li>MD5: <code id="md5"></code></li>
-                <li>SHA-1: <code id="sha1"></code></li>
-            </ul>
-        </div>
+            <h1>Patch ROM</h1>
+            <div id="patcher-notice" class="notice-box hidden"></div>
+            <p>Please select your dumped <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file (see the <a
+                    href="./guide/" target="_blank">setup guide</a> for how to get this), choose the options you'd
+                like to use, then click "Patch ROM" to apply the patch.</p>
 
-        <div class="patcher-block">
-            <h3 id="select-patch-version">Select version</h3>
-            <div id="row-file-patch">
-                <input type="file" id="input-file-patch" accept=".xdelta"/>
+            <!-- Options menu -->
+            <div id="patcher-menu">
+                <div id="patcher-options">
+                    <h3>Options</h3>
+                    <table id="patcher-options-table">
+                        <tr>
+                            <td colspan="2">
+                                <img src="./assets/opening-subtitles.png"
+                                     alt="Screenshot of the opening movie with English subtitles and karaoke track"
+                                     class="patcher-option-image"/>
+                                <b>OP/ED subtitles</b><br/>
+                                Configure whether the opening movie and end credits should be subtitled in English with
+                                Japanese karaoke typesetting.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="patcher-option-radio">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="op-ed-subtitling" value="subbedoped" checked/>
+                                        Subtitled
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="patcher-option-radio">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="op-ed-subtitling" value="cleanoped"/>
+                                        Clean
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center"><small>(Recommended)</small></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <br/><img src="./assets/voiced-line-subtitles.png"
+                                          alt="Screenshot of the puzzle phase with a subtitled voice line"
+                                          class="patcher-option-image"/>
+                                <b>Voiced line subtitles</b><br/>
+                                Configure whether voiced lines in the puzzle phase should have supplementary English
+                                subtitles display on screen.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="patcher-option-radio">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="voice-lines-subtitling" value="voicesubs" checked/>
+                                        Subtitles
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="patcher-option-radio">
+                                <div>
+
+                                    <label>
+                                        <input type="radio" name="voice-lines-subtitling" value="novoicesubs"/>
+                                        No Subtitles
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center"><small>(Recommended)</small></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Rom selector !-->
+                <div>
+                    <h3>Select ROM</h3>
+                    <input type="file" id="input-file-rom" class="input-file enabled" accept=".nds"
+                           ondragenter="this.classList.add('patcher-file-dragging');"
+                           ondragleave="this.classList.remove('patcher-file-dragging');"/>
+                </div>
+
+                <!-- Patch version selector and apply button !-->
+                <div>
+                    <h3>Select version & apply</h3>
+                    <label>
+                        <b>Version:</b>&nbsp;
+                        <select id="patcher-version-dropdown">
+                            <option value="latest">Latest (v0.1) &#xFF0D; March 29, 2022</option>
+                        </select>
+                    </label>
+                    <br/><br/>
+                    <button id="patcher-patch-button" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp;
+                        Patch ROM
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <div class="patcher-block">
-            <h3>Apply patch</h3>
-            <button id="button-apply" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp; Patch ROM
-            </button>
             <br/>
         </div>
     </div>
-
-    <!-- Disabled ROM header options -->
-    <div class="hidden">
-        <div id="row-removeheader">
-            <input type="checkbox" id="checkbox-removeheader"/>
-            <label for="checkbox-removeheader" data-localize="remove_header">Remove header before patching</label>
+    <div class="column-with-sidebar-bar">
+        <div class="image-graphic" style="text-align: center">
+            <object class="drop-shadow" data="assets/sos-logo.svg" type="image/svg+xml" style="max-width: 100px">
+                <img src="assets/sos-logo.png" alt="SOS Brigade logo"/>
+            </object>
         </div>
-        <div id="row-addheader">
-            <input type="checkbox" id="checkbox-addheader"/>
-            <label for="checkbox-addheader" data-localize="add_header">Add temporary header</label>
-            <small>(<label id="headersize" for="checkbox-addheader"></label>)</small>
+
+        <div class="one-column-text">
+            <h1>Useful links</h1>
+            <ul>
+                <li><a href="./guide">Setup guide</a></li>
+                <li><a href="https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases">Changelogs</a></li>
+            </ul>
+
+            <h3>More links</h3>
+            <a href="./" class="exclude-device-href">
+                <div class="button back-button">
+                    <i class="fa-solid fa-rotate-left"></i> Back to home
+                </div>
+            </a>
+            <a href="https://discord.gg/nesRSbpeFM" class="exclude-device-href" target="_blank"
+               rel="noopener noreferrer">
+                <div class="button" id="discord-button" style="margin: 0.5em auto">
+                    <i class="fa-brands fa-discord"></i>&nbsp; Join the Discord
+                </div>
+            </a>
         </div>
-    </div>
 
-    <!-- Disabled language selection -->
-    <div class="one-column-block hidden">
-        <div id="switch-container"><span id="switch-create-button"><span
-                data-localize="creator_mode">Creator mode</span> <span
-                id="switch-create" class="switch disabled"></span></span></div>
-
-        <label for="select-language"></label><select id="select-language">
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-        <option value="de">Deutsch</option>
-        <option value="es">Español</option>
-        <option value="nl">Nederlands</option>
-        <option value="sv">Svenska</option>
-        <option value="ca">Català</option>
-        <option value="pt-br">Português Brasileiro</option>
-        <option value="ru">Russian</option>
-        <option value="ja">日本語</option>
-    </select>
-    </div>
-
-    <!-- Back button -->
-    <div class="one-column-block">
-        <a href="./">
-            <div class="button back-button">
-                <i class="fa-solid fa-rotate-left"></i> Back to home
-            </div>
-        </a>
-    </div>
-
-    <!-- Patcher attribution -->
-    <div class="one-column-block" style="text-align: center">
-        <p>This patcher uses <a href="https://github.com/marcrobledo/RomPatcher.js/">RomPatcher.js</a> by <a
-                href="https://www.marcrobledo.com/">Marc Robledo</a>, licensed under MIT.</p>
+        <!-- Attribution -->
+        <div class="one-column-text">
+            <h3>Attribution</h3>
+            <p style="text-align: center"><a href="https://github.com/marcrobledo/RomPatcher.js/">RomPatcher.js</a> by
+                <a href="https://www.marcrobledo.com/">Marc Robledo</a><br/>Licensed under MIT</p>
+        </div>
     </div>
 </main>
 <footer></footer>
