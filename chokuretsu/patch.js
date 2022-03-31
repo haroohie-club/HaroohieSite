@@ -117,7 +117,7 @@ function parsePatchFile(fileName, version) {
 
     let encodedUri;
     if (!DEBUG_MODE) {
-        encodedUri = (CORS_PROXY + 'https://github.com/' + REPO_ORG + '/' + REPO + '/releases/' + version + '/download/' + fileName);
+        encodedUri = (CORS_PROXY + 'https://github.com/' + REPO_ORG + '/' + REPO + '/releases/download/' + version + '/' + fileName);
     } else {
         encodedUri = DEBUG_PATCH;
     }
