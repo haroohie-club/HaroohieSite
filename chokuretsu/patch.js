@@ -10,8 +10,8 @@ const DEBUG_PATCH = 'dummy_patch.xdelta';
 // Available patches
 const AVAILABLE_PATCHES = [
     {
-        version: '0.1',
-        date: 'March 29, 2022'
+        version: '0.0',
+        date: 'March 31, 2022'
     }/*,
     {
         version: '0.2',
