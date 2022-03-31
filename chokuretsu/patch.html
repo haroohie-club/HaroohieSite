@@ -39,110 +39,110 @@
 <body>
 <main id="column-with-sidebar">
     <div class="column-with-sidebar-body">
-        <div class="one-column-text" id="game-logo-container">
-            <object class="image-graphic logo drop-shadow" width="100%" data="assets/game-logo.svg"
-                    type="image/svg+xml">
-                <img src="assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
-            </object>
-        </div>
-
         <div class="one-column-text">
+            <div id="game-logo-container">
+                <object class="image-graphic logo drop-shadow" width="100%" data="assets/game-logo.svg"
+                        type="image/svg+xml">
+                    <img src="assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
+                </object>
+            </div>
+
             <h1>Patch ROM</h1>
             <div id="patcher-notice" class="notice-box hidden"></div>
             <p>Please select your dumped <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file (see the <a
                     href="./guide/" target="_blank">setup guide</a> for how to get this), choose the options you'd
                 like to use, then click "Patch ROM" to apply the patch.</p>
+
+            <!-- Options menu -->
+            <div id="patcher-menu">
+                <div id="patcher-options">
+                    <h3>Options</h3>
+                    <table id="patcher-options-table">
+                        <tr>
+                            <td colspan="2">
+                                <img src="./assets/opening-subtitles.png"
+                                     alt="Screenshot of the opening movie with English subtitles and karaoke track"
+                                     class="patcher-option-image"/>
+                                <b>OP/ED subtitles</b><br/>
+                                Configure whether the opening movie and end credits should be subtitled in English with
+                                Japanese karaoke typesetting.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="patcher-option-radio">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="op-ed-subtitling" value="subbedoped" checked/>
+                                        Subtitled<br/><small>(Recommended)</small>
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="patcher-option-radio">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="op-ed-subtitling" value="cleanoped"/>
+                                        Clean
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <br/><img src="./assets/voiced-line-subtitles.png"
+                                          alt="Screenshot of the puzzle phase with a subtitled voice line"
+                                          class="patcher-option-image"/>
+                                <b>Voiced line subtitles</b><br/>
+                                Configure whether voiced lines in the puzzle phase should have supplementary English
+                                subtitles display on screen.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="patcher-option-radio">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="voice-lines-subtitling" value="voicesubs" checked/>
+                                        Subtitles<br/><small>(Recommended)</small>
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="patcher-option-radio">
+                                <div>
+
+                                    <label>
+                                        <input type="radio" name="voice-lines-subtitling" value="novoicesubs"/>
+                                        No Subtitles
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Rom selector !-->
+                <div>
+                    <h3>Select ROM</h3>
+                    <input type="file" id="input-file-rom" class="input-file enabled" accept=".nds"
+                           ondragenter="this.classList.add('patcher-file-dragging');"
+                           ondragleave="this.classList.remove('patcher-file-dragging');"/>
+                </div>
+
+                <!-- Patch version selector and apply button !-->
+                <div>
+                    <h3>Select version & apply</h3>
+                    <label>
+                        <b>Version:</b>&nbsp;
+                        <select id="patcher-version-dropdown">
+                            <option value="latest">Latest (v0.1) &#xFF0D; March 29, 2022</option>
+                        </select>
+                    </label>
+                    <br/><br/>
+                    <button id="patcher-patch-button" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp;
+                        Patch ROM
+                    </button>
+                </div>
+            </div>
+            <br/>
         </div>
-
-        <!-- Options menu -->
-        <div id="patcher-menu" class="one-column-text">
-            <div id="patcher-options">
-                <h3>Options</h3>
-                <table id="patcher-options-table">
-                    <tr>
-                        <td colspan="2">
-                            <img src="./assets/opening-subtitles.png"
-                                 alt="Screenshot of the opening movie with English subtitles and karaoke track"
-                                 class="patcher-option-image"/>
-                            <b>OP/ED subtitles</b><br/>
-                            Configure whether the opening movie and end credits should be subtitled in English with
-                            Japanese karaoke typesetting.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="patcher-option-radio">
-                            <div>
-                                <label>
-                                    <input type="radio" name="op-ed-subtitling" value="subbedoped" checked/>
-                                    Subtitled<br/><small>(Recommended)</small>
-                                </label>
-                            </div>
-                        </td>
-                        <td class="patcher-option-radio">
-                            <div>
-                                <label>
-                                    <input type="radio" name="op-ed-subtitling" value="cleanoped"/>
-                                    Clean
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <br/><img src="./assets/voiced-line-subtitles.png"
-                                      alt="Screenshot of the puzzle phase with a subtitled voice line"
-                                      class="patcher-option-image"/>
-                            <b>Voiced line subtitles</b><br/>
-                            Configure whether voiced lines in the puzzle phase should have supplementary English
-                            subtitles display on screen.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="patcher-option-radio">
-                            <div>
-                                <label>
-                                    <input type="radio" name="voice-lines-subtitling" value="voicesubs" checked/>
-                                    Subtitles<br/><small>(Recommended)</small>
-                                </label>
-                            </div>
-                        </td>
-                        <td class="patcher-option-radio">
-                            <div>
-
-                                <label>
-                                    <input type="radio" name="voice-lines-subtitling" value="novoicesubs"/>
-                                    No Subtitles
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- Rom selector !-->
-            <div>
-                <h3>Select ROM</h3>
-                <input type="file" id="input-file-rom" class="input-file enabled" accept=".nds"
-                       ondragenter="this.classList.add('patcher-file-dragging');"
-                       ondragleave="this.classList.remove('patcher-file-dragging');"/>
-            </div>
-
-            <!-- Patch version selector and apply button !-->
-            <div>
-                <h3>Select version & apply</h3>
-                <label>
-                    <b>Version:</b>&nbsp;
-                    <select id="patcher-version-dropdown">
-                        <option value="latest">Latest (v0.1) &#xFF0D; March 29, 2022</option>
-                    </select>
-                </label>
-                <br/><br/>
-                <button id="patcher-patch-button" class="disabled" disabled><i class="fa-solid fa-file-import"></i>&nbsp;
-                    Patch ROM
-                </button>
-            </div>
-        </div>
-        <br/>
     </div>
     <div class="column-with-sidebar-bar">
         <div class="image-graphic" style="text-align: center">

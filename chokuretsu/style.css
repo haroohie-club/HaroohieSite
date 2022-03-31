@@ -374,14 +374,6 @@ li {
     padding-left: 0.2em;
 }
 
-.patcher-block {
-    flex: 2 0 45%;
-    padding-left: 1em;
-    padding-right: 1em;
-    max-width: 40%;
-    text-align: center;
-}
-
 /* Patcher file selection */
 .patcher-file-dragging {
     border-color: #969ba6 !important;
@@ -511,24 +503,19 @@ object {
         width: 153%;
     }
 
-    /* Patcher menu columns on mobile */
-    #patcher-menu {
-        flex-direction: column;
-    }
-
-    .patcher-block {
-        max-width: 100%;
+    /* Additional limits for patcher menu */
+    @media screen and (max-width: 750px) {
+        #patcher-menu {
+            grid-template-columns: repeat(auto-fit, 95vw);
+        }
     }
 
     /* Additional limits for extra small phones */
     @media screen and (max-width: 330px) {
+
         /* Hide SOS dan logo */
         #sos-logo-box {
             display: none;
-        }
-
-        #patcher-menu {
-            grid-template-columns: repeat(auto-fill, 100%);
         }
 
         /* Hide the Nintendo DS gameplay video */
