@@ -51,7 +51,7 @@ window.onload = () => {
 
     // Unzipping library support
     let script = document.createElement('script');
-    script.src = '../patcher/js/zip.js/inflate.js';
+    script.src = './patcher/js/zip.js/inflate.js';
     document.getElementsByTagName('head')[0].appendChild(script);
 
     // When a ROM file is selected
