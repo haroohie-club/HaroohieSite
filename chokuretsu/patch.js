@@ -7,6 +7,11 @@ const CORS_PROXY = 'https://cors.haroohie.club/';
 const DEBUG_MODE = false;
 const DEBUG_PATCH = '';
 
+// SHA checks
+const SHA_CHECKS = true;
+const REQUIRED_ROM_SHA = '78BD9E59B0D7432EC4D67AC76400A0162431AF9D4A724BF3D38764D13E6F6498'
+const KNOWN_BAD_ROMS_SHA = ['0B07B8E888268A3F99161B8F79A5C8DF44C187A41ACF59E5D8D3DBBFD919DF75']
+
 // Available patches
 const AVAILABLE_PATCHES = [
     /*
@@ -22,7 +27,7 @@ const AVAILABLE_PATCHES = [
 ].reverse();
 
 // RomPatcher data variables
-let romFile, patchFile, patch, tempFile, headerSize;
+let romFile, patchFile, patch, tempFile, headerSize, romSha;
 
 // Run when the window loads
 window.onload = () => {
@@ -55,8 +60,14 @@ window.onload = () => {
     document.getElementsByTagName('head')[0].appendChild(script);
 
     // When a ROM file is selected
-    document.getElementById('input-file-rom').addEventListener('change', function () {
-        romFile = new MarcFile(this, _parseROM);
+    document.getElementById('input-file-rom').addEventListener('change', async function () {
+        hideNotice();
+        try {
+            romFile = new MarcFile(this, _parseROM);
+        } catch (error) {
+            showNotice('error', 'Invalid ROM selected. Please select a valid <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file.');
+            return;
+        }
 
         let patchButton = document.getElementById('patcher-patch-button');
         patchButton.classList.remove('disabled');
@@ -83,12 +94,36 @@ window.onload = () => {
             } else {
                 patch = parseVCDIFF(patchFile);
             }
+        }).then(async () => {
+            if (SHA_CHECKS) {
+                const SHA_CHECK_PROMISE = getRomSha(romFile).then(sha => {
+                    console.log(sha);
+                    romSha = sha.toUpperCase();
+                });
+
+                await SHA_CHECK_PROMISE;
+
+                if (romSha !== REQUIRED_ROM_SHA) {
+                    if (romSha === '') {
+                        throw('Failed to calculate SHA-256 of your ROM.');
+                    }
+                    for (let i = 0; i < KNOWN_BAD_ROMS_SHA.length; i++) {
+                        if (romSha === KNOWN_BAD_ROMS_SHA[i]) {
+                            throw('The SHA-256 hash of the ROM you have selected matches that of a known bad ROM circulated on the internet that contains corrupt graphics and invalid header data. This ROM is unable to be patched.');
+                        }
+                    }
+                    throw('Invalid ROM. Please make sure you selected the ROM for the right game and that you carefully followed the correct dumping instructions.');
+                }
+            }
         }).then(() => {
             applyPatch(patch, romFile, false);
+        }).catch((error) => {
+            showNotice('error', error);
         });
     });
 }
 
+// Parse the ROM zip and header data
 function _parseROM() {
     if (romFile.readString(4).startsWith(ZIP_MAGIC)) {
         ZIPManager.parseFile(romFile);
@@ -97,6 +132,22 @@ function _parseROM() {
         } else if ((headerSize = hasHeader(romFile))) {
         }
     }
+}
+
+function getRomSha(romFile) {
+    return window.crypto.subtle.digest('SHA-256', romFile._u8array.buffer)
+        .then(romHash => {
+            let hashBytes = new Uint8Array(romHash);
+            let hexString = '';
+            for (let i = 0; i < hashBytes.length; i++) {
+                hexString += padZeroes(hashBytes[i], 1);
+            }
+            return hexString;
+        })
+        .catch(function () {
+            showNotice('error', 'Failed to calculate SHA-256 of your ROM.');
+            return '';
+        });
 }
 
 
