@@ -248,20 +248,20 @@ input[type="radio"]:checked {
 
 /* Column with sidebar page setup (guide) */
 #column-with-sidebar {
-    max-width: 1400px;
+    max-width: 1100px;
 }
 
 .column-with-sidebar-body {
     flex: 3;
-    padding: 1em 0em 1em 0em;
+    padding: 1em 1em 1em 1em;
     min-height: 100%;
-    min-width: 800px;
+    min-width: 600px;
     max-width: 1140px;
 }
 
 .column-with-sidebar-bar {
     flex: 1;
-    padding: 1em 0em 1em 0em;
+    padding: 1em 1em 1em 1em;
     min-height: 100%;
     max-width: 220px;
 }
@@ -341,7 +341,6 @@ input[type="radio"]:checked {
 }
 
 .one-column-text {
-    max-width: 750px;
 }
 
 li {
@@ -456,7 +455,7 @@ object {
 }
 
 /* What to do when the screen shrinks*/
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1230px) {
 
     /* Move the left column (DS) below the main information */
     #left-column {
@@ -465,17 +464,8 @@ object {
         text-align: center;
     }
 
-    main {
+    #main-two-columns {
         flex-direction: column;
-    }
-
-    .column-with-sidebar-bar {
-        max-width: 100%;
-    }
-
-    /* Guide page body */
-    .column-with-sidebar-body {
-        min-width: 250px;
     }
 
     /* DS Overlay on mobile */
@@ -504,6 +494,21 @@ object {
         margin-left: auto;
         margin-right: auto;
         width: 153%;
+    }
+
+    @media screen and (max-width: 880px) {
+        #column-with-sidebar {
+            flex-direction: column;
+        }
+
+        .column-with-sidebar-bar {
+            max-width: 100%;
+        }
+
+        /* Guide page body */
+        .column-with-sidebar-body {
+            min-width: 250px;
+        }
     }
 
     /* Additional limits for patcher menu */
