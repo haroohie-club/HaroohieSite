@@ -36,7 +36,8 @@
     <meta id="redirect-if-device-not-selected">
     <div class="column-with-sidebar-body">
         <div class="one-column-text" id="game-logo-container">
-            <object class="image-graphic logo drop-shadow" width="100%" data="../assets/game-logo.svg" type="image/svg+xml">
+            <object class="image-graphic logo drop-shadow" width="100%" data="../assets/game-logo.svg"
+                    type="image/svg+xml">
                 <img src="../assets/game-logo.png" alt="The Series of Haruhi Suzumiya logo"/>
             </object>
         </div>
@@ -104,7 +105,16 @@
                 <li>Slot-1 Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as
                     required)
                 </li>
-                <li>Smartphone, tablet or other device that can create a Wi-Fi hotspot</li>
+                <li>Smartphone, tablet or other device that can create an unsecured or WEP-secured Wi-Fi hotspot
+                    <ul>
+                        <li>Most modern computers aren't able to do this, unfortunately. The best devices for doing this
+                            are Android smartphones.
+                        </li>
+                        <li>Apple and Windows devices (including the iPhone) are not capable of
+                            creating insecure or WEP-secured hotspots.
+                        </li>
+                    </ul>
+                </li>
                 <li>A computer you can use to download wooddumper and connect to said hotspot with</li>
                 <li>A DS game with Wi-Fi support. It doesn't matter that the service has ended. Unfortunately, <i>Suzumiya
                     Haruhi no Chokuretsu</i> does not have Wi-Fi support.
@@ -113,18 +123,19 @@
             <b>Method:</b>
             <ol>
                 <li>Using your smartphone, tablet or other device that can create a wireless hotspot, make an unsecured
-                    (no password) hotspot.
+                    (no password) or WEP secured hotspot (must be WEP-secured; WPA and other modern encryption standards
+                    are not supported by the DS).
                 </li>
                 <li>On the other computer, <a
                         href="https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/"
                         target="_blank" class="exclude-device-href">download wooddumper</a>. Then, connect that computer
-                    to the unsecured hotspot you just created.
+                    to the hotspot you just created.
                 </li>
                 <li>Install the <code>wooddumper.nds</code> (not the Slot 2 version) homebrew app onto the right part of
                     your flash cart via the SD card.
                 </li>
                 <li>Insert the Nintendo DS game that has Nintendo Wi-Fi connection support and navigate to the
-                    menu that allows you to configure your Wi-Fi connection. Connect to the unsecured hotspot you made.
+                    menu that allows you to configure your Wi-Fi connection. Connect to the hotspot you made.
                 </li>
                 <li>Exit the game and remove the cartridge. Now, insert your flash cartridge you just put wooddumper on
                     and navigate to run it on your DS.
@@ -278,7 +289,7 @@
                 somewhere easily accessible.</p>
         </div>
 
-        <div id="guide-buttons">
+        <div id="guide-buttons" class="one-column-text">
             <br/>
             <a href="../guide/choose-platform.html">
                 <div class="button guide-button" style="float: left">
@@ -293,8 +304,9 @@
         </div>
 
         <br/><br/>
-        <div class="one-column-block" style="text-align: center">
-            <p>ROM dumping information courtesy of <a href="https://dumping.guide/carts/nintendo/ds" target="_blank">dumping.guide</a>,
+        <div class="one-column-text">
+            <p style="text-align: center">ROM dumping information courtesy of <a
+                    href="https://dumping.guide/carts/nintendo/ds" target="_blank">dumping.guide</a>,
                 <a href="https://dsi.cfw.guide/" target="_blank">dsi.cfw.guide</a> & <a
                         href="https://3ds.hacks.guide/" target="_blank">3ds.hacks.guide</a> contributors.
             </p>

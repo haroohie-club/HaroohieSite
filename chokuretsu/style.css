@@ -256,26 +256,26 @@ input[type="radio"]:checked {
     padding: 1em 0em 1em 0em;
     min-height: 100%;
     min-width: 800px;
+    max-width: 1140px;
 }
 
 .column-with-sidebar-bar {
     flex: 1;
     padding: 1em 0em 1em 0em;
     min-height: 100%;
+    max-width: 220px;
 }
 
 #guide-buttons {
     clear: both;
-    padding: 0 1em;
 }
 
 .guide-button {
     background-color: var(--main-blue-color);
-    max-width: 10em;
     font-size: 1em;
     text-align: center;
     display: inline;
-    margin: auto;
+    margin: 0em 0.5em;
 }
 
 #guide-platforms {
@@ -310,7 +310,6 @@ input[type="radio"]:checked {
 .guide-platform-indicator {
     background-color: var(--main-red-color);
     color: white;
-    margin: 0 1em;
     padding: 0.2em;
     border-radius: 0.3em;
     max-width: 10em;
@@ -457,7 +456,7 @@ object {
 }
 
 /* What to do when the screen shrinks*/
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 1050px) {
 
     /* Move the left column (DS) below the main information */
     #left-column {
@@ -468,6 +467,10 @@ object {
 
     main {
         flex-direction: column;
+    }
+
+    .column-with-sidebar-bar {
+        max-width: 100%;
     }
 
     /* Guide page body */
