@@ -11,8 +11,10 @@ const DEBUG_PATCH = '';
 const SHA_CHECKS = true;
 const REQUIRED_ROM_SHA = '78BD9E59B0D7432EC4D67AC76400A0162431AF9D4A724BF3D38764D13E6F6498'
 
-// Bad ROM handling (if SHA checks are on)
+// SHA of a known bad ROM dump
 const BAD_ROM_SHA = '0B07B8E888268A3F99161B8F79A5C8DF44C187A41ACF59E5D8D3DBBFD919DF75' // ROM of a known bad dump
+
+// Whether to repair bad ROM dumps with a patch
 const FIX_BAD_ROM = true;
 const REPAIR_PATCH = './assets/repair-patch.xdelta'
 
