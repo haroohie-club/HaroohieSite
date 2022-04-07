@@ -10,7 +10,11 @@ const DEBUG_PATCH = '';
 // SHA checks
 const SHA_CHECKS = true;
 const REQUIRED_ROM_SHA = '78BD9E59B0D7432EC4D67AC76400A0162431AF9D4A724BF3D38764D13E6F6498'
-const KNOWN_BAD_ROMS_SHA = ['0B07B8E888268A3F99161B8F79A5C8DF44C187A41ACF59E5D8D3DBBFD919DF75']
+
+// Bad ROM handling (if SHA checks are on)
+const BAD_ROM_SHA = '0B07B8E888268A3F99161B8F79A5C8DF44C187A41ACF59E5D8D3DBBFD919DF75' // ROM of a known bad dump
+const FIX_BAD_ROM = true;
+const REPAIR_PATCH = './assets/repair-patch.xdelta'
 
 // Available patches
 const AVAILABLE_PATCHES = [
@@ -27,7 +31,7 @@ const AVAILABLE_PATCHES = [
 ].reverse();
 
 // RomPatcher data variables
-let romFile, patchFile, patch, tempFile, headerSize, romSha;
+let romFile, patchFile, patch, tempFile, headerSize, romSha, isBadRom, repairPatchFile, repairPatch;
 
 // Run when the window loads
 window.onload = () => {
@@ -76,11 +80,10 @@ window.onload = () => {
 
     // When the Patch ROM button is pressed
     document.getElementById('patcher-patch-button').addEventListener("click", function () {
-        let version = document.getElementById('patcher-version-dropdown').value;
+        let version = getSelectedVersion();
 
         // Gets the file name
         parsePatchFile(getFileName(), version).then(arrayBuffer => {
-            console.log(arrayBuffer);
             return new MarcFile(arrayBuffer);
         }).then(parsedFile => {
             patchFile = parsedFile;
@@ -95,9 +98,9 @@ window.onload = () => {
                 patch = parseVCDIFF(patchFile);
             }
         }).then(async () => {
+            isBadRom = false;
             if (SHA_CHECKS) {
                 const SHA_CHECK_PROMISE = getRomSha(romFile).then(sha => {
-                    console.log(sha);
                     romSha = sha.toUpperCase();
                 });
 
@@ -107,16 +110,47 @@ window.onload = () => {
                     if (romSha === '') {
                         throw('Failed to calculate SHA-256 of your ROM.');
                     }
-                    for (let i = 0; i < KNOWN_BAD_ROMS_SHA.length; i++) {
-                        if (romSha === KNOWN_BAD_ROMS_SHA[i]) {
+                    if (romSha === BAD_ROM_SHA) {
+                        isBadRom = true;
+                        if (!FIX_BAD_ROM) {
                             throw('The SHA-256 hash of the ROM you have selected matches that of a known bad ROM circulated on the internet that contains corrupt graphics and invalid header data. This ROM is unable to be patched.');
+                        } else {
+                            const REPAIR_ROM = parseRepairFile().then(repairArrayBuffer => {
+                                return new MarcFile(repairArrayBuffer);
+                            }).then(parsedRepairPatch => {
+                                repairPatchFile = parsedRepairPatch;
+                                repairPatchFile.littleEndian = false;
+                                repairPatchFile.fileName = 'repair-patch.xdelta';
+
+                                let header = repairPatchFile.readString(6);
+                                if (header.startsWith(ZIP_MAGIC)) {
+                                    repairPatch = false;
+                                    ZIPManager.parseFile(repairPatchFile);
+                                } else {
+                                    repairPatch = parseVCDIFF(repairPatchFile);
+                                }
+                            }).then(() => {
+                                showNotice('info', 'Repairing bad ROM...');
+                                return applyPatch(repairPatch, romFile, false, 'repaired');
+                            }).then(repairedRom => {
+                                romFile = repairedRom;
+                                showNotice('info', 'Repair patch applied!')
+                            }).catch((error) => {
+                                showNotice('error', '(Error repairing ROM) ' + error);
+                            });
+
+                            await REPAIR_ROM;
                         }
+                    } else {
+                        throw('Invalid ROM. Please make sure you selected the ROM for the right game and that you carefully followed the correct dumping instructions.');
                     }
-                    throw('Invalid ROM. Please make sure you selected the ROM for the right game and that you carefully followed the correct dumping instructions.');
                 }
             }
         }).then(() => {
-            applyPatch(patch, romFile, false);
+            showNotice('Patching ROM with ' + getFileName() + '...')
+            return applyPatch(patch, romFile, false, 'english-v' + version);
+        }).then(patchFile => {
+            saveRomFile(patchFile);
         }).catch((error) => {
             showNotice('error', error);
         });
@@ -150,12 +184,11 @@ function getRomSha(romFile) {
         });
 }
 
-
 // Gets the name of the file needed to be fetched to patch
 function getFileName() {
     let opEdSubsConfig = document.querySelector('input[name="op-ed-subtitling"]:checked').value;
     let voicedLineConfig = document.querySelector('input[name="voice-lines-subtitling"]:checked').value;
-    let version = document.getElementById('patcher-version-dropdown').value;
+    let version = getSelectedVersion();
 
     // Possible file names: patch-(subbedoped|cleanoped)-(voicesubs|novoicesubs).xdelta
     return ('Chokuretsu-patch-v' + version + '-' + opEdSubsConfig + '-' + voicedLineConfig + '.xdelta');
@@ -163,36 +196,43 @@ function getFileName() {
 
 // Returns the versioned patch file with the given name from the GitHub org
 function parsePatchFile(fileName, version) {
-    // Download from URL
     showNotice('info', 'Downloading patch...');
 
     let encodedUri;
     if (!DEBUG_MODE) {
+        // Download from GitHub
         encodedUri = (CORS_PROXY + 'https://github.com/' + REPO_ORG + '/' + REPO + '/releases/download/' + version + '/' + fileName);
     } else {
         encodedUri = DEBUG_PATCH;
     }
+    return fetchFile(encodedUri);
+}
+
+function parseRepairFile() {
+    showNotice('info', 'Bad ROM detected! Fetching repair patch...');
+    return fetchFile(REPAIR_PATCH);
+}
+
+function fetchFile(encodedUri) {
     let fileUri = decodeURI(encodedUri.trim());
     return fetch(fileUri).then(result => result.arrayBuffer()) // Gets the response and returns it as a blob
         .then(arrayBuffer => {
             return arrayBuffer;
         }).catch(function (error) {
             console.error(error);
-            showNotice('error', 'An error occurred downloading the patch file from GitHub: ' + error.message)
+            showNotice('error', 'An error occurred fetching a patch file: ' + error.message)
             return undefined;
         });
 }
 
-function applyPatch(patch, rom, validateChecksums) {
-    console.log(patch);
-    console.log(rom);
+function applyPatch(patch, rom, validateChecksums, name) {
     if (patch && rom) {
         showNotice('info', 'Applying patch...');
 
         // Patch the rom
         try {
             patch.apply(rom, validateChecksums);
-            preparePatchedRom(rom, patch.apply(rom, validateChecksums));
+            return preparePatchedRom(rom, patch.apply(rom, validateChecksums), name);
         } catch (error) {
             console.error(error);
             showNotice('error', 'Error applying patch: ' + error.message);
@@ -205,14 +245,25 @@ function applyPatch(patch, rom, validateChecksums) {
             showNotice('error', 'Please choose a ROM first');
         }
     }
+    return null;
 }
 
 // Prepare the final patched ROM
-function preparePatchedRom(originalRom, patchedRom) {
-    patchedRom.fileName = originalRom.fileName.replace(/\.([^\\.]*?)$/, ' (patched).$1');
+function preparePatchedRom(originalRom, patchedRom, name) {
+    patchedRom.fileName = originalRom.fileName.replace(/\.([^\\.]*?)$/, ' (' + name + ').$1');
     patchedRom.fileType = originalRom.fileType;
+    return patchedRom;
+}
+
+// Prompt the user to save the patched ROM file
+function saveRomFile(patchedRom) {
+    if (isBadRom) {
+        showNotice('info', '<b>"You\'re using a bad ROM! A bad ROM! Penalty!"\n</b><br/>The SHA-256 checksum of the ROM you selected matches that of a known bad ROM that contains corrupt header data and graphics. A repair was performed on your ROM before English patches were applied.')
+    } else {
+        showNotice('info', '<b>Patch applied successfully!</b><br/>Enjoy the game!')
+    }
+
     patchedRom.save();
-    hideNotice();
 }
 
 function canHaveFakeHeader(romFile) {
@@ -266,4 +317,9 @@ function hideNotice() {
     if (!patcherElement.classList.contains('hidden')) {
         patcherElement.classList.add('hidden');
     }
+}
+
+// Returns the selected version
+function getSelectedVersion() {
+    return document.getElementById('patcher-version-dropdown').value;
 }
