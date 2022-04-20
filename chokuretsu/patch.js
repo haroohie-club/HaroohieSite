@@ -330,6 +330,6 @@ function incrementDownloadCounter() {
     fetch(COUNTER_URL).then(result => {
         return result.json();
     }).then(jsonResult => {
-        alert(jsonResult.value);
+        console.log('Download number: ' + jsonResult.value);
     });
 }
