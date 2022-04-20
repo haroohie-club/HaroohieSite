@@ -20,16 +20,10 @@ const REPAIR_PATCH = './assets/repair-patch.xdelta'
 
 // Available patches
 const AVAILABLE_PATCHES = [
-    /*
-    {
-        version: '0.1',
-        date: 'April ??, 2022'
-    },
     {
         version: '0.2',
-        date: 'April ??, 2022'
+        date: 'April 20, 2022'
     },
-    */
 ].reverse();
 
 // RomPatcher data variables
