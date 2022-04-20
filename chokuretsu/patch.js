@@ -26,6 +26,9 @@ const AVAILABLE_PATCHES = [
     },
 ].reverse();
 
+// Counter URL
+const COUNTER_URL = 'https://api.countapi.xyz/hit/haroohie.club/downloads/';
+
 // RomPatcher data variables
 let romFile, patchFile, patch, tempFile, headerSize, romSha, isBadRom, repairPatchFile, repairPatch;
 
@@ -196,6 +199,9 @@ function parsePatchFile(fileName, version) {
 
     let encodedUri;
     if (!DEBUG_MODE) {
+        // Increment downloads
+        incrementDownloadCounter();
+
         // Download from GitHub
         encodedUri = (CORS_PROXY + 'https://github.com/' + REPO_ORG + '/' + REPO + '/releases/download/' + version + '/' + fileName);
     } else {
@@ -318,4 +324,12 @@ function hideNotice() {
 // Returns the selected version
 function getSelectedVersion() {
     return document.getElementById('patcher-version-dropdown').value;
+}
+
+function incrementDownloadCounter() {
+    fetch(COUNTER_URL).then(result => {
+        return result.json();
+    }).then(jsonResult => {
+        alert(jsonResult.value);
+    });
 }

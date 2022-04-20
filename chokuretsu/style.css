@@ -454,6 +454,19 @@ object {
     display: none;
 }
 
+#footer-downloads {
+    color: black;
+}
+
+/* Download counter */
+#download-count {
+    background-color: black;
+    color: white;
+    font-family: "Consolas", monospace;
+    padding: 0.2em;
+    margin-left: 0.1em;
+}
+
 /* What to do when the screen shrinks*/
 @media screen and (max-width: 1230px) {
 
