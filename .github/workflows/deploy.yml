@@ -45,6 +45,17 @@ jobs:
             echo "Unable to determine packager manager"
             exit 1
           fi
+      - name: Detect production environment
+        id: detect-production-env
+        run: |
+          # If this GitHub repository is in the haroohie-club organization, then it is a production environment
+          if [[ "${{ github.repository }}" == "haroohie-club/"* ]]; then
+            echo "::set-output generatecmd=env::generate"
+            exit 0
+          else
+            echo "::set-output generatecmd=env::generatedev"
+            exit 0
+          fi
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -70,7 +81,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Static HTML export with Nuxt
-        run: ${{ steps.detect-package-manager.outputs.manager }} run generate
+        run: ${{ steps.detect-package-manager.outputs.manager }} run ${{ steps.detect-production-env.outputs.generatecmd }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
