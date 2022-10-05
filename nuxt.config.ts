@@ -9,8 +9,5 @@ export default defineNuxtConfig({
         families: {
             Nunito: [400, 700],
         }
-    },
-
-    // GitHub pages
-    target: 'static'
+    }
 })
