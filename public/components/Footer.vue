@@ -16,6 +16,8 @@ footer {
     color: var(--main-gray);
     text-align: center;
     width: 100%;
+    justify-self: flex-end;
+    margin-top: auto;
 }
 </style>
 
