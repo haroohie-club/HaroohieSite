@@ -14,8 +14,9 @@ footer {
     flex-direction: column;
     background: linear-gradient(180deg, white 0%, rgba(235, 235, 235, 1) 50%);
     color: var(--main-gray);
+    width: 100vw;
+    padding: 0.4rem 0;
     text-align: center;
-    width: 100%;
     justify-self: flex-end;
     margin-top: auto;
 }
