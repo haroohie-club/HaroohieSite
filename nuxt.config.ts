@@ -14,6 +14,6 @@ export default defineNuxtConfig({
     // GitHub pages
     target: 'static',
     router: {
-        base: '/HaroohieSite/'
-    }
+        base: '/HaroohieSite/',
+    },
 })
