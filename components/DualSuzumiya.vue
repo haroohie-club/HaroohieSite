@@ -1,0 +1,42 @@
+<template>
+    <div class="ds">
+        <video class="gameplay-video" autoplay loop muted playsinline>
+            <source :src="'assets/videos/' + video" type="video/mp4" />
+            Your browser doesn't support HTML5 video :-(
+        </video>
+        <object class="system-overlay" width="610" height="640" data="assets/images/chokuretsu/nintendo-dsi.svg">
+            <img src="assets/images/chokuretsu/nintendo-dsi.png" alt="Nintendo DS displaying trailer footage" />
+        </object>
+    </div>
+</template>
+
+<style scoped>
+.ds {
+    position: relative;
+    width: 610px;
+    height: 640px;
+    margin: 0 auto;
+    background: var(--main-gray);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ds .gameplay-video {
+    position: absolute;
+    z-index: -1;
+    left: 127px;
+    top: 48px;
+    object-fit: cover;
+}
+</style>
+
+<script>
+export default {
+    props: {
+        video: {
+            type: String,
+            required: true
+        }
+    }
+}
+</script>
