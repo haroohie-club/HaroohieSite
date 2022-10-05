@@ -50,10 +50,10 @@ jobs:
         run: |
           # If this GitHub repository is in the haroohie-club organization, then it is a production environment
           if [[ "${{ github.repository }}" == "haroohie-club/"* ]]; then
-            echo "::set-output generatecmd=env::generate"
+            echo "::set-output name=command::generate"
             exit 0
           else
-            echo "::set-output generatecmd=env::generatedev"
+            echo "::set-output name=command::generatedev"
             exit 0
           fi
       - name: Setup Node
@@ -81,7 +81,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Static HTML export with Nuxt
-        run: ${{ steps.detect-package-manager.outputs.manager }} run ${{ steps.detect-production-env.outputs.generatecmd }}
+        run: ${{ steps.detect-package-manager.outputs.manager }} run ${{ steps.detect-production-env.outputs.command }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
