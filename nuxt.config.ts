@@ -13,8 +13,5 @@ export default defineNuxtConfig({
 
     content: {
         // https://content.nuxtjs.org/api/configuration
-    },
-
-    // Static rendering
-    ssr: true
+    }
 })
