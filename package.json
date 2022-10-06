@@ -3,7 +3,6 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generatedev": "nuxt generate HaroohieSite/",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"

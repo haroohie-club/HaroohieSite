@@ -9,5 +9,7 @@ export default defineNuxtConfig({
         families: {
             Nunito: [400, 700],
         }
-    }
+    },
+
+    ssr: true
 })

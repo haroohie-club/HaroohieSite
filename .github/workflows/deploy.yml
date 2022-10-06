@@ -49,11 +49,9 @@ jobs:
         id: detect-production-env
         run: |
           # If this GitHub repository is in the haroohie-club organization, then it is a production environment
-          if [[ "${{ github.repository }}" == "haroohie-club/"* ]]; then
-            echo "::set-output name=command::generate"
-            exit 0
-          else
-            echo "::set-output name=command::generatedev"
+          if [[ "${{ github.repository }}" != "haroohie-club/"* ]]; then
+            # Set the NUXT_APP_BASE_URL env variable to equal the repository name, excluding the owner
+            echo "::set-env name=NUXT_APP_BASE_URL::/${{ github.repository_name.replaceFirst(/^.*\/([^\/]+?).git$/, '$1') }}/"
             exit 0
           fi
       - name: Setup Node
@@ -81,7 +79,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Static HTML export with Nuxt
-        run: ${{ steps.detect-package-manager.outputs.manager }} run ${{ steps.detect-production-env.outputs.command }}
+        run: ${{ steps.detect-package-manager.outputs.manager }} run generate
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
