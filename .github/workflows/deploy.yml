@@ -26,7 +26,13 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 16 ]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -44,18 +50,6 @@ jobs:
           else
             echo "Unable to determine packager manager"
             exit 1
-          fi
-      - name: Detect production environment
-        id: detect-production-env
-        run: |
-          # If this GitHub repository is in the haroohie-club organization, then it is a production environment
-          if [[ "${{ github.repository }}" != "haroohie-club/"* ]]; then
-            # Set the NUXT_APP_BASE_URL env variable to equal the repository name, excluding the owner
-            echo "NUXT_APP_BASE_URL=/${{ github.event.repository.name }}/" >> $GITHUB_ENV
-            exit 0
-          else
-            echo "NUXT_APP_BASE_URL=/" >> $GITHUB_ENV
-            exit 0
           fi
       - name: Setup Node
         uses: actions/setup-node@v3

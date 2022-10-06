@@ -11,5 +11,6 @@ export default defineNuxtConfig({
         }
     },
 
+    // Static rendering
     ssr: true
 })
