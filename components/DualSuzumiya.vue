@@ -13,6 +13,7 @@
 <style scoped>
 .ds {
     position: relative;
+    z-index: 2;
     width: 610px;
     height: 640px;
     margin: 0 auto;

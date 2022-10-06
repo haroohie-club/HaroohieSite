@@ -2,13 +2,17 @@
 export default defineNuxtConfig({
     // Modules
     buildModules: ['@nuxtjs/google-fonts'],
-    modules: ['nuxt-icon'],
+    modules: ['nuxt-icon', '@nuxt/content'],
 
     // Fonts
     googleFonts: {
         families: {
             Nunito: [400, 700],
         }
+    },
+
+    content: {
+        // https://content.nuxtjs.org/api/configuration
     },
 
     // Static rendering

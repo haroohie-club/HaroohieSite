@@ -25,4 +25,20 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
+
+a {
+  color: var(--main-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  filter: brightness(80%);
+  text-decoration: underline;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a {
+  font-weight: 700;
+  color: black !important;
+  text-decoration: none !important;
+}
 </style>
