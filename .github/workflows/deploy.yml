@@ -51,7 +51,7 @@ jobs:
           # If this GitHub repository is in the haroohie-club organization, then it is a production environment
           if [[ "${{ github.repository }}" != "haroohie-club/"* ]]; then
             # Set the NUXT_APP_BASE_URL env variable to equal the repository name, excluding the owner
-            echo "::set-env name=NUXT_APP_BASE_URL::/${{ github.repository_name.replaceFirst(/^.*\/([^\/]+?).git$/, '$1') }}/"
+            echo "::set-env name=NUXT_APP_BASE_URL::/${{ github.event.repository.name }}/"
             exit 0
           fi
       - name: Setup Node
