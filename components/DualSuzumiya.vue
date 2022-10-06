@@ -4,7 +4,7 @@
             <source :src="'/videos/' + video" type="video/mp4" />
             Your browser doesn't support HTML5 video :-(
         </video>
-        <object class="system-overlay" width="610" height="640" data="/assets/images/chokuretsu/nintendo-dsi.svg">
+        <object class="system-overlay" width="610" height="640" data="/images/chokuretsu/nintendo-dsi.svg">
             <img src="/images/chokuretsu/nintendo-dsi.png" alt="Nintendo DS displaying trailer footage" />
         </object>
     </div>
