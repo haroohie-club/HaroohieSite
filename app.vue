@@ -39,6 +39,13 @@ a:hover {
 h1 a, h2 a, h3 a, h4 a, h5 a {
   font-weight: 700;
   color: black !important;
-  text-decoration: none !important;
+  text-decoration-color: inherit !important;
+}
+
+h1, h2, h3, h4, h5 {
+  /* Red underline effect */
+  text-decoration: underline;
+  text-decoration-color: var(--main-red) !important;
+  text-underline-offset: 0.6rem;
 }
 </style>

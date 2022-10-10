@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     // Fonts
     googleFonts: {
         families: {
-            Nunito: [400, 700],
+            'Nunito': [400, 700],
+            'Notica Text': [700],
         }
     },
 

@@ -16,6 +16,7 @@ footer {
     color: var(--main-gray);
     width: 100vw;
     padding: 0.4rem 0;
+    padding-top: 1.2rem;
     text-align: center;
     justify-self: flex-end;
     margin-top: auto;

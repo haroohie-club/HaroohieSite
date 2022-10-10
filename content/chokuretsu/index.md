@@ -1,7 +1,6 @@
+::chokuretsu-nav
 ## Get the translation
-* Button1
-* Button2
-* Button3
+::
 
 ## About the game
 Released in 2009 for the Nintendo DS, Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya) is a partially-voiced visual novel/puzzle game based on the Haruhi Suzumiya series!
@@ -13,5 +12,21 @@ Featuring over 36,000 lines of dialogue and many possible routes, this unofficia
 ## Follow us
 Follow us on Twitter and join our Discord Server to stay up-to-date with our latest updates and get help on patching your game.
 
-* Join our Discord
-* Follow on Twitter
+<!-- Twitter and discord buttons -->
+::button-link
+---
+color: 'discord'
+icon: 'fa6-brands:discord'
+link: 'https://discord.gg/nesRSbpeFM'
+---
+Join our Discord
+::
+
+::button-link
+---
+color: 'twitter'
+icon: 'fa6-brands:twitter'
+link: 'https://twitter.com/haroohie'
+---
+Follow on Twitter
+::
