@@ -12,7 +12,7 @@
         </div>
         <div id="links" v-if="link || tags">
             <div id="button">
-                <ButtonLink v-if="link" :link="link" color="red" icon="fa6-solid:chevron-right">Get Patch</ButtonLink>
+                <ButtonLink v-if="link" :link="link" color="blue" icon="fa6-solid:chevron-right">Get Patch</ButtonLink>
             </div>
             <div id="tags">
                 <div class="tag" v-for="tag of tags">
