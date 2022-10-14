@@ -9,35 +9,30 @@
             <BlogList />
         </div>
         <article class="box">
-            <ContentDoc>
-                <template v-slot="{ doc }">
-                    <div id="blog-top">
-                        <div id="sos-dan">
-                            <img src="/images/sos-logo.png" />
-                        </div>
-                        <div>
-                            <h1>{{ doc.navigation.title }}</h1>
-                            <div id="blog-data">
-                                <div id="blog-author-date">
-                                    <IconifiedText icon="fa6-solid:newspaper">
-                                        <i>Written by {{ doc.navigation.author }} on {{ doc.navigation.publishedAt
-                                            }}</i>
-                                    </IconifiedText>
-                                </div>
-                                <div id="blog-tags">
-                                    <IconifiedText icon="fa6-solid:tags">
-                                        <i>Tags: </i>
-                                        <span class="tag" v-for="tag of doc.navigation.tags">{{ tag }}</span>
-                                    </IconifiedText>
-                                </div>
+            <ContentDoc v-slot="{ doc }">
+                <div id="blog-top">
+                    <div id="sos-dan">
+                        <img src="/images/sos-logo.png" />
+                    </div>
+                    <div>
+                        <h1>{{ doc.navigation.title }}</h1>
+                        <div id="blog-data">
+                            <div id="blog-author-date">
+                                <IconifiedText icon="fa6-solid:newspaper">
+                                    <i>Written by {{ doc.navigation.author }} on {{ doc.navigation.publishedAt
+                                    }}</i>
+                                </IconifiedText>
+                            </div>
+                            <div id="blog-tags">
+                                <IconifiedText icon="fa6-solid:tags">
+                                    <i>Tags: </i>
+                                    <span class="tag" v-for="tag of doc.navigation.tags">{{ tag }}</span>
+                                </IconifiedText>
                             </div>
                         </div>
                     </div>
-                    <ContentRenderer :value="doc" />
-                </template>
-                <template #not-found>
-                    <p>Blog entry not found :-(</p>
-                </template>
+                </div>
+                <ContentRenderer :value="doc" />
             </ContentDoc>
         </article>
     </div>
