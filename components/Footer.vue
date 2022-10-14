@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div id="copyright">
-            <div>Website &copy; {{ current_year }}, Haroohie Translation Club</div>
+            <div>Website &copy; {{ current_year }}, <NuxtLink to="/">Haroohie Translation Club</NuxtLink></div>
             <div>Haruhi Suzumiya, the original games and related assets are property of Kadokawa / SEGA / Nagaru
                 Tanigawa / SOS Brigade</div>
         </div>

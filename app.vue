@@ -48,4 +48,9 @@ h1, h2, h3, h4, h5 {
   text-decoration-color: var(--main-red) !important;
   text-underline-offset: 0.6rem;
 }
+
+object {
+  /* Disable click events */
+  pointer-events: none;
+}
 </style>

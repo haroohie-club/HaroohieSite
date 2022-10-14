@@ -1,68 +1,53 @@
 <template>
-    <div id="index-page">
-        <div id="content">
-            <h2>Our Translations</h2>
-            <div id="releases" class="box">
-                <TranslationsGrid />
+    <div id="home-page">
+        <h2>Our Translations</h2>
+        <div id="releases" class="box">
+            <TranslationsGrid />
+        </div>
+        <div id="two-columns">
+            <div id="socials" class="box">
+                <h2>Links</h2>
+                <SocialLinks top_link="/blog" top_icon="fa6-solid:paper-plane" top_text="News & Blog" />
             </div>
-            <h2>From The Clubroom</h2>
-            <div id="two-column">
-                <div id="socials">
-                    <h3>Follow us</h3>
-                </div>
-                <div id="blogs">
-                    <h3>Latest Blog Posts</h3>
-                    <BlogList />
-                </div>
+            <div id="blogs" class="box">
+                <h2>From the Clubroom</h2>
+                <BlogList />
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
-#index-page {
+#home-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-#two-column {
+#two-columns {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding: 0;
-    margin: 0;
-    width: 1032px;
+    justify-content: space-between;
 }
 
-#socials {
-    width: 25%;
+#two-columns #socials {
+    width: 20%;
 }
 
-#blogs {
+#two-columns #blogs {
     width: 75%;
-}
-
-#content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    width: 1000px;
-}
-
-#releases {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
 }
 
 .box {
     background-color: white;
-    border-radius: 0.5rem;
-    margin: 0 auto;
-    width: 100%;
-    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    padding-right: 2rem;
+    margin: 0.5rem;
+}
+
+.box h2 {
+    margin-top: 0;
 }
 </style>
 

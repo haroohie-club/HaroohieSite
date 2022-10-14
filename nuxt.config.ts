@@ -12,6 +12,13 @@ export default defineNuxtConfig({
         }
     },
 
+    // Pre render the sitemap
+    nitro: {
+        prerender: {
+            routes: ['/sitemap.xml']
+        }
+    },
+
     content: {
         // https://content.nuxtjs.org/api/configuration
         highlight: {
