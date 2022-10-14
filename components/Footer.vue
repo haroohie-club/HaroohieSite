@@ -12,8 +12,7 @@
 footer {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, white 0%, rgba(235, 235, 235, 1) 50%);
-    color: var(--main-gray);
+    color: var(--main-dark-gray);
     width: 100vw;
     padding: 0.4rem 0;
     padding-top: 1.2rem;

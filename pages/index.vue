@@ -1,10 +1,5 @@
 <template>
     <div id="index-page">
-        <div id="topbar">
-            <div id="logo">
-                <TitleGraphic graphic="club-logo" />
-            </div>
-        </div>
         <div id="content">
             <h2>Our Translations</h2>
             <div id="releases" class="box">
@@ -45,23 +40,6 @@
 
 #blogs {
     width: 75%;
-}
-
-#topbar {
-    margin: 0 auto;
-    padding: 0;
-    padding-left: -1rem;
-}
-
-#topbar #logo {
-    max-width: 500px;
-    padding: 0.5rem;
-}
-
-#index-page {
-    /* Calisthenics */
-    background-image: url('/images/haruhi-calisthenic.png');
-    background-repeat: repeat;
 }
 
 #content {
