@@ -1,7 +1,7 @@
 <template>
     <div class="chokuretsu-nav">
         <div class="nav-left">
-            <img src="/images/chokuretsu/sos-logo.png" alt="SOS brigade logo!" />
+            <img src="/images/sos-logo.png" alt="SOS brigade logo!" />
         </div>
         <div class="nav-right">
             <slot />

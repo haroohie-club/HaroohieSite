@@ -21,12 +21,12 @@ export default {
         },
         top_icon: {
             type: String,
-            required: true,
+            required: false,
             default: 'fa6-solid:house'
         },
         top_text: {
             type: String,
-            required: true,
+            required: false,
             default: 'Back Home'
         }
     }
