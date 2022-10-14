@@ -14,9 +14,7 @@
     max-width: 1000px;
     height: min-content;
     margin: 0 auto;
-    padding: 1rem;
     filter: drop-shadow(0.12em 0.12rem 0.12rem rgba(0, 0, 0, 0.4));
-
 }
 
 .graphic-vector {

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.0.0-0",
-    "nuxt-icon": "^0.1.6"
+    "nuxt-icon": "^0.1.6",
+    "vue-carousel": "^0.18.0"
   }
 }

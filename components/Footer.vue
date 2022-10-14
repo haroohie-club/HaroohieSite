@@ -2,7 +2,7 @@
     <footer>
         <div id="copyright">
             <div>Website &copy; {{ current_year }}, Haroohie Translation Club</div>
-            <div>Haruhi Suzumiya, the original game and related assets are property of Kadokawa / SEGA / Nagaru
+            <div>Haruhi Suzumiya, the original games and related assets are property of Kadokawa / SEGA / Nagaru
                 Tanigawa / SOS Brigade</div>
         </div>
     </footer>
