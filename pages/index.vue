@@ -12,6 +12,7 @@
                 </div>
                 <div id="blogs">
                     <h3>Latest Blog Posts</h3>
+                    <BlogList />
                 </div>
             </div>
         </div>

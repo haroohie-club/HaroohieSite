@@ -3,7 +3,7 @@
     <div id="content-body">
         <div id="topbar">
             <div id="logo">
-                <TitleGraphic graphic="club-logo" />
+                <TitleGraphic graphic="club-logo" to="/" />
             </div>
         </div>
         <slot />
