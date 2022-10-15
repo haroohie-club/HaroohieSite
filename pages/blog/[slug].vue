@@ -23,7 +23,7 @@
                                 <div class="meta">
                                     <div class="date">
                                         <IconifiedText icon="fa6-solid:newspaper">
-                                            Written by {{ doc.navigation.author }} on {{ doc.navigation.publishedAt }}
+                                            Written by <NuxtLink :to="'/author/' + doc.navigation.author.toLowerCase()">{{ doc.navigation.author }}</NuxtLink> on {{ doc.navigation.publishedAt }}
                                         </IconifiedText>
                                     </div>
                                     <div class="tags">
