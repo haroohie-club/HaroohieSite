@@ -1,0 +1,1 @@
+We're the Haroohie Translation Club&mdash;dedicated to translating the Haruhi Suzumiya games into English!
