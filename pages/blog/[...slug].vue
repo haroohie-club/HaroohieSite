@@ -77,6 +77,10 @@ definePageMeta({
     justify-content: space-between;
 }
 
+#blog-tags {
+    margin-left: 10px;
+}
+
 .tag {
     margin-left: 0.5rem;
     padding: 0.2rem;
