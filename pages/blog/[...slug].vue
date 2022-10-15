@@ -14,7 +14,7 @@
                     <div id="sos-dan">
                         <img src="/images/sos-logo.png" />
                     </div>
-                    <div>
+                    <div id="metadata">
                         <h1>{{ doc.navigation.title }}</h1>
                         <div id="blog-data">
                             <div id="blog-author-date">
@@ -71,10 +71,15 @@ definePageMeta({
     box-shadow: none !important;
 }
 
+#metadata {
+    width: 100%;
+}
+
 #blog-data {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 }
 
 #sidebar {

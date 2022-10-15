@@ -1,7 +1,7 @@
 <template>
     <ContentList path="/blog" v-slot="{ list }">
         <div v-for="blog in list.slice(0, Math.min(list.length, limit)).reverse()">
-            <BlogPreview v-if="blog.navigation" :key="blog._path" :blog="blog" />
+            <BlogPreview v-if="blog.navigation" :key="blog.navigation.publishedAt" :blog="blog" />
         </div>
     </ContentList>
 </template>

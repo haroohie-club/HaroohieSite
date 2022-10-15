@@ -16,7 +16,7 @@
                     <span class="tag" v-for="tag of blog.navigation.tags">{{ tag }}</span>
                 </div>
             </div>
-            <div class="description">{{ blog.description }}</div>
+            <div class="description">{{ ((blog.description.length > 330) ? blog.description.slice(0, 329) + '&hellip;' : blog.description) }}</div>
         </div>
 
     </div>
@@ -26,6 +26,7 @@
 .blog-preview {
     display: flex;
     flex-direction: row;
+    margin-bottom: 1.5rem;
 }
 
 .blog-image {

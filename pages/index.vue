@@ -66,6 +66,7 @@
 
 #home-page .socials {
     min-width: 250px;
+    height: fit-content;
 }
 
 h2 {
