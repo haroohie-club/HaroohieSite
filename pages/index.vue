@@ -14,6 +14,9 @@
             <div class="blogs box">
                 <h2>From the Clubroom</h2>
                 <BlogPreviewStack />
+                <div class="view-more">
+                    <ButtonLink link="/blog" color="blue" icon="fa6-solid:paper-plane">View All</ButtonLink>
+                </div>
             </div>
         </div>
     </div>
@@ -67,6 +70,15 @@
 #home-page .socials {
     min-width: 250px;
     height: fit-content;
+}
+
+#home-page .blogs .view-more {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
 }
 
 h2 {
