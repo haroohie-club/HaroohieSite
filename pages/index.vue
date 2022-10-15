@@ -8,6 +8,8 @@
         </div>
         <div class="newsfeed">
             <div class="socials box">
+                <h2>About</h2>
+                <p>We're the Haroohie Translation Club&mdash;dedicated to translating the Haruhi Suzumiya games into English!</p>
                 <h2>Links</h2>
                 <SocialLinks top_link="/blog" top_icon="fa6-solid:paper-plane" top_text="News & Blog" />
             </div>

@@ -2,7 +2,7 @@
     <div class="error-404">
         <h2>404 - Not Found</h2>
         <img src="/images/404.png" alt="We're counting on you to take us home, Nagato!" />
-        <p>Click to return to a more familiar space!</p>
+        <p>Click below to return to a more familiar space!</p>
         <ButtonLink link="/" color="red" icon="fa6-solid:house">Back to Home</ButtonLink>
     </div>
 </template>
@@ -16,6 +16,35 @@
     height: 100%;
     width: 100%;
     text-align: center;
+}
+
+.error-404 img {
+    max-width: 450px;
+    height: auto;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--main-shadow);
+}
+
+/* Content display */
+#content-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--main-light-gray);
+    background-image: url('/images/haruhi-calisthenic.png');
+    background-repeat: repeat;
+    justify-content: center;
+}
+
+#topbar {
+    margin: 0 auto;
+    padding: 0;
+}
+
+#topbar #logo {
+    max-width: 500px;
+    padding: 0.5rem;
 }
 </style>
 
