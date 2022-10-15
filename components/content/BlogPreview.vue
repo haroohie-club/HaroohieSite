@@ -40,6 +40,8 @@
     max-width: 220px;
     max-height: 200px;
     height: auto;
+    border-radius: 0.5rem;
+    box-shadow: var(--main-shadow);
 }
 
 .blog-image:hover {
@@ -72,8 +74,27 @@
     width: 100%;
 }
 
+.blog-body .data .tags .tag {
+    background-color: var(--main-light-gray);
+    border-radius: 0.5rem;
+    padding: 0.1rem 0.25rem;
+    margin: 0 0.2rem;
+}
+
 .blog-body .description {
     margin-top: 1rem;
+}
+
+/* Less than 580px */
+@media screen and (max-width: 36rem) {
+    .blog-preview {
+        flex-direction: column;
+    }
+
+    .blog-image {
+        margin-top: 0;
+        margin-right: 0;
+    }
 }
 </style>
 

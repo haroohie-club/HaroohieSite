@@ -11,7 +11,7 @@
     max-height: 200px;
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+    box-shadow: var(--main-shadow);
 }
 
 .gallery img {

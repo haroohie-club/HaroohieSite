@@ -46,7 +46,7 @@
     color: var(--newspaper-black);
 
     /* Subtle Drop shadow */
-    box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+    box-shadow: var(--main-shadow);
 }
 
 .paper-topbar {

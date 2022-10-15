@@ -45,7 +45,7 @@ definePageMeta({
 })
 </script>
 
-<style>
+<style scoped>
 #blog-page {
     display: flex;
     flex-direction: row;
@@ -77,47 +77,53 @@ definePageMeta({
     justify-content: space-between;
 }
 
-.tag {
+#sidebar {
+    width: 20%;
+    margin-right: 0.5rem;
+    padding-right: 1.5rem;
+    height: fit-content !important;
+}
+
+.blog-tags .tag {
+    background-color: var(--main-light-gray);
+    border-radius: 0.5rem;
+    padding: 0.1rem 0.25rem;
+    margin: 0 0.2rem;
+}
+
+.box {
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: var(--main-shadow);
+}
+
+
+article .tag {
     margin-left: 0.5rem;
     padding: 0.2rem;
     background-color: var(--main-light-gray);
     border-radius: 0.5rem;
 }
 
-.box {
-    background-color: white;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    padding-right: 1.5rem;
-
-    /* Drop shadow */
-    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
-}
-
-#sidebar {
-    width: 20%;
-    margin-right: 1rem;
-    height: fit-content !important;
-}
-
 article {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 80%;
     width: 960px;
 }
+</style>
 
-img {
+<style>
+article img {
     max-height: 350px;
     max-width: 700px;
     border-radius: 0.5rem;
-
-    /* Drop shadow */
-    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+    box-shadow: var(--main-shadow);
 }
 
-pre {
+article pre {
     background-color: var(--main-light-gray);
     padding: 0.5rem;
     border-radius: 0.5rem;

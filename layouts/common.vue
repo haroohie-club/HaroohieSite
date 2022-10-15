@@ -20,12 +20,12 @@
     background-color: var(--main-light-gray);
     background-image: url('/images/haruhi-calisthenic.png');
     background-repeat: repeat;
+    justify-content: center;
 }
 
 #topbar {
     margin: 0 auto;
     padding: 0;
-    padding-left: -1rem;
 }
 
 #topbar #logo {

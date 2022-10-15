@@ -12,6 +12,7 @@
   --main-grey: #898989;
   --main-light-gray: #eeeeee;
   --main-dark-gray: #232323;
+  --main-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
 }
 
 /* Core style rules (font, bg color) */

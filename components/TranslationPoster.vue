@@ -31,6 +31,7 @@
     flex-direction: row;
     max-width: 550px;
     width: 550px;
+    min-width: 200px;
 }
 
 .translation .poster {
@@ -49,6 +50,8 @@
 .poster img {
     max-width: 180px;
     height: auto;
+    border-radius: 0.5rem;
+    box-shadow: var(--main-shadow);
 }
 
 .translation .about {
@@ -69,6 +72,13 @@
 
 .about .tags {
     margin: 0.35rem 0;
+}
+
+.about .tags .tag {
+    background-color: var(--main-light-gray);
+    border-radius: 0.5rem;
+    padding: 0.1rem 0.25rem;
+    margin: 0 0.2rem;
 }
 
 .about .tagline {
@@ -107,6 +117,36 @@
 
 .blue {
     color: var(--main-blue) !important;
+}
+
+/* Less than 580px */
+@media screen and (max-width: 36.25em) {
+    .translation {
+        flex-direction: column;
+        width: fit-content !important;
+    }
+
+    .translation .poster {
+        justify-content: center;
+        margin: auto;
+        margin-bottom: 0.5rem;
+    }
+
+    .translation .title {
+        justify-content: center;
+    }
+
+    .translation .about {
+        margin: auto;
+    }
+
+    .about .tags {
+        display: none;
+    }
+
+    .about .button {
+        display: none;
+    }
 }
 </style>
 
