@@ -16,7 +16,7 @@
                     <span class="tag" v-for="tag of blog.navigation.tags">{{ tag }}</span>
                 </div>
             </div>
-            <div class="description">{{ blog.description }} <NuxtLink :to="blog._path">Read more&hellip;</NuxtLink></div>
+            <div class="description">{{ blog.description }}</div>
         </div>
 
     </div>
