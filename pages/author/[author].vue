@@ -4,8 +4,11 @@
             <div v-if="doc.author">
                 <h1 id="author">{{ doc.author.name }}</h1>
                 <div id="social">
-                    <NuxtLink :to="doc.author.twitter">
+                    <NuxtLink v-if="doc.author.twitter" :to="doc.author.twitter">
                         <IconifiedText icon="fa6-brands:twitter">Twitter</IconifiedText>
+                    </NuxtLink>
+                    <NuxtLink v-if="doc.author.github" :to="doc.author.github">
+                        <IconifiedText icon="fa6-brands:github">GitHub</IconifiedText>
                     </NuxtLink>
                 </div>
             </div>
@@ -32,6 +35,15 @@ definePageMeta({
     width: 80%;
     justify-content: center;
     margin: 0 auto
+}
+
+#social {
+    display: row;
+    flex-direction: column;
+}
+
+#social a {
+    margin-right: 0.5rem;
 }
 
 .box {
