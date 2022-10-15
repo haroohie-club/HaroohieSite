@@ -13,7 +13,7 @@
                 <span class="meta">Written by <NuxtLink :to="'/author/' + blog.navigation.author.toLowerCase()">{{ blog.navigation.author }}</NuxtLink> ({{ blog.navigation.publishedAt }})</span>
                 <div class="tags">
                     <IconifiedText icon="fa6-solid:tag" />
-                    <span class="tag" v-for="tag of blog.navigation.tags">{{ tag }}</span>
+                    <span class="tag" v-for="tag of blog.navigation.tags"><NuxtLink :to="'/tag/' + tag">{{ tag }}</NuxtLink></span>
                 </div>
             </div>
             <div class="description">{{ ((blog.description.length > 330) ? blog.description.slice(0, 329) + '&hellip;' : blog.description) }}</div>
