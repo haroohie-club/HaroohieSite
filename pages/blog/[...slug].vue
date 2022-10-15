@@ -10,7 +10,7 @@
         </div>
         <article class="box">
             <ContentDoc v-slot="{ doc }">
-                <div id="blog-top">
+                <div id="blog-top" v-if="doc.navigation">
                     <div id="sos-dan">
                         <img src="/images/sos-logo.png" />
                     </div>
@@ -41,7 +41,6 @@
 <script>
 definePageMeta({
     title: 'Haroohie Translation Club - Blog',
-    description: 'Welcome to the Haroohie Translation Club! We\'re dedicated to translating games from the Haruhi Suzumiya series into English!',
     layout: 'common'
 })
 </script>

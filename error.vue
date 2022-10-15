@@ -21,8 +21,7 @@
 
 <script setup>
 definePageMeta({
-    title: 'Haroohie Translation Club',
+    title: 'Error - Haroohie Translation Club',
     description: 'Welcome to the Haroohie Translation Club! We\'re dedicated to translating games from the Haruhi Suzumiya series into English!',
-    layout: 'common'
 })
 </script>

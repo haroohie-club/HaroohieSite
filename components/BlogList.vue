@@ -1,14 +1,7 @@
 <template>
-    <div v-for="link of blogs" :key="link._path">
-        <NuxtLink :to="link._path">
-            <div class="title">{{ link.navigation.title }}</div>
-        </NuxtLink>
-    </div>
+    <ContentList path="/blog" v-slot="{ list }">
+        <div v-for="blog of list">
+            <NuxtLink v-if="blog.navigation" :to="blog._path">{{ blog.navigation.title }}</NuxtLink>
+        </div>
+    </ContentList>
 </template>
-
-<script setup>
-const blogs = await queryContent('blog')
-    .sort({ date: 1 })
-    .where({ title: { $not: '' } })
-    .find()
-</script>

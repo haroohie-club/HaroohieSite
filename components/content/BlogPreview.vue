@@ -1,7 +1,9 @@
 <template>
     <div class="blog-preview">
         <div class="blog-image" v-if="blog.navigation.image">
-            <img :src="'/images/blog/' + blog.navigation.image" />
+            <NuxtLink :to="blog._path">
+                <img :src="'/images/blog/' + blog.navigation.image" />    
+            </NuxtLink>
         </div>
         <div class="blog-body">
             <div class="title">
@@ -10,7 +12,7 @@
             <div class="data">
                 <i class="meta">Written by {{ blog.navigation.author }} ({{ blog.navigation.publishedAt }})</i>
                 <div class="tags">
-                    <IconifiedText icon="fa6-solid:tag"><i>Tags: </i></IconifiedText>
+                    <IconifiedText icon="fa6-solid:tag" />
                     <span class="tag" v-for="tag of blog.navigation.tags">{{ tag }}</span>
                 </div>
             </div>
@@ -76,7 +78,7 @@
 </style>
 
 <script>
-import IconifiedText from './content/IconifiedText.vue';
+import IconifiedText from './IconifiedText.vue';
 export default {
     props: {
         blog: {

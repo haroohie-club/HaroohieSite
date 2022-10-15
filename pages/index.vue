@@ -11,9 +11,7 @@
             </div>
             <div id="blogs" class="box">
                 <h2>From the Clubroom</h2>
-                <ContentList path="/blog" v-slot="{ list }">
-                    <BlogPreview v-for="blog in list" :key="blog._path" :blog="blog" />
-                </ContentList>
+                <BlogPreviewStack />
             </div>
         </div>
     </div>
