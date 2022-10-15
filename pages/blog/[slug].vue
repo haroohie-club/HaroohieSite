@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="tags">
                                         <IconifiedText icon="fa6-solid:tags">Tags:</IconifiedText>
-                                        <span class="tag" v-for="tag of doc.navigation.tags">{{ tag }}</span>
+                                        <span class="tag" v-for="tag of doc.navigation.tags"><NuxtLink :to="'/tag/' + tag">{{ tag }}</NuxtLink></span>
                                     </div>
                                 </div>
                             </div>
