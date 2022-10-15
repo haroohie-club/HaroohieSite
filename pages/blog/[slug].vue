@@ -140,7 +140,7 @@ article {
 }
 
 /* Smaller than 750px */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) {
     .info .meta {
         flex-direction: column;
     }
@@ -152,7 +152,7 @@ article {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 850px) {
     #blog-page {
         flex-direction: column-reverse;
         justify-items: center;
