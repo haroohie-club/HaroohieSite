@@ -10,7 +10,7 @@
                 <NuxtLink :to="blog._path">{{ blog.navigation.title }}</NuxtLink>
             </div>
             <div class="data">
-                <i class="meta">Written by <NuxtLink :to="'/author/' + blog.navigation.author.toLowerCase()">{{ blog.navigation.author }}</NuxtLink> ({{ blog.navigation.publishedAt }})</i>
+                <span class="meta">Written by <NuxtLink :to="'/author/' + blog.navigation.author.toLowerCase()">{{ blog.navigation.author }}</NuxtLink> ({{ blog.navigation.publishedAt }})</span>
                 <div class="tags">
                     <IconifiedText icon="fa6-solid:tag" />
                     <span class="tag" v-for="tag of blog.navigation.tags"><NuxtLink :to="'/tag/' + tag">{{ tag }}</NuxtLink></span>

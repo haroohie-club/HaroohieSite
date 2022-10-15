@@ -1,6 +1,6 @@
 <template>
     <div class="error-404">
-        <h2>404 - Not Found</h2>
+        <h2>Error {{ error.statusCode }} - Not Found</h2>
         <img src="/images/404.png" alt="We're counting on you to take us home, Nagato!" />
         <p>Click below to return to a more familiar space!</p>
         <ButtonLink link="/" color="red" icon="fa6-solid:house">Back to Home</ButtonLink>
@@ -52,5 +52,9 @@
 definePageMeta({
     title: 'Error - Haroohie Translation Club',
     description: 'Welcome to the Haroohie Translation Club! We\'re dedicated to translating games from the Haruhi Suzumiya series into English!',
+})
+
+const props = defineProps({
+  error: Object
 })
 </script>
