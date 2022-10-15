@@ -19,7 +19,7 @@
                         <div id="blog-data">
                             <div id="blog-author-date">
                                 <IconifiedText icon="fa6-solid:newspaper">
-                                    <i>Written by {{ doc.navigation.author }} on {{ doc.navigation.publishedAt
+                                    <i>Written by <NuxtLink :to="'/author/' + doc.navigation.author.toLowerCase()">{{ doc.navigation.author }}</NuxtLink> on {{ doc.navigation.publishedAt
                                     }}</i>
                                 </IconifiedText>
                             </div>
