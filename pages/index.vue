@@ -11,7 +11,9 @@
             </div>
             <div id="blogs" class="box">
                 <h2>From the Clubroom</h2>
-                <BlogList />
+                <ContentList path="/blog" v-slot="{ list }">
+                    <BlogPreview v-for="blog in list" :key="blog._path" :blog="blog" />
+                </ContentList>
             </div>
         </div>
     </div>
@@ -51,7 +53,7 @@
 }
 </style>
 
-<script>
+<script setup>
 definePageMeta({
     title: 'Haroohie Translation Club',
     description: 'Welcome to the Haroohie Translation Club! We\'re dedicated to translating games from the Haruhi Suzumiya series into English!',
