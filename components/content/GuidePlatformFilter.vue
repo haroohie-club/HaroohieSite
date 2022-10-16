@@ -5,7 +5,7 @@
         </div>
         <div class="platform-filters">
             <div v-for="platform of filters" class="filter deselected"
-                :id="'filter-' + platform.toLowerCase().split(' ').join('_')" @click="clickFilter(platform)">
+                :id="'filter-' + platform.toLowerCase().replace(' ', '_')" @click="clickFilter(platform)">
                 {{ platform }}
             </div>
         </div>
@@ -40,6 +40,7 @@ export default {
                 }
             }
             else {
+                selectedFilters.forEach(f => this.clickFilter(f));
                 selectedFilters.push(filter);
                 document.getElementById('filter-' + filter.toLowerCase().split(' ').join('_')).classList.remove('deselected');
                 
