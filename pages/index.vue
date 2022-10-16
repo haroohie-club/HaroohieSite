@@ -1,27 +1,29 @@
 <template>
-    <div id="home-page">
-        <div class="top">
-            <div class="releases box">
-                <h2>Our Translations</h2>
-                <TranslationsGrid />
+    <NuxtLayout>
+        <div id="home-page">
+            <div class="top">
+                <div class="releases box">
+                    <h2>Our Translations</h2>
+                    <TranslationsGrid />
+                </div>
             </div>
-        </div>
-        <div class="newsfeed">
-            <div class="socials box">
-                <h2>About</h2>
-                <ContentDoc />
-                <h2>Links</h2>
-                <SocialLinks top_link="/blog" top_icon="fa6-solid:paper-plane" top_text="News & Blog" />
-            </div>
-            <div class="blogs box">
-                <h2>From the Clubroom</h2>
-                <BlogPreviewStack />
-                <div class="view-more">
-                    <ButtonLink link="/blog" color="blue" icon="fa6-solid:paper-plane">View All</ButtonLink>
+            <div class="newsfeed">
+                <div class="socials box">
+                    <h2>About</h2>
+                    <ContentDoc />
+                    <h2>Links</h2>
+                    <SocialLinks top_link="/blog" top_icon="fa6-solid:paper-plane" top_text="News & Blog" />
+                </div>
+                <div class="blogs box">
+                    <h2>From the Clubroom</h2>
+                    <BlogPreviewStack />
+                    <div class="view-more">
+                        <ButtonLink link="/blog" color="blue" icon="fa6-solid:paper-plane">View All</ButtonLink>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </NuxtLayout>
 </template>
 
 <style scoped>

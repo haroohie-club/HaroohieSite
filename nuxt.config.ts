@@ -19,6 +19,9 @@ export default defineNuxtConfig({
         }
     },
 
+    // Disable rehydration static approach
+    ssr: false,
+
     content: {
         // https://content.nuxtjs.org/api/configuration
         documentDriven: true,
