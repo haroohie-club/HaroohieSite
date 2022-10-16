@@ -21,6 +21,9 @@ export default defineNuxtConfig({
 
     content: {
         // https://content.nuxtjs.org/api/configuration
+        markdown: {
+            anchorLinks: false
+        },
         highlight: {
             theme: 'github-light',
             preload: [
