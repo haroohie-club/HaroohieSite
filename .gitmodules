@@ -1,0 +1,3 @@
+[submodule "public/patcher"]
+	path = public/patcher
+	url = https://github.com/WiIIiam278/RomPatcher.js
