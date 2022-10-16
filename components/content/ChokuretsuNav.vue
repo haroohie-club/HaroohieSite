@@ -8,11 +8,9 @@
             <div class="nav-buttons">
                 <ButtonLink link="/chokuretsu/guide" fullwidth color="red" icon="fa6-solid:book">Get Started</ButtonLink>
                 <span class="nav-or">- or -</span>
-                <div>
-                    <ButtonLink link="/chokuretsu/guide" fullwidth type="top-piece" color="blue" icon="fa6-solid:file-import">ROM Patcher</ButtonLink>
-                    <ButtonLink link="/chokuretsu/guide" fullwidth type="mid-piece" color="blue" icon="fa6-solid:download">Download .xdelta</ButtonLink>
-                    <ButtonLink link="/chokuretsu/guide" fullwidth type="bottom-piece" color="blue" icon="fa6-brands:github">Sources & Docs</ButtonLink>
-                </div>    
+                <ButtonLink link="/chokuretsu/guide" fullwidth type="top-piece" color="blue" icon="fa6-solid:file-import">ROM Patcher</ButtonLink>
+                <ButtonLink link="/chokuretsu/guide" fullwidth type="mid-piece" color="blue" icon="fa6-solid:download">Download .xdelta</ButtonLink>
+                <ButtonLink link="/chokuretsu/guide" fullwidth type="bottom-piece" color="blue" icon="fa6-brands:github">Sources & Docs</ButtonLink>
             </div>
         </div>
     </div>
@@ -28,8 +26,14 @@
     .nav-buttons {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        min-height: 240px;
+        align-items: center;
+    }
+
+    .nav-buttons a {
+        text-decoration: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .nav-left {
@@ -55,7 +59,7 @@
     .nav-or {
         font-size: 1.4rem;
         font-weight: bold;
+        width: 100%;
         text-align: center;
-        width: 95%;
     }
 </style>

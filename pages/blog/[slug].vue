@@ -195,6 +195,13 @@ article code {
     word-break: normal;
     word-wrap: normal;
 }
+
+article blockquote {
+    border-left: 0.5rem solid var(--main-light-gray);
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
+}
 </style>
 
 <script>
