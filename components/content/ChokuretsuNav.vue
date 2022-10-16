@@ -13,7 +13,7 @@
                 <div id="nav-or">
                     <span>- or -</span>
                 </div>
-                <ButtonLink link="/chokuretsu/guide" fullwidth type="top-piece" color="blue"
+                <ButtonLink link="/chokuretsu/patch" fullwidth type="top-piece" color="blue"
                     icon="fa6-solid:file-import">ROM Patcher</ButtonLink>
                 <ButtonLink link="https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest"
                     fullwidth type="mid-piece" color="blue" icon="fa6-solid:download">Download .xdelta</ButtonLink>
