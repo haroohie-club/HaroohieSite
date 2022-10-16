@@ -11,7 +11,7 @@
                         Japanese
                         karaoke typesetting.
                     </RomPatcherOptionDescription>
-                    <RomPatcherOption optionName="op-ed-subtitling" option1="Subtitled" option2="Clean" />
+                    <RomPatcherOption optionName="op-ed-subtitling" option1="Subtitled" option1value="subbedoped" option2="Clean" option2value="cleanoped" />
 
                     <RomPatcherOptionDescription title="Voiced line subtitles"
                         img="/images/chokuretsu/voiced-line-subtitles.png"
@@ -20,7 +20,7 @@
                         subtitles
                         display on screen.
                     </RomPatcherOptionDescription>
-                    <RomPatcherOption optionName="voice-lines-subtitling" option1="Subtitles" option2="No Subtitles" />
+                    <RomPatcherOption optionName="voice-lines-subtitling" option1="Subtitles" option1value="voicesubs" option2="No Subtitles" option2value="novoicesubs" />
                 </tbody>
             </table>
         </div>
@@ -36,7 +36,7 @@
                 <label>
                     <b>Version:</b>
                     <select id="patcher-version-dropdown">
-                        <option v-for="patch in AVAILABLE_PATCHES">v{{ patch.version }} &mdash; {{ patch.date }}
+                        <option v-for="patch in AVAILABLE_PATCHES" :value="patch.version">v{{ patch.version }} &mdash; {{ patch.date }}
                         </option>
                     </select>
                 </label>

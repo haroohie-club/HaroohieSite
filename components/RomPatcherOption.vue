@@ -3,7 +3,7 @@
         <td class="patcher-option-radio">
             <div>
                 <label>
-                    <input type="radio" :name="optionName" :value="option1.toLowerCase().replace(' ', '-')" checked="" />
+                    <input type="radio" :name="optionName" :value="option1value" checked="" />
                     {{ option1 }}
                 </label>
             </div>
@@ -11,7 +11,7 @@
         <td class="patcher-option-radio">
             <div>
                 <label>
-                    <input type="radio" :name="optionName" :value="option2.toLowerCase().replace(' ', '-')" />
+                    <input type="radio" :name="optionName" :value="option2value" />
                     {{ option2 }}
                 </label>
             </div>
@@ -58,10 +58,18 @@ export default {
             type: String,
             required: true,
         },
+        option1value: {
+            type: String,
+            required: true,
+        },
         option2: {
             type: String,
             required: true,
-        }
+        },
+        option2value: {
+            type: String,
+            required: true,
+        },
     }
 }
 </script>
