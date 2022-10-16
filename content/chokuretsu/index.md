@@ -1,5 +1,5 @@
 ::chokuretsu-nav
-## Get the translation
+# Get the translation
 ::
 
 ## About the game
