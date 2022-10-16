@@ -1,44 +1,59 @@
 <template>
-    <div id="blog-page">
-        <div class="sidebar">
-            <div class="links box">
-                <h2>Links</h2>
-                <div id="links">
-                    <SocialLinks />
+    <NuxtLayout>
+        <div id="blog-page">
+            <div class="sidebar">
+                <div class="links box">
+                    <h2>Links</h2>
+                    <div id="links">
+                        <SocialLinks />
+                    </div>
+                    <h2>Blogs</h2>
+                    <BlogList />
                 </div>
-                <h2>Blogs</h2>
-                <BlogList />
             </div>
-        </div>
-        <div class="blog">
-            <div class="content box">
-                <article>
-                    <ContentDoc v-slot="{ doc }">
-                        <div class="header" v-if="doc.navigation">
-                            <div class="brigade-logo">
-                                <img src="/images/sos-logo.png" />
-                            </div>
-                            <div class="info">
-                                <h1>{{ doc.navigation.title }}</h1>
-                                <div class="meta">
-                                    <div class="date">
-                                        <IconifiedText icon="fa6-solid:newspaper">
-                                            Written by <NuxtLink :to="'/author/' + doc.navigation.author.toLowerCase()">{{ doc.navigation.author }}</NuxtLink> on {{ publishedAt(doc.navigation.year, doc.navigation.month, doc.navigation.day) }}
-                                        </IconifiedText>
+            <div class="blog">
+                <div class="content box">
+                    <article>
+                        <ContentDoc>
+                            <template v-slot="{ doc }">
+                                <div class="header" v-if="doc.navigation">
+                                    <div class="brigade-logo">
+                                        <img src="/images/sos-logo.png" />
                                     </div>
-                                    <div class="tags">
-                                        <IconifiedText icon="fa6-solid:tags">Tags:</IconifiedText>
-                                        <span class="tag" v-for="tag of doc.navigation.tags"><NuxtLink :to="'/tag/' + tag">{{ tag }}</NuxtLink></span>
+                                    <div class="info">
+                                        <h1>{{ doc.navigation.title }}</h1>
+                                        <div class="meta">
+                                            <div class="date">
+                                                <IconifiedText icon="fa6-solid:newspaper">
+                                                    Written by <NuxtLink
+                                                        :to="'/author/' + doc.navigation.author.toLowerCase()">{{
+                                                        doc.navigation.author }}</NuxtLink> on {{
+                                                        publishedAt(doc.navigation.year, doc.navigation.month, doc.navigation.day)
+                                                        }}
+                                                </IconifiedText>
+                                            </div>
+                                            <div class="tags">
+                                                <IconifiedText icon="fa6-solid:tags">Tags:</IconifiedText>
+                                                <span class="tag" v-for="tag of doc.navigation.tags">
+                                                    <NuxtLink :to="'/tag/' + tag">{{ tag }}</NuxtLink>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <ContentRenderer :value="doc" />
-                    </ContentDoc>
-                </article>
+                                <ContentRenderer :value="doc" />
+                            </template>
+                            <template #not-found>
+                                <h1>Post not found</h1>
+                                <p>Could not find a blog post at this address.</p>
+                                <ButtonLink link="/blog" color="red" icon="fa6-solid:paper-plane">Back to the Blog</ButtonLink>
+                            </template>
+                        </ContentDoc>
+                    </article>
+                </div>
             </div>
         </div>
-    </div>
+    </NuxtLayout>
 </template>
 
 <style scoped>
@@ -194,6 +209,13 @@ article code {
     overflow: auto;
     word-break: normal;
     word-wrap: normal;
+}
+
+article blockquote {
+    border-left: 0.5rem solid var(--main-light-gray);
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
 }
 </style>
 

@@ -1,21 +1,23 @@
 <template>
-    <div id="blog-index">
-        <div class="sidebar">
-            <div class="links box">
-                <h2>Links</h2>
-                <div id="links">
-                    <SocialLinks />
+    <NuxtLayout>
+        <div id="blog-index">
+            <div class="sidebar">
+                <div class="links box">
+                    <h2>Links</h2>
+                    <div id="links">
+                        <SocialLinks />
+                    </div>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="content box">
+                    <article>
+                        <ContentDoc />
+                    </article>
                 </div>
             </div>
         </div>
-        <div class="blog">
-            <div class="content box">
-                <article>
-                    <ContentDoc />
-                </article>
-            </div>
-        </div>
-    </div>
+    </NuxtLayout>
 </template>
 
 <style scoped>
