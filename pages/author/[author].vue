@@ -13,7 +13,7 @@
                 </div>
             </div>
             <ContentRenderer :value="doc" />
-            <h2>Latest posts</h2>
+            <h2>Latest posts by {{ doc.author.name }}</h2>
             <BlogAuthorStack :author="doc.author.name" />
             <ButtonLink link="/" color="red" icon="fa6-solid:house">Back to Home</ButtonLink>
         </ContentDoc>

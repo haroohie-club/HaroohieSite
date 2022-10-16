@@ -1,6 +1,7 @@
 <template>
     <div class="box" id="container">
-        <h2>Latest posts</h2>
+        <h2>Latest posts with <IconifiedText icon="fa6-solid:tag">{{$route.params.tag}}</IconifiedText>
+        </h2>
         <BlogTagStack :tag="$route.params.tag" />
     </div>
 </template>
