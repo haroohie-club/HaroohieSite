@@ -3,11 +3,9 @@
         <ButtonLink :link="top_link" color="red" type="top-piece" :icon="top_icon" fullwidth>{{ top_text }}
         </ButtonLink>
         <ButtonLink link="https://discord.gg/nesRSbpeFM" color="discord" type="mid-piece" icon="fa6-brands:discord"
-            fullwidth>Join our
-            Discord!</ButtonLink>
+            fullwidth>Join our server!</ButtonLink>
         <ButtonLink link="https://twitter.com/haroohie" color="twitter" type="bottom-piece" icon="fa6-brands:twitter"
-            fullwidth>Follow on
-            Twitter!</ButtonLink>
+            fullwidth>Follow us!</ButtonLink>
     </div>
 </template>
 
