@@ -6,6 +6,12 @@
                 <div>
                     <ContentDoc />
                 </div>
+                <ClientOnly fallbackTag="span">
+                    <RomPatcherUi />
+                    <template #fallback>
+                        <p>Loading...</p>
+                    </template>
+                </ClientOnly>
             </div>
             <div class="sidebar">
                 <div id="sos-logo">
@@ -50,7 +56,6 @@
 .drop-shadow {
     filter: drop-shadow(0.2em 0.2em 0.1em rgba(0, 0, 0, 0.5));
 }
-
 </style>
 
 <script>
