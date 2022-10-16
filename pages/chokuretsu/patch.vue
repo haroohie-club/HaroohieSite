@@ -11,6 +11,9 @@
                 <div id="sos-logo">
                     <object class="drop-shadow" data="/images/sos-logo.svg" type="image/svg+xml" width="100%" />
                 </div>
+                <div>
+                    <ContentDoc path="/chokuretsu/patch-sidebar" />
+                </div>
             </div>
         </div>
     </NuxtLayout>

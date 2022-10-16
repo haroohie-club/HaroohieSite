@@ -1,7 +1,8 @@
 <template>
     <Icon :name="icon" class="iconified-text-icon" />
     <span class="iconified-text-text">
-        <slot />
+        <ContentSlot v-if="unwrap" :use="$slots.default" unwrap="p" />
+        <slot v-else="" />
     </span>
 </template>
 
@@ -24,6 +25,11 @@ export default {
         icon: {
             type: String,
             required: true,
+        },
+        unwrap: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     }
 }

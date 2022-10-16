@@ -40,6 +40,9 @@
                     <b>Version:</b>
                     <select id="patcher-version-dropdown" />
                 </label>
+                <div>
+                    <ButtonLink color="red" icon="fa6-solid:file-import">Patch ROM</ButtonLink>
+                </div>
             </div>
         </div>
     </div>
