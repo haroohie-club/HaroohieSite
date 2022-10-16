@@ -10,7 +10,7 @@
                 <NuxtLink :to="blog._path">{{ blog.navigation.title }}</NuxtLink>
             </div>
             <div class="data">
-                <span class="meta">Written by <NuxtLink :to="'/author/' + blog.navigation.author.toLowerCase()">{{ blog.navigation.author }}</NuxtLink> ({{ blog.navigation.publishedAt }})</span>
+                <span class="meta">Written by <NuxtLink :to="'/author/' + blog.navigation.author.toLowerCase()">{{ blog.navigation.author }}</NuxtLink> ({{ publishedAt(blog.navigation.year, blog.navigation.month, blog.navigation.day) }})</span>
                 <div class="tags">
                     <IconifiedText icon="fa6-solid:tag" />
                     <span class="tag" v-for="tag of blog.navigation.tags"><NuxtLink :to="'/tag/' + tag">{{ tag }}</NuxtLink></span>
@@ -108,6 +108,40 @@ export default {
             required: true
         }
     },
-    components: { IconifiedText }
+    components: { IconifiedText },
+    methods: {
+        publishedAt(year, month, day) {
+            return day + " " + getMonth(month) + " " + year;
+        }
+    }
+}
+
+function getMonth(month) {
+    switch (month) {
+        case 1:
+            return "Jan";
+        case 2:
+            return "Feb";
+        case 3:
+            return "Mar";
+        case 4:
+            return "Apr";
+        case 5:
+            return "May";
+        case 6:
+            return "Jun";
+        case 7:
+            return "Jul";
+        case 8:
+            return "Aug";
+        case 9:
+            return "Sep";
+        case 10:
+            return "Oct";
+        case 11:
+            return "Nov";
+        case 12:
+            return "Dec";
+    }
 }
 </script>
