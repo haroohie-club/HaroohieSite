@@ -1,7 +1,7 @@
 <template>
     <div class="filter-buttons">
         <div class="platforms-label">
-            <IconifiedText icon="fa6-solid:gamepad"><b>Select: </b></IconifiedText>
+            <IconifiedText icon="fa6-solid:gamepad"><b>Click to filter: </b></IconifiedText>
         </div>
         <div class="platform-filters">
             <div v-for="platform of filters" class="filter deselected"
