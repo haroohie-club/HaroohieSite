@@ -61,7 +61,6 @@
     .column {
         width: 85vw;
     }
-
 }
 </style>
 

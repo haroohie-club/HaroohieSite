@@ -28,7 +28,7 @@ color: 'twitter'
 icon: 'fa6-brands:twitter'
 link: 'https://twitter.com/haroohie'
 ---
-Follow on Twitter
+Our Twitter
 ::
 
 ::button-link
