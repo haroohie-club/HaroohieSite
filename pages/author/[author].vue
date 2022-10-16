@@ -1,6 +1,6 @@
 <template>
     <NuxtLayout>
-        <div class="box" id="container">
+        <div id="author-container">
             <ContentDoc>
                 <template v-slot="{ doc }">
                     <div v-if="doc.author">
@@ -31,20 +31,11 @@
 <script>
 definePageMeta({
     title: 'Haroohie Translation Club - Author',
-    layout: 'common'
+    layout: 'blog'
 })
 </script>
 
 <style scoped>
-#container {
-    display: flex;
-    flex-direction: column;
-    max-width: 1200px;
-    width: 80%;
-    justify-content: center;
-    margin: 0 auto
-}
-
 #social {
     display: row;
     flex-direction: column;
@@ -52,13 +43,5 @@ definePageMeta({
 
 #social a {
     margin-right: 0.5rem;
-}
-
-.box {
-    margin: 0.5rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: white;
-    box-shadow: var(--main-shadow);
 }
 </style>
