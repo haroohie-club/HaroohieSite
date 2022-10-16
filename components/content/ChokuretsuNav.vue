@@ -1,16 +1,16 @@
 <template>
     <div class="chokuretsu-nav">
         <div class="nav-left">
-            <img src="/images/sos-logo.png" alt="SOS brigade logo!" />
+            <object class="drop-shadow" data="/images/sos-logo.svg" type="image/svg+xml" width="100%" />
         </div>
         <div class="nav-right">
             <slot />
             <div class="nav-buttons">
                 <ButtonLink link="/chokuretsu/guide" fullwidth color="red" icon="fa6-solid:book">Get Started</ButtonLink>
-                <span class="nav-or">- or -</span>
+                <span class="nav-or">&ndash; or &ndash;</span>
                 <ButtonLink link="/chokuretsu/guide" fullwidth type="top-piece" color="blue" icon="fa6-solid:file-import">ROM Patcher</ButtonLink>
-                <ButtonLink link="/chokuretsu/guide" fullwidth type="mid-piece" color="blue" icon="fa6-solid:download">Download .xdelta</ButtonLink>
-                <ButtonLink link="/chokuretsu/guide" fullwidth type="bottom-piece" color="blue" icon="fa6-brands:github">Sources & Docs</ButtonLink>
+                <ButtonLink link="https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest" fullwidth type="mid-piece" color="blue" icon="fa6-solid:download">Download .xdelta</ButtonLink>
+                <ButtonLink link="https://github.com/haroohie-club" fullwidth type="bottom-piece" color="blue" icon="fa6-brands:github">Sources & Docs</ButtonLink>
             </div>
         </div>
     </div>
@@ -61,5 +61,9 @@
         font-weight: bold;
         width: 100%;
         text-align: center;
+    }
+
+    .drop-shadow {
+        filter: drop-shadow(0.2em 0.2em 0.1em rgba(0, 0, 0, 0.5));
     }
 </style>

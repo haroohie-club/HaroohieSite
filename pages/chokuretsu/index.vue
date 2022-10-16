@@ -35,6 +35,21 @@
 }
 </style>
 
+<style>
+
+h1, h2 {
+    font-size: 1.5em;
+    text-decoration: none;
+    width: 100%;
+    border-bottom: 0.08em solid var(--main-red);
+}
+
+h1 {
+    margin-left: 5%;
+}
+
+</style>
+
 <script>
 definePageMeta({
     title: 'Suzumiya Haruhi no Chokuretsu - English Translation (Nintendo DS) - (The Series of Haruhi Suzumiya)',
