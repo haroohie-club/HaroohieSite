@@ -35,5 +35,8 @@ export default {
 .social-buttons {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    width: 80%;
 }
 </style>

@@ -33,21 +33,36 @@
     flex-direction: column;
     padding: 1rem;
 }
-</style>
 
-<style>
+/* Less than 1200px */
+@media screen and (max-width: 1200px) {
+    #dual-columns {
+        flex-direction: column-reverse;
+    }
 
-h1, h2 {
-    font-size: 1.5em;
-    text-decoration: none;
-    width: 100%;
-    border-bottom: 0.08em solid var(--main-red);
+    .column {
+        width: 95vw;
+    }
 }
 
-h1 {
-    margin-left: 5%;
+/* Less than 680px */
+@media screen and (max-width: 680px) {
+    .ds {
+        display: none;
+    }
+
+    .column {
+        width: 90vw;
+    }
 }
 
+/* Less than 580px */
+@media screen and (max-width: 580px) {
+    .column {
+        width: 85vw;
+    }
+
+}
 </style>
 
 <script>

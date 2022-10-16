@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 1000px;
+    max-width: 700px;
     height: min-content;
     margin: 0 auto;
     filter: drop-shadow(0.12em 0.12rem 0.12rem rgba(0, 0, 0, 0.4));

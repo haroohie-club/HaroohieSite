@@ -1,5 +1,5 @@
 ::chokuretsu-nav
-# Get the translation
+## Get the translation
 ::
 
 ## About the game
@@ -19,7 +19,7 @@ color: 'discord'
 icon: 'fa6-brands:discord'
 link: 'https://discord.gg/nesRSbpeFM'
 ---
-Join our Discord
+Discord Server
 ::
 
 ::button-link
@@ -29,4 +29,13 @@ icon: 'fa6-brands:twitter'
 link: 'https://twitter.com/haroohie'
 ---
 Follow on Twitter
+::
+
+::button-link
+---
+color: 'red'
+icon: 'fa6-solid:paper-plane'
+link: '/blog'
+---
+Our Blog
 ::

@@ -4,10 +4,14 @@
             <object class="drop-shadow" data="/images/sos-logo.svg" type="image/svg+xml" width="100%" />
         </div>
         <div class="nav-right">
-            <slot />
+            <div class="nav-content">
+                <slot />
+            </div>
             <div class="nav-buttons">
                 <ButtonLink link="/chokuretsu/guide" fullwidth color="red" icon="fa6-solid:book">Get Started</ButtonLink>
-                <span class="nav-or">&ndash; or &ndash;</span>
+                <div id="nav-or">
+                    <span>- or -</span>
+                </div>
                 <ButtonLink link="/chokuretsu/guide" fullwidth type="top-piece" color="blue" icon="fa6-solid:file-import">ROM Patcher</ButtonLink>
                 <ButtonLink link="https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest" fullwidth type="mid-piece" color="blue" icon="fa6-solid:download">Download .xdelta</ButtonLink>
                 <ButtonLink link="https://github.com/haroohie-club" fullwidth type="bottom-piece" color="blue" icon="fa6-brands:github">Sources & Docs</ButtonLink>
@@ -23,47 +27,48 @@
         justify-content: space-between;
     }
 
-    .nav-buttons {
+    .chokuretsu-nav .nav-left {
+        width: 25%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        justify-content: center;
+    }
+
+    .chokuretsu-nav .nav-right {
+        width: 65% !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-left .drop-shadow {
+        filter: drop-shadow(0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.3));
+    }
+
+    .nav-right .nav-content {
+        width: 100%;
+    }
+
+    .nav-content .button {
+        margin: 1rem;
+    }
+    
+    .nav-right .nav-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .nav-buttons a {
-        text-decoration: none;
-        width: 100%;
+        max-width: 90%;
+    }
+
+    .nav-buttons #nav-or {
         display: flex;
+        flex-direction: row;
         justify-content: center;
-    }
-
-    .nav-left {
-        width: 25%;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-    }
-
-    .nav-left img {
-        max-height: 200px;
-        display: flex;
-        align-self: center;
-    }
-
-    .nav-right {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 70%;
-    }
-
-    .nav-or {
-        font-size: 1.4rem;
+        align-items: center;
         font-weight: bold;
-        width: 100%;
-        text-align: center;
-    }
-
-    .drop-shadow {
-        filter: drop-shadow(0.2em 0.2em 0.1em rgba(0, 0, 0, 0.5));
+        font-size: 1.5rem;
+        margin: 0.2rem 0;
     }
 </style>
