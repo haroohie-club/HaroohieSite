@@ -8,7 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxt/content": "^2.1.1",
+    "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "nuxt": "3.0.0-rc.11",
     "sitemap": "^7.1.1"
   },
