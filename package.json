@@ -16,6 +16,7 @@
     "@nuxtjs/google-fonts": "^3.0.0-0",
     "nuxt-icon": "^0.1.6",
     "shiki": "^0.11.1",
-    "vue-carousel": "^0.18.0"
+    "vue-carousel": "^0.18.0",
+    "vue-gtag-next": "^1.14.0"
   }
 }
