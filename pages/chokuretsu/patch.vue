@@ -8,8 +8,8 @@
             </template>
         </ClientOnly>
         <template #sidebar>
-            <div id="sos-logo">
-                <object class="drop-shadow" data="/images/sos-logo.svg" type="image/svg+xml" width="100%" />
+            <div id="haruhi-walk">
+                <img src="/images/chokuretsu/haruhi-walk.png" alt="Chibi Haruhi pixel art of her marching forward." />
             </div>
             <ContentDoc path="/chokuretsu/patch/sidebar" />
         </template>
@@ -36,16 +36,14 @@
     padding: 1rem;
 }
 
-.sidebar #sos-logo {
+#haruhi-walk {
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 120px;
-    margin: auto;
 }
 
-.drop-shadow {
-    filter: drop-shadow(0.2em 0.2em 0.1em rgba(0, 0, 0, 0.5));
+#haruhi-walk img {
+    max-width: 80px;
 }
 </style>
 
