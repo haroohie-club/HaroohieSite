@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     app: {
         head: {
             charset: 'utf-16',
-            viewport: 'width=500, initial-scale=1',
+            viewport: 'width=device-width, initial-scale=1',
             title: 'Haroohie Translation Club',
             meta: [
                 {
@@ -32,7 +32,7 @@ export default defineNuxtConfig({
                 },
                 {
                     name: 'og:title',
-                    content: 'Haroohie Translation Club'
+                    content: 'Haroohie Translation Club - Haruhi Game Translations!'
                 },
                 {
                     name: 'og:description',

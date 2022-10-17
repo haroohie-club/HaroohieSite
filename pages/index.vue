@@ -33,6 +33,7 @@
     justify-content: center;
     align-items: center;
     max-width: 1200px;
+    width: 90vw;
     margin: 0 auto;
 }
 
@@ -72,8 +73,13 @@
 }
 
 #home-page .socials {
-    min-width: 250px;
     height: fit-content;
+    max-width: 250px;
+}
+
+#home-page .blogs {
+    display: flex;
+    flex-direction: column;
 }
 
 #home-page .blogs .view-more {
@@ -93,9 +99,13 @@ h2 {
 }
 
 /* Less than 850px */
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 940px) {
     #home-page .newsfeed {
         flex-direction: column-reverse;
+    }
+
+    .socials {
+        max-width: unset !important;
     }
 }
 </style>

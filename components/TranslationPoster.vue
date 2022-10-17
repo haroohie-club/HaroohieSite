@@ -30,13 +30,11 @@
     display: flex;
     flex-direction: row;
     max-width: 550px;
-    width: 550px;
-    min-width: 200px;
+    min-width: 100px;
 }
 
 .translation .poster {
     display: flex;
-    width: 35%;
     margin-right: 0.5rem;
     justify-content: center;
     align-content: center;
@@ -57,7 +55,6 @@
 .translation .about {
     display: flex;
     flex-direction: column;
-    width: 65%;
     margin-left: 0.5rem;
 }
 
@@ -119,12 +116,11 @@
     color: var(--main-blue) !important;
 }
 
-/* Less than 580px */
-@media screen and (max-width: 36.25em) {
+/* Less than 650px */
+@media screen and (max-width: 650px) {
     .translation {
         flex-direction: column;
-        width: 85vw;
-        max-width: 100%;
+        width: fit-content !important;
     }
 
     .translation .poster {
@@ -139,8 +135,6 @@
 
     .translation .about {
         margin: auto;
-        width: 85vw;
-        max-width: 100%;
     }
 
     .about .tags {

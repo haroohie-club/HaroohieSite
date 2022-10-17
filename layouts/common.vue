@@ -16,6 +16,7 @@
 #content-body {
     display: flex;
     flex-direction: column;
+    width: 100%;
     min-height: 100vh;
     background-color: var(--main-light-gray);
     background-image: url('/images/haruhi-calisthenic.png');
@@ -30,6 +31,7 @@
 
 #topbar #logo {
     max-width: 500px;
+    width: 80vw;
     padding: 0.5rem;
 }
 </style>

@@ -48,6 +48,7 @@
 
 #topbar #logo {
     max-width: 500px;
+    width: 80vw;
     padding: 0.5rem;
 }
 

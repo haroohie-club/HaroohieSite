@@ -13,7 +13,7 @@
 }
 
 /* Less than 580px */
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 650px) {
     #translations-grid {
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     }
