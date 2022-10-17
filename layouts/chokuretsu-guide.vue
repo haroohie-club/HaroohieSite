@@ -9,10 +9,7 @@
                 </div>
             </div>
             <div class="sidebar">
-                <div id="nagato-book">
-                    <img src="/images/chokuretsu/nagato-book.png" alt="Chibi Nagato pixel art of her reading a book." />
-                </div>
-                <ContentDoc path="chokuretsu/guide/sidebar" />
+                <slot name="sidebar" />
             </div>
         </div>
         <Footer />
@@ -48,16 +45,6 @@
 #guide-body .sidebar {
     width: 20%;
     padding: 1rem;
-}
-
-.sidebar #nagato-book {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-#nagato-book img {
-    max-width: 80px;
 }
 
 </style>

@@ -1,27 +1,18 @@
 <template>
     <NuxtLayout>
-        <div id="dual-column">
-            <div class="content">
-                <TitleGraphic graphic="chokuretsu/game-logo" />
-                <div>
-                    <ContentDoc />
-                </div>
-                <ClientOnly fallbackTag="span">
-                    <RomPatcherUi />
-                    <template #fallback>
-                        <p>Loading...</p>
-                    </template>
-                </ClientOnly>
+        <ContentDoc />
+        <ClientOnly fallbackTag="span">
+            <RomPatcherUi />
+            <template #fallback>
+                <p>Loading...</p>
+            </template>
+        </ClientOnly>
+        <template #sidebar>
+            <div id="sos-logo">
+                <object class="drop-shadow" data="/images/sos-logo.svg" type="image/svg+xml" width="100%" />
             </div>
-            <div class="sidebar">
-                <div id="sos-logo">
-                    <object class="drop-shadow" data="/images/sos-logo.svg" type="image/svg+xml" width="100%" />
-                </div>
-                <div>
-                    <ContentDoc path="/chokuretsu/patch-sidebar" />
-                </div>
-            </div>
-        </div>
+            <ContentDoc path="/chokuretsu/patch/sidebar" />
+        </template>
     </NuxtLayout>
 </template>
 
@@ -62,6 +53,6 @@
 definePageMeta({
     title: 'Suzumiya Haruhi no Chokuretsu - English Translation (Nintendo DS) - (The Series of Haruhi Suzumiya) - Patch ROM File',
     description: 'English Translation ROM patch for Nintendo DS game Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya) ROM Patcher',
-    layout: 'chokuretsu'
+    layout: 'chokuretsu-guide'
 })
 </script>

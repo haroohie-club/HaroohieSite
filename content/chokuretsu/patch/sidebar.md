@@ -17,8 +17,10 @@ unwrap: true
 color: 'red'
 icon: 'fa6-solid:rotate-left'
 link: '/chokuretsu'
+fullwidth: true
+type: 'top-piece'
 ---
-Back to home
+Chokuretsu Home
 ::
 
 ::button-link
@@ -26,8 +28,10 @@ Back to home
 color: 'discord'
 icon: 'fa6-brands:discord'
 link: 'https://discord.gg/nesRSbpeFM'
+fullwidth: true
+type: 'bottom-piece'
 ---
-Join the Discord
+Join Discord for Help
 ::
 
 ### Attribution
