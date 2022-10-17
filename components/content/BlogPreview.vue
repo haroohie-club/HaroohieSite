@@ -93,8 +93,7 @@
     }
 
     .blog-image {
-        margin-top: 0;
-        margin-right: 0;
+        margin: 1rem 0;
     }
 }
 </style>
