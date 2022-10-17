@@ -47,4 +47,20 @@
     padding: 1rem;
 }
 
+@media screen and (max-width: 750px) {
+    #guide-body {
+        flex-direction: column;
+    }
+
+    #guide-body .content {
+        max-width: 100%;
+        width: 85vw;
+    }
+
+    #guide-body .sidebar {
+        max-width: 100%;
+        width: 85vw;
+    }
+}
+
 </style>
