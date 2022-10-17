@@ -81,6 +81,10 @@
     border-radius: 0.8em;
 }
 
+#patcher-version-dropdown {
+    margin-left: 0.5rem;
+}
+
 select {
     border: black solid 0.15em;
     border-radius: 0.3em;
