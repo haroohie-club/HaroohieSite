@@ -386,18 +386,14 @@ export default {
                 showNotice('error', error);
             });
         },
-        selectFile: async function () {
+        selectFile: async function (event) {
             hideNotice();
             try {
-                romFile = new MarcFile(this, _parseROM);
+                romFile = new MarcFile(event.target, _parseROM);
             } catch (error) {
                 showNotice('error', 'Invalid ROM selected. Please select a valid <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file.');
                 return;
             }
-
-            let patchButton = document.getElementById('patcher-patch-button');
-            patchButton.classList.remove('disabled');
-            patchButton.disabled = false;
         }
     }
 }
