@@ -4,8 +4,8 @@
             <IconifiedText icon="fa6-solid:gamepad"><b>Click to filter: </b></IconifiedText>
         </div>
         <div class="platform-filters">
-            <div v-for="platform of filters" class="filter deselected"
-                :id="'filter-' + platform.toLowerCase().replace(' ', '_')" @click="clickFilter(platform)">
+            <div v-for="platform of filters" :class="'filter filter-' + filterSuffix + ' deselected'"
+                :id="'filter-' + platform.toLowerCase().replace(/ /g, '_')" @click="clickFilter(platform, filterSuffix, )">
                 {{ platform }}
             </div>
         </div>
@@ -25,27 +25,37 @@ export default {
         filters: {
             type: Array,
             required: true
+        },
+        filterSuffix: {
+            type: String,
+            required: false,
+            default: 'main'
         }
     },
     methods: {
-        clickFilter: function (filter) {
+        clickFilter: function (filter, suffix) {
             if (selectedFilters.includes(filter)) {
                 selectedFilters.splice(selectedFilters.indexOf(filter), 1);
-                document.getElementById('filter-' + filter.toLowerCase().split(' ').join('_')).classList.add('deselected');
+                document.getElementById('filter-' + filter.toLowerCase().replace(/ /g, '_')).classList.add('deselected');
                 
                 // Get everything that has the filter class
-                const filtered = document.getElementsByClassName('platform-' + filter.toLowerCase().split(' ').join('_'));
+                const filtered = document.getElementsByClassName('platform-' + filter.toLowerCase().replace(/ /g, '_'));
                 for (let i = 0; i < filtered.length; i++) {
                     filtered[i].classList.add('platform-filtered');
                 }
             }
             else {
-                selectedFilters.forEach(f => this.clickFilter(f));
+                console.log
+                selectedFilters.forEach(f => {
+                    if (document.getElementById('filter-' + f.toLowerCase().replace(/ /g, '_')).classList.contains('filter-' + suffix)) {
+                        this.clickFilter(f);
+                    }
+                });
                 selectedFilters.push(filter);
-                document.getElementById('filter-' + filter.toLowerCase().split(' ').join('_')).classList.remove('deselected');
+                document.getElementById('filter-' + filter.toLowerCase().replace(/ /g, '_')).classList.remove('deselected');
                 
                 // Get everything that has the filter class
-                const filtered = document.getElementsByClassName('platform-' + filter.toLowerCase().split(' ').join('_'));
+                const filtered = document.getElementsByClassName('platform-' + filter.toLowerCase().replace(/ /g, '_'));
                 for (let i = 0; i < filtered.length; i++) {
                     filtered[i].classList.remove('platform-filtered');
                 }
