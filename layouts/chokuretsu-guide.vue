@@ -4,7 +4,7 @@
         <div id="guide-body">
             <div class="content">
                 <div id="guide-content">
-                    <TitleGraphic graphic="chokuretsu/game-logo" />
+                    <TitleGraphic graphic="chokuretsu/game-logo" to="/chokuretsu" />
                     <slot />
                 </div>
             </div>
