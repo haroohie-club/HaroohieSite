@@ -18,7 +18,7 @@
     color: white;
     font-family: 'Consolas', monospace;
     padding: 0.2em;
-    margin-left: 0.1em;
+    margin-left: 0.5em;
 }
 </style>
 
