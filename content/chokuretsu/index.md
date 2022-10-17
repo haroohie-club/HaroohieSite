@@ -14,33 +14,10 @@ Play as Kyon as you work with the rest of the SOS Brigade to keep Haruhi from di
 
 Featuring over 38,000 lines of dialogue and many possible routes, this unofficial translation made by *Haruhi* fans from around the world seeks to make the game accessible to a western audience. Please support the series by buying the original games & merch!
 
-## Follow us
-Follow us on Twitter and join our Discord Server to stay up-to-date with our latest updates and get help on patching your game.
-
-<!-- Twitter and discord buttons -->
-::button-link
+## From the translation team
+::blog-tag-stack
 ---
-color: 'discord'
-icon: 'fa6-brands:discord'
-link: 'https://discord.gg/nesRSbpeFM'
+tag: 'chokuretsu'
+limit: 2
 ---
-Discord Server
-::
-
-::button-link
----
-color: 'twitter'
-icon: 'fa6-brands:twitter'
-link: 'https://twitter.com/haroohie'
----
-Our Twitter
-::
-
-::button-link
----
-color: 'red'
-icon: 'fa6-solid:paper-plane'
-link: '/blog'
----
-Our Blog
 ::
