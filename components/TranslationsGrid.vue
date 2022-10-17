@@ -7,7 +7,7 @@
 <style scoped>
 #translations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
     grid-gap: 2rem;
     justify-items: center;
 }
@@ -15,7 +15,7 @@
 /* Less than 580px */
 @media screen and (max-width: 580px) {
     #translations-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     }
 }
 </style>

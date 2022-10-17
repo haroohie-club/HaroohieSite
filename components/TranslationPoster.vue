@@ -123,7 +123,8 @@
 @media screen and (max-width: 36.25em) {
     .translation {
         flex-direction: column;
-        width: fit-content !important;
+        width: 85vw;
+        max-width: 100%;
     }
 
     .translation .poster {
@@ -138,6 +139,8 @@
 
     .translation .about {
         margin: auto;
+        width: 85vw;
+        max-width: 100%;
     }
 
     .about .tags {
