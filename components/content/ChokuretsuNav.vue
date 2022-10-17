@@ -77,7 +77,7 @@
 }
 
 /* Hide left nav if screen size <= 400px */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
     .chokuretsu-nav .nav-left {
         display: none;
     }
