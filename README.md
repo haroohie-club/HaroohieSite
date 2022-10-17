@@ -5,13 +5,11 @@ The site for the [Haroohie Translation Club](https://haroohie.club), including t
 
 ## Running
 Make sure to install the dependencies:
-
 ```bash
 npm install
 ```
 
-Start the development server on http://localhost:3000
-
+Start the development server locally on http://localhost:3000 using:
 ```bash
 npm run dev
 ```
