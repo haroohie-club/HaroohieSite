@@ -2,7 +2,7 @@
     <NuxtLayout>
         <ContentDoc>
             <template v-slot="{ doc }">
-                <h1 v-if="doc.navigation"> {{ doc.navigation.title }}</h1>
+                <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
                 <ContentRenderer :value="doc" />
                 <ChokuretsuGuidePagination :doc="doc" />
             </template>
