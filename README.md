@@ -1,23 +1,14 @@
-# Nuxt 3 Minimal Starter
+# haroohie.club site
+![Members of the cast!](public/images/chokuretsu/characters.png)
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+The site for the [Haroohie Translation Club](https://haroohie.club), including the blog, project pages & documentation. Built with vue via [Nuxt@v3](https://v3.nuxtjs.org) and hosted on GitHub pages.
 
-## Setup
-
+## Running
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
-
-# npm
 npm install
-
-# pnpm
-pnpm install --shamefully-hoist
 ```
-
-## Development Server
 
 Start the development server on http://localhost:3000
 
@@ -25,18 +16,7 @@ Start the development server on http://localhost:3000
 npm run dev
 ```
 
-## Production
-
-Build the application for production:
-
+We deploy statically on GitHub pages. To get nuxt to generate for static hosting:
 ```bash
-npm run build
+npm run generate
 ```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
