@@ -7,7 +7,7 @@
                         <img src="/images/sos-logo.png" />
                     </div>
                     <div class="info">
-                        <h1>{{ doc.navigation.title }}</h1>
+                        <h1>{{ doc.title }}</h1>
                         <div class="meta">
                             <div class="date">
                                 <IconifiedText icon="fa6-solid:newspaper">
@@ -38,6 +38,14 @@
     </NuxtLayout>
 </template>
 
+<script setup>
+useHead({
+    titleTemplate: (blogTitle) => { 
+        return blogTitle ? `${blogTitle} - Haroohie Translation Club Blog` : `Haroohie Translation Club Blog`;
+    }
+})
+</script>
+
 <script>
 definePageMeta({
     title: 'Haroohie Translation Club - Blog',
@@ -45,6 +53,7 @@ definePageMeta({
 })
 
 export default {
+
     methods: {
         publishedAt(year, month, day) {
             return day + " " + getMonth(month) + " " + year;

@@ -9,7 +9,7 @@
                     </NuxtLink>
                     <div class="post" :id="'div-' + year + '-' + month">
                         <div v-for="blog of list.filter(b => b.navigation).filter(b => b.navigation.year === year && b.navigation.month === month).reverse()" class="blog-link">
-                            <NuxtLink v-if="blog.navigation" :to="blog._path">{{ blog.navigation.title }}</NuxtLink>
+                            <NuxtLink v-if="blog.navigation" :to="blog._path">{{ blog.title }}</NuxtLink>
                         </div>
                     </div>
                 </div>

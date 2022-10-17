@@ -7,7 +7,7 @@
         </div>
         <div class="blog-body">
             <div class="title">
-                <NuxtLink :to="blog._path">{{ blog.navigation.title }}</NuxtLink>
+                <NuxtLink :to="blog._path">{{ blog.title }}</NuxtLink>
             </div>
             <div class="data">
                 <span class="meta">Written by <NuxtLink :to="'/author/' + blog.navigation.author.toLowerCase()">{{ blog.navigation.author }}</NuxtLink> ({{ publishedAt(blog.navigation.year, blog.navigation.month, blog.navigation.day) }})</span>
