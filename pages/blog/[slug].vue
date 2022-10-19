@@ -26,7 +26,9 @@
                         </div>
                     </div>
                 </div>
-                <ContentRenderer :value="doc" />
+                <div>
+                    <ContentRenderer :value="doc" />
+                </div>
             </template>
             <template #not-found>
                 <h1>Post not found</h1>
