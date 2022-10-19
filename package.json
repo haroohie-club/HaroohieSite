@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
-    "nuxt": "3.0.0-rc.11",
+    "nuxt": "3.0.0-rc.12",
     "sitemap": "^7.1.1"
   },
   "dependencies": {
