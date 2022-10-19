@@ -54,8 +54,6 @@ definePageMeta({
     layout: 'blog'
 })
 
-
-
 export default {
 
     methods: {
