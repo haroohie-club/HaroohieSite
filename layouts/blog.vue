@@ -183,7 +183,6 @@ article {
 <style>
 article img {
     width: 450px;
-    max-height: 500px;
     max-width: 70vw;
     height: auto;
     box-shadow: var(--main-shadow);
