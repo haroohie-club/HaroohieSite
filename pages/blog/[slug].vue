@@ -4,7 +4,7 @@
             <template v-slot="{ doc }">
                 <div class="header" v-if="doc.navigation">
                     <div class="brigade-logo">
-                        <img src="/images/sos-logo.png" />
+                        <img src="/images/sos-logo.png" class="modal-exclude" />
                     </div>
                     <div class="info">
                         <h1>{{ doc.title }}</h1>
@@ -55,7 +55,6 @@ definePageMeta({
 })
 
 export default {
-
     methods: {
         publishedAt(year, month, day) {
             return day + " " + getMonth(month) + " " + year;

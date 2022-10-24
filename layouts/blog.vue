@@ -23,11 +23,11 @@
                         <slot />
                     </article>
                 </div>
+                <ImageModal v-show="showModal" :imageSource="imageSource" @close-modal="showModal = false" />
             </div>
         </div>
         <Footer />
     </div>
-    <ImageModal v-show="showModal" :imageSource="imageSource" @close-modal="showModal = false" />
 </template>
 
 <script>
@@ -41,6 +41,9 @@ export default {
     mounted() {
         window.addEventListener('click', function(event) {
             if (event.target.tagName == 'IMG') {
+                if (event.target.classList.contains('modal-exclude')) {
+                    return;
+                }
                 this.imageSource = event.target.src;
                 this.showModal = true;
             }

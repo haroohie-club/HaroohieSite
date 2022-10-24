@@ -2,7 +2,7 @@
     <div class="blog-preview">
         <div class="blog-image" v-if="blog.navigation.image">
             <NuxtLink :to="blog._path">
-                <img :src="'/images/blog/' + blog.navigation.image" />    
+                <img :src="'/images/blog/' + blog.navigation.image" class="modal-exclude" />    
             </NuxtLink>
         </div>
         <div class="blog-body">

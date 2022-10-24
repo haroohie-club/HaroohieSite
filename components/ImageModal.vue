@@ -59,4 +59,12 @@ article img:hover {
     object-fit: fit-content !important;
     box-shadow: var(--main-shadow);
 }
+
+/* Less than 650px */
+@media screen and (max-width: 650px) {
+    .modal {
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+}
 </style>
