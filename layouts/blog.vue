@@ -27,7 +27,27 @@
         </div>
         <Footer />
     </div>
+    <ImageModal v-show="showModal" :imageSource="imageSource" @close-modal="showModal = false" />
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            showModal: false,
+            imageSource: null,
+        }
+    },
+    mounted() {
+        window.addEventListener('click', function(event) {
+            if (event.target.tagName == 'IMG') {
+                this.imageSource = event.target.src;
+                this.showModal = true;
+            }
+        }.bind(this));
+    },
+}
+</script>
 
 <style>
 /* Content display */
