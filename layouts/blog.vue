@@ -205,11 +205,17 @@ article {
 
 <style>
 article img {
-    width: 450px;
-    max-width: 70vw;
+    max-width: 85%;
+    max-height: 400px;
     height: auto;
     box-shadow: var(--main-shadow);
     border-radius: 0.5rem;
+}
+
+article p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 article pre {

@@ -24,7 +24,7 @@ export default {
 
 <style>
 article img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     filter: brightness(0.8);
     cursor: pointer;
 }
