@@ -36,7 +36,6 @@ export default defineNuxtConfig({
                 'c',
                 'cpp',
                 'csharp',
-                'asm',
                 'python'
             ]
         }
