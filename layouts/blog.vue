@@ -23,11 +23,34 @@
                         <slot />
                     </article>
                 </div>
+                <ImageModal v-show="showModal" :imageSource="imageSource" @close-modal="showModal = false" />
             </div>
         </div>
         <Footer />
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            showModal: false,
+            imageSource: null,
+        }
+    },
+    mounted() {
+        window.addEventListener('click', function(event) {
+            if (event.target.tagName == 'IMG') {
+                if (event.target.classList.contains('modal-exclude')) {
+                    return;
+                }
+                this.imageSource = event.target.src;
+                this.showModal = true;
+            }
+        }.bind(this));
+    },
+}
+</script>
 
 <style>
 /* Content display */
@@ -182,11 +205,17 @@ article {
 
 <style>
 article img {
-    width: 450px;
-    max-width: 70vw;
+    max-width: 85%;
+    max-height: 400px;
     height: auto;
     box-shadow: var(--main-shadow);
     border-radius: 0.5rem;
+}
+
+article p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 article pre {
