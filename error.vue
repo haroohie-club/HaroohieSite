@@ -1,23 +1,23 @@
 <template>
-    <div class="error-404" v-if="error.statusCode == 404">
+    <div class="error" v-if="error.statusCode == 404">
         <h2>Error {{ error.statusCode }} - Not Found</h2>
         <img src="/images/404.png" alt="We're counting on you to take us home, Nagato!" />
         <p>Click below to return to a more familiar space!</p>
         <ButtonLink link="/" color="red" icon="fa6-solid:house">Back to Home</ButtonLink>
     </div>
-    <div class="error-500" v-else-if="error.statusCode == 500">
+    <div class="error" v-else-if="error.statusCode == 500">
         <h2>Error {{ error.statusCode }} - Internal Error</h2>
         <p>This error can be caused by the uBlock Origin filter "Fanboy's Annoyance." Please consider disabling this filter or disabling uBlock Origin on this site.</p>
         <p>If you don't have this filter enabled, please report this issue to us!</p>
     </div>
-    <div class="error-unknown" v-else>
+    <div class="error" v-else>
         <h2>Error {{ error.statusCode }}</h2>
         <p>Please report this issue to us.</p>
     </div>
 </template>
 
 <style scoped>
-.error-404 {
+.error {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +27,7 @@
     text-align: center;
 }
 
-.error-404 img {
+.error img {
     max-width: 450px;
     height: auto;
     margin: 1rem;
