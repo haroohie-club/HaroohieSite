@@ -12,6 +12,10 @@ export default defineNuxtConfig({
         }
     },
 
+    plugins: [
+        { src: '~/plugins/vue-matomo.js', mode: 'client' },
+    ],
+
     // Pre render the sitemap
     nitro: {
         prerender: {
