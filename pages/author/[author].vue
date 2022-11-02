@@ -12,6 +12,12 @@
                             <NuxtLink v-if="doc.author.github" :to="doc.author.github">
                                 <IconifiedText icon="fa6-brands:github">GitHub</IconifiedText>
                             </NuxtLink>
+                            <NuxtLink v-if="doc.author.mastodon" :to="doc.author.mastodon">
+                                <IconifiedText icon="fa6-brands:mastodon">Mastodon</IconifiedText>
+                            </NuxtLink>
+                            <NuxtLink v-if="doc.author.youtube" :to="doc.author.youtube">
+                                <IconifiedText icon="fa6-brands:youtube">YouTube</IconifiedText>
+                            </NuxtLink>
                         </div>
                     </div>
                     <ContentRenderer :value="doc" />
