@@ -93,8 +93,8 @@ export default {
 .blog {
     display: flex;
     flex-direction: column;
-    width: 75vw !important;
     margin-left: 0.5rem;
+    max-width: 60vw !important;
 }
 
 .content {
@@ -197,6 +197,7 @@ article {
     }
 
     .blog {
+        max-width: 100% !important;
         width: 90vw !important;
         margin: 0.5rem 0;
     }
@@ -218,6 +219,41 @@ article p img {
     margin-right: auto;
 }
 
+/* Tables */
+article table {
+    display: block;
+    overflow: auto !important;
+    position: relative !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border-radius: 0.5rem !important;
+    width: fit-content;
+}
+
+article table tbody, article table thead {
+    overflow: auto;
+}
+
+/* Cell padding */
+article table td, article table th {
+    padding: 0.6rem;
+}
+
+/* Center table headings */
+article table th {
+    text-align: center;
+    background-color: var(--main-red);
+    color: white;
+}
+
+/* Highlight odd rows */
+article table tr:nth-child(odd) {
+    background-color: var(--main-light-gray);
+}
+
+/* Code blocks */
 article pre {
     display: block;
     background-color: var(--main-light-gray);

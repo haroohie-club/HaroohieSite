@@ -1,5 +1,5 @@
 <template>
-    <a :href="link">
+    <a :href="link" :rel="rel">
         <div :class="'button ' + color + '-color ' + (fullwidth ? 'fullwidth ' : '') + (type ? type : '')">
             <span v-if="icon">
                 <IconifiedText :icon="icon">
@@ -35,6 +35,10 @@ export default {
         },
         fullwidth: {
             type: Boolean,
+            required: false
+        },
+        rel: {
+            type: String,
             required: false
         }
     },
@@ -95,5 +99,13 @@ export default {
 
 .twitter-color {
     background: #1da1f2;
+}
+
+.mastodon-color {
+    background: #313543;
+}
+
+.rss-color {
+    background: #ff6600;
 }
 </style>

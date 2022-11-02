@@ -3,9 +3,11 @@
         <ButtonLink :link="top_link" color="red" type="top-piece" :icon="top_icon" fullwidth>{{ top_text }}
         </ButtonLink>
         <ButtonLink link="https://discord.gg/nesRSbpeFM" color="discord" type="mid-piece" icon="fa6-brands:discord"
-            fullwidth>Join our server!</ButtonLink>
-        <ButtonLink link="https://twitter.com/haroohie" color="twitter" type="bottom-piece" icon="fa6-brands:twitter"
-            fullwidth>Follow us!</ButtonLink>
+            fullwidth>Discord Server</ButtonLink>
+        <ButtonLink link="https://twitter.com/haroohie" color="twitter" type="mid-piece" icon="fa6-brands:twitter"
+            fullwidth>Twitter</ButtonLink>
+        <ButtonLink link="https://mastodon.online/@haroohie" rel="me" color="mastodon" type="bottom-piece" icon="fa6-brands:mastodon"
+            fullwidth>Mastodon</ButtonLink>
     </div>
 </template>
 

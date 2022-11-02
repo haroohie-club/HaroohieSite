@@ -19,6 +19,7 @@
                     <BlogPreviewStack />
                     <div class="view-more">
                         <ButtonLink link="/blog" color="blue" icon="fa6-solid:paper-plane">View All</ButtonLink>
+                        <ButtonLink link="/rss.xml" color="rss" icon="fa6-solid:rss">Feed</ButtonLink>
                     </div>
                 </div>
             </div>

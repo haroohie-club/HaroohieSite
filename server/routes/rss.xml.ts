@@ -6,6 +6,7 @@ export default defineEventHandler(async (event) => {
         title: 'Haroohie Translation Club Blog',
         site_url: 'https://haroohie.club/',
         feed_url: 'https://haroohie.club/rss.xml',
+        image_url: 'https://haroohie.club/images/sos-logo.png',
     })
 
     const docs = await serverQueryContent(event).find();
