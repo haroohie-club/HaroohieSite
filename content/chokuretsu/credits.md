@@ -49,6 +49,7 @@ Twitter
 color: 'mastodon'
 icon: 'fa6-brands:mastodon'
 link: 'https://mastodon.online/@haroohie'
+rel: 'me'
 ---
 Mastodon
 ::

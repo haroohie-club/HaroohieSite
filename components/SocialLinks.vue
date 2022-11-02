@@ -6,7 +6,7 @@
             fullwidth>Discord Server</ButtonLink>
         <ButtonLink link="https://twitter.com/haroohie" color="twitter" type="mid-piece" icon="fa6-brands:twitter"
             fullwidth>Twitter</ButtonLink>
-        <ButtonLink link="https://mastodon.online/@haroohie" color="mastodon" type="bottom-piece" icon="fa6-brands:mastodon"
+        <ButtonLink link="https://mastodon.online/@haroohie" rel="me" color="mastodon" type="bottom-piece" icon="fa6-brands:mastodon"
             fullwidth>Mastodon</ButtonLink>
     </div>
 </template>

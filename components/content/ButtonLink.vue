@@ -1,5 +1,5 @@
 <template>
-    <a :href="link">
+    <a :href="link" :rel="rel">
         <div :class="'button ' + color + '-color ' + (fullwidth ? 'fullwidth ' : '') + (type ? type : '')">
             <span v-if="icon">
                 <IconifiedText :icon="icon">
@@ -35,6 +35,10 @@ export default {
         },
         fullwidth: {
             type: Boolean,
+            required: false
+        },
+        rel: {
+            type: String,
             required: false
         }
     },
