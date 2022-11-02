@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
             custom_elements: [
                 {
                     'image': [
-                        { 'url': doc.navigation.image },
+                        { 'url': `https://haroohie.club/images/blog/${doc.navigation.image}` },
                         { 'title': doc.title },
                         { 'link': 'https://haroohie.club/blog' },
                     ]
