@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     // Pre render the sitemap
     nitro: {
         prerender: {
-            routes: ['/sitemap.xml', '/404.html', 'rss.xml']
+            routes: ['/sitemap.xml', '/404.html', '/rss.xml']
         }
     },
 
