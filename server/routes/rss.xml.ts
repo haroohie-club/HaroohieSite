@@ -18,7 +18,16 @@ export default defineEventHandler(async (event) => {
             title: doc.title ?? '-',
             url: `https://haroohie.club${doc._path}`,
             date: `${doc.navigation.year}-${doc.navigation.month}-${doc.navigation.day}`,
-            description: doc.description
+            description: doc.description,
+            custom_elements: [
+                {
+                    'image': [
+                        { 'url': `https://haroohie.club/images/blog/${doc.navigation.image}` },
+                        { 'title': doc.title },
+                        { 'link': 'https://haroohie.club/blog' },
+                    ]
+                }
+            ]
         })
     }
 
