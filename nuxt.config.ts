@@ -1,3 +1,5 @@
+import armTMLanguage from './tmLanguages/arm.tmLanguage.json'
+
 // Nuxt config file (https://v3.nuxtjs.org/api/configuration/nuxt.config)
 export default defineNuxtConfig({
     // Modules
@@ -40,7 +42,13 @@ export default defineNuxtConfig({
                 'c',
                 'cpp',
                 'csharp',
-                'python'
+                'python',
+                {
+                    id: 'asm',
+                    scopeName: 'source.arm',
+                    aliases: [],
+                    grammar: armTMLanguage
+                }
             ]
         }
     }
