@@ -102,7 +102,7 @@ export default {
 }
 
 .mastodon-color {
-    background: #595aff;
+    background: #313543;
 }
 
 .rss-color {
