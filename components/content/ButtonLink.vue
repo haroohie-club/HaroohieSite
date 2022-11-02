@@ -96,4 +96,12 @@ export default {
 .twitter-color {
     background: #1da1f2;
 }
+
+.mastodon-color {
+    background: #595aff;
+}
+
+.rss-color {
+    background: #ff6600;
+}
 </style>
