@@ -1,5 +1,6 @@
 <template>
     <NuxtLayout>
+        <a rel="me" href="https://mastodon.online/@haroohie" style="display:none;"></a>
         <div id="home-page">
             <div class="top">
                 <div class="releases box">
