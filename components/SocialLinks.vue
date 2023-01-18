@@ -34,11 +34,9 @@ export default {
 </script>
 
 <style scoped>
-.social-buttons {
+.social-links {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    max-width: 100%;
-    width: 80%;
+    justify-content: space-between;
 }
 </style>

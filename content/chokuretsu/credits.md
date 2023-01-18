@@ -17,6 +17,8 @@ If you're interested in helping us translate the Haruhi Suzumiya video games, jo
 Even if not, be sure to follow us on Twitter and Mastodon! Plus, join our Discord Server to stay up-to-date with our latest updates, or get help on patching your game. We also post updates and insights from the translation process to [our blog](/blog)!
 
 <!-- Social media, Discord and blog buttons -->
+::button-row
+
 ::button-link
 ---
 color: 'red'
@@ -52,4 +54,6 @@ link: 'https://mastodon.online/@haroohie'
 rel: 'me'
 ---
 Mastodon
+::
+
 ::

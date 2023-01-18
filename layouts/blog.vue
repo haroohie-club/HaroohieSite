@@ -8,17 +8,15 @@
         </div>
         <div id="blog-page">
             <div class="sidebar">
-                <div class="links box">
+                <div class="box">
                     <h2>Links</h2>
-                    <div id="links">
-                        <SocialLinks />
-                    </div>
+                    <SocialLinks />
                     <h2>Blogs</h2>
                     <BlogList />
                 </div>
             </div>
             <div class="blog">
-                <div class="content box">
+                <div class="box">
                     <article>
                         <slot />
                     </article>
@@ -78,27 +76,20 @@ export default {
 #blog-page {
     display: flex;
     flex-direction: row;
-    max-width: 1200px;
-    justify-content: center;
     margin: 0 auto;
+    gap: 1rem;
 }
 
 .sidebar {
     display: flex;
     flex-direction: column;
-    width: 20vw !important;
-    margin-right: 0.5rem;
+    max-width: 250px;
 }
 
 .blog {
     display: flex;
     flex-direction: column;
-    margin-left: 0.5rem;
-    max-width: 60vw !important;
-}
-
-.content {
-    display: flex;
+    max-width: 1100px;
 }
 
 .box {
@@ -106,12 +97,6 @@ export default {
     border-radius: 0.5rem;
     box-shadow: var(--main-shadow);
     padding: 1rem;
-}
-
-article {
-    display: flex;
-    flex-direction: column;
-    max-width: 100% !important;
 }
 
 /* Blog top */
@@ -205,6 +190,10 @@ article {
 </style>
 
 <style>
+article {
+    width: 100%;
+}
+
 article img {
     max-width: 85%;
     max-height: 400px;

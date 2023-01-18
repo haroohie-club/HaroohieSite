@@ -44,7 +44,7 @@ export default defineNuxtConfig({
                 'csharp',
                 'python',
                 {
-                    id: 'asm',
+                    id: 'arm',
                     scopeName: 'source.arm',
                     aliases: [],
                     grammar: armTMLanguage

@@ -18,10 +18,10 @@
                 <div class="blogs box">
                     <h2>From the Clubroom</h2>
                     <BlogPreviewStack />
-                    <div class="view-more">
+                    <ButtonRow class="view-more">
                         <ButtonLink link="/blog" color="blue" icon="fa6-solid:paper-plane">View All</ButtonLink>
                         <ButtonLink link="/rss.xml" color="rss" icon="fa6-solid:rss">Feed</ButtonLink>
-                    </div>
+                    </ButtonRow>
                 </div>
             </div>
         </div>

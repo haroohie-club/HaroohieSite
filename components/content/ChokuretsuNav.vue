@@ -62,10 +62,6 @@
     flex-direction: column;
 }
 
-.nav-buttons a {
-    max-width: 90%;
-}
-
 .nav-buttons #nav-or {
     display: flex;
     flex-direction: row;
