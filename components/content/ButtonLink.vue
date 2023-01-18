@@ -54,7 +54,7 @@ export default {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
-    margin: 0.3rem;
+    box-sizing: border-box;
 
     /* Shading effects */
     filter: drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.3));
