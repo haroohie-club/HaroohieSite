@@ -1,5 +1,5 @@
 <template>
-    <div id="patcher-notice"></div>
+    <div id="patcher-notice">To get started, please select a ROM file.</div>
     <div class="patcher-menu">
         <div class="patcher-left">
             <h3 class="patcher-header">Options</h3>
@@ -59,6 +59,24 @@
 
 #patcher-options {
     text-align: left;
+}
+
+#patcher-notice {
+    text-align: center;
+    background-color: var(--main-light-gray);
+    color: black;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.error-notice {
+    background-color: var(--main-red) !important;
+    color: white !important;
+}
+
+.warning-notice {
+    background-color: orange !important;
+    color: black !important;
 }
 
 .patcher-menu .patcher-left {
@@ -273,30 +291,9 @@ function hasHeader(romFile) {
 
 // Show the patcher status notice at the top of the patcher
 function showNotice(noticeType, noticeMessage) {
-    let messageBody = '';
-    switch (noticeType) {
-        case 'error':
-            messageBody += '<i class="fa-solid fa-circle-xmark"></i>&nbsp;'
-            break;
-        case 'warning':
-            messageBody += '<i class="fa-solid fa-triangle-exclamation"></i>&nbsp;'
-            break;
-        default:
-            messageBody += '<i class="fa-solid fa-circle-info"></i>&nbsp;'
-            break;
-    }
-    messageBody += noticeMessage;
     let patcherElement = document.getElementById('patcher-notice');
-    patcherElement.innerHTML = messageBody;
-    patcherElement.classList.remove('hidden');
-}
-
-// Hide the patcher status notice
-function hideNotice() {
-    let patcherElement = document.getElementById('patcher-notice');
-    if (!patcherElement.classList.contains('hidden')) {
-        patcherElement.classList.add('hidden');
-    }
+    patcherElement.innerText = noticeMessage;
+    patcherElement.classList = noticeType + '-notice';
 }
 
 // Returns the selected version
@@ -316,6 +313,12 @@ export default {
     methods: {
         patchRom: function () {
             let version = getSelectedVersion();
+            
+            // if a rom file has not been selected, return with an error
+            if (!romFile) {
+                showNotice('error', 'Please choose a ROM first');
+                return;
+            }
 
             // Gets the file name
             parsePatchFile(getFileName(), version).then(arrayBuffer => {
@@ -391,7 +394,6 @@ export default {
             });
         },
         selectFile: async function (event) {
-            hideNotice();
             try {
                 romFile = new MarcFile(event.target, _parseROM);
             } catch (error) {
