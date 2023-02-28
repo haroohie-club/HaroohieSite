@@ -11,6 +11,15 @@ unwrap: true
 **DeSmuME** should not be used due to graphical and audio emulation issues. Please use melonDS instead!
 ::
 
+### nds-bootstrap users
+::iconified-text
+---
+icon: fa6-solid:circle-info
+unwrap: true
+---
+If you're using **nds-bootstrap**, please be sure to launch the game in DSi Mode.
+::
+
 ### More links
 ::button-link
 ---
