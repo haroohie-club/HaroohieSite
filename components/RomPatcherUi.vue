@@ -126,6 +126,10 @@ const AVAILABLE_PATCHES = [
         version: '0.2',
         date: 'April 20, 2022'
     },
+    {
+        version: '0.4',
+        date: 'February 28, 2023'
+    }
 ].reverse();
 
 // Counter URL
