@@ -1,5 +1,5 @@
 <template>
-    <div id="patcher-notice"></div>
+    <div id="patcher-notice">To get started, please select a ROM file.</div>
     <div class="patcher-menu">
         <div class="patcher-left">
             <h3 class="patcher-header">Options</h3>
@@ -7,18 +7,14 @@
                 <tbody>
                     <RomPatcherOptionDescription title="OP/ED subtitles" img="/images/chokuretsu/opening-subtitles.png"
                         alt="The opening movie with English subtitles and karaoke track">
-                        Configure whether the opening movie and end credits should be subtitled in English with
-                        Japanese
-                        karaoke typesetting.
+                        Configure whether the opening movie and end credits should be subtitled in English with Japanese karaoke typesetting.
                     </RomPatcherOptionDescription>
                     <RomPatcherOption optionName="op-ed-subtitling" option1="Subtitled" option1value="subbedoped" option2="Clean" option2value="cleanoped" />
 
                     <RomPatcherOptionDescription title="Voiced line subtitles"
                         img="/images/chokuretsu/voiced-line-subtitles.png"
                         alt="The puzzle phase with a subtitled voice line">
-                        Configure whether voiced lines in the puzzle phase should have supplementary English
-                        subtitles
-                        display on screen.
+                        Configure whether voiced lines in the puzzle phase should have supplementary English subtitles display on screen.
                     </RomPatcherOptionDescription>
                     <RomPatcherOption optionName="voice-lines-subtitling" option1="Subtitles" option1value="voicesubs" option2="No Subtitles" option2value="novoicesubs" />
                 </tbody>
@@ -27,7 +23,7 @@
         <div class="patcher-right">
             <div>
                 <h3 class="patcher-header">Select ROM</h3>
-                <input id="input-file-rom" @change="selectFile" class="input-file enabled" type="file" accepts=".nds"
+                <input id="input-file-rom" @change="selectFile" class="input-file enabled" type="file" accept=".nds"
                     ondragenter="this.classList.add('patcher-file-dragging');"
                     ondragleave="this.classList.remove('patcher-file-dragging');" />
             </div>
@@ -63,6 +59,24 @@
 
 #patcher-options {
     text-align: left;
+}
+
+#patcher-notice {
+    text-align: center;
+    background-color: var(--main-light-gray);
+    color: black;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.error-notice {
+    background-color: var(--main-red) !important;
+    color: white !important;
+}
+
+.warning-notice {
+    background-color: orange !important;
+    color: black !important;
 }
 
 .patcher-menu .patcher-left {
@@ -126,6 +140,10 @@ const AVAILABLE_PATCHES = [
         version: '0.2',
         date: 'April 20, 2022'
     },
+    {
+        version: '0.4',
+        date: 'February 28, 2023'
+    }
 ].reverse();
 
 // Counter URL
@@ -273,30 +291,9 @@ function hasHeader(romFile) {
 
 // Show the patcher status notice at the top of the patcher
 function showNotice(noticeType, noticeMessage) {
-    let messageBody = '';
-    switch (noticeType) {
-        case 'error':
-            messageBody += '<i class="fa-solid fa-circle-xmark"></i>&nbsp;'
-            break;
-        case 'warning':
-            messageBody += '<i class="fa-solid fa-triangle-exclamation"></i>&nbsp;'
-            break;
-        default:
-            messageBody += '<i class="fa-solid fa-circle-info"></i>&nbsp;'
-            break;
-    }
-    messageBody += noticeMessage;
     let patcherElement = document.getElementById('patcher-notice');
-    patcherElement.innerHTML = messageBody;
-    patcherElement.classList.remove('hidden');
-}
-
-// Hide the patcher status notice
-function hideNotice() {
-    let patcherElement = document.getElementById('patcher-notice');
-    if (!patcherElement.classList.contains('hidden')) {
-        patcherElement.classList.add('hidden');
-    }
+    patcherElement.innerText = noticeMessage;
+    patcherElement.classList = noticeType + '-notice';
 }
 
 // Returns the selected version
@@ -316,6 +313,12 @@ export default {
     methods: {
         patchRom: function () {
             let version = getSelectedVersion();
+            
+            // if a rom file has not been selected, return with an error
+            if (!romFile) {
+                showNotice('error', 'Please choose a ROM first');
+                return;
+            }
 
             // Gets the file name
             parsePatchFile(getFileName(), version).then(arrayBuffer => {
@@ -391,7 +394,6 @@ export default {
             });
         },
         selectFile: async function (event) {
-            hideNotice();
             try {
                 romFile = new MarcFile(event.target, _parseROM);
             } catch (error) {
