@@ -292,7 +292,7 @@ function hasHeader(romFile) {
 // Show the patcher status notice at the top of the patcher
 function showNotice(noticeType, noticeMessage) {
     let patcherElement = document.getElementById('patcher-notice');
-    patcherElement.innerText = noticeMessage;
+    patcherElement.innerHTML = noticeMessage;
     patcherElement.classList = noticeType + '-notice';
 }
 
