@@ -1,23 +1,28 @@
 <template>
     <!-- Youtube video iframe -->
     <div class="youtube-video">
-        <iframe
-            id="ytplayer"
-            :src="'https://www.youtube.com/embed/' + videoId + '?origin=' + $route.params.origin"
-            frameborder="0"
+        <iframe width="560" height="315" id="ytplayer"
+            src="https://www.youtube.com/embed/pHG2uxj2CwA" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-        ></iframe>
+            allowfullscreen></iframe>
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        videoId: {
-            type: String,
-            required: true
-        }
+<script setup>
+const { videoId } = defineProps({
+    videoId: {
+        type: String,
+        required: true
     }
-}
+})
 </script>
+
+<style scoped>
+.youtube-video {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+</style>
