@@ -7,18 +7,14 @@
                 <tbody>
                     <RomPatcherOptionDescription title="OP/ED subtitles" img="/images/chokuretsu/opening-subtitles.png"
                         alt="The opening movie with English subtitles and karaoke track">
-                        Configure whether the opening movie and end credits should be subtitled in English with
-                        Japanese
-                        karaoke typesetting.
+                        Configure whether the opening movie and end credits should be subtitled in English with Japanese karaoke typesetting.
                     </RomPatcherOptionDescription>
                     <RomPatcherOption optionName="op-ed-subtitling" option1="Subtitled" option1value="subbedoped" option2="Clean" option2value="cleanoped" />
 
                     <RomPatcherOptionDescription title="Voiced line subtitles"
                         img="/images/chokuretsu/voiced-line-subtitles.png"
                         alt="The puzzle phase with a subtitled voice line">
-                        Configure whether voiced lines in the puzzle phase should have supplementary English
-                        subtitles
-                        display on screen.
+                        Configure whether voiced lines in the puzzle phase should have supplementary English subtitles display on screen.
                     </RomPatcherOptionDescription>
                     <RomPatcherOption optionName="voice-lines-subtitling" option1="Subtitles" option1value="voicesubs" option2="No Subtitles" option2value="novoicesubs" />
                 </tbody>
@@ -27,7 +23,7 @@
         <div class="patcher-right">
             <div>
                 <h3 class="patcher-header">Select ROM</h3>
-                <input id="input-file-rom" @change="selectFile" class="input-file enabled" type="file" accepts=".nds"
+                <input id="input-file-rom" @change="selectFile" class="input-file enabled" type="file" accept=".nds"
                     ondragenter="this.classList.add('patcher-file-dragging');"
                     ondragleave="this.classList.remove('patcher-file-dragging');" />
             </div>
