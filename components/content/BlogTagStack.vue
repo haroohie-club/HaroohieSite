@@ -1,6 +1,6 @@
 <template>
     <ContentList path="/blog" v-slot="{ list }">
-        <div v-for="blog in list.filter(b => b.navigation).filter(b => b.navigation.tags.includes(tag)).slice(0, Math.min(list.length, limit)).reverse()">
+        <div v-for="blog in list.filter(b => b.navigation).filter(b => b.navigation.tags.includes(tag)).reverse().slice(0, Math.min(list.length, limit))">
             <BlogPreview v-if="blog.navigation" :key="blog.title" :blog="blog" />
         </div>
     </ContentList>
