@@ -41,7 +41,7 @@ export default {
                         "chokuretsu/screenshots/puzzle.png",
                         "chokuretsu/screenshots/top-screen.png"
                     ],
-                    tags: ["Nintendo DS", "Puzzle", "20% Complete"]
+                    tags: ["Nintendo DS", "Puzzle", "40% Complete"]
                 },
                 {
                     "id": "heiretsu",
