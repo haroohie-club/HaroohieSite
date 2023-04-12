@@ -9,7 +9,7 @@
             </div>
             <div class="nav-buttons">
                 <ButtonLink link="/chokuretsu/guide" fullwidth type="top-piece" color="red" icon="fa6-solid:book">
-                    Get Started
+                    Setup Guide
                 </ButtonLink>
                 <ButtonLink link="/chokuretsu/patch" fullwidth type="mid-piece" color="blue" icon="fa6-solid:file-import">
                     ROM Patcher

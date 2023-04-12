@@ -14,6 +14,10 @@
                     <ContentDoc />
                     <h2>Links</h2>
                     <SocialLinks top_link="/blog" top_icon="fa6-solid:paper-plane" top_text="News & Blog" />
+                    <br />
+                    <h2>Projects</h2>
+                    <ButtonLink link="/chokuretsu" type="top-piece" fullwidth color="red" icon="fa6-solid:language">Chokuretsu Patch</ButtonLink>
+                    <ButtonLink link="/chokuretsu/serial-loops" type="bottom-piece" fullwidth color="sl-blue" icon="fa6-solid:gear">Serial Loops</ButtonLink>
                 </div>
                 <div class="blogs box">
                     <h2>From the Clubroom</h2>

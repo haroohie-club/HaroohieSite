@@ -1,6 +1,6 @@
 <template>
     <NuxtLayout>
-        <template #hero>
+        <template #top>
             <div id="hero">
                 <div id="topbar">
                     <div id="logo">

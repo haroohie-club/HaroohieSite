@@ -1,7 +1,7 @@
 <!-- Template for serial loop pages -->
 <template>
     <div id="content-body">
-        <slot name="hero" />
+        <slot name="top" />
         <div id="page-with-sidebar">
             <div id="sidebar">
                 <NuxtLink to="/chokuretsu/serial-loops">
@@ -49,7 +49,6 @@ export default {
     min-height: 100vh;
     background-color: white;
     background-image: none;
-    justify-content: center;
 }
 
 /* page with sidebar */
@@ -85,12 +84,17 @@ export default {
 #footer {
     background-color: var(--main-light-gray);
     padding-bottom: 0.75rem;
+    margin-top: 2rem;
 }
 
 /* Less than 1200px */
 @media screen and (max-width: 1200px) {
     #page-with-sidebar {
         flex-direction: column-reverse;
+    }
+
+    article {
+        min-height: 0;
     }
 }
 
@@ -129,6 +133,7 @@ article .sl-header {
 
 article {
     width: 100%;
+    min-height: 79vh;
     margin: 0rem 1.5rem;
 }
 

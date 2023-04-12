@@ -1,23 +1,27 @@
 <template>
     <NuxtLayout>
-        <div id="topbar">
-            <div id="logo">
-                <TitleGraphic graphic="club-logo" to="/" />
+        <template #top>
+            <div id="topbar">
+                <div id="logo">
+                    <TitleGraphic graphic="club-logo" to="/" />
+                </div>
             </div>
-        </div>
-        <ContentDoc>
-            <template v-slot="{ doc }">
-                <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
-                <ContentRenderer :value="doc" />
-                <ChokuretsuGuidePagination :doc="doc" />
-            </template>
-            <template #not-found>
-                <h1>Invalid docs page</h1>
-                <p>Could not find a docs page at this address.</p>
-                <ButtonLink link="/chokuretsu/serial-loops/docs" color="red" icon="fa6-solid:file">Back
-                </ButtonLink>
-            </template>
-        </ContentDoc>
+        </template>
+        <article>
+            <ContentDoc>
+                <template v-slot="{ doc }">
+                    <b class="sl-header">{{ doc.title }}</b> 
+                    <ContentRenderer :value="doc" />
+                    <ChokuretsuGuidePagination :doc="doc" />
+                </template>
+                <template #not-found>
+                    <h1>Invalid docs page</h1>
+                    <p>Could not find a docs page at this address.</p>
+                    <ButtonLink link="/chokuretsu/serial-loops/docs" color="red" icon="fa6-solid:file">Back
+                    </ButtonLink>
+                </template>
+            </ContentDoc>
+        </article>
     </NuxtLayout>
 </template>
 

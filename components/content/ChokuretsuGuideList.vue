@@ -7,3 +7,6 @@
         </ContentList>
     </ol>
 </template>
+
+<script>
+</script>

@@ -6,7 +6,7 @@ link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
 fullwidth: true
 type: 'top-piece'
 ---
-Download
+GitHub
 ::
 
 ::button-link
@@ -17,7 +17,7 @@ link: '/chokuretsu'
 fullwidth: true
 type: 'mid-piece'
 ---
-English Patch
+Chokuretsu Patch
 ::
 
 ::button-link
