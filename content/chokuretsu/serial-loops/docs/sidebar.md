@@ -11,6 +11,17 @@ GitHub
 
 ::button-link
 ---
+color: 'sl-green'
+icon: 'fa6-solid:book'
+link: '/chokuretsu/serial-loops/docs'
+fullwidth: true
+type: 'mid-piece'
+---
+Docs
+::
+
+::button-link
+---
 color: 'red'
 icon: 'fa6-solid:language'
 link: '/chokuretsu'
