@@ -105,6 +105,10 @@ export default {
     background: #313543;
 }
 
+.black-color {
+    background: #111111;
+}
+
 .rss-color {
     background: #ff6600;
 }
