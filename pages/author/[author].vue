@@ -9,6 +9,9 @@
                             <NuxtLink v-if="doc.author.twitter" :to="doc.author.twitter">
                                 <IconifiedText icon="fa6-brands:twitter">Twitter</IconifiedText>
                             </NuxtLink>
+                            <NuxtLink v-if="doc.author.instagram" :to="doc.author.instagram">
+                                <IconifiedText icon="fa6-brands:instagram">Instagram</IconifiedText>
+                            </NuxtLink>
                             <NuxtLink v-if="doc.author.github" :to="doc.author.github">
                                 <IconifiedText icon="fa6-brands:github">GitHub</IconifiedText>
                             </NuxtLink>
