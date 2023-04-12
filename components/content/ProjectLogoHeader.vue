@@ -1,6 +1,6 @@
 <template>
     <div id="logo-header">
-        <img :src="'/images/chokuretsu/' + icon"/>
+        <img class="modal-exclude" :src="'/images/chokuretsu/' + icon"/>
         <div id="name">
             <ContentSlot :use="$slots.default" unwrap="p" />
         </div>

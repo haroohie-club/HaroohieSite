@@ -71,7 +71,7 @@ export default {
     min-height: inherit;
     width: 15rem;
     border-radius: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     padding: 2rem 1.25rem;
 }
 

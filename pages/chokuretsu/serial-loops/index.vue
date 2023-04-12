@@ -20,6 +20,30 @@
     </NuxtLayout>
 </template>
 
+<script>
+export default {
+    data() {
+        return {
+            gradientAngle: 135
+        };
+    },
+    mounted() {
+        // Slowly adjust the gradient so it looks cool on the hero
+        setInterval(() => {
+            this.gradientAngle += 1;
+            if (this.gradientAngle > 360) {
+                this.gradientAngle = 0;
+            }
+            document.getElementById("hero").style.background = `linear-gradient(${this.gradientAngle}deg, var(--sl-blue), var(--sl-green))`;
+        }, 100);
+    }
+}
+
+definePageMeta({
+    layout: 'serial-loops',
+});
+</script>
+
 <style scoped>
 #topbar {
     margin: 0 auto;
@@ -64,27 +88,3 @@
     filter: brightness(0.8);
 }
 </style>
-
-<script>
-export default {
-    data() {
-        return {
-            gradientAngle: 135,
-            gradientStart: "#00C4F5",
-            gradientEnd: "#88C224"
-        };
-    },
-    mounted() {
-        // Slowly adjust the gradient so it looks cool on the hero
-        setInterval(() => {
-            this.gradientAngle += 1;
-            if (this.gradientAngle > 360) {
-                this.gradientAngle = 0;
-            }
-            document.getElementById("hero").style.background = `linear-gradient(${this.gradientAngle}deg, ${this.gradientStart}, ${this.gradientEnd})`;
-        }, 100);
-    }
-}
-
-
-</script>

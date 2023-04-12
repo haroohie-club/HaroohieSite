@@ -33,6 +33,7 @@ head:
 Serial Loops is a level editor for [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.
 
 <br />
+<br />
 
 ## News
 ::blog-tag-stack
@@ -42,19 +43,19 @@ limit: 2
 ---
 ::
 
-::button-row
-::button-link
----
-color: 'red'
-icon: 'fa6-solid:paper-plane'
-link: '/tag/serial%20loops'
----
-Our Blog
-::
-::
-
 ## Downloads
 Downloads are available for Windows, macOS (Intel and Apple Silicon) and Linux (Debian Package) [on GitHub](https://github.com/haroohie-club/SerialLoops/releases). We offer both release (recommended) and nightly pre-release builds.
+
+
+::button-link
+---
+color: 'sl-blue'
+icon: 'fa6-solid:download'
+link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
+---
+Download Latest
+::
+
 
 ## Installation
 The following prerequisites need to be installed in order to use Serial Loops:

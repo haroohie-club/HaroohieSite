@@ -4,12 +4,11 @@
             <template v-slot="{ doc }">
                 <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
                 <ContentRenderer :value="doc" />
-                <ChokuretsuGuidePagination :doc="doc" />
             </template>
             <template #not-found>
                 <h1>Invalid docs page</h1>
                 <p>Could not find a docs page at this address.</p>
-                <ButtonLink link="/chokuretsu/serial-loops/docs" color="red" icon="fa6-solid:file">Back
+                <ButtonLink link="/chokuretsu/serial-loops/docs" color="red" icon="fa6-solid:house">Back to Start
                 </ButtonLink>
             </template>
         </ContentDoc>
