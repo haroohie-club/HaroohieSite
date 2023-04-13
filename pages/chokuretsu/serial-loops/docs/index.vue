@@ -7,19 +7,24 @@
                 </div>
             </div>
         </template>
-        <article>
             <ContentDoc>
                 <template v-slot="{ doc }">
-                    <ContentRenderer :value="doc" />
-                </template>
-                <template #not-found>
-                    <h1>Invalid docs page</h1>
-                    <p>Could not find a docs page at this address.</p>
-                    <ButtonLink link="/chokuretsu/serial-loops/docs" color="red" icon="fa6-solid:house">Back to Start
-                    </ButtonLink>
+                    <article>
+                        <div class="breadcrumbs">
+                            <SerialLoopsBreadcrumb link="/chokuretsu/serial-loops" icon="fa6-solid:arrow-left">
+                                Serial Loops Home
+                            </SerialLoopsBreadcrumb>
+                            <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next" icon="fa6-solid:arrow-right">
+                                {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.next.split('/').slice(-1)[0].slice(1) }}
+                            </SerialLoopsBreadcrumb>
+                        </div>
+                        <ContentRenderer :value="doc" />
+                        <SerialLoopsBreadcrumb class="next-page" v-if="doc.navigation.next" :link="doc.navigation.next" icon="fa6-solid:arrow-right">
+                            {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
+                        </SerialLoopsBreadcrumb>
+                    </article>
                 </template>
             </ContentDoc>
-        </article>
     </NuxtLayout>
 </template>
 
@@ -44,6 +49,15 @@
 
 #nagato-book img {
     max-width: 80px;
+}
+
+.breadcrumbs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.next-page {
+    margin-left: auto;
 }
 </style>
 

@@ -10,9 +10,40 @@
         <article>
             <ContentDoc>
                 <template v-slot="{ doc }">
-                    <b class="sl-header">{{ doc.title }}</b> 
+                    <div class="navigation">
+                        <span class="parent-crumb">
+                            <SerialLoopsBreadcrumb v-if="(doc._path.split('/').length > 5)" :link="`/chokuretsu/serial-loops/docs/${doc._path.split('/')[4]}`" >
+                                {{ doc._path.split('/')[4].charAt(0).toUpperCase() + doc._path.split('/')[4].slice(1) }}
+                            </SerialLoopsBreadcrumb>
+                            <SerialLoopsBreadcrumb v-else link="/chokruetsu/serial-loops/docs/" icon="fa6-solid:house">
+                                Home
+                            </SerialLoopsBreadcrumb>
+                        </span>
+                        <span class="contextual-crumbs">
+                            <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :link="doc.navigation.previous" icon="fa6-solid:arrow-left">
+                                {{ doc.navigation.previous.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.previous.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
+                            </SerialLoopsBreadcrumb>
+                            <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next" icon="fa6-solid:arrow-right">
+                                {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
+                            </SerialLoopsBreadcrumb>
+                        </span>
+                    </div>
+                    <div class="title">
+                        <span class="icon">
+                            <img v-if="doc.navigation.icon" :src="doc.navigation.icon" />
+                            <Icon v-else-if="doc.navigation.faicon" :name="doc.navigation.faicon" />
+                        </span>
+                        <b class="sl-header">{{ doc.title }}</b> 
+                    </div>
                     <ContentRenderer :value="doc" />
-                    <ChokuretsuGuidePagination :doc="doc" />
+                    <div class="pagination-buttons">
+                        <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :link="doc.navigation.previous" icon="fa6-solid:arrow-left">
+                            {{ doc.navigation.previous.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.previous.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
+                        </SerialLoopsBreadcrumb>
+                        <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next" icon="fa6-solid:arrow-right">
+                            {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
+                        </SerialLoopsBreadcrumb>
+                    </div>
                 </template>
                 <template #not-found>
                     <h1>Invalid docs page</h1>
@@ -55,6 +86,44 @@
 
 #nagato-book img {
     max-width: 80px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    margin-right: 0.5rem;
+    font-size: 2rem;
+    color: var(--sl-green);
+}
+
+.icon img {
+    margin-top: 0.6rem;
+    max-width: 1.8rem;
+    margin-right: 0.4rem;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.navigation .contextual-crumbs {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
 }
 </style>
 
