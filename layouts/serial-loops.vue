@@ -63,6 +63,7 @@ export default {
 
 #main {
     width: 80%;
+    margin: 0 1.5rem;
 }
 
 #sidebar-inner {
@@ -134,7 +135,6 @@ article .sl-header {
 article {
     width: 100%;
     min-height: 79vh;
-    margin: 0rem 1.5rem;
 }
 
 article img {
