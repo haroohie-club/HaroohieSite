@@ -8,17 +8,23 @@
                 <slot />
             </div>
             <div class="nav-buttons">
-                <ButtonLink link="/chokuretsu/guide" fullwidth color="red" icon="fa6-solid:book">Get Started
+                <ButtonLink link="/chokuretsu/guide" fullwidth type="top-piece" color="red" icon="fa6-solid:book">
+                    Setup Guide
                 </ButtonLink>
-                <div id="nav-or">
-                    <span>- or -</span>
-                </div>
-                <ButtonLink link="/chokuretsu/patch" fullwidth type="top-piece" color="blue"
-                    icon="fa6-solid:file-import">ROM Patcher</ButtonLink>
+                <ButtonLink link="/chokuretsu/patch" fullwidth type="mid-piece" color="blue" icon="fa6-solid:file-import">
+                    ROM Patcher
+                </ButtonLink>
                 <ButtonLink link="https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest"
-                    fullwidth type="mid-piece" color="blue" icon="fa6-solid:download">Download .xdelta</ButtonLink>
-                <ButtonLink link="https://github.com/haroohie-club" fullwidth type="bottom-piece" color="blue"
-                    icon="fa6-brands:github">Sources & Docs</ButtonLink>
+                    fullwidth type="bottom-piece" color="sl-green" icon="fa6-solid:download">
+                    Download .xdelta
+                </ButtonLink>
+                <div id="nav-or">&mdash;</div>
+                <ButtonLink link="https://github.com/haroohie-club" fullwidth type="top-piece" color="black" icon="fa6-brands:github">
+                    Sources & Tools
+                </ButtonLink>
+                <ButtonLink link="/chokuretsu/serial-loops" fullwidth type="bottom-piece" color="sl-blue" icon="fa6-solid:gear">
+                    Serial Loops Editor
+                </ButtonLink>
             </div>
         </div>
     </div>

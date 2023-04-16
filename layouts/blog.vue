@@ -13,6 +13,9 @@
                     <SocialLinks />
                     <h2>Blogs</h2>
                     <BlogList />
+                    <h2>Projects</h2>
+                    <ButtonLink link="/chokuretsu" type="top-piece" fullwidth color="red" icon="fa6-solid:language">Chokuretsu</ButtonLink>
+                    <ButtonLink link="/chokuretsu/serial-loops" type="bottom-piece" fullwidth color="sl-blue" icon="fa6-solid:gear">Serial Loops</ButtonLink>
                 </div>
             </div>
             <div class="blog">
