@@ -8,7 +8,7 @@
                     <ProjectLogoHeader icon="serial-loops/icon.png">Serial Loops</ProjectLogoHeader>
                 </NuxtLink>
                 <div id="sidebar-inner">
-                    <ContentDoc path="chokuretsu/serial-loops/docs/sidebar" />
+                    <ContentDoc path="chokuretsu/serial-loops/docs/sidebar" :head="false" />
                 </div>
             </div>
             <div id="main" class="column"><slot /></div>

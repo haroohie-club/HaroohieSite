@@ -9,7 +9,7 @@
             <div id="nagato-book">
                 <img src="/images/chokuretsu/nagato-book.png" alt="Chibi Nagato pixel art of her reading a book." />
             </div>
-            <ContentDoc path="chokuretsu/guide/sidebar" />
+            <ContentDoc path="chokuretsu/guide/sidebar" :head="false" />
         </template>
     </NuxtLayout>
 </template>

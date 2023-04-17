@@ -11,7 +11,7 @@
             <div id="haruhi-walk">
                 <img src="/images/chokuretsu/haruhi-walk.png" alt="Chibi Haruhi pixel art of her marching forward." />
             </div>
-            <ContentDoc path="/chokuretsu/patch/sidebar" />
+            <ContentDoc path="/chokuretsu/patch/sidebar" :head="false" />
         </template>
     </NuxtLayout>
 </template>
