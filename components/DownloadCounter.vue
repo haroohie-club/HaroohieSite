@@ -32,6 +32,9 @@ const { url } = defineProps({
 })
 
 const downloads = await fetch(url).then(result => {
+    if (!result.ok) {
+        throw new Error('Failed to fetch download count.')
+    }
     return result.json()
 }).then(jsonResult => {
     let downloadCount = jsonResult.value.toString();
@@ -39,5 +42,8 @@ const downloads = await fetch(url).then(result => {
         downloadCount = '0' + downloadCount;
     }
     return downloadCount;
+}).catch(error => {
+    console.error(error);
+    return '?????';
 })
 </script>
