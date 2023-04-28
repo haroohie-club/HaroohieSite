@@ -303,9 +303,14 @@ function getSelectedVersion() {
 
 function incrementDownloadCounter() {
     fetch(COUNTER_URL).then(result => {
+        if (!result.ok) {
+            throw new Error('Failed to increment download counter');
+        }
         return result.json();
     }).then(jsonResult => {
         console.log('Download number: ' + jsonResult.value);
+    }).catch(error => {
+        console.error(error);
     });
 }
 
