@@ -3,7 +3,6 @@
     <div id="content-body">
         <slot />
         <Footer />
-        <DownloadCounter />
     </div>
 </template>
 

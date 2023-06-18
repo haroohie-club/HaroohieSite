@@ -193,12 +193,9 @@ function getFileName() {
 function parsePatchFile(fileName, version) {
     showNotice('info', 'Downloading patch...');
 
+    // Download from GitHub
     let encodedUri;
     if (!DEBUG_MODE) {
-        // Increment downloads
-        incrementDownloadCounter();
-
-        // Download from GitHub
         encodedUri = (CORS_PROXY + 'https://github.com/' + REPO_ORG + '/' + REPO + '/releases/download/' + version + '/' + fileName);
     } else {
         encodedUri = DEBUG_PATCH;
@@ -299,19 +296,6 @@ function showNotice(noticeType, noticeMessage) {
 // Returns the selected version
 function getSelectedVersion() {
     return document.getElementById('patcher-version-dropdown').value;
-}
-
-function incrementDownloadCounter() {
-    fetch(COUNTER_URL).then(result => {
-        if (!result.ok) {
-            throw new Error('Failed to increment download counter');
-        }
-        return result.json();
-    }).then(jsonResult => {
-        console.log('Download number: ' + jsonResult.value);
-    }).catch(error => {
-        console.error(error);
-    });
 }
 
 export default {
