@@ -146,11 +146,8 @@ const AVAILABLE_PATCHES = [
     }
 ].reverse();
 
-// Counter URL
-const COUNTER_URL = 'https://api.countapi.xyz/hit/haroohie.club/downloads/';
-
 // RomPatcher data variables
-let romFile, patchFile, patch, tempFile, headerSize, romSha, isBadRom, repairPatchFile, repairPatch;
+let romFile, patchFile, patch, headerSize, romSha, isBadRom, repairPatchFile, repairPatch;
 
 // Parse the ROM zip and header data
 function _parseROM() {
