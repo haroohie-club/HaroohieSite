@@ -95,6 +95,19 @@
     border-radius: 0.8em;
 }
 
+.input-file:hover {
+    background-color: var(--main-light-gray);
+}
+
+
+.input-file.enabled {
+    cursor: pointer;
+}
+
+.input-file:hover {
+    background-color: var(--main-light-gray);
+}
+
 #patcher-version-dropdown {
     margin-left: 0.5rem;
 }
