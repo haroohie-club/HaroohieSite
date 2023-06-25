@@ -1,7 +1,7 @@
-import armTMLanguage from './tmLanguages/arm.tmLanguage.json'
+import { readFileSync } from 'fs'
 
-// Nuxt config file (https://v3.nuxtjs.org/api/configuration/nuxt.config)
-export default defineNuxtConfig({
+// Nuxt config file (https://nuxt.com/docs/getting-started/configuration)
+export default {
     // Modules
     buildModules: ['@nuxtjs/google-fonts'],
     modules: ['nuxt-icon', '@nuxt/content'],
@@ -44,12 +44,12 @@ export default defineNuxtConfig({
                 'csharp',
                 'python',
                 {
-                    id: 'arm',
+                    id: "arm",
                     scopeName: 'source.arm',
+                    grammar: JSON.parse(readFileSync("./tmLanguages/arm.tmLanguage.json")),
                     aliases: [],
-                    grammar: armTMLanguage
                 }
             ]
         }
     }
-})
+}
