@@ -2,7 +2,7 @@
 * [Setup guide](/chokuretsu/guide)
 * [Changelogs](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
-### Emulator users
+### Compatibility Notes
 ::iconified-text
 ---
 icon: fa6-solid:triangle-exclamation
@@ -11,7 +11,8 @@ unwrap: true
 **DeSmuME** should not be used due to graphical and audio emulation issues. Please use melonDS instead!
 ::
 
-### TWiLightMenu users
+<hr/>
+
 ::iconified-text
 ---
 icon: fa6-solid:circle-info

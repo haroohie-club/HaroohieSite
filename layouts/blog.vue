@@ -92,7 +92,8 @@ export default {
 .blog {
     display: flex;
     flex-direction: column;
-    max-width: 1100px;
+    max-width: 1100px !important;
+    width: 55vw;
 }
 
 .box {

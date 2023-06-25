@@ -57,18 +57,6 @@ Download Latest
 ::
 
 
-## Installation
-The following prerequisites need to be installed in order to use Serial Loops:
-
-* [devkitARM](https://devkitpro.org/wiki/Getting_Started)
-    - Using the Windows graphical installer, you can simply select the devkitARM (Nintendo DS) workloads
-    - On macOS and Linux, run `sudo dkp-pacman -S nds-dev` from the terminal after installing the devkitPro pacman distribution.
-
-Additionally, on Linux, you will need to install OpenAL. On Ubuntu/Debian (which are the distros we test on), it can be installed in a single command:
-```
-sudo apt install libopenal-dev
-```
-
 ## Bugs
 Please file bugs on our [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Please include the following information:
 * The platform you are running Serial Loops on

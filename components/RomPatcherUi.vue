@@ -95,6 +95,19 @@
     border-radius: 0.8em;
 }
 
+.input-file:hover {
+    background-color: var(--main-light-gray);
+}
+
+
+.input-file.enabled {
+    cursor: pointer;
+}
+
+.input-file:hover {
+    background-color: var(--main-light-gray);
+}
+
 #patcher-version-dropdown {
     margin-left: 0.5rem;
 }
@@ -146,11 +159,8 @@ const AVAILABLE_PATCHES = [
     }
 ].reverse();
 
-// Counter URL
-const COUNTER_URL = 'https://api.countapi.xyz/hit/haroohie.club/downloads/';
-
 // RomPatcher data variables
-let romFile, patchFile, patch, tempFile, headerSize, romSha, isBadRom, repairPatchFile, repairPatch;
+let romFile, patchFile, patch, headerSize, romSha, isBadRom, repairPatchFile, repairPatch;
 
 // Parse the ROM zip and header data
 function _parseROM() {
@@ -193,12 +203,9 @@ function getFileName() {
 function parsePatchFile(fileName, version) {
     showNotice('info', 'Downloading patch...');
 
+    // Download from GitHub
     let encodedUri;
     if (!DEBUG_MODE) {
-        // Increment downloads
-        incrementDownloadCounter();
-
-        // Download from GitHub
         encodedUri = (CORS_PROXY + 'https://github.com/' + REPO_ORG + '/' + REPO + '/releases/download/' + version + '/' + fileName);
     } else {
         encodedUri = DEBUG_PATCH;
@@ -299,19 +306,6 @@ function showNotice(noticeType, noticeMessage) {
 // Returns the selected version
 function getSelectedVersion() {
     return document.getElementById('patcher-version-dropdown').value;
-}
-
-function incrementDownloadCounter() {
-    fetch(COUNTER_URL).then(result => {
-        if (!result.ok) {
-            throw new Error('Failed to increment download counter');
-        }
-        return result.json();
-    }).then(jsonResult => {
-        console.log('Download number: ' + jsonResult.value);
-    }).catch(error => {
-        console.error(error);
-    });
 }
 
 export default {
