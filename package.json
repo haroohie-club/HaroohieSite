@@ -9,11 +9,12 @@
   },
   "devDependencies": {
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
-    "nuxt": "3.0.0",
+    "nuxt": "^3.6.0",
     "sitemap": "^7.1.1"
   },
   "dependencies": {
-    "@nuxtjs/google-fonts": "^3.0.0-0",
+    "@nuxt/content-edge": "^2.0.0",
+    "@nuxtjs/google-fonts": "^2.0.0",
     "nuxt-icon": "^0.1.6",
     "rss": "^1.2.2",
     "shiki": "^0.11.1",
