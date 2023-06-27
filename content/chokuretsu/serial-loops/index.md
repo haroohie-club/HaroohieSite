@@ -28,9 +28,9 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-<b class="sl-header">A level editor for Suzumiya Haruhi no Chokuretsu</b> 
+<b class="sl-header">An editing suite for Suzumiya Haruhi no Chokuretsu</b> 
 
-Serial Loops is a level editor for [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.
+Serial Loops is an editing suite for [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.
 
 <br />
 <br />
@@ -44,7 +44,7 @@ limit: 2
 ::
 
 ## Downloads
-Downloads are available for Windows, macOS (Intel and Apple Silicon) and Linux (Debian Package) [on GitHub](https://github.com/haroohie-club/SerialLoops/releases). We offer both release (recommended) and nightly pre-release builds.
+Downloads are available for Windows, macOS (Intel and Apple Silicon) and Linux (RPM & Debian packages) [on GitHub](https://github.com/haroohie-club/SerialLoops/release). We offer both release (recommended) and nightly pre-release builds.
 
 
 ::button-link
