@@ -105,6 +105,18 @@ export default {
     background: #313543;
 }
 
+.bluesky-color {
+    background: #00a2ff;
+}
+
+.instagram-color {
+    background: #e1306c;
+}
+
+.facebook-color {
+    background: #3b5998;
+}
+
 .black-color {
     background: #111111;
 }

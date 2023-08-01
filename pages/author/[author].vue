@@ -6,20 +6,26 @@
                     <div v-if="doc.author">
                         <h1 id="author">{{ doc.author.name }}</h1>
                         <div id="social">
-                            <NuxtLink v-if="doc.author.twitter" :to="doc.author.twitter">
+                            <NuxtLink v-if="doc.author.twitter" :to="doc.author.twitter" rel="me">
                                 <IconifiedText icon="fa6-brands:twitter">Twitter</IconifiedText>
                             </NuxtLink>
-                            <NuxtLink v-if="doc.author.instagram" :to="doc.author.instagram">
+                            <NuxtLink v-if="doc.author.bluesky" :to="doc.author.bluesky" rel="me">
+                                <IconifiedText icon="fa6-solid:cloud">Bluesky</IconifiedText>
+                            </NuxtLink>
+                            <NuxtLink v-if="doc.author.instagram" :to="doc.author.instagram" rel="me">
                                 <IconifiedText icon="fa6-brands:instagram">Instagram</IconifiedText>
                             </NuxtLink>
-                            <NuxtLink v-if="doc.author.github" :to="doc.author.github">
+                            <NuxtLink v-if="doc.author.github" :to="doc.author.github" rel="me">
                                 <IconifiedText icon="fa6-brands:github">GitHub</IconifiedText>
                             </NuxtLink>
                             <NuxtLink v-if="doc.author.mastodon" :to="doc.author.mastodon" rel="me">
                                 <IconifiedText icon="fa6-brands:mastodon">Mastodon</IconifiedText>
                             </NuxtLink>
-                            <NuxtLink v-if="doc.author.youtube" :to="doc.author.youtube">
+                            <NuxtLink v-if="doc.author.youtube" :to="doc.author.youtube" rel="me">
                                 <IconifiedText icon="fa6-brands:youtube">YouTube</IconifiedText>
+                            </NuxtLink>
+                            <NuxtLink v-if="doc.author.website" :to="doc.author.website" rel="me">
+                                <IconifiedText icon="fa6-solid:up-right-from-square">Website</IconifiedText>
                             </NuxtLink>
                         </div>
                     </div>
@@ -50,7 +56,10 @@ definePageMeta({
     flex-direction: column;
 }
 
-#social a {
-    margin-right: 0.5rem;
+#social {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 </style>
