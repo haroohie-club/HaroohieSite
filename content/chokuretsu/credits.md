@@ -1,14 +1,14 @@
 ## Haroohie Translation Club
 ::two-column-list
 - **Project Lead**: Jonko
-- **Translation**: Listie, Isillor, & TimepieceMaster
-- **ROM Hacking**: Ermelber & Jonko
-- **Graphic Design**: William & Cerber
-- **Editing**: Alvy, William, & Ziomek
+- **Translation**: Amelia Chaplin, Amanda Sato, Isillor, TimepieceMaster, & toro
+- **ROM Hacking**: Jonko & Ermelber
+- **Graphic Design**: William278 & Cerber
+- **Editing**: Alvy, William278, Chocobo,<br/>Fang, NewGBAXL, & Ziomek
 - **Additional Translation**: kyu, Kanata, & Tensei 
 - **Additional Editing**: Pierce, Cosmix, & Kon
-- **Testing**: lambsauce, Goblinaro, master117, Kuya, & Nateyamas
-- **Website**: William
+- **Testing**: Lambsauce, Goblinaro, master117, sarrahkuna, Kuya, & Nateymas
+- **Website**: William278
 ::
 
 ## Stay up-to-date
@@ -18,7 +18,6 @@ Even if not, be sure to follow us on Twitter and Mastodon! Plus, join our Discor
 
 <!-- Social media, Discord and blog buttons -->
 ::button-row
-
 ::button-link
 ---
 color: 'red'
@@ -48,6 +47,31 @@ Twitter
 
 ::button-link
 ---
+color: 'bluesky'
+icon: 'fa6-solid:cloud'
+link: 'https://bsky.app/profile/haroohie.club'
+rel: 'me'
+---
+Bluesky
+::
+::
+
+<br/>
+
+::button-row
+
+::button-link
+---
+color: 'instagram'
+icon: 'fa6-brands:instagram'
+link: 'https://instagram.com/haroohie'
+rel: 'me'
+---
+Instagram
+::
+
+::button-link
+---
 color: 'mastodon'
 icon: 'fa6-brands:mastodon'
 link: 'https://mastodon.online/@haroohie'
@@ -56,4 +80,13 @@ rel: 'me'
 Mastodon
 ::
 
+::button-link
+---
+color: 'facebook'
+icon: 'fa6-brands:facebook'
+link: 'https://facebook.com/haroohie'
+rel: 'me'
+---
+Facebook
+::
 ::

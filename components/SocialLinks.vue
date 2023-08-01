@@ -6,8 +6,14 @@
             fullwidth>Discord Server</ButtonLink>
         <ButtonLink link="https://twitter.com/haroohie" color="twitter" type="mid-piece" icon="fa6-brands:twitter"
             fullwidth>Twitter</ButtonLink>
-        <ButtonLink link="https://mastodon.online/@haroohie" rel="me" color="mastodon" type="bottom-piece" icon="fa6-brands:mastodon"
+        <ButtonLink link="https://bsky.app/profile/haroohie.club" rel="me" color="bluesky" type="mid-piece" icon="fa6-solid:cloud"
+            fullwidth>Bluesky</ButtonLink>
+        <ButtonLink link="https://instagram.com/haroohie" rel="me" color="instagram" type="mid-piece" icon="fa6-brands:instagram"
+            fullwidth>Instagram</ButtonLink>
+        <ButtonLink link="https://mastodon.online/@haroohie" rel="me" color="mastodon" type="mid-piece" icon="fa6-brands:mastodon"
             fullwidth>Mastodon</ButtonLink>
+        <ButtonLink link="https://facebook.com/haroohie" rel="me" color="facebook" type="bottom-piece" icon="fa6-brands:facebook"
+            fullwidth>Facebook</ButtonLink>
     </div>
 </template>
 
