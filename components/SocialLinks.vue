@@ -2,9 +2,9 @@
     <div class="social-buttons">
         <ButtonLink :link="top_link" color="red" type="top-piece" :icon="top_icon" fullwidth>{{ top_text }}
         </ButtonLink>
-        <ButtonLink link="https://discord.gg/nesRSbpeFM" color="discord" type="mid-piece" icon="fa6-brands:discord"
+        <ButtonLink link="https://discord.gg/nesRSbpeFM" rel="me" color="discord" type="mid-piece" icon="fa6-brands:discord"
             fullwidth>Discord Server</ButtonLink>
-        <ButtonLink link="https://twitter.com/haroohie" color="twitter" type="mid-piece" icon="fa6-brands:twitter"
+        <ButtonLink link="https://twitter.com/haroohie" rel="me" color="twitter" type="mid-piece" icon="fa6-brands:twitter"
             fullwidth>Twitter</ButtonLink>
         <ButtonLink link="https://bsky.app/profile/haroohie.club" rel="me" color="bluesky" type="mid-piece" icon="fa6-solid:cloud"
             fullwidth>Bluesky</ButtonLink>

@@ -32,6 +32,7 @@ Our Blog
 color: 'discord'
 icon: 'fa6-brands:discord'
 link: 'https://discord.gg/nesRSbpeFM'
+rel: 'me'
 ---
 Discord
 ::
@@ -41,6 +42,7 @@ Discord
 color: 'twitter'
 icon: 'fa6-brands:twitter'
 link: 'https://twitter.com/haroohie'
+rel: 'me'
 ---
 Twitter
 ::
