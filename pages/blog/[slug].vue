@@ -29,6 +29,15 @@
                 <div>
                     <ContentRenderer :value="doc" />
                 </div>
+                <div id="author-details">
+                    <ContentDoc :path="`/author/${doc.navigation.author.toLowerCase()}`">
+                        <template v-slot="doc">
+                            <hr/>
+                            <i><ContentRenderer :value="doc.doc" /></i>
+                            <AuthorSocials :author="doc.doc.author" />
+                        </template>
+                    </ContentDoc>
+                </div>
             </template>
             <template #not-found>
                 <h1>Post not found</h1>

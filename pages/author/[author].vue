@@ -5,29 +5,7 @@
                 <template v-slot="{ doc }">
                     <div v-if="doc.author">
                         <h1 id="author">{{ doc.author.name }}</h1>
-                        <div id="social">
-                            <NuxtLink v-if="doc.author.twitter" :to="doc.author.twitter" rel="me">
-                                <IconifiedText icon="fa6-brands:twitter">Twitter</IconifiedText>
-                            </NuxtLink>
-                            <NuxtLink v-if="doc.author.bluesky" :to="doc.author.bluesky" rel="me">
-                                <IconifiedText icon="fa6-solid:cloud">Bluesky</IconifiedText>
-                            </NuxtLink>
-                            <NuxtLink v-if="doc.author.instagram" :to="doc.author.instagram" rel="me">
-                                <IconifiedText icon="fa6-brands:instagram">Instagram</IconifiedText>
-                            </NuxtLink>
-                            <NuxtLink v-if="doc.author.github" :to="doc.author.github" rel="me">
-                                <IconifiedText icon="fa6-brands:github">GitHub</IconifiedText>
-                            </NuxtLink>
-                            <NuxtLink v-if="doc.author.mastodon" :to="doc.author.mastodon" rel="me">
-                                <IconifiedText icon="fa6-brands:mastodon">Mastodon</IconifiedText>
-                            </NuxtLink>
-                            <NuxtLink v-if="doc.author.youtube" :to="doc.author.youtube" rel="me">
-                                <IconifiedText icon="fa6-brands:youtube">YouTube</IconifiedText>
-                            </NuxtLink>
-                            <NuxtLink v-if="doc.author.website" :to="doc.author.website" rel="me">
-                                <IconifiedText icon="fa6-solid:up-right-from-square">Website</IconifiedText>
-                            </NuxtLink>
-                        </div>
+                        <AuthorSocials :author="doc.author" />
                     </div>
                     <ContentRenderer :value="doc" />
                     <h2>Latest posts by {{ doc.author.name }}</h2>
@@ -49,17 +27,3 @@ definePageMeta({
     layout: 'blog'
 })
 </script>
-
-<style scoped>
-#social {
-    display: row;
-    flex-direction: column;
-}
-
-#social {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-</style>
