@@ -3,8 +3,7 @@ import { readFileSync } from 'fs'
 // Nuxt config file (https://nuxt.com/docs/getting-started/configuration)
 export default {
     // Modules
-    buildModules: ['@nuxtjs/google-fonts'],
-    modules: ['nuxt-icon', '@nuxt/content'],
+    modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/google-fonts'],
 
     // Fonts
     googleFonts: {
