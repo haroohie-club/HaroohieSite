@@ -15,7 +15,7 @@
                             <SerialLoopsBreadcrumb v-if="(doc._path.split('/').length > 5)" :link="`/chokuretsu/serial-loops/docs/${doc._path.split('/')[4]}`" >
                                 {{ doc._path.split('/')[4].charAt(0).toUpperCase() + doc._path.split('/')[4].slice(1) }}
                             </SerialLoopsBreadcrumb>
-                            <SerialLoopsBreadcrumb v-else link="/chokruetsu/serial-loops/docs/" icon="fa6-solid:house">
+                            <SerialLoopsBreadcrumb v-else link="/chokuretsu/serial-loops/docs/" icon="fa6-solid:house">
                                 Home
                             </SerialLoopsBreadcrumb>
                         </span>
