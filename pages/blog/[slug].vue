@@ -30,7 +30,7 @@
                     <ContentRenderer :value="doc" />
                 </div>
                 <div id="author-details">
-                    <ContentDoc :path="`/author/${doc.navigation.author.toLowerCase()}`">
+                    <ContentDoc :path="`/author/${doc.navigation.author.toLowerCase()}`" :head="false">
                         <template v-slot="doc">
                             <hr/>
                             <i><ContentRenderer :value="doc.doc" /></i>
