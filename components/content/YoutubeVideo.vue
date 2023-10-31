@@ -2,15 +2,15 @@
     <!-- Youtube video iframe -->
     <div class="youtube-video">
         <iframe width="560" height="315" id="ytplayer"
-            src="https://www.youtube.com/embed/pHG2uxj2CwA" frameborder="0"
+            :src="`https://www.youtube.com/embed/${video}`" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
     </div>
 </template>
 
 <script setup>
-const { videoId } = defineProps({
-    videoId: {
+const props = defineProps({
+    video: {
         type: String,
         required: true
     }

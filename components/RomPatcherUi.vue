@@ -156,6 +156,10 @@ const AVAILABLE_PATCHES = [
     {
         version: '0.4',
         date: 'February 28, 2023'
+    },
+    {
+        version: '0.6',
+        date: 'October 31, 2023'
     }
 ].reverse();
 

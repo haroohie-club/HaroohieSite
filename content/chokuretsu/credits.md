@@ -8,6 +8,7 @@
 - **Additional Translation**: kyu, Kanata, & Tensei 
 - **Additional Editing**: Pierce, Cosmix, & Kon
 - **Testing**: Lambsauce, Goblinaro, master117, sarrahkuna, Kuya, & Nateymas
+- **PV Editor**: Hans Harmony
 - **Website**: William278
 ::
 
