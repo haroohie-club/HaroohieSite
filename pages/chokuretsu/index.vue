@@ -1,20 +1,22 @@
 <template>
-    <NuxtLayout>
-        <div id="dual-columns">
-            <div class="column">
-                <DualSuzumiya video="chokuretsu-trailer-ep1.mp4" />
-                <div id="project-credits">
-                    <ContentDoc path="/chokuretsu/credits" />
+    <div>
+        <NuxtLayout>
+            <div id="dual-columns">
+                <div class="column">
+                    <DualSuzumiya video="chokuretsu-trailer-ep1.mp4" />
+                    <div id="project-credits">
+                        <ContentDoc path="/chokuretsu/credits" />
+                    </div>
+                </div>
+                <div class="column">
+                    <TitleGraphic graphic="chokuretsu/game-logo" />
+                    <div id="project-info">
+                        <ContentDoc />
+                    </div>
                 </div>
             </div>
-            <div class="column">
-                <TitleGraphic graphic="chokuretsu/game-logo" />
-                <div id="project-info">
-                    <ContentDoc />
-                </div>
-            </div>
-        </div>
-    </NuxtLayout>
+        </NuxtLayout>
+    </div>
 </template>
 
 <style scoped>

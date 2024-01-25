@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs'
+import { join } from 'path'
 
 // Nuxt config file (https://nuxt.com/docs/getting-started/configuration)
 export default {
@@ -7,6 +8,8 @@ export default {
 
     // Fonts
     googleFonts: {
+        download: true,
+        inject: true,
         families: {
             'Nunito': [400, 700],
             'Notica Text': [700],
@@ -43,10 +46,8 @@ export default {
                 'csharp',
                 'python',
                 {
-                    id: "arm",
-                    scopeName: 'source.arm',
-                    grammar: JSON.parse(readFileSync("./tmLanguages/arm.tmLanguage.json")),
-                    aliases: [],
+                    name: 'arm',
+                    ...JSON.parse(readFileSync('./tmLanguages/arm.tmLanguage.json', 'utf8'))
                 }
             ]
         }

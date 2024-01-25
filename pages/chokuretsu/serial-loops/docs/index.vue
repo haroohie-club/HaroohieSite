@@ -1,12 +1,13 @@
 <template>
-    <NuxtLayout>
-        <template #top>
-            <div id="topbar">
-                <div id="logo">
-                    <TitleGraphic graphic="club-logo" to="/" />
+    <div>
+        <NuxtLayout>
+            <template #top>
+                <div id="topbar">
+                    <div id="logo">
+                        <TitleGraphic graphic="club-logo" to="/" />
+                    </div>
                 </div>
-            </div>
-        </template>
+            </template>
             <ContentDoc>
                 <template v-slot="{ doc }">
                     <article>
@@ -14,18 +15,23 @@
                             <SerialLoopsBreadcrumb link="/chokuretsu/serial-loops" icon="fa6-solid:arrow-left">
                                 Serial Loops Home
                             </SerialLoopsBreadcrumb>
-                            <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next" icon="fa6-solid:arrow-right">
-                                {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.next.split('/').slice(-1)[0].slice(1) }}
+                            <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next"
+                                icon="fa6-solid:arrow-right">
+                                {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() +
+                                    doc.navigation.next.split('/').slice(-1)[0].slice(1) }}
                             </SerialLoopsBreadcrumb>
                         </div>
                         <ContentRenderer :value="doc" />
-                        <SerialLoopsBreadcrumb class="next-page" v-if="doc.navigation.next" :link="doc.navigation.next" icon="fa6-solid:arrow-right">
-                            {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
+                        <SerialLoopsBreadcrumb class="next-page" v-if="doc.navigation.next" :link="doc.navigation.next"
+                            icon="fa6-solid:arrow-right">
+                            {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() +
+                                doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
                         </SerialLoopsBreadcrumb>
                     </article>
                 </template>
             </ContentDoc>
-    </NuxtLayout>
+        </NuxtLayout>
+    </div>
 </template>
 
 

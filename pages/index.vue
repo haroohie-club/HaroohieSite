@@ -1,35 +1,39 @@
 <template>
-    <NuxtLayout>
-        <a rel="me" href="https://mastodon.online/@haroohie" style="display:none;"></a>
-        <div id="home-page">
-            <div class="top">
-                <div class="releases box">
-                    <h2>Our Translations</h2>
-                    <TranslationsGrid />
+    <div>
+        <NuxtLayout>
+            <a rel="me" href="https://mastodon.online/@haroohie" style="display:none;"></a>
+            <div id="home-page">
+                <div class="top">
+                    <div class="releases box">
+                        <h2>Our Translations</h2>
+                        <TranslationsGrid />
+                    </div>
+                </div>
+                <div class="newsfeed">
+                    <div class="socials box">
+                        <h2>About</h2>
+                        <ContentDoc />
+                        <h2>Links</h2>
+                        <SocialLinks top_link="/blog" top_icon="fa6-solid:paper-plane" top_text="News & Blog" />
+                        <br />
+                        <h2>Projects</h2>
+                        <ButtonLink link="/chokuretsu" type="top-piece" fullwidth color="red" icon="fa6-solid:language">
+                            Chokuretsu Patch</ButtonLink>
+                        <ButtonLink link="/chokuretsu/serial-loops" type="bottom-piece" fullwidth color="sl-blue"
+                            icon="fa6-solid:gear">Serial Loops</ButtonLink>
+                    </div>
+                    <div class="blogs box">
+                        <h2>From the Clubroom</h2>
+                        <BlogPreviewStack />
+                        <ButtonRow class="view-more">
+                            <ButtonLink link="/blog" color="blue" icon="fa6-solid:paper-plane">View All</ButtonLink>
+                            <ButtonLink link="/rss.xml" color="rss" icon="fa6-solid:rss">Feed</ButtonLink>
+                        </ButtonRow>
+                    </div>
                 </div>
             </div>
-            <div class="newsfeed">
-                <div class="socials box">
-                    <h2>About</h2>
-                    <ContentDoc />
-                    <h2>Links</h2>
-                    <SocialLinks top_link="/blog" top_icon="fa6-solid:paper-plane" top_text="News & Blog" />
-                    <br />
-                    <h2>Projects</h2>
-                    <ButtonLink link="/chokuretsu" type="top-piece" fullwidth color="red" icon="fa6-solid:language">Chokuretsu Patch</ButtonLink>
-                    <ButtonLink link="/chokuretsu/serial-loops" type="bottom-piece" fullwidth color="sl-blue" icon="fa6-solid:gear">Serial Loops</ButtonLink>
-                </div>
-                <div class="blogs box">
-                    <h2>From the Clubroom</h2>
-                    <BlogPreviewStack />
-                    <ButtonRow class="view-more">
-                        <ButtonLink link="/blog" color="blue" icon="fa6-solid:paper-plane">View All</ButtonLink>
-                        <ButtonLink link="/rss.xml" color="rss" icon="fa6-solid:rss">Feed</ButtonLink>
-                    </ButtonRow>
-                </div>
-            </div>
-        </div>
-    </NuxtLayout>
+        </NuxtLayout>
+    </div>
 </template>
 
 <style scoped>
