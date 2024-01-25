@@ -1,23 +1,25 @@
 <template>
-    <NuxtLayout>
-        <template #top>
-            <div id="hero">
-                <div id="topbar">
-                    <div id="logo">
-                        <TitleGraphic graphic="club-logo" to="/" />
+    <div>
+        <NuxtLayout>
+            <template #top>
+                <div id="hero">
+                    <div id="topbar">
+                        <div id="logo">
+                            <TitleGraphic graphic="club-logo" to="/" />
+                        </div>
+                    </div>
+                    <div class="images">
+                        <img src="/images/chokuretsu/serial-loops/script-editor.png" alt="Script editor" />
+                        <img src="/images/chokuretsu/serial-loops/map-editing.png" alt="Serial Loops" />
+                        <img src="/images/chokuretsu/serial-loops/sound-editing.png" alt="Serial Loops" />
                     </div>
                 </div>
-                <div class="images">
-                    <img src="/images/chokuretsu/serial-loops/script-editor.png" alt="Script editor" />
-                    <img src="/images/chokuretsu/serial-loops/map-editing.png" alt="Serial Loops" />
-                    <img src="/images/chokuretsu/serial-loops/sound-editing.png" alt="Serial Loops" />
-                </div>
-            </div>
-        </template>
-        <article>
-            <ContentDoc path="chokuretsu/serial-loops" />
-        </article>
-    </NuxtLayout>
+            </template>
+            <article>
+                <ContentDoc path="chokuretsu/serial-loops" />
+            </article>
+        </NuxtLayout>
+    </div>
 </template>
 
 <script>

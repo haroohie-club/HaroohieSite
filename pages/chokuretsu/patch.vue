@@ -1,19 +1,21 @@
 <template>
-    <NuxtLayout>
-        <ContentDoc />
-        <ClientOnly fallbackTag="span">
-            <RomPatcherUi />
-            <template #fallback>
-                <p>Loading...</p>
+    <div>
+        <NuxtLayout>
+            <ContentDoc />
+            <ClientOnly fallbackTag="span">
+                <RomPatcherUi />
+                <template #fallback>
+                    <p>Loading...</p>
+                </template>
+            </ClientOnly>
+            <template #sidebar>
+                <div id="haruhi-walk">
+                    <img src="/images/chokuretsu/haruhi-walk.png" alt="Chibi Haruhi pixel art of her marching forward." />
+                </div>
+                <ContentDoc path="/chokuretsu/patch/sidebar" :head="false" />
             </template>
-        </ClientOnly>
-        <template #sidebar>
-            <div id="haruhi-walk">
-                <img src="/images/chokuretsu/haruhi-walk.png" alt="Chibi Haruhi pixel art of her marching forward." />
-            </div>
-            <ContentDoc path="/chokuretsu/patch/sidebar" :head="false" />
-        </template>
-    </NuxtLayout>
+        </NuxtLayout>
+    </div>
 </template>
 
 <style scoped>

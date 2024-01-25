@@ -1,17 +1,19 @@
 <template>
-    <NuxtLayout>
-        <ContentDoc v-slot="{doc}">
-            <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
-            <ContentRenderer :value="doc" />
-            <ChokuretsuGuidePagination :doc="doc" />
-        </ContentDoc>
-        <template #sidebar>
-            <div id="nagato-book">
-                <img src="/images/chokuretsu/nagato-book.png" alt="Chibi Nagato pixel art of her reading a book." />
-            </div>
-            <ContentDoc path="chokuretsu/guide/sidebar" :head="false" />
-        </template>
-    </NuxtLayout>
+    <div>
+        <NuxtLayout>
+            <ContentDoc v-slot="{ doc }">
+                <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
+                <ContentRenderer :value="doc" />
+                <ChokuretsuGuidePagination :doc="doc" />
+            </ContentDoc>
+            <template #sidebar>
+                <div id="nagato-book">
+                    <img src="/images/chokuretsu/nagato-book.png" alt="Chibi Nagato pixel art of her reading a book." />
+                </div>
+                <ContentDoc path="chokuretsu/guide/sidebar" :head="false" />
+            </template>
+        </NuxtLayout>
+    </div>
 </template>
 
 <style scoped>

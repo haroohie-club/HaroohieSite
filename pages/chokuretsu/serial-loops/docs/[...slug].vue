@@ -1,59 +1,70 @@
 <template>
-    <NuxtLayout>
-        <template #top>
-            <div id="topbar">
-                <div id="logo">
-                    <TitleGraphic graphic="club-logo" to="/" />
+    <div>
+        <NuxtLayout>
+            <template #top>
+                <div id="topbar">
+                    <div id="logo">
+                        <TitleGraphic graphic="club-logo" to="/" />
+                    </div>
                 </div>
-            </div>
-        </template>
-        <article>
-            <ContentDoc>
-                <template v-slot="{ doc }">
-                    <div class="navigation">
-                        <span class="parent-crumb">
-                            <SerialLoopsBreadcrumb v-if="(doc._path.split('/').length > 5)" :link="`/chokuretsu/serial-loops/docs/${doc._path.split('/')[4]}`" >
-                                {{ doc._path.split('/')[4].charAt(0).toUpperCase() + doc._path.split('/')[4].slice(1) }}
+            </template>
+            <article>
+                <ContentDoc>
+                    <template v-slot="{ doc }">
+                        <div class="navigation">
+                            <span class="parent-crumb">
+                                <SerialLoopsBreadcrumb v-if="(doc._path.split('/').length > 5)"
+                                    :link="`/chokuretsu/serial-loops/docs/${doc._path.split('/')[4]}`">
+                                    {{ doc._path.split('/')[4].charAt(0).toUpperCase() + doc._path.split('/')[4].slice(1) }}
+                                </SerialLoopsBreadcrumb>
+                                <SerialLoopsBreadcrumb v-else link="/chokuretsu/serial-loops/docs/" icon="fa6-solid:house">
+                                    Home
+                                </SerialLoopsBreadcrumb>
+                            </span>
+                            <span class="contextual-crumbs">
+                                <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :link="doc.navigation.previous"
+                                    icon="fa6-solid:arrow-left">
+                                    {{ doc.navigation.previous.split('/').slice(-1)[0].charAt(0).toUpperCase() +
+                                        doc.navigation.previous.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
+                                </SerialLoopsBreadcrumb>
+                                <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next"
+                                    icon="fa6-solid:arrow-right">
+                                    {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() +
+                                        doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
+                                </SerialLoopsBreadcrumb>
+                            </span>
+                        </div>
+                        <div class="title">
+                            <span class="icon">
+                                <img v-if="doc.navigation.icon" :src="doc.navigation.icon" />
+                                <Icon v-else-if="doc.navigation.faicon" :name="doc.navigation.faicon" />
+                            </span>
+                            <b class="sl-header">{{ doc.title }}</b>
+                        </div>
+                        <ContentRenderer :value="doc" />
+                        <div class="pagination-buttons">
+                            <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :link="doc.navigation.previous"
+                                icon="fa6-solid:arrow-left">
+                                {{ doc.navigation.previous.split('/').slice(-1)[0].charAt(0).toUpperCase() +
+                                    doc.navigation.previous.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
                             </SerialLoopsBreadcrumb>
-                            <SerialLoopsBreadcrumb v-else link="/chokuretsu/serial-loops/docs/" icon="fa6-solid:house">
-                                Home
+                            <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next"
+                                icon="fa6-solid:arrow-right">
+                                {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() +
+                                    doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
                             </SerialLoopsBreadcrumb>
-                        </span>
-                        <span class="contextual-crumbs">
-                            <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :link="doc.navigation.previous" icon="fa6-solid:arrow-left">
-                                {{ doc.navigation.previous.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.previous.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
-                            </SerialLoopsBreadcrumb>
-                            <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next" icon="fa6-solid:arrow-right">
-                                {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
-                            </SerialLoopsBreadcrumb>
-                        </span>
-                    </div>
-                    <div class="title">
-                        <span class="icon">
-                            <img v-if="doc.navigation.icon" :src="doc.navigation.icon" />
-                            <Icon v-else-if="doc.navigation.faicon" :name="doc.navigation.faicon" />
-                        </span>
-                        <b class="sl-header">{{ doc.title }}</b> 
-                    </div>
-                    <ContentRenderer :value="doc" />
-                    <div class="pagination-buttons">
-                        <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :link="doc.navigation.previous" icon="fa6-solid:arrow-left">
-                            {{ doc.navigation.previous.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.previous.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
-                        </SerialLoopsBreadcrumb>
-                        <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next" icon="fa6-solid:arrow-right">
-                            {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() + doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
-                        </SerialLoopsBreadcrumb>
-                    </div>
-                </template>
-                <template #not-found>
-                    <h1>Invalid docs page</h1>
-                    <p>Could not find a docs page at this address.</p>
-                    <ButtonLink link="/chokuretsu/serial-loops/docs" color="red" icon="fa6-solid:file">Back
-                    </ButtonLink>
-                </template>
-            </ContentDoc>
-        </article>
-    </NuxtLayout>
+                        </div>
+                    </template>
+                    <template #not-found>
+                        <h1>Invalid docs page</h1>
+                        <p>Could not find a docs page at this address.</p>
+                        <ButtonLink link="/chokuretsu/serial-loops/docs" color="red" icon="fa6-solid:file">Back
+                        </ButtonLink>
+                    </template>
+                </ContentDoc>
+            </article>
+        </NuxtLayout>
+    </div>
 </template>
 
 

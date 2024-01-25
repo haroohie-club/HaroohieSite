@@ -1,25 +1,27 @@
 <template>
-    <NuxtLayout>
-        <ContentDoc>
-            <template v-slot="{ doc }">
-                <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
-                <ContentRenderer :value="doc" />
-                <ChokuretsuGuidePagination :doc="doc" />
+    <div>
+        <NuxtLayout>
+            <ContentDoc>
+                <template v-slot="{ doc }">
+                    <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
+                    <ContentRenderer :value="doc" />
+                    <ChokuretsuGuidePagination :doc="doc" />
+                </template>
+                <template #not-found>
+                    <h1>Invalid guide page</h1>
+                    <p>Could not find a guide page at this address.</p>
+                    <ButtonLink link="/chokuretsu/guide" color="red" icon="fa6-solid:book">Back to Start
+                    </ButtonLink>
+                </template>
+            </ContentDoc>
+            <template #sidebar>
+                <div id="nagato-book">
+                    <img src="/images/chokuretsu/nagato-book.png" alt="Chibi Nagato pixel art of her reading a book." />
+                </div>
+                <ContentDoc path="chokuretsu/guide/sidebar" :head="false" />
             </template>
-            <template #not-found>
-                <h1>Invalid guide page</h1>
-                <p>Could not find a guide page at this address.</p>
-                <ButtonLink link="/chokuretsu/guide" color="red" icon="fa6-solid:book">Back to Start
-                </ButtonLink>
-            </template>
-        </ContentDoc>
-        <template #sidebar>
-            <div id="nagato-book">
-                <img src="/images/chokuretsu/nagato-book.png" alt="Chibi Nagato pixel art of her reading a book." />
-            </div>
-            <ContentDoc path="chokuretsu/guide/sidebar" :head="false" />
-        </template>
-    </NuxtLayout>
+        </NuxtLayout>
+    </div>
 </template>
 
 <style scoped>

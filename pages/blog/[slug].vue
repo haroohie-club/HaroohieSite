@@ -1,57 +1,61 @@
 <template>
-    <NuxtLayout>
-        <ContentDoc>
-            <template v-slot="{ doc }">
-                <div class="header" v-if="doc.navigation">
-                    <div class="brigade-logo">
-                        <img src="/images/sos-logo.png" class="modal-exclude" />
-                    </div>
-                    <div class="info">
-                        <h1>{{ doc.title }}</h1>
-                        <div class="meta">
-                            <div class="date">
-                                <IconifiedText icon="fa6-solid:newspaper">
-                                    Written by <NuxtLink :to="'/author/' + doc.navigation.author.toLowerCase()">{{
-                                    doc.navigation.author }}</NuxtLink> on {{
-                                        publishedAt(doc.navigation.year, doc.navigation.month,
-                                        doc.navigation.day) }}
-                                </IconifiedText>
-                            </div>
-                            <div class="tags">
-                                <IconifiedText icon="fa6-solid:tags">Tags:</IconifiedText>
-                                <span class="tag" v-for="tag of doc.navigation.tags">
-                                    <NuxtLink :to="'/tag/' + tag">{{ tag }}</NuxtLink>
-                                </span>
+    <div>
+        <NuxtLayout>
+            <ContentDoc>
+                <template v-slot="{ doc }">
+                    <div class="header" v-if="doc.navigation">
+                        <div class="brigade-logo">
+                            <img src="/images/sos-logo.png" class="modal-exclude" />
+                        </div>
+                        <div class="info">
+                            <h1>{{ doc.title }}</h1>
+                            <div class="meta">
+                                <div class="date">
+                                    <IconifiedText icon="fa6-solid:newspaper">
+                                        Written by <NuxtLink :to="'/author/' + doc.navigation.author.toLowerCase()">{{
+                                            doc.navigation.author }}</NuxtLink> on {{
+        publishedAt(doc.navigation.year, doc.navigation.month,
+            doc.navigation.day) }}
+                                    </IconifiedText>
+                                </div>
+                                <div class="tags">
+                                    <IconifiedText icon="fa6-solid:tags">Tags:</IconifiedText>
+                                    <span class="tag" v-for="tag of doc.navigation.tags">
+                                        <NuxtLink :to="'/tag/' + tag">{{ tag }}</NuxtLink>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <ContentRenderer :value="doc" />
-                </div>
-                <div id="author-details">
-                    <ContentDoc :path="`/author/${doc.navigation.author.toLowerCase()}`" :head="false">
-                        <template v-slot="doc">
-                            <hr/>
-                            <i><ContentRenderer :value="doc.doc" /></i>
-                            <AuthorSocials :author="doc.doc.author" />
-                        </template>
-                    </ContentDoc>
-                </div>
-            </template>
-            <template #not-found>
-                <h1>Post not found</h1>
-                <p>Could not find a blog post at this address.</p>
-                <ButtonLink link="/blog" color="red" icon="fa6-solid:paper-plane">Back to the Blog
-                </ButtonLink>
-            </template>
-        </ContentDoc>
-    </NuxtLayout>
+                    <div>
+                        <ContentRenderer :value="doc" />
+                    </div>
+                    <div id="author-details">
+                        <ContentDoc :path="`/author/${doc.navigation.author.toLowerCase()}`" :head="false">
+                            <template v-slot="doc">
+                                <hr />
+                                <i>
+                                    <ContentRenderer :value="doc.doc" />
+                                </i>
+                                <AuthorSocials :author="doc.doc.author" />
+                            </template>
+                        </ContentDoc>
+                    </div>
+                </template>
+                <template #not-found>
+                    <h1>Post not found</h1>
+                    <p>Could not find a blog post at this address.</p>
+                    <ButtonLink link="/blog" color="red" icon="fa6-solid:paper-plane">Back to the Blog
+                    </ButtonLink>
+                </template>
+            </ContentDoc>
+        </NuxtLayout>
+    </div>
 </template>
 
 <script setup>
 useHead({
-    titleTemplate: (blogTitle) => { 
+    titleTemplate: (blogTitle) => {
         return blogTitle ? `${blogTitle} - Haroohie Translation Club Blog` : `Haroohie Translation Club Blog`;
     }
 })
