@@ -27,13 +27,13 @@ export default {
             translations: [
                 {
                     "id": "chokuretsu",
-                    "title": "The Series of Haruhi Suzumiya",
+                    "title": "chokuretsu-title",
                     "original": "Suzumiya Haruhi no Chokuretsu",
                     "logo": "chokuretsu/game-logo",
-                    "tagline": "Solve the wonders of North High while keeping the SOS Brigade Leader in check!",
-                    "description": "Enjoy 30,000+ lines of dialogue on your Nintendo DS system in this branching story puzzler!",
+                    "tagline": "chokuretsu-tagline",
+                    "description": "chokuretsu-description",
                     "page": "/chokuretsu",
-                    "poster": "poster-chokuretsu-en.png",
+                    "poster": "chokuretsu-poster",
                     "color": "red",
                     "screenshots": [
                         "chokuretsu/screenshots/haruhi.png",
@@ -41,18 +41,18 @@ export default {
                         "chokuretsu/screenshots/puzzle.png",
                         "chokuretsu/screenshots/top-screen.png"
                     ],
-                    tags: ["Nintendo DS", "Puzzle", "40% Complete"]
+                    tags: ["Nintendo DS", "[chokuretsu-puzzle]", "[chokuretsu-completion]"]
                 },
                 {
                     "id": "heiretsu",
-                    "title": "The Parallel of Haruhi Suzumiya",
+                    "title": "heiretsu-title",
                     "original": "Suzumiya Haruhi no Heiretsu",
-                    "tagline": "Uncover the mystery aboard a cruise liner whose voyage seemingly has no end!",
-                    "description": "Featuring full-3D environments and character graphics, can you solve the mystery in this time-looping adventure?",
-                    "poster": "poster-heiretsu-en.png",
+                    "tagline": "heiretsu-tagline",
+                    "description": "heiretsu-description",
+                    "poster": "heiretsu-poster",
                     "screenshots": ["mystery.png"],
                     "color": "blue",
-                    "tags": ["Wii", "Adventure", "Coming Soon"]
+                    "tags": ["Wii", "[heiretsu-adventure]", "[heiretsu-completion]"]
                 },
 
             ]

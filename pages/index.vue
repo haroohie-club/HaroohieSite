@@ -1,3 +1,12 @@
+<script setup>
+const { locale } = useI18n()
+definePageMeta({
+    title: 'Haroohie Translation Club',
+    description: 'Welcome to the Haroohie Translation Club! We\'re dedicated to translating games from the Haruhi Suzumiya series into English!',
+    layout: 'common'
+})
+</script>
+
 <template>
     <div>
         <NuxtLayout>
@@ -5,29 +14,29 @@
             <div id="home-page">
                 <div class="top">
                     <div class="releases box">
-                        <h2>Our Translations</h2>
+                        <h2>{{ $t('our-translations') }}</h2>
                         <TranslationsGrid />
                     </div>
                 </div>
                 <div class="newsfeed">
                     <div class="socials box">
-                        <h2>About</h2>
+                        <h2>{{ $t('about') }}</h2>
                         <ContentDoc />
-                        <h2>Links</h2>
-                        <SocialLinks top_link="/blog" top_icon="fa6-solid:paper-plane" top_text="News & Blog" />
+                        <h2>{{ $t('social-links') }}</h2>
+                        <SocialLinks top_link="/blog" top_icon="fa6-solid:paper-plane" :top_text="$t('news-and-blog')" />
                         <br />
-                        <h2>Projects</h2>
+                        <h2>{{ $t('projects') }}</h2>
                         <ButtonLink link="/chokuretsu" type="top-piece" fullwidth color="red" icon="fa6-solid:language">
-                            Chokuretsu Patch</ButtonLink>
+                            {{ $t('chokuretsu-patch') }}</ButtonLink>
                         <ButtonLink link="/chokuretsu/serial-loops" type="bottom-piece" fullwidth color="sl-blue"
-                            icon="fa6-solid:gear">Serial Loops</ButtonLink>
+                            icon="fa6-solid:gear">{{ $t('serial-loops') }}</ButtonLink>
                     </div>
                     <div class="blogs box">
-                        <h2>From the Clubroom</h2>
+                        <h2>{{ $t('from-the-clubroom') }}</h2>
                         <BlogPreviewStack />
                         <ButtonRow class="view-more">
-                            <ButtonLink link="/blog" color="blue" icon="fa6-solid:paper-plane">View All</ButtonLink>
-                            <ButtonLink link="/rss.xml" color="rss" icon="fa6-solid:rss">Feed</ButtonLink>
+                            <ButtonLink link="/blog" color="blue" icon="fa6-solid:paper-plane">{{ $t('view-all') }}</ButtonLink>
+                            <ButtonLink link="/rss.xml" color="rss" icon="fa6-solid:rss">{{ $t('feed') }}</ButtonLink>
                         </ButtonRow>
                     </div>
                 </div>
@@ -119,11 +128,3 @@ h2 {
     }
 }
 </style>
-
-<script setup>
-definePageMeta({
-    title: 'Haroohie Translation Club',
-    description: 'Welcome to the Haroohie Translation Club! We\'re dedicated to translating games from the Haruhi Suzumiya series into English!',
-    layout: 'common'
-})
-</script>
