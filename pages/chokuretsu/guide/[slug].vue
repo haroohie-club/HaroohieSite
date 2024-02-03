@@ -7,7 +7,7 @@ const route = useRoute()
 <template>
     <div>
         <NuxtLayout>
-            <ContentDoc :path="`chokuretsu/guide${locale == 'en-us' ? '/' : '/' + locale + '/'}${route.params.slug}`">
+            <ContentDoc :path="`chokuretsu/guide/${route.params.slug}/${locale}`">
                 <template v-slot="{ doc }">
                     <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
                     <ContentRenderer :value="doc" />

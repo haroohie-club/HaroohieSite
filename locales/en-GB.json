@@ -38,5 +38,7 @@
     "chokuretsu-guide-invalid-page": "Invalid guide page",
     "chokuretsu-guide-invalid-page-p": "Could not find a guide page at this address.",
     "chokuretsu-guide-back-to-start": "Back to Start",
-    "chokuretsu-chibi-nagato-alt": "Chibi Nagato pixel art of her reading a book."
+    "chokuretsu-chibi-nagato-alt": "Chibi Nagato pixel art of her reading a book.",
+    "chokuretsu-chibi-haruhi-alt": "Chibi Haruhi pixel art of her marching forward.",
+    "chokuretsu-patch-loading": "Loading..."
 }

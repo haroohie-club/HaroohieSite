@@ -1,3 +1,9 @@
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+</script>
+
 <template>
     <tr>
         <td class="patcher-option-radio">
@@ -19,7 +25,7 @@
     </tr>
     <tr>
         <td style="text-align: center">
-            <small>(Recommended)</small>
+            <small>{{ $t('chokuretsu-rom-patcher-option-recommended') }}</small>
         </td>
     </tr>
 </template>

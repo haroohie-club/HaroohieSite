@@ -22,7 +22,7 @@ definePageMeta({
                 <div class="newsfeed">
                     <div class="socials box">
                         <h2>{{ $t('about') }}</h2>
-                        <ContentDoc />
+                        <ContentDoc :path="`/${locale}`" />
                         <h2>{{ $t('social-links') }}</h2>
                         <SocialLinks :top_link="localePath('/blog')" top_icon="fa6-solid:paper-plane" :top_text="$t('news-and-blog')" />
                         <br />
