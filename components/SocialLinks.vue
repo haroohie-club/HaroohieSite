@@ -1,6 +1,10 @@
+<script setup>
+const { locale } = useI18n()
+const localePath = useLocalePath()
+</script>
 <template>
     <div class="social-buttons">
-        <ButtonLink :link="top_link" color="red" type="top-piece" :icon="top_icon" fullwidth>{{ top_text }}
+        <ButtonLink :link="localePath(top_link)" color="red" type="top-piece" :icon="top_icon" fullwidth>{{ top_text }}
         </ButtonLink>
         <ButtonLink link="https://discord.gg/nesRSbpeFM" rel="me" color="discord" type="mid-piece" icon="fa6-brands:discord"
             fullwidth>Discord Server</ButtonLink>

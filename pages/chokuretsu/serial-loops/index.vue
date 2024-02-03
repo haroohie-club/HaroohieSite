@@ -1,3 +1,8 @@
+<script setup>
+const { locale } = useI18n()
+const localePath = useLocalePath()
+</script>
+
 <template>
     <div>
         <NuxtLayout>
@@ -5,7 +10,7 @@
                 <div id="hero">
                     <div id="topbar">
                         <div id="logo">
-                            <TitleGraphic graphic="club-logo" to="/" />
+                            <TitleGraphic graphic="club-logo" :to="localePath('/')" />
                         </div>
                     </div>
                     <div class="images">
@@ -16,7 +21,7 @@
                 </div>
             </template>
             <article>
-                <ContentDoc path="chokuretsu/serial-loops" />
+                <ContentDoc :path="`chokuretsu/serial-loops/${locale}`" />
             </article>
         </NuxtLayout>
     </div>

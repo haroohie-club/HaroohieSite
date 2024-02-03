@@ -1,3 +1,9 @@
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const route = useRoute()
+</script>
 <template>
     <div>
         <NuxtLayout>
@@ -9,7 +15,7 @@
                 </div>
             </template>
             <article>
-                <ContentDoc>
+                <ContentDoc :path="`/chokuretsu/serial-loops/docs/${route.params.slug.join('/')}/${locale}`">
                     <template v-slot="{ doc }">
                         <div class="navigation">
                             <span class="parent-crumb">

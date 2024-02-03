@@ -1,12 +1,18 @@
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+</script>
 <template>
     <div class="docs-list">
         <ContentList path="/chokuretsu/serial-loops/docs" v-slot="{ list }">
-            <div v-for="guide in list.filter(g => g.title !== 'Sidebar')" :class="'list-item ' + ((guide._path.split('/').length > 5) ? 'indented' : '')" >
+            <div v-for="guide in list.filter(g => g.title !== 'Sidebar').filter(g => g.locale == locale)" :class="'list-item ' + ((guide._path.split('/').length > 6) ? 'indented' : '')" >
                 <span class="icon">
                     <img v-if="guide.navigation.icon" :src="guide.navigation.icon" />
                     <Icon v-else-if="guide.navigation.faicon" :name="guide.navigation.faicon" />
                 </span>
-                <NuxtLink :to="guide._path">{{ guide.title }}</NuxtLink>
+                <NuxtLink :to="localePath(guide._path.substring(0, guide._path.lastIndexOf('/')))">{{ guide.title }}</NuxtLink>
             </div>
         </ContentList>
     </div>

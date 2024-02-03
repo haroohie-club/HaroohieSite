@@ -2,6 +2,7 @@
 const { locale } = useI18n({
   useScope: 'local'
 })
+const route = useRoute()
 </script>
 <template>
     <div>
