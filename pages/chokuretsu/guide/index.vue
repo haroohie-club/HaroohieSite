@@ -1,7 +1,11 @@
+<script setup>
+const { locale } = useI18n()
+</script>
+
 <template>
     <div>
         <NuxtLayout>
-            <ContentDoc v-slot="{ doc }">
+            <ContentDoc :path="`/chokuretsu/guide/${locale}`" v-slot="{ doc }">
                 <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
                 <ContentRenderer :value="doc" />
                 <ChokuretsuGuidePagination :doc="doc" />
@@ -10,7 +14,7 @@
                 <div id="nagato-book">
                     <img src="/images/chokuretsu/nagato-book.png" alt="Chibi Nagato pixel art of her reading a book." />
                 </div>
-                <ContentDoc path="chokuretsu/guide/sidebar" :head="false" />
+                <ContentDoc :path="`chokuretsu/guide/sidebar/${locale}`" :head="false" />
             </template>
         </NuxtLayout>
     </div>

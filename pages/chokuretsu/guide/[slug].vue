@@ -1,24 +1,30 @@
+<script setup>
+const { locale } = useI18n()
+const localePath = useLocalePath()
+const route = useRoute()
+</script>
+
 <template>
     <div>
         <NuxtLayout>
-            <ContentDoc>
+            <ContentDoc :path="`chokuretsu/guide${locale == 'en-us' ? '/' : '/' + locale + '/'}${route.params.slug}`">
                 <template v-slot="{ doc }">
                     <h1 v-if="doc.navigation"> {{ doc.title }}</h1>
                     <ContentRenderer :value="doc" />
                     <ChokuretsuGuidePagination :doc="doc" />
                 </template>
                 <template #not-found>
-                    <h1>Invalid guide page</h1>
-                    <p>Could not find a guide page at this address.</p>
-                    <ButtonLink link="/chokuretsu/guide" color="red" icon="fa6-solid:book">Back to Start
+                    <h1>{{ $t('chokuretsu-guide-invalid-page') }}</h1>
+                    <p>{{ $t('chokuretsu-guide-invalid-page-p') }}</p>
+                    <ButtonLink :link="localePath('/chokuretsu/guide')" color="red" icon="fa6-solid:book">{{ $t('chokuretsu-guide-back-to-start') }}
                     </ButtonLink>
                 </template>
             </ContentDoc>
             <template #sidebar>
                 <div id="nagato-book">
-                    <img src="/images/chokuretsu/nagato-book.png" alt="Chibi Nagato pixel art of her reading a book." />
+                    <img src="/images/chokuretsu/nagato-book.png" :alt="$t('chokuretsu-chibi-nagato-alt')" />
                 </div>
-                <ContentDoc path="chokuretsu/guide/sidebar" :head="false" />
+                <ContentDoc :path="`chokuretsu/guide/sidebar/${locale}`" :head="false" />
             </template>
         </NuxtLayout>
     </div>

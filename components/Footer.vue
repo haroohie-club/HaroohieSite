@@ -1,9 +1,14 @@
+<script setup>
+const { t } = useI18n({
+  useScope: 'local'
+})
+</script>
+
 <template>
     <footer>
         <div id="copyright">
-            <div>Website &copy; {{ current_year }}, <NuxtLink to="/">Haroohie Translation Club</NuxtLink></div>
-            <div>Haruhi Suzumiya, the original games and related assets are property of Kadokawa / SEGA / Nagaru
-                Tanigawa / SOS Brigade</div>
+            <div>{{ $t('website') }} &copy; {{ current_year }}, <NuxtLink to="/">Haroohie Translation Club</NuxtLink></div>
+            <div>{{ $t('original-copyright') }}</div>
         </div>
     </footer>
 </template>

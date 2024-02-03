@@ -24,5 +24,19 @@
     "heiretsu-adventure": "Adventure",
     "heiretsu-completion": "Coming Soon",
     "get-patch": "Get Patch",
-    "coming-soon": "Coming soon..."
+    "coming-soon": "Coming soon...",
+    "website": "Website",
+    "original-copyright": "Haruhi Suzumiya, the original games and related assets are property of Kadokawa / SEGA / Nagaru Tanigawa / SOS Brigade",
+    "next": "Next",
+    "previous": "Previous",
+
+    "chokuretsu-setup-guide": "Setup Guide",
+    "chokuretsu-rom-patcher": "ROM Patcher",
+    "chokuretsu-download-patch": "Download .xdelta",
+    "chokuretsu-sources-tools": "Sources & Tools",
+    "chokuretsu-serial-loops": "Serial Loops Editor",
+    "chokuretsu-guide-invalid-page": "Invalid guide page",
+    "chokuretsu-guide-invalid-page-p": "Could not find a guide page at this address.",
+    "chokuretsu-guide-back-to-start": "Back to Start",
+    "chokuretsu-chibi-nagato-alt": "Chibi Nagato pixel art of her reading a book."
 }

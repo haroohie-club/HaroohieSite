@@ -1,3 +1,10 @@
+<script setup>
+const { t } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+</script>
+
 <template>
     <div class="chokuretsu-nav">
         <div class="nav-left">
@@ -8,22 +15,22 @@
                 <slot />
             </div>
             <div class="nav-buttons">
-                <ButtonLink link="/chokuretsu/guide" fullwidth type="top-piece" color="red" icon="fa6-solid:book">
-                    Setup Guide
+                <ButtonLink :link="localePath('/chokuretsu/guide')" fullwidth type="top-piece" color="red" icon="fa6-solid:book">
+                    {{ $t('chokuretsu-setup-guide') }}
                 </ButtonLink>
-                <ButtonLink link="/chokuretsu/patch" fullwidth type="mid-piece" color="blue" icon="fa6-solid:file-import">
-                    ROM Patcher
+                <ButtonLink :link="localePath('/chokuretsu/patch')" fullwidth type="mid-piece" color="blue" icon="fa6-solid:file-import">
+                    {{ $t('chokuretsu-rom-patcher') }}
                 </ButtonLink>
                 <ButtonLink link="https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest"
                     fullwidth type="bottom-piece" color="sl-green" icon="fa6-solid:download">
-                    Download .xdelta
+                    {{ $t('chokuretsu-download-patch') }}
                 </ButtonLink>
                 <div id="nav-or">&mdash;</div>
                 <ButtonLink link="https://github.com/haroohie-club" fullwidth type="top-piece" color="black" icon="fa6-brands:github">
-                    Sources & Tools
+                    {{ $t('chokuretsu-sources-tools') }}
                 </ButtonLink>
-                <ButtonLink link="/chokuretsu/serial-loops" fullwidth type="bottom-piece" color="sl-blue" icon="fa6-solid:gear">
-                    Serial Loops Editor
+                <ButtonLink :link="localePath('/chokuretsu/serial-loops')" fullwidth type="bottom-piece" color="sl-blue" icon="fa6-solid:gear">
+                    {{ $t('chokuretsu-serial-loops') }}
                 </ButtonLink>
             </div>
         </div>

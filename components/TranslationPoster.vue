@@ -2,18 +2,19 @@
 const { t } = useI18n({
   useScope: 'local'
 })
+const localePath = useLocalePath()
 </script>
 
 <template>
     <div class="translation">
         <div v-if="$t(translation.poster)" class="poster">
-            <NuxtLink :to="translation.page">
+            <NuxtLink :to="localePath(translation.page)">
                 <img :src="'/images/' + $t(translation.poster)" :alt="$t(translation.title) + ' poster'" />
             </NuxtLink>
         </div>
         <div class="about">
             <div :class="'title ' + translation.color">
-                <NuxtLink :to="translation.page">{{ $t(translation.title) }}</NuxtLink>
+                <NuxtLink :to="localePath(translation.page)">{{ $t(translation.title) }}</NuxtLink>
             </div>
             <div v-if="translation.tags" class="tags">
                 <IconifiedText icon="fa6-solid:gamepad" />
@@ -25,7 +26,7 @@ const { t } = useI18n({
             <div v-if="$t(translation.tagline)" class="tagline">{{ $t(translation.tagline) }}</div>
             <div v-if="$t(translation.description)" class="description">{{ $t(translation.description) }}</div>
             <div v-if="translation.page" class="button">
-                <ButtonLink :link="translation.page" icon="fa6-solid:file-import" :color="translation.color">{{ $t('get-patch') }}</ButtonLink>
+                <ButtonLink :link="localePath(translation.page)" icon="fa6-solid:file-import" :color="translation.color">{{ $t('get-patch') }}</ButtonLink>
             </div>
             <div v-else :class="'button coming-soon ' + translation.color">
                 <IconifiedText icon="fa6-solid:pencil">{{ $t('coming-soon') }}</IconifiedText>
