@@ -1,14 +1,14 @@
-## Information
-* [Setup guide](/chokuretsu/guide)
-* [Changelogs](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
+## Informazioni
+* [Guida rapida](/it/chokuretsu/guide)
+* [Cambiamenti](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
-### Compatibility Notes
+### Note sulla compatibilità
 ::iconified-text
 ---
 icon: fa6-solid:triangle-exclamation
 unwrap: true
 ---
-**DeSmuME** should not be used due to graphical and audio emulation issues. Please use melonDS instead!
+Non utilizzare **DeSmuME**, per via di problemi grafici e sonori. Siete pregati di usare melonDS!
 ::
 
 <hr/>
@@ -18,7 +18,7 @@ unwrap: true
 icon: fa6-solid:circle-info
 unwrap: true
 ---
-If you're using **TWiLightMenu** (aka nds-bootstrap), please be sure to launch the game in DSi Mode.
+Se stai usando **TWiLightMenu** (nds-bootstrap) assicurati di avviare il gioco in modalità DSi.
 ::
 
 ### More links
@@ -30,7 +30,7 @@ link: '/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---
-Chokuretsu Home
+Pagina principale
 ::
 
 ::button-link
@@ -41,8 +41,8 @@ link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true
 type: 'bottom-piece'
 ---
-Help on Discord
+Chiedi aiuto a Discord
 ::
 
-### Attribution
-Based on [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) by [Marc Robledo](https://www.marcrobledo.com/) (MIT License)
+### Attributi basati su
+Based on [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) by [Marc Robledo](https://www.marcrobledo.com/) (Licenza MIT)

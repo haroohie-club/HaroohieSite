@@ -7,14 +7,14 @@ locale: 'it'
 ---
 
 ::guide-notice
-Se giochi da emulatore: Non utilizzare DeSmuME, potrebbe dare problemi.
+Per chi gioca da emulatore: DeSmuME è sconsigliato per via di problemi d'emulazione.
 ::
 
 Ora che la Patch è installata, è ora di giocare!
 
 ---
 
-**Seleziona su quale sistema giocare:**
+**Scegli dove giocare il gioco:**
 ::guide-platform-filter
 ---
 filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulator']
@@ -22,125 +22,125 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulator']
 
 <div class="platform-filtered platform-nintendo_ds">
 
-## Play on Nintendo DS
-Playing on the Nintendo DS is as simple as placing the patched ROM onto a flash cartridge and running the game. You probably already have the cartridge if you followed the setup instructions earlier.
+## Giocare su Nintendo DS
+Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flashcard e il più è fatto. Forse già la possiedi già una flashcard, se sei già arrivato qua.
 
-**Requirements:**
-* Nintendo DS or DS lite console
-* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+**Occorrente:**
+* Un sistema DS o DS Lite.
+* Una flashcard (come una R4. Inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
-**Setup:**
-1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct cable if required)
-2. Drag over the patched .nds ROM file you previously created into the correct directory on the flash cart's storage.
-3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up the game and enjoy!
+**Procedura:**
+1. Inserisci la scheda SD della flashcard nel tuo computer (o usa un adattatore).
+2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
+3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel DS. Bene, è arrivato il momento di giocare.
 
 </div>
 
 <div class="platform-filtered platform-nintendo_dsi">
 
-## Play on Nintendo DSi
+## Giocare su Nintendo DSi
 Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched rom onto a SD card and making use of Twilight Menu++ on your system
 
-### Using TWiLightMenu (nds-bootstrap)
+### Utilizzare TwilightMenu (nds-bootstrap)
 ::iconified-text
 ---
 icon: fa6-solid:circle-info
 unwrap: true
 ---
-If you're using **TWiLightMenu** (aka nds-bootstrap), please be sure to launch the game in DSi Mode.
+Se stai usando **TWiLightMenu** (nds-bootstrap) assicurati di avviare il gioco in modalità DSi.
 ::
 
-**Requirements:**
-* Nintendo DSi or DSi XL console
-* TwilightMenu++ custom firmware [setup on your system](https://dsi.cfw.guide/). If you followed the guide to dumping your ROM on Nintendo DSi earlier, you've probably already done this!
-* SD card with at least 2GB capacity
-* Computer with an SD card reader/USB SD card reader peripheral
+**Occorrente:**
+* Un sistema Nintendo DSi o DSi XL
+* TwilightMenu++ [installato sulla tua console](https://dsi.cfw.guide/). Se hai seguito la guida per modificare il DSi, avrai già questo programma!
+* Una scheda SD con almeno 2GB di memoria
+* Un computer con lettore di schede SD (o un adattatore USB)
 
-**Setup:**
-1. Insert your SD card from your DSi into your computer
-2. Drag over the patched .nds ROM file you previously created into anywhere on the SD card.
-3. Remove your SD card and insert it back into your DSi.
-4. Power on your DSi and launch Twilight Menu++.
-5. Navigate to and run the patched ROM .nds you copied into your SD card and start the game. Enjoy!
+**Procedimento:**
+1. Inserisci la scheda SD nel tuo computer
+2. Trascina il file .NDS nella cartella dei giochi.
+3. Re-inserisci la scheda SD nel computer.
+4. Riaccendi la console e avvia Twilight Menu++.
+5. Cerca il gioco patchato e avvialo. Buon divertimento!
 
-### Using a flash cartridge
-**Requirements:**
-* Nintendo DSi or DSi XL console
-* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+### Tramite flashcard
+**Occorrente:**
+* Un sistema della famiglia DSi o DSi XL
+* Una flashcard (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
-**Setup:**
-1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct adapter if required).
-2. Drag over the patched ROM file you previously created into the correct directory on the flash cart's storage.
-3. Disconnect the flash cartridge and insert it into your Nintendo DSi. Fire up the game and enjoy!
+**Procedura:**
+1. Inserisci la scheda SD della flashcard nel tuo computer (o usa un adattatore).
+2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
+3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel DSi. Bene, è arrivato il momento di giocare!
 
 </div>
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-## Play on (New) Nintendo 3DS or 2DS
-Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use of a flash cartridge, or putting the patched rom onto a SD card and making use of Luma3DS on your system
+## Giocare su (New) Nintendo 3DS o 2DS
+Giocare su Nintendo 3DS è molto semplice, basta inserire la ROM sulla flashcard o in una cartella precisa della scheda SD e il più è fatto.
 
-### Using TwilightMenu++
-**Requirements:**
-* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Luma3DS custom firmware setup on your system and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
-* SD card with at least 2GB capacity
-* Computer with an SD card reader/USB SD card reader peripheral
+### Utilizzare TwilightMenu++
+**Occorrente:**
+* Un sistema della famiglia 3DS o 2DS
+* Il custom firmware Luma 3DS e FBI. Se hai seguito la guida per modificare il 3DS, avrai già questi programmi!
+* Una scheda SD con una memoria da almeno 2 GB
+* Un computer con lettore di schede SD (o un adattatore USB)
 
-**Setup:**
-1. Insert your SD card from your 3DS (hacked with Luma3DS) into your computer
-2. Follow this guide to install TWiLightMenu on your 3DS using FBI. During the part where it asks you to drag over your .nds ROMS, drag your patched ROM .nds file you made earlier into the /roms/ folder.
-3. Continue following the instructions through to launching the game. Enjoy!
+**Procedura:**
+1. Inserisci la scheda SD del tuo 3DS (modificato) nel computer.
+2. Segui la guida per installare Twilight Menu con FBI. Quando ti sarà richiesto, trascina la ROM all'intero della cartella corretta.
+3. Continua a seguire le instruzioni fino alla fine!
 
-### Using a flash cartridge
-**Requirements:**
-* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+### Tramite flashcard
+**Occorrente:**
+* Un sistema della famiglia 3DS o 2DS
+* Una flashcard (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
-**Setup:**
-1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct adapter if required).
-2. Drag over the patched ROM file you previously created into the correct directory on the flash cart's storage.
-3. Disconnect the flash cartridge and insert it into your Nintendo 3DS. Fire up the game and enjoy!
+**Procedura:**
+1. Inserisci la scheda SD della flashcard nel tuo computer (o usa un adattatore).
+2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
+3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel 3DS. Bene, è arrivato il momento di giocare!
 
 </div>
 
 <div class="platform-filtered platform-emulator">
 
-## Play on Emulators
+## Gioca su emulatore
 
-**Select the type of emulator you wish to use:**
+**Scegli su quale sistema vuoi emulare il gioco:**
 ::guide-platform-filter
 ---
-filters: ['PC Emulator', 'Mobile Emulator', 'Wii U Virtual Console']
+filters: ['Emulatore per PC', 'Emulatore per telefono', 'Virtual console per Wii U']
 filterSuffix: 'emulator'
 ---
 
-<div class="platform-filtered platform-pc_emulator">
+<div class="platform-filtered platform-emulatore_per_pc">
 
-### Emulate on Windows, macOS, or Linux
-There are a few options for PC DS emulators, but the one we recommend is melonDS for its emulation accuracy and performance.
+### Emulare su Windows, MacOS oppure Linux
+Esistono diversi emulatori del Nintendo DS per PC, noi ti consigliamo d'usare melonDS per ottenere delle performance migliori.
 
-#### melonDS setup
-**Requirements:**
-* Windows, macOS or Linux computer
+#### Impostare melonDS
+**Occorrente:**
+* Un computer con Windows, macOS oppure Linux.
 
-**Setup:**
+**Procedimento:**
 
-Simply [download melonDS](https://melonds.kuribo64.net/downloads.php) (**v0.9.4+**) from the project website for your platform (Windows, macOS, Linux) and save it somewhere easily accessible to your computer.
+Scarica l'ultima versione (**v0.9.4+**) [dal sito ufficiale](https://melonds.kuribo64.net/downloads.php) (fai attenzione e scegli il sistema operativo corretto) e mettilo in una posizione comoda.
 
-**Playing the game:**
+**Giocare il gioco:**
 
-With melonDS setup, all you need to do in order to play the game is select "File"  "Open ROM" in the top menu bar and choose the ROM file you patched earlier.
+Imposta melonDS, per avviare il gioco, selezionalo tramite la funzione "Open ROM", nel menu in alto.
 
-melonDS has a number of advanced features, such as configuring controllers and tweaking display settings. You can check out the [melonDS Website](https://melonds.kuribo64.net/) for more information.
+melonDS ha molte peculiarità in più come impostare il controller e come impostare gli schermi. Per ulteriori informazioni, consulta [sito ufficiale di melonDS](https://melonds.kuribo64.net/).
 
-#### Other PC emulators
-* [DeSmuME](https://desmume.org/)－Not recommended due to detrimental graphical and sound emulation issues (the latter of which particularly affects cutscenes).
-* [No$GBA](https://www.nogba.com/)－Not recommended due to severe general emulation accuracy issues. It's also infrequently updated and not very user-friendly.
+#### Altri emulatori
+* [DeSmuME](https://desmume.org/)－Sconsigliato per problemi grafici e sonori (ci sono anche problemi durante gli intermezzi).
+* [No$GBA](https://www.nogba.com/)－: Sconsigliato per molti problemi di emulazione, non è molto aggiornato e non è adatto ai principianti dell'emulazione.
 
 </div>
 
-<div class="platform-filtered platform-mobile_emulator">
+<div class="platform-filtered platform-emulatore_per_telefono">
 
 ### Emulate on mobile devices
 
@@ -180,7 +180,7 @@ Download [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch
 
 </div>
 
-<div class="platform-filtered platform-wii_u_virtual_console">
+<div class="platform-filtered platform-virtual_console_per_wii_u">
 
 ### Emulate on Wii U by injecting the Virtual Console
 If you own a Wii U console, Nintendo's official Virtual Console DS emulator provides accurate emulation, complemented nicely by the Wii U Gamepad, which works great with the touchscreen used frequently in this game.
