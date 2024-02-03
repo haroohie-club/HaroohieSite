@@ -1,8 +1,13 @@
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+</script>
 <template>
     <div>
         <NuxtLayout>
             <div id="author-container">
-                <ContentDoc>
+                <ContentDoc :path="`/author/${route.params.author}/${locale}`">
                     <template v-slot="{ doc }">
                         <div v-if="doc.author">
                             <h1 id="author">{{ doc.author.name }}</h1>

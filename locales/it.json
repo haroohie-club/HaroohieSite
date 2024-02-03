@@ -30,6 +30,9 @@
     "next": "Prossimo",
     "previous": "Precedente",
 
+    "byline-pre": "Autore ",
+    "byline-post": "",
+
     "chokuretsu-setup-guide": "Guida Rapida",
     "chokuretsu-rom-patcher": "ROM Patcher",
     "chokuretsu-download-patch": "Scarica .xdelta",

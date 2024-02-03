@@ -1,7 +1,11 @@
+<script setup>
+const { locale } = useI18n()
+</script>
+
 <template>
     <div>
         <NuxtLayout>
-            <ContentDoc />
+            <ContentDoc :path="`/blog/${locale}`" />
         </NuxtLayout>
     </div>
 </template>
