@@ -1,8 +1,7 @@
 ---
 title: Haroohie Translation Club
-description: The homepage of the Haroohie Translation Club, translators of Haruhi Suzumiya games
+description: Pagina principale de Haroohie Translation Club
 locale: it
 ---
 
-We're the Haroohie Translation Club—dedicated to translating the Haruhi Suzumiya
-games into English!
+Noi siamo L'Haroohie translation club, il nostro scopo è tradurre i videogiochi dedicati ad Haruhi Suzumiya in svariate lingue!

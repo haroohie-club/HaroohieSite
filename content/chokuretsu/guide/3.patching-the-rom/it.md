@@ -1,5 +1,5 @@
 ---
-title: 'Patching the ROM'
+title: 'Patchare la ROM'
 navigation:
   current: '/patching-the-rom'
   previous: '/dumping-the-rom'
@@ -7,17 +7,17 @@ navigation:
 locale: 'it'
 ---
 
-Once you've dumped your cartridge to an `.nds` file, patching it with the English Translation can be done easily through the [Patch ROM](/chokuretsu/patch) tool we provide, or by manually downloading the patch `.xdelta` file and using patching software, such as [XDeltaUI](https://www.romhacking.net/utilities/598/?device=emu) to patch your ROM file.
+Una volta ottenuto il file `.nds`, per installare la patch in Italiano puoi farlo con lo strumento disponibile [sul sito](/it/chokuretsu/patch) o utilizzare il file `.xdelta` assieme ad altri programmi, come [XDeltaUI](https://www.romhacking.net/utilities/598/?device=emu).
 
-## Online patcher
+## Patcher su internet
 ::guide-notice
-Please make sure you've carefully followed the instructions to dump your ROM.
+Assicurati di aver seguito le istruzioni per ottenere i dati correttamente.
 ::
-1. Navigate to the [Patch ROM](/chokuretsu/patch) page on this site.
-2. Drag and drop your dumped .nds ROM file into the "Select ROM" box.
-3. If you'd like to change some settings for the patch, use the radio buttons in the Options panel.
-    - OP/ED subtitles: *Configures whether the opening movie and end credits should be subtitled in English with Japanese karaoke typesetting.*
-    - Voiced line subtitles: *Configure whether voiced lines in the puzzle phase should have supplementary English subtitles display on screen.*
-4. Check that the latest version of the patch is selected from the dropdown.
-5. Click "Apply Patch" and your game will be automatically patched with the latest version. Save the patched ROM somewhere easily accessible. Be careful not to overwrite your original ROM, in case you need it later or if we update the patch.
-6. You can now proceed to [playing the game](/chokuretsu/guide/playing-the-game).
+1. Raggiungi la pagina con [il patcher](/it/chokuretsu/patch).
+2. Trascina la ROM nel riquadro che recita "Scegli la ROM".
+3. Scegli i parametri che più ti aggradano, tramite le varie opzioni proposte.
+    - OP/ED sottotitolati: *le canzoni d'apertura e dei crediti saranno sottotitolate.*
+    - Frasi sottotitolate: *le frasi pronunciate dai personaggi durante le fasi puzzle, avranno i sottotitoli.*
+4. Seleziona la versione più recente.
+5. Clicca "Applica patch" e il gioco sarà patchato in automatico con l'ultima versione. Salva la ROM in un punto comodo. Fai attenzione a non sovrascrivere la ROM originale, se vorrai, un giorno, ottenere una versione più aggiornata del gioco.
+6. [Divertiti](/it/chokuretsu/guide/playing-the-game).

@@ -1,19 +1,20 @@
-## Setup guide
-This guide will walk you through getting the patch up-and-running on your system or emulator of choice!
+## Guida all'installazione
+Questa guida ti guiderà passo dopo passo per installare la patch e farla partire sul sistema che più ti interessa!
 
-### Guide steps
-::chokuretsu-guide-list ::
+### Passi
+::chokuretsu-guide-list
+::
 
-### Guide links
+### Link alle guide
 ::button-link
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/chokuretsu'
+link: '/it/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---
-Chokuretsu Home
+Pagina principale
 ::
 
 ::button-link
@@ -24,5 +25,5 @@ link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true
 type: 'bottom-piece'
 ---
-Help on Discord
+Chiedi aiuto a Discord
 ::
