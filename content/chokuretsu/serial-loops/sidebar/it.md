@@ -13,7 +13,7 @@ GitHub
 ---
 color: 'sl-green'
 icon: 'fa6-solid:book'
-link: '/chokuretsu/serial-loops/docs'
+link: '/it/chokuretsu/serial-loops/docs'
 fullwidth: true
 type: 'mid-piece'
 ---
@@ -24,7 +24,7 @@ Docs
 ---
 color: 'red'
 icon: 'fa6-solid:language'
-link: '/chokuretsu'
+link: '/it/chokuretsu'
 fullwidth: true
 type: 'mid-piece'
 ---
@@ -35,7 +35,7 @@ Chokuretsu Patch
 ---
 color: 'blue'
 icon: 'fa6-solid:house'
-link: '/'
+link: '/it/'
 fullwidth: true
 type: 'mid-piece'
 ---

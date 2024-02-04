@@ -173,14 +173,6 @@ function AVAILABLE_PATCHES(locale) {
                     lang: 'en'
                 }
             ].reverse();
-        case 'it':
-            return [
-                {
-                    version: '0.4',
-                    date: '29 febbraio 2024',
-                    lang: 'it'
-                }
-            ]
         default:
             return [];
     }
@@ -439,7 +431,7 @@ const { locale } = useI18n({
 })
 
 if (AVAILABLE_PATCHES(locale.value).length === 0) {
-    showNotice('warning', this.$t('chokuretsu-rom-patcher-no-patches-available'))
+    notice = 'chokuretsu-rom-patcher-no-patches-available'
 }
 
 // Resolve libraries

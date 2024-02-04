@@ -10,7 +10,7 @@ This guide will walk you through getting the patch up-and-running on your system
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/chokuretsu'
+link: '/zh-hans/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---
