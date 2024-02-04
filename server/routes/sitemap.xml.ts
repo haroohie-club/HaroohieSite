@@ -9,8 +9,9 @@ export default defineEventHandler(async (event) => {
   })
 
   for (const doc of docs) {
+    const lang = doc._path?.substring(doc._path?.lastIndexOf('/')) == '/en-us' ? '' : doc._path?.substring(doc._path?.lastIndexOf('/'))
     sitemap.write({
-      url: doc._path,
+      url: (lang ?? '') + doc._path?.substring(0, doc._path?.lastIndexOf('/')),
       changefreq: 'monthly'
     })
   }

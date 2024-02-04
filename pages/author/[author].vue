@@ -2,6 +2,7 @@
 const { locale } = useI18n({
   useScope: 'local'
 })
+const localePath = useLocalePath()
 const route = useRoute()
 </script>
 <template>
@@ -15,15 +16,15 @@ const route = useRoute()
                             <AuthorSocials :author="doc.author" />
                         </div>
                         <ContentRenderer :value="doc" />
-                        <h2>Latest posts by {{ doc.author.name }}</h2>
+                        <h2>{{ $t('latest-posts-by', { author: doc.author.name }) }}</h2>
                         <BlogAuthorStack :author="doc.author.name" />
                     </template>
                     <template #not-found>
-                        <h1 id="author">Author not found</h1>
-                        <p>Could not find information for this author.</p>
+                        <h1 id="author">{{ $t('author-not-found') }}</h1>
+                        <p>{{ $('author-not-found-desc') }}</p>
                     </template>
                 </ContentDoc>
-                <ButtonLink link="/" color="red" icon="fa6-solid:house">Back to Home</ButtonLink>
+                <ButtonLink :link="localePath('/')" color="red" icon="fa6-solid:house">{{ $t('back-to-hom') }}</ButtonLink>
             </div>
         </NuxtLayout>
     </div>

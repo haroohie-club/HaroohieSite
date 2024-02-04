@@ -2,12 +2,13 @@
 const { t } = useI18n({
   useScope: 'local'
 })
+const localePath = useLocalePath()
 </script>
 
 <template>
     <footer>
         <div id="copyright">
-            <div>{{ $t('website') }} &copy; {{ current_year }}, <NuxtLink to="/">Haroohie Translation Club</NuxtLink></div>
+            <div>{{ $t('website') }} &copy; {{ current_year }}, <NuxtLink :to="localePath('/')">Haroohie Translation Club</NuxtLink></div>
             <div>{{ $t('original-copyright') }}</div>
         </div>
     </footer>

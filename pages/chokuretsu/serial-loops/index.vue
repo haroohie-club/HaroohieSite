@@ -14,9 +14,9 @@ const localePath = useLocalePath()
                         </div>
                     </div>
                     <div class="images">
-                        <img src="/images/chokuretsu/serial-loops/script-editor.png" alt="Script editor" />
-                        <img src="/images/chokuretsu/serial-loops/map-editing.png" alt="Serial Loops" />
-                        <img src="/images/chokuretsu/serial-loops/sound-editing.png" alt="Serial Loops" />
+                        <img src="/images/chokuretsu/serial-loops/script-editor.png" :alt="$t('chokuretsu-sl-script-editor-alt')" />
+                        <img src="/images/chokuretsu/serial-loops/map-editing.png" :alt="$t('chokuretsu-sl-alt')" />
+                        <img src="/images/chokuretsu/serial-loops/sound-editing.png" :alt="$t('chokuretsu-sl-alt')" />
                     </div>
                 </div>
             </template>

@@ -10,7 +10,7 @@ const localePath = useLocalePath()
         <div id="page-with-sidebar">
             <div id="sidebar">
                 <NuxtLink :to="localePath('/chokuretsu/serial-loops')">
-                    <ProjectLogoHeader icon="serial-loops/icon.png">Serial Loops</ProjectLogoHeader>
+                    <ProjectLogoHeader icon="serial-loops/icon.png">{{ $t('serial-loops') }}</ProjectLogoHeader>
                 </NuxtLink>
                 <div id="sidebar-inner">
                     <ContentDoc :path="`chokuretsu/serial-loops/sidebar/${locale}`" :head="false" />

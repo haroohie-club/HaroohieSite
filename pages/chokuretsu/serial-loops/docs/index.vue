@@ -19,7 +19,7 @@ const localePath = useLocalePath()
                     <article>
                         <div class="breadcrumbs">
                             <SerialLoopsBreadcrumb :link="'/chokuretsu/serial-loops'" icon="fa6-solid:arrow-left">
-                                Serial Loops Home
+                                {{ $t('chokuretsu-sl-home' )}}
                             </SerialLoopsBreadcrumb>
                             <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next"
                                 icon="fa6-solid:arrow-right">

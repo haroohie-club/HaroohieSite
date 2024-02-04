@@ -18,9 +18,9 @@
                                     </IconifiedText>
                                 </div>
                                 <div class="tags">
-                                    <IconifiedText icon="fa6-solid:tags">Tags:</IconifiedText>
+                                    <IconifiedText icon="fa6-solid:tags">{{ $t('tags-header') }}</IconifiedText>
                                     <span class="tag" v-for="tag of doc.navigation.tags">
-                                        <NuxtLink :to="localePath('/tag/' + tag)">{{ tag }}</NuxtLink>
+                                        <NuxtLink :to="localePath('/tag/' + tag)">{{ $t(`${tag.replace(' ', '-')}-tag`) }}</NuxtLink>
                                     </span>
                                 </div>
                             </div>
@@ -42,9 +42,9 @@
                     </div>
                 </template>
                 <template #not-found>
-                    <h1>Post not found</h1>
-                    <p>Could not find a blog post at this address.</p>
-                    <ButtonLink :link="localePath('/blog')" color="red" icon="fa6-solid:paper-plane">Back to the Blog
+                    <h1>{{ $t('post-not-found') }}</h1>
+                    <p>{{ $t('post-not-found-desc') }}</p>
+                    <ButtonLink :link="localePath('/blog')" color="red" icon="fa6-solid:paper-plane">{{ $t('back-to-blog' )}}
                     </ButtonLink>
                 </template>
             </ContentDoc>

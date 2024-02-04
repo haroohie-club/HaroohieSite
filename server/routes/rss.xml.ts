@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     })
 
     const docs = await serverQueryContent(event).find();
-    const blogPosts = docs.filter((doc) => doc._path.includes('/blog/'))
+    const blogPosts = docs.filter((doc) => doc._path?.includes('/blog/'))
         .sort().reverse();
     
 
