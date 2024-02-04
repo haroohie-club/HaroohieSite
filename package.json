@@ -19,6 +19,7 @@
   "dependencies": {
     "nuxt-icon": "^0.4.2",
     "shiki": "^0.11.1",
+    "url-file-size": "^1.0.5-1",
     "vue-carousel": "^0.18.0",
     "vue-gtag-next": "^1.14.0",
     "vue-matomo": "^4.2.0"

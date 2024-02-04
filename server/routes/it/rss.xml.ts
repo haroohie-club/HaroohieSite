@@ -11,15 +11,16 @@ export default defineEventHandler(async (event) => {
         image_url: 'https://haroohie.club/images/sos-logo.png',
     })
 
-    const locale = 'en'
+    const locale = 'it'
     const docs = await serverQueryContent(event).find();
     const blogPosts = docs.filter((doc) => doc._path?.includes('/blog/')).filter(b => b.navigation).filter(b => b.locale == locale)
         .sort().reverse();
 
     for (const doc of blogPosts) {
+        const lang = doc._path?.substring(doc._path?.lastIndexOf('/'))
         feed.item({
             title: doc.title ?? '-',
-            url: `https://haroohie.club${doc._path?.substring(0, doc._path?.lastIndexOf('/'))}`,
+            url: `https://haroohie.club${(lang ?? '') + doc._path?.substring(0, doc._path?.lastIndexOf('/'))}`,
             date: `${doc.navigation.year}-${doc.navigation.month}-${doc.navigation.day}`,
             description: doc.description,
             enclosure: {
