@@ -24,7 +24,7 @@ type: 'mid-piece'
 ---
 color: 'red'
 icon: 'fa6-solid:language'
-link: '/home/chokuretsu'
+link: '/zh-hans/chokuretsu'
 fullwidth: true
 type: 'mid-piece'
 ---
