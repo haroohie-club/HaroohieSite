@@ -42,7 +42,7 @@ stable enough to use.*
 <div class="platform-filtered platform-nintendo_dsi">
 
 ## Giocare su Nintendo DSi
-Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched rom onto a SD card and making use of Twilight Menu++ on your system
+Per poter giocare il titolo sul vostro Nintendo DSi, esistono due metodi. Tramite l'ausilio di una flashcard oppure installando la ROM patchata sulla Scheda SD e utilizzarla grazie a Twilight Menu++
 
 ### Utilizzare TWiLightMenu (nds-bootstrap)
 ::iconified-text
@@ -156,8 +156,8 @@ stable enough to use.*
 
 ### Emulate on mobile devices
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch primarily supports DeSmuME for DS emulation and the MelonDS core is not yet stable enough to use.*
+#### Giocare su iOS / iPadOS / tvOS
+*Attenzione: potresti avere dei problemi di emulazione utilizzando RetroArch per iOS, dato che l'emulatore utilizza DeSmuME per il DS, sfortunatamente MelonDS non è ancora stabile per quel sistema.
 
 The best option for emulating on iOS and Apple TV devices is using RetroArch using the DeSmuME emulation core. You don't need a jailbroken device to run RetroArch (although it is easier if you have one)
 
