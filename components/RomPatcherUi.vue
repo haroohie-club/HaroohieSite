@@ -431,7 +431,7 @@ const { locale } = useI18n({
 })
 
 if (AVAILABLE_PATCHES(locale.value).length === 0) {
-    notice = 'chokuretsu-rom-patcher-no-patches-available'
+    notice.value = 'chokuretsu-rom-patcher-no-patches-available'
 }
 
 // Resolve libraries
