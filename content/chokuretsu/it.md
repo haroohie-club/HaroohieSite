@@ -13,7 +13,7 @@ Pubblicato nel 2009 per Nintendo DS, *Suzumiya Haruhi no Chokuretsu* (*La serie 
 
 Gioca nei panni di Kyon e gli altri membri della brigata e cerca di risolvere i misteri della scuola mentre tieni Haruhi distratta! Le vicende si svolgono dopo gli eventi del secondo libro, durante le vacanze estive. La brigata SOS deve distogliere l'attenzione di Haruhi mentre indaga sulle sette meraviglie della North High e cancellarne le prove, prima che sia troppo tardi.
 
-Con oltre 38.000 linee di dialogo e tantissimi finali alternativi, questa traduzione è stata realizzata per gli appassionati di Haruhi in giro per il mondo. Supportate la serie comprando i giochi e i prodotti originali!
+Featuring over 38,000 lines of dialogue and many possible routes, this unofficial translation made by *Haruhi* fans from around the world seeks to make the game accessible to a non-Japanese audience. Please support the series by buying the original games & merch!
 
 ## Dal team di traduzione
 ::blog-tag-stack

@@ -17,29 +17,29 @@ link: '/chokuretsu/serial-loops/docs'
 fullwidth: true
 type: 'mid-piece'
 ---
-Docs
+文档
 ::
 
 ::button-link
 ---
 color: 'red'
 icon: 'fa6-solid:language'
-link: '/chokuretsu'
+link: '/home/chokuretsu'
 fullwidth: true
 type: 'mid-piece'
 ---
-Chokuretsu Patch
+《串联》补丁
 ::
 
 ::button-link
 ---
 color: 'blue'
 icon: 'fa6-solid:house'
-link: '/'
+link: '/zh-hans/'
 fullwidth: true
 type: 'mid-piece'
 ---
-Home
+首页
 ::
 
 ::button-link
@@ -53,6 +53,6 @@ type: 'bottom-piece'
 Discord
 ::
 
-## Docs
+## 文档
 ::serial-loops-docs-list
 ::

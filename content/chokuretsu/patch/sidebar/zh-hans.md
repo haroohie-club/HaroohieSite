@@ -1,14 +1,14 @@
-## Information
-* [Setup guide](/chokuretsu/guide)
-* [Changelogs](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
+## 信息
+* [指南](/zh-hans/chokuretsu/guide)
+* [更新日志](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
-### Compatibility Notes
+### 兼容性说明
 ::iconified-text
 ---
 icon: fa6-solid:triangle-exclamation
 unwrap: true
 ---
-**DeSmuME** should not be used due to graphical and audio emulation issues. Please use melonDS instead!
+不应使用 **DeSmuME**，因为它具有图形和音频的模拟错误。请改用 melonDS！
 ::
 
 <hr/>
@@ -18,19 +18,19 @@ unwrap: true
 icon: fa6-solid:circle-info
 unwrap: true
 ---
-If you're using **TWiLightMenu** (aka nds-bootstrap), please be sure to launch the game in DSi Mode.
+如果你正在使用 **TWiLightMenu**（又名 nds-bootstrap），请确保以 DSi 模式运行游戏。
 ::
 
-### More links
+### 更多链接
 ::button-link
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/chokuretsu'
+link: '/zh-hans/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---
-Chokuretsu Home
+《串联》首页
 ::
 
 ::button-link
@@ -41,8 +41,8 @@ link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true
 type: 'bottom-piece'
 ---
-Help on Discord
+在 Discord 获取帮助
 ::
 
-### Attribution
-Based on [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) by [Marc Robledo](https://www.marcrobledo.com/) (MIT License)
+### 署名
+基于 [Marc Robledo](https://www.marcrobledo.com/) 创建的 [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) 项目（MIT License）

@@ -1,19 +1,20 @@
-## Setup guide
-This guide will walk you through getting the patch up-and-running on your system or emulator of choice!
+## 指南
+本指南将引导你安装补丁并在你选择的系统或模拟器上运行！
 
-### Guide steps
-::chokuretsu-guide-list ::
+### 指南步骤
+::chokuretsu-guide-list
+::
 
-### Guide links
+### 指南链接
 ::button-link
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/chokuretsu'
+link: '/zh-hans/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---
-Chokuretsu Home
+《串联》首页
 ::
 
 ::button-link
@@ -24,5 +25,5 @@ link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true
 type: 'bottom-piece'
 ---
-Help on Discord
+在 Discord 获取帮助
 ::
