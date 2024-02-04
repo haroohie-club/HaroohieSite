@@ -23,7 +23,7 @@ export default {
     // Pre render the sitemap
     nitro: {
         prerender: {
-            routes: ['/sitemap.xml', '/404.html', '/rss.xml', '/it/rss.xml', '/zh-hans/rss.xml']
+            routes: ['/sitemap.xml', '/404.html', '/rss.xml', 'de/rss.xml', '/it/rss.xml', '/zh-hans/rss.xml']
         }
     },
 
@@ -62,6 +62,7 @@ export default {
             { code: 'en', iso: 'en', file: 'locales/en.json', dir: 'ltr' },
             { code: 'it', iso: 'it-IT', file: 'locales/it.json', dir: 'ltr' },
             { code: 'zh-hans', iso: 'zh-Hans', file: 'locales/zh-Hans.json', dir: 'ltr' },
+            { code: 'de', iso: 'de', file: 'locales/de.json', dir: 'ltr' },
         ],
         defaultLocale: 'en'
     }
