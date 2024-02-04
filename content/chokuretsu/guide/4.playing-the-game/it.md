@@ -159,7 +159,7 @@ stable enough to use.*
 #### Giocare su iOS / iPadOS / tvOS
 *Attenzione: potresti avere dei problemi di emulazione utilizzando RetroArch per iOS, dato che l'emulatore utilizza DeSmuME per il DS, sfortunatamente MelonDS non è ancora stabile per quel sistema.
 
-The best option for emulating on iOS and Apple TV devices is using RetroArch using the DeSmuME emulation core. You don't need a jailbroken device to run RetroArch (although it is easier if you have one)
+Ti consigliamo di utilizzare RetroArch, che ha DeSmuME incorporato, per emulare il gioco su iOS o Apple TV. Non è necessario modificare il sistema per utilizzare RetroArch (ma potrebbe renderti il lavoro più semplice)
 
 Simply [download melonDS](https://melonds.kuribo64.net/downloads.php)
 (**v0.9.4+**) from the project website for your platform (Windows, macOS, Linux)
