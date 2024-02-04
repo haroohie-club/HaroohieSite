@@ -4,7 +4,7 @@ navigation:
   current: '/patching-the-rom'
   previous: '/dumping-the-rom'
   next: '/playing-the-game'
-locale: 'en'
+locale: 'de'
 ---
 
 Once you've dumped your cartridge to an `.nds` file, patching it with the English Translation can be done easily through the [Patch ROM](/chokuretsu/patch) tool we provide, or by manually downloading the patch `.xdelta` file and using patching software, such as [XDeltaUI](https://www.romhacking.net/utilities/598/?device=emu) to patch your ROM file.

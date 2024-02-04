@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started'
-locale: 'en'
+locale: 'de'
 navigation:
   faicon: 'fa6-solid:hands'
   previous: '/chokuretsu/serial-loops/docs/introduction/installation'

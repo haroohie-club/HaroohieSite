@@ -1,6 +1,6 @@
 ---
 title: 'UI Text'
-locale: 'en'
+locale: 'de'
 navigation:
   faicon: 'fa6-solid:wrench'
   previous: '/chokuretsu/serial-loops/docs/misc/applying-hacks'

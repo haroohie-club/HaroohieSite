@@ -1,6 +1,6 @@
 ---
 title: 'Commands'
-locale: 'en'
+locale: 'de'
 navigation:
   faicon: 'fa6-solid:code'
   previous: '/chokuretsu/serial-loops/docs/scripts'

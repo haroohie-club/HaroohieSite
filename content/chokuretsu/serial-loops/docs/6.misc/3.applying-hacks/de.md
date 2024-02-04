@@ -1,6 +1,6 @@
 ---
 title: 'Applying Hacks'
-locale: 'en'
+locale: 'de'
 navigation:
   faicon: 'fa6-solid:file'
   previous: '/chokuretsu/serial-loops/docs/misc/topics'

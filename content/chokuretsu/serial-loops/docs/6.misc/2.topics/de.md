@@ -1,6 +1,6 @@
 ---
 title: 'Topics'
-locale: 'en'
+locale: 'de'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/topic.png'
   previous: '/chokuretsu/serial-loops/docs/misc/characters'
