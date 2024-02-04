@@ -5,7 +5,7 @@ const localePath = useLocalePath()
 <template>
     <ContentList path="/blog" v-slot="{ list }">
         <div class="year" v-for="year of new Set(list.filter(b => b.navigation).filter(b => b.locale == locale).map(b => b.navigation.year).reverse())">
-            <NuxtLink class="closed" @click.native="toggle(year)" :id="'link-' + year">{{ year }}</NuxtLink>
+            <NuxtLink class="closed" @click.native="toggle(year)" :id="'link-' + year">{{ $t('year', { year: year }) }}</NuxtLink>
             <div class="month" :id="'div-' + year">
                 <div v-for="month of new Set(list.filter(b => b.navigation).filter(b => b.locale == locale).filter(b => b.navigation.year == year).map(b => b.navigation.month).reverse())">
                     <NuxtLink class="closed" @click.native="toggle(year + '-' + month)" :id="'link-' + year + '-' + month">
