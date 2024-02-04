@@ -4,28 +4,30 @@ import RSS from 'rss'
 export default defineEventHandler(async (event) => {
     const feed = new RSS({
         title: 'Haroohie Translation Club Blog',
+        language: 'en',
         site_url: 'https://haroohie.club/',
         feed_url: 'https://haroohie.club/rss.xml',
         image_url: 'https://haroohie.club/images/sos-logo.png',
     })
 
     const docs = await serverQueryContent(event).find();
-    const blogPosts = docs.filter((doc) => doc._path?.includes('/blog/'))
+    const blogPosts = docs.filter((doc) => doc._path?.includes('/blog/')).filter(b => b.navigation)
         .sort().reverse();
     
 
     for (const doc of blogPosts) {
+        const lang = doc._path?.substring(doc._path?.lastIndexOf('/')) == '/en' ? '' : doc._path?.substring(doc._path?.lastIndexOf('/'))
         feed.item({
             title: doc.title ?? '-',
-            url: `https://haroohie.club${doc._path}`,
+            url: `https://haroohie.club${(lang ?? '') + doc._path?.substring(0, doc._path?.lastIndexOf('/'))}`,
             date: `${doc.navigation.year}-${doc.navigation.month}-${doc.navigation.day}`,
             description: doc.description,
             custom_elements: [
                 {
-                    'image': [
+                    'media:content': [
                         { 'url': `https://haroohie.club/images/blog/${doc.navigation.image}` },
-                        { 'title': doc.title },
-                        { 'link': 'https://haroohie.club/blog' },
+                        { 'medium': 'image' },
+                        { 'type': 'image/png' },
                     ]
                 }
             ]

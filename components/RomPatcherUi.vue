@@ -155,8 +155,7 @@ const noticeDict = {}
 function AVAILABLE_PATCHES(locale) {
     localeVal = locale
     switch (locale) {
-        case 'en-us':
-        case 'en-gb':
+        case 'en':
             return [
                 {
                     version: '0.2',

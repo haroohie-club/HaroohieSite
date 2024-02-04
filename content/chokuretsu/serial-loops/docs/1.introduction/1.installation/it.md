@@ -60,7 +60,7 @@ way of getting the Docker path to work, so you will have to use Make.
   install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or the Docker Engine. Ensure the Docker engine is running and make sure
   to check the "Use Docker for ASM Hacks" option in Preferences. You may want to occasionally clean up containers created by Serial Loops, as it will
   create many of them.
-    - On Windows, though, you will additionally need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
+    - On Windows, though, you will additionally need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en/windows/wsl/install).
       From an admin PowerShell or Terminal window (Winkey + X + A), simply type `wsl --install` to install it.
 
 In general, Make is recommended, but it can be more difficult to get working on Windows systems sometimes. In this case, feel free to use Docker.

@@ -59,11 +59,10 @@ export default {
             redirectOn: 'root',
         },
         locales: [
-            { code: 'en-us', iso: 'en-US', file: 'locales/en-US.json', dir: 'ltr' },
-            { code: 'en-gb', iso: 'en-GB', file: 'locales/en-GB.json', dir: 'ltr' },
+            { code: 'en', iso: 'en', file: 'locales/en.json', dir: 'ltr' },
             { code: 'it', iso: 'it-IT', file: 'locales/it.json', dir: 'ltr' },
             { code: 'zh-hans', iso: 'zh-Hans', file: 'locales/zh-Hans.json', dir: 'ltr' },
         ],
-        defaultLocale: 'en-us'
+        defaultLocale: 'en'
     }
 }
