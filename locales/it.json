@@ -41,7 +41,6 @@
     "mastodon": "Mastodon",
     "youtube": "YouTube",
     "facebook": "Facebook",
-
     "blogs": "Blogs",
     "back-to-blog": "Back to the Blog",
     "byline-pre": "Scritto da ",
@@ -88,7 +87,6 @@
     "romhacking-tag": "romhacking",
     "serial-loops-tag": "serial loops",
     "video-tag": "video",
-
     "chokuretsu-setup-guide": "Guida Rapida",
     "chokuretsu-rom-patcher": "ROM Patcher",
     "chokuretsu-download-patch": "Scarica .xdelta",
@@ -100,7 +98,7 @@
     "chokuretsu-chibi-nagato-alt": "Disegnino in art di Nagato che legge un libro.",
     "chokuretsu-chibi-haruhi-alt": "Disegnino di Haruhi in pixel art che marcia.",
     "chokuretsu-patch-loading": "Caricamento in corso...",
-    "chokuretsu-rom-patcher-get-started": "Iniziazione applicazione patch Chokurestu, per iniziare selezionare una ROM.",
+    "chokuretsu-rom-patcher-get-started": "Iniziazione applicazione patch Chokuretsu, per iniziare selezionare una ROM.",
     "chokuretsu-rom-patcher-options": "Opzioni",
     "chokuretsu-rom-patcher-op-ed-subs-title": "OP/ED con i sottotitoli",
     "chokuretsu-rom-patcher-op-ed-subs-alt": "La sigla d'apertura avrà i sottotitoli in inglese, e saranno come quelli di un karaoke",
@@ -141,6 +139,5 @@
     "chokuretsu-sl-invalid-docs-page": "Invalid docs page",
     "chokuretsu-sl-invalid-docs-page-desc": "Could not find a docs page at this address.",
     "chokuretsu-trailer-footage": "Nintendo DS displaying trailer footage",
-    
     "click-to-filter": "Click to filter:"
 }

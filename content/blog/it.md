@@ -1,9 +1,9 @@
-# From the Clubroom
+# Messaggi dal Club
 
-The blog of the Haroohie Translation Club! We'll post about the behind-the-scenes of our translation projects!
+Ecco a voi il blog de "Haroohie Translation Club"! Qua verranno postati i dietro le quinte dei nostri progetti!
 
-We'll drop a line on our [Discord Server](https://discord.gg/nesRSbpeFM) when we add a new blog entries, so stay tuned!
-If you prefer an [RSS feed](/rss.xml), we have that too!
+Per rimanere aggiornati sui nostri progetti, seguiteci sul nostro [Gruppo Discord](https://discord.gg/nesRSbpeFM)
+Oppure, tramite i nostri [feed RSS](/rss.xml), abbiamo anche quelli.
 
 ::button-link
 ---

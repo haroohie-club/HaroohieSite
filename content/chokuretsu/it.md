@@ -5,7 +5,7 @@ locale: 'it'
 ---
 
 ::chokuretsu-nav
-## Get the translation
+## Scarica la traduzione
 ::
 
 ## Informazioni sul gioco
