@@ -102,7 +102,7 @@ Segui questi consigli per evitare di danneggiare il tuo sistema.
 Per ricavare i dati di gioco con un 3DS o 2DS, devi prima installare un custom firmware, (come Luma 3DS e Bootstrap), per poter avviare GodMode9, che ti permetterà di arguire la ROM di gioco.
 
 **Occorrente:**
-* Un sistema della famiglia 3DS e 2DS
+* Un sistema della famiglia 3DS o 2DS
 * *Suzumiya Haruhi no Chokuretsu*
 * Una scheda SD con almeno 2GB di memoria
 * Un computer con un lettore scheda SD od un adattatore USB che possa leggere schede SD 
@@ -113,7 +113,7 @@ Per ricavare i dati di gioco con un 3DS o 2DS, devi prima installare un custom f
 Segui questi consigli per evitare di danneggiare la tua console.
 ::
 * Segui [la guida su 3ds.hacks.guide](https://3ds.hacks.guide/get-started) per installare Luma3DS e Bootstrap9 sul tuo 3DS.
-* Continua [la guida fino ad installare GodMode9](https://3ds.hacks.guide/finalizing-setup) e tanti altri pre-requisiti da seguire.
+* Continua [la guida fino ad installare GodMode9](https://3ds.hacks.guide/finalizing-setup) e tanti altri prerequisiti da seguire.
 * Spegni la console.
 * Iserisci *Suzumiya Haruhi no Chokuretsu* nel vano cartuccia.
 * Accendi la console tenendo premuto il tasto "Power" assieme al tasto "START", per avviare GodMode9. Se non funziona, spegni il dispositivo e riprova.
