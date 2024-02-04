@@ -6,7 +6,7 @@ link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
 fullwidth: true
 type: 'top-piece'
 ---
-GitHub
+DeutscheHub
 ::
 
 ::button-link

@@ -1,4 +1,4 @@
-# From the Clubroom
+# From the Deutsche Clubroom
 
 The blog of the Haroohie Translation Club! We'll post about the behind-the-scenes of our translation projects!
 

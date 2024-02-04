@@ -28,7 +28,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-<b class="sl-header">An editing suite for Suzumiya Haruhi no Chokuretsu</b> 
+<b class="sl-header">An editing Deutsche suite for Suzumiya Haruhi no Chokuretsu</b> 
 
 Serial Loops is an editing suite for [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.
 

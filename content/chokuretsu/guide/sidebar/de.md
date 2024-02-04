@@ -1,5 +1,5 @@
 ## Setup guide
-This guide will walk you through getting the patch up-and-running on your system or emulator of choice!
+This guide will walk you through getting the patch up-and-running on your system or emulator of choice! BONJOUR
 
 ### Guide steps
 ::chokuretsu-guide-list
