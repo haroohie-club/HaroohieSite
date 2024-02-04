@@ -34,10 +34,7 @@ Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flashcard 
 2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
 3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel DS. Bene, è arrivato il momento di giocare!
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch
-primarily supports DeSmuME for DS emulation and the MelonDS core is not yet
-stable enough to use.*
+</div>
 
 <div class="platform-filtered platform-nintendo_dsi">
 
@@ -76,10 +73,7 @@ Se stai usando **TWiLightMenu** (nds-bootstrap) assicurati di avviare il gioco i
 2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
 3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel DSi. Bene, è arrivato il momento di giocare!
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch
-primarily supports DeSmuME for DS emulation and the MelonDS core is not yet
-stable enough to use.*
+</div>
 
 <div class="platform-filtered platform-nintendo_3ds">
 
@@ -108,10 +102,7 @@ Giocare su Nintendo 3DS è molto semplice, basta inserire la ROM sulla flashcard
 2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
 3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel 3DS. Bene, è arrivato il momento di giocare!
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch
-primarily supports DeSmuME for DS emulation and the MelonDS core is not yet
-stable enough to use.*
+</div>
 
 <div class="platform-filtered platform-emulator">
 
@@ -147,67 +138,59 @@ melonDS ha molte peculiarità in più come impostare il controller e come impost
 * [DeSmuME](https://desmume.org/)－Sconsigliato per problemi grafici e sonori (ci sono anche problemi durante gli intermezzi).
 * [No$GBA](https://www.nogba.com/)－: Sconsigliato per molti problemi di emulazione, non è molto aggiornato e non è adatto ai principianti dell'emulazione.
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch
-primarily supports DeSmuME for DS emulation and the MelonDS core is not yet
-stable enough to use.*
+</div>
 
 <div class="platform-filtered platform-emulatore_per_telefono">
 
-### Emulate on mobile devices
+### Emulare su dispositivi mobili
 
 #### Giocare su iOS / iPadOS / tvOS
-*Attenzione: potresti avere dei problemi di emulazione utilizzando RetroArch per iOS, dato che l'emulatore utilizza DeSmuME per il DS, sfortunatamente MelonDS non è ancora stabile per quel sistema.
+*Attenzione: potresti avere dei problemi di emulazione utilizzando RetroArch per iOS, dato che l'emulatore utilizza DeSmuME per il DS, sfortunatamente MelonDS non è ancora stabile per quel sistema.*
 
 Ti consigliamo di utilizzare RetroArch, che ha DeSmuME incorporato, per emulare il gioco su iOS o Apple TV. Non è necessario modificare il sistema per utilizzare RetroArch (ma potrebbe renderti il lavoro più semplice)
 
-Simply [download melonDS](https://melonds.kuribo64.net/downloads.php)
-(**v0.9.4+**) from the project website for your platform (Windows, macOS, Linux)
-and save it somewhere easily accessible to your computer.
+Esistono due metodi per fare ciò. Nel primo è richiesto di usare Cydia impactor per trasferire i file di RetroArch sul tuo dispositivo macOS. Per tutti quelli che usano un dispositivo Mac moderno può tornare utile utilizzare XCode, puoi anche usare un metodo che richiede di costruire RetroArch con XCode e caricarlo sul tuo dispositivo, anche se è più complicato.
 
-**Requirements:**
-* iOS / iPadOS Device (iPhone, iPad, iPod Touch)
-* iTunes installed on a PC/Mac OR A Mac capable of running XCode
+**Occorrente:**
+* Un dispositivo che supporta iOS oppure iPadOS (iPhone, iPad, iPod Touch)
+* Avere iTunes installato sul tuo PC o Mac oppure un Mac che supporti XCode
 
-**Recommended method: Install RetroArch through Cydia Impactor**
-1. Follow the steps listed in [this guide](https://docs.libretro.com/guides/install-ios/) to install the RetroArch on your non-Jailbreak iOS device through Cydia Impactor.
-2. Follow the guide's instructions on performing a ["Content transfer via iTunes"](https://docs.libretro.com/guides/install-ios/?device=emu#content-transfer-via-itunes) to transfer your patched ROM to the RetroArch content folder
+**Metodo consigliato: Installare RetroArch con Cydia Impactor**
+1. Segui questa [guida](https://docs.libretro.com/guides/install-ios/) per installare RetroArch sul tuo dispositivo iOS non modificato tramite Cydua Impactor.
+2. Segui la guida per ["Trasferire i file tramite iTunes"](https://docs.libretro.com/guides/install-ios/?device=emu#content-transfer-via-itunes) atto a trasferire la ROM patchata nella cartella di RetroArch
 
-**Mac Only Method: Install RetroArch by compiling it with XCode**
-1. Follow the steps listed in [this guide](https://docs.libretro.com/guides/build-ios/) to install XCode on your Mac, clone RetroArch from source and build it, then transfer it to your device.
-2. Transfer the patched ROM over to your device using a third party tool such as iFunBox or iExplorer. If you're running on an Apple TV, you'll be given a Web URL you can access locally to transfer ROMs to the emulator directly.
+**Metodo che richiede solo Mac: Costruire RetroArch con XCode**
+1. Segui la [guida](https://docs.libretro.com/guides/build-ios/) per installare XCode sul tuo Mac, copia RetroArch dal sito e ricostruiscilo, poi trasferiscilo sul tuo dispositivo.
+2. Trasferisci la ROM patchata sul tuo dispositivo tramite strumenti di terze parti come iFunBox o iExplorer. Se vuoi utilizzare Apple TV, ti verrà dato un indirizzo Web, grazie al quale potrai trasferire la ROM sul dispositivo.
 
-#### Emulate on Android
-The best DS emulator on Android is [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic), which has a great interface and is simple to install, but it costs $4.99. [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) is a free alternative, although it comes with the caveat of the DS emulation being based on DeSmuME, which has a number of emulation issues with this game.
+#### Emulare su Android
+Il miglior emulatore DS su Android è [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic), è molto semplice da usare, sfortunatamente costa 4,50€. [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) è una buona alternativa, purtroppo l'emulatore utilizzato è DeSmuME, il quale può dare problemi di emulazione.
 
-**Requirements:**
-* Android Device with the Google Play store
-* Drastic ($4.99) or RetroArch (free)
+**Occorrente:**
+* Un dispositivo Android con Google Play store installato
+* Drastic (4,50€) o RetroArch (Gratuito)
 
-**Play using DraStic Emulator**
+**Giocare utilizzando DraStic**
 
-Download [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic) off the Google Play Store and transfer the patched ROM file over to it via the Android file picker.
+Scarica [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic) dal Google Play Store e trasferisci la ROM patchata sul tuo dispositivo tramite Android file picker.
 
-**Play using RetroArch Emulator**
+**Giocare utilizzando RetroArch**
 
-Download [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) off the Google Play Store and transfer the patched ROM file over to it via the Android file picker.
+Scarica [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) dal Google Play Store e trasferisci la ROM patchata tramite Android file picker.
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch
-primarily supports DeSmuME for DS emulation and the MelonDS core is not yet
-stable enough to use.*
+</div>
 
 <div class="platform-filtered platform-wii_u_virtual_console">
 
-### Emulate on Wii U by injecting the Virtual Console
-If you own a Wii U console, Nintendo's official Virtual Console DS emulator provides accurate emulation, complemented nicely by the Wii U Gamepad, which works great with the touchscreen used frequently in this game.
+### Emulare il gioco su Wii U grazie alla Virtual Console
+Se possiedi una console Wii U, puoi giocare il titolo grazie all'emulatore per DS sviluppato da Nintendo, per un'emulazione più precisa.
 
-To do this, you'll need to homebrew your Wii U, use UWUVCI to convert the ROM into a WUP (Wii U title) and then install it to your system using WUP Installer GX2.
+Per fare ciò, dovrai modificare il tuo Wii U. Dovrai usare UWUVCI per convertire la ROM in un file WUP (File installazione di giochi in digitale per Wii U) ed installarlo tramite WUP Installer GX2.
 
-**Requirements:**
-* Wii U system with internet access
-* SD card with at least 4GB capacity
-* Windows PC to run UWUVCI
+**Occorrente:**
+* Un sistema Wii U connesso ad internet
+* Una scheda SD con almeno 4GB di memoria
+* Un PC con Windows per scaricare UWUVCI
 
 #### Part 1 - Homebrew your Wii U
 1. Follow the steps [on this guide](https://wiiu.hacks.guide/) to install a CFW (Custom Firmware) Wrapper, Tiramisu, onto your system from your SD card via an exploit in the Internet Browser.
@@ -239,14 +222,8 @@ To do this, you'll need to homebrew your Wii U, use UWUVCI to convert the ROM in
 3. Select the WUP title you created and proceed through WUP Installer GX's on-screen instructions to install the title to your system menu. You can also optionally install WUP Installer GX to your Wii U menu here, too.
 4. When the installation has completed, you can launch the game from your system menu.
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch
-primarily supports DeSmuME for DS emulation and the MelonDS core is not yet
-stable enough to use.*
+</div>
 
 ::
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch
-primarily supports DeSmuME for DS emulation and the MelonDS core is not yet
-stable enough to use.*
+</div>
