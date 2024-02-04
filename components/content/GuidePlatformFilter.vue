@@ -1,7 +1,7 @@
 <template>
     <div class="filter-buttons">
         <div class="platforms-label">
-            <IconifiedText icon="fa6-solid:gamepad"><b>Click to filter: </b></IconifiedText>
+            <IconifiedText icon="fa6-solid:gamepad"><b>{{ $t('click-to-filter') }}</b></IconifiedText>
         </div>
         <div class="platform-filters">
             <div v-for="platform of filters" :class="'filter filter-' + filterSuffix + ' deselected'"

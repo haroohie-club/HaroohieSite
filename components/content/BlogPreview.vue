@@ -19,7 +19,7 @@ const localePath = useLocalePath()
                 <span class="meta">{{ $t('byline-pre') }}<NuxtLink :to="localePath('/author/' + blog.navigation.author.toLowerCase())">{{ blog.navigation.author }}</NuxtLink>{{ $t('byline-post') }} {{ $t('parenthetical-date', { date: $t('date-short', { day: blog.navigation.day, month: $t(getMonth(blog.navigation.month)), year: blog.navigation.year } ) }) }}</span>
                 <div class="tags">
                     <IconifiedText icon="fa6-solid:tag" />
-                    <span class="tag" v-for="tag of blog.navigation.tags"><NuxtLink :to="localePath('/tag/' + tag)">{{ tag }}</NuxtLink></span>
+                    <span class="tag" v-for="tag of blog.navigation.tags"><NuxtLink :to="localePath('/tag/' + tag)">{{ $t(`${tag.replace(' ', '-')}-tag`) }}</NuxtLink></span>
                 </div>
             </div>
             <div class="description">{{ ((blog.description.length > 330) ? blog.description.slice(0, 329) + '&hellip;' : blog.description) }}</div>

@@ -48,6 +48,7 @@
     "byline-post": "",
     "on-date": " il {date}",
     "parenthetical-date": " ({date})",
+    "year": "{year}",
     "date-short": "{day} {month} {year}",
     "january": "Gennaio",
     "february": "Febbraio",
@@ -139,5 +140,7 @@
     "chokuretsu-sl-script-editor-alt": "Script editor",
     "chokuretsu-sl-invalid-docs-page": "Invalid docs page",
     "chokuretsu-sl-invalid-docs-page-desc": "Could not find a docs page at this address.",
-    "chokuretsu-trailer-footage": "Nintendo DS displaying trailer footage"
+    "chokuretsu-trailer-footage": "Nintendo DS displaying trailer footage",
+    
+    "click-to-filter": "Click to filter:"
 }
