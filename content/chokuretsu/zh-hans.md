@@ -13,7 +13,7 @@ locale: 'zh-hans'
 
 玩家扮演阿虚，与 SOS 团的其他成员一起，防止春日发现周围发生的不自然现象！故事发生在第二部轻小说之后的暑假期间，当春日调查北高的七大不可思议时，SOS 团的成员必须分散她的注意力，并在她发现证据之前将证据抹去。
 
-Featuring over 38,000 lines of dialogue and many possible routes, this unofficial translation made by *Haruhi* fans from around the world seeks to make the game accessible to a non-Japanese audience. Please support the series by buying the original games & merch!
+这部作品包含了超过 38,000 条对话以及多条可选的路线，来自世界各地的凉宫春日粉丝制作了非官方翻译，希望能使更多非日语玩家接触到这款游戏。请通过购买正版游戏和周边来支持该系列！
 
 ## 来自翻译团队
 ::blog-tag-stack
