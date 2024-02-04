@@ -193,11 +193,11 @@ Per fare ciò, dovrai modificare il tuo Wii U. Dovrai usare UWUVCI per convertir
 * Un PC con Windows per scaricare UWUVCI
 
 #### Part 1 - Homebrew your Wii U
-1. Follow the steps [on this guide](https://wiiu.hacks.guide/) to install a CFW (Custom Firmware) Wrapper, Tiramisu, onto your system from your SD card via an exploit in the Internet Browser.
-2. Continue [following the steps](https://wiiu.hacks.guide/#/tiramisu/finalizing-setup?id=additional-homebrew-apps) to install the Homebrew App Store to your system.
-3. Boot into the Homebrew App Store through Tiramisu by launching into Tiramisu on the Health & Safety screen of your console when powering it on.
-4. On the Homebrew App Store, navigate to or search for WUP Installer GX2 (it should be near the top). Download and install it to your system, following the on-screen instructions.
-5. Once successfully installed, power off your Wii U system and remove the SD card. Re-insert it into your computer.
+1. Segui questa [guida](https://wiiu.hacks.guide/) per installare il CFW (Custom Firmware) Wrapper e Tiramisu sul tuo sistema dalla scheda SD ed ultimare il processo tramite una falla del browser internet.
+2. Continua con [la guida](https://wiiu.hacks.guide/#/tiramisu/finalizing-setup?id=additional-homebrew-apps) per installare l'Homebrew App Store sul tuo sistema.
+3. Avvia l'Homebrew App Store tramite Tiramisu, per farlo, clicca sull'icona de "informazioni di salute e sicurezza" presente sul menu principale.
+4. Una volta sul Homebrew App Store, cerca il programma "WUP Installer GX2 (dovrebbe essere uno dei primi dell'elenco). Installalo sul tuo sistema, seguendo le istruzioni a schermo.
+5. Una volta finito, spegni la console e rimuovi la Scheda SD. Dopodiché reinseriscila nel tuo computer.
 
 #### Part 2 - Make ROM into WUP with UWUVCI
 1. Ensure your SD Card is back inserted into your computer
