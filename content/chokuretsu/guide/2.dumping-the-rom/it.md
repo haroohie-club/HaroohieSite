@@ -27,7 +27,7 @@ Per il primo metodo avremmo bisogno di una connessione ad internet (trasferiremo
 **Occorrente:**
 * Un sistema DS o DS Lite
 * Una copia di *Suzumiya Haruhi no Chokuretsu*
-* Una scheda di multigioco (come una R4. inoltre, è richiesta una scheda SD o Micro SD per poter caricare questi file)
+* Una scheda Flash (come una R4. inoltre, è richiesta una scheda SD o Micro SD per poter caricare questi file)
 * Telefono cellulare o dispositivi simili che possano garantire una connessione internet efficace (tramite WEP-secured Hotspot)
   - Molti computer di oggi non posso fare queste cose.
   - Vi consigliamo un sistema che supporti Android (i dispositivi Apple e Microsoft, non posseggono questa caratteristica).
