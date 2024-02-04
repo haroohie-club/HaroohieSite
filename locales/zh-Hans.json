@@ -26,7 +26,7 @@
     "heiretsu-completion": "敬请期待",
     "get-patch": "获取补丁",
     "coming-soon": "敬请期待……",
-    "website": "本网站",
+    "website": "网站",
     "original-copyright": "凉宫春日、原始游戏以及相关素材的权利归属于角川 / 世嘉 / 谷川流 / SOS 团",
     "next": "下一页",
     "previous": "上一页",
@@ -41,7 +41,6 @@
     "mastodon": "Mastodon",
     "youtube": "YouTube",
     "facebook": "Facebook",
-
     "blogs": "博客",
     "back-to-blog": "返回博客",
     "byline-pre": "由 ",
@@ -88,7 +87,6 @@
     "romhacking-tag": "ROM 破解",
     "serial-loops-tag": "Serial Loops",
     "video-tag": "视频",
-
     "chokuretsu-setup-guide": "指南",
     "chokuretsu-rom-patcher": "ROM 补丁工具",
     "chokuretsu-download-patch": "下载 .xdelta",
@@ -141,6 +139,5 @@
     "chokuretsu-sl-invalid-docs-page": "无效的文档页面",
     "chokuretsu-sl-invalid-docs-page-desc": "无法在此地址找到文档页面。",
     "chokuretsu-trailer-footage": "正在展示预告视频的 Nintendo DS",
-
     "click-to-filter": "点击以筛选："
 }

@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops - Level Editor for Suzumiya Haruhi no Chokuretsu'
-description: &desc 'Serial Loops is a level editor for Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.'
+title: &title 'Serial Loops - 凉宫春日的串联关卡编辑器'
+description: &desc 'Serial Loops 是一个用于《凉宫春日的串联》（涼宮ハルヒの直列）的关卡编辑器，可在 Windows、Mac 和 Linux 上运行。'
 navigation:
   image: 'script-editor.png'
 head:
@@ -12,7 +12,7 @@ head:
   - property: 'og:image'
     content: &img https://haroohie.club/images/chokuretsu/serial-loops/script-editor.png
   - property: 'og:image:alt'
-    content: 'A Nintendo DS featuring Haruhi Suzumiya saying edited text.'
+    content: '显示着凉宫春日说出已编辑的文本的 Nintendo DS。'
   - property: 'og:url'
     content: 'https://haroohie.club/chokuretsu/serial-loops/'
   - property: 'og:type'
@@ -28,14 +28,14 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-<b class="sl-header">An editing suite for Suzumiya Haruhi no Chokuretsu</b> 
+<b class="sl-header">用于《凉宫春日的串联》的编辑套件</b> 
 
-Serial Loops is an editing suite for [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.
+Serial Loops 是一个用于[《凉宫春日的串联》](/zh-hans/chokuretsu)（涼宮ハルヒの直列）的编辑套件，可在 Windows、Mac 和 Linux 上运行。
 
 <br />
 <br />
 
-## News
+## 新闻
 ::blog-tag-stack
 ---
 tag: 'serial loops'
@@ -43,8 +43,8 @@ limit: 2
 ---
 ::
 
-## Downloads
-Downloads are available for Windows, macOS (Intel and Apple Silicon) and Linux (RPM & Debian packages) [on GitHub](https://github.com/haroohie-club/SerialLoops/release). We offer both release (recommended) and nightly pre-release builds.
+## 下载
+可以[在 GitHub 上](https://github.com/haroohie-club/SerialLoops/release)下载用于 Windows、macOS（Intel 和 Apple Silicon 芯片）和 Linux（RPM & Debian 包）的软件。我们提供发布版（推荐）和 nightly 预发布版本。
 
 
 ::button-link
@@ -53,7 +53,7 @@ color: 'sl-blue'
 icon: 'fa6-solid:download'
 link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
 ---
-Download Latest
+下载最新版
 ::
 
 

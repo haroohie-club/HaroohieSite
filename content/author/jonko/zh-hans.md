@@ -8,4 +8,4 @@ author:
   mastodon: 'https://eldritch.cafe/@jonko'
 ---
 
-Jonko is the project lead and main ROM hacker for the Haroohie Translation Club.
+Jonko 是 Haroohie Translation Club 的项目负责人和 ROM 的主要破解者。

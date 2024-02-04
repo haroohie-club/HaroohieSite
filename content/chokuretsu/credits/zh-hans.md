@@ -12,10 +12,10 @@
 - **Website**: William278
 ::
 
-## Stay up-to-date
-If you're interested in helping us translate the Haruhi Suzumiya video games, join our Discord and get in touch!
+## 保持最新
+如果你有兴趣帮助我们翻译凉宫春日相关的电子游戏，请加入我们的 Discord 并与我们联系！
 
-Even if not, be sure to follow us on Twitter and Mastodon! Plus, join our Discord Server to stay up-to-date with our latest updates, or get help on patching your game. We also post updates and insights from the translation process to [our blog](/blog)!
+即使没有兴趣，也请在 Twitter 和 Mastodon 上关注我们！此外，欢迎加入我们的 Discord 服务器，随时了解我们的最新更新，或获得给游戏打补丁的帮助。我们还会将翻译过程中的更新和见解发布到[我们的博客](/zh-hans/blog)！
 
 <!-- Social media, Discord and blog buttons -->
 ::button-row
@@ -23,9 +23,9 @@ Even if not, be sure to follow us on Twitter and Mastodon! Plus, join our Discor
 ---
 color: 'red'
 icon: 'fa6-solid:paper-plane'
-link: '/blog'
+link: '/zh-hans/blog'
 ---
-Our Blog
+我们的博客
 ::
 
 ::button-link
