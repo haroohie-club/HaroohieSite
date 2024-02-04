@@ -1,4 +1,11 @@
-![Project workflow](/images/chokuretsu/serial-loops/project-workflow.png)
+---
+title: 'Project Workflow'
+locale: 'it'
+navigation:
+  faicon: 'fa6-solid:folder-tree'
+  previous: '/chokuretsu/serial-loops/docs/introduction/getting-started'
+  next: '/chokuretsu/serial-loops/docs/scripts'
+---
 
 ![Project workflow](/images/chokuretsu/serial-loops/project-workflow.png)
 

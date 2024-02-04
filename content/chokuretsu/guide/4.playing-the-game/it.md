@@ -1,5 +1,10 @@
-::guide-notice Emulator users: DeSmuME is not recommended due to various
-emulation issues. ::
+---
+title: 'Playing the game'
+navigation:
+  current: '/playing-the-game'
+  previous: '/patching-the-rom'
+locale: 'it'
+---
 
 ::guide-notice
 Emulator users: DeSmuME is not recommended due to various emulation issues.

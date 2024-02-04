@@ -1,7 +1,7 @@
 ---
 title: &title 'Serial Loops v0.2 is out now – with more powerful editors and better stability!'
 description: &desc 'The second version of Serial Loops makes the editor even more powerful and intuitive, fixes a ton of bugs, and improves stability!'
-locale: 'en'
+locale: 'it'
 navigation:
   author: 'William'
   year: 2023

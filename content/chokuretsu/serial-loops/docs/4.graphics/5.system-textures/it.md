@@ -1,6 +1,6 @@
 ---
 title: System Textures
-locale: 'en'
+locale: 'it'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/system-texture.png'
   previous: '/chokuretsu/serial-loops/docs/graphics/places'

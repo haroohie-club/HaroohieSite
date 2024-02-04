@@ -1,6 +1,11 @@
-To dump your ROM file, you will need a Nintendo DS or 3DS system in addition to
-your game. Some methods will require additional peripherals, like an SD card or
-mobile device capable of making an unsecured hotspot.
+---
+title: 'Dumping the ROM'
+navigation:
+  current: '/dumping-the-rom'
+  previous: '/buying-the-game'
+  next: '/patching-the-rom'
+locale: 'it'
+---
 
 ---
 

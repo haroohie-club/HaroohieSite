@@ -9,7 +9,7 @@ If you prefer an [RSS feed](/rss.xml), we have that too!
 ---
 color: 'rss'
 icon: 'fa6-solid:rss'
-link: '/rss.xml'
+link: '/it/rss.xml'
 ---
 Feed
 ::

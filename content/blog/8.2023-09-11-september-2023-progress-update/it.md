@@ -1,7 +1,7 @@
 ---
 title: &title 'September 2023 Progress Update – Chokuretsu 100% Translated, Heiretsu Progress, & More!'
 description: &desc 'The Haroohie Translation Club share a progress update on their translation projects!'
-locale: 'en'
+locale: 'it'
 navigation:
   author: 'William'
   year: 2023

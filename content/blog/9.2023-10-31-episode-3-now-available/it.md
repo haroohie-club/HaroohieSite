@@ -1,6 +1,37 @@
-A huge thank you to
-[EricDoesEverything](https://www.youtube.com/@EricDoesEverythingSeries) for once
-again putting together our (fittingly spooky for October 31) release trailer!
+---
+title: &title 'The Series of Haruhi Suzumiya – Episode 3 is now available!'
+description: &desc 'Play Episode 3: A Midsummer Graduation in Version 0.6 of Suzumiya Haruhi no Chokuretsu''s English Patch, available now!'
+locale: 'it'
+navigation:
+  author: 'William'
+  year: 2023
+  month: 10
+  day: 31
+  tags: ['chokuretsu', 'releases']
+  image: '0009/00_thumbnail.png'
+head:
+  meta:
+  - property: 'og:title'
+    content: *title
+  - property: 'og:description'
+    content: *desc
+  - property: 'og:image'
+    content: &img https://haroohie.club/images/blog/0009/00_thumbnail.png
+  - property: 'og:image:alt'
+    content: ''
+  - property: 'og:url'
+    content: 'https://haroohie.club/blog/2023-10-31-episode-3-now-available'
+  - name: 'twitter:title'
+    value: *title
+  - name: 'twitter:descripton'
+    value: *desc
+  - name: 'twitter:image'
+    value: *img
+  - name: 'twitter:site'
+    value: '@haroohie'
+  - name: 'twitter:card'
+    value: 'summary_large_image'
+---
 
 ::youtube-video
 ----

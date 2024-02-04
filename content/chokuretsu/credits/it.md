@@ -41,17 +41,24 @@ Discord
 
 ::button-link
 ---
-color: 'bluesky' icon: 'fa6-solid:cloud' link:
-'https://bsky.app/profile/haroohie.club' rel: 'me'
+color: 'twitter'
+icon: 'fa6-brands:twitter'
+link: 'https://twitter.com/haroohie'
+rel: 'me'
 ---
-Bluesky :: ::
+Twitter
+::
 
 ::button-link
 ---
-color: 'instagram' icon: 'fa6-brands:instagram' link:
-'https://instagram.com/haroohie' rel: 'me'
+color: 'bluesky'
+icon: 'fa6-solid:cloud'
+link: 'https://bsky.app/profile/haroohie.club'
+rel: 'me'
 ---
-Instagram ::
+Bluesky
+::
+::
 
 <br/>
 
