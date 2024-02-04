@@ -1,6 +1,6 @@
 ---
 title: Haroohie Translation Club
-description: The homepage of the Haroohie Translation Club, translators of Haruhi Suzumiya games
+description: La homepage dell'Haroohie Translation Club, traduttori dei giochi su Haruhi Suzumiya
 locale: it
 ---
 

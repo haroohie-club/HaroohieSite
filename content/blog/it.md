@@ -1,9 +1,9 @@
-# Messaggi dal Club
+# Aggiornamenti dal Club
 
-Ecco a voi il blog de "Haroohie Translation Club"! Qua verranno postati i dietro le quinte dei nostri progetti!
+Il blog dell'Haroohie Translation Club! Scriveremo riguardo a quello che succede dietro le quinte dei nostri progetti di traduzione!
 
-Per rimanere aggiornati sui nostri progetti, seguiteci sul nostro [Gruppo Discord](https://discord.gg/nesRSbpeFM)
-Oppure, tramite i nostri [feed RSS](/rss.xml), abbiamo anche quelli!
+Per rimanere aggiornati sui nostri progetti, seguiteci sul nostro [Server Discord](https://discord.gg/nesRSbpeFM)
+Oppure, tramite i nostri [feed RSS](/it/rss.xml), abbiamo anche quelli!
 
 ::button-link
 ---

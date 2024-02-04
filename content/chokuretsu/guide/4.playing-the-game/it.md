@@ -199,28 +199,28 @@ Per fare ciò, dovrai modificare il tuo Wii U. Dovrai usare UWUVCI per convertir
 4. Una volta sul Homebrew App Store, cerca il programma "WUP Installer GX2 (dovrebbe essere uno dei primi dell'elenco). Installalo sul tuo sistema, seguendo le istruzioni a schermo.
 5. Una volta finito, spegni la console e rimuovi la Scheda SD. Dopodiché reinseriscila nel tuo computer.
 
-#### Part 2 - Make ROM into WUP with UWUVCI
-1. Ensure your SD Card is back inserted into your computer
-2. On your PC, download and install the latest release of [UWUVCI](https://github.com/stuff-by-3-random-dudes/UWUVCI-AIO-WPF/releases/). If you are prompted by Microsoft Defender/Windows StartScreen, click "More Details" and "Run Anyway". The program may take some time to download tools and data.
-3. When the program loads up, select the DS icon on the left-hand side of the screen.
-4. Select the following options:
-    - On the "Base ROM" dropdown, choose "Mario Kart DS (US)" or "Mario Kart DS (EU)" (depending on your region; if you aren't in the US or EU, just pick either one, it doesn't really matter)
-    - Click the "Enter CKey" button. Click "Read from otp.bin" and select the otp.bin file on your SD card that you created earlier when installing the Custom Firmware as part of the NAND Dump process. If you don't have this for whatever reason, you'll need to find the Wii U common key and write it in manually instead.
-    - Click on the "Enter TKey" button. You will now need to insert the title key for Mario Kart DS for the region you selected. There's no easy way of getting this other than by looking it up online. Make sure you enter the key for the Mario Kart DS region you selected.
-    - Click "Choose File" next to "ROM PATH" and choose the patched *The Series of Haruhi Suzumiya* ROM file
-    - On the "Icon Image" box, click "Create File". Download [this image](/images/chokuretsu/virtual-console-icon.png) (or use your own) and choose it under "Select File". Feel free to customise the appearance, this is the icon that will appear on your Wii U system menu. Then, click "Finish"
-    - On the "TV Image" box, click "Create File", enter the name of the game on the two lines ("The Series of Haruhi", "Suzumiya"), the release year (2009) and the number of players (1). Then select the same file for the icon image (or choose your own!). Then, click "Finish".
-    - Enter in the "Game Name" box: `The Series of|Haruhi Suzumiya`
-    - You can also optionally choose some other pieces of art that will appear on your Wii U menu when launching the game, such as a splash image and boot sound.
-5. When you're done, click "Inject". Your ROM will be injected into a Wii U WUP title.
-6. Once done, click "WUP Installable". Wait for it to pack the WUP into the format, then click "Copy to SD". Your WUP file will be copied to the correct directory on your Wii U, so you can add it to your system using WUP Installer GX2.
-7. Remove your SD card from your computer and put it back into your Wii U.
+#### Parte 2 - Convertire la ROM in un file WUP
+1. Inserisci la tua scheda SD nel tuo computer
+2. Sul tuo PC, installa l'ultima versione di [UWUVCI](https://github.com/stuff-by-3-random-dudes/UWUVCI-AIO-WPF/releases/). Se Windows Defender lo segnala come minaccia, clicca su "più dettagli" e "avvia comunque". Il programma dovrà scaricare degli strumenti atti a funzionare correttamente, ci vorrà un po' di tempo.
+3. Una volta avviato il programma, seleziona l'icona del DS nella schermata in alto a sinistra.
+4. Segui attentamente queste istruzioni:
+        - Come ROM base seleziona "Mario Kart Ds (US)" oppure "Mario Kart Ds (EU)" (Dipende dalla tua regione; se la tua console non è Americana od Europea, scegli quello che vuoi, non è tanto importante)
+        - Seleziona "Enter CKey", poi "Read from otp.bin" e seleziona il file che hai creato poco fa sulla tua scheda SD, dato che quando hai installato il custom firmware ti è stato chiesto di estrapolare la NAND. Se non riesci a trovare il file, dovrai cercare le chiavi del gioco ed inserirle manualmente.
+        - Clicca "enterTKey". Qua dovrai inserire il codice giusto per sbloccare il Mario Kart DS che hai scelto. Assicurati di inserire il codice esatto.
+        - Clicca "Select file", prosegui con "ROM Path" e scegli la ROM patchata de "La serie di Haruhi Suzumiya".
+        - Su "Icon Image", clicca con "Create file". Scarica quest'[immagine](/images/chokuretsu/virtual-console-icon.png) e selezionala con con "Select file". personalizza la presentazione come più ti aggrada, quest'icona apparirà sul menù del tuo Wii U. Poi, clicca "finish".
+        - Su "Tv image" clicca "Create file", qua dovrai inserire il nome del gioco su due linee ("La serie di Haruhi","Suzumiya"), l'anno di pubblicazione (2009) e il numero di giocatori (1). Poi, scegli la stessa immagine dell'icona (o mettine pure un'altra). Infine, clicca "finish".
+        - Inserisci nel "Game Name": "La serie di|Haruhi Suzumiya"
+        - Puoi anche personalizzare la schermata come più ti aggrada.
+5. Una volta terminato, clicca "Inject". La ROM verrà convertita in un file WUP.
+6. Finito anche questo, clicca su "WUP Installable". Aspetta che la conversione venga terminata, poi clicca su "Copy to SD". Il tuo file WUP verrà copiato nella cartella esatta.
+7. Rimuovi la scheda SD dal tuo computer ed inseriscila nella console.
 
-#### Part 3 - Install WUP with WUP Installer GX2
-1. Power on your Wii U with the SD card re-inserted.
-2. Launch WUP Installer GX2 you previously installed through Tiramisu
-3. Select the WUP title you created and proceed through WUP Installer GX's on-screen instructions to install the title to your system menu. You can also optionally install WUP Installer GX to your Wii U menu here, too.
-4. When the installation has completed, you can launch the game from your system menu.
+#### Parte 3 - Installa il WUP con WUP Installer GX2
+1. Re-inserisci la scheda SD nella console ed accendila.
+2. Avvia WUP Installer GX2, installato in precedenza con Tiramisu
+3. Seleziona il WUP che hai creato in precedenza e segui le istruzioni a schermo per installare il gioco sul menù.
+4. Quando l'installazione è ultimata, puoi avviare il gioco dal menù di sistema.
 
 </div>
 

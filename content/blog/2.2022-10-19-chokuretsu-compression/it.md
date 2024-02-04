@@ -1,6 +1,6 @@
 ---
 title: &title 'Chokuretsu ROM Hacking Challenges Part 1 – Cracking a Compression Algorithm!'
-description: &desc 'Jonko delves into how the Shade compression algorithm was reverse engineered to hack Suzumiya Haruhi no Chokuretsu.'
+description: &desc 'Jonko parla di come riuscì a decompilare l'algoritmo di compressione Shade per modificare Suzumiya Haruhi no Chokuretsu.'
 locale: 'it'
 navigation:
   author: 'Jonko'
@@ -18,7 +18,7 @@ head:
   - property: 'og:image'
     content: &img https://haroohie.club/images/blog/0002/00_thumbnail.png
   - property: 'og:image:alt'
-    content: 'A Nintendo DS featuring Haruhi Suzumiya saying edited text.'
+    content: 'Un Nintendo DS con Haruhi Suzumiya che dice del testo modificato.'
   - property: 'og:url'
     content: 'https://haroohie.club/blog/2022-10-19-chokuretsu-compression'
   - property: 'og:type'
@@ -35,34 +35,32 @@ head:
     value: 'summary_large_image'
 ---
 
-Howdy folks! This is the first in a series of blog posts that will delve into the technical challenges involved in translating Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya). These blogs do get quite technical and include things like code samples, but are written to be intelligible to a general audience. If you have any questions or comments, feel free to [tweet at us](https://twitter.com/haroohie)!
+Benvenuti! Questo è il primo di una serie di post del blog che andrà nel dettaglio riguardo le sfide tecniche che coinvolgono la traduzione di Suzumiya Haruhi no Chokuretsu (La Serie Di Haruhi Suzumiya). Questi blog tendono ad essere al quanto dettagliati e includeranno cose come stringhe di codice, ma scritte in modo di essere capili da un pubblico generale. Se hai delle domande o dei commenti, puoi sempre [mandarci un tweet](https://twitter.com/haroohie)!
 
-![Cerber's DS with Haruhi saying "Today is the" in full-width
-characters](/images/blog/0002/01_cerber_ds.png)
+Tutto questo progetto iniziò con [due](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-from-japanese-to-english-and-russian-translation-idea.601434/) [post](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-translation-success-need-advice.601559/) sul forum di GBATemp da un utente chiamato Cerber (che ora è uno dei nostri grafici!) che stava chiedendo aiuto a tradurre un oscuro gioco per DS basato sulla serie di Haruhi. Aveva fatto molti progressi nel trovare lo script e rimpiazzarlo con dei caratteri inglesi, ma non riusciva ad inserire il testo per intero.
 
-![Cerber's DS with Haruhi saying "Today is the" in full-width characters](/images/blog/0002/01_cerber_ds.png)
+![Il DS di Cerber con Haruhi che dice "Today is the" in caratteri in piena-larghezza](/images/blog/0002/01_cerber_ds.png)
 
-What Cerber was doing precisely was opening up the ROM in a hex editor (a tool for modifying binary files directly where each byte is represented as a hexadecimal number) and searching for the text he was seeing in-game. He was able to find the script, but the issue he was having was dealing with what he called “game code” that surrounded the text he was trying to replace – modifying the sections he marked in red broke the game entirely.
+Quello che Cerber stava facendo esattamente era aprire la ROM in un editor esadecimale (un programma che permette di modificare direttamente i file in binario) e cercare il testo che vedeva nel gioco. Lui riuscì a trovare lo script, ma fu messo in difficoltà da quello che chiamò "codice di gioco" che stava attorno al testo che provò a cambiare -- modificare le sezioni che lui mise in rosso avrebbe rotto completamente il gioco.
 
-![A  hex editor with the previous "Today is the" visible while the rest of the file is highlighted in red](/images/blog/0002/02_cerber_hex.png)
+![Un editor esadecimale con il "Today is the" di prima visibile mentre il resto del file è evidenziato in rosso](/images/blog/0002/02_cerber_hex.png)
 
-A quick explanation of what we’re seeing here: on the left, we have the raw binary in the file, represented as a series of bytes in hexadecimal. Hexadecimal is also called base 16 – while we normally use decimal (base 10 – i.e. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) and computers use binary (base 2 – i.e. 0, 1), programmers often use hexadecimal because it allows us to represent a single byte in two characters. When writing numbers, to distinguish the base we often use 0x as a prefix for hex numbers (0x17 is 23 in decimal) and 0b to represent binary numbers (0b0000_0100 is 4 in decimal).
+Ecco una spiegazione veloce di quello che vediamo: a sinistra, abbiamo il binario nel file, rappresentato da una serie di byte in esadecimale. L'esadecimale è anche chiamato base 16 -- mentre noi utilizziamo solitamente il decimale (base 10 -- 0, 1, 2, 3, 4, 5, 6, 7, 8 e 9) e i computer utilizzano il binario (base 2 -- 0 e 1), i programmatori spesso fanno uso dell'esadecimale perché ci permette di rappresentare ogni singolo byte in due caratteri. Quando scriviamo un numero, per distinguere la base utilizziamo spesso 0x come prefisso per l'esadecimale (0x17 è 23 in decimale) e 0b per rappresentare numeri in binario (0b0000_0100 è 4 in decimale).
 
-![A hex editor with the previous "Today is the" visible while the rest of the
-file is highlighted in red](/images/blog/0002/02_cerber_hex.png)
+I caratteri sulla destra rappresentano i byte che vediamo a sinistra interpretati attraverso un _encoding_. Potresti aver sentito parlare dell'ASCII, l'encoding più basilare -- ogni lettera dell'alfabeto è rappresentata da un singolo byte. Questo gioco utilizza un encoding chiamato Shift-JIS, che è come il giapponese veniva rappresentato prima dell'Unicode.
 
-Drawing on my past experience, I did some investigation and then posted a perhaps less-than-hinged reply:
+Pensando alle mie esperienze in passato, feci qualche investigazione per poi postare una risposta probabilmente da squilibrato:
 
-![A forum post from Jonko posted on October 23, 2021. The text of the post is included in a block quote below."](/images/blog/0002/03_jonko_hinged.png)
+![Un post del forum che Jonko pubblicò l'Ottobre 23 del 2021. Il testo del post è incluso in una citazione al di sotto."](/images/blog/0002/03_jonko_hinged.png)
 
-> Hi! So that's not game code surrounding it; that's more data for this scene. I don't know what all of it does yet, but I can tell you that this entire chunk is compressed and that the decompression subroutine lives at 0x2026190. You'll have to decompress it before you can begin editing it and once it's decompressed we'll have a better idea of what all the parts do which will give us a leg up on editing it.
+> Ciao! Allora, quello non è codice del gioco; sono dati per questa scena. Non so ancora cosa fa tutto questo, ma posso dirti che tutto questo pezzo è compresso e che la subroutine di decompressione è al 0x2026190. Dovrai decomprimerlo prima di poterlo modificare e una volta che è decompresso sarà più facile farsi un'idea di cosa fa ogni parte dandoci un aiuto nel modificarle.
 > 
-> The other thing you'll need to be thinking about is a font-width hack (half-width or variable-width). There are multiple lines in the game that fill up the entire box and there's no way you're going to be able to fit that in there with full-width characters, so you'll want to investigate that, too.
+> Un altra cosa a cui dovrai pensare è una modifica per la larghezza del font (di lunghezza media o variabile). Ci sono alcune linee nel gioco che riempiono tutto il box del testo, e sarebbe impossibile farci stare la traduzione per intero con dei caratteri a piena larghezza, quindi dovrai investigare pure quello.
 
-So let’s go through this point-by-point.
+Quindi facciamolo passo dopo passo.
 
-## Compression
-How did I know that this section was compressed? Well, looking at his screenshot, we can clearly see that the in-game text is showing up in the hex editor (I’ve marked an example in yellow below), but some portions of the text are missing – for example, the “ハルヒの” bit that I’ve marked below is replaced by a shorter character sequence that I’ve highlighted in blue.
+## Compressione
+Come facevo a sapere che questa scena era compressa? Beh, guardando al suo screenshot, possiamo vedere chiaramente come il testo di gioco viene mostrato nell'editor esadecimale (ho marcato un esempio in giallo), ma alcune porzioni di testo mancano -- Per esempio, "ハルヒの"　－ not completed yet
 
 The characters on the right represent the bytes we’re seeing on the left
 interpreted through an _encoding_. You might be familiar with ASCII, the most
