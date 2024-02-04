@@ -1,7 +1,7 @@
 ---
 title: Haroohie Translation Club
 description: The homepage of the Haroohie Translation Club, translators of Haruhi Suzumiya games
-locale: en
+locale: zh-hans
 ---
 
 We're the Haroohie Translation Club—dedicated to translating the Haruhi Suzumiya
