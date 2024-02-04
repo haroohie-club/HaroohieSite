@@ -1,5 +1,12 @@
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+</script>
+
 <template>
-    <NuxtLink :to="to" class="title-graphic">
+    <NuxtLink :to="localePath(to)" class="title-graphic">
         <object class="graphic-vector" :data="'/images/' + graphic + '.svg'">
             <img class="graphic-image" :src="'/images/' + graphic + '.png'" alt="Title graphic" />
         </object>

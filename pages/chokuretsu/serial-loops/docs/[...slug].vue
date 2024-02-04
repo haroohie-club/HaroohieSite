@@ -1,3 +1,9 @@
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const route = useRoute()
+</script>
 <template>
     <div>
         <NuxtLayout>
@@ -9,7 +15,7 @@
                 </div>
             </template>
             <article>
-                <ContentDoc>
+                <ContentDoc :path="`/chokuretsu/serial-loops/docs/${route.params.slug.join('/')}/${locale}`">
                     <template v-slot="{ doc }">
                         <div class="navigation">
                             <span class="parent-crumb">
@@ -18,7 +24,7 @@
                                     {{ doc._path.split('/')[4].charAt(0).toUpperCase() + doc._path.split('/')[4].slice(1) }}
                                 </SerialLoopsBreadcrumb>
                                 <SerialLoopsBreadcrumb v-else link="/chokuretsu/serial-loops/docs/" icon="fa6-solid:house">
-                                    Home
+                                    {{ $t('home') }}
                                 </SerialLoopsBreadcrumb>
                             </span>
                             <span class="contextual-crumbs">
@@ -56,8 +62,8 @@
                         </div>
                     </template>
                     <template #not-found>
-                        <h1>Invalid docs page</h1>
-                        <p>Could not find a docs page at this address.</p>
+                        <h1>{{ $t('chokuretsu-sl-invalid-docs-page') }}</h1>
+                        <p>{{ $t('chokuretsu-sl-invalid-docs-page-desc') }}</p>
                         <ButtonLink link="/chokuretsu/serial-loops/docs" color="red" icon="fa6-solid:file">Back
                         </ButtonLink>
                     </template>

@@ -1,43 +1,43 @@
 <template>
-    <div id="patcher-notice">To get started, please select a ROM file.</div>
+    <div v-if="notice" id="patcher-notice" v-html="$t(notice, noticeDict.value)"></div>
     <div class="patcher-menu">
         <div class="patcher-left">
-            <h3 class="patcher-header">Options</h3>
+            <h3 class="patcher-header">{{ $t('chokuretsu-rom-patcher-options') }}</h3>
             <table id="patcher-options">
                 <tbody>
-                    <RomPatcherOptionDescription title="OP/ED subtitles" img="/images/chokuretsu/opening-subtitles.png"
-                        alt="The opening movie with English subtitles and karaoke track">
-                        Configure whether the opening movie and end credits should be subtitled in English with Japanese karaoke typesetting.
+                    <RomPatcherOptionDescription :title="$t('chokuretsu-rom-patcher-op-ed-subs-title')" img="/images/chokuretsu/opening-subtitles.png"
+                        :alt="$t('chokuretsu-rom-patcher-op-ed-subs-alt')">
+                        {{ $t('chokuretsu-rom-patcher-op-ed-subs-desc') }}
                     </RomPatcherOptionDescription>
-                    <RomPatcherOption optionName="op-ed-subtitling" option1="Subtitled" option1value="subbedoped" option2="Clean" option2value="cleanoped" />
+                    <RomPatcherOption optionName="op-ed-subtitling" :option1="$t('chokuretsu-rom-patcher-op-ed-subs-opt1')" option1value="subbedoped" :option2="$t('chokuretsu-rom-patcher-op-ed-subs-opt2')" option2value="cleanoped" />
 
-                    <RomPatcherOptionDescription title="Voiced line subtitles"
+                    <RomPatcherOptionDescription :title="$t('chokuretsu-rom-patcher-voice-subs-title')"
                         img="/images/chokuretsu/voiced-line-subtitles.png"
-                        alt="The puzzle phase with a subtitled voice line">
-                        Configure whether voiced lines in the puzzle phase should have supplementary English subtitles display on screen.
+                        :alt="$t('chokuretsu-rom-patcher-voice-subs-alt')">
+                        {{ $t('chokuretsu-rom-patcher-voice-subs-desc') }}
                     </RomPatcherOptionDescription>
-                    <RomPatcherOption optionName="voice-lines-subtitling" option1="Subtitles" option1value="voicesubs" option2="No Subtitles" option2value="novoicesubs" />
+                    <RomPatcherOption optionName="voice-lines-subtitling" :option1="$t('chokuretsu-rom-patcher-voice-subs-opt1')" option1value="voicesubs" :option2="$t('chokuretsu-rom-patcher-voice-subs-opt2')" option2value="novoicesubs" />
                 </tbody>
             </table>
         </div>
         <div class="patcher-right">
             <div>
-                <h3 class="patcher-header">Select ROM</h3>
+                <h3 class="patcher-header">{{ $t('chokuretsu-rom-patcher-select-rom') }}</h3>
                 <input id="input-file-rom" @change="selectFile" class="input-file enabled" type="file" accept=".nds"
                     ondragenter="this.classList.add('patcher-file-dragging');"
                     ondragleave="this.classList.remove('patcher-file-dragging');" />
             </div>
             <div>
-                <h3 class="patcher-header">Select version & apply</h3>
+                <h3 class="patcher-header">{{ $t('chokuretsu-rom-patcher-version-select') }}</h3>
                 <label>
-                    <b>Version:</b>
+                    <b>{{ $t('chokuretsu-rom-patcher-version') }}</b>
                     <select id="patcher-version-dropdown">
-                        <option v-for="patch in AVAILABLE_PATCHES" :value="patch.version">v{{ patch.version }} &mdash; {{ patch.date }}
+                        <option v-for="patch in AVAILABLE_PATCHES(locale)" :value="patch.version">v{{ patch.version }} &mdash; {{ patch.date }}
                         </option>
                     </select>
                 </label>
                 <div class="patcher-submit">
-                    <ButtonLink link="#" color="red" icon="fa6-solid:file-import" @click="patchRom">Patch ROM</ButtonLink>
+                    <ButtonLink link="#" color="red" icon="fa6-solid:file-import" @click="patchRom">{{ $t('chokuretsu-rom-patcher-patch-rom') }}</ButtonLink>
                 </div>
             </div>
         </div>
@@ -147,21 +147,36 @@ const BAD_ROM_SHA = '0B07B8E888268A3F99161B8F79A5C8DF44C187A41ACF59E5D8D3DBBFD91
 const FIX_BAD_ROM = true;
 const REPAIR_PATCH = '/patches/chokuretsu-repair.xdelta'
 
+var localeVal = ''
+const notice = ref('chokuretsu-rom-patcher-get-started')
+const noticeDict = {}
+
 // Available patches
-const AVAILABLE_PATCHES = [
-    {
-        version: '0.2',
-        date: 'April 20, 2022'
-    },
-    {
-        version: '0.4',
-        date: 'February 28, 2023'
-    },
-    {
-        version: '0.6',
-        date: 'October 31, 2023'
+function AVAILABLE_PATCHES(locale) {
+    localeVal = locale
+    switch (locale) {
+        case 'en':
+            return [
+                {
+                    version: '0.2',
+                    date: 'April 20, 2022',
+                    lang: 'en'
+                },
+                {
+                    version: '0.4',
+                    date: 'February 28, 2023',
+                    lang: 'en'
+                },
+                {
+                    version: '0.6',
+                    date: 'October 31, 2023',
+                    lang: 'en'
+                }
+            ].reverse();
+        default:
+            return [];
     }
-].reverse();
+}
 
 // RomPatcher data variables
 let romFile, patchFile, patch, headerSize, romSha, isBadRom, repairPatchFile, repairPatch;
@@ -188,7 +203,7 @@ function getRomSha(romFile) {
             return hexString;
         })
         .catch(function () {
-            showNotice('error', 'Failed to calculate SHA-256 of your ROM.');
+            showNotice('error', 'chokuretsu-rom-patcher-sha-calc-failed');
             return '';
         });
 }
@@ -205,7 +220,7 @@ function getFileName() {
 
 // Returns the versioned patch file with the given name from the GitHub org
 function parsePatchFile(fileName, version) {
-    showNotice('info', 'Downloading patch...');
+    showNotice('info', 'chokuretsu-rom-patcher-downloading-patch');
 
     // Download from GitHub
     let encodedUri;
@@ -218,7 +233,7 @@ function parsePatchFile(fileName, version) {
 }
 
 function parseRepairFile() {
-    showNotice('info', 'Bad ROM detected! Fetching repair patch...');
+    showNotice('info', 'chokuretsu-rom-patcher-bad-rom');
     return fetchFile(REPAIR_PATCH);
 }
 
@@ -229,14 +244,14 @@ function fetchFile(encodedUri) {
             return arrayBuffer;
         }).catch(function (error) {
             console.error(error);
-            showNotice('error', 'An error occurred fetching a patch file: ' + error.message)
+            showNotice('error', 'chokuretsu-rom-patcher-fetch-error' + error.message)
             return undefined;
         });
 }
 
 function applyPatch(patch, rom, validateChecksums, name) {
     if (patch && rom) {
-        showNotice('info', 'Applying patch...');
+        showNotice('info', 'chokuretsu-rom-patcher-applying-patch');
 
         // Patch the rom
         try {
@@ -244,14 +259,14 @@ function applyPatch(patch, rom, validateChecksums, name) {
             return preparePatchedRom(rom, patch.apply(rom, validateChecksums), name);
         } catch (error) {
             console.error(error);
-            showNotice('error', 'Error applying patch: ' + error.message);
+            showNotice('error', 'chokuretsu-rom-patcher-patch-error' + error.message);
         }
 
     } else {
         if (patch === undefined) {
-            showNotice('error', 'Failed to retrieve the patch file.');
+            showNotice('error', 'chokuretsu-rom-patcher-patch-failed-retrieve');
         } else {
-            showNotice('error', 'Please choose a ROM first');
+            showNotice('error', 'chokuretsu-rom-patcher-choose-rom-first');
         }
     }
     return null;
@@ -267,9 +282,9 @@ function preparePatchedRom(originalRom, patchedRom, name) {
 // Prompt the user to save the patched ROM file
 function saveRomFile(patchedRom) {
     if (isBadRom) {
-        showNotice('info', '<b>"You\'re using a bad ROM! A bad ROM! Penalty!"\n</b><br/>The SHA-256 checksum of the ROM you selected matches that of a known bad ROM that contains corrupt header data and graphics. A repair was performed on your ROM before English patches were applied.')
+        showNotice('info', 'chokuretsu-rom-patcher-bad-rom-warn')
     } else {
-        showNotice('info', '<b>Patch applied successfully!</b><br/>Enjoy the game!')
+        showNotice('info', 'chokuretsu-rom-patcher-success')
     }
 
     patchedRom.save();
@@ -301,9 +316,11 @@ function hasHeader(romFile) {
 }
 
 // Show the patcher status notice at the top of the patcher
-function showNotice(noticeType, noticeMessage) {
+function showNotice(noticeType, noticeMessage, noticeVals = {}) {
     let patcherElement = document.getElementById('patcher-notice');
-    patcherElement.innerHTML = noticeMessage;
+    notice.value = noticeMessage;
+    noticeDict.value = noticeVals;
+    console.log(noticeDict)
     patcherElement.classList = noticeType + '-notice';
 }
 
@@ -319,7 +336,7 @@ export default {
             
             // if a rom file has not been selected, return with an error
             if (!romFile) {
-                showNotice('error', 'Please choose a ROM first');
+                showNotice('error', 'chokuretsu-rom-patcher-choose-rom-first');
                 return;
             }
 
@@ -349,12 +366,12 @@ export default {
 
                     if (romSha !== REQUIRED_ROM_SHA) {
                         if (romSha === '') {
-                            throw ('Failed to calculate SHA-256 of your ROM.');
+                            throw ('chokuretsu-rom-patcher-sha-calc-failed');
                         }
                         if (romSha === BAD_ROM_SHA) {
                             isBadRom = true;
                             if (!FIX_BAD_ROM) {
-                                throw ('The SHA-256 hash of the ROM you have selected matches that of a known bad ROM circulated on the internet that contains corrupt graphics and invalid header data. This ROM is unable to be patched.');
+                                throw ('chokuretsu-rom-patcher-bad-rom-error');
                             } else {
                                 const REPAIR_ROM = parseRepairFile().then(repairArrayBuffer => {
                                     return new MarcFile(repairArrayBuffer);
@@ -371,25 +388,25 @@ export default {
                                         repairPatch = parseVCDIFF(repairPatchFile);
                                     }
                                 }).then(() => {
-                                    showNotice('info', 'Repairing bad ROM...');
+                                    showNotice('info', 'chokuretsu-rom-patcher-repair');
                                     return applyPatch(repairPatch, romFile, false, 'repaired');
                                 }).then(repairedRom => {
                                     romFile = repairedRom;
-                                    showNotice('info', 'Repair patch applied!')
+                                    showNotice('info', 'chokuretsu-rom-patcher-repair-applied')
                                 }).catch((error) => {
-                                    showNotice('error', '(Error repairing ROM) ' + error);
+                                    showNotice('error', 'chokuretsu-rom-patcher-repair-error' + error);
                                 });
 
                                 await REPAIR_ROM;
                             }
                         } else {
-                            throw ('Invalid ROM. Please make sure you selected the ROM for the right game and that you carefully followed the correct dumping instructions.');
+                            throw ('chokuretsu-rom-patcher-invalid-rom');
                         }
                     }
                 }
             }).then(() => {
-                showNotice('Patching ROM with ' + getFileName() + '...')
-                return applyPatch(patch, romFile, false, 'english-v' + version);
+                showNotice('info', 'chokuretsu-rom-patcher-patching-rom', { patch: getFileName() })
+                return applyPatch(patch, romFile, false, localeVal + '-v' + version);
             }).then(patchFile => {
                 saveRomFile(patchFile);
             }).catch((error) => {
@@ -400,7 +417,7 @@ export default {
             try {
                 romFile = new MarcFile(event.target, _parseROM);
             } catch (error) {
-                showNotice('error', 'Invalid ROM selected. Please select a valid <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file.');
+                showNotice('error', 'chokuretsu-rom-patcher-invalid-rom-select')
                 return;
             }
         }
@@ -409,8 +426,12 @@ export default {
 </script>
 
 <script setup>
-if (AVAILABLE_PATCHES.length === 0) {
-    showNotice('warning', 'There are no patches available yet! Please come back soon!')
+const { locale } = useI18n({
+  useScope: 'local'
+})
+
+if (AVAILABLE_PATCHES(locale.value).length === 0) {
+    notice = 'chokuretsu-rom-patcher-no-patches-available'
 }
 
 // Resolve libraries

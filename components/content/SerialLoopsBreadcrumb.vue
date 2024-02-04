@@ -1,6 +1,7 @@
+
 <template>
 <div class="breadcrumb">
-    <NuxtLink :to="link">
+    <NuxtLink :to="localePath(link)">
         <IconifiedText v-if="icon" :icon="icon">
             <slot />
         </IconifiedText>
@@ -26,6 +27,10 @@ const props = defineProps({
         required: false
     }
 })
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
 </script>
 
 <style scoped>

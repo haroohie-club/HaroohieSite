@@ -1,21 +1,25 @@
+<script setup>
+const { locale } = useI18n()
+const localePath = useLocalePath()
+</script>
 <!-- Blog pages -->
 <template>
     <div id="content-body">
         <div id="topbar">
             <div id="logo">
-                <TitleGraphic graphic="club-logo" to="/" />
+                <TitleGraphic graphic="club-logo" :to="localePath('/')" />
             </div>
         </div>
         <div id="blog-page">
             <div class="sidebar">
                 <div class="box">
-                    <h2>Links</h2>
+                    <h2>{{ $t('social-links') }}</h2>
                     <SocialLinks />
-                    <h2>Blogs</h2>
+                    <h2>{{ $t('blogs') }}</h2>
                     <BlogList />
-                    <h2>Projects</h2>
-                    <ButtonLink link="/chokuretsu" type="top-piece" fullwidth color="red" icon="fa6-solid:language">Chokuretsu</ButtonLink>
-                    <ButtonLink link="/chokuretsu/serial-loops" type="bottom-piece" fullwidth color="sl-blue" icon="fa6-solid:gear">Serial Loops</ButtonLink>
+                    <h2>{{ $t('projects') }}</h2>
+                    <ButtonLink :link="localePath('/chokuretsu')" type="top-piece" fullwidth color="red" icon="fa6-solid:language">{{ $t('chokuretsu') }}</ButtonLink>
+                    <ButtonLink :link="localePath('/chokuretsu/serial-loops')" type="bottom-piece" fullwidth color="sl-blue" icon="fa6-solid:gear">{{ $t('serial-loops') }}</ButtonLink>
                 </div>
             </div>
             <div class="blog">

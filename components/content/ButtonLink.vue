@@ -1,3 +1,9 @@
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+</script>
 <template>
     <a :href="link" :rel="rel">
         <div :class="'button ' + color + '-color ' + (fullwidth ? 'fullwidth ' : '') + (type ? type : '')">

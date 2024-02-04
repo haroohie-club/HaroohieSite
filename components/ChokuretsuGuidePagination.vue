@@ -1,10 +1,17 @@
+<script setup>
+const { t } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+</script>
+
 <template>
     <div v-if="doc.navigation" class="navigation-buttons">
         <div class="left">
-            <ButtonLink v-if="doc.navigation.previous" :link="'/chokuretsu/guide' + doc.navigation.previous" color="red" icon="fa6-solid:arrow-left">Previous</ButtonLink>
+            <ButtonLink v-if="doc.navigation.previous" :link="localePath('/chokuretsu/guide' + doc.navigation.previous)" color="red" icon="fa6-solid:arrow-left">{{ $t('previous') }}</ButtonLink>
         </div>
         <div class="right">
-            <ButtonLink v-if="doc.navigation.next" :link="'/chokuretsu/guide' + doc.navigation.next" color="red" icon="fa6-solid:arrow-right">Next</ButtonLink>
+            <ButtonLink v-if="doc.navigation.next" :link="localePath('/chokuretsu/guide' + doc.navigation.next)" color="red" icon="fa6-solid:arrow-right">{{ $t('next') }}</ButtonLink>
         </div>
     </div>
 </template>

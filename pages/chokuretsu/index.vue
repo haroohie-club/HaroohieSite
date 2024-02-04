@@ -1,3 +1,7 @@
+<script setup>
+const { locale } = useI18n()
+</script>
+
 <template>
     <div>
         <NuxtLayout>
@@ -5,13 +9,13 @@
                 <div class="column">
                     <DualSuzumiya video="chokuretsu-trailer-ep1.mp4" />
                     <div id="project-credits">
-                        <ContentDoc path="/chokuretsu/credits" />
+                        <ContentDoc :path="`/chokuretsu/credits/${locale}`" />
                     </div>
                 </div>
                 <div class="column">
                     <TitleGraphic graphic="chokuretsu/game-logo" />
                     <div id="project-info">
-                        <ContentDoc />
+                        <ContentDoc :path="`/chokuretsu/${locale}`" />
                     </div>
                 </div>
             </div>

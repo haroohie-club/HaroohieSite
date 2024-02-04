@@ -1,14 +1,19 @@
+<script setup>
+const { locale } = useI18n()
+const localePath = useLocalePath()
+</script>
+
 <!-- Template for serial loop pages -->
 <template>
     <div id="content-body">
         <slot name="top" />
         <div id="page-with-sidebar">
             <div id="sidebar">
-                <NuxtLink to="/chokuretsu/serial-loops">
-                    <ProjectLogoHeader icon="serial-loops/icon.png">Serial Loops</ProjectLogoHeader>
+                <NuxtLink :to="localePath('/chokuretsu/serial-loops')">
+                    <ProjectLogoHeader icon="serial-loops/icon.png">{{ $t('serial-loops') }}</ProjectLogoHeader>
                 </NuxtLink>
                 <div id="sidebar-inner">
-                    <ContentDoc path="chokuretsu/serial-loops/docs/sidebar" :head="false" />
+                    <ContentDoc :path="`chokuretsu/serial-loops/sidebar/${locale}`" :head="false" />
                 </div>
             </div>
             <div id="main" class="column"><slot /></div>

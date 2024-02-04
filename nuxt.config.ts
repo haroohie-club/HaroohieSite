@@ -4,7 +4,7 @@ import { join } from 'path'
 // Nuxt config file (https://nuxt.com/docs/getting-started/configuration)
 export default {
     // Modules
-    modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/google-fonts'],
+    modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/google-fonts', '@nuxtjs/i18n'],
 
     // Fonts
     googleFonts: {
@@ -23,7 +23,7 @@ export default {
     // Pre render the sitemap
     nitro: {
         prerender: {
-            routes: ['/sitemap.xml', '/404.html', '/rss.xml']
+            routes: ['/sitemap.xml', '/404.html', '/rss.xml', '/it/rss.xml', '/zh-hans/rss.xml']
         }
     },
 
@@ -51,5 +51,18 @@ export default {
                 }
             ]
         }
+    },
+
+    i18n: {
+        detectBrowserLanguage: {
+            useCookie: false,
+            redirectOn: 'root',
+        },
+        locales: [
+            { code: 'en', iso: 'en', file: 'locales/en.json', dir: 'ltr' },
+            { code: 'it', iso: 'it-IT', file: 'locales/it.json', dir: 'ltr' },
+            { code: 'zh-hans', iso: 'zh-Hans', file: 'locales/zh-Hans.json', dir: 'ltr' },
+        ],
+        defaultLocale: 'en'
     }
 }

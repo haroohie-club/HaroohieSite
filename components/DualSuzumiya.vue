@@ -1,11 +1,16 @@
+<script setup>
+const { t } = useI18n({
+  useScope: 'local'
+})
+</script>
 <template>
     <div class="ds">
         <video class="gameplay-video" autoplay loop muted playsinline>
             <source :src="'/videos/' + video" type="video/mp4" />
-            Your browser doesn't support HTML5 video :-(
+            {{ $t('no-html5-video') }}
         </video>
         <object class="system-overlay" width="610" height="640" data="/images/chokuretsu/nintendo-dsi.svg">
-            <img src="/images/chokuretsu/nintendo-dsi.png" alt="Nintendo DS displaying trailer footage" />
+            <img src="/images/chokuretsu/nintendo-dsi.png" :alt="$t('chokuretsu-trailer-footage')" />
         </object>
     </div>
 </template>

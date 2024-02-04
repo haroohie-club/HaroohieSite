@@ -1,3 +1,9 @@
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+</script>
 <template>
     <div>
         <NuxtLayout>
@@ -8,12 +14,12 @@
                     </div>
                 </div>
             </template>
-            <ContentDoc>
+            <ContentDoc :path="`/chokuretsu/serial-loops/docs/${locale}`">
                 <template v-slot="{ doc }">
                     <article>
                         <div class="breadcrumbs">
-                            <SerialLoopsBreadcrumb link="/chokuretsu/serial-loops" icon="fa6-solid:arrow-left">
-                                Serial Loops Home
+                            <SerialLoopsBreadcrumb :link="'/chokuretsu/serial-loops'" icon="fa6-solid:arrow-left">
+                                {{ $t('chokuretsu-sl-home' )}}
                             </SerialLoopsBreadcrumb>
                             <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next"
                                 icon="fa6-solid:arrow-right">

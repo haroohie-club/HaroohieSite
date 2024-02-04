@@ -1,19 +1,25 @@
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+</script>
 <template>
     <div class="blog-preview">
         <div class="blog-image" v-if="blog.navigation.image">
-            <NuxtLink :to="blog._path">
+            <NuxtLink :to="localePath(blog._path.substring(0, blog._path.lastIndexOf('/')))">
                 <img :src="'/images/blog/' + blog.navigation.image" class="modal-exclude" />    
             </NuxtLink>
         </div>
         <div class="blog-body">
             <div class="title">
-                <NuxtLink :to="blog._path">{{ blog.title }}</NuxtLink>
+                <NuxtLink :to="localePath(blog._path.substring(0, blog._path.lastIndexOf('/')))">{{ blog.title }}</NuxtLink>
             </div>
             <div class="data">
-                <span class="meta">By <NuxtLink :to="'/author/' + blog.navigation.author.toLowerCase()">{{ blog.navigation.author }}</NuxtLink> ({{ publishedAt(blog.navigation.year, blog.navigation.month, blog.navigation.day) }})</span>
+                <span class="meta">{{ $t('byline-pre') }}<NuxtLink :to="localePath('/author/' + blog.navigation.author.toLowerCase())">{{ blog.navigation.author }}</NuxtLink>{{ $t('byline-post') }} {{ $t('parenthetical-date', { date: $t('date-short', { day: blog.navigation.day, month: $t(getMonth(blog.navigation.month)), year: blog.navigation.year } ) }) }}</span>
                 <div class="tags">
                     <IconifiedText icon="fa6-solid:tag" />
-                    <span class="tag" v-for="tag of blog.navigation.tags"><NuxtLink :to="'/tag/' + tag">{{ tag }}</NuxtLink></span>
+                    <span class="tag" v-for="tag of blog.navigation.tags"><NuxtLink :to="localePath('/tag/' + tag)">{{ tag }}</NuxtLink></span>
                 </div>
             </div>
             <div class="description">{{ ((blog.description.length > 330) ? blog.description.slice(0, 329) + '&hellip;' : blog.description) }}</div>
@@ -111,7 +117,7 @@ export default {
     components: { IconifiedText },
     methods: {
         publishedAt(year, month, day) {
-            return day + " " + getMonth(month) + " " + year;
+            return day + " " + month + " " + year;
         }
     }
 }
@@ -119,29 +125,29 @@ export default {
 function getMonth(month) {
     switch (month) {
         case 1:
-            return "Jan";
+            return "january-short";
         case 2:
-            return "Feb";
+            return "february-short";
         case 3:
-            return "Mar";
+            return "march-short";
         case 4:
-            return "Apr";
+            return "april-short";
         case 5:
-            return "May";
+            return "may-short";
         case 6:
-            return "Jun";
+            return "june-short";
         case 7:
-            return "Jul";
+            return "july-short";
         case 8:
-            return "Aug";
+            return "august-short";
         case 9:
-            return "Sep";
+            return "september-short";
         case 10:
-            return "Oct";
+            return "october-short";
         case 11:
-            return "Nov";
+            return "november-short";
         case 12:
-            return "Dec";
+            return "december-short";
     }
 }
 </script>

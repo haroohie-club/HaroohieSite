@@ -1,18 +1,22 @@
+<script setup>
+const { locale } = useI18n()
+</script>
+
 <template>
     <div>
         <NuxtLayout>
-            <ContentDoc />
+            <ContentDoc :path="`/chokuretsu/patch/${locale}`" />
             <ClientOnly fallbackTag="span">
                 <RomPatcherUi />
                 <template #fallback>
-                    <p>Loading...</p>
+                    <p>{{ $t('chokuretsu-patch-loading') }}</p>
                 </template>
             </ClientOnly>
             <template #sidebar>
                 <div id="haruhi-walk">
-                    <img src="/images/chokuretsu/haruhi-walk.png" alt="Chibi Haruhi pixel art of her marching forward." />
+                    <img src="/images/chokuretsu/haruhi-walk.png" :alt="$t('chokuretsu-chibi-haruhi-alt')" />
                 </div>
-                <ContentDoc path="/chokuretsu/patch/sidebar" :head="false" />
+                <ContentDoc :path="`/chokuretsu/patch/sidebar/${locale}`" :head="false" />
             </template>
         </NuxtLayout>
     </div>
