@@ -1,13 +1,6 @@
----
-title: 'Project Workflow'
-locale: 'zh-hans'
-navigation:
-  faicon: 'fa6-solid:folder-tree'
-  previous: '/chokuretsu/serial-loops/docs/introduction/getting-started'
-  next: '/chokuretsu/serial-loops/docs/scripts'
----
+![Project workflow](/images/chokuretsu/serial-loops/project-workflow.png)
 
-Once you've created your project, you'll be presented with the following screen:
+![Project workflow](/images/chokuretsu/serial-loops/project-workflow.png)
 
 ![Project workflow](/images/chokuretsu/serial-loops/project-workflow.png)
 
@@ -32,19 +25,22 @@ Anytime you edit an item, you can choose to save your changes by clicking _File_
 
 **It is highly recommended that you save frequently as Serial Loops is still in a beta state and may crash!**
 
-### A Note on Saving vs "Committing"
-When you save an item, a file is created on disk that represents that item. However, the item is not actually committed into the archives until you 
-_build_ the project. Because saving is much faster than building, we recommend that you save frequently and build only when you want to test your project.
-In case you close your project without having built all your files, Serial Loops will auto-detect the existence of saved but uncommitted files and alert
-you of this on project load, at which point you can build to commit those items into the archives.
+### Item References
+If you want to see where a particular item is used in the game, an easy way to
+do that is to right-click it and select "Find References." This will show you
+what other items reference the selected item.
 
 ### Building from Scratch
 In the _Build_ menu, there is also an option to _Build from Scratch_. This option is not usually needed and can safely be ignored unless instructed to
 use it by someone attempting to help you troubleshoot. It is primarily used for recovering from corrupt archives or other errors.
 
-## Project Settings
-Clicking _File_ &rarr; _Project Settings_ will open a dialog that allows you to edit the banner image and game title of your patched ROM. This is what
-will appear in the Nintendo DS menu when loading your patched ROM.
+## Save, Build, Run
+Anytime you edit an item, you can choose to save your changes by clicking _File_
+→ _Save_ or typing Ctrl-S (or Command-S on macOS). After you've saved your
+project, you can click _Build_ → _Build_ or the _Build_ button in the toolbar to
+build the project. You can also click _Build_ → _Build and Run_ or the _Run_
+button in the toolbar to build the project and then launch the emulator you
+specified in preferences with the built ROM.
 
 ![Project Settings](/images/chokuretsu/serial-loops/project-settings.png)
 
@@ -53,11 +49,15 @@ After you've completed work on your project, you'll want to be able to distribut
 Serial Loops has built-in functionality for creating xdelta patches for your ROM. Simply navigate to _File_ &rarr; _Export Patch_ and pick a base
 ROM and a place to save your patch. For your base ROM, we **highly recommend using the clean, original Japanese ROM**, which has the following hashes:
 
-| Algorithm | Hash |
-|:---------:|:----:|
-| CRC | `8A58F646` |
-| MD5 | `6536132EFDDD337AA5069E627591FEE5` |
-| SHA-1 | `81D5C6316DBCEF9F4C51984ADCAAE171124EBB08` |
+### A Note on Saving vs "Committing"
+When you save an item, a file is created on disk that represents that item.
+However, the item is not actually committed into the archives until you _build_
+the project. Because saving is much faster than building, we recommend that you
+save frequently and build only when you want to test your project. In case you
+close your project without having built all your files, Serial Loops will
+auto-detect the existence of saved but uncommitted files and alert you of this
+on project load, at which point you can build to commit those items into the
+archives.
 
 Doing this means that people trying to patch your game will not need anything other than the clean base ROM (i.e., they won't need to first patch
 it somewhere else before playing).

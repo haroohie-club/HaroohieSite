@@ -1,13 +1,8 @@
----
-title: 'Dumping the ROM'
-navigation:
-  current: '/dumping-the-rom'
-  previous: '/buying-the-game'
-  next: '/patching-the-rom'
-locale: 'zh-hans'
----
+To dump your ROM file, you will need a Nintendo DS or 3DS system in addition to
+your game. Some methods will require additional peripherals, like an SD card or
+mobile device capable of making an unsecured hotspot.
 
-To dump your ROM file, you will need a Nintendo DS or 3DS system in addition to your game. Some methods will require additional peripherals, like an SD card or mobile device capable of making an unsecured hotspot.
+---
 
 ---
 
@@ -21,7 +16,9 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS']
 ### Dumping with a Nintendo DS or DS lite
 There are two ways of dumping the game using a Nintendo DS or Nintendo DS lite system. Both require the use of a Slot-1 (DS cartridge slot) flash cart.
 
-The first method uses a Wi-Fi hack to dump over File Transfer Protocol (FTP). The second method uses a pair of Slot-1 and Slot-2 (GBA cartridge slot) flash carts to dump the ROM directly.
+The first method uses a Wi-Fi hack to dump over File Transfer Protocol (FTP).
+The second method uses a pair of Slot-1 and Slot-2 (GBA cartridge slot) flash
+carts to dump the ROM directly.
 
 #### Dump over Wi-Fi
 **Requirements:**
@@ -64,7 +61,30 @@ The first method uses a Wi-Fi hack to dump over File Transfer Protocol (FTP). Th
 
 </div>
 
-<div class="platform-filtered platform-nintendo_dsi">
+**Method:**
+1. Using your smartphone, tablet or other device that can create a wireless
+   hotspot, make an unsecured (no password) or WEP secured hotspot (must be
+   WEP-secured; WPA and other modern encryption standards are not supported by
+   the DS).
+2. On the other computer, [download
+   wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/).
+   Then, connect that computer to the hotspot you just created.
+3. Install the wooddumper.nds (not the Slot 2 version) homebrew app onto the
+   right part of your flash cart via the SD card.
+4. Insert the Nintendo DS game that has Nintendo Wi-Fi connection support and
+   navigate to the menu that allows you to configure your Wi-Fi connection.
+   Connect to the hotspot you made.
+5. Exit the game and remove the cartridge. Now, insert your flash cartridge you
+   just put wooddumper on and navigate to run it on your DS.
+6. Follow the on-screen instructions and insert your *Suzumiya Haruhi no
+   Chokuretsu* cart when prompted. Proceed until you are presented with an IP
+   address to connect to using an FTP client.
+7. Using an FTP client, such as [net2ftp](https://www.net2ftp.com/), a built-in
+   browser one or another such as [FileZilla](https://filezilla-project.org/),
+   enter the IP address into the relevant field. You do not need to specify a
+   username or password.
+8. Copy the .nds ROM file and .txt file to your computer. You can proceed to
+   [patching your ROM](/chokuretsu/guide/patching-the-rom).
 
 ### Dumping with a Nintendo DSi
 
@@ -95,9 +115,9 @@ Please take caution following these steps to avoid bricking your system.
 
 </div>
 
-<div class="platform-filtered platform-nintendo_3ds">
+<div class="platform-filtered platform-nintendo_dsi">
 
-### Dumping with a Nintendo 3DS
+### Dumping with a Nintendo DSi
 
 To dump using a Nintendo 3DS or 2DS console, we will need to install a Custom Firmware (CFW) onto the system known as Luma3DS and bootstrap9 to let us run Godmode9, which lets us dump the cartridge to an .nds file.
 
@@ -131,4 +151,4 @@ Please take caution following these steps to avoid bricking your system.
 ## Before you proceed
 You should now have dumped your game to a `.nds` ROM file that you can patch. Move this to somewhere easily accessible.
 
-*ROM dumping information courtesy of [dumping.guide](https://dumping.guide/carts/nintendo/ds), [dsi.cfw.guide](https://dsi.cfw.guide/) & [3ds.hacks.guide](https://3ds.hacks.guide/) contributors.*
+</div>

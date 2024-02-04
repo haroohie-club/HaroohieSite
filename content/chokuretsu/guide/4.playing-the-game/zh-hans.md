@@ -1,10 +1,5 @@
----
-title: 'Playing the game'
-navigation:
-  current: '/playing-the-game'
-  previous: '/patching-the-rom'
-locale: 'zh-hans'
----
+::guide-notice Emulator users: DeSmuME is not recommended due to various
+emulation issues. ::
 
 ::guide-notice
 Emulator users: DeSmuME is not recommended due to various emulation issues.
@@ -34,9 +29,18 @@ Playing on the Nintendo DS is as simple as placing the patched ROM onto a flash 
 2. Drag over the patched .nds ROM file you previously created into the correct directory on the flash cart's storage.
 3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up the game and enjoy!
 
-</div>
+**Setup:**
+1. Insert your SD card from your flash cartridge into your computer (or connect
+   it through the correct cable if required)
+2. Drag over the patched .nds ROM file you previously created into the correct
+   directory on the flash cart's storage.
+3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up
+   the game and enjoy!
 
-<div class="platform-filtered platform-nintendo_dsi">
+#### Emulate on iOS / iPadOS / tvOS
+*Note: You may experience issues with sound emulation on iOS as RetroArch
+primarily supports DeSmuME for DS emulation and the MelonDS core is not yet
+stable enough to use.*
 
 ## Play on Nintendo DSi
 Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched rom onto a SD card and making use of Twilight Menu++ on your system
@@ -73,7 +77,13 @@ If you're using **TWiLightMenu** (aka nds-bootstrap), please be sure to launch t
 2. Drag over the patched ROM file you previously created into the correct directory on the flash cart's storage.
 3. Disconnect the flash cartridge and insert it into your Nintendo DSi. Fire up the game and enjoy!
 
-</div>
+**Setup:**
+1. Insert your SD card from your flash cartridge into your computer (or connect
+   it through the correct cable if required)
+2. Drag over the patched .nds ROM file you previously created into the correct
+   directory on the flash cart's storage.
+3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up
+   the game and enjoy!
 
 <div class="platform-filtered platform-nintendo_3ds">
 
@@ -97,23 +107,32 @@ Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use
 * Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
 * Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
 
-**Setup:**
-1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct adapter if required).
-2. Drag over the patched ROM file you previously created into the correct directory on the flash cart's storage.
-3. Disconnect the flash cartridge and insert it into your Nintendo 3DS. Fire up the game and enjoy!
+### Using TwilightMenu++
+**Requirements:**
+* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
+* Luma3DS custom firmware setup on your system and FBI. If you followed the
+  guide to dumping your ROM on Nintendo 3DS earlier, you've probably already
+  done this!
+* SD card with at least 2GB capacity
+* Computer with an SD card reader/USB SD card reader peripheral
 
-</div>
+**Setup:**
+1. Insert your SD card from your flash cartridge into your computer (or connect
+   it through the correct cable if required)
+2. Drag over the patched .nds ROM file you previously created into the correct
+   directory on the flash cart's storage.
+3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up
+   the game and enjoy!
 
 <div class="platform-filtered platform-emulator">
 
 ## Play on Emulators
 
-**Select the type of emulator you wish to use:**
-::guide-platform-filter
----
-filters: ['PC Emulator', 'Mobile Emulator', 'Wii U Virtual Console']
-filterSuffix: 'emulator'
----
+### Using a flash cartridge
+**Requirements:**
+* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
+* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff
+  onto it as required)
 
 <div class="platform-filtered platform-pc_emulator">
 
@@ -138,18 +157,25 @@ melonDS has a number of advanced features, such as configuring controllers and t
 * [DeSmuME](https://desmume.org/)－Not recommended due to detrimental graphical and sound emulation issues (the latter of which particularly affects cutscenes).
 * [No$GBA](https://www.nogba.com/)－Not recommended due to severe general emulation accuracy issues. It's also infrequently updated and not very user-friendly.
 
-</div>
+**Setup:**
+1. Insert your SD card from your flash cartridge into your computer (or connect
+   it through the correct cable if required)
+2. Drag over the patched .nds ROM file you previously created into the correct
+   directory on the flash cart's storage.
+3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up
+   the game and enjoy!
 
 <div class="platform-filtered platform-mobile_emulator">
 
 ### Emulate on mobile devices
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch primarily supports DeSmuME for DS emulation and the MelonDS core is not yet stable enough to use.*
+**Setup:**
 
 The best option for emulating on iOS and Apple TV devices is using RetroArch using the DeSmuME emulation core. You don't need a jailbroken device to run RetroArch (although it is easier if you have one)
 
-There are two methods for doing this. The first method is recommended and uses Cydia Impactor to transfer the RetroArch IPA to your macOS device. For users who have a modern Mac handy that is capable of running XCode, there's also an alternative method involving building RetroArch with XCode and loading it onto your device, though it's a bit more complicated.
+Simply [download melonDS](https://melonds.kuribo64.net/downloads.php)
+(**v0.9.4+**) from the project website for your platform (Windows, macOS, Linux)
+and save it somewhere easily accessible to your computer.
 
 **Requirements:**
 * iOS / iPadOS Device (iPhone, iPad, iPod Touch)
@@ -178,7 +204,13 @@ Download [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drast
 
 Download [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) off the Google Play Store and transfer the patched ROM file over to it via the Android file picker.
 
-</div>
+**Setup:**
+1. Insert your SD card from your flash cartridge into your computer (or connect
+   it through the correct cable if required)
+2. Drag over the patched .nds ROM file you previously created into the correct
+   directory on the flash cart's storage.
+3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up
+   the game and enjoy!
 
 <div class="platform-filtered platform-wii_u_virtual_console">
 
@@ -222,8 +254,20 @@ To do this, you'll need to homebrew your Wii U, use UWUVCI to convert the ROM in
 3. Select the WUP title you created and proceed through WUP Installer GX's on-screen instructions to install the title to your system menu. You can also optionally install WUP Installer GX to your Wii U menu here, too.
 4. When the installation has completed, you can launch the game from your system menu.
 
-</div>
+**Setup:**
+1. Insert your SD card from your flash cartridge into your computer (or connect
+   it through the correct cable if required)
+2. Drag over the patched .nds ROM file you previously created into the correct
+   directory on the flash cart's storage.
+3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up
+   the game and enjoy!
 
 ::
 
-</div>
+**Setup:**
+1. Insert your SD card from your flash cartridge into your computer (or connect
+   it through the correct cable if required)
+2. Drag over the patched .nds ROM file you previously created into the correct
+   directory on the flash cart's storage.
+3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up
+   the game and enjoy!

@@ -1,14 +1,16 @@
 ---
 title: 'Character Sprites'
-locale: 'it'
+locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/character-sprite.png'
   previous: '/chokuretsu/serial-loops/docs/graphics/backgrounds'
   next: '/chokuretsu/serial-loops/docs/graphics/chibis'
 ---
 
-The current version of Serial Loops only allows you to view character sprites, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing character sprites and this documentation will be updated to be more complete.
+The current version of Serial Loops only allows you to view character sprites,
+not edit them, so the documentation here will be sparse. In a future update,
+Serial Loops will be capable of fully editing character sprites and this
+documentation will be updated to be more complete.
 
 ## Overview
 

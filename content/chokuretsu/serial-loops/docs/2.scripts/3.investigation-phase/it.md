@@ -1,6 +1,6 @@
 ---
 title: 'Investigation Phase'
-locale: 'it'
+locale: 'en'
 navigation:
   faicon: 'fa6-solid:magnifying-glass-arrow-right'
   previous: '/chokuretsu/serial-loops/docs/scripts/chibis-and-choices'

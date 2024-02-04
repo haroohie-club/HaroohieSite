@@ -1,14 +1,16 @@
 ---
 title: 'Puzzles'
-locale: 'zh-hans'
+locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/puzzle.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/maps'
   next: '/chokuretsu/serial-loops/docs/graphics'
 ---
 
-The current version of Serial Loops only allows you to view puzzle items, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing items and this documentation will be updated to be more complete.
+The current version of Serial Loops only allows you to view puzzle items, not
+edit them, so the documentation here will be sparse. In a future update, Serial
+Loops will be capable of fully editing items and this documentation will be
+updated to be more complete.
 
 ## Overview
 Puzzles are used in the aptly-named puzzle phase of the game, where Kyon walks around on a map finding and erasing singularities.

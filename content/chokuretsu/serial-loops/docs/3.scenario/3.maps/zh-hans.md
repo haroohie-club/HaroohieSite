@@ -1,14 +1,16 @@
 ---
 title: 'Maps'
-locale: 'zh-hans'
+locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/map.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/group-selections'
   next: '/chokuretsu/serial-loops/docs/scenario/puzzles'
 ---
 
-The current version of Serial Loops only allows you to view maps, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing maps and this documentation will be updated to be more complete.
+The current version of Serial Loops only allows you to view maps, not edit them,
+so the documentation here will be sparse. In a future update, Serial Loops will
+be capable of fully editing maps and this documentation will be updated to be
+more complete.
 
 ## Overview
 

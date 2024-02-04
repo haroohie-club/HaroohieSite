@@ -1,6 +1,6 @@
 ---
 title: 'Background Music'
-locale: 'zh-hans'
+locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/bgm.png'
   previous: '/chokuretsu/serial-loops/docs/sound'

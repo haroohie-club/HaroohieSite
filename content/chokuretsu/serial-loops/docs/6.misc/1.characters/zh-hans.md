@@ -1,13 +1,15 @@
 ---
 title: 'Characters'
-locale: 'zh-hans'
+locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/character.png'
   previous: '/chokuretsu/serial-loops/docs/misc'
   next: '/chokuretsu/serial-loops/docs/misc/topics'
 ---
 
-In Serial Loops, "Characters" define the set of characters that can talk in scripts. Modifying Characters lets you customise the character's name, their dialogue name plate style, their voice font and text display speed.
+In Serial Loops, "Characters" define the set of characters that can talk in
+scripts. Modifying Characters lets you customise the character's name, their
+dialogue name plate style, their voice font and text display speed.
 
 * **Character name** &mdash; What to display both on the name plate and when referencing this character elsewhere in scripts
 * **Text color** &mdash; The color of the text above the dark gray nameplate

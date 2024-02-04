@@ -1,7 +1,7 @@
 ---
 title: &title 'Chokuretsu ROM Hacking Challenges Part 1 – Cracking a Compression Algorithm!'
 description: &desc 'Jonko delves into how the Shade compression algorithm was reverse engineered to hack Suzumiya Haruhi no Chokuretsu.'
-locale: 'zh-hans'
+locale: 'en'
 navigation:
   author: 'Jonko'
   year: 2022
@@ -37,7 +37,8 @@ head:
 
 Howdy folks! This is the first in a series of blog posts that will delve into the technical challenges involved in translating Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya). These blogs do get quite technical and include things like code samples, but are written to be intelligible to a general audience. If you have any questions or comments, feel free to [tweet at us](https://twitter.com/haroohie)!
 
-This whole project started with [two](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-from-japanese-to-english-and-russian-translation-idea.601434/) [posts](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-translation-success-need-advice.601559/) on the GBATemp forum from a user named Cerber (now one of our graphic designers!) asking for help translating an obscure DS game based on the Haruhi series. He had made some progress on finding the script in the game and replacing it with English characters, but was getting stuck on being able to reinsert text fully.
+![Cerber's DS with Haruhi saying "Today is the" in full-width
+characters](/images/blog/0002/01_cerber_ds.png)
 
 ![Cerber's DS with Haruhi saying "Today is the" in full-width characters](/images/blog/0002/01_cerber_ds.png)
 
@@ -47,7 +48,8 @@ What Cerber was doing precisely was opening up the ROM in a hex editor (a tool f
 
 A quick explanation of what we’re seeing here: on the left, we have the raw binary in the file, represented as a series of bytes in hexadecimal. Hexadecimal is also called base 16 – while we normally use decimal (base 10 – i.e. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) and computers use binary (base 2 – i.e. 0, 1), programmers often use hexadecimal because it allows us to represent a single byte in two characters. When writing numbers, to distinguish the base we often use 0x as a prefix for hex numbers (0x17 is 23 in decimal) and 0b to represent binary numbers (0b0000_0100 is 4 in decimal).
 
-The characters on the right represent the bytes we’re seeing on the left interpreted through an _encoding_. You might be familiar with ASCII, the most basic of encodings – each letter in the alphabet is represented by a single byte. This game uses an encoding called Shift-JIS, which is how Japanese was represented prior to the advent of Unicode.
+![A hex editor with the previous "Today is the" visible while the rest of the
+file is highlighted in red](/images/blog/0002/02_cerber_hex.png)
 
 Drawing on my past experience, I did some investigation and then posted a perhaps less-than-hinged reply:
 
@@ -62,7 +64,11 @@ So let’s go through this point-by-point.
 ## Compression
 How did I know that this section was compressed? Well, looking at his screenshot, we can clearly see that the in-game text is showing up in the hex editor (I’ve marked an example in yellow below), but some portions of the text are missing – for example, the “ハルヒの” bit that I’ve marked below is replaced by a shorter character sequence that I’ve highlighted in blue.
 
-![Side-by-side screenshots of Chokuretsu. The first corresponds to text highlighted in yellow showing that Haruhi's dialogue is present. The second highlights a section of the text in the ROM that is apparently misisng a portion of the in-game text.](/images/blog/0002/04_compression_evidence.png)
+The characters on the right represent the bytes we’re seeing on the left
+interpreted through an _encoding_. You might be familiar with ASCII, the most
+basic of encodings – each letter in the alphabet is represented by a single
+byte. This game uses an encoding called Shift-JIS, which is how Japanese was
+represented prior to the advent of Unicode.
 
 This is a sign of what’s called _run-length encoding_ – a method for compressing a file that focuses on eliminating repetition. So okay, now we know it’s compressed – what do we do next? Well, we know our end goal: **we want to replace the text in the file with English-language text**. In order to do that, we will have to be able to decompress the text ourselves in order to edit the file. However, because the game expects the text to be compressed, we will also have to be able to recompress the file so we can reinsert it into the game. Well, let’s get started.
 
@@ -89,7 +95,12 @@ So in IDA, we use the NDS loader plugin to disassemble the Chokuretsu ROM so we 
 
 ![IDA with 0202628C highlighted to show the instruction we found previously.](/images/blog/0002/09_ida_find.png)
 
-So we go to the address we found…
+## Compression
+How did I know that this section was compressed? Well, looking at his
+screenshot, we can clearly see that the in-game text is showing up in the hex
+editor (I’ve marked an example in yellow below), but some portions of the text
+are missing – for example, the “ハルヒの” bit that I’ve marked below is replaced by
+a shorter character sequence that I’ve highlighted in blue.
 
 ![IDA with a subroutine we've renamed arc_decompress visible.](/images/blog/0002/10_ida_subroutine.png)
 
@@ -155,9 +166,10 @@ else
 }
 ```
 
-Pretty simple so far – we’re just checking if the first byte is zero.
+![IDA with 0202628C highlighted to show the instruction we found
+previously.](/images/blog/0002/09_ida_find.png)
 
-#### Direct Write
+So we go to the address we found…
 
 ```arm
 RAM:02026224                 TST     R3, #0x40
@@ -249,14 +261,30 @@ What’s more, the fact that we return to the top of the function each time impl
 
 The program we have written so far looks like this:
 
-```csharp
-for (int z = 0; z < compressedData.Length;)
-{
-    int blockByte = compressedData[z++];
-    if (blockByte == 0)
-    {
-        break;
-    }
+* `LDRB R3, [R0], #1`{lang='arm'} – This loads the byte at the address contained
+  in R0 (which contains the current position in the file) into the register R3
+  and then increments R0 by one (meaning we move to the position of the next
+  byte in the file). Since we’re at the beginning of the file, this loads the
+  first byte in the file.
+* `CMP R3, #0`{lang='arm'} ; `BEQ loc_20262A0`{lang='arm'} – `BEQ`{lang='arm'}
+  means “branch if equal,” but really it just means “branch if the last
+  comparison is equal to zero.” Therefore, if that value we just loaded is zero,
+  we’re going to branch to the end of the subroutine. We can ignore this for
+  now.
+* `TST R3, #0x80`{lang='arm'} – `TST`{lang='arm'} performs a bitwise-and without
+  storing the result. A bitwise-and compares two bytes and gives a result where
+  each bit is 1 only if that bit is 1 in both of the two bytes it compares. In
+  the case where R3 is 0xAA, we end up with something like:
+```
+10101010 (0xAA)
+10000000 (0x80)
+_______
+10000000 (0x80)
+```
+So this `TST`{lang='arm'} followed by the `BEQ`{lang='arm'} is just checking
+whether the first bit is zero or not. If it is zero, we branch to 0x2026224.
+Let’s branch there now (I have knowledge you don’t so I know checking this
+branch is going to be simpler lol). But first, we’ll convert this into C#:
 
     if ((blockByte & 0x80) == 0)
     {
@@ -287,7 +315,10 @@ So essentially, the decompression algorithm operates as follows: A “control by
 * Read a single byte and repeat it a certain number of times
 * Backreference to a particular location in the decompressed data and copy those bytes forward
 
-The full decompression implementation can be found [here](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Helpers.cs#L359-L446).
+* `TST R3, #0x40`{lang='arm'} – This is now checking whether the second bit is
+  set. If it is, we’re going to jump to 0x2026268. We’ll get back to this
+  section in a sec, but first let’s jump there after we convert this bit to C#
+  as well:
 
 And if we try decompressing a file…
 

@@ -1,6 +1,6 @@
 ---
 title: 'UI Text'
-locale: 'zh-hans'
+locale: 'en'
 navigation:
   faicon: 'fa6-solid:wrench'
   previous: '/chokuretsu/serial-loops/docs/misc/applying-hacks'
@@ -9,7 +9,8 @@ navigation:
 Serial Loops has a menu for modifying the core user interface text. The UI text consists of the text that displays on the main menu, CONFIG, file select, and save data management screens, ticker-tape tooltips, and popup prompts.
 
 ## Editing UI text
-The UI Text editor can be accessed through the "Edit UI Text..." option in the Tools menu.
+The UI Text editor can be accessed through the "Edit UI Text..." option in the
+Tools menu.
 
 ![UI text editor in the tools menu](/images/chokuretsu/serial-loops/tools-menu.png)
 

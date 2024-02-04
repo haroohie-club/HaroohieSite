@@ -1,30 +1,22 @@
-## Staff della patch italiana
+## Haroohie Translation Club
 ::two-column-list
-- **Capo Progetto**: Oropuro_49
-- **Traduttori**: Oropuro_49, Fuyuko Ayumu
-- **Grafici**: Fuyuko Ayumu, Oropuro_49
-- **Supporto ai grafici**: Amelia Chaplin, TheXanada96
-- **Testing**: Xalkas_ITA 2K, 
-::
-
-## Staff della patch inglese
-::two-column-list
-- **Capo Progetto**: Jonko
-- **Traduttori**: Amelia Chaplin, Amanda Sato, Isillor, TimepieceMaster, & toro
+- **Project Lead**: Jonko
+- **Translation**: Amelia Chaplin, Amanda Sato, Isillor, TimepieceMaster, & toro
 - **ROM Hacking**: Jonko & Ermelber
-- **Grafici**: William278 & Cerber
+- **Graphic Design**: William278 & Cerber
 - **Editing**: Alvy, William278, Chocobo,<br/>Fang, NewGBAXL, & Ziomek
-- **Supporto alla traduzione**: kyu, Kanata, & Tensei 
-- **Supporto all'editing**: Pierce, Cosmix, & Kon
+- **Additional Translation**: kyu, Kanata, & Tensei 
+- **Additional Editing**: Pierce, Cosmix, & Kon
 - **Testing**: Lambsauce, Goblinaro, master117, sarrahkuna, Kuya, & Nateymas
 - **PV Editor**: Hans Harmony
-- **Sito Web**: William278
+- **Website**: William278
 ::
 
-## Rimani sempre aggiornato
-Se vuoi aiutarci a tradurre i giochi di Haruhi Suzumiya, contattaci tramite il nostro gruppo Discord!
+## Stay up-to-date
+If you're interested in helping us translate the Haruhi Suzumiya video games,
+join our Discord and get in touch!
 
-Oppure, seguici su X, Mastodon e sul nostro gruppo Discord per rimanere sempre aggiornato sui progressi o per darci consigli. Condividiamo informazioni anche [sul blog del sito](/it/blog)!
+Even if not, be sure to follow us on Twitter and Mastodon! Plus, join our Discord Server to stay up-to-date with our latest updates, or get help on patching your game. We also post updates and insights from the translation process to [our blog](/blog)!
 
 <!-- Social media, Discord and blog buttons -->
 ::button-row
@@ -34,7 +26,7 @@ color: 'red'
 icon: 'fa6-solid:paper-plane'
 link: '/blog'
 ---
-Blog del sito
+Our Blog
 ::
 
 ::button-link
@@ -49,24 +41,17 @@ Discord
 
 ::button-link
 ---
-color: 'twitter'
-icon: 'fa6-brands:twitter'
-link: 'https://twitter.com/haroohie'
-rel: 'me'
+color: 'bluesky' icon: 'fa6-solid:cloud' link:
+'https://bsky.app/profile/haroohie.club' rel: 'me'
 ---
-Twitter
-::
+Bluesky :: ::
 
 ::button-link
 ---
-color: 'bluesky'
-icon: 'fa6-solid:cloud'
-link: 'https://bsky.app/profile/haroohie.club'
-rel: 'me'
+color: 'instagram' icon: 'fa6-brands:instagram' link:
+'https://instagram.com/haroohie' rel: 'me'
 ---
-Bluesky
-::
-::
+Instagram ::
 
 <br/>
 

@@ -2,15 +2,14 @@
 This guide will walk you through getting the patch up-and-running on your system or emulator of choice!
 
 ### Guide steps
-::chokuretsu-guide-list
-::
+::chokuretsu-guide-list ::
 
 ### Guide links
 ::button-link
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/zh-hans/chokuretsu'
+link: '/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---

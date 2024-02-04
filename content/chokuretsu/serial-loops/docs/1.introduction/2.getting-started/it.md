@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started'
-locale: 'it'
+locale: 'en'
 navigation:
   faicon: 'fa6-solid:hands'
   previous: '/chokuretsu/serial-loops/docs/introduction/installation'
@@ -23,7 +23,9 @@ This is the main home screen for Serial Loops. Before you do anything else, we s
 In this menu, if it's not already set, make sure you set your devkitARM path. Additionally, pick your favorite Nintendo DS emulator and set the path to
 it as the Emulator Path.
 
-For the remaining settings:
+In this menu, if it's not already set, make sure you set your devkitARM path.
+Additionally, pick your favorite Nintendo DS emulator and set the path to it as
+the Emulator Path.
 
 * **Use Docker for ASM Hacks** &ndash; Checking this will cause Docker to be used for ASM hacks. If you decided to install Docker rather than make,
   ensure this option is checked.

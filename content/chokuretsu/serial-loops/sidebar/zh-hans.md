@@ -11,20 +11,16 @@ GitHub
 
 ::button-link
 ---
-color: 'sl-green'
-icon: 'fa6-solid:book'
-link: '/zh-hans/chokuretsu/serial-loops/docs'
-fullwidth: true
+color: 'red' icon: 'fa6-solid:language' link: '/chokuretsu' fullwidth: true
 type: 'mid-piece'
 ---
-Docs
-::
+Chokuretsu Patch ::
 
 ::button-link
 ---
 color: 'red'
 icon: 'fa6-solid:language'
-link: '/zh-hans/chokuretsu'
+link: '/chokuretsu'
 fullwidth: true
 type: 'mid-piece'
 ---
@@ -35,7 +31,7 @@ Chokuretsu Patch
 ---
 color: 'blue'
 icon: 'fa6-solid:house'
-link: '/zh-hans/'
+link: '/'
 fullwidth: true
 type: 'mid-piece'
 ---

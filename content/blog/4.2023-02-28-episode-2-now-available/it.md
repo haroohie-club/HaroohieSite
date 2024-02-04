@@ -1,7 +1,7 @@
 ---
 title: &title 'The Series of Haruhi Suzumiya – Episode 2 is now available!'
 description: &desc 'Version 0.4 of Suzumiya Haruhi no Chokuretsu''s English Patch, which contains the translation of Episode 2: The Unfinished Sonata, is now available for download!'
-locale: 'it'
+locale: 'en'
 navigation:
   author: 'William'
   year: 2023
@@ -33,11 +33,12 @@ head:
     value: 'summary_large_image'
 ---
 
-::youtube-video
-----
-video: pHG2uxj2CwA
-----
-::
+Alongside the inclusion of Episode 2 in this release, this patch also includes
+translations for the *Extras Mode* (accessible through the Main Menu), including
+the content you unlock by completing Episode 1 and 2. This includes the music
+player, completion tracker and CG viewer. The patch also includes a range of
+script tweaks and improvements. Below you can find a changelog of the most
+notable additions.
 
 The Haroohie Translation Club is excited to announce that **Version 0.4** of The Series of Haruhi Suzumiya English Fan Translation patch is now [available to download](/chokuretsu/patch)! *Episode 2: The Unfinished Sonata* is now available to play in English. Be sure to check out the trailer for this release above, made by the amazingly talented [EricDoesEverything](https://www.youtube.com/@EricDoesEverythingSeries)!
 

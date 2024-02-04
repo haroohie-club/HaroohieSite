@@ -1,7 +1,7 @@
 ---
 title: &title 'Chokuretsu ROM Hacking Challenges Part 2 – Archive Archaeology'
 description: &desc 'Jonko puts the Shade bin archive under the microscope and explains how he figured out how to unpack it.'
-locale: 'it'
+locale: 'en'
 navigation:
   author: 'Jonko'
   year: 2022
@@ -38,7 +38,8 @@ Thanks to the proliferation of zip files, you’re likely already familiar with 
 
 For convenience, let’s pick the archive that contains the file we were looking at last time. We can open the game up in CrystalTile2 and navigate to where we were looking last time… 
 
-![The ROM opened in Crystal Tile 2 showing that the file we're looking for is evt.bin](/images/blog/0003/01_evt_ct2.png)
+![The ROM opened in Crystal Tile 2 showing that the file we're looking for is
+evt.bin](/images/blog/0003/01_evt_ct2.png)
 
 And in the lower left corner it tells us that this data is contained in `evt.bin` (which is what we might have guessed, since it’s string data).
 
@@ -75,7 +76,8 @@ Let’s get back to the top of the file – again, a lot of numbers, but there a
 | 4 | 32-bit integer | `int`{lang='csharp'} (signed) or `uint`{lang='csharp'} (unsigned) |
 | 8 | 64-bit integer | `long`{lang='csharp'} (signed) or `ulong`{lang='csharp'} (unsigned) |
 
-There are two possible ways to store a 16-bit integer, however. For example, take 512 (0x200). You could choose to store that with the _most-significant byte_ first (i.e. `02 00`) or with the _least-significant byte_ first (i.e. `00 02`). This decision is called _endianness_, where the former is “big-endian” and the latter is “little-endian.” Frequently, the decision is made simply to align with whatever the architecture uses; ARM is a little-endian architecture so these files are likely little-endian as well.
+![evt.bin open in Crystal Tile 2 showing a section of zeros below the file at
+0x2800](/images/blog/0003/03_lots_of_zeros_2.png)
 
 Going back to the cyan highlights in the image above, we can see that if we interpret the highlighted values as little-endian 16-bit integers, we have a sequence like:
 
@@ -95,7 +97,12 @@ These definitely aren’t file offsets (the differences between them are too sma
 
 Oh! Look at that! 0x24C happens to be the very first number to appear in the file (highlighted in red). So we can guess that the first number is the number of files in the archive. (To double check this, we should check that the pattern is consistent for the other archives as well – which it is.)
 
-![evt.bin open to 0x0000 with green highlights next to the cyan ones creating a series of 32-bit integers](/images/blog/0003/06_magic_integers.png)
+Let’s get back to the top of the file – again, a lot of numbers, but there are
+patterns here. But before we take a look at the numbers in cyan, a quick
+explanation on _endianness_. So far, we’ve mostly thought about things in terms
+of bytes, which can have values between 0 (0x00) and 255 (0xFF). But what about
+when we need to represent integers larger than that? When we need to do that, we
+use _multibyte integers_. The common types of these include:
 
 What about the numbers next to the cyan highlights, though – the ones highlighted in green above? It’s hard to say right now as there’s no obvious pattern. However, we need some nomenclature here, so I’m going to be referring to the combination of the green and cyan highlights as _magic integer_, since they are obfuscated (magic) but do important stuff (also magic). The first magic integer spans from 0x20 to 0x23, which is why they’re “integers” – specifically, 32-bit integers.
 
@@ -109,39 +116,48 @@ First, we should try to find the code where these archives are parsed. To do thi
 
 So, we go back to DeSmuME and search for the four bytes at offset 0x20 (remember, DeSmuME’s memory search expects you to enter the bytes in reverse order, so instead of `D1 00 0A 00` we enter `00 0A 00 D1`)...
 
-![DeSmuME's memory search window showing a single result for our search at 0x020F7720](/images/blog/0003/08_memory_search.png)
+There are two possible ways to store a 16-bit integer, however. For example,
+take 512 (0x200). You could choose to store that with the _most-significant
+byte_ first (i.e. `02 00`) or with the _least-significant byte_ first (i.e. `00
+02`). This decision is called _endianness_, where the former is “big-endian” and
+the latter is “little-endian.” Frequently, the decision is made simply to align
+with whatever the architecture uses; ARM is a little-endian architecture so
+these files are likely little-endian as well.
 
 And once again, we’ve found a single hit. So, let’s open up the memory viewer and head to 0x020F7720…
 
-![DeSmuME's memory viewer showing the memory at 0x020F7720 looking exactly like the header of evt.bin](/images/blog/0003/09_memory_find.png)
+Going back to the cyan highlights in the image above, we can see that if we
+interpret the highlighted values as little-endian 16-bit integers, we have a
+sequence like:
 
 And it matches the `evt.bin` header exactly! This means that the `evt.bin` header is loaded into 0x020F7700. So now, we’ll load up the game in no$GBA (I was a little hard on no$ last time around, but its debugging tools _are_ very convenient) and set a read breakpoint for 0x020F7700.
 
-![no$GBA hitting a breakpoint at 0x020338C8](/images/blog/0003/10_breakpoint.png)
+```
+0x000A, 0x000C, 0x000E, 0x0010, 0x0014, 0x0016, 0x0018, 0x001A, 0x001C, 0x001E, 0x0020, 0x0022 …
+```
 
 Nice, we hit our breakpoint as soon as the game is loaded. This means that the archive headers are loaded on boot. Let’s pull up this subroutine in IDA.
 
-```arm
-RAM:02033818                 PUSH    {R3-R9,LR}
-RAM:0203381C                 LDR     R2, =dword_20A9AB0
-RAM:02033820                 MOV     R6, R0
-RAM:02033824                 LDR     R1, [R2]
-RAM:02033828                 LDR     R0, =aFiletblLoadSta ; "--- filetbl_load start <%d> ---\n"
-RAM:0203382C                 ADD     R1, R1, #0x3F ; '?'
-RAM:02033830                 BIC     R3, R1, #0x3F
-RAM:02033834                 MOV     R1, R6
-RAM:02033838                 STR     R3, [R2]
-RAM:0203383C                 BL      dbg_print20228DC
-```
+These definitely aren’t file offsets (the differences between them are too small
+– for example, a file between offsets 0xB2E and 0xB32 would only be four bytes
+long), but it’s possible they might _map_ to file offsets somehow since they’re
+steadily increasing. That would suggest that maybe there is one of these values
+per file – so just how many are there? The values are two bytes long and spaced
+two bytes apart for a total of four bytes per iteration. The sequence begins at
+0x20 and ends at 0x950. Therefore:
 
 Here’s something useful! That `"--- filetbl_load start <%d> ---\n"`{lang='c'} string you see is text that’s hardcoded in the executable program (arm9.bin) itself. 
 
-`=aFiletblLoadSta` is a name IDA gives to the address that holds that string, so `LDR R0, =aFiletblLoadSta`{lang='arm'} is loading the address of that string into R0. In ARM assembly, R0 is used as the first parameter when calling another subroutine, so the `BL` (branch-link or “call this subroutine”) below uses it as a parameter. Because the string looks a lot like a debug string, we can guess that that function is a debug print function (something that would print text to the console for debugging purposes), which is why we’ve renamed the function here to `dbg_print20228DC`.
+```
+(0x950 - 0x20) / 0x04 = 0x24C
+```
 
 But more importantly, the fact that this debug string is being printed here tells us what _this function’s name was_ in the original source code: `filetbl_load()`{lang='c'}. From this, we can surmise that this function is designed to load the “file table” from the archive – i.e., it loads the header we were just looking at and that header is the list of files we thought it was! This trick (looking at debug or error strings to figure out what a function does) is something I frequently make use of – without even examining the disassembly in detail, we now have a pretty good idea of what this function does.
 
-### Loading the Magic Integer
-After trying to analyze this routine the way we did the decompression routine, it turns out that this routine is a little bit more abstract. It references a bunch of memory addresses and other things that I don’t have any context for – so let’s get some context and watch what it’s doing in the debugger. After all, our goal here isn’t to necessarily reverse-engineer exactly what this routine is doing (unlike with the decompression routine), it’s to use this routine to understand the structure of the archive file.
+Oh! Look at that! 0x24C happens to be the very first number to appear in the
+file (highlighted in red). So we can guess that the first number is the number
+of files in the archive. (To double check this, we should check that the pattern
+is consistent for the other archives as well – which it is.)
 
 So back to no$GBA then. Stepping forward, we come to this `STR` instruction. `STR R2,[R0, R5]` should store the value of R2 (0x24C, what we’re suspecting is the number of files) in the memory location R0+R5. 
 
@@ -194,7 +210,8 @@ RAM:02033CFC                 MOV     R2, R9
 RAM:02033D00                 BL      dbg_printError
 ```
 
-So remember that coming out of `arc_getNumFiles`, R0 was set to (what we’re guessing is) the number of files. We can see that it gets compared to R9 immediately afterwards, and if it’s less than or equal to R9, we branch just past the end of the section I’ve shown. So let’s zero in on R9 – looking earlier up, we can see that R9 is also compared to 0, and if it’s less than or equal to zero we’re branching to loc_2033CF0. That’s the same location that we go to if R9 is greater than R0. If we examine that section, we can see another debug message – `"file index error : [%s],idx=%d\n"`{lang='c'}! For those of you not familiar with C, this is a _format string_ – the `%s` and `%d` indicate parameters to be inserted into the string. `%s` expects a **s**tring and `%d` expects a **d**ecimal number. We determined that the function that the `BL` is branching to is a “print debug error message” function by the fact that the string indicates an error is occurring, but this string gives us even more clues. So at a high level, this section is checking to see that R9 is greater than 0 and less than or equal to the number of files. If it’s not, then it throws an error.
+![no$GBA hitting a breakpoint at
+0x020338C8](/images/blog/0003/10_breakpoint.png)
 
 When calling a function in a higher-level language, you specify parameters that get passed to the function. In ARM assembly, these parameters are passed by setting specific registers to specific values – the first parameter is set to R0, the second parameter is set to R1, etc. So, we know that this `dbg_printError` subroutine is going to print that format string. The string itself is loaded into R0, meaning that the first parameter is the string itself. The next parameter (corresponding to `%s`) should be loaded into R1, and the final parameter (corresponding to `%d`) should be loaded into R2. 
 
@@ -257,7 +274,9 @@ RAM:02033AB8                 STR     R0, [R3]
 RAM:02033ABC                 POP     {R4,PC}
 ```
 
-This subroutine isn’t too long, so we should be able to figure out what it’s doing; however, there are a lot of bits where it loads from some memory addresses and I don’t know what’s stored in those addresses. So let’s head back to the debugger.
+After we step over that instruction, we can in fact see that 0x24C got stored in
+0x20C1A08 as we would expect. So now, let’s set a read breakpoint for that
+address to see where _it_ gets referenced.
 
 ![no$GBA with highlights showing instructions for loading the magic integer into the register](/images/blog/0003/17_initial_header_stuff.png)
 
@@ -277,14 +296,26 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 
 The address we should be loading from is `0x020F771C + 0x245 * 4 = 0x20F8030`, and indeed, when we step forward we see that value loaded in. Now that the magic integer is loaded in, let’s see what happens next.
 
-![no$GBA showing the next two components being loaded and their instructions](/images/blog/0003/19_second_header_stuff.png)
+```arm
+RAM:02033A58 sub_2033A58
+RAM:02033A58                 MOV     R1, #0x18
+RAM:02033A5C                 MUL     R1, R0, R1
+RAM:02033A60                 LDR     R0, =dword_20C19D8
+RAM:02033A64                 LDR     R0, [R0,R1]
+RAM:02033A68                 BX      LR
+```
 
 The next two instructions load the integers at offsets 0x0C (green) and 0x04 (pink) in `evt.bin` into R1 and R0, respectively. These instructions are then used in some calculations:
 
 * `MOV R1, LR,LSR R1`{lang='arm'} – This instruction shifts the magic integer right by the value of R1 (0x11 or 17) and stores the result in R1. Since magic integers are 32-bit integers, this gives us the 15 most-significant bits of the magic integer.
 * `MUL R0, R1, R0`{lang='arm'} – This instruction multiplies R1 by R0 (0x800) and stores the result in R0.
 
-Continuing our C# translation, we have:
+`BX LR`{lang='arm'} returns us to the subroutine that called this one, so given
+that we know the previous instruction is the one that loaded 0x24C into R0 (the
+register that is frequently used as a return value), we might be able to posit
+that the entire purpose of this subroutine is to load that value from memory.
+So, let’s rename this function to `arc_getNumFiles` and then step forward and
+see what called it.
 
 ```csharp
 public void sub_2033A70(int archiveNumber, int index, uint address1, uint address2, byte[] archiveBytes)
@@ -335,7 +366,14 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 }
 ```
 
-The end-result of this calculation is 0x5398.
+When calling a function in a higher-level language, you specify parameters that
+get passed to the function. In ARM assembly, these parameters are passed by
+setting specific registers to specific values – the first parameter is set to
+R0, the second parameter is set to R1, etc. So, we know that this
+`dbg_printError` subroutine is going to print that format string. The string
+itself is loaded into R0, meaning that the first parameter is the string itself.
+The next parameter (corresponding to `%s`) should be loaded into R1, and the
+final parameter (corresponding to `%d`) should be loaded into R2.
 
 ![The special length integer being calculated in no$GBA](/images/blog/0003/23_magic_length_int.png)
 
@@ -506,14 +544,11 @@ RAM:0201D4F0                 BX      LR
 
 Here it is in all its glory: what I have dubbed the “unhinged file length routine.” That 0x5398 number was indeed not the actual compressed length, but rather an encoded compressed length that was decoded by this routine. A quick FAQ:
 
-* Q: Why is there so much repetition in this routine?<br/>
-  A: This is the result of a function of some compilers (including ARM compilers) called _loop unrolling_. Basically, there is a tradeoff made in favor of execution time over program space when the compiler can statically determine how many loops will occur at compile time.
-* Q: What does that mean?<br/>
-  A: Don’t worry, it doesn’t really matter. Point is, that’s a loop, so we can treat it as a loop.
-* Q: I’m seeing a lot of `ADCS` and `SUBCC` instructions here. What’s up with those?<br/>
-  A: `ADCS` is “add with carry, set flags.” Essentially, this means that we add two numbers and, if the previous operation resulted in a “carry,” we add one to the sum. We then set or clear the carry flag depending on whether that addition resulted in a carry. A “carry” here refers to “unsigned overflow” – when a 32-bit integer exceeds its maximum value and loops back around. `SUBCC` is “sub if carry clear.” This means we subtract two numbers if the previous operation did _not_ result in a carry.
-* Q: Why would the devs do it this way?<br/>
-  A: They want to fuck with me specifically.
+```csharp
+public void sub_2033A70(int archiveNumber, int index, uint address1, uint address2, byte[] archiveBytes)
+{
+    int numFiles = BitConverter.ToInt32(archiveBytes.Take(4).ToArray());
+    uint magicInteger = BitConverter.ToUInt32(archiveBytes.Skip(0x1C + index * 4).Take(4).ToArray());
 
 ## Out of the Woods
 Whew! That was a lot of assembly. We could keep going down through subroutines, but we’ve accomplished our main task now: we understand a lot about how Shade bin archives work. If we return to our original list of what we expected an archive might have:
@@ -524,8 +559,7 @@ Whew! That was a lot of assembly. We could keep going down through subroutines, 
 
 Nice! That’s great progress. Let’s see if we can write something to parse the archive now.
 
-### Writing Our Own Parser
-Let’s start by thinking about how we want to represent our archive file in C#. There are four different archives, each with their own file type – to me, this screams like a time for a generic class. To begin, we’ll make a generic class to represent files in the archives.
+The end-result of this calculation is 0x5398.
 
 ```csharp
 public partial class FileInArchive
@@ -708,7 +742,10 @@ So we have a functional parser now. We can write up a quick GUI to show us how f
 
 ![A GUI interface showing the extracted script from the game](/images/blog/0003/24_archive_interface.png)
 
-Very nice looking! (The text on the right is a preview of what’s to come – II was working on parsing the event/script files at the same time as I was working on parsing the archives, but we won’t be covering event file reverse-engineering in this post.) So now we can open `evt.bin` and even edit the files inside it. There’s still one step left, though – we have to be able to save the bin archives once we’re done editing them.
+Here it is in all its glory: what I have dubbed the “unhinged file length
+routine.” That 0x5398 number was indeed not the actual compressed length, but
+rather an encoded compressed length that was decoded by this routine. A quick
+FAQ:
 
 ### Saving the Archive
 The ideal way to save the archive is to reconstruct it from scratch, but because there’s data in the header we don’t understand fully we’ll have to settle for editing the header in place. So, we’ll start by just adding the whole header we took while parsing.
@@ -738,7 +775,11 @@ Next, we’re going to loop through all the files and add them to the archive in
         bytes.AddRange(compressedBytes);
 ```
 
-Here, we hit a snag – in some cases, the edited file is going to be longer than the original file, right? This will happen more often than we think since my implementation of the compression algorithm is noticeably less efficient than the implementation the developers used, so even files that stay the same size decompressed will end up longer on recompression. The solution to this problem is actually pretty simple, just a bit tedious: we move everything further down.
+* We found the number of files (it’s the first four bytes of the archive).
+* While there don’t seem to be obviously-located filenames, we did find the
+  mapping between a file’s _index_ (which appears to be how it’s looked up), its
+  offset, and its compressed length
+* The file data is definitely present and padded to be 0x800-byte aligned.
 
 Why is moving things down tedious? Well it comes back to the magic integers – those contain _offsets_ for each file. By moving the file down, we’re changing its offset, which means the magic integer will change as well. So we need to write code to do that. 
 
@@ -776,7 +817,11 @@ Why is moving things down tedious? Well it comes back to the magic integers – 
         }
 ```
 
-Bam. We have working code that will shift the magic integers. So let’s test it – let’s modify a file and save the archive and see if we can change some text.
+```csharp
+public class ArchiveFile<T>
+    where T : FileInArchive, new()
+{
+    public const int FirstMagicIntegerOffset = 0x20;
 
 ![Haruhi Suzumiya in the opening lines saying Hello my friend! A lovely day!](/images/blog/0003/25_dialogue_replaced.png)
 

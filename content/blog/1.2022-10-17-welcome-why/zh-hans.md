@@ -1,7 +1,7 @@
 ---
 title: &title 'Welcome! and Why?'
 description: &desc 'An introduction to the Haroohie Translation Club blog and an explanation of our motivations for translating Haruhi games.'
-locale: 'zh-hans'
+locale: 'en'
 navigation:
   author: 'Jonko'
   year: 2022
@@ -35,13 +35,21 @@ head:
     value: 'summary_large_image'
 ---
 
-You’re now reading the first Haroohie Translation Club blog post, which either means you scrolled pretty far back or you’re here pretty early. My name is Jonko, and I’m the project lead for the club. As a result of my position, the responsibility of writing most of the blog posts has fallen to me, but I can guarantee we’ll have other writers here from time to time. This blog is where we’re going to try to unscrew the casing and take a look at the internals of this project we’re all working so hard on. We’ll give an insider look at the reverse-engineering and ROM hacking we’ve done, examine the complexities of translating from Japanese to English, and maybe even delve into the world of project management. But before all that, in this first blog post, I’d like to answer a question that often gets asked: why?
+Why stay up late getting into Discord arguments about whether Nagato should say
+“Fine” or “It’s fine”? Why take vacation time to reverse-engineer a proprietary
+scripting language? Why pour thousands of hours into hacking, translating, and
+graphics editing all to create patches for games that the publishers didn’t
+think worthy of official international releases?
 
 Why stay up late getting into Discord arguments about whether Nagato should say “Fine” or “It’s fine”? Why take vacation time to reverse-engineer a proprietary scripting language? Why pour thousands of hours into hacking, translating, and graphics editing all to create patches for games that the publishers didn’t think worthy of official international releases?
 
 Speaking personally, I happened to stumble into ROM hacking mostly by accident and found that it caused my neurons to fire in such a way that releases a constant stream of dopamine. That, however, still fails to answer the more specific questions: why translation then? Why translate these games specifically?
 
-Asking the team will result in answers that fall into a few different categories:
+Speaking personally, I happened to stumble into ROM hacking mostly by accident
+and found that it caused my neurons to fire in such a way that releases a
+constant stream of dopamine. That, however, still fails to answer the more
+specific questions: why translation then? Why translate these games
+specifically?
 
 * **We can make these stories more accessible** – This reason reminds me a lot of why the folks at [Redump](http://redump.org/) and [No-Intro](https://no-intro.org/) are obsessed with preserving games; the world is a better place when people have the opportunity to experience pieces of history or media they’re interested in. By translating games into English, we enable far more people to experience them.
 * **We can leave our mark on something we love** –  The title of this bullet is lifted directly from one of our lead translators, Millie, who said it best: “The Haruhi series is my biggest obsession, so seeing a project like this, I knew there was no way I'd miss the chance to get involved. It's been great feeling like I can leave a mark on something I really love, and share that love with others.”

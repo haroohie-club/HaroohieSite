@@ -1,27 +1,33 @@
 ---
 title: 'Group Selections'
-locale: 'it'
+locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/game-flow'
   next: '/chokuretsu/serial-loops/docs/graphics'
 ---
 
-The current version of Serial Loops only allows you to view group selections, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing group selections and this documentation will be updated to be more complete.
+The current version of Serial Loops only allows you to view group selections,
+not edit them, so the documentation here will be sparse. In a future update,
+Serial Loops will be capable of fully editing group selections and this
+documentation will be updated to be more complete.
 
 ## Overview
 Group selection items represent the sections of the game where you divide up the SOS Brigade to accomplish different tasks. The group selections are
 triggered in game when the `GROUP_SELECTION` [Scenario](./game-flow) command is called. It brings up the following screen:
 
-![Task assignment screenshot](/images/chokuretsu/screenshots/task-assignment.png)
+## Overview
+Group selection items represent the sections of the game where you divide up the
+SOS Brigade to accomplish different tasks. The group selections are triggered in
+game when the `GROUP_SELECTION` [Scenario](./game-flow) command is called. It
+brings up the following screen:
 
-On this screen, there are two to four boxes of different colors labeled A through D. These boxes represent the possible **tasks** characters can be
-sent to do by dragging their character portraits into the box.
+![Task assignment
+screenshot](/images/chokuretsu/screenshots/task-assignment.png)
 
-Every possible group of characters in a particular task defines a **route** for that task. Note that routes are defined as a subset of the tasks,
-not as a property of the overall distribution of characters between all tasks (i.e., routes only depend on the characters in a particular task
-and are independent of the character distribution in other tasks).
+On this screen, there are two to four boxes of different colors labeled A
+through D. These boxes represent the possible **tasks** characters can be sent
+to do by dragging their character portraits into the box.
 
 ## In Serial Loops
 The current group selection editor allows you to view the following properties:

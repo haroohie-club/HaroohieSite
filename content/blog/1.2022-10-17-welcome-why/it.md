@@ -1,7 +1,7 @@
 ---
-title: &title 'Benvenuti! E perché?'
-description: &desc "Un'introduzione al blog dell'Haroohie Translation Club ed una spiegazione dei nostri motivi per tradurre i giochi di Haruhi."
-locale: 'it'
+title: &title 'Welcome! and Why?'
+description: &desc 'An introduction to the Haroohie Translation Club blog and an explanation of our motivations for translating Haruhi games.'
+locale: 'en'
 navigation:
   author: 'Jonko'
   year: 2022
@@ -18,7 +18,7 @@ head:
   - property: 'og:image'
     content: &img 'https://haroohie.club/images/blog/0001/00_thumbnail.png'
   - name: 'og:image:alt'
-    value: 'La Brigata SOS (Box art di Suzumiya Haruhi no Chokuretsu)'
+    value: 'The SOS Brigade (Suzumiya Haruhi no Chokuretsu box art)'
   - property: 'og:url'
     content: 'https://haroohie.club/blog/2022-10-17-welcome-why'
   - property: 'og:type'
@@ -35,18 +35,26 @@ head:
     value: 'summary_large_image'
 ---
 
-Stai leggendo il primo post dell'Haroohie Translation Club, il che significa che hai scorso molto in fondo. Il mio nome è Jonko, e sono il capo progetto di questo club. A causa della mia posizione, la responsabilità di scrivere questi post è caduta su di me, ma ti posso garantire che avremo altri scrittori una volta ogni tanto. In questo blog, sviteremo il case e vedremo l'interno del progetto. Mostreremo i processi di reverse-engineering e di ROM hacking, esamineremo le complessità di tradurre dal giapponese all'inglese, e forse entreremo pure nel mondo del project management. Ma prima di tutto ciò, in questo primo post per il blog, vorrei rispondere a delle domande che mi vengono chieste spesso: perché?
+Why stay up late getting into Discord arguments about whether Nagato should say
+“Fine” or “It’s fine”? Why take vacation time to reverse-engineer a proprietary
+scripting language? Why pour thousands of hours into hacking, translating, and
+graphics editing all to create patches for games that the publishers didn’t
+think worthy of official international releases?
 
-Perché stare a discutere su Discord fino a tardi per decidere se Nagato dovrebbe dire "È okay." o "Va tutto bene."? Perché passare le ferie a decompilare un gioco programmato con un suo linguaggio di programmazione proprietario? Perché metterci migliaglia di ore in hackerare, tradurre e modificare la grafica, solo per creare patch di giochi che neanche i produttori stessi ritenevano meritevoli di rilasciarli internazionalmente?
+Why stay up late getting into Discord arguments about whether Nagato should say “Fine” or “It’s fine”? Why take vacation time to reverse-engineer a proprietary scripting language? Why pour thousands of hours into hacking, translating, and graphics editing all to create patches for games that the publishers didn’t think worthy of official international releases?
 
-Personalmente, iniziai ad indulgermi nel mondo del ROM hacking per puro caso, e scoprì che causava i miei neuroni a sparare in un modo che rilasciava un flusso costante di dopamina. Tuttavia, non risponde alla domanda principale: perché tradurli? Perché tradurre questi giochi in particolare?
+Speaking personally, I happened to stumble into ROM hacking mostly by accident and found that it caused my neurons to fire in such a way that releases a constant stream of dopamine. That, however, still fails to answer the more specific questions: why translation then? Why translate these games specifically?
 
-Chiedere al team darà risposte di vario tipo, tra le quali:
+Speaking personally, I happened to stumble into ROM hacking mostly by accident
+and found that it caused my neurons to fire in such a way that releases a
+constant stream of dopamine. That, however, still fails to answer the more
+specific questions: why translation then? Why translate these games
+specifically?
 
-* **‌Possiamo rendere queste storie più accessibili** – Questa ragione mi ricorda perché la gente di [Redump](http://redump.org/) e [No-Intro](https://no-intro.org/) sono così ossessionati al preservare i giochi; il mondo è un posto migliore quando le persone hanno la possibilità di usare i pezzi di storia o di media al quale sono interessati. Traducendo giochi in inglese, diamo una maggiore opportunità alle persone di giocarli.
-* **‌Possiamo lasciare il nostro segno su qualcosa che amiamo** – Il titolo di questo punto l'ho preso direttamente da una dei nostri capi traduttori, Millie, che lo disse nel modo migliore possibile: “La serie di Haruhi è la mia più grande ossessione, quindi vedere un progetto del genere, sapevo che non mi sarei persa l'opportunità di farne parte. È stato fantastico sentirmi come se potessi lasciare il mio segno su qualcosa che amo, e condividere quell'amore con gli altri
-* **‌Essere parte di un team appassionato è esilarante** – This one comes from one of our other main translators, Isi: “Having a group of people pool their distinct talents towards the creation of a single thing, doing what they can while entrusting the rest to the others, learning more about yourself, the game, the series, the developers, the craft, the others, each small step of the way. And then seeing something tangible come of it. A physical proof of everyone's efforts that then many other people play and enjoy.” More succinctly from our other ROM Hacker, Ermii: “Our combined work and love for Haruhi is what allows this project to exist and what motivates us to keep going.”
-* **‌È decisamente soddisfacente** – y, guarda, il motivo della dopamina è tornato!
-* **‌I giochi sono fatti bene, in realtà** – I giochi non devono essere necessariamente belli o fatti bene per applicare il primo motivo, ma ho pensato di dirlo comunque visto che sono fatti veramente bene. Citando il nostro sviluppatore web e grafico Will, “Inoltre, è davvero soddisfacente (per non parlare di come è a tema) voler ‘spargere l'eccitazione’ di questi giochi in tutto il mondo. 😉”
+* **We can make these stories more accessible** – This reason reminds me a lot of why the folks at [Redump](http://redump.org/) and [No-Intro](https://no-intro.org/) are obsessed with preserving games; the world is a better place when people have the opportunity to experience pieces of history or media they’re interested in. By translating games into English, we enable far more people to experience them.
+* **We can leave our mark on something we love** –  The title of this bullet is lifted directly from one of our lead translators, Millie, who said it best: “The Haruhi series is my biggest obsession, so seeing a project like this, I knew there was no way I'd miss the chance to get involved. It's been great feeling like I can leave a mark on something I really love, and share that love with others.”
+* **Being part of a passionate team is exhilarating** – This one comes from one of our other main translators, Isi: “Having a group of people pool their distinct talents towards the creation of a single thing, doing what they can while entrusting the rest to the others, learning more about yourself, the game, the series, the developers, the craft, the others, each small step of the way. And then seeing something tangible come of it. A physical proof of everyone's efforts that then many other people play and enjoy.” More succinctly from our other ROM Hacker, Ermii: “Our combined work and love for Haruhi is what allows this project to exist and what motivates us to keep going.”
+* **It’s intrinsically rewarding** – Hey look, the dopamine reason is back!
+* **The games are good, actually** – The games don’t have to be good for the first reason to apply, but I thought I’d mention here that they also happen to be very good. To quote our web dev and graphics guru Will, “Plus, it's really satisfying (not to mention on-brand) to want to ‘spread the excitement’ of [these] games all over the world. 😉”
 
-Da qui in poi, questo blog parlerà del "cosa" e del "come" di questo progetto, ma penso sia appropriato iniziare con il "perché". Speriamo che il nostro lavoro ti piaccia!
+From here on out, this blog will mostly be dealing with the “what” and “how” of the project, but I think it’s appropriate to dwell on our motivations first. We hope you enjoy our work!
