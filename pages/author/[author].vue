@@ -24,7 +24,7 @@ const route = useRoute()
                         <p>{{ $('author-not-found-desc') }}</p>
                     </template>
                 </ContentDoc>
-                <ButtonLink :link="localePath('/')" color="red" icon="fa6-solid:house">{{ $t('back-to-hom') }}</ButtonLink>
+                <ButtonLink :link="localePath('/')" color="red" icon="fa6-solid:house">{{ $t('back-to-home') }}</ButtonLink>
             </div>
         </NuxtLayout>
     </div>
