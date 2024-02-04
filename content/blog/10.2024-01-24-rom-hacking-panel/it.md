@@ -32,7 +32,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-Hi folks! For the past year, I have been presenting a panel at several different convetions on ROM hacking Chokuretsu.
+Hi folks! For the past year, I have been presenting a panel at several different conventions on ROM hacking Chokuretsu.
 At Retro World Expo in Hartford, Connecticut, [Andy Wolan](https://www.youtube.com/@andywolan) (formerly of the Sonic Stuff Research Group)
 made a recording of the panel that I've now posted to my YouTube channel. If you're interested in hearing a bit about how we hacked
 this game, you'll likely enjoy giving it a watch!
