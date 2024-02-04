@@ -13,8 +13,7 @@
 ::
 
 ## Stay up-to-date
-If you're interested in helping us translate the Haruhi Suzumiya video games,
-join our Discord and get in touch!
+If you're interested in helping us translate the Haruhi Suzumiya video games, join our Discord and get in touch!
 
 Even if not, be sure to follow us on Twitter and Mastodon! Plus, join our Discord Server to stay up-to-date with our latest updates, or get help on patching your game. We also post updates and insights from the translation process to [our blog](/blog)!
 
@@ -41,17 +40,24 @@ Discord
 
 ::button-link
 ---
-color: 'bluesky' icon: 'fa6-solid:cloud' link:
-'https://bsky.app/profile/haroohie.club' rel: 'me'
+color: 'twitter'
+icon: 'fa6-brands:twitter'
+link: 'https://twitter.com/haroohie'
+rel: 'me'
 ---
-Bluesky :: ::
+Twitter
+::
 
 ::button-link
 ---
-color: 'instagram' icon: 'fa6-brands:instagram' link:
-'https://instagram.com/haroohie' rel: 'me'
+color: 'bluesky'
+icon: 'fa6-solid:cloud'
+link: 'https://bsky.app/profile/haroohie.club'
+rel: 'me'
 ---
-Instagram ::
+Bluesky
+::
+::
 
 <br/>
 
