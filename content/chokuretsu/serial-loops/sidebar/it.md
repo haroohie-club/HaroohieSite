@@ -11,10 +11,14 @@ GitHub
 
 ::button-link
 ---
-color: 'red' icon: 'fa6-solid:language' link: '/chokuretsu' fullwidth: true
+color: 'sl-green'
+icon: 'fa6-solid:book'
+link: '/chokuretsu/serial-loops/docs'
+fullwidth: true
 type: 'mid-piece'
 ---
-Chokuretsu Patch ::
+Docs
+::
 
 ::button-link
 ---
