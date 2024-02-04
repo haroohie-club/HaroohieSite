@@ -97,5 +97,6 @@
     "chokuretsu-rom-patcher-voice-subs-opt1": "Untertitel",
     "chokuretsu-setup-guide": "Setup Guide",
     "chokuretsu-download-patch": "Download .xdelta",
-    "chokuretsu-rom-patcher-sha-calc-failed": "Berechnen des SHA-256 deiner ROM fehlgeschlagen."
+    "chokuretsu-rom-patcher-sha-calc-failed": "Berechnen des SHA-256 deiner ROM fehlgeschlagen.",
+    "heiretsu-adventure": "Adventure"
 }
