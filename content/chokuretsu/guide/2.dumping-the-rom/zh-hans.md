@@ -97,31 +97,31 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS']
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-### Dumping with a Nintendo 3DS
+### 使用 Nintendo 3DS 转储
 
-To dump using a Nintendo 3DS or 2DS console, we will need to install a Custom Firmware (CFW) onto the system known as Luma3DS and bootstrap9 to let us run Godmode9, which lets us dump the cartridge to an .nds file.
+要使用 Nintendo 3DS 或 2DS 主机进行转储，需要在系统上安装名为 Luma3DS 和 bootstrap9 的自定义固件（CFW），以便运行 Godmode9，从而将卡带转储到 .nds 文件中。
 
-**Requirements:**
-* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* *Suzumiya Haruhi no Chokuretsu*
-* SD card with at least 2GB capacity
-* Computer with SD card reader/USB SD card reader peripheral
-  * In some cases, you may need to use a DS or DSi-compatible flash cartridge.
+**要求：**
+* Nintendo 3DS、3DS LL/XL、2DS、New 3DS、New 3DS LL/XL 或 New 2DS LL/XL 主机
+* 《凉宫春日的串联》
+* 容量至少为 2GB 的 SD 卡
+* 拥有 SD 卡读卡器或 USB SD 卡读卡器外设的计算机
+  * 在某些情况下，你可能需要使用兼容 DS 或 DSi 的烧录卡。
 
-**Method:**
+**方法：**
 ::guide-notice
-Please take caution following these steps to avoid bricking your system.
+请按照以下步骤谨慎操作，以避免使主机变砖。
 ::
-* Follow [the steps on 3ds.hacks.guide](https://3ds.hacks.guide/get-started) to install Luma3DS and bootstrap9 onto your 3DS.
-* Continue following [the guide to install GodMode9](https://3ds.hacks.guide/finalizing-setup) as well as other prerequisite homebrew software onto your 3DS.
-* Power off your console (not just sleep mode, a full power-off)
-* Insert the *Suzumiya Haruhi no Chokuretsu* game cartridge into your 3DS.
-* Hold the START button and press the Power Button to power on the console. This should launch GodMode9. If it doesn't, power off and try again.
-* Use the D-Pad to navigate to `[C:] GAMECART`
-* Press the A Button on `[TitleID].nds` to select it. If prompted to choose a dump type, press the A Button again.
-* Select Copy to 0:/gm9/out on the lower screen to copy the dump to the SD card.
-* When the dump has completed, power off your system and remove the SD card.
-* Insert the SD card back into your computer. Navigate to /gm9/out/ on your SD card. Copy the .nds file to your computer.
+* 遵循 [3ds.hacks.guide 上的步骤](https://3ds.hacks.guide/zh_CN/get-started.html)，将 Luma3DS 和 bootstrap9 安装到 3DS 上。
+* 继续遵循[安装 GodMode9 的指南](https://3ds.hacks.guide/zh_CN/finalizing-setup.html)，并将其他必备的自制软件安装到 3DS 上。
+* 关闭主机电源（不是进入睡眠模式，而是完全关闭电源）。
+* 将《凉宫春日的串联》游戏卡带插入 3DS。
+* 按住 START 键，然后按下电源键打开主机。这应该会启动 GodMode9。如果没有，请关闭电源，然后重试。
+* 使用方向键导航到 `[C:]GAMECART`。
+* 在 `[TitleID].nds` 上按下 A 键进行选择。如果提示选择转储类型，请再次按 A 键。
+* 在下屏幕选择“Copy to 0:/gm9/out”将其转储到SD卡。
+* 转储完成后，关闭主机电源并取下 SD 卡。
+* 将 SD 卡插回电脑。进入 SD 卡上的 /gm9/out/ 文件夹。将 .nds 文件复制到电脑上。
 
 </div>
 ::

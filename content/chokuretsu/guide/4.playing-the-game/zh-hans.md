@@ -22,32 +22,32 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', '模拟器']
 
 <div class="platform-filtered platform-nintendo_ds">
 
-## Play on Nintendo DS
-Playing on the Nintendo DS is as simple as placing the patched ROM onto a flash cartridge and running the game. You probably already have the cartridge if you followed the setup instructions earlier.
+## 在 Nintendo DS 上玩
+在 Nintendo DS 上玩游戏非常简单，只需把打好补丁的 ROM 放在烧录卡上并运行游戏。如果你按照前面的设置说明了操作，你应该已经有了一张烧录卡。
 
-**Requirements:**
-* Nintendo DS or DS lite console
-* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+**要求：**
+* Nintendo DS 或 DS Lite 主机
+* 烧录卡（例如 R4 卡。此外，可能还需要 SD 卡或 microSD 卡来加载内容）
 
-**Setup:**
-1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct cable if required)
-2. Drag over the patched .nds ROM file you previously created into the correct directory on the flash cart's storage.
-3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up the game and enjoy!
+**设置：**
+1. 将 SD 卡从烧录卡中取出并插入计算机（如果需要，也可以通过正确的数据线连接）
+2. 将之前创建的打好补丁的 .nds ROM 文件复制到 SD 卡中正确的目录里。
+3. 移除 SD 卡并插回到烧录卡中，将其插入你的 Nintendo DS 中。启动游戏并享受吧！
 
 </div>
 
 <div class="platform-filtered platform-nintendo_dsi">
 
-## Play on Nintendo DSi
-Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched rom onto a SD card and making use of Twilight Menu++ on your system
+## 在 Nintendo DSi 上玩
+在 Nintendo DSi 上玩游戏可以简单地通过使用烧录卡来完成，也可以将打好补丁的 ROM 放在 SD 卡上，并在系统上使用 Twilight Menu++。
 
-### Using TWiLightMenu (nds-bootstrap)
+### 使用 TWiLightMenu（nds-bootstrap）
 ::iconified-text
 ---
 icon: fa6-solid:circle-info
 unwrap: true
 ---
-If you're using **TWiLightMenu** (aka nds-bootstrap), please be sure to launch the game in DSi Mode.
+如果你正在使用 **TWiLightMenu**（又名 nds-bootstrap），请确保在 DSi 模式下启动游戏。
 ::
 
 **Requirements:**
