@@ -1,6 +1,6 @@
 ---
 title: &title 'Chokuretsu ROM Hacking Challenges Part 1 – Cracking a Compression Algorithm!'
-description: &desc 'Jonko parla di come riuscì a decompilare l'algoritmo di compressione Shade per modificare Suzumiya Haruhi no Chokuretsu.'
+description: &desc "Jonko parla di come riuscì a decompilare l'algoritmo di compressione Shade per modificare Suzumiya Haruhi no Chokuretsu."
 locale: 'en'
 navigation:
   author: 'Jonko'
