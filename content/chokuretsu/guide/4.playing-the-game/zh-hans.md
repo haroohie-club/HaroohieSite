@@ -104,7 +104,7 @@ Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use
 
 </div>
 
-<div class="platform-filtered platform-emulator">
+<div class="platform-filtered platform-模拟器">
 
 ## Play on Emulators
 
