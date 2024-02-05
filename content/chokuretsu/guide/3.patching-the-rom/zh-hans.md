@@ -7,7 +7,7 @@ navigation:
 locale: 'zh-hans'
 ---
 
-当你将卡带转储到 `.nds` 文件后，就可以通过我们提供的[给 ROM 打补丁](/zh-hans/chokurestu/patch)工具，或手动下载 `.xdelta` 补丁文件并使用打补丁软件（如 [XDeltaUI](https://www.romhacking.net/utilities/598/?device=emu)），轻松地给 ROM 文件打上汉化补丁。
+当你将卡带转储到 `.nds` 文件后，就可以通过我们提供的[给 ROM 打补丁](/chokurestu/patch)工具，或手动下载 `.xdelta` 补丁文件并使用打补丁软件（如 [XDeltaUI](https://www.romhacking.net/utilities/598/?device=emu)），轻松地给 ROM 文件打上汉化补丁。
 
 ## 在线补丁工具
 ::guide-notice
