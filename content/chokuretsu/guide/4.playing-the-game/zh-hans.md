@@ -111,7 +111,7 @@ Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use
 **请选择你想要使用的模拟器类型：**
 ::guide-platform-filter
 ---
-filters: ['电脑模拟器', '手机模拟器, 'Wii U Virtual Console']
+filters: ['电脑模拟器', '手机模拟器', 'Wii U Virtual Console']
 filterSuffix: 'emulator'
 ---
 
