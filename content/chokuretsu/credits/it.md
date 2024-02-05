@@ -4,7 +4,7 @@
 - **Traduttori**: Oropuro_49, Fuyuko Ayumu
 - **Grafici**: Fuyuko Ayumu, Oropuro_49
 - **Supporto ai grafici**: Amelia Chaplin, TheXanada96
-- **Testing**: Xalkas_ITA 2K, 
+- **Testing**: Xalkas_ITA 2K, Axel Axolot
 ::
 
 ## Staff della patch inglese

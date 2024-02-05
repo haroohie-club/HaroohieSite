@@ -60,13 +60,9 @@ Pensando alle mie esperienze in passato, feci qualche investigazione per poi pos
 Quindi facciamolo passo dopo passo.
 
 ## Compressione
-Come facevo a sapere che questa scena era compressa? Beh, guardando al suo screenshot, possiamo vedere chiaramente come il testo di gioco viene mostrato nell'editor esadecimale (ho marcato un esempio in giallo), ma alcune porzioni di testo mancano -- Per esempio, "ハルヒの"　－ not completed yet
+Come facevo a sapere che questa scena era compressa? Beh, guardando al suo screenshot, possiamo vedere chiaramente come il testo di gioco viene mostrato nell'editor esadecimale (ho marcato un esempio in giallo), ma alcune porzioni di testo mancano -- Per esempio, la parte con "ハルヒの" che ho marcato è rimpiazzata da una sequenza di caratteri più corta che ho marcato in blu.
 
-The characters on the right represent the bytes we’re seeing on the left
-interpreted through an _encoding_. You might be familiar with ASCII, the most
-basic of encodings – each letter in the alphabet is represented by a single
-byte. This game uses an encoding called Shift-JIS, which is how Japanese was
-represented prior to the advent of Unicode.
+![Side-by-side screenshots of Chokuretsu. The first corresponds to text highlighted in yellow showing that Haruhi's dialogue is present. The second highlights a section of the text in the ROM that is apparently misisng a portion of the in-game text.](/images/blog/0002/04_compression_evidence.png)
 
 This is a sign of what’s called _run-length encoding_ – a method for compressing a file that focuses on eliminating repetition. So okay, now we know it’s compressed – what do we do next? Well, we know our end goal: **we want to replace the text in the file with English-language text**. In order to do that, we will have to be able to decompress the text ourselves in order to edit the file. However, because the game expects the text to be compressed, we will also have to be able to recompress the file so we can reinsert it into the game. Well, let’s get started.
 
