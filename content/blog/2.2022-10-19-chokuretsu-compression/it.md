@@ -62,7 +62,7 @@ Quindi facciamolo passo dopo passo.
 ## Compressione
 Come facevo a sapere che questa scena era compressa? Beh, guardando al suo screenshot, possiamo vedere chiaramente come il testo di gioco viene mostrato nell'editor esadecimale (ho marcato un esempio in giallo), ma alcune porzioni di testo mancano -- Per esempio, la parte con "ハルヒの" che ho marcato è rimpiazzata da una sequenza di caratteri più corta che ho marcato in blu.
 
-![Side-by-side screenshots of Chokuretsu. The first corresponds to text highlighted in yellow showing that Haruhi's dialogue is present. The second highlights a section of the text in the ROM that is apparently misisng a portion of the in-game text.](/images/blog/0002/04_compression_evidence.png)
+![Screenshot di Chokuretsu posti uno di fianco all'altro. Il primo corrisponde al testo evidenziato in giallo mostrando che il dialogo di Haruhi è presente. Il secondo ha una sezione evidenziata del testo nella ROM, dove apparentemente manca una porzione del testo originale.](/images/blog/0002/04_compression_evidence.png)
 
 Questo è un segno di quello che chiamiamo _run-length encoding_ -- un metodo per comprimere file che si focalizza ad eliminare ripetizioni. Va bene, ora sappiamo che è compresso, e ora cosa facciamo? Sappiamo in nostro obiettivo: **vogliamo rimpiazzare il testo nel file con del testo inglese**. Per farlo, dovremo decomprimere il testo noi stessi in modo da modificare il file. Tuttavia, poiché il gioco si aspetta di avere il testo compresso, dovremo anche ricomprimere il file in modo da reinserirlo nel gioco. Bene, iniziamo.
 
@@ -97,27 +97,27 @@ E l'abbiamo trovato! Quando un programma viene compilato, tutti i nomi delle cos
 
 Questo è quello che intendevo quando dissi che la subroutine di decompressione si trova in 0x2026190 -- Scorrendo in sù scopriremo che la subroutine inizia in quel punto. Questo fu quanto riuscì a scoprire quando risposi al post di Cerber, ma è anche dove il divertimento inizia veramente -- è ora di decompilare l'algoritmo di decompressione.
 
-## Reverse-Engineering the Compression Algorithm
-The first thing I did was to create a sort of “assembly simulator” – I ported the assembly steps line-by-line out of the disassembly and into a C# program. (The choice to use C# here is just because it’s the higher-level language I’m most comfortable with; you could choose instead to use Python, C++, JavaScript, or whatever else you’d like.) Why do this? At the time, I was a beginner with assembly, so this exercise served two purposes: firstly, it helped me become more familiar with the disassembly; secondly, it gave me a program I could run that I knew for a fact would match what the assembly code was doing.
+## Algoritmo di Reverse-Engineering
+La prima cosa che ho fatto è stato creare una specie di "simulatore di assembly" -- Ho riscritto ogni stringa di codice dell'assembly in un programma C#. (La scelta di usare C# l'ho fatta solo perché è un linguaggio di alto livello con il quale mi trovo meglio io; si può usare anche Python, C++, JavaScript o qualsiasi linguaggio.) Perché farlo? Ai tempi ero ancora un principiante con assembly, quindi questo esercizio mi è servito per due motivi: primo, mi aiutò a conoscere meglio il disassembly; secondo, mi ha dato un programma che potevo eseguire sapendo per bene che sarebbe stato uguale a quello in assembly.
 
-The simulator ended up looking like this:
+Il simulatore finì per essere così:
 
-![Visual Studio showing a class called AsmDecompressionSimulator.](/images/blog/0002/11_asm_simulator.png)
+![Visual Studio che mostra una classe chiamata AsmDecompressionSimulator.](/images/blog/0002/11_asm_simulator.png)
 
-For ease of reference, I’ve annotated the lines of code with comments showing what instructions in the disassembly they correspond to. Once I completed it, I was able to decompress files naively! However, it’s pretty inefficient. So we’re actually going to try to understand this assembly in order to turn it into truly human-readable code.
+Per facilitare i riferimenti, ho annotato le stringhe di codice con dei commenti che mostrano quello che fa ogni istruzione nel disassembly alla quale corrispondono. Una volta completato, sono stato in grado di decomprimere i file in modo nativo! Tuttavia, è abbastanza inefficiente. Quindi proveremo invece a capire questo assembly in modo da renderlo del codice leggibile da un essere umano.
 
-### An Assembly Primer
-In order to do this, a quick primer on assembly: assembly is _machine level_ code, meaning it is what the processor actually reads to execute instructions. That last word is important – the most basic unit of assembly is an _instruction_. Examples include things like `ADD` (adds two numbers) or `SUB` (subtracts two numbers).
+### Un'Introduzione all'Assembly
+Per farlo, dobbiamo prima capire cos'è l'assembly: assembly è un linguaggio a _livello macchina_, il che significa che è quello che il processore legge per eseguire le istruzioni. Quell'ultima parola è importante -- L'unità più basilare dell'assembly è un'_istruzione_. Ad esempio code come `ADD` (aggiunge due numeri) o `SUB` (sottrare due numeri).
 
-To operate on values in assembly, they must first be loaded into a _register_. Registers can be thought of as “CPU variables” and are numbered like R0, R1, R2, etc. The DS has 15 of them. The values are loaded into registers from _memory_ (or _RAM_), which is a large space of quickly accessible binary that can be referenced by the CPU on the fly.
+Per operare sui valori in assembly, devono prima essere caricati in un _registro_. I registi possono essere visti come "le variabili della CPU" e sono numerati come R0, R1, R2, ecc. Il DS ne ha 15. I valori sono caricati nei registri dalla _memoria_ (detta anche _RAM_), che ha uno spazio largo di binari accessibili che possono essere richiamati dalla CPU velocemente.
 
-Assembly code varies from platform to platform – more specifically, it varies depending on the _architecture_ (which you can think of as the family or type) of microchip. The DS uses ARM assembly for its main executable, which is common and well-documented. The way I learned ARM assembly was getting right into it and debugging Nintendo DS code while looking up what each instruction was doing in another window. If you’re looking for good references for ARM, the [official documentation](https://developer.arm.com/documentation/dui0068/b/ARM-Instruction-Reference) is pretty instructive, though I also find just googling “ARM \[instruction I want to better understand\]” to work wonders.
+Il codice in assembly varia di piattaforma in piattaforma -- più nello specifico, varia in base all'_architettura_ (che può essere vista come la famiglia o il tipo) del microchip. Il DS utilizza l'assembly ARM per il suo eseguibile principale, che è abbastanza comune e ben documentato. Il modo in cui io imparai assembly ARM fu provare a fare il debug dei codici per il Nintendo DS mentre cercavo su un'altra finestra quello che ogni istruzione faceva. Se vuoi dei buoni punti di riferimento per ARM, la |documentazione officiale|(https://developer.arm.com/documentation/dui0068/b/ARM-Instruction-Reference) è molto istruttiva, tutta trovo che cercare su Google "ARM \|istruzione che voglio capire meglio\|" funzionare a meraviglia.
 
-### Into the Thick of It
+### Nel Dettaglio
 
-#### The Beginning
+#### L'Inizio
 
-Let’s start at the beginning:
+Partiamo dall'inizio:
 ```arm
 RAM:02026198                 LDRB    R3, [R0],#1
 RAM:0202619C                 CMP     R3, #0
@@ -125,7 +125,7 @@ RAM:020261A0                 BEQ     loc_20262A0
 RAM:020261A4                 TST     R3, #0x80
 RAM:020261A8                 BEQ     loc_2026224
 ```
-Let’s break down these instructions:
+Vediamo cosa fa ognuna di queste istruzioni:
 
 * `LDRB R3, [R0], #1`{lang='arm'} – This loads the byte at the address contained in R0 (which contains the current position in the file) into the register R3 and then increments R0 by one (meaning we move to the position of the next byte in the file). Since we’re at the beginning of the file, this loads the first byte in the file.
 * `CMP R3, #0`{lang='arm'} ; `BEQ loc_20262A0`{lang='arm'} – `BEQ`{lang='arm'} means “branch if equal,” but really it just means “branch if the last comparison is equal to zero.” Therefore, if that value we just loaded is zero, we’re going to branch to the end of the subroutine. We can ignore this for now.

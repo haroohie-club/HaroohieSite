@@ -180,7 +180,7 @@ Scarica [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch)
 
 </div>
 
-<div class="platform-filtered platform-wii_u_virtual_console">
+<div class="platform-filtered platform-virtual_console_per_wii_u">
 
 ### Emulare il gioco su Wii U grazie alla Virtual Console
 Se possiedi una console Wii U, puoi giocare il titolo grazie all'emulatore per DS sviluppato da Nintendo, per un'emulazione più precisa.
@@ -208,7 +208,7 @@ Per fare ciò, dovrai modificare il tuo Wii U. Dovrai usare UWUVCI per convertir
         - Seleziona "Enter CKey", poi "Read from otp.bin" e seleziona il file che hai creato poco fa sulla tua scheda SD, dato che quando hai installato il custom firmware ti è stato chiesto di estrapolare la NAND. Se non riesci a trovare il file, dovrai cercare le chiavi del gioco ed inserirle manualmente.
         - Clicca "enterTKey". Qua dovrai inserire il codice giusto per sbloccare il Mario Kart DS che hai scelto. Assicurati di inserire il codice esatto.
         - Clicca "Select file", prosegui con "ROM Path" e scegli la ROM patchata de "La serie di Haruhi Suzumiya".
-        - Su "Icon Image", clicca con "Create file". Scarica quest'[immagine](/images/chokuretsu/virtual-console-icon.png) e selezionala con con "Select file". personalizza la presentazione come più ti aggrada, quest'icona apparirà sul menù del tuo Wii U. Poi, clicca "finish".
+        - Su "Icon Image", clicca con "Create file". Scarica quest'[immagine](/images/chokuretsu/virtual-console-icon.png) e selezionala con "Select file". personalizza la presentazione come più ti aggrada, quest'icona apparirà sul menù del tuo Wii U. Poi, clicca "finish".
         - Su "Tv image" clicca "Create file", qua dovrai inserire il nome del gioco su due linee ("La serie di Haruhi","Suzumiya"), l'anno di pubblicazione (2009) e il numero di giocatori (1). Poi, scegli la stessa immagine dell'icona (o mettine pure un'altra). Infine, clicca "finish".
         - Inserisci nel "Game Name": "La serie di|Haruhi Suzumiya"
         - Puoi anche personalizzare la schermata come più ti aggrada.

@@ -1,5 +1,5 @@
 ---
-title: 'Arguire i dati di gioco'
+title: 'Estrarre i dati di gioco'
 navigation:
   current: '/dumping-the-rom'
   previous: '/buying-the-game'
@@ -11,54 +11,54 @@ Per ottenere la ROM, ti servirà un Nintendo DS o 3DS, per alcuni metodi è rich
 
 ---
 
-**Select platform to dump the ROM with:**
+**Seleziona la piattaforma sul quale vuoi estrarre il gioco:**
 ::guide-platform-filter
 ---
 filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS']
 ---
 <div class="platform-filtered platform-nintendo_ds">
 
-### Estrapolare con DS o DS Lite
-Esistono due modi per estrapolare dati di gioco con il Nintendo DS o DS Lite. Per entrambi i metodi è richiesto il vano cartuccia 1 (quello in alto).
+### Estrarre con DS o DS Lite
+Esistono due modi per estrapolare dati di gioco con il Nintendo DS o DS Lite. Per entrambi i metodi è richiesto lo Slot-1 della Scheda DS (quello in alto).
 
-Per il primo metodo avremmo bisogno di una connessione ad internet (trasferiremo i file con il metodo FTP). Il secondo, invece, avremmo bisogno di ambo vani cartuccia (quello sopra e quello dei giochi per GBA).
+Per il primo metodo avremmo bisogno di una connessione ad internet (trasferiremo i file con il metodo FTP). Il secondo, invece, avremmo bisogno di entrambi gli slot per le schede, Slot-1 e Slot-2 (quello sopra e quello dei giochi per GBA).
 
 #### Tramite connessione ad internet
-**Occorrente:**
+**Requisiti:**
 * Un sistema DS o DS Lite
 * Una copia di *Suzumiya Haruhi no Chokuretsu*
-* Una scheda Flash (come una R4. inoltre, è richiesta una scheda SD o Micro SD per poter caricare questi file)
-* Telefono cellulare o dispositivi simili che possano garantire una connessione internet efficace (tramite WEP-secured Hotspot)
-  - Molti computer di oggi non posso fare queste cose.
+* Una flash cart (Schede DS che possono caricare dati da una scheda SD o MicroSD, come una R4.)
+* Uno smartphone o dispositivi simili che possano garantire una connessione internet efficace (tramite WEP-secured Hotspot)
+  - Molti computer di oggi non possono fare queste cose.
   - Vi consigliamo un sistema che supporti Android (i dispositivi Apple e Microsoft, non posseggono questa caratteristica).
-* Un computer per poter [scaricare wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/) e che sia collegato allo stesso hot spot
+* Un computer per poter [scaricare wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/) e che sia collegato allo stesso hotspot
 * Una copia di qualsiasi gioco per DS che possegga servizi ad internet. Ignorate che il servizio sia morto da diverso tempo. Purtroppo, *Suzumiya Haruhi no Chokuretsu* non supporta i servizi in rete.
 
 **Procedimento:**
 1. Utilizza il tuo telefono, tablet o altri dispositivi per creare un segnale Wireless non protetto (senza Password) o con modulo WEP. (Deve essere per forza WEP, altre estensioni non sono supportare dal Nintendo DS).
 2. Sul tuo computer, [scarica wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/). Poi, collega il computer allo stesso hotspot del telefono.
-3. Installa wooddumper.nds (ignora la versione slot 2) sulla scheda SD della tua scheda multigioco.
-4. Accendi ed inserisci il gioco che può collegarsi ad internet sul Nintendo DS, in grado da impostare una connessione ad internet e collegati allo stesso hotspot.
-5. Esci dal gioco e rimuovi la cartuccia. Ora, inserisci la scheda multigioco e fai partire wooddumper.
-6. Segui le istruzioni a schermo ed inserisci la cartuccia di *Suzumiya Haruhi no Chokuretsu*. Prosegui fino a quando non vedrai il tuo indirizzo IP per collegarsi al client FTP.
-7. Usa programmi come [net2ftp](https://www.net2ftp.com/) o [FileZilla](https://filezilla-project.org/) per fare da client e inserisci l'indirizzo IP dove richiesto (non aggiungere altri dettagli).
+3. Installa wooddumper.nds (ignora la versione slot 2) sulla scheda SD della tua flash cart.
+4. Accendi ed inserisci il gioco che può collegarsi ad internet sul Nintendo DS, in modo da impostare una connessione ad internet, e collegati allo stesso hotspot.
+5. Esci dal gioco e rimuovi la scheda DS. Ora, inserisci la flash cart e fai partire wooddumper.
+6. Segui le istruzioni a schermo ed inserisci la scheda di *Suzumiya Haruhi no Chokuretsu*. Prosegui fino a quando non vedrai il tuo indirizzo IP per collegarsi al client FTP.
+7. Usa programmi come [net2ftp](https://www.net2ftp.com/) o [FileZilla](https://filezilla-project.org/) e inserisci l'indirizzo IP dove richiesto (non hai bisogno di inserire un username o una password).
 8. Trasferisci i file .nds e .txt sul tuo computer. Ora puoi [patchare la ROM](/it/chokuretsu/guide/patching-the-rom).
 
 #### Usare entrambi gli slot
-**Occorente:**
+**Requisiti:**
 * Un sistema DS o DS Lite
 * Una copia di *Suzumiya Haruhi no Chokuretsu*
-* Una cartuccia flash per lo slot 1 (quello sopra, come una R4).
-* Una cartuccia flash per lo slot 2 (Quello per giochi GBA, che supporti la scheda nello slot 1, come E-link card).
-* Una scheda SD o Micro SD
+* Una flash cart per lo slot 1 (quello sopra, come una R4).
+* Una flash cart per lo slot 2 (Quello per giochi GBA, che supporti la scheda nello slot 1, come E-link card).
+* Una scheda SD o MicroSD
 * Un computer con il quale scaricare wooddumper
 
 **Procedimento:**
 1. [Scarica wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/) sul tuo computer.
 2. Installa wooddumper_slot2.nds sulla scheda SD o MicroSD.
-3. Inserisci entrambe le cartucce nella console.
+3. Inserisci entrambe le flash cart nella console.
 4. Avvia Wooddumper.
-5. Segui le istruzioni a schermo ed inserisci la cartuccia di *Suzumiya Haruhi no Chokuretsu* quando richiesto.
+5. Segui le istruzioni a schermo ed inserisci la scheda di *Suzumiya Haruhi no Chokuretsu* quando richiesto.
 6. Rimuovi la scheda flash dallo slot 2 ed inserisci la scheda SD nel tuo computer.
 7. Copia i file .nds e .txt sul computer. Ora puoi [patchare la ROM](/it/chokuretsu/guide/patching-the-rom).
 
