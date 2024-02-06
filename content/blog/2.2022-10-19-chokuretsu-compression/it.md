@@ -64,43 +64,38 @@ Come facevo a sapere che questa scena era compressa? Beh, guardando al suo scree
 
 ![Side-by-side screenshots of Chokuretsu. The first corresponds to text highlighted in yellow showing that Haruhi's dialogue is present. The second highlights a section of the text in the ROM that is apparently misisng a portion of the in-game text.](/images/blog/0002/04_compression_evidence.png)
 
-This is a sign of what’s called _run-length encoding_ – a method for compressing a file that focuses on eliminating repetition. So okay, now we know it’s compressed – what do we do next? Well, we know our end goal: **we want to replace the text in the file with English-language text**. In order to do that, we will have to be able to decompress the text ourselves in order to edit the file. However, because the game expects the text to be compressed, we will also have to be able to recompress the file so we can reinsert it into the game. Well, let’s get started.
+Questo è un segno di quello che chiamiamo _run-length encoding_ -- un metodo per comprimere file che si focalizza ad eliminare ripetizioni. Va bene, ora sappiamo che è compresso, e ora cosa facciamo? Sappiamo in nostro obiettivo: **vogliamo rimpiazzare il testo nel file con del testo inglese**. Per farlo, dovremo decomprimere il testo noi stessi in modo da modificare il file. Tuttavia, poiché il gioco si aspetta di avere il testo compresso, dovremo anche ricomprimere il file in modo da reinserirlo nel gioco. Bene, iniziamo.
 
-## Finding the Decompression Subroutine
-So we actually have a lot of information at our disposal here. We have a file that we know is compressed, we have a pretty good idea of what it decompresses to, and we know where that file is used in-game. So, let’s load the game in DeSmuME (the emulator that, at time of writing, has the best memory searcher) and search for some of the text that appears in-game.
+## Trovare la Subroutine di Decompressione
+Ora abbiamo moltissime informazioni a nostra disposizione qui. Abbiamo un file del quale sappiamo già che è compresso, abbiamo una buona idea di come diventa una volta decompresso, e sappiamo dove il gioco utilizza quel file. Quindi, carichiamo il gioco in DeSmuME (l'emulatore che, quando scrissi questo, ha il miglior cercatore di memoria) e cercare un po' del testo che appare nel gioco.
 
-![DeSmuME's RAM search.](/images/blog/0002/05_ram_search.png)
+![Ricerca nella RAM su DeSmuME.](/images/blog/0002/05_ram_search.png)
 
-So here we’re searching for 0x81CC82B1 (DeSmuME’s RAM search expects bytes in reverse-order) which corresponds to a portion of the “この、” in the text. We find exactly one result at address 0x0223433C – brilliant. We go to that memory address…
+Qui stiamo cercando per 0x81CC82B1 (la ricerca nella RAM di DeSmuME esprime i byte in ordine inverso) che corrisponde alla porzione del “この、” nel testo. Troviamo esattamente un risultato nell'indirizzo 0x0223433C -- fantastico. Andiamo in quell'indirizzo di memoria…
 
-![DeSmuME's memory viewer with highlighted sections showing that it matches the file we've been looking at exactly.](/images/blog/0002/06_ram_found.png)
+![Il visualizzatore di memoria di DeSmuME con delle sezioni evidenziate che mostrano come il testo coincide esattamente con il file che stavamo cercando.](/images/blog/0002/06_ram_found.png)
 
-And it’s an exact match! We’ve found where the compressed file is loaded into memory. So now, it’s time to open up the worst DS emulator but also the only one with a functional debugger, no$GBA.
+E coincide esattamente! Abbiamo trovato dove il file compresso viene caricato nella memoria. Quindi adesso, è ora di aprire il peggior emulatore per DS, ma anche l'unico con un debugger funzionante, no$GBA.
 
-![Setting a breakpoint in no$GBA. The breakpoint being set is "[223433C]?"](/images/blog/0002/07_setting_breakpoint.png)
+![Impostando un breakpoint in no$GBA. Il breakpoint impostato è "[223433C]?"](/images/blog/0002/07_setting_breakpoint.png)
 
-We’re going to set a _read breakpoint_ for 0x0223433C. As I mentioned earlier, the reason we’re using no$ is because it has a debugger, and one of the functions of a debugger is the ability to set _breakpoints_. A debugger allows us to actually step through and see what code is executing when the game plays, and a breakpoint tells the debugger to stop at a certain line of execution. In this case, this read breakpoint tells the debugger to pause execution when the memory address 0x0223433C is read from. The reason we want to do this is that the point at which the compressed file is being accessed in memory is when it’s being decompressed, so this will help us find the decompression subroutine.
+Andremo ad impostare un _breakpoint di lettura_ per 0x0223433C. Come dissi prima, il motivo per il quale stiamo usando no$ è perché è l'unico che ha un debugger, e una delle funzioni dei debugger è la possibilità di aggiungere dei _breakpoint_. Un debugger ci permette di vedere quale codice è in esecuzione mentre il gioco gira, ed un breakpoint dice al debugger di fermarsi ad una certa linea di esecuzione. In questo caso questo breakpoint di lettura dice al debugger di fermare l'esecuzione appena legge l'indirizzo 0x0223433C. Il motivo per il quale dobbiamo fare questo, è perché la memoria fa accesso ad un file compresso quando viene decompresso, quindi ci aiuterà a trovare la subroutine di decompressione.
 
-![no$GBA's debugger hitting the aforementioned breakpoint. It's currently stopped at instruction 0202628C.](/images/blog/0002/08_breakpoint_hit.png)
+![Il debugger di no$GBA che arriva al punto menzionato prima. Attualmente è fermo all'istruzione 0202628C.](/images/blog/0002/08_breakpoint_hit.png)
 
-Voila, we’ve hit our breakpoint. The game reads from 0x223433C at the instruction at 0x2026288. It’s time to open our third program, IDA (the Interactive Disassembler). (It’s worth noting that while I use IDA, you can accomplish the same thing in Ghidra, another commonly used disassembler that’s actually free.)
+Voilà, abbiamo raggiunto il nostro breakpoint. Il gioco legge da 0x223433C all'istruzione in 0x2026288. Ora dobbiamo aprire il nostro terzo programma, IDA (l'Interactive Disassembler). (È meglio notare che mentre io uso IDA, potete fare la stessa cosa usando Ghidra, un altro disassemblatore comunemente usato che è pure gratis.)
 
-So in IDA, we use the NDS loader plugin to disassemble the Chokuretsu ROM so we can view the assembly code (properly referred to as the “disassembly”) more easily. IDA does something very nice which is that it breaks the code apart into subroutines (also sometimes called “functions”), which makes it easier to understand at a glance where code execution starts and stops.
+Quindi in IDA, utilizziamo il plugin del caricatore di NDS per disassemblare la ROM di Chokuretsu in modo da vedere il codice assembly (spesso riferito come "disassembly") più facilmente. IDA fa qualcosa di abbastanza utile, ossia dividere il codice in subroutine (dette anche "funzioni"), che rende più facile vedere dove il codice inizia e finisce.
 
-![IDA with 0202628C highlighted to show the instruction we found previously.](/images/blog/0002/09_ida_find.png)
+!|IDA con 0202628C evidenziato per mostrare l'istruzione che abbiamo trovato prima.|(/images/blog/0002/09_ida_find.png)
 
-## Compression
-How did I know that this section was compressed? Well, looking at his
-screenshot, we can clearly see that the in-game text is showing up in the hex
-editor (I’ve marked an example in yellow below), but some portions of the text
-are missing – for example, the “ハルヒの” bit that I’ve marked below is replaced by
-a shorter character sequence that I’ve highlighted in blue.
+Quindi andiamo nell'indirizzo che abbiamo trovato…
 
-![IDA with a subroutine we've renamed arc_decompress visible.](/images/blog/0002/10_ida_subroutine.png)
+![IDA con una subroutine che abbiamo rinominato in arc_decompress visibile.](/images/blog/0002/10_ida_subroutine.png)
 
-And we’ve found it! When a program is compiled, all the names of things like functions and variables get stripped away, so IDA will name the subroutine something like `sub_2026190` by default – however, we’re going to manually rename this subroutine to `arc_decompress` (which we’ve already done in the screenshot) so that it’s easier to find and reference. (The `arc` there stands for _archive_ – but we’ll have to leave that for the next entry in this series.)
+E l'abbiamo trovato! Quando un programma viene compilato, tutti i nomi delle cose come le funzioni e le variabili vengono tolti, quindi IDA rinominerà le subroutine in qualcosa come `sub_2026190` di default -- tuttavia, lo andremo a cambiare in `arc_decompress` (che abbiamo già fatto nello screenshot) in modo che è più facile da trovare e richiamare. (`arc` sta per _archivio_ -- ma ne parleremo nel prossimo post di questa serie.)
 
-So this is what I meant when I said the decompression subroutine lives at 0x2026190 – just by scrolling up we’ll find the subroutine begins at that point. This is as far as I had gotten when I replied to Cerber’s post, but this is also where the real fun begins – now it’s time to actually reverse engineer the compression algorithm.
+Questo è quello che intendevo quando dissi che la subroutine di decompressione si trova in 0x2026190 -- Scorrendo in sù scopriremo che la subroutine inizia in quel punto. Questo fu quanto riuscì a scoprire quando risposi al post di Cerber, ma è anche dove il divertimento inizia veramente -- è ora di decompilare l'algoritmo di decompressione.
 
 ## Reverse-Engineering the Compression Algorithm
 The first thing I did was to create a sort of “assembly simulator” – I ported the assembly steps line-by-line out of the disassembly and into a C# program. (The choice to use C# here is just because it’s the higher-level language I’m most comfortable with; you could choose instead to use Python, C++, JavaScript, or whatever else you’d like.) Why do this? At the time, I was a beginner with assembly, so this exercise served two purposes: firstly, it helped me become more familiar with the disassembly; secondly, it gave me a program I could run that I knew for a fact would match what the assembly code was doing.

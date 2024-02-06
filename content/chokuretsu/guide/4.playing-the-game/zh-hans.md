@@ -50,63 +50,63 @@ unwrap: true
 如果你正在使用 **TWiLightMenu**（又名 nds-bootstrap），请确保在 DSi 模式下启动游戏。
 ::
 
-**Requirements:**
-* Nintendo DSi or DSi XL console
-* TwilightMenu++ custom firmware [setup on your system](https://dsi.cfw.guide/). If you followed the guide to dumping your ROM on Nintendo DSi earlier, you've probably already done this!
-* SD card with at least 2GB capacity
-* Computer with an SD card reader/USB SD card reader peripheral
+**要求：**
+* Nintendo DSi 或 DSi LL/XL 主机
+* [在您的系统上设置](https://dsi.cfw.guide/)了 TwilightMenu++ 自定义固件。如果你之前按照指南在 Nintendo DSi 上转储了 ROM，你可能已经完成了！
+* 容量至少为 2GB 的 SD 卡
+* 拥有 SD 卡读卡器或 USB SD 卡读卡器外设的计算机
 
-**Setup:**
-1. Insert your SD card from your DSi into your computer
-2. Drag over the patched .nds ROM file you previously created into anywhere on the SD card.
-3. Remove your SD card and insert it back into your DSi.
-4. Power on your DSi and launch Twilight Menu++.
-5. Navigate to and run the patched ROM .nds you copied into your SD card and start the game. Enjoy!
+**设置：**
+1. 将 DSi 中的 SD 卡插入电脑，
+2. 将之前创建的打过补丁的 .nds ROM 文件复制到 SD 卡上的任意位置。
+3. 取出 SD 卡并将其插回 DSi。
+4. 将你的 DSi 开机，启动 Twilight Menu++。
+5. 导航到打过补丁的 .nds ROM 文件的位置并运行，然后开始游戏。享受游戏吧！
 
-### Using a flash cartridge
-**Requirements:**
-* Nintendo DSi or DSi XL console
-* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+### 使用烧录卡
+**要求：**
+* Nintendo DSi 或 DSi LL/XL 主机
+* 烧录卡（例如 R4 卡。此外，可能还需要 SD 卡或 microSD 卡来加载内容）
 
-**Setup:**
-1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct adapter if required).
-2. Drag over the patched ROM file you previously created into the correct directory on the flash cart's storage.
-3. Disconnect the flash cartridge and insert it into your Nintendo DSi. Fire up the game and enjoy!
+**设置：**
+1. 将 SD 卡从烧录卡中取出并插入计算机（如果需要，也可以通过正确的数据线连接）
+2. 将之前创建的打好补丁的 .nds ROM 文件复制到 SD 卡中正确的目录里。
+3. 移除 SD 卡并插回到烧录卡中，将其插入你的 Nintendo DSi 中。启动游戏并享受吧！
 
 </div>
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-## Play on (New) Nintendo 3DS or 2DS
-Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use of a flash cartridge, or putting the patched rom onto a SD card and making use of Luma3DS on your system
+## 在 (New) Nintendo 3DS 或 2DS 上玩
+在 (New) Nintendo 3DS 或 2DS 上玩游戏可以简单地通过使用烧录卡来完成，也可以将打好补丁的 ROM 放在 SD 卡上，并在系统上使用 Luma3DS。
 
-### Using TwilightMenu++
-**Requirements:**
-* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Luma3DS custom firmware setup on your system and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
-* SD card with at least 2GB capacity
-* Computer with an SD card reader/USB SD card reader peripheral
+### 使用 TwilightMenu++
+**要求：**
+* Nintendo 3DS、3DS LL/XL、2DS、New 3DS、New 3DS LL/XL 或 New 2DS LL/XL 主机
+* 系统上已经设置了 Luma3DS 自定义固件和 FBI。如果你之前按照指南在 Nintendo 3DS 上转储了 ROM，你可能已经完成了！
+* 容量至少为 2GB 的 SD 卡
+* 拥有 SD 卡读卡器或 USB SD 卡读卡器外设的计算机
 
-**Setup:**
-1. Insert your SD card from your 3DS (hacked with Luma3DS) into your computer
-2. Follow this guide to install TWiLightMenu on your 3DS using FBI. During the part where it asks you to drag over your .nds ROMS, drag your patched ROM .nds file you made earlier into the /roms/ folder.
-3. Continue following the instructions through to launching the game. Enjoy!
+**设置：**
+1. 将 3DS 中的 SD 卡（已通过 Luma3DS 破解）插入计算机
+2. 按照本指南使用 FBI 在 3DS 上安装 TWiLightMenu。当它要求你将 .nds ROM 复制到 SD 卡时，将你之前制作的打好补丁的 .nds ROM 文件复制到 /roms/ 文件夹中。
+3. 继续按照说明至启动游戏。享受游戏吧！
 
-### Using a flash cartridge
-**Requirements:**
-* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+### 使用烧录卡
+**要求：**
+* Nintendo 3DS、3DS LL/XL、2DS、New 3DS、New 3DS LL/XL 或 New 2DS LL/XL 主机
+* 烧录卡（例如 R4 卡。此外，可能还需要 SD 卡或 microSD 卡来加载内容）
 
-**Setup:**
-1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct adapter if required).
-2. Drag over the patched ROM file you previously created into the correct directory on the flash cart's storage.
-3. Disconnect the flash cartridge and insert it into your Nintendo 3DS. Fire up the game and enjoy!
+**设置：**
+1. 将 SD 卡从烧录卡中取出并插入计算机（如果需要，也可以通过正确的数据线连接）
+2. 将之前创建的打好补丁的 .nds ROM 文件复制到 SD 卡中正确的目录里。
+3. 移除 SD 卡并插回到烧录卡中，将其插入你的 Nintendo 3DS 中。启动游戏并享受吧！
 
 </div>
 
 <div class="platform-filtered platform-模拟器">
 
-## Play on Emulators
+## 在模拟器上游玩
 
 **请选择你想要使用的模拟器类型：**
 ::guide-platform-filter
@@ -117,68 +117,66 @@ filterSuffix: 'emulator'
 
 <div class="platform-filtered platform-电脑模拟器">
 
-### Emulate on Windows, macOS, or Linux
-There are a few options for PC DS emulators, but the one we recommend is melonDS for its emulation accuracy and performance.
+### 在 Windows、macOS 或 Linux 上模拟
+电脑上的 DS 模拟器有几个可选项，但我们推荐 melonDS，因为它的模拟精度和性能较好。
 
-#### melonDS setup
-**Requirements:**
-* Windows, macOS or Linux computer
+#### melonDS 设置
+**要求：**
+* Windows、macOS 或 Linux 电脑
 
-**Setup:**
+**设置：**
 
-Simply [download melonDS](https://melonds.kuribo64.net/downloads.php) (**v0.9.4+**) from the project website for your platform (Windows, macOS, Linux) and save it somewhere easily accessible to your computer.
+只需在项目网站下载对应你的平台（Windows、macOS 或 Linux）的 [melonDS](https://melonds.kuribo64.net/downloads.php)（**v0.9.4+**），并将其保存在电脑易于访问的位置。（如果你需要汉化版，请点击[这里](https://github.com/Wokann/melonDS_CHN)）
 
-**Playing the game:**
+**游玩游戏：**
 
-With melonDS setup, all you need to do in order to play the game is select "File"  "Open ROM" in the top menu bar and choose the ROM file you patched earlier.
+在 melonDS 设置完成后，只需在顶部菜单栏中选择“File”（文件）→“Open ROM”（打开 ROM），然后选择之前打好补丁的 ROM 文件即可玩游戏。
 
-melonDS has a number of advanced features, such as configuring controllers and tweaking display settings. You can check out the [melonDS Website](https://melonds.kuribo64.net/) for more information.
+melonDS 具有许多高级功能，例如配置手柄和调整显示设置。你可以查看 [melonDS 的网站](https://melonds.kuribo64.net/)了解更多信息。
 
-#### Other PC emulators
-* [DeSmuME](https://desmume.org/)－Not recommended due to detrimental graphical and sound emulation issues (the latter of which particularly affects cutscenes).
-* [No$GBA](https://www.nogba.com/)－Not recommended due to severe general emulation accuracy issues. It's also infrequently updated and not very user-friendly.
+#### 其他电脑模拟器
+* [DeSmuME](https://desmume.org/)——由于有害的图形和声音模拟问题（后者特别影响过场动画），不推荐使用。
+* [No$GBA](https://www.nogba.com/)——由于严重的常见的模拟精度问题，不建议使用。它也很少更新，对用户也不太友好。
 
 </div>
 
 <div class="platform-filtered platform-手机模拟器">
 
-### Emulate on mobile devices
+### 在移动设备上模拟
 
-#### Emulate on iOS / iPadOS / tvOS
-*Note: You may experience issues with sound emulation on iOS as RetroArch primarily supports DeSmuME for DS emulation and the MelonDS core is not yet stable enough to use.*
+#### 在 iOS / iPadOS / tvOS 上模拟
+*注意：你可能会在 iOS 上遇到声音模拟问题，因为 RetroArch 主要支持用于 DS 模拟的 DeSmuME，而 melonDS 核心还不够稳定，无法使用。*
 
-The best option for emulating on iOS and Apple TV devices is using RetroArch using the DeSmuME emulation core. You don't need a jailbroken device to run RetroArch (although it is easier if you have one)
+在 iOS 和 Apple TV 设备上进行模拟的最佳选择是使用带有 DeSmuME 模拟核心的 RetroArch。你不需要越狱设备来运行 RetroArch（尽管如果你有越狱设备会更容易）。
 
-Simply [download melonDS](https://melonds.kuribo64.net/downloads.php)
-(**v0.9.4+**) from the project website for your platform (Windows, macOS, Linux)
-and save it somewhere easily accessible to your computer.
+有两种方法可以做到这一点。建议使用第一种方法，并使用 Cydia Impactor 将 RetroArch IPA 传输到你的 macOS 设备。对于拥有能够运行 XCode 的现代 Mac 的用户来说，还有一种替代方法，包括使用 XCode 构建 RetroArch 并将其加载到你的设备上，尽管这有点复杂。
 
-**Requirements:**
-* iOS / iPadOS Device (iPhone, iPad, iPod Touch)
-* iTunes installed on a PC/Mac OR A Mac capable of running XCode
+**要求：**
+* iOS / iPadOS设备（iPhone、iPad、iPod Touch）
+* 已安装在 PC / Mac 上的 iTunes，或一台能够运行 XCode 的 Mac
 
-**Recommended method: Install RetroArch through Cydia Impactor**
-1. Follow the steps listed in [this guide](https://docs.libretro.com/guides/install-ios/) to install the RetroArch on your non-Jailbreak iOS device through Cydia Impactor.
-2. Follow the guide's instructions on performing a ["Content transfer via iTunes"](https://docs.libretro.com/guides/install-ios/?device=emu#content-transfer-via-itunes) to transfer your patched ROM to the RetroArch content folder
+**推荐方法：通过 Cydia Impactor 安装 RetroArch**
+1. 遵循[本指南](https://docs.libretro.com/guides/install-ios/)中列出的步骤，通过 Cydia Impactor 在你的非越狱 iOS 设备上安装 RetroArch。
+2. 按照指南中的说明，执行“[Content transfer via iTunes](https://docs.libretro.com/guides/install-ios/?device=emu#content-transfer-via-itunes)”（通过 iTunes 传输内容），将已打补丁的 ROM 传输到 RetroArch 内容文件夹。
 
-**Mac Only Method: Install RetroArch by compiling it with XCode**
-1. Follow the steps listed in [this guide](https://docs.libretro.com/guides/build-ios/) to install XCode on your Mac, clone RetroArch from source and build it, then transfer it to your device.
-2. Transfer the patched ROM over to your device using a third party tool such as iFunBox or iExplorer. If you're running on an Apple TV, you'll be given a Web URL you can access locally to transfer ROMs to the emulator directly.
+**仅限 Mac 的方法：通过 XCode 编译 RetroArch 来安装它**
+1.遵循[本指南](https://docs.libretro.com/guides/build-ios/)中列出的步骤，在 Mac 上安装 XCode，从源代码克隆 RetroArch 并构建它，然后将其传输到你的设备。
+2. 使用 iFunBox 或 iExplorer 等第三方工具将打好补丁的 ROM 转移到你的设备上。如果你在 Apple TV 上运行，你会得到一个 Web URL，可以在本地访问，直接将 ROM 传输到模拟器。
 
-#### Emulate on Android
-The best DS emulator on Android is [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic), which has a great interface and is simple to install, but it costs $4.99. [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) is a free alternative, although it comes with the caveat of the DS emulation being based on DeSmuME, which has a number of emulation issues with this game.
+#### 在 Android 上模拟
+Android 上最好的 DS 模拟器是 [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic)，它有一个很棒的界面，安装简单，但价格为 4.99 美元 / 38 港币 / 160 新台币 / 6.99 新加坡元。[RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) 是一个免费的替代方案，尽管它附带的 DS 模拟内核是基于 DeSmuME 的，对本游戏来说存在许多模拟问题。
 
-**Requirements:**
-* Android Device with the Google Play store
-* Drastic ($4.99) or RetroArch (free)
+**要求：**
+* 带有 Google Play 商店的 Android 设备
+* Drastic（4.99 美元）或 RetroArch（免费）
 
-**Play using DraStic Emulator**
+**使用 DraStic 模拟器游玩**
 
-Download [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic) off the Google Play Store and transfer the patched ROM file over to it via the Android file picker.
+在 Google Play 商店下载 [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic)，并通过 Android 文件管理器将已打补丁的 ROM 文件传输给它。
 
-**Play using RetroArch Emulator**
+**使用 RetroArch 模拟器游玩**
 
-Download [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) off the Google Play Store and transfer the patched ROM file over to it via the Android file picker.
+在 Google Play 商店下载 [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch)，并通过 Android 文件管理器将已打补丁的 ROM 文件传输给它。
 
 </div>
 
