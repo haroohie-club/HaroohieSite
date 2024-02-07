@@ -160,7 +160,7 @@ melonDS 具有许多高级功能，例如配置手柄和调整显示设置。你
 2. 按照指南中的说明，执行“[Content transfer via iTunes](https://docs.libretro.com/guides/install-ios/?device=emu#content-transfer-via-itunes)”（通过 iTunes 传输内容），将已打补丁的 ROM 传输到 RetroArch 内容文件夹。
 
 **仅限 Mac 的方法：通过 XCode 编译 RetroArch 来安装它**
-1.遵循[本指南](https://docs.libretro.com/guides/build-ios/)中列出的步骤，在 Mac 上安装 XCode，从源代码克隆 RetroArch 并构建它，然后将其传输到你的设备。
+1. 遵循[本指南](https://docs.libretro.com/guides/build-ios/)中列出的步骤，在 Mac 上安装 XCode，从源代码克隆 RetroArch 并构建它，然后将其传输到你的设备。
 2. 使用 iFunBox 或 iExplorer 等第三方工具将打好补丁的 ROM 转移到你的设备上。如果你在 Apple TV 上运行，你会得到一个 Web URL，可以在本地访问，直接将 ROM 传输到模拟器。
 
 #### 在 Android 上模拟
@@ -182,45 +182,45 @@ Android 上最好的 DS 模拟器是 [DraStic](https://play.google.com/store/app
 
 <div class="platform-filtered platform-wii_u_virtual_console">
 
-### Emulate on Wii U by injecting the Virtual Console
-If you own a Wii U console, Nintendo's official Virtual Console DS emulator provides accurate emulation, complemented nicely by the Wii U Gamepad, which works great with the touchscreen used frequently in this game.
+### 通过注入 Virtual Console 在 Wii U 上进行模拟
+如果你拥有一台 Wii U 游戏机，任天堂的官方 Vitrual Console DS 模拟器可以提供准确的模拟，Wii U Gamepad 也很好地补充了这一点，它与本游戏中经常使用的触摸屏配合得很好。
 
-To do this, you'll need to homebrew your Wii U, use UWUVCI to convert the ROM into a WUP (Wii U title) and then install it to your system using WUP Installer GX2.
+要做到这一点，你需要破解你的 Wii U，使用 UWUVCI 将 ROM 转换为 WUP（Wii U 游戏），然后使用 WUP Installer GX2 将其安装到你的系统中。
 
-**Requirements:**
-* Wii U system with internet access
-* SD card with at least 4GB capacity
-* Windows PC to run UWUVCI
+**要求：**
+* Wii U 系统，可上网
+* 至少 4GB 容量的 SD 卡
+* 运行 UWUVCI 的 Windows 电脑
 
-#### Part 1 - Homebrew your Wii U
-1. Follow the steps [on this guide](https://wiiu.hacks.guide/) to install a CFW (Custom Firmware) Wrapper, Tiramisu, onto your system from your SD card via an exploit in the Internet Browser.
-2. Continue [following the steps](https://wiiu.hacks.guide/#/tiramisu/finalizing-setup?id=additional-homebrew-apps) to install the Homebrew App Store to your system.
-3. Boot into the Homebrew App Store through Tiramisu by launching into Tiramisu on the Health & Safety screen of your console when powering it on.
-4. On the Homebrew App Store, navigate to or search for WUP Installer GX2 (it should be near the top). Download and install it to your system, following the on-screen instructions.
-5. Once successfully installed, power off your Wii U system and remove the SD card. Re-insert it into your computer.
+#### 第 1 部分：破解你的 Wii U
+1. 遵循[本指南中](https://wiiu.hacks.guide/) 的步骤，通过互联网浏览器中的漏洞，从 SD 卡将 CFW（自定义固件）包 Tiramisu 安装到你的系统上。
+2. 继续[按照步骤](https://wiiu.hacks.guide/#/zh_CN/tiramisu/finalizing-setup?id=additional-homebrew-apps)将 Homebre App Store 安装到你的系统上。
+3. 开机，当主机显示健康与安全屏幕时启动 Tiramisu，然后通过 Tiramisu 启动 Homebrew App Store。
+4. 在 Homebrew App Store 上，导航到或搜索 WUP Installer GX2（它应该在顶部附近）。按照屏幕上的说明下载并将其安装到你的系统上。
+5. 成功安装后，关闭 Wii U 系统电源并取出 SD 卡。将其重新插入电脑。
 
-#### Part 2 - Make ROM into WUP with UWUVCI
-1. Ensure your SD Card is back inserted into your computer
-2. On your PC, download and install the latest release of [UWUVCI](https://github.com/stuff-by-3-random-dudes/UWUVCI-AIO-WPF/releases/). If you are prompted by Microsoft Defender/Windows StartScreen, click "More Details" and "Run Anyway". The program may take some time to download tools and data.
-3. When the program loads up, select the DS icon on the left-hand side of the screen.
-4. Select the following options:
-    - On the "Base ROM" dropdown, choose "Mario Kart DS (US)" or "Mario Kart DS (EU)" (depending on your region; if you aren't in the US or EU, just pick either one, it doesn't really matter)
-    - Click the "Enter CKey" button. Click "Read from otp.bin" and select the otp.bin file on your SD card that you created earlier when installing the Custom Firmware as part of the NAND Dump process. If you don't have this for whatever reason, you'll need to find the Wii U common key and write it in manually instead.
-    - Click on the "Enter TKey" button. You will now need to insert the title key for Mario Kart DS for the region you selected. There's no easy way of getting this other than by looking it up online. Make sure you enter the key for the Mario Kart DS region you selected.
-    - Click "Choose File" next to "ROM PATH" and choose the patched *The Series of Haruhi Suzumiya* ROM file
-    - On the "Icon Image" box, click "Create File". Download [this image](/images/chokuretsu/virtual-console-icon.png) (or use your own) and choose it under "Select File". Feel free to customise the appearance, this is the icon that will appear on your Wii U system menu. Then, click "Finish"
-    - On the "TV Image" box, click "Create File", enter the name of the game on the two lines ("The Series of Haruhi", "Suzumiya"), the release year (2009) and the number of players (1). Then select the same file for the icon image (or choose your own!). Then, click "Finish".
-    - Enter in the "Game Name" box: `The Series of|Haruhi Suzumiya`
-    - You can also optionally choose some other pieces of art that will appear on your Wii U menu when launching the game, such as a splash image and boot sound.
-5. When you're done, click "Inject". Your ROM will be injected into a Wii U WUP title.
-6. Once done, click "WUP Installable". Wait for it to pack the WUP into the format, then click "Copy to SD". Your WUP file will be copied to the correct directory on your Wii U, so you can add it to your system using WUP Installer GX2.
-7. Remove your SD card from your computer and put it back into your Wii U.
+#### 第 2 部分：使用 UWUVCI 将 ROM 制作成 WUP
+1. 确保你的 SD 卡已重新插入电脑
+2. 在你的电脑上，下载并安装最新版本的 [UUVCI](https://github.com/stuff-by-3-random-dudes/UWUVCI-AIO-WPF/releases/)。如果 Microsoft Defender / Windows StartScreen 显示提示，请点击“更多详细信息”和“无论如何运行”。该程序可能需要一些时间来下载工具和数据。
+3. 当程序加载时，选择屏幕左侧的 DS 图标。
+4. 选择以下选项：
+    - 在“Base ROM”（基本 ROM）下拉列表中，选择“Mario Kart DS (US)”（马力欧卡丁车 DS 美版）或“Mario Kart DS (EU)”（马力欧卡丁车 DS 欧版）（取决于主机所在的区域；如果区域不是美国或欧洲，只需选择其中一个，这并不重要）。
+    - 点击“Enter CKey”（输入 CKey）按钮。单击“Read from otp.bin”（从otp.bin读取），然后选择 SD 卡上的 otp.bin 文件，该文件是安装自定义固件时作为 NAND 转储过程的一部分创建的。如果你因为某些原因没有这个文件，你需要找到 Wii U 通用密钥，然后手动写入。
+    - 点击“Enter TKey”（输入 TKey）按钮。现在，你需要输入你选择的区域的《马力欧卡丁车 DS》的 title key。除了在网上查找外，没有什么简单的方法可以得到它。请确保输入了所选区域的《马力欧卡丁车 DS》的 title key。
+    - 点击“ROM PATH”（ROM 路径）旁边的“Choose File”（选择文件），然后选择已打补丁的《凉宫春日的串联》ROM 文件。
+    - 在“Icon Image”（图标图像）框中，点击“Create File”（创建文件）。下载[此图像](/images/chokurestu/virtual-console-icon.png)（或使用你自制的），并通过“Select File”（选择文件）选择它。请随意定制外观，这是将出现在 Wii U 系统菜单上的图标。然后，点击“Finish”（完成）。
+    - 在“TV Image”（电视图像）框中，点击“Create File”（创建文件），输入游戏名称（“凉宫春日的串联”）、发布年份（2009 年）和玩家数量（1）。然后为图标图像选择相同的文件（或者选择你自己的！）。然后，点击“Finish”（完成）。
+    - 在“Game Name”（游戏名称）框中输入：`凉宫春日的串联`
+    - 你还可以向启动游戏时出现在 Wii U 菜单上的界面添加其他一些艺术作品，例如启动图像和启动声音。
+5. 完成后，点击“Inject”（注入）。你的 ROM 将被注入到 Wii U WUP 游戏中。
+6. 完成后，点击“WUP Installable”（WUP 可安装）。等待它打包为 WUP 格式，然后点击“Copy to SD”（复制到 SD 卡）。你的 WUP 文件将被复制到 Wii U 上正确的目录中，因此你可以使用 WUP Installer GX2 将其添加到系统中。
+7. 从电脑中取出 SD 卡，然后将其放回 Wii U 中。
 
-#### Part 3 - Install WUP with WUP Installer GX2
-1. Power on your Wii U with the SD card re-inserted.
-2. Launch WUP Installer GX2 you previously installed through Tiramisu
-3. Select the WUP title you created and proceed through WUP Installer GX's on-screen instructions to install the title to your system menu. You can also optionally install WUP Installer GX to your Wii U menu here, too.
-4. When the installation has completed, you can launch the game from your system menu.
+#### 第 3 部分：使用 WUP Installer GX2 安装 WUP
+1. 重新插入 SD 卡，打开 Wii U 电源。
+2. 启动之前通过 Tiramisu 安装的 WUP Installer GX2。
+3. 选择你创建的 WUP 游戏，然后继续执行 WUP Installer GX2 的屏幕说明，将游戏安装到系统菜单中。你也可以选择在 Wii U 菜单中安装 WUP Installer GX2。
+4 .安装完成后，你可以从系统菜单启动游戏。
 
 </div>
 

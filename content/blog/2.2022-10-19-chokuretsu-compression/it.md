@@ -87,7 +87,7 @@ Voilà, abbiamo raggiunto il nostro breakpoint. Il gioco legge da 0x223433C all'
 
 Quindi in IDA, utilizziamo il plugin del caricatore di NDS per disassemblare la ROM di Chokuretsu in modo da vedere il codice assembly (spesso riferito come "disassembly") più facilmente. IDA fa qualcosa di abbastanza utile, ossia dividere il codice in subroutine (dette anche "funzioni"), che rende più facile vedere dove il codice inizia e finisce.
 
-!|IDA con 0202628C evidenziato per mostrare l'istruzione che abbiamo trovato prima.|(/images/blog/0002/09_ida_find.png)
+![IDA con 0202628C evidenziato per mostrare l'istruzione che abbiamo trovato prima.](/images/blog/0002/09_ida_find.png)
 
 Quindi andiamo nell'indirizzo che abbiamo trovato…
 
@@ -111,7 +111,7 @@ Per farlo, dobbiamo prima capire cos'è l'assembly: assembly è un linguaggio a 
 
 Per operare sui valori in assembly, devono prima essere caricati in un _registro_. I registi possono essere visti come "le variabili della CPU" e sono numerati come R0, R1, R2, ecc. Il DS ne ha 15. I valori sono caricati nei registri dalla _memoria_ (detta anche _RAM_), che ha uno spazio largo di binari accessibili che possono essere richiamati dalla CPU velocemente.
 
-Il codice in assembly varia di piattaforma in piattaforma -- più nello specifico, varia in base all'_architettura_ (che può essere vista come la famiglia o il tipo) del microchip. Il DS utilizza l'assembly ARM per il suo eseguibile principale, che è abbastanza comune e ben documentato. Il modo in cui io imparai assembly ARM fu provare a fare il debug dei codici per il Nintendo DS mentre cercavo su un'altra finestra quello che ogni istruzione faceva. Se vuoi dei buoni punti di riferimento per ARM, la |documentazione officiale|(https://developer.arm.com/documentation/dui0068/b/ARM-Instruction-Reference) è molto istruttiva, tutta trovo che cercare su Google "ARM \|istruzione che voglio capire meglio\|" funzionare a meraviglia.
+Il codice in assembly varia di piattaforma in piattaforma -- più nello specifico, varia in base all'_architettura_ (che può essere vista come la famiglia o il tipo) del microchip. Il DS utilizza l'assembly ARM per il suo eseguibile principale, che è abbastanza comune e ben documentato. Il modo in cui io imparai assembly ARM fu provare a fare il debug dei codici per il Nintendo DS mentre cercavo su un'altra finestra quello che ogni istruzione faceva. Se vuoi dei buoni punti di riferimento per ARM, la [documentazione officiale](https://developer.arm.com/documentation/dui0068/b/ARM-Instruction-Reference) è molto istruttiva, tutta trovo che cercare su Google "ARM \[istruzione che voglio capire meglio\]" funzionare a meraviglia.
 
 ### Nel Dettaglio
 

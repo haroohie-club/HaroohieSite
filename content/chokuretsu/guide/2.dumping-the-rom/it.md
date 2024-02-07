@@ -32,12 +32,12 @@ Per il primo metodo avremmo bisogno di una connessione ad internet (trasferiremo
   - Molti computer di oggi non possono fare queste cose.
   - Vi consigliamo un sistema che supporti Android (i dispositivi Apple e Microsoft, non posseggono questa caratteristica).
 * Un computer per poter [scaricare wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/) e che sia collegato allo stesso hotspot
-* Una copia di qualsiasi gioco per DS che possegga servizi ad internet. Ignorate che il servizio sia morto da diverso tempo. Purtroppo, *Suzumiya Haruhi no Chokuretsu* non supporta i servizi in rete.
+* Una copia di qualsiasi gioco per DS che possa collegarsi ad internet. Ignorate che il servizio sia morto da diverso tempo. Purtroppo, *Suzumiya Haruhi no Chokuretsu* non supporta i servizi in rete.
 
 **Procedimento:**
 1. Utilizza il tuo telefono, tablet o altri dispositivi per creare un segnale Wireless non protetto (senza Password) o con modulo WEP. (Deve essere per forza WEP, altre estensioni non sono supportare dal Nintendo DS).
 2. Sul tuo computer, [scarica wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/). Poi, collega il computer allo stesso hotspot del telefono.
-3. Installa wooddumper.nds (ignora la versione slot 2) sulla scheda SD della tua flash cart.
+3. Installa wooddumper.nds (ignora la versione slot 2) sulla scheda SD della tua flashcard.
 4. Accendi ed inserisci il gioco che può collegarsi ad internet sul Nintendo DS, in modo da impostare una connessione ad internet, e collegati allo stesso hotspot.
 5. Esci dal gioco e rimuovi la scheda DS. Ora, inserisci la flash cart e fai partire wooddumper.
 6. Segui le istruzioni a schermo ed inserisci la scheda di *Suzumiya Haruhi no Chokuretsu*. Prosegui fino a quando non vedrai il tuo indirizzo IP per collegarsi al client FTP.
@@ -66,11 +66,11 @@ Per il primo metodo avremmo bisogno di una connessione ad internet (trasferiremo
 
 <div class="platform-filtered platform-nintendo_dsi">
 
-### Estrapolare con un Nintendo DSi
+### Estrarre con un Nintendo DSi
 
-Per scaricare i dati di gioco con un DSi, dovrai scaricare un custom firmware chiamato "Twilight Menù++" e Unlaunch, per far partire un'altra applicazione chiamata GodMode9i, che ti permetterà di scaricare la ROM del gioco.
+Per scaricare i dati di gioco con un DSi, dovrai scaricare un custom firmware chiamato "Twilight Menu++" e Unlaunch, per far partire un'altra applicazione chiamata GodMode9i, che ti permetterà di scaricare la ROM del gioco.
 
-**Occorrente:**
+**Requisiti:**
 * Un sistema Nintendo DSi oppure DSi XL
 * Una copia di *Suzumiya Haruhi no Chokuretsu*
 * Una scheda SD da almeno 2 GB di memoria
@@ -80,15 +80,15 @@ Per scaricare i dati di gioco con un DSi, dovrai scaricare un custom firmware ch
 ::guide-notice
 Segui questi consigli per evitare di danneggiare il tuo sistema.
 ::
-1. Segui [la guida su dsi.cwf.guide ](https://dsi.cfw.guide/launching-the-exploit.html) per installare Twilight Menu++ e Unlaunch.
+1. Segui [la guida su dsi.cwf.guide](https://dsi.cfw.guide/launching-the-exploit.html) per installare Twilight Menu++ e Unlaunch.
 2. [Scarica GodMode9i](https://github.com/DS-Homebrew/GodMode9i/releases) ed estrai i file.
 3. Rimuovi la scheda SD dalla console ed inseriscila nel computer.
 4. Metti il file GodMode9i.nds dove più ti aggrada sulla scheda SD.
 5. Re-inserisci la scheda SD nel DSi.
-6. Inserisci la cartuccia di *Suzumiya Haruhi no Chokuretsu* nel vano cartuccia.
-7. Avvia Twilight Menu++ e fai partire GodMode9i.
+6. Inserisci la scheda di *Suzumiya Haruhi no Chokuretsu* nello slot della scheda DS.
+7. Avvia  Twilight Menu++ e fai partire GodMode9i.
 8. Scegli l'opzione "NDS GAMECARD".
-9. Pigia il pulsante A su "Yes" per scaricare i dati dalla cartuccia.
+9. Premi il pulsante A su "Yes" per scaricare i dati dalla scheda DS.
 10. Una volta terminato, spegni il dispositivo e rimuovi, ancora una volta, la scheda SD dalla console.
 11. Inserisci la scheda SD nel computer. Raggiungi SD_CARD_ROOT/gm9i/out e sposta il file sul tuo PC.
 
@@ -97,29 +97,29 @@ Segui questi consigli per evitare di danneggiare il tuo sistema.
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-### Estrapolare dati con un Nintendo 3DS
+### Estrarre con un Nintendo 3DS
 
-Per ricavare i dati di gioco con un 3DS o 2DS, devi prima installare un custom firmware, (come Luma 3DS e Bootstrap), per poter avviare GodMode9, che ti permetterà di arguire la ROM di gioco.
+Per ricavare i dati di gioco con un 3DS o 2DS, devi prima installare un custom firmware, (come Luma 3DS e Bootstrap), per poter avviare GodMode9, che ti permetterà di ottenere la ROM di gioco.
 
 **Occorrente:**
-* Un sistema della famiglia 3DS o 2DS
-* *Suzumiya Haruhi no Chokuretsu*
+* Un sistema della famiglia 3DS e 2DS
+* Una copia di *Suzumiya Haruhi no Chokuretsu*
 * Una scheda SD con almeno 2GB di memoria
-* Un computer con un lettore scheda SD od un adattatore USB che possa leggere schede SD 
-  * Potrebbe servirti una scheda di gioco DS o DSi compatibile.
+* Un computer con un lettore scheda SD o un adattatore USB che possa leggere schede SD 
+  * Potrebbe servirti una scheda di gioco compatibile con DS o DSi.
 
 **Procedimento:**
 ::guide-notice
 Segui questi consigli per evitare di danneggiare la tua console.
 ::
 * Segui [la guida su 3ds.hacks.guide](https://3ds.hacks.guide/get-started) per installare Luma3DS e Bootstrap9 sul tuo 3DS.
-* Continua [la guida fino ad installare GodMode9](https://3ds.hacks.guide/finalizing-setup) e tanti altri prerequisiti da seguire.
+* Continua [la guida fino ad installare GodMode9](https://3ds.hacks.guide/finalizing-setup) e tanti altri pre-requisiti da seguire.
 * Spegni la console.
-* Iserisci *Suzumiya Haruhi no Chokuretsu* nel vano cartuccia.
+* Iserisci *Suzumiya Haruhi no Chokuretsu* nello slot della scheda DS.
 * Accendi la console tenendo premuto il tasto "Power" assieme al tasto "START", per avviare GodMode9. Se non funziona, spegni il dispositivo e riprova.
 * Utilizza la croce direzionale e raggiungi `[C:] GAMECART`
 * Premi A sulla dicitura `[TitleID].nds`, se già evidenziato, scegli come estrapolare i dati e pigia di nuovo A.
-* Scegli `Copy to 0:/gm9/out` sullo schermo inferiore per copiare i dati della cartuccia.
+* Scegli `Copy to 0:/gm9/out` sullo schermo inferiore per copiare i dati della scheda DS.
 * Una volta finito, spegni la console e rimuovi la scheda SD.
 * Inserisci la scheda SD (nel vano o nell'adattatore), raggiungi gm9/out sulla scheda SD e copia il file `.nds` sul tuo computer.
 
@@ -131,4 +131,4 @@ Segui questi consigli per evitare di danneggiare la tua console.
 ## Prima di iniziare
 Ora hai scaricato i dati del gioco per patcharli. Mettili da qualche parte sul tuo PC.
 
-*Si ringrazia [dumping.guide](https://dumping.guide/carts/nintendo/ds), [dsi.cfw.guide](https://dsi.cfw.guide/) & [3ds.hacks.guide](https://3ds.hacks.guide/) per averci fornito quest guide.*
+*Si ringrazia [dumping.guide](https://dumping.guide/carts/nintendo/ds), [dsi.cfw.guide](https://dsi.cfw.guide/) & [3ds.hacks.guide](https://3ds.hacks.guide/) per averci fornito queste guide.*

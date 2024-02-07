@@ -1,6 +1,6 @@
 ---
-title: &title 'Chokuretsu ROM Hacking Challenges Part 1 – Cracking a Compression Algorithm!'
-description: &desc 'Jonko delves into how the Shade compression algorithm was reverse engineered to hack Suzumiya Haruhi no Chokuretsu.'
+title: &title '《串联》ROM 破解挑战第 1 部分：破解压缩算法！'
+description: &desc 'Jonko 深入研究了 Shade 的压缩算法是如何被逆向工程，然后用来破解《凉宫春日的串联》的。'
 locale: 'zh-hans'
 navigation:
   author: 'Jonko'
@@ -35,40 +35,34 @@ head:
     value: 'summary_large_image'
 ---
 
-Howdy folks! This is the first in a series of blog posts that will delve into the technical challenges involved in translating Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya). These blogs do get quite technical and include things like code samples, but are written to be intelligible to a general audience. If you have any questions or comments, feel free to [tweet at us](https://twitter.com/haroohie)!
+大家好！这是一系列博客文章中的第一篇，这些文章将深入探讨翻译《凉宫春日的串联》（涼宮ハルヒの直列）所涉及的技术挑战。这些博客确实很有技术性，包括代码示例等内容，但它们的编写是为了让普通读者能够理解。如果你有任何问题或评论，请随时[向我们转推](https://twitter.com/haroohie)！
 
-![Cerber's DS with Haruhi saying "Today is the" in full-width
-characters](/images/blog/0002/01_cerber_ds.png)
+整个项目始于在 GBATemp 论坛上的[两篇](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-from-japanese-to-english-and-russian-translation-idea.601434/)[帖子](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-translation-success-need-advice.601559/)，一位名叫 Cerber 的用户（现在他是我们的图形设计师之一！）请求帮助翻译一款衍生自凉宫春日系列的鲜为人知的 DS 游戏。他在游戏中找到脚本并将其替换为英文字符方面取得了一些进展，但在能够完全重新插入文本方面遇到了困难。
 
-![Cerber's DS with Haruhi saying "Today is the" in full-width characters](/images/blog/0002/01_cerber_ds.png)
+![Cerber 的 DS，上面显示着春日正在以全角字符说“Today is the”](/images/blog/0002/01_cerber_ds.png)
 
-What Cerber was doing precisely was opening up the ROM in a hex editor (a tool for modifying binary files directly where each byte is represented as a hexadecimal number) and searching for the text he was seeing in-game. He was able to find the script, but the issue he was having was dealing with what he called “game code” that surrounded the text he was trying to replace – modifying the sections he marked in red broke the game entirely.
+Cerber 所做的正是在十六进制编辑器（一种直接修改二进制文件的工具，其中每个字节都表示为十六进制数）中打开 ROM，并搜索他在游戏中看到的文本。他能够找到脚本，但他遇到的问题是如何处理他所谓的“游戏代码”，该代码围绕着他试图替换的文本——修改用红色标记的部分会让游戏彻底崩溃。
 
-![A  hex editor with the previous "Today is the" visible while the rest of the file is highlighted in red](/images/blog/0002/02_cerber_hex.png)
+![一个十六进制编辑器，显示着上文的“Today is the”，而文件的其它部分被以红色高亮](/images/blog/0002/02_cerber_hex.png)
 
-A quick explanation of what we’re seeing here: on the left, we have the raw binary in the file, represented as a series of bytes in hexadecimal. Hexadecimal is also called base 16 – while we normally use decimal (base 10 – i.e. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) and computers use binary (base 2 – i.e. 0, 1), programmers often use hexadecimal because it allows us to represent a single byte in two characters. When writing numbers, to distinguish the base we often use 0x as a prefix for hex numbers (0x17 is 23 in decimal) and 0b to represent binary numbers (0b0000_0100 is 4 in decimal).
+快速解释一下我们在这里看到的内容：在左侧是文件中的原始二进制，用十六进制表示为一系列字节。十六进制（基数为 16）——虽然我们通常使用十进制（基数为 10，即 0、1、2、3、4、5、6、7、8、9），计算机使用二进制（基数为 2，即 0、1），但程序员通常使用十六进制，因为它允许我们用两个字符表示单个字节。在写入数字时，为了区分基数，我们通常使用 0x 作为十六进制数的前缀（0x17 在十进制中是 23），使用 0b 表示二进制数（0b0000_0100 在十进制下是 4）。
 
-![A hex editor with the previous "Today is the" visible while the rest of the
-file is highlighted in red](/images/blog/0002/02_cerber_hex.png)
+右侧的字符表示我们在左侧看到字节，通过*编码*来解释。你可能熟悉 ASCII，这是最基本的编码——字母表中的每个字母都由单个字节表示。该游戏使用名为 Shift-JIS 的编码，这是 Unicode 出现之前日语的表示方式。
 
-Drawing on my past experience, I did some investigation and then posted a perhaps less-than-hinged reply:
+根据我过去的经验，我做了一些调查，然后发布了一个可能不太可靠的回复：
 
-![A forum post from Jonko posted on October 23, 2021. The text of the post is included in a block quote below."](/images/blog/0002/03_jonko_hinged.png)
+![Jonko 于 2021 年 10 月 23 日发布的一篇论坛帖子。帖子的内容参见下文的引文。](/images/blog/0002/03_jonko_hinged.png)
 
-> Hi! So that's not game code surrounding it; that's more data for this scene. I don't know what all of it does yet, but I can tell you that this entire chunk is compressed and that the decompression subroutine lives at 0x2026190. You'll have to decompress it before you can begin editing it and once it's decompressed we'll have a better idea of what all the parts do which will give us a leg up on editing it.
+> 你好！它附近的并不是游戏代码；而是这个场景的更多数据。我还不知道这一切都有什么作用，但我可以告诉你的是，这整个块被压缩了，并且解压缩的子程序位于 0x2026190。你必须先解压缩它，然后才能开始编辑它，如果能够解压的话，我们可能会更加了解每部分是做什么的，这将使我们能够编辑它。
 > 
-> The other thing you'll need to be thinking about is a font-width hack (half-width or variable-width). There are multiple lines in the game that fill up the entire box and there's no way you're going to be able to fit that in there with full-width characters, so you'll want to investigate that, too.
+> 你需要考虑的另一件事是字体宽度的修改（半角或可变宽度）。游戏中有很多行填充了整个文本框，你不可能用全角字符把它塞进去，所以你也要调查一下这个。
 
-So let’s go through this point-by-point.
+让我们一点一点地讨论这个问题。
 
-## Compression
-How did I know that this section was compressed? Well, looking at his screenshot, we can clearly see that the in-game text is showing up in the hex editor (I’ve marked an example in yellow below), but some portions of the text are missing – for example, the “ハルヒの” bit that I’ve marked below is replaced by a shorter character sequence that I’ve highlighted in blue.
+## 压缩
+我怎么知道这个部分被压缩了？请看他的屏幕截图，我们可以清楚地看到游戏中的文本显示在十六进制编辑器中（我在下面用黄色标记了一个例子），但文本的某些部分缺失了——例如，我在下面标记的“ハルヒの”中的一位（bit）被较短字符序列（高亮为了蓝色）所取代。
 
-The characters on the right represent the bytes we’re seeing on the left
-interpreted through an _encoding_. You might be familiar with ASCII, the most
-basic of encodings – each letter in the alphabet is represented by a single
-byte. This game uses an encoding called Shift-JIS, which is how Japanese was
-represented prior to the advent of Unicode.
+![Side-by-side screenshots of Chokuretsu. The first corresponds to text highlighted in yellow showing that Haruhi's dialogue is present. The second highlights a section of the text in the ROM that is apparently misisng a portion of the in-game text.](/images/blog/0002/04_compression_evidence.png)
 
 This is a sign of what’s called _run-length encoding_ – a method for compressing a file that focuses on eliminating repetition. So okay, now we know it’s compressed – what do we do next? Well, we know our end goal: **we want to replace the text in the file with English-language text**. In order to do that, we will have to be able to decompress the text ourselves in order to edit the file. However, because the game expects the text to be compressed, we will also have to be able to recompress the file so we can reinsert it into the game. Well, let’s get started.
 
@@ -95,12 +89,7 @@ So in IDA, we use the NDS loader plugin to disassemble the Chokuretsu ROM so we 
 
 ![IDA with 0202628C highlighted to show the instruction we found previously.](/images/blog/0002/09_ida_find.png)
 
-## Compression
-How did I know that this section was compressed? Well, looking at his
-screenshot, we can clearly see that the in-game text is showing up in the hex
-editor (I’ve marked an example in yellow below), but some portions of the text
-are missing – for example, the “ハルヒの” bit that I’ve marked below is replaced by
-a shorter character sequence that I’ve highlighted in blue.
+So we go to the address we found…
 
 ![IDA with a subroutine we've renamed arc_decompress visible.](/images/blog/0002/10_ida_subroutine.png)
 
@@ -166,10 +155,9 @@ else
 }
 ```
 
-![IDA with 0202628C highlighted to show the instruction we found
-previously.](/images/blog/0002/09_ida_find.png)
+Pretty simple so far – we’re just checking if the first byte is zero.
 
-So we go to the address we found…
+#### Direct Write
 
 ```arm
 RAM:02026224                 TST     R3, #0x40
@@ -261,30 +249,14 @@ What’s more, the fact that we return to the top of the function each time impl
 
 The program we have written so far looks like this:
 
-* `LDRB R3, [R0], #1`{lang='arm'} – This loads the byte at the address contained
-  in R0 (which contains the current position in the file) into the register R3
-  and then increments R0 by one (meaning we move to the position of the next
-  byte in the file). Since we’re at the beginning of the file, this loads the
-  first byte in the file.
-* `CMP R3, #0`{lang='arm'} ; `BEQ loc_20262A0`{lang='arm'} – `BEQ`{lang='arm'}
-  means “branch if equal,” but really it just means “branch if the last
-  comparison is equal to zero.” Therefore, if that value we just loaded is zero,
-  we’re going to branch to the end of the subroutine. We can ignore this for
-  now.
-* `TST R3, #0x80`{lang='arm'} – `TST`{lang='arm'} performs a bitwise-and without
-  storing the result. A bitwise-and compares two bytes and gives a result where
-  each bit is 1 only if that bit is 1 in both of the two bytes it compares. In
-  the case where R3 is 0xAA, we end up with something like:
-```
-10101010 (0xAA)
-10000000 (0x80)
-_______
-10000000 (0x80)
-```
-So this `TST`{lang='arm'} followed by the `BEQ`{lang='arm'} is just checking
-whether the first bit is zero or not. If it is zero, we branch to 0x2026224.
-Let’s branch there now (I have knowledge you don’t so I know checking this
-branch is going to be simpler lol). But first, we’ll convert this into C#:
+```csharp
+for (int z = 0; z < compressedData.Length;)
+{
+    int blockByte = compressedData[z++];
+    if (blockByte == 0)
+    {
+        break;
+    }
 
     if ((blockByte & 0x80) == 0)
     {
@@ -315,10 +287,7 @@ So essentially, the decompression algorithm operates as follows: A “control by
 * Read a single byte and repeat it a certain number of times
 * Backreference to a particular location in the decompressed data and copy those bytes forward
 
-* `TST R3, #0x40`{lang='arm'} – This is now checking whether the second bit is
-  set. If it is, we’re going to jump to 0x2026268. We’ll get back to this
-  section in a sec, but first let’s jump there after we convert this bit to C#
-  as well:
+The full decompression implementation can be found [here](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Helpers.cs#L359-L446).
 
 And if we try decompressing a file…
 
