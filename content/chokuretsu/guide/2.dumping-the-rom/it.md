@@ -27,7 +27,7 @@ Per il primo metodo avremmo bisogno di una connessione ad internet (trasferiremo
 **Requisiti:**
 * Un sistema DS o DS Lite
 * Una copia di *Suzumiya Haruhi no Chokuretsu*
-* Una flash cart (Schede DS che possono caricare dati da una scheda SD o MicroSD, come una R4.)
+* Una flashcart (Schede DS che possono caricare dati da una scheda SD o MicroSD, come una R4.)
 * Uno smartphone o dispositivi simili che possano garantire una connessione internet efficace (tramite WEP-secured Hotspot)
   - Molti computer di oggi non possono fare queste cose.
   - Vi consigliamo un sistema che supporti Android (i dispositivi Apple e Microsoft, non posseggono questa caratteristica).
@@ -48,15 +48,15 @@ Per il primo metodo avremmo bisogno di una connessione ad internet (trasferiremo
 **Requisiti:**
 * Un sistema DS o DS Lite
 * Una copia di *Suzumiya Haruhi no Chokuretsu*
-* Una flash cart per lo slot 1 (quello sopra, come una R4).
-* Una flash cart per lo slot 2 (Quello per giochi GBA, che supporti la scheda nello slot 1, come E-link card).
+* Una flashcart per lo slot 1 (quello sopra, come una R4).
+* Una flashcart per lo slot 2 (Quello per giochi GBA, che supporti la scheda nello slot 1, come E-link card).
 * Una scheda SD o MicroSD
 * Un computer con il quale scaricare wooddumper
 
 **Procedimento:**
 1. [Scarica wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/) sul tuo computer.
 2. Installa wooddumper_slot2.nds sulla scheda SD o MicroSD.
-3. Inserisci entrambe le flash cart nella console.
+3. Inserisci entrambe le flashcart nella console.
 4. Avvia Wooddumper.
 5. Segui le istruzioni a schermo ed inserisci la scheda di *Suzumiya Haruhi no Chokuretsu* quando richiesto.
 6. Rimuovi la scheda flash dallo slot 2 ed inserisci la scheda SD nel tuo computer.
@@ -86,7 +86,7 @@ Segui questi consigli per evitare di danneggiare il tuo sistema.
 4. Metti il file GodMode9i.nds dove più ti aggrada sulla scheda SD.
 5. Re-inserisci la scheda SD nel DSi.
 6. Inserisci la scheda di *Suzumiya Haruhi no Chokuretsu* nello slot della scheda DS.
-7. Avvia  Twilight Menu++ e fai partire GodMode9i.
+7. Avvia Twilight Menu++ e fai partire GodMode9i.
 8. Scegli l'opzione "NDS GAMECARD".
 9. Premi il pulsante A su "Yes" per scaricare i dati dalla scheda DS.
 10. Una volta terminato, spegni il dispositivo e rimuovi, ancora una volta, la scheda SD dalla console.
@@ -102,11 +102,11 @@ Segui questi consigli per evitare di danneggiare il tuo sistema.
 Per ricavare i dati di gioco con un 3DS o 2DS, devi prima installare un custom firmware, (come Luma 3DS e Bootstrap), per poter avviare GodMode9, che ti permetterà di ottenere la ROM di gioco.
 
 **Occorrente:**
-* Un sistema della famiglia 3DS e 2DS
+* Un sistema della famiglia 3DS o 2DS
 * Una copia di *Suzumiya Haruhi no Chokuretsu*
 * Una scheda SD con almeno 2GB di memoria
-* Un computer con un lettore scheda SD o un adattatore USB che possa leggere schede SD 
-  * Potrebbe servirti una scheda di gioco compatibile con DS o DSi.
+* Un computer con un lettore scheda SD o un adattatore USB che possa leggere schede SD
+    * Potrebbe servirti una scheda di gioco compatibile con DS o DSi.
 
 **Procedimento:**
 ::guide-notice
@@ -115,7 +115,7 @@ Segui questi consigli per evitare di danneggiare la tua console.
 * Segui [la guida su 3ds.hacks.guide](https://3ds.hacks.guide/get-started) per installare Luma3DS e Bootstrap9 sul tuo 3DS.
 * Continua [la guida fino ad installare GodMode9](https://3ds.hacks.guide/finalizing-setup) e tanti altri pre-requisiti da seguire.
 * Spegni la console.
-* Iserisci *Suzumiya Haruhi no Chokuretsu* nello slot della scheda DS.
+* Inserisci *Suzumiya Haruhi no Chokuretsu* nello slot cartucce.
 * Accendi la console tenendo premuto il tasto "Power" assieme al tasto "START", per avviare GodMode9. Se non funziona, spegni il dispositivo e riprova.
 * Utilizza la croce direzionale e raggiungi `[C:] GAMECART`
 * Premi A sulla dicitura `[TitleID].nds`, se già evidenziato, scegli come estrapolare i dati e pigia di nuovo A.

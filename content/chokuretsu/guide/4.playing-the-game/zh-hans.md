@@ -220,7 +220,7 @@ Android 上最好的 DS 模拟器是 [DraStic](https://play.google.com/store/app
 1. 重新插入 SD 卡，打开 Wii U 电源。
 2. 启动之前通过 Tiramisu 安装的 WUP Installer GX2。
 3. 选择你创建的 WUP 游戏，然后继续执行 WUP Installer GX2 的屏幕说明，将游戏安装到系统菜单中。你也可以选择在 Wii U 菜单中安装 WUP Installer GX2。
-4 .安装完成后，你可以从系统菜单启动游戏。
+4. 安装完成后，你可以从系统菜单启动游戏。
 
 </div>
 

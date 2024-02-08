@@ -64,7 +64,7 @@ So with that out of the way, let’s crack open `evt.bin`. First thing we’ll d
 ![evt.bin open in Crystal Tile 2 showing a section of zeros below the file at 0x2800](/images/blog/0003/03_lots_of_zeros_2.png)
 
 
-Interesting! After we scroll past a large chunk of data, we end up in a field of zeros, followed by another large chunk of data and then another field of zeros and so on. What’s more, after we scroll past the first bit, each of the large chunks of data seems to start on a multiple of 0x800 (hard to get that sense from two images, but trust me, crack open the files and you’ll see the pattern). To me, this looks like the_file data_ – and what’s more, each file is neatly spaced with padding in between.
+Interesting! After we scroll past a large chunk of data, we end up in a field of zeros, followed by another large chunk of data and then another field of zeros and so on. What’s more, after we scroll past the first bit, each of the large chunks of data seems to start on a multiple of 0x800 (hard to get that sense from two images, but trust me, crack open the files and you’ll see the pattern). To me, this looks like the _file data_ – and what’s more, each file is neatly spaced with padding in between.
 
 ![evt.bin open in Crystal Tile 2 at 0x0000. The first two bytes are highlighted in red and a pattern of bytes starting at 0x22 and spaced every four bytes are highlighted in cyan](/images/blog/0003/04_cyan_numbers.png)
 

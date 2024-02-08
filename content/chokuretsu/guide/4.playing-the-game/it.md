@@ -23,23 +23,23 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulator']
 <div class="platform-filtered platform-nintendo_ds">
 
 ## Giocare su Nintendo DS
-Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flashcard e il più è fatto. Forse già la possiedi già una flashcard, se sei già arrivato qua.
+Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart e il più è fatto. Forse già ne possiedi una, se sei arrivato fino qua.
 
 **Occorrente:**
 * Un sistema DS o DS Lite.
-* Una flashcard (come una R4. Inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
+* Una flashcart (come una R4. Inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
 **Procedura:**
-1. Inserisci la scheda SD della flashcard nel tuo computer (o usa un adattatore).
+1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore).
 2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
-3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel DS. Bene, è arrivato il momento di giocare!
+3. Rimuovi la scheda SD ed infilala nella flashcart, per poi metterla nel DS. Bene, è arrivato il momento di giocare!
 
 </div>
 
 <div class="platform-filtered platform-nintendo_dsi">
 
 ## Giocare su Nintendo DSi
-Per poter giocare il titolo sul vostro Nintendo DSi, esistono due metodi. Tramite l'ausilio di una flashcard oppure installando la ROM patchata sulla Scheda SD e utilizzarla grazie a Twilight Menu++
+Per poter giocare il titolo sul vostro Nintendo DSi, esistono due metodi. Tramite l'ausilio di una flash cart oppure installando la ROM patchata sulla Scheda SD e utilizzarla grazie a Twilight Menu++
 
 ### Utilizzare TWiLightMenu (nds-bootstrap)
 ::iconified-text
@@ -69,7 +69,7 @@ Se stai usando **TWiLightMenu** (nds-bootstrap) assicurati di avviare il gioco i
 * Una flashcard (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
 **Procedura:**
-1. Inserisci la scheda SD della flashcard nel tuo computer (o usa un adattatore).
+1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore).
 2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
 3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel DSi. Bene, è arrivato il momento di giocare!
 
@@ -78,7 +78,7 @@ Se stai usando **TWiLightMenu** (nds-bootstrap) assicurati di avviare il gioco i
 <div class="platform-filtered platform-nintendo_3ds">
 
 ## Giocare su (New) Nintendo 3DS o 2DS
-Giocare su Nintendo 3DS è molto semplice, basta inserire la ROM sulla flashcard o in una cartella precisa della scheda SD e il più è fatto
+Giocare su Nintendo 3DS è molto semplice, basta inserire la ROM sulla flash cart o in una cartella precisa della scheda SD e il più è fatto
 
 ### Utilizzare TwilightMenu++
 **Occorrente:**
@@ -88,19 +88,19 @@ Giocare su Nintendo 3DS è molto semplice, basta inserire la ROM sulla flashcard
 * Un computer con lettore di schede SD (o un adattatore USB)
 
 **Procedura:**
-1. Inserisci la scheda SD del tuo 3DS (modificato) nel computer.
-2. Segui la guida per installare Twilight Menu con FBI. Quando ti sarà richiesto, trascina la ROM all'intero della cartella corretta.
-3. Continua a seguire le instruzioni fino alla fine!
+1. Inserisci la scheda SD del tuo 3DS (con Luma3DS installato) nel tuo computer
+2. Segui la guida per installare TwilightMenu con FBI. Quando ti sarà richiesto, trascina la ROM all'intero della cartella corretta.
+3. Continua a seguire le istruzioni fino alla fine. Infine, divertiti!
 
-### Tramite flashcard
+### Tramite flashcart
 **Occorrente:**
 * Un sistema della famiglia 3DS o 2DS
-* Una flashcard (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
+* Una flashcart (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
 **Procedura:**
-1. Inserisci la scheda SD della flashcard nel tuo computer (o usa un adattatore).
+1. Inserisci la scheda SD della flashcart nel tuo computer (o usa un adattatore).
 2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
-3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel 3DS. Bene, è arrivato il momento di giocare!
+3. Rimuovi la scheda SD ed infilala nella flashcart, per poi metterla nel 3DS. Bene, è arrivato il momento di giocare!
 
 </div>
 
@@ -130,7 +130,7 @@ Scarica l'ultima versione (**v0.9.4+**) [dal sito ufficiale](https://melonds.kur
 
 **Giocare il gioco:**
 
-Imposta melonDS, per avviare il gioco, selezionalo tramite la funzione "Open ROM", nel menu in alto.
+Una volta Impostato melonDS devi solo avviare il gioco, per farlo seleziona il gioco tramite la funzione "Open ROM", nel menu in alto.
 
 melonDS ha molte peculiarità in più come impostare il controller e come impostare gli schermi. Per ulteriori informazioni, consulta [sito ufficiale di melonDS](https://melonds.kuribo64.net/).
 

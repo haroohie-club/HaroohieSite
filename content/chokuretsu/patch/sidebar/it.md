@@ -44,5 +44,5 @@ type: 'bottom-piece'
 Chiedi aiuto a Discord
 ::
 
-### Attributi basati su
-Based on [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) by [Marc Robledo](https://www.marcrobledo.com/) (Licenza MIT)
+### Attributi
+Basati su [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) by [Marc Robledo](https://www.marcrobledo.com/) (Licenza MIT)
