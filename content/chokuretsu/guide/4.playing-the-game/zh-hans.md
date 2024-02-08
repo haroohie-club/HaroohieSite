@@ -208,7 +208,7 @@ Android 上最好的 DS 模拟器是 [DraStic](https://play.google.com/store/app
     - 点击“Enter CKey”（输入 CKey）按钮。单击“Read from otp.bin”（从otp.bin读取），然后选择 SD 卡上的 otp.bin 文件，该文件是安装自定义固件时作为 NAND 转储过程的一部分创建的。如果你因为某些原因没有这个文件，你需要找到 Wii U 通用密钥，然后手动写入。
     - 点击“Enter TKey”（输入 TKey）按钮。现在，你需要输入你选择的区域的《马力欧卡丁车 DS》的 title key。除了在网上查找外，没有什么简单的方法可以得到它。请确保输入了所选区域的《马力欧卡丁车 DS》的 title key。
     - 点击“ROM PATH”（ROM 路径）旁边的“Choose File”（选择文件），然后选择已打补丁的《凉宫春日的串联》ROM 文件。
-    - 在“Icon Image”（图标图像）框中，点击“Create File”（创建文件）。下载[此图像](/images/chokurestu/virtual-console-icon.png)（或使用你自制的），并通过“Select File”（选择文件）选择它。请随意定制外观，这是将出现在 Wii U 系统菜单上的图标。然后，点击“Finish”（完成）。
+    - 在“Icon Image”（图标图像）框中，点击“Create File”（创建文件）。下载[此图像](/images/chokuretsu/virtual-console-icon.png)（或使用你自制的），并通过“Select File”（选择文件）选择它。请随意定制外观，这是将出现在 Wii U 系统菜单上的图标。然后，点击“Finish”（完成）。
     - 在“TV Image”（电视图像）框中，点击“Create File”（创建文件），输入游戏名称（“凉宫春日的串联”）、发布年份（2009 年）和玩家数量（1）。然后为图标图像选择相同的文件（或者选择你自己的！）。然后，点击“Finish”（完成）。
     - 在“Game Name”（游戏名称）框中输入：`凉宫春日的串联`
     - 你还可以向启动游戏时出现在 Wii U 菜单上的界面添加其他一些艺术作品，例如启动图像和启动声音。
