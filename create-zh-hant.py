@@ -1,7 +1,7 @@
 import opencc
 import os
 
-converter = opencc.OpenCC('s2t.json')
+converter = opencc.OpenCC('s2twp.json')
 
 def recursive_ls(dir, filter):
     ls = []
