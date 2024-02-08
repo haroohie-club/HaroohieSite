@@ -37,7 +37,7 @@ export default {
         top_text: {
             type: String,
             required: false,
-            default: $t('back-to-Home')
+            default: 'Back Home'
         }
     }
 }
