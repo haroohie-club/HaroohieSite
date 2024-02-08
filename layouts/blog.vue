@@ -14,7 +14,7 @@ const localePath = useLocalePath()
             <div class="sidebar">
                 <div class="box">
                     <h2>{{ $t('social-links') }}</h2>
-                    <SocialLinks />
+                    <SocialLinks :top_text="$t('back-to-home')" />
                     <h2>{{ $t('blogs') }}</h2>
                     <BlogList />
                     <h2>{{ $t('projects') }}</h2>

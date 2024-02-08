@@ -1,6 +1,6 @@
 ---
-title: &title 'Jonko 的“對於愛好者翻譯電子遊戲所需的 ROM 破解”座談會錄像發佈了'
-description: &desc '觀看 Jonko 在懷舊遊戲世界展覽會上向現場觀衆解釋破解《串聯》的一些挑戰'
+title: &title 'Jonko 的“對於愛好者翻譯電子遊戲所需的 ROM 破解”座談會錄影釋出了'
+description: &desc '觀看 Jonko 在懷舊遊戲世界展覽會上向現場觀眾解釋破解《串聯》的一些挑戰'
 locale: 'zh-hant'
 navigation:
   author: 'Jonko'
@@ -32,7 +32,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-大家好！在過去的一年裏，我在幾場會議的座談會上介紹了《串聯》的 ROM 破解。在康涅狄格州哈特福德的懷舊遊戲世界展覽會（Retro World Expo）上，[Andy Wolan](https://www.youtube.com/@andywolan)（原索尼克研究小組（Sonic Stuff Research Group）成員）製作了一段座談會的錄像，我現在已經把它發佈到了我的 YouTube 頻道上。如果你有興趣聽聽我們是如何破解這款遊戲的，就來看一下吧！
+大家好！在過去的一年裡，我在幾場會議的座談會上介紹了《串聯》的 ROM 破解。在康涅狄格州哈特福德的懷舊遊戲世界展覽會（Retro World Expo）上，[Andy Wolan](https://www.youtube.com/@andywolan)（原索尼克研究小組（Sonic Stuff Research Group）成員）製作了一段座談會的錄影，我現在已經把它釋出到了我的 YouTube 頻道上。如果你有興趣聽聽我們是如何破解這款遊戲的，就來看一下吧！
 
 ::youtube-video
 ----
