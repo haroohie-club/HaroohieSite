@@ -42,7 +42,7 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS']
 5. 退出遊戲並取出卡帶。現在，插入你剛剛安裝的了 wooddumper 的燒錄卡，然後在 Nintendo DS 上找到並執行它。
 6. 按照螢幕上的說明進行操作，並在提示時插入《涼宮春日的串聯》卡帶。繼續操作，直到軟體顯示需要透過 FTP 客戶端連線到的 IP 地址為止。
 7. 使用 FTP 客戶端，如 [net2ftp](https://www.net2ftp.com/)、瀏覽器內建方式或其他軟體（例如 [FileZilla](https://filezilla-project.org/)），在相關輸入框中輸入 IP 地址。不需要指定使用者名稱或密碼。
-8. 將 .nds ROM 檔案和 .txt 檔案複製到電腦上。接下來可以跳轉到[給 ROM 打補丁](/zh-hant/chokurestu/guide/patching the ROM)。
+8. 將 .nds ROM 檔案和 .txt 檔案複製到電腦上。接下來可以跳轉到[給 ROM 打補丁](/zh-hant/chokuretsu/guide/patching the ROM)。
 
 #### 使用雙插槽燒錄卡轉儲
 **要求：**
@@ -60,7 +60,7 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS']
 4. 透過燒錄卡開啟 wooddumper。
 5. 按照螢幕上的說明操作，並在提示時插入《涼宮春日的串聯》卡帶。繼續操作，直到軟體顯示轉儲已完成。
 6. 取出 Slote-2 燒錄卡，將燒錄卡中的 SD 卡插入到電腦（對於某些燒錄卡，請將其直接連線到電腦）
-7. 將 .nds ROM 檔案和 .txt 檔案複製到電腦上。接下來可以跳轉到[給 ROM 打補丁](/zh-hant/chokurestu/guide/patching the ROM)。
+7. 將 .nds ROM 檔案和 .txt 檔案複製到電腦上。接下來可以跳轉到[給 ROM 打補丁](/zh-hant/chokuretsu/guide/patching the ROM)。
 
 </div>
 

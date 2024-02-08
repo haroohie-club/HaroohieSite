@@ -8,12 +8,12 @@
 ---
 color: 'rss'
 icon: 'fa6-solid:rss'
-link: '/rss.xml'
+link: '/zh-hant/rss.xml'
 ---
-Feed
+訂閱
 ::
 
-## Latest posts
+## 最新文章
 ::blog-preview-stack
 ---
 limit: 1000

@@ -208,7 +208,7 @@ Android 上最好的 DS 模擬器是 [DraStic](https://play.google.com/store/app
     - 點選“Enter CKey”（輸入 CKey）按鈕。單擊“Read from otp.bin”（從otp.bin讀取），然後選擇 SD 卡上的 otp.bin 檔案，該檔案是安裝自定義韌體時作為 NAND 轉儲過程的一部分建立的。如果你因為某些原因沒有這個檔案，你需要找到 Wii U 通用金鑰，然後手動寫入。
     - 點選“Enter TKey”（輸入 TKey）按鈕。現在，你需要輸入你選擇的區域的《馬力歐卡丁車 DS》的 title key。除了在網上查詢外，沒有什麼簡單的方法可以得到它。請確保輸入了所選區域的《馬力歐卡丁車 DS》的 title key。
     - 點選“ROM PATH”（ROM 路徑）旁邊的“Choose File”（選擇檔案），然後選擇已打補丁的《涼宮春日的串聯》ROM 檔案。
-    - 在“Icon Image”（圖示影象）框中，點選“Create File”（建立檔案）。下載[此影象](/images/chokurestu/virtual-console-icon.png)（或使用你自制的），並透過“Select File”（選擇檔案）選擇它。請隨意定製外觀，這是將出現在 Wii U 系統選單上的圖示。然後，點選“Finish”（完成）。
+    - 在“Icon Image”（圖示影象）框中，點選“Create File”（建立檔案）。下載[此影象](/images/chokuretsu/virtual-console-icon.png)（或使用你自制的），並透過“Select File”（選擇檔案）選擇它。請隨意定製外觀，這是將出現在 Wii U 系統選單上的圖示。然後，點選“Finish”（完成）。
     - 在“TV Image”（電檢視像）框中，點選“Create File”（建立檔案），輸入遊戲名稱（“涼宮春日的串聯”）、釋出年份（2009 年）和玩家數量（1）。然後為圖示影象選擇相同的檔案（或者選擇你自己的！）。然後，點選“Finish”（完成）。
     - 在“Game Name”（遊戲名稱）框中輸入：`涼宮春日的串聯`
     - 你還可以向啟動遊戲時出現在 Wii U 選單上的介面新增其他一些藝術作品，例如啟動影象和啟動聲音。
