@@ -62,40 +62,40 @@ Cerber 所做的正是在十六進制編輯器（一種直接修改二進制文�
 ## 壓縮
 我怎麼知道這個部分被壓縮了？請看他的屏幕截圖，我們可以清楚地看到遊戲中的文本顯示在十六進制編輯器中（我在下面用黃色標記了一個例子），但文本的某些部分缺失了——例如，我在下面標記的“ハルヒの”中的一位（bit）被較短字符序列（高亮爲了藍色）所取代。
 
-![並排的《串聯》螢幕截圖。左邊的圖對應於黃色高亮的文字，顯示了春日的對話。右邊的圖突出顯示了 ROM 中的一段文字，該文字顯然是遊戲中文字的一部分](/images/blog/0002/04_compression_evidence.png)
+![Side-by-side screenshots of Chokuretsu. The first corresponds to text highlighted in yellow showing that Haruhi's dialogue is present. The second highlights a section of the text in the ROM that is apparently misisng a portion of the in-game text.](/images/blog/0002/04_compression_evidence.png)
 
-這是所謂*執行長度編碼*的一個標誌——這是一種壓縮檔案的方法，專注於消除重複。好的，現在我們知道它被壓縮了——下一步該怎麼辦？嗯，我們知道最終目標是：**我們想用英語文字替換檔案中的文字**。為了做到這一點，我們必須能夠自己解壓縮文字，以便編輯檔案。然而，由於遊戲需要被壓縮的文字，我們還必須能夠重新壓縮檔案，以便將其重新插入遊戲。好了，讓我們開始吧。
+This is a sign of what’s called _run-length encoding_ – a method for compressing a file that focuses on eliminating repetition. So okay, now we know it’s compressed – what do we do next? Well, we know our end goal: **we want to replace the text in the file with English-language text**. In order to do that, we will have to be able to decompress the text ourselves in order to edit the file. However, because the game expects the text to be compressed, we will also have to be able to recompress the file so we can reinsert it into the game. Well, let’s get started.
 
-## 查詢解壓縮子程式
-實際上有很多資訊可供我們使用。我們得到了一個檔案，知道它被壓縮了，我們很清楚它解壓縮後會得到什麼，我們知道這個檔案在遊戲中的哪裡被使用。因此，讓我們在 DeSmuME（編寫本文時具有最佳記憶體搜尋器的模擬器）中載入遊戲，並搜尋遊戲中出現的一些文字。
+## Finding the Decompression Subroutine
+So we actually have a lot of information at our disposal here. We have a file that we know is compressed, we have a pretty good idea of what it decompresses to, and we know where that file is used in-game. So, let’s load the game in DeSmuME (the emulator that, at time of writing, has the best memory searcher) and search for some of the text that appears in-game.
 
-![DeSmuME 的記憶體搜尋功能](/images/blog/0002/05_ram_search.png)
+![DeSmuME's RAM search.](/images/blog/0002/05_ram_search.png)
 
-因此，我們搜尋 0x81CC82B1（DeSmuME 的 RAM 搜尋需要輸入與編碼順序相反的數值），它對應於文字中的“この、”。我們在地址 0x0223433C 處正好找到一個結果——非常棒。我們轉到這個記憶體地址……
+So here we’re searching for 0x81CC82B1 (DeSmuME’s RAM search expects bytes in reverse-order) which corresponds to a portion of the “この、” in the text. We find exactly one result at address 0x0223433C – brilliant. We go to that memory address…
 
-![DeSmuME 的記憶體檢視器，高亮部分顯示了它與我們一直在檢視的檔案完全匹配。](/images/blog/0002/06_ram_found.png)
+![DeSmuME's memory viewer with highlighted sections showing that it matches the file we've been looking at exactly.](/images/blog/0002/06_ram_found.png)
 
-而且這是一處完全匹配！我們已經找到了壓縮後的檔案被載入到記憶體中的位置。所以現在，是時候開啟最糟糕、但也是唯一一個有函式偵錯程式的 DS 模擬器了——NO$GBA。
+And it’s an exact match! We’ve found where the compressed file is loaded into memory. So now, it’s time to open up the worst DS emulator but also the only one with a functional debugger, no$GBA.
 
-![在 NO$GBA 中設定斷點。正在設定的斷點是“[223433C]?”](/images/blog/0002/07_setting_breakpoint.png)
+![Setting a breakpoint in no$GBA. The breakpoint being set is "[223433C]?"](/images/blog/0002/07_setting_breakpoint.png)
 
-我們將為 0x0223433C 設定一個*讀取斷點*。正如我前面提到的，我們之所以使用 NO$GBA，是因為它有一個偵錯程式，而偵錯程式的功能之一是能夠設定*斷點*。偵錯程式允許我們在玩遊戲時逐步檢視正在執行的程式碼，而斷點會告訴偵錯程式在某一行執行時停止。在這種情況下，當遊戲從記憶體地址 0x0223433C 讀取內容時，這個讀取斷點會告訴偵錯程式暫停執行。我們之所以要這樣做，是因為遊戲對已壓縮的檔案進行解壓縮的時候，會在記憶體中讀取它，所以這將幫助我們找到解壓縮子程式。
+We’re going to set a _read breakpoint_ for 0x0223433C. As I mentioned earlier, the reason we’re using no$ is because it has a debugger, and one of the functions of a debugger is the ability to set _breakpoints_. A debugger allows us to actually step through and see what code is executing when the game plays, and a breakpoint tells the debugger to stop at a certain line of execution. In this case, this read breakpoint tells the debugger to pause execution when the memory address 0x0223433C is read from. The reason we want to do this is that the point at which the compressed file is being accessed in memory is when it’s being decompressed, so this will help us find the decompression subroutine.
 
-![NO$GBA 的偵錯程式命中上述斷點。它目前已在指令 0202628C 處停止](/images/blog/0002/08_breakpoint_hit.png)
+![no$GBA's debugger hitting the aforementioned breakpoint. It's currently stopped at instruction 0202628C.](/images/blog/0002/08_breakpoint_hit.png)
 
-瞧，我們已經到達了斷點。遊戲按照 0x2026288 的指令從 0x223433C 處讀取。是時候開啟我們的第三個程式——IDA（互動式反彙編器）了。（值得注意的是，雖然我使用 IDA，但你可以在 Ghidra 中完成同樣的事情。Ghidra 是另一個常用的反彙編程式，而且它是免費的。）
+Voila, we’ve hit our breakpoint. The game reads from 0x223433C at the instruction at 0x2026288. It’s time to open our third program, IDA (the Interactive Disassembler). (It’s worth noting that while I use IDA, you can accomplish the same thing in Ghidra, another commonly used disassembler that’s actually free.)
 
-因此，在 IDA 中，我們使用 NDS 載入外掛來反彙編《串聯》的 ROM，這樣我們就可以更容易地檢視彙編程式碼（準確來說應該稱之為“反彙編”）。IDA 做了一件非常好的事情，那就是它將程式碼分解為子程式（有時也稱為“函式”），這使得程式碼執行的開始和停止位置一目瞭然。
+So in IDA, we use the NDS loader plugin to disassemble the Chokuretsu ROM so we can view the assembly code (properly referred to as the “disassembly”) more easily. IDA does something very nice which is that it breaks the code apart into subroutines (also sometimes called “functions”), which makes it easier to understand at a glance where code execution starts and stops.
 
-![IDA，0202628C 高亮顯示，以顯示我們之前找到的指令](/images/blog/0002/09_ida_find.png)
+![IDA with 0202628C highlighted to show the instruction we found previously.](/images/blog/0002/09_ida_find.png)
 
-所以我們前往這個找到的地址……
+So we go to the address we found…
 
-![IDA，包含了一個已被我們重新命名為 arc_decompress 的子程式](/images/blog/0002/10_ida_subroutine.png)
+![IDA with a subroutine we've renamed arc_decompress visible.](/images/blog/0002/10_ida_subroutine.png)
 
-我們找到了！當程式被編譯時，函式和變數等所有名稱都會被刪除，因此 IDA 預設情況下會將子程式命名為類似 `sub_2026190` 的名字——然而，我們手動將此子程式重新命名為 `arc_decompression`（在螢幕截圖中，我們已經完成了），這樣更容易找到和引用。（這裡的 `arc` 代表 *archive*（歸檔檔案）——但我們必須把它留給本系列的下一篇文章。）
+And we’ve found it! When a program is compiled, all the names of things like functions and variables get stripped away, so IDA will name the subroutine something like `sub_2026190` by default – however, we’re going to manually rename this subroutine to `arc_decompress` (which we’ve already done in the screenshot) so that it’s easier to find and reference. (The `arc` there stands for _archive_ – but we’ll have to leave that for the next entry in this series.)
 
-這就是我所說的解壓縮子程式位於 0x2026190 的意思——只要向上滾動，我們就會發現子程式從那個地址開始。這是我回復 Cerber 的帖子時所得到的，但這也是真正有趣的開始——現在是時候對壓縮演算法進行逆向工程了。
+So this is what I meant when I said the decompression subroutine lives at 0x2026190 – just by scrolling up we’ll find the subroutine begins at that point. This is as far as I had gotten when I replied to Cerber’s post, but this is also where the real fun begins – now it’s time to actually reverse engineer the compression algorithm.
 
 ## Reverse-Engineering the Compression Algorithm
 The first thing I did was to create a sort of “assembly simulator” – I ported the assembly steps line-by-line out of the disassembly and into a C# program. (The choice to use C# here is just because it’s the higher-level language I’m most comfortable with; you could choose instead to use Python, C++, JavaScript, or whatever else you’d like.) Why do this? At the time, I was a beginner with assembly, so this exercise served two purposes: firstly, it helped me become more familiar with the disassembly; secondly, it gave me a program I could run that I knew for a fact would match what the assembly code was doing.

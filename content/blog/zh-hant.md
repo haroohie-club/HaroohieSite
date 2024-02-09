@@ -9,12 +9,12 @@ If you prefer an [RSS feed](/rss.xml), we have that too!
 ---
 color: 'rss'
 icon: 'fa6-solid:rss'
-link: '/zh-hant/rss.xml'
+link: '/rss.xml'
 ---
-訂閱
+Feed
 ::
 
-## 最新文章
+## Latest posts
 ::blog-preview-stack
 ---
 limit: 1000
