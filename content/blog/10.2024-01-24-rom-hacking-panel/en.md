@@ -37,6 +37,10 @@ At Retro World Expo in Hartford, Connecticut, [Andy Wolan](https://www.youtube.c
 made a recording of the panel that I've now posted to my YouTube channel. If you're interested in hearing a bit about how we hacked
 this game, you'll likely enjoy giving it a watch!
 
+### Update
+Thanks to [Xzonn](xzonn.top), who is working with a team to translate Chokuretsu into Chinese, this talk has now been translated into Chinese
+and is available with Chinese subtitles on both YouTube and [Bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
+
 ::youtube-video
 ----
 video: 5Gk6WTr2eDU
