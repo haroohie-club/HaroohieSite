@@ -34,6 +34,10 @@ head:
 ---
 大家好！在过去的一年里，我在几场会议的座谈会上介绍了《串联》的 ROM 破解。在康涅狄格州哈特福德的怀旧游戏世界展览会（Retro World Expo）上，[Andy Wolan](https://www.youtube.com/@andywolan)（原索尼克研究小组（Sonic Stuff Research Group）成员）制作了一段座谈会的录像，我现在已经把它发布到了我的 YouTube 频道上。如果你有兴趣听听我们是如何破解这款游戏的，就来看一下吧！
 
+### Update
+Thanks to [Xzonn](xzonn.top), who is working with a team to translate Chokuretsu into Chinese, this talk has now been translated into Chinese
+and is available with Chinese subtitles on both YouTube and [Bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
+
 ::youtube-video
 ----
 video: 5Gk6WTr2eDU

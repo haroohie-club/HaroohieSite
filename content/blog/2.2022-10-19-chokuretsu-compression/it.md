@@ -127,16 +127,16 @@ RAM:020261A8                 BEQ     loc_2026224
 ```
 Vediamo cosa fa ognuna di queste istruzioni:
 
-* `LDRB R3, [R0], #1`{lang='arm'} – This loads the byte at the address contained in R0 (which contains the current position in the file) into the register R3 and then increments R0 by one (meaning we move to the position of the next byte in the file). Since we’re at the beginning of the file, this loads the first byte in the file.
-* `CMP R3, #0`{lang='arm'} ; `BEQ loc_20262A0`{lang='arm'} – `BEQ`{lang='arm'} means “branch if equal,” but really it just means “branch if the last comparison is equal to zero.” Therefore, if that value we just loaded is zero, we’re going to branch to the end of the subroutine. We can ignore this for now.
-* `TST R3, #0x80`{lang='arm'} – `TST`{lang='arm'} performs a bitwise-and without storing the result. A bitwise-and compares two bytes and gives a result where each bit is 1 only if that bit is 1 in both of the two bytes it compares. In the case where R3 is 0xAA, we end up with something like:
+* `LDRB R3, [R0], #1`{lang='arm'} – Questo carica il byte nell'indirizzo contenuto in R0 (che contiene la posizione attuale nel file) nel registro R3 e poi incrementa R0 di uno (Il che significa che ci spostiamo alla posizione del prossimo byte nel file). Visto che siamo all'inizio del file, questo ne carica il primo byte.
+* `CMP R3, #0`{lang='arm'} ; `BEQ loc_20262A0`{lang='arm'} – `BEQ`{lang='arm'} significa "ramifica se è uguale," ma in realtà significa “ramifica se l'ultimo confronto è pari a zero.” Quindi, significa che se il valore che abbiamo appena caricato è 0, andremo a ramificare fino alla fine della subroutine. Possiamo ignorarlo per ora.
+* `TST R3, #0x80`{lang='arm'} – `TST`{lang='arm'} esegue un bitwise-and . Un bitwise-and confronta due byte e dà un risultato dove ogni bit risulta 1 solo se quel bit è uno in entrambi i bit che confronta. Nel caso dove R3 è 0xAA, ci verrebbe dato un risultato del genere:
 ```
 10101010 (0xAA)
 10000000 (0x80)
 _______
 10000000 (0x80)
 ```
-So this `TST`{lang='arm'} followed by the `BEQ`{lang='arm'} is just checking whether the first bit is zero or not. If it is zero, we branch to 0x2026224. Let’s branch there now (I have knowledge you don’t so I know checking this branch is going to be simpler lol). But first, we’ll convert this into C#:
+Quindi questo `TST`{lang='arm'} seguito dal `BEQ`{lang='arm'} sta solo controllando se il primo bit è pari a zero o no. Se è a zero, lo ramifichiamo a 0x2026224. Ramifichiamolo lì adesso (So delle cose che voi non sapete quindi so già che questa ramificazione sarà più semplice lol). Ma prima, lo convertiremo in C#:
 
 ```csharp
 int blockByte = compressedData[z++];
@@ -147,11 +147,11 @@ if (blockByte == 0)
 
 if ((blockByte & 0x80) == 0)
 {
-    // Do something
+    // Fai qualcosa
 }
 else
 {
-    // Do something else
+    // Fai qualcos'altro
 }
 ```
 
@@ -165,23 +165,23 @@ RAM:02026224                 TST     R3, #0x40
 RAM:02026228                 BEQ     loc_2026268
 ```
 
-* `TST R3, #0x40`{lang='arm'} – This is now checking whether the second bit is set. If it is, we’re going to jump to 0x2026268. We’ll get back to this section in a sec, but first let’s jump there after we convert this bit to C# as well:
+* `TST R3, #0x40`{lang='arm'} –Adesso sta controllando se il secondo bit è impostato. Se lo è, salteremo a 0x2026268. Torneremo in questa sezione in un secondo, ma prima saltiamo lì dopo che convertiamo anche questo pezzo in C#:
 
 ```csharp
 if ((blockByte & 0x80) == 0)
 {
     if ((blockByte & 0x40) == 0)
     {
-        // Do something 0x80
+        // Fai qualcosa 0x80
     }
     else
     {
-        // Do something else 0x80
+        // Fai qualcos'altro 0x80
     }
 }
 else
 {
-    // Do something else
+    // Fai qualcos'altro 
 }
 ```
 
@@ -207,37 +207,38 @@ RAM:02026298                 BGT     loc_2026288
 RAM:0202629C                 B       loc_2026198
 ```
 
-This is a pretty big chunk of code, but don’t let it scare you. We got this.
+Questo è un gran bel pezzo di codice, ma non preoccuparti. Ce la possiamo fare.
 
-* `TST R3, #0x20`{lang='arm'} ; `ANDEQ R12, R3, #0x1F`{lang='arm'} – Now we’re testing the third bit of our first byte here. If it’s zero, we’re going to take its last five bits (0x1F = 0xb0001_1111) and branch to 0x2026280. We’ll get there in a sec.
-* `LDRB R12, [R0], #1`{lang='arm'} – We’re loading the next byte from the file into a register (R12). So if the third bit of that first byte was set, it means we need to do something with the next byte.
-* `MOV R3, R3, LSL#27`{lang='arm'} ; `ORR R12, R12, R3, LSR#19`{lang='arm'} – `LSL` is “logical shift left” and `LSR` is “logical shift right,” respectively meaning to shift the bits in R3 to the left or right by 27 and 19. Shifting them left 27 and right 19 effectively means shifting left 8 after clearing the top 3 bits, which is equivalent to multiplying `R3 & 0x1F` by 0x100. With a bitwise-or, we combine the first byte and the second byte we just read into a 16-bit integer.
+* `TST R3, #0x20`{lang='arm'} ; `ANDEQ R12, R3, #0x1F`{lang='arm'} – Ora stiamo provando il terzo bit del nostro primo byte. Se è zero, prenderemo i suoi ultimi cinque bit (0x1F = 0xb0001_1111) e li ramificheremo a 0x2026280. Ci arriveremo in un secondo.
+* `LDRB R12, [R0], #1`{lang='arm'} – Stiamo caricando il prossimo byte dal file in un registro (R12). Quindi se il terzo bit di quel primo byte è stato impostato, significa che dovremo fare qualcosa con il prossimo byte.
+* `MOV R3, R3, LSL#27`{lang='arm'} ; `ORR R12, R12, R3, LSR#19`{lang='arm'} – `LSL` è “logical shift left” (spostamento logico a sinistra) and `LSR` is “logical shift right” (spostamento logico a destra), nel senso che sposterà i bit in R3 a sinistra o a destra di 27 e 19. Spostarli a sinistra di 27 e a destra di 19 significa effettivamente che li sposterà a sinistra di 8 dopo aver riazzerato i 3 bit al di sopra, il che equivale a moltiplicare `R3 & 0x1F` per 0x100. Con un bitwise-or, combiniamo il primo byte ed il secondo byte e leggiamo in un intero a 16-bit.
 
-This is calculating something in an if-statement – we can represent it in C# like this:
+Questo sta calcolando qualcosa in una dichiarazione if (se) – lo possiamo rappresentare in C# così:
 ```csharp
 int value;
 if ((blockByte & 0x20) == 0)
 {
-    value = blockByte; // the `& 0x1F` is unnecessary since we've already determined bits 1-3 to be 0
+    value = blockByte; // `& 0x1F` non è necessario visto che abbiamo già determinato che i bit 1-3 valgono 0
 }
 else
 {
-    // bit 3 == 1 --> need two bytes to indicate how much data to read
+    // bit 3 == 1 --> ha bisogno di due byte per indicare quanti dati deve leggere
     value = compressedData[z++] + ((blockByte & 0x1F) * 0x100);
 }
 ```
 
-We don’t yet understand exactly what the value does, but that will become clear when we look at the next section.
+Non sappiamo ancora cosa fa questo valore, ma diventerà chiaro una volta che guardiamo la prossima sezione.
 
-* `CMP R12, #0`{lang='arm'} ; `BLE loc_2026198`{lang='arm'} – If the value we just calculated is zero, we immediately return to the top of the function.
-* `LDRB R3, [R0], #1`{lang='arm'} – As we’re used to by now, we’re going to load in the next byte to R3.
-* `SUB R12, R12, #1`{lang='arm'} – We subtract 1 from the value we calculated earlier.
-* `CMP R12, #0`{lang='arm'} – We compare the value we calculated earlier to 0.
-* `STRB R3, [R1], #1`{lang='arm'} – We store the most recent value we just read in the decompressed data buffer and move one forward in that buffer.
-* `BGT loc_2026288`{lang='arm'} – If R12 was greater than 0 two steps ago, we go to the first step in this section. Aha – this is a loop!
-* `B loc_2026198`{lang='arm'} – If it’s less than or equal to 0, we go back to the top of the subroutine.
+* `CMP R12, #0`{lang='arm'} ; `BLE loc_2026198`{lang='arm'} – Se il valore calcolato è 0, Torniamo immediatamente all'inizio della funzione.
+* `LDRB R3, [R0], #1`{lang='arm'} – Ormai che ci siamo abituati, andremo a caricare il byte in R3.
+* `SUB R12, R12, #1`{lang='arm'} – Sottraiamo 1 dal valore che abbiamo calcolato prima.
+* `CMP R12, #0`{lang='arm'} – Confrontiamo il valore calcolato prima a 0.
+* `STRB R3, [R1], #1`{lang='arm'} – Mettiamo il valore più recente che abbiamo appena letto nel buffer di dati decompresso e ci spostiamo di uno nel buffer.
+* `BGT loc_2026288`{lang='arm'} – Se due passaggi prima R12 era maggiore di 0, andiamo al primo passaggio di questa sezione. Aha - è un loop!
+* `B loc_2026198`{lang='arm'} – Se è minore o pari a 0, torniamo all'inizio della subroutine.
 
-This is actually super straightforward now that we understand that it’s a loop. The `value` we were calculating earlier is actually the number of bytes (`numBytes`) to copy directly from the input buffer to the output buffer. Thus we can represent this section as:
+Questo in realtà è super semplice ora che sappiamo che questo è un loop. Il `valore` che stavamo calcolando prima è il numero di byte (`numBytes`) per copiare direttamente dal buffer input al buffer output.
+Quindi possiamo rappresentare questa sezione come:
 
 ```csharp
 for (int i = 0; i < numBytes; i++)
@@ -246,48 +247,32 @@ for (int i = 0; i < numBytes; i++)
 }
 ```
 
-What’s more, the fact that we return to the top of the function each time implies that it too is a loop.
+Inoltre, il fatto che torniamo all'inizio della funzione ogni volta implica che è un loop.
 
-The program we have written so far looks like this:
+Il programma che abbiamo scritto fin'ora è così:
 
-* `LDRB R3, [R0], #1`{lang='arm'} – This loads the byte at the address contained
-  in R0 (which contains the current position in the file) into the register R3
-  and then increments R0 by one (meaning we move to the position of the next
-  byte in the file). Since we’re at the beginning of the file, this loads the
-  first byte in the file.
-* `CMP R3, #0`{lang='arm'} ; `BEQ loc_20262A0`{lang='arm'} – `BEQ`{lang='arm'}
-  means “branch if equal,” but really it just means “branch if the last
-  comparison is equal to zero.” Therefore, if that value we just loaded is zero,
-  we’re going to branch to the end of the subroutine. We can ignore this for
-  now.
-* `TST R3, #0x80`{lang='arm'} – `TST`{lang='arm'} performs a bitwise-and without
-  storing the result. A bitwise-and compares two bytes and gives a result where
-  each bit is 1 only if that bit is 1 in both of the two bytes it compares. In
-  the case where R3 is 0xAA, we end up with something like:
-```
-10101010 (0xAA)
-10000000 (0x80)
-_______
-10000000 (0x80)
-```
-So this `TST`{lang='arm'} followed by the `BEQ`{lang='arm'} is just checking
-whether the first bit is zero or not. If it is zero, we branch to 0x2026224.
-Let’s branch there now (I have knowledge you don’t so I know checking this
-branch is going to be simpler lol). But first, we’ll convert this into C#:
+```csharp
+for (int z = 0; z < compressedData.Length;)
+{
+    int blockByte = compressedData[z++];
+    if (blockByte == 0)
+    {
+        break;
+    }
 
     if ((blockByte & 0x80) == 0)
     {
         if ((blockByte & 0x40) == 0)
         {
-            // bits 1 & 2 == 0 --> direct data read
+            // bits 1 & 2 == 0 --> lettura diretta dei dati
             int numBytes;
             if ((blockByte & 0x20) == 0)
             {
-                numBytes = blockByte; // the `& 0x1F` is unnecessary since we've already determined bits 1-3 to be 0
+                numBytes = blockByte; // `& 0x1F` non è necessario visto che abbiamo determinato che i bit 1-3 valgono 0
             }
             else
             {
-                // bit 3 == 1 --> need two bytes to indicate how much data to read
+                // bit 3 == 1 --> ha bisogno di due byte per indicare quanti dati leggere
                 numBytes = compressedData[z++] + ((blockByte & 0x1F) * 0x100);
             }
             for (int i = 0; i < numBytes; i++)
@@ -297,29 +282,27 @@ branch is going to be simpler lol). But first, we’ll convert this into C#:
         }
 ```
 
-#### Decompressing a File
+#### Decomprimere un File
 
-So essentially, the decompression algorithm operates as follows: A “control byte” is read in and the first three to four bits determine the following functions. The decompression options are:
-* Read a certain number of bytes directly into the decompressed buffer
-* Read a single byte and repeat it a certain number of times
-* Backreference to a particular location in the decompressed data and copy those bytes forward
+Essenzialmente, un algoritmo di compressione opera in questo modo: Un "byte di controllo" viene letto e i primi tre o quattro but determinano le funzioni seguenti.
+Le opzioni di decompressione sono:
+* Leggere un certo numero di dati direttamente nel buffer di decompressione
+* Leggere un singolo byte e ripeterlo un certo numero di volte
+* Fare un riferimento ad una posizione particolare nei dati decompressi e copiare in avanti quei byte
 
-* `TST R3, #0x40`{lang='arm'} – This is now checking whether the second bit is
-  set. If it is, we’re going to jump to 0x2026268. We’ll get back to this
-  section in a sec, but first let’s jump there after we convert this bit to C#
-  as well:
+L'intera implementazione della decompressione può essere trovata [qui](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Helpers.cs#L359-L446).
 
-And if we try decompressing a file…
+E se proviamo a decomprimere un file…
 
-![A hex editor showing the fully decompressed script file from earlier.](/images/blog/0002/12_decompressed_file.png)
+![Un editor in esadecimale che mostra tutto il file di script decompresso di prima.](/images/blog/0002/12_decompressed_file.png)
 
-There’s the decompressed script! Fantastic.
+Ecco lo script decompresso! Fantastico.
 
-#### Creating the Compression Routine
+#### Creare la Routine di Compressione
 
-So now we understand the decompression algorithm pretty well and can decompress all the files to replace the Japanese text with English text. But if we want to reinsert them into the game, we still have to be able to recompress our edited files. So, we have to implement a compression routine. There isn’t going to be one to copy from assembly like we did with the decompression subroutine since that routine isn’t in-game (files were compressed at game creation time, they’re only decompressed in-game). But this isn’t so bad – since we know how decompression works, we just have to reverse that process to compress things.
+Ora che capiamo come funziona l'algoritmo di decompressione per bene possiamo decomprimere tutti i file per sostituire il testo Giapponese in Inglese. Ma se vogliamo reinserirli nel gioco, dobbiamo essere in grado di ricomprimere i file modificati. Quindi dobbiamo implementare una routine di compresione. Non ci sarà una copia in assembly della routine come per la decompressione visto che non è presente nel gioco (i file furono stati compressi alla creazione del gioco, vengono solo decompressi nel gioco). Ma non è un problema - ora che sappiamo come funziona la decompressione, dobbiamo solo invertire il processo per comprimere i file.
 
-For example, we can implement the “direct write” mode pretty easily:
+Per esempio, possiamo implementare una modalità di "scrittura diretta" molto facilmente:
 
 ```csharp
 private static void WriteDirectBytes(byte[] writeFrom, List<byte> writeTo, int position, int numBytesToWrite)
@@ -339,9 +322,9 @@ private static void WriteDirectBytes(byte[] writeFrom, List<byte> writeTo, int p
 }
 ```
 
-First, we take the number of bytes we’re going to write. If that number is less than 0x20 (i.e. can be contained in the lower five bits of the control byte), then we simply write that number to the output buffer. Otherwise, we have to calculate the two bytes to write to represent a larger number. Finally, we simply write the bytes to the output buffer.
+Prima, prendiamo il numero di byte che andremo a scrivere. Se quel numero è minore di 0x20 (in altre parole può essere contenuto nei cinque bit più bassi del byte di controllo), allora possiamo scrivere quel numero nel buffer dell'output. Altrimenti, dovremo calcolare i due byte da scrivere per rappresentare un numero più grande. Alla fine, scriviamo semplicemente i byte nel buffer dell'output.
 
-We can implement similar (albeit more complex) functionality for the repeater and lookback modes. The end result can be found [here](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Helpers.cs#L182-L357).
+Possiamo implementare una funzione simile (ahimè più complessa) per ripetere e riguardare le modalità. Il risultato finale può essere trovato [qui](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Helpers.cs#L182-L357).
 
-## What’s Next
-Now we have working compression and decompression implementations, but we’re not out of the woods yet. Next, we have to contend with the fact that this file is just one of many in an archive, and we have to figure out how to properly replace it. Join us in our next post where we delve into that.
+## La Prossima Volta
+Ora abbiamo implementato sia la compressione che la decompressione, ma non abbiamo ancora finito. La prossima volta, dobbiamo avere a che fare con il fatto che questo file è solo uno dei tanti in un archivio, e dobbiamo capire come sostituirlo. Unitevi a noi nel prossimo post dove ci indulgeremo nel dettaglio.
