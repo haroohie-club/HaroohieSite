@@ -1,14 +1,14 @@
-## 資訊
+## 信息
 * [指南](/zh-hant/chokuretsu/guide)
 * [更新日誌](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
-### 相容性說明
+### 兼容性說明
 ::iconified-text
 ---
 icon: fa6-solid:triangle-exclamation
 unwrap: true
 ---
-不應使用 **DeSmuME**，因為它具有圖形和音訊的模擬錯誤。請改用 melonDS！
+不應使用 **DeSmuME**，因爲它具有圖形和音頻的模擬錯誤。請改用 melonDS！
 ::
 
 <hr/>
@@ -21,7 +21,7 @@ unwrap: true
 如果你正在使用 **TWiLightMenu**（又名 nds-bootstrap），請確保以 DSi 模式運行遊戲。
 ::
 
-### 更多連結
+### 更多鏈接
 ::button-link
 ---
 color: 'red'
@@ -45,4 +45,4 @@ type: 'bottom-piece'
 ::
 
 ### 署名
-基於 [Marc Robledo](https://www.marcrobledo.com/) 建立的 [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) 專案（MIT License）
+基於 [Marc Robledo](https://www.marcrobledo.com/) 創建的 [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) 項目（MIT License）

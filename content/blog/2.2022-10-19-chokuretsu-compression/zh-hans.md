@@ -97,27 +97,27 @@ Cerber 所做的正是在十六进制编辑器（一种直接修改二进制文�
 
 这就是我所说的解压缩子程序位于 0x2026190 的意思——只要向上滚动，我们就会发现子程序从那个地址开始。这是我回复 Cerber 的帖子时所得到的，但这也是真正有趣的开始——现在是时候对压缩算法进行逆向工程了。
 
-## Reverse-Engineering the Compression Algorithm
-The first thing I did was to create a sort of “assembly simulator” – I ported the assembly steps line-by-line out of the disassembly and into a C# program. (The choice to use C# here is just because it’s the higher-level language I’m most comfortable with; you could choose instead to use Python, C++, JavaScript, or whatever else you’d like.) Why do this? At the time, I was a beginner with assembly, so this exercise served two purposes: firstly, it helped me become more familiar with the disassembly; secondly, it gave me a program I could run that I knew for a fact would match what the assembly code was doing.
+## 对压缩算法进行逆向工程
+我做的第一件事是创建一个“汇编模拟器”——我将汇编指令一行接一行地反汇编，并移植到 C# 程序中。（在这里，我选择使用 C# 只是因为它是我最熟悉的高级语言；你可以选择使用 Python、C++、JavaScript 或其他你喜欢的语言。）为什么要这样做？当时，我是汇编的初学者，所以这样做有两个目的：首先，这帮助我更加熟悉汇编；其次，这使我拥有了一个可以运行的程序，我知道它与汇编代码所做的事情是匹配的。
 
-The simulator ended up looking like this:
+这个模拟器最终看起来是这样的：
 
-![Visual Studio showing a class called AsmDecompressionSimulator.](/images/blog/0002/11_asm_simulator.png)
+![Visual Studio，显示了一个名为 AsmDecompressionSimulator（汇编解压缩模拟器）的类。](/images/blog/0002/11_asm_simulator.png)
 
-For ease of reference, I’ve annotated the lines of code with comments showing what instructions in the disassembly they correspond to. Once I completed it, I was able to decompress files naively! However, it’s pretty inefficient. So we’re actually going to try to understand this assembly in order to turn it into truly human-readable code.
+为了便于参考，我对代码行添加了注释，以显示它们在反汇编中对应的指令。完成后，我就可以单纯地解压缩文件了！然而，它的效率相当低。因此，我尝试理解汇编语句，以便将其转化为真正的人类可读的代码。
 
-### An Assembly Primer
-In order to do this, a quick primer on assembly: assembly is _machine level_ code, meaning it is what the processor actually reads to execute instructions. That last word is important – the most basic unit of assembly is an _instruction_. Examples include things like `ADD` (adds two numbers) or `SUB` (subtracts two numbers).
+### 汇编入门
+为了做到这一点，需要了解关于汇编的入门知识：汇编是*机器级别*的代码，这意味着它是处理器实际读取以执行指令的内容。最后半句话很重要——汇编中最基本的单元是*指令*。例如，`ADD`（将两个数字相加）或 `SUB`（将两个数字相减）。
 
-To operate on values in assembly, they must first be loaded into a _register_. Registers can be thought of as “CPU variables” and are numbered like R0, R1, R2, etc. The DS has 15 of them. The values are loaded into registers from _memory_ (or _RAM_), which is a large space of quickly accessible binary that can be referenced by the CPU on the fly.
+若要用汇编对值进行操作，必须首先将它们加载到*寄存器*中。寄存器可以被认为是“CPU变量”，它们拥有例如 R0、R1、R2 之类的编号。DS 有 15 个寄存器。这些值从*内存*（或者称为 *RAM*）加载到寄存器中，前者是一个大空间的可快速访问的二进制文件，CPU 可以随时引用。
 
-Assembly code varies from platform to platform – more specifically, it varies depending on the _architecture_ (which you can think of as the family or type) of microchip. The DS uses ARM assembly for its main executable, which is common and well-documented. The way I learned ARM assembly was getting right into it and debugging Nintendo DS code while looking up what each instruction was doing in another window. If you’re looking for good references for ARM, the [official documentation](https://developer.arm.com/documentation/dui0068/b/ARM-Instruction-Reference) is pretty instructive, though I also find just googling “ARM \[instruction I want to better understand\]” to work wonders.
+汇编代码因平台而异——更具体地说，它因微芯片的*架构*（可以将其视为家族或类型）而异。DS 使用 ARM 指令集作为其主要可执行文件，这是一种常见且拥有详细文档的指令集。我学习 ARM 汇编的方法是直接进入并调试 Nintendo DS 代码，同时在另一个窗口中查找每条指令的作用。如果你正在寻找 ARM 的参考资料，我认为[官方文档](https://developer.arm.com/documentation/dui0068/b/ARM-Instruction-Reference)很有启发性，尽管我也发现在谷歌上搜索“ARM \[想要理解的指令\]”会产生奇迹。
 
-### Into the Thick of It
+### 深入其中
 
-#### The Beginning
+#### 开始
 
-Let’s start at the beginning:
+让我们从头开始：
 ```arm
 RAM:02026198                 LDRB    R3, [R0],#1
 RAM:0202619C                 CMP     R3, #0
@@ -125,18 +125,18 @@ RAM:020261A0                 BEQ     loc_20262A0
 RAM:020261A4                 TST     R3, #0x80
 RAM:020261A8                 BEQ     loc_2026224
 ```
-Let’s break down these instructions:
+让我们分解一下这些说明：
 
-* `LDRB R3, [R0], #1`{lang='arm'} – This loads the byte at the address contained in R0 (which contains the current position in the file) into the register R3 and then increments R0 by one (meaning we move to the position of the next byte in the file). Since we’re at the beginning of the file, this loads the first byte in the file.
-* `CMP R3, #0`{lang='arm'} ; `BEQ loc_20262A0`{lang='arm'} – `BEQ`{lang='arm'} means “branch if equal,” but really it just means “branch if the last comparison is equal to zero.” Therefore, if that value we just loaded is zero, we’re going to branch to the end of the subroutine. We can ignore this for now.
-* `TST R3, #0x80`{lang='arm'} – `TST`{lang='arm'} performs a bitwise-and without storing the result. A bitwise-and compares two bytes and gives a result where each bit is 1 only if that bit is 1 in both of the two bytes it compares. In the case where R3 is 0xAA, we end up with something like:
+* `LDRB R3, [R0], #1`{lang='arm'}——这将 R0 中包含的地址（这包含了文件中的当前位置）处的字节加载到寄存器 R3 中，然后将 R0 增加 1（意味着我们移动到文件中下一个字节的位置）。由于我们处于文件的开头，因此这将加载文件中的第一个字节。
+* `CMP R3, #0`{lang='arm'}、`BEQ loc_20262A0`{lang='arm'}——`BEQ`{lang='arm'} 的意思是“如果相等则跳转分支”，但实际上它只是指“如果最后一次比较等于 0 则跳转分支”。因此，如果我们刚刚加载的值为 0，我们将跳转到子程序的末尾。我们现在可以忽略这一点。
+* `TST R3, #0x80`{lang='arm'}——`TST`{lang='arm'} 执行按位与且不存储结果。按位与比较两个字节，并给出一个结果，其中只有当某个位（bit）在其比较的两个字节对应的位都是 1 时才为 1。在 R3 为 0xAA 的情况下，我们最终得到如下结果：
 ```
 10101010 (0xAA)
 10000000 (0x80)
 _______
 10000000 (0x80)
 ```
-So this `TST`{lang='arm'} followed by the `BEQ`{lang='arm'} is just checking whether the first bit is zero or not. If it is zero, we branch to 0x2026224. Let’s branch there now (I have knowledge you don’t so I know checking this branch is going to be simpler lol). But first, we’ll convert this into C#:
+因此，这个 `BEQ`{lang='arm'} 后面跟着的 `TST`{lang='arm'} 只是在检查第一个位是否为 0。如果它为 0，我们将会跳转到 0x2026224。让我们现在跳转在那里（我知道一些你不知道的事，所以我知道检查这个分支会更简单，哈哈）。但首先，我们将把它转换成 C#：
 
 ```csharp
 int blockByte = compressedData[z++];
@@ -147,15 +147,15 @@ if (blockByte == 0)
 
 if ((blockByte & 0x80) == 0)
 {
-    // Do something
+    // 做某些事
 }
 else
 {
-    // Do something else
+    // 做另一些事
 }
 ```
 
-Pretty simple so far – we’re just checking if the first byte is zero.
+到目前为止非常简单——我们只是检查第一个位是否为零。
 
 #### Direct Write
 
