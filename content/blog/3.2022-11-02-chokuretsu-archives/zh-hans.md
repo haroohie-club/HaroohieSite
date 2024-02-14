@@ -1,6 +1,6 @@
 ---
-title: &title 'Chokuretsu ROM Hacking Challenges Part 2 – Archive Archaeology'
-description: &desc 'Jonko puts the Shade bin archive under the microscope and explains how he figured out how to unpack it.'
+title: &title '《串联》ROM 破解挑战第 2 部分：归档文件考古学'
+description: &desc 'Jonko 把 Shade 的二进制归档文件放在显微镜下，解释了他是如何打开它的。'
 locale: 'zh-hans'
 navigation:
   author: 'Jonko'
@@ -32,72 +32,72 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-[Last time](/blog/2022-10-19-chokuretsu-compression), we talked about how I reverse-engineered the compression algorithm used in Suzumiya Haruhi no Chokuretsu. Today, we’ll be taking a look at the archives that contain the Chokuretsu files. Please note that while I’ll generally try to keep these blog posts separate, this one absolutely builds on concepts we discussed last time, so I highly recommend you read it first! Also, if you're returning from the last one, fair warning that this one's a bit longer and contains a lot more assembly!
+[在上一次](/zh-hans/blog/2022-10-19-chokuretsu-compression)，我们讨论了我如何对《凉宫春日的串联》中使用的压缩算法进行逆向工程。今天，我们来看看包含在《串联》文件中的归档文件。请注意，虽然我通常会尽量将这些博客文章分开，但这篇文章绝对是建立在我们上次讨论的概念之上的，所以我强烈建议您先阅读它！此外，如果您是从上篇文章来到这里的，请注意，这篇文章有点长，包含更多的程序集！
 
-Thanks to the proliferation of zip files, you’re likely already familiar with archives: they’re files that contain files, usually compressed versions to help save space on disk. Common archives include `.zip`, `.rar`, `.7z`, and `.tar.gz` files. Chokuretsu uses a custom archive format with the extension `.bin`. Since Shade is the developer of Chokuretsu, these files are referred to as “Shade bin archives” or just “bin archives.” Let’s get started by picking an archive to look at.
+由于 zip 文件数量的激增，你可能已经熟悉了归档文件：它们是包含文件的文件，通常保存了压缩的版本，以帮助节省磁盘空间。常见的归档文件包括 `.zip`、`.rar`、`.7z` 和 `.tar.gz` 文件。《串联》使用了扩展名为 `.bin` 的自定义归档文件格式。由于 Shade 是《串联》的开发商，这些文件也可以被称为“Shade 二进制归档文件”或简称为“二进制归档文件”。让我们选择一个归档文件开始研究。
 
-For convenience, let’s pick the archive that contains the file we were looking at last time. We can open the game up in CrystalTile2 and navigate to where we were looking last time… 
+为了方便起见，让我们选择包含了上次所查看的文件的归档文件。我们可以在 CrystalTile2 中打开游戏，并导航到我们上次看到的位置……
 
-![The ROM opened in Crystal Tile 2 showing that the file we're looking for is evt.bin](/images/blog/0003/01_evt_ct2.png)
+![用 CrystalTile2 中打开 ROM，显示了我们要查找的文件是 evt.bin](/images/blog/0003/01_evt_ct2.png)
 
-And in the lower left corner it tells us that this data is contained in `evt.bin` (which is what we might have guessed, since it’s string data).
+在左下角，它告诉我们这个数据包含在 `evt.bin` 中（这也是我们可能已经猜到了的，因为它是字符串数据）。
 
-## Examining `evt.bin`
+## 检查 `evt.bin`
 
-Before we open it up in the hex editor, though, let’s talk a bit about what we’d expect to see in an archive (in order to confirm that `evt.bin` is in fact an archive). Here’s the attributes I’d put down:
+不过，在我们用十六进制编辑器打开它之前，让我们谈谈我们希望在归档文件中看到什么（以确认 `evt.bin` 确实是一个归档文件）。以下是我要列出的属性：
 
-* The number of files in the archive
-* A list of files in the archive – this would be composed of _filenames_ and _offsets_
-* The file data for all the files
+* 归档文件中的文件数量
+* 归档文件中的文件列表，包括*文件名*和*偏移量*
+* 所有文件的文件数据
 
-A quick explanation on that second bullet – filenames are self explanatory, but an offset is a way of talking about the location of data in a file. Briefly:
+关于第二个的快速解释——文件名不言自明，偏移量是指文件中数据所在的位置。简单来说：
 
-* An _address_ is the _absolute_ location of data in memory. When we set memory breakpoints in the debugger, we use addresses.
-* An _offset_ is the _relative_ location of data in a file. When we have a single file open in the hex editor, we talk about offsets.
-* A _pointer_ is a value that _points_ to an address or offset. A pointer to an address might look like an integer with the value 0x0220B4A8, while a pointer to an offset might be as simple as 0x3800. Addresses are used by the program when accessing memory, while offsets are used in files (since they can be loaded into arbitrary locations in memory), so it’s up to the program itself to convert those offsets into addresses.
+* *地址*（address）是数据在内存中的绝对位置。当我们在调试器中设置内存断点时，我们使用地址。
+* *偏移量*（offset）是文件中数据的相对位置。当我们在十六进制编辑器中打开一个文件时，我们会讨论偏移量。
+* *指针*（pointer）是*指向*地址或偏移量的值。指向地址的指针可能看起来像值为 0x0220B4A8 的整数，而指向偏移量的指针可能简单到 0x3800。地址由程序在访问内存时使用，而偏移量在文件中使用（因为它们可以加载到内存中的任意位置），因此由程序本身将这些偏移量转换为地址。
 
-So with that out of the way, let’s crack open `evt.bin`. First thing we’ll do is scroll down a bit just to get a feel for the layout of this file…
+既然这样，让我们打开 `evt.bin`。我们要做的第一件事是向下滚动一点，以了解这个文件的布局……
 
-![evt.bin open in Crystal Tile 2 showing a section of zeros above 0x2800](/images/blog/0003/02_lots_of_zeros_1.png)
+![在 CrystalTile2 中打开的 evt.bin，显示 0x2800 以上的一段 0](/images/blog/0003/02_lots_of_zeros_1.png)
 
-![evt.bin open in Crystal Tile 2 showing a section of zeros below the file at 0x2800](/images/blog/0003/03_lots_of_zeros_2.png)
+![在 CrystalTile2 中打开的 evt.bin，显示 0x2800 以下的一段 0](/images/blog/0003/03_lots_of_zeros_2.png)
 
 
-Interesting! After we scroll past a large chunk of data, we end up in a field of zeros, followed by another large chunk of data and then another field of zeros and so on. What’s more, after we scroll past the first bit, each of the large chunks of data seems to start on a multiple of 0x800 (hard to get that sense from two images, but trust me, crack open the files and you’ll see the pattern). To me, this looks like the _file data_ – and what’s more, each file is neatly spaced with padding in between.
+有趣！当我们滚动经过一大块数据后，我们最终会进入一个包含 0 的区域，然后是另一大块数据，然后是一个包含 0 的区域，以此类推。更重要的是，当我们滚动过第一段之后，每一大块数据似乎都以 0x800 的倍数开始（很难从两个图像中获得这种感觉，但相信我，如果你打开文件，你就会看到这种模式）。对我来说，这看起来像*文件数据*——而且，每个文件之间都有整齐的填充。
 
-![evt.bin open in Crystal Tile 2 at 0x0000. The first two bytes are highlighted in red and a pattern of bytes starting at 0x22 and spaced every four bytes are highlighted in cyan](/images/blog/0003/04_cyan_numbers.png)
+![在 CrystalTile2 中打开的 evt.bin，显示了 0x0000 处。前两个字节以红色高亮，从 0x22 开始每隔四个字节间隔的字节模式以青色高亮](/images/blog/0003/04_cyan_numbers.png)
 
-Let’s get back to the top of the file – again, a lot of numbers, but there are patterns here. But before we take a look at the numbers in cyan, a quick explanation on _endianness_. So far, we’ve mostly thought about things in terms of bytes, which can have values between 0 (0x00) and 255 (0xFF). But what about when we need to represent integers larger than that? When we need to do that, we use _multibyte integers_. The common types of these include:
+让我们回到文件的顶部——再说一遍，有很多数字，但这里有一些模式。但在我们看一下青色高亮的数字之前，先来快速解释一下*字节序*。到目前为止，我们主要考虑的是字节，字节的值可以在 0（0x00）到 255（0xFF）之间。但是，当我们需要表示比这更大的整数时呢？当我们需要这样做时，我们使用*多字节整数*。常见的类型包括：
 
-| Number of Bytes | Formal Name | C# Name |
+| 字节数量 | 正式名字 | C# 名字 |
 |---|---|---|
-| 2 | 16-bit integer | `short`{lang='csharp'} (signed) or `ushort`{lang='csharp'} (unsigned) |
-| 4 | 32-bit integer | `int`{lang='csharp'} (signed) or `uint`{lang='csharp'} (unsigned) |
-| 8 | 64-bit integer | `long`{lang='csharp'} (signed) or `ulong`{lang='csharp'} (unsigned) |
+| 2 | 16 位整数 | `short`{lang='csharp'}（有符号）或 `ushort`{lang='csharp'}（无符号） |
+| 4 | 32 位整数 | `int`{lang='csharp'}（有符号）或 `uint`{lang='csharp'}（无符号） |
+| 8 | 64 位整数 | `long`{lang='csharp'}（有符号）或 `ulong`{lang='csharp'}（无符号） |
 
-There are two possible ways to store a 16-bit integer, however. For example, take 512 (0x200). You could choose to store that with the _most-significant byte_ first (i.e. `02 00`) or with the _least-significant byte_ first (i.e. `00 02`). This decision is called _endianness_, where the former is “big-endian” and the latter is “little-endian.” Frequently, the decision is made simply to align with whatever the architecture uses; ARM is a little-endian architecture so these files are likely little-endian as well.
+然而，有两种可能的方式来存储 16 位整数。以 512（0x200）为例。你可以选择将*最高有效字节*先存储（即 `02 00`）或*最低有效字节*先存储（即 `00 02`）中。这种决定被称为*字节序*（endianness），其中前者是“大端序”（big-endian），后者是“小端序”（little-endian）。通常，做出这个决定只是为了与体系结构使用的任何东西保持一致；ARM 是一个小端序体系结构，所以这些文件也可能是小端序的。
 
-Going back to the cyan highlights in the image above, we can see that if we interpret the highlighted values as little-endian 16-bit integers, we have a sequence like:
+回到上图中的青色高亮，我们可以看到，如果我们将高亮显示的值解释为 16 位的小端序整数，我们会得到如下序列：
 
 ```
 0x000A, 0x000C, 0x000E, 0x0010, 0x0014, 0x0016, 0x0018, 0x001A, 0x001C, 0x001E, 0x0020, 0x0022 …
 ```
 
-These integers are increasing as we continue along! In fact, they continue to increase for another 0x900 bytes, with the pattern terminating at the final integer 0x94E:
+随着我们继续前进，这些整数正在增加！事实上，它们继续增加 0x900 字节，模式终止于最后一个整数 0x94E：
 
-![evt.bin open to 0x900 showing that the cyan integer pattern stops at 0x950](/images/blog/0003/05_cyan_numbers_end.png)
+![打开到 0x900 的 evt.bin，显示青色高亮的整数模式在 0x950 处停止](/images/blog/0003/05_cyan_numbers_end.png)
 
-These definitely aren’t file offsets (the differences between them are too small – for example, a file between offsets 0xB2E and 0xB32 would only be four bytes long), but it’s possible they might _map_ to file offsets somehow since they’re steadily increasing. That would suggest that maybe there is one of these values per file – so just how many are there? The values are two bytes long and spaced two bytes apart for a total of four bytes per iteration. The sequence begins at 0x20 and ends at 0x950. Therefore:
+这些绝对不是文件偏移量（它们之间的差异太小了——例如，偏移量 0xB2E 和 0xB32 之间的文件只有 4 个字节长），但它们可能会以某种方式映射到文件偏移量，因为它们正在稳步增加。这意味着每个文件可能有一个这样的值——那么有多少呢？值为两个字节长，间隔两个字节，每次迭代总共四个字节。序列从 0x20 开始，到 0x950 结束。因此：
 
 ```
 (0x950 - 0x20) / 0x04 = 0x24C
 ```
 
-Oh! Look at that! 0x24C happens to be the very first number to appear in the file (highlighted in red). So we can guess that the first number is the number of files in the archive. (To double check this, we should check that the pattern is consistent for the other archives as well – which it is.)
+哦！看这个！0x24C 恰好是文件中出现的第一个数字（以红色突出显示）。因此，我们可以猜测第 1 个数字是归档文件中的文件数。（为了二次确认，我们应该检查其他归档文件的模式是否一致——事实确实如此。）
 
-![evt.bin open to 0x0000 with green highlights next to the cyan ones creating a series of 32-bit integers](/images/blog/0003/06_magic_integers.png)
+![打开到 0x0000 的 evt.bin，青色高亮旁边有绿色高亮，创建了一系列 32 位整数](/images/blog/0003/06_magic_integers.png)
 
-What about the numbers next to the cyan highlights, though – the ones highlighted in green above? It’s hard to say right now as there’s no obvious pattern. However, we need some nomenclature here, so I’m going to be referring to the combination of the green and cyan highlights as _magic integer_, since they are obfuscated (magic) but do important stuff (also magic). The first magic integer spans from 0x20 to 0x23, which is why they’re “integers” – specifically, 32-bit integers.
+那么，青色高亮显示旁边的数字——上面用绿色高亮显示的数字是什么呢？现在很难说，因为没有明显的模式。然而，我们在这里需要一些命名法，所以我将把绿色和青色高亮的组合称为*魔数*（magic integer），因为它们是模糊的（magic），但起着重要的作用（也是 magic）。第一个魔数从 0x20 到 0x23，这就是为什么它们是“整数”（interger）——准确来说，32 位整数。
 
 ## Into the Thick of It, Reprise
 The purpose of the previous section was to demonstrate how to a) identify that a file is an archive and b) use some basic pattern matching to begin reverse-engineering the archive. However, this archive is a little weird and obfuscated – while most archives might simply have a table at the top containing the filename and offset (location in the archive) for each file, this one clearly doesn’t have that. That information is somehow hidden. There are a variety of ways one could deal with this, but for me, the easiest option seemed to be diving back into the assembly again.

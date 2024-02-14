@@ -157,30 +157,30 @@ else
 
 到目前为止非常简单——我们只是检查第一个位是否为零。
 
-#### Direct Write
+#### 直接写入
 
 ```arm
 RAM:02026224                 TST     R3, #0x40
 RAM:02026228                 BEQ     loc_2026268
 ```
 
-* `TST R3, #0x40`{lang='arm'} – This is now checking whether the second bit is set. If it is, we’re going to jump to 0x2026268. We’ll get back to this section in a sec, but first let’s jump there after we convert this bit to C# as well:
+* `TST R3, #0x40`{lang='arm'}——现在检查第 2 位是否为 1。如果是，我们将跳转到 0x2026268。我们稍后再回到这一节，但首先让我们将其转换为 C# 后跳转到那里：
 
 ```csharp
 if ((blockByte & 0x80) == 0)
 {
     if ((blockByte & 0x40) == 0)
     {
-        // Do something 0x80
+        // 做某些事 0x80
     }
     else
     {
-        // Do something else 0x80
+        // 做另一些事 0x80
     }
 }
 else
 {
-    // Do something else
+    // 做另一些事
 }
 ```
 
@@ -206,37 +206,37 @@ RAM:02026298                 BGT     loc_2026288
 RAM:0202629C                 B       loc_2026198
 ```
 
-This is a pretty big chunk of code, but don’t let it scare you. We got this.
+这是一个相当大的代码块，但不要被吓到。我们得到了这些：
 
-* `TST R3, #0x20`{lang='arm'} ; `ANDEQ R12, R3, #0x1F`{lang='arm'} – Now we’re testing the third bit of our first byte here. If it’s zero, we’re going to take its last five bits (0x1F = 0xb0001_1111) and branch to 0x2026280. We’ll get there in a sec.
-* `LDRB R12, [R0], #1`{lang='arm'} – We’re loading the next byte from the file into a register (R12). So if the third bit of that first byte was set, it means we need to do something with the next byte.
-* `MOV R3, R3, LSL#27`{lang='arm'} ; `ORR R12, R12, R3, LSR#19`{lang='arm'} – `LSL` is “logical shift left” and `LSR` is “logical shift right,” respectively meaning to shift the bits in R3 to the left or right by 27 and 19. Shifting them left 27 and right 19 effectively means shifting left 8 after clearing the top 3 bits, which is equivalent to multiplying `R3 & 0x1F` by 0x100. With a bitwise-or, we combine the first byte and the second byte we just read into a 16-bit integer.
+* `TST R3, #0x20`{lang='arm'}、`ANDEQ R12, R3, #0x1F`{lang='arm'}——现在我们在这里测试第 1 个字节的第 3 位。如果它为 0，我们将取其最后 5 位（0x1F = 0xb0001_1111），并跳转到分支 0x2026280。我们稍后去那里。
+* `LDRB R12, [R0], #1`{lang='arm'}——我们正在将文件中的下一个字节加载到寄存器（R12）中。因此，如果第 1 个字节的第 3 位为 1，就意味着我们需要对下一个字节做些什么。
+* `MOV R3, R3, LSL#27`{lang='arm'}、`ORR R12, R12, R3, LSR#19`{lang='arm'}——`LSL` 是“逻辑左移”，`LSR` 是“逻辑右移”，分别表示将 R3 中的位向左或向右移动 27 位和 19 位。将它们向左移 27 位和向右移 19 位意味着在清除前 3 位之后向左移 8 位，这相当于将“R3 & 0x1F”乘以 0x100。使用按位或，我们将刚读取的第一个字节和第二个字节组合成一个 16 位整数。
 
-This is calculating something in an if-statement – we can represent it in C# like this:
+这是在 if 语句中计算一些东西——我们可以在 C# 中这样表示：
 ```csharp
 int value;
 if ((blockByte & 0x20) == 0)
 {
-    value = blockByte; // the `& 0x1F` is unnecessary since we've already determined bits 1-3 to be 0
+    value = blockByte; // `&0x1F` 是不必要的，因为我们已经确定第 1-3 位为 0
 }
 else
 {
-    // bit 3 == 1 --> need two bytes to indicate how much data to read
+    // 第 3 位 == 1 --> 需要两个字节来指示要读取的数据量
     value = compressedData[z++] + ((blockByte & 0x1F) * 0x100);
 }
 ```
 
-We don’t yet understand exactly what the value does, but that will become clear when we look at the next section.
+我们还不清楚这个值的确切作用，但当我们看下一节时，这一点会变得很清楚。
 
-* `CMP R12, #0`{lang='arm'} ; `BLE loc_2026198`{lang='arm'} – If the value we just calculated is zero, we immediately return to the top of the function.
-* `LDRB R3, [R0], #1`{lang='arm'} – As we’re used to by now, we’re going to load in the next byte to R3.
-* `SUB R12, R12, #1`{lang='arm'} – We subtract 1 from the value we calculated earlier.
-* `CMP R12, #0`{lang='arm'} – We compare the value we calculated earlier to 0.
-* `STRB R3, [R1], #1`{lang='arm'} – We store the most recent value we just read in the decompressed data buffer and move one forward in that buffer.
-* `BGT loc_2026288`{lang='arm'} – If R12 was greater than 0 two steps ago, we go to the first step in this section. Aha – this is a loop!
-* `B loc_2026198`{lang='arm'} – If it’s less than or equal to 0, we go back to the top of the subroutine.
+* `CMP R12, #0`{lang='arm'}、`BLE loc_2026198`{lang='arm'}——如果我们刚刚计算的值为 0，我们立即返回到函数的顶部。
+* `LDRB R3, [R0], #1`{lang='arm'}——正如我们现在习惯的那样，我们把下一个字节加载到 R3 。
+* `SUB R12, R12, #1`{lang='arm'}——我们从前面计算的值中减去 1。
+* `CMP R12, #0`{lang='arm'}——我们将前面计算的值与 0 进行比较。
+* `STRB R3, [R1], #1`{lang='arm'}——我们将刚刚读取的最新值存储在解压缩的数据缓冲区中，并在该缓冲区中向前移动一个值。
+* `BGT loc_2026288`{lang='arm'}——如果两步前得到的 R12 大于0，我们将转到本节的第一步。啊哈——这是一个循环！
+* `B loc_2026198`{lang='arm'}——如果它小于或等于 0，我们回到子程序的顶部。
 
-This is actually super straightforward now that we understand that it’s a loop. The `value` we were calculating earlier is actually the number of bytes (`numBytes`) to copy directly from the input buffer to the output buffer. Thus we can represent this section as:
+这实际上非常简单，因为我们知道这是一个循环。我们前面计算的 `value` 实际上是要直接从输入缓冲区复制到输出缓冲区的字节数（`numBytes`）。因此，我们可以将该部分表示为：
 
 ```csharp
 for (int i = 0; i < numBytes; i++)
@@ -245,9 +245,9 @@ for (int i = 0; i < numBytes; i++)
 }
 ```
 
-What’s more, the fact that we return to the top of the function each time implies that it too is a loop.
+更重要的是，我们每次返回函数顶部的事实意味着它也是一个循环。
 
-The program we have written so far looks like this:
+到目前为止，我们编写的程序如下所示：
 
 ```csharp
 for (int z = 0; z < compressedData.Length;)
@@ -262,15 +262,15 @@ for (int z = 0; z < compressedData.Length;)
     {
         if ((blockByte & 0x40) == 0)
         {
-            // bits 1 & 2 == 0 --> direct data read
+            // 第 1 & 2 位 == 0 --> 直接读取数据
             int numBytes;
             if ((blockByte & 0x20) == 0)
             {
-                numBytes = blockByte; // the `& 0x1F` is unnecessary since we've already determined bits 1-3 to be 0
+                numBytes = blockByte; // `&0x1F` 是不必要的，因为我们已经确定第 1-3 位为 0
             }
             else
             {
-                // bit 3 == 1 --> need two bytes to indicate how much data to read
+                // 第 3 位 == 1 --> 需要两个字节来指示要读取的数据量
                 numBytes = compressedData[z++] + ((blockByte & 0x1F) * 0x100);
             }
             for (int i = 0; i < numBytes; i++)
@@ -280,26 +280,26 @@ for (int z = 0; z < compressedData.Length;)
         }
 ```
 
-#### Decompressing a File
+#### 解压文件
 
-So essentially, the decompression algorithm operates as follows: A “control byte” is read in and the first three to four bits determine the following functions. The decompression options are:
-* Read a certain number of bytes directly into the decompressed buffer
-* Read a single byte and repeat it a certain number of times
-* Backreference to a particular location in the decompressed data and copy those bytes forward
+因此，解压算法的基本操作如下：读入一个“控制字节”，其前 3-4 位决定以下功能。解压缩选项包括：
+* 将一定数量的字节直接读入解压缩的缓冲区
+* 读取单个字节并重复一定次数
+* 逆向引用解压缩数据中的特定位置，并复制这些字节
 
-The full decompression implementation can be found [here](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Helpers.cs#L359-L446).
+完整的解压缩实现可以在[这里](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Helpers.cs#L359-L446)找到。
 
-And if we try decompressing a file…
+如果我们尝试解压缩文件……
 
-![A hex editor showing the fully decompressed script file from earlier.](/images/blog/0002/12_decompressed_file.png)
+![一个十六进制编辑器，显示先前完全解压缩的脚本文件。](/images/blog/0002/12_decompressed_file.png)
 
-There’s the decompressed script! Fantastic.
+这就是解压缩的脚本！好极了。
 
-#### Creating the Compression Routine
+#### 创建压缩程序
 
-So now we understand the decompression algorithm pretty well and can decompress all the files to replace the Japanese text with English text. But if we want to reinsert them into the game, we still have to be able to recompress our edited files. So, we have to implement a compression routine. There isn’t going to be one to copy from assembly like we did with the decompression subroutine since that routine isn’t in-game (files were compressed at game creation time, they’re only decompressed in-game). But this isn’t so bad – since we know how decompression works, we just have to reverse that process to compress things.
+现在我们很好地理解了解压缩算法，可以解压缩所有文件，用英语文本替换日语文本。但如果我们想将它们重新插入游戏，我们仍然需要重新压缩编辑过的文件。因此，我们必须实现一个压缩程序。我们不能像解压缩子程序那样从程序集中复制一个，因为该程序不在游戏中（文件在游戏创建时被压缩，它们只在游戏中被解压缩）。但这并没有那么糟糕——既然我们知道解压缩是如何工作的，我们只需要扭转这个过程来压缩东西。
 
-For example, we can implement the “direct write” mode pretty easily:
+例如，我们可以很容易地实现“直接写入”模式：
 
 ```csharp
 private static void WriteDirectBytes(byte[] writeFrom, List<byte> writeTo, int position, int numBytesToWrite)
@@ -319,9 +319,9 @@ private static void WriteDirectBytes(byte[] writeFrom, List<byte> writeTo, int p
 }
 ```
 
-First, we take the number of bytes we’re going to write. If that number is less than 0x20 (i.e. can be contained in the lower five bits of the control byte), then we simply write that number to the output buffer. Otherwise, we have to calculate the two bytes to write to represent a larger number. Finally, we simply write the bytes to the output buffer.
+首先，我们获取要写入的字节数。如果该数字小于 0x20（即可以包含在控制字节的低 5 位中），那么我们只需将该数字写入输出缓冲区。否则，我们必须计算要写入的两个字节来表示更大的数字。最后，我们简单地将字节写入输出缓冲区。
 
-We can implement similar (albeit more complex) functionality for the repeater and lookback modes. The end result can be found [here](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Helpers.cs#L182-L357).
+我们可以为重复模式和逆向引用模式实现类似（尽管更复杂）的功能。最终结果可以在[此处](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Helpers.cs#L182-L357)找到。
 
-## What’s Next
-Now we have working compression and decompression implementations, but we’re not out of the woods yet. Next, we have to contend with the fact that this file is just one of many in an archive, and we have to figure out how to properly replace it. Join us in our next post where we delve into that.
+## 下一步是什么
+现在，我们已经实现了压缩和解压缩，但我们还没有脱离困境。接下来，我们必须面对这样一个事实，即这个文件只是归档文件中众多文件中的一个，我们必须找出如何正确地替换它。请阅读我们的下一篇文章，我们将深入研究它。
