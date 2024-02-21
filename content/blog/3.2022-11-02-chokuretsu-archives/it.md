@@ -1,6 +1,6 @@
 ---
-title: &title 'Chokuretsu ROM Hacking Challenges Part 2 – Archive Archaeology'
-description: &desc 'Jonko puts the Shade bin archive under the microscope and explains how he figured out how to unpack it.'
+title: &title 'Sfide nel ROM Hacking di Chokuretsu Parte 2 - Archeologia dell'archivio'
+description: &desc 'Jonko mette l'archivio bin Shade sotto al microscopio e spiega come ha fatto a capire come spachettarlo.'
 locale: 'it'
 navigation:
   author: 'Jonko'
@@ -32,62 +32,61 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-[Last time](/blog/2022-10-19-chokuretsu-compression), we talked about how I reverse-engineered the compression algorithm used in Suzumiya Haruhi no Chokuretsu. Today, we’ll be taking a look at the archives that contain the Chokuretsu files. Please note that while I’ll generally try to keep these blog posts separate, this one absolutely builds on concepts we discussed last time, so I highly recommend you read it first! Also, if you're returning from the last one, fair warning that this one's a bit longer and contains a lot more assembly!
+[L'ultima volta](/blog/2022-10-19-chokuretsu-compression), abbiamo parlato di come ho fatto un reverse-engineering dell'algoritmo di compressione utilizzato in Suzumiya Haruhi no Chokuretsu. Oggi, guarderemo gli archivi che contengono i file di Chokuretsu. Vi chiedo di tenere a mente che mentre io cerco di tenere questi post separati, questo si basa completamente sui concetti fondati la scorsa volta, quindi Vi suggerisco di leggerla per prima! Inoltre, se avete già letto lo scorso post, ti avviso che questo è più po' più lungo e contiene più assembly!
 
-Thanks to the proliferation of zip files, you’re likely already familiar with archives: they’re files that contain files, usually compressed versions to help save space on disk. Common archives include `.zip`, `.rar`, `.7z`, and `.tar.gz` files. Chokuretsu uses a custom archive format with the extension `.bin`. Since Shade is the developer of Chokuretsu, these files are referred to as “Shade bin archives” or just “bin archives.” Let’s get started by picking an archive to look at.
+Grazie alla proliferazione dei file .zip, sarai già a conoscenza degli archivi: sono file che contengono file, solitamente compressi per risparmiare spazio sul disco. Gli archivi più comuni sono i file `.zip`, `.rar`, `.7z` e `.tar.gz`. Chokuretsu utilizza un archivio personalizzato con l'estensione `.bin`. Visto che Shade è lo sviluppatore del gioco, questi file vengono riferiti come "archivi bin Shade" o semplicemente "archivi bin." Iniziamo scegliendo un archivio da guardare.
 
-For convenience, let’s pick the archive that contains the file we were looking at last time. We can open the game up in CrystalTile2 and navigate to where we were looking last time… 
+Per convenienza, prendiamo l'archivio che contiene il file che stavamo guardando la scorsa volta. Possiamo aprire il gioco in CrystalTile2 e navigare fino a dove eravamo arrivati...
 
-![The ROM opened in Crystal Tile 2 showing that the file we're looking for is
+![La ROM aperta in CrystalTile2 che mostra che il file che stiamo cercando è
 evt.bin](/images/blog/0003/01_evt_ct2.png)
 
-And in the lower left corner it tells us that this data is contained in `evt.bin` (which is what we might have guessed, since it’s string data).
+E nell'angolo in basso a sinistra ci dice che questi dati sono contenuti in `evt.bin` (Il che è quello che avremmo potuto pensare, essendo che questi dati sono delle stringhe).
 
-## Examining `evt.bin`
+## Esaminare `evt.bin`
 
-Before we open it up in the hex editor, though, let’s talk a bit about what we’d expect to see in an archive (in order to confirm that `evt.bin` is in fact an archive). Here’s the attributes I’d put down:
+Prima che lo apriamo nell'editor esadecimale, però, parliamo un po' di quello che dovremmo aspettarci di vedere in un archivio (in modo da confermare che `evt.bin` è infatti un archivio). Ecco gli attributi che gli darei:
 
-* The number of files in the archive
-* A list of files in the archive – this would be composed of _filenames_ and _offsets_
-* The file data for all the files
+* Il numero di file nell'archivio
+* Una lista dei file nell'archivio – questa sarebbe composta da _i nomi dei file_ e dagli _offset_
+* I dati di ciascun file
 
-A quick explanation on that second bullet – filenames are self explanatory, but an offset is a way of talking about the location of data in a file. Briefly:
+Una breve spiegazione del secondo punto – i nomi dei file sono abbastanza ovvi, ma gli offset sono dei modi per indicare la posizione dei dati in un file. In breve:
 
-* An _address_ is the _absolute_ location of data in memory. When we set memory breakpoints in the debugger, we use addresses.
-* An _offset_ is the _relative_ location of data in a file. When we have a single file open in the hex editor, we talk about offsets.
-* A _pointer_ is a value that _points_ to an address or offset. A pointer to an address might look like an integer with the value 0x0220B4A8, while a pointer to an offset might be as simple as 0x3800. Addresses are used by the program when accessing memory, while offsets are used in files (since they can be loaded into arbitrary locations in memory), so it’s up to the program itself to convert those offsets into addresses.
+* Un _indirizzo_ è la posizione _assoluta_ dei dati in memoria. Quando impostiamo dei breakpoint, utilizziamo gli indirizzi.
+* Un _offset_ è la posizione _relativa_ dei dati in un file. Quando abbiamo un singolo file aperto nell'editor esadecimale, parliamo di offset.
+* Un _puntatore_ è un valore che _punta_ (indica) un indirizzo o un offset. Un puntatore che indica un indirizzo può sembrare un semplice numero intero come 0x0220B4A8, mentre un puntatore che indica un offset può essere semplice tanto quanto un 0x3800. Gli indirizzi vengono usati dai programmi per accedere alla memoria, mentre gli offset sono utilizzati per i file (visto che non vengono caricati in un punto preciso della memoria), lasciandoli comvertire in indirizzi dal programma stesso.
 
-So with that out of the way, let’s crack open `evt.bin`. First thing we’ll do is scroll down a bit just to get a feel for the layout of this file…
+Quindi, mettendo da parte quello, apriamo `evt.bin`. Per prima cosa dobbiamo scorrere giù un pochino giusto per capire il layout di questo file…
 
-![evt.bin open in Crystal Tile 2 showing a section of zeros above 0x2800](/images/blog/0003/02_lots_of_zeros_1.png)
+![evt.bin aperto in CrystalTile2 che mostra una sezione di zeri sopra 0x2800](/images/blog/0003/02_lots_of_zeros_1.png)
 
-![evt.bin open in Crystal Tile 2 showing a section of zeros below the file at 0x2800](/images/blog/0003/03_lots_of_zeros_2.png)
+![evt.bin aperto in CrystalTile2 che mostra una sezione di zeri sotto 0x2800](/images/blog/0003/02_lots_of_zeros_2.png)
 
 
-Interesting! After we scroll past a large chunk of data, we end up in a field of zeros, followed by another large chunk of data and then another field of zeros and so on. What’s more, after we scroll past the first bit, each of the large chunks of data seems to start on a multiple of 0x800 (hard to get that sense from two images, but trust me, crack open the files and you’ll see the pattern). To me, this looks like the _file data_ – and what’s more, each file is neatly spaced with padding in between.
+Interessante! Dopo aver scorso un bel pezzo di dati, siamo finiti in un campo di zeri, seguito da un altro grande pezzo di dati seguito da un altro campo di zeri e così via. Inoltre, dopo aver scorso dopo la prima parte, ogni grande pezzo di dati sembra partire dopo un multiplo di 0x800 (un po' difficile da capire dalle immagini ma fidati, apri il file e vedrai il pattern). A me, questi sembrano i _dati dei file_ – e in più, ogni file è separato per bene con molto spazio in mezzo.
 
-![evt.bin open in Crystal Tile 2 at 0x0000. The first two bytes are highlighted in red and a pattern of bytes starting at 0x22 and spaced every four bytes are highlighted in cyan](/images/blog/0003/04_cyan_numbers.png)
+![evt.bin aperto in Crystal Tile 2 a 0x0000. I primi due byte sono evidenziati in rosso e un pattern di byte inizia a 0x22 con spazi da quattro byte sono evidenziati in ciano](/images/blog/0003/04_cyan_numbers.png)
 
-Let’s get back to the top of the file – again, a lot of numbers, but there are patterns here. But before we take a look at the numbers in cyan, a quick explanation on _endianness_. So far, we’ve mostly thought about things in terms of bytes, which can have values between 0 (0x00) and 255 (0xFF). But what about when we need to represent integers larger than that? When we need to do that, we use _multibyte integers_. The common types of these include:
+Tornando in cima al file – ancora una volta, un sacco di numeri, ma ci sono dei pattern qui. Ma prima di guardare i numeri in ciano, ecco una breve spiegazione sull'_endianità_. Fin'ora, abbiamo principalmente pensato a queste in termini di byte, che hanno valori da 0 (0x00) a 255 (0xFF). Ma se dobbiamo invece rappresentare numeri interi più grandi? Per farlo, dobbiamo usare degli _interi multi-byte_. I tipi più comuni di questi sono:
 
-| Number of Bytes | Formal Name | C# Name |
+| Numero di Byte | Nome Formale | Nome in C# |
 |---|---|---|
-| 2 | 16-bit integer | `short`{lang='csharp'} (signed) or `ushort`{lang='csharp'} (unsigned) |
-| 4 | 32-bit integer | `int`{lang='csharp'} (signed) or `uint`{lang='csharp'} (unsigned) |
-| 8 | 64-bit integer | `long`{lang='csharp'} (signed) or `ulong`{lang='csharp'} (unsigned) |
+| 2 | interi a 16-bit | `short`{lang='csharp'} (signed) or `ushort`{lang='csharp'} (non assegnati) |
+| 4 | interi a 32-bit | `int`{lang='csharp'} (signed) or `uint`{lang='csharp'} (non assegnati) |
+| 8 | interi a 64-bit | `long`{lang='csharp'} (signed) or `ulong`{lang='csharp'} (non assegnati) |
 
-![evt.bin open in Crystal Tile 2 showing a section of zeros below the file at
-0x2800](/images/blog/0003/03_lots_of_zeros_2.png)
+Ci sono due modi possibili per inserire un intero a 16-bit, tuttavia. Per esempio, prendi 512 (0x200). Potresti scegliere di metterlo iniziando dal _byte più significativo_ (es. `02 00`) o dal _byte meno significativo_ (es. `00 02`). Questa decisione è chimata _endianità_, dove il primo metodo è chiamato "endiano grande" e l'ultimo "endiano piccolo." Frequentemente, la decisione dipende da quello che l'architettura usa; ARM è un'architettura a endiani piccoli, quindi anche questi file saranno probabilmente a endiani piccoli.
 
-Going back to the cyan highlights in the image above, we can see that if we interpret the highlighted values as little-endian 16-bit integers, we have a sequence like:
+Tornando alla parte evidenziata in ciano nell'immagine soprastante, possiamo vedere che se interpretiamo questi valori come degli interi a 16-bit a endiani piccoli, avremo una sequenza del tipo:
 
 ```
 0x000A, 0x000C, 0x000E, 0x0010, 0x0014, 0x0016, 0x0018, 0x001A, 0x001C, 0x001E, 0x0020, 0x0022 …
 ```
 
-These integers are increasing as we continue along! In fact, they continue to increase for another 0x900 bytes, with the pattern terminating at the final integer 0x94E:
+Questi interi aumetano man mano che andiamo avanti! Infatti, continuano a crescere per ben altri 0x900 byte, con il pattern che termina all'intero finale 0x94E:
 
-![evt.bin open to 0x900 showing that the cyan integer pattern stops at 0x950](/images/blog/0003/05_cyan_numbers_end.png)
+![evt.bin aperto in 0x900 che mostra che il pattern in ciano finisce in 0x950](/images/blog/0003/05_cyan_numbers_end.png)
 
 These definitely aren’t file offsets (the differences between them are too small – for example, a file between offsets 0xB2E and 0xB32 would only be four bytes long), but it’s possible they might _map_ to file offsets somehow since they’re steadily increasing. That would suggest that maybe there is one of these values per file – so just how many are there? The values are two bytes long and spaced two bytes apart for a total of four bytes per iteration. The sequence begins at 0x20 and ends at 0x950. Therefore:
 
