@@ -32,14 +32,13 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-[L'ultima volta](/blog/2022-10-19-chokuretsu-compression), abbiamo parlato di come ho fatto un reverse-engineering dell'algoritmo di compressione utilizzato in Suzumiya Haruhi no Chokuretsu. Oggi, guarderemo gli archivi che contengono i file di Chokuretsu. Vi chiedo di tenere a mente che mentre io cerco di tenere questi post separati, questo si basa completamente sui concetti fondati la scorsa volta, quindi Vi suggerisco di leggerla per prima! Inoltre, se avete già letto lo scorso post, ti avviso che questo è più po' più lungo e contiene più assembly!
+[L'ultima volta](/it/blog/2022-10-19-chokuretsu-compression), abbiamo parlato di come ho fatto un reverse-engineering dell'algoritmo di compressione utilizzato in Suzumiya Haruhi no Chokuretsu. Oggi, guarderemo gli archivi che contengono i file di Chokuretsu. Vi chiedo di tenere a mente che mentre io cerco di tenere questi post separati, questo si basa completamente sui concetti fondati la scorsa volta, quindi Vi suggerisco di leggerla per prima! Inoltre, se avete già letto lo scorso post, ti avviso che questo è più po' più lungo e contiene più assembly!
 
 Grazie alla proliferazione dei file .zip, sarai già a conoscenza degli archivi: sono file che contengono file, solitamente compressi per risparmiare spazio sul disco. Gli archivi più comuni sono i file `.zip`, `.rar`, `.7z` e `.tar.gz`. Chokuretsu utilizza un archivio personalizzato con l'estensione `.bin`. Visto che Shade è lo sviluppatore del gioco, questi file vengono riferiti come "archivi bin Shade" o semplicemente "archivi bin." Iniziamo scegliendo un archivio da guardare.
 
-Per convenienza, prendiamo l'archivio che contiene il file che stavamo guardando la scorsa volta. Possiamo aprire il gioco in CrystalTile2 e navigare fino a dove eravamo arrivati...
+Per convenienza, prendiamo l'archivio che contiene il file che stavamo guardando la scorsa volta. Possiamo aprire il gioco in CrystalTile2 e navigare fino a dove eravamo arrivati… 
 
-![La ROM aperta in CrystalTile2 che mostra che il file che stiamo cercando è
-evt.bin](/images/blog/0003/01_evt_ct2.png)
+![La ROM aperta in CrystalTile2 che mostra che il file che stiamo cercando è evt.bin](/images/blog/0003/01_evt_ct2.png)
 
 E nell'angolo in basso a sinistra ci dice che questi dati sono contenuti in `evt.bin` (Il che è quello che avremmo potuto pensare, essendo che questi dati sono delle stringhe).
 
@@ -96,12 +95,7 @@ These definitely aren’t file offsets (the differences between them are too sma
 
 Oh! Look at that! 0x24C happens to be the very first number to appear in the file (highlighted in red). So we can guess that the first number is the number of files in the archive. (To double check this, we should check that the pattern is consistent for the other archives as well – which it is.)
 
-Let’s get back to the top of the file – again, a lot of numbers, but there are
-patterns here. But before we take a look at the numbers in cyan, a quick
-explanation on _endianness_. So far, we’ve mostly thought about things in terms
-of bytes, which can have values between 0 (0x00) and 255 (0xFF). But what about
-when we need to represent integers larger than that? When we need to do that, we
-use _multibyte integers_. The common types of these include:
+![evt.bin open to 0x0000 with green highlights next to the cyan ones creating a series of 32-bit integers](/images/blog/0003/06_magic_integers.png)
 
 What about the numbers next to the cyan highlights, though – the ones highlighted in green above? It’s hard to say right now as there’s no obvious pattern. However, we need some nomenclature here, so I’m going to be referring to the combination of the green and cyan highlights as _magic integer_, since they are obfuscated (magic) but do important stuff (also magic). The first magic integer spans from 0x20 to 0x23, which is why they’re “integers” – specifically, 32-bit integers.
 
@@ -115,48 +109,39 @@ First, we should try to find the code where these archives are parsed. To do thi
 
 So, we go back to DeSmuME and search for the four bytes at offset 0x20 (remember, DeSmuME’s memory search expects you to enter the bytes in reverse order, so instead of `D1 00 0A 00` we enter `00 0A 00 D1`)...
 
-There are two possible ways to store a 16-bit integer, however. For example,
-take 512 (0x200). You could choose to store that with the _most-significant
-byte_ first (i.e. `02 00`) or with the _least-significant byte_ first (i.e. `00
-02`). This decision is called _endianness_, where the former is “big-endian” and
-the latter is “little-endian.” Frequently, the decision is made simply to align
-with whatever the architecture uses; ARM is a little-endian architecture so
-these files are likely little-endian as well.
+![DeSmuME's memory search window showing a single result for our search at 0x020F7720](/images/blog/0003/08_memory_search.png)
 
 And once again, we’ve found a single hit. So, let’s open up the memory viewer and head to 0x020F7720…
 
-Going back to the cyan highlights in the image above, we can see that if we
-interpret the highlighted values as little-endian 16-bit integers, we have a
-sequence like:
+![DeSmuME's memory viewer showing the memory at 0x020F7720 looking exactly like the header of evt.bin](/images/blog/0003/09_memory_find.png)
 
 And it matches the `evt.bin` header exactly! This means that the `evt.bin` header is loaded into 0x020F7700. So now, we’ll load up the game in no$GBA (I was a little hard on no$ last time around, but its debugging tools _are_ very convenient) and set a read breakpoint for 0x020F7700.
 
-```
-0x000A, 0x000C, 0x000E, 0x0010, 0x0014, 0x0016, 0x0018, 0x001A, 0x001C, 0x001E, 0x0020, 0x0022 …
-```
+![no$GBA hitting a breakpoint at 0x020338C8](/images/blog/0003/10_breakpoint.png)
 
 Nice, we hit our breakpoint as soon as the game is loaded. This means that the archive headers are loaded on boot. Let’s pull up this subroutine in IDA.
 
-These definitely aren’t file offsets (the differences between them are too small
-– for example, a file between offsets 0xB2E and 0xB32 would only be four bytes
-long), but it’s possible they might _map_ to file offsets somehow since they’re
-steadily increasing. That would suggest that maybe there is one of these values
-per file – so just how many are there? The values are two bytes long and spaced
-two bytes apart for a total of four bytes per iteration. The sequence begins at
-0x20 and ends at 0x950. Therefore:
+```arm
+RAM:02033818                 PUSH    {R3-R9,LR}
+RAM:0203381C                 LDR     R2, =dword_20A9AB0
+RAM:02033820                 MOV     R6, R0
+RAM:02033824                 LDR     R1, [R2]
+RAM:02033828                 LDR     R0, =aFiletblLoadSta ; "--- filetbl_load start <%d> ---\n"
+RAM:0203382C                 ADD     R1, R1, #0x3F ; '?'
+RAM:02033830                 BIC     R3, R1, #0x3F
+RAM:02033834                 MOV     R1, R6
+RAM:02033838                 STR     R3, [R2]
+RAM:0203383C                 BL      dbg_print20228DC
+```
 
 Here’s something useful! That `"--- filetbl_load start <%d> ---\n"`{lang='c'} string you see is text that’s hardcoded in the executable program (arm9.bin) itself. 
 
-```
-(0x950 - 0x20) / 0x04 = 0x24C
-```
+`=aFiletblLoadSta` is a name IDA gives to the address that holds that string, so `LDR R0, =aFiletblLoadSta`{lang='arm'} is loading the address of that string into R0. In ARM assembly, R0 is used as the first parameter when calling another subroutine, so the `BL` (branch-link or “call this subroutine”) below uses it as a parameter. Because the string looks a lot like a debug string, we can guess that that function is a debug print function (something that would print text to the console for debugging purposes), which is why we’ve renamed the function here to `dbg_print20228DC`.
 
 But more importantly, the fact that this debug string is being printed here tells us what _this function’s name was_ in the original source code: `filetbl_load()`{lang='c'}. From this, we can surmise that this function is designed to load the “file table” from the archive – i.e., it loads the header we were just looking at and that header is the list of files we thought it was! This trick (looking at debug or error strings to figure out what a function does) is something I frequently make use of – without even examining the disassembly in detail, we now have a pretty good idea of what this function does.
 
-Oh! Look at that! 0x24C happens to be the very first number to appear in the
-file (highlighted in red). So we can guess that the first number is the number
-of files in the archive. (To double check this, we should check that the pattern
-is consistent for the other archives as well – which it is.)
+### Loading the Magic Integer
+After trying to analyze this routine the way we did the decompression routine, it turns out that this routine is a little bit more abstract. It references a bunch of memory addresses and other things that I don’t have any context for – so let’s get some context and watch what it’s doing in the debugger. After all, our goal here isn’t to necessarily reverse-engineer exactly what this routine is doing (unlike with the decompression routine), it’s to use this routine to understand the structure of the archive file.
 
 So back to no$GBA then. Stepping forward, we come to this `STR` instruction. `STR R2,[R0, R5]` should store the value of R2 (0x24C, what we’re suspecting is the number of files) in the memory location R0+R5. 
 
