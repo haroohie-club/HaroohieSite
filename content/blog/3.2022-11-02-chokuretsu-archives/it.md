@@ -87,13 +87,13 @@ Questi interi aumetano man mano che andiamo avanti! Infatti, continuano a cresce
 
 ![evt.bin aperto in 0x900 che mostra che il pattern in ciano finisce in 0x950](/images/blog/0003/05_cyan_numbers_end.png)
 
-These definitely aren’t file offsets (the differences between them are too small – for example, a file between offsets 0xB2E and 0xB32 would only be four bytes long), but it’s possible they might _map_ to file offsets somehow since they’re steadily increasing. That would suggest that maybe there is one of these values per file – so just how many are there? The values are two bytes long and spaced two bytes apart for a total of four bytes per iteration. The sequence begins at 0x20 and ends at 0x950. Therefore:
+Questi non sono di certo offset dei file (la differenza tra di loro è fin troppo poca – ad esempio, un file tra gli offset 0xB2E e 0xB32 sarebbero lunghi di solo 4 byte). Questo ci indica che forse c'è uno di questi valori per file – quindi quanti ce ne sono? I due valori sono lunghi due byte e sono divisi da due byte per un totale di quattro byte per iterazione. La sequenza inizia a 0x20 e finisce a 0x950. Quindi:
 
 ```
 (0x950 - 0x20) / 0x04 = 0x24C
 ```
 
-Oh! Look at that! 0x24C happens to be the very first number to appear in the file (highlighted in red). So we can guess that the first number is the number of files in the archive. (To double check this, we should check that the pattern is consistent for the other archives as well – which it is.)
+Oh! Guarda un po'! Sembra proprio che 0x24C sia il primo numero ad apparire nel file (evidenziato in rosso). Quindi possiamo credere che il primo numero è il numero dei file nell'archivio. (Per verificarlo, dovremmo controllare che il pattern sia consistente anche negli altri archivi – il che lo è.)
 
 ![evt.bin open to 0x0000 with green highlights next to the cyan ones creating a series of 32-bit integers](/images/blog/0003/06_magic_integers.png)
 
