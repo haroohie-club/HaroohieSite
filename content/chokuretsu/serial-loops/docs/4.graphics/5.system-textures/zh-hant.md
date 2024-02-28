@@ -8,7 +8,9 @@ navigation:
 ---
 
 ## Overview
-System Textures represent the textures used for *Chokuretsu*'s user interface (such as buttons and menus) as well as other miscellaneous system graphics (such as text flashes and the Haruhi Meter).
+System Textures represent the textures used for *Chokuretsu*'s user interface
+(such as buttons and menus) as well as other miscellaneous system graphics (such
+as text flashes and the Haruhi Meter).
 
 ## In Serial Loops
 Similarly to [backgrounds](/chokuretsu/serial-loops/docs/graphics/backgrounds), System Textures can be exported to a `.png` format, and can be replaced by importing an image from a common format, then scaled to the neccessary size with help from the [Crop & Scale tool](/chokuretsu/serial-loops/docs/graphics/backgrounds#crop-and-scale).
