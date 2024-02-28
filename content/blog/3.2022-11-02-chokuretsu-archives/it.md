@@ -95,31 +95,31 @@ Questi non sono di certo offset dei file (la differenza tra di loro è fin tropp
 
 Oh! Guarda un po'! Sembra proprio che 0x24C sia il primo numero ad apparire nel file (evidenziato in rosso). Quindi possiamo credere che il primo numero è il numero dei file nell'archivio. (Per verificarlo, dovremmo controllare che il pattern sia consistente anche negli altri archivi – il che lo è.)
 
-![evt.bin open to 0x0000 with green highlights next to the cyan ones creating a series of 32-bit integers](/images/blog/0003/06_magic_integers.png)
+![evt.bin aperto su 0x0000 con evidenziazioni in verde vicine a quelle in ciano, creando una serie di interi a 32-bit](/images/blog/0003/06_magic_integers.png)
 
-What about the numbers next to the cyan highlights, though – the ones highlighted in green above? It’s hard to say right now as there’s no obvious pattern. However, we need some nomenclature here, so I’m going to be referring to the combination of the green and cyan highlights as _magic integer_, since they are obfuscated (magic) but do important stuff (also magic). The first magic integer spans from 0x20 to 0x23, which is why they’re “integers” – specifically, 32-bit integers.
+Invece, per quanto riguarda quelli vicini a quelli evidenziati in ciano – quelli verdi evidenziati di sopra? È difficile da capire adesso poiché non c'è nessun pattern ovvio. Tuttavia, abbiamo bisogno di un po' di nomenclatura qui, quindi mi riferirò alla combinazione delle parti evidenziate in verde e ciano come _interi magici_, visto che sono offuscati (magia) ma fanno anche della roba importante (altra magia). Il primo intero magico ha un intervallo da 0x20 a 0x23, questo è il motivo per i quali sono "interi" – più nello specifico, interi a 32-bit.
 
-## Into the Thick of It, Reprise
-The purpose of the previous section was to demonstrate how to a) identify that a file is an archive and b) use some basic pattern matching to begin reverse-engineering the archive. However, this archive is a little weird and obfuscated – while most archives might simply have a table at the top containing the filename and offset (location in the archive) for each file, this one clearly doesn’t have that. That information is somehow hidden. There are a variety of ways one could deal with this, but for me, the easiest option seemed to be diving back into the assembly again.
+## Nel dettaglio, Ripresa
+Lo scopo della sezione precedente era quello di dimostrare come a) identificare che un file è un archivio e b) usare un pattern basilare per effettuare un reverse-engineering su un archivio. Tuttavia, questo archivio è un po'strano e offuscato – mentre la maggior parte degli archivi in cima contengono i nomi dei file e i loro offset (posizione nell'archivio) per ogni file, non è di certo il caso con questo. Tutte quelle informazioni sono in qualche modo nascoste. Ci sono vari modi per avere a che fare con una cosa del genere, ma per me, l'opzione più facile è sembrata quella di tornare all'assembly.
 
-### File Table Load
-First, we should try to find the code where these archives are parsed. To do this, we’re going to do essentially the same process as we did last time – we’re going to do a memory search to find the archive _header_ (the top of the file, before the files in the archive start) in memory, set a read breakpoint at that memory address, and see what code uses the archive header.
+### Caricamento Tabella dei File
+Per prima cosa, dobbiamo trovare il codice che analizza questi archivi. Per farlo, dobbiamo andare attraverso lo stesso processo della scorsa volta – faremo una ricerca nella memoria per l'_intestazione_ (_header_, l'inizio del file, prima ancora dei file nell'archivio) dell'archivio, impostare un punto d'interruzione (breakpoint), e vedere come viene interpretata l'intestazione.
 
-![evt.bin open to 0x20 showing the bytes D1 00 0A 00 highlighted, indicating that these are the bytes we will search for](/images/blog/0003/07_what_we_want.png)
+![evt.bin aperto in 0x20 che mostra i byte D1 00 0A 00 evidenziati, indicando che questi sono i byte che stiamo cercando](/images/blog/0003/07_what_we_want.png)
 
-So, we go back to DeSmuME and search for the four bytes at offset 0x20 (remember, DeSmuME’s memory search expects you to enter the bytes in reverse order, so instead of `D1 00 0A 00` we enter `00 0A 00 D1`)...
+Quindi, torniamo in DeSmuME e cerchaimo per i byte nell'offset 0x20 (ricorda, DeSmuME si aspetta che nella ricerca nella memoria i byte vengano inseriti nell'ordine inverso, quindi al posto di `D1 00 0A 00` inseriremo `00 0A 00 D1`)...
 
-![DeSmuME's memory search window showing a single result for our search at 0x020F7720](/images/blog/0003/08_memory_search.png)
+![La finestra di ricerca di DeSmuME che mostra un singolo risultato in 0x020F7720](/images/blog/0003/08_memory_search.png)
 
-And once again, we’ve found a single hit. So, let’s open up the memory viewer and head to 0x020F7720…
+E ancora una volta, abbiamo un singolo risultato. Quindi apriamo il visualizzatore di memoria in 0x020F7720…
 
-![DeSmuME's memory viewer showing the memory at 0x020F7720 looking exactly like the header of evt.bin](/images/blog/0003/09_memory_find.png)
+![il visualizzatore di memoria di DeSmuME che mostra come la memoria in 0x020F7720 è uguale all'intestazione di evt.bin](/images/blog/0003/09_memory_find.png)
 
-And it matches the `evt.bin` header exactly! This means that the `evt.bin` header is loaded into 0x020F7700. So now, we’ll load up the game in no$GBA (I was a little hard on no$ last time around, but its debugging tools _are_ very convenient) and set a read breakpoint for 0x020F7700.
+Ed è esattamente identico all'intestazione di `evt.bin`! Questo significa che l'intestazione di `evt.bin` è caricata in 0x020F7700. Quindi adesso caricheremo il gioco su no$GBA (la scorsa volta sono stato un po' duro su no$, ma i suoi strumenti di debug _sono_ molto convenienti) e impostiamo un punto d'interruzione in 0x020F7700.
 
-![no$GBA hitting a breakpoint at 0x020338C8](/images/blog/0003/10_breakpoint.png)
+![no$GBA che arriva a un punto d'interruzione in 0x020338C8](/images/blog/0003/10_breakpoint.png)
 
-Nice, we hit our breakpoint as soon as the game is loaded. This means that the archive headers are loaded on boot. Let’s pull up this subroutine in IDA.
+Bene, abbiamo trovato il punto d'interruzione nel momento stesso in cui abbiamo caricato il gioco. questo significa che le intestazioni degli archivi sono caricati all'avvio. Prendiamo questa subroutine in IDA.
 
 ```arm
 RAM:02033818                 PUSH    {R3-R9,LR}
@@ -134,30 +134,30 @@ RAM:02033838                 STR     R3, [R2]
 RAM:0203383C                 BL      dbg_print20228DC
 ```
 
-Here’s something useful! That `"--- filetbl_load start <%d> ---\n"`{lang='c'} string you see is text that’s hardcoded in the executable program (arm9.bin) itself. 
+Ecco qualcosa di utile! Quella stringa che contiene `"--- filetbl_load start <%d> ---\n"`{lang='c'} è un testo programmato nell'eseguibile del programma (arm9.bin) stesso. 
 
-`=aFiletblLoadSta` is a name IDA gives to the address that holds that string, so `LDR R0, =aFiletblLoadSta`{lang='arm'} is loading the address of that string into R0. In ARM assembly, R0 is used as the first parameter when calling another subroutine, so the `BL` (branch-link or “call this subroutine”) below uses it as a parameter. Because the string looks a lot like a debug string, we can guess that that function is a debug print function (something that would print text to the console for debugging purposes), which is why we’ve renamed the function here to `dbg_print20228DC`.
+`=aFiletblLoadSta` è un nome che IDA dà all'indirizzo che contiene quella stringa, quindi `LDR R0, =aFiletblLoadSta`{lang='arm'} sta caricando l'indirizzo della stringa in R0. nell'ARM assembly, R0 è il primo parametro utilizzato quando si chiama un'altra subroutine, quindi il `BL` (branch-link o “chiama questa subroutine”) di sotto lo utilizza come parametro. Poiché questa stringa ha l'aspetto di una stringa di debug, possiamo pensare che sia usata in una funzione di debug di stampa (una funzione che scrive del testo nella console per scopi di debug), quindi rinominiamo la funzione in `dbg_print20228DC`.
 
-But more importantly, the fact that this debug string is being printed here tells us what _this function’s name was_ in the original source code: `filetbl_load()`{lang='c'}. From this, we can surmise that this function is designed to load the “file table” from the archive – i.e., it loads the header we were just looking at and that header is the list of files we thought it was! This trick (looking at debug or error strings to figure out what a function does) is something I frequently make use of – without even examining the disassembly in detail, we now have a pretty good idea of what this function does.
+Ma soprattutto, il fatto che questa stringa di debug viene stampata ci dice _qual'era il nome originale della funzione_ nel codice sorgente originale: `filetbl_load()`{lang='c'}. Da qui, possiamo assumere che questa funzione è pensata per caricare la "tabella dei file" dall'archivio – es., carica l'intestazione del file, che contiene tutti i nomi dei file proprio come avevamo pensato! Questo trucchetto (guardare alle stringhe di debug o degli errori per capire quello che una funzione fa) è qualcosa che faccio frequentemente – senza neanche esaminare il disassembly nel dettaglio, ora abbiamo una buona idea di cosa questa funzione fa.
 
-### Loading the Magic Integer
-After trying to analyze this routine the way we did the decompression routine, it turns out that this routine is a little bit more abstract. It references a bunch of memory addresses and other things that I don’t have any context for – so let’s get some context and watch what it’s doing in the debugger. After all, our goal here isn’t to necessarily reverse-engineer exactly what this routine is doing (unlike with the decompression routine), it’s to use this routine to understand the structure of the archive file.
+### Caricare gli Interi Magici
+Dopo aver provato ad analizzare questa routine nello stesso modo della routine di decompressione abbiamo scoperto che questa routine è un po'più astratta. Si riferisce a svariati indirizzi di memoria e altre cose di cui non ne ho il contesto – quindi andiamo a scoprirlo e vediamo quello che fa nel debugger. Dopotutto, il nostro obiettivo non è necessariamente quello di effettuare un reverse-engineering su quello che questa routine fa (al contrario della routine di decompressione), la utilizziamo per capire la struttura del file di archivio.
 
-So back to no$GBA then. Stepping forward, we come to this `STR` instruction. `STR R2,[R0, R5]` should store the value of R2 (0x24C, what we’re suspecting is the number of files) in the memory location R0+R5. 
+Quindi tornando in no$GBA. Andando avanti, arriviamo a questa funzione `STR`. `STR R2,[R0, R5]` dovrebbe contenere tutti i valori di R2 (0x24C, quello che sospettiamo sia il numero dei file) nella posizione in memoria R0+R5. 
 
-![no$GBA debugger with the described str instruction highlighted](/images/blog/0003/11_str_instruction.png)
+![Il debugger di no$GBA con l'istruzione str descritta evidenziata](/images/blog/0003/11_str_instruction.png)
 
-![The same screenshot of the no$GBA debugger as before but advanced one instruction, highlighting that the number of files have been stored in memory](/images/blog/0003/12_stored.png)
+![Lo stesso screenshot del debugger di no$GBA di prima ma avanzato di un'istruzione, evidenziando il numero di file che sono contenuti nella memoria](/images/blog/0003/12_stored.png)
 
-After we step over that instruction, we can in fact see that 0x24C got stored in 0x20C1A08 as we would expect. So now, let’s set a read breakpoint for that address to see where _it_ gets referenced.
+Dopo che sorpassiamo quella istruzione, possiamo infatti vedere che 0x24C è stato messo in 0x20C1A08 come ci aspettavamo. Quindi ora, impostiamo un punto d'interruzione per quell'indirizzo per vedere dove questo viene riferito.
 
-![no$GBA breakpoint creation dialog showing us setting a read breakpoint at 0x020C1A08](/images/blog/0003/13_second_break.png)
+![Il dialogo di creazione del punto d'interruzione in no$GBA che mostra come stiamo impostando un punto in 0x020C1A08](/images/blog/0003/13_second_break.png)
 
-We run the game…
+Facciamo partire il gioco…
 
-![no$GBA debugger showing a breakpoint in a new function](/images/blog/0003/14_new_subroutine.png)
+![il debugger di no$GBA che mostra un punto d'interruzione in una nuova funzione](/images/blog/0003/14_new_subroutine.png)
 
-And end up in this new subroutine. Navigating to this routine in IDA reveals that it’s very short.
+E finiamo in questa nuova routine. Navigare questa routine in IDA ci rivela che è molto corta.
 
 ```arm
 RAM:02033A58 sub_2033A58
@@ -168,11 +168,11 @@ RAM:02033A64                 LDR     R0, [R0,R1]
 RAM:02033A68                 BX      LR
 ```
 
-`BX LR`{lang='arm'} returns us to the subroutine that called this one, so given that we know the previous instruction is the one that loaded 0x24C into R0 (the register that is frequently used as a return value), we might be able to posit that the entire purpose of this subroutine is to load that value from memory. So, let’s rename this function to `arc_getNumFiles` and then step forward and see what called it.
+`BX LR`{lang='arm'} ci fa tornare alla subroutine che ha chiamato questa, quindi tenendo a mente che sappiamo che l'istruzione precedente è quella di 0x24C caricata in R0 (il registro frequentemente utilizzato come valore di restituzione), potremmo essere in grado di postulare che l'intero scopo di questa subroutine è quella di caricare quel valore nella memoria. Quindi, rinominiamo questa funzione in `arc_getNumFiles` e vediamo cosa l'ha chiamata.
 
-![no$GBA showing a breakpoint in the caller of the previous subroutine](/images/blog/0003/15_subroutine_caller.png)
+![no$GBA che mostra un punto d'interruzione nella chiamata della subroutine precedente](/images/blog/0003/15_subroutine_caller.png)
 
-Let’s pop open this section of this subroutine in IDA:
+Apriamo questa sezione della subroutine in IDA:
 
 ```arm
 RAM:02033CCC loc_2033CCC
@@ -194,10 +194,9 @@ RAM:02033CFC                 MOV     R2, R9
 RAM:02033D00                 BL      dbg_printError
 ```
 
-![no$GBA hitting a breakpoint at
-0x020338C8](/images/blog/0003/10_breakpoint.png)
+![no$GBA che arriva a un punto d'interruzione in 0x020338C8](/images/blog/0003/10_breakpoint.png)
 
-When calling a function in a higher-level language, you specify parameters that get passed to the function. In ARM assembly, these parameters are passed by setting specific registers to specific values – the first parameter is set to R0, the second parameter is set to R1, etc. So, we know that this `dbg_printError` subroutine is going to print that format string. The string itself is loaded into R0, meaning that the first parameter is the string itself. The next parameter (corresponding to `%s`) should be loaded into R1, and the final parameter (corresponding to `%d`) should be loaded into R2. 
+Quando si chiama una funzione in un linguaggio di alto livello, si devono specificare i parametri che vengono passati alla funzione. Nell'ARM assembly, questi parametri sono passati impostando dei registri specifici a dei valori specifici – il primo parametro è impostato a R0, il secondo è impostato a R1, ecc. Quindi, sappiamo che questa subroutine `dbg_printError` stamperà quella stringa formattata. La stringa in questione è caricata in R0, il che significa che il primo parametro è la stringa stessa. Il parametro seguente (corrispondente a `%s`) dovrebbe essere caricato in R1, e l'ultimo parametro (corrispondente a `%d`) dovrebbe essere caricato in R2.
 
 I’ve already gone ahead and marked the value getting loaded into R1 as `=sArchiveFileNames` – if we pop over to that address in IDA, we can see why:
 
