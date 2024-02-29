@@ -20,7 +20,7 @@ head:
   - property: 'og:image:alt'
     content: ''
   - property: 'og:url'
-    content: 'https://haroohie.club/blog/2024-02-29-chokuretsu-event-files'
+    content: 'https://haroohie.club/blog/2024-02-29-chokuretsu-rom-hacking-returns'
   - property: 'og:type'
     content: 'article'
   - name: 'twitter:title'
