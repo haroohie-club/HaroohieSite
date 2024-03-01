@@ -8,11 +8,7 @@ const route = useRoute()
     <div>
         <NuxtLayout>
             <template #top>
-                <div id="topbar">
-                    <div id="logo">
-                        <TitleGraphic graphic="club-logo" to="/" />
-                    </div>
-                </div>
+                <Navbar />
             </template>
             <article>
                 <ContentDoc :path="`/chokuretsu/serial-loops/docs/${route.params.slug.join('/')}/${locale}`">
@@ -73,19 +69,7 @@ const route = useRoute()
     </div>
 </template>
 
-
 <style scoped>
-#topbar {
-    margin: 0 auto;
-    padding: 0;
-}
-
-#topbar #logo {
-    max-width: 500px;
-    width: 80vw;
-    padding: 0.5rem;
-}
-
 #sidebar {
     background-color: var(--main-light-gray);
     min-height: inherit;

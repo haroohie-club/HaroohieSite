@@ -30,7 +30,7 @@ link: '/zh-hans/blog'
 
 ::button-link
 ---
-color: 'discord'
+rgb-color: '#7289DA'
 icon: 'fa6-brands:discord'
 link: 'https://discord.gg/nesRSbpeFM'
 rel: 'me'
@@ -41,7 +41,7 @@ Discord
 ::button-link
 ---
 color: 'twitter'
-icon: 'fa6-brands:twitter'
+icon: 'fa6-brands:x-twitter'
 link: 'https://twitter.com/haroohie'
 rel: 'me'
 ---

@@ -1,85 +1,56 @@
-<script setup>
-const { locale } = useI18n()
-const localePath = useLocalePath()
-</script>
 <!-- Blog pages -->
 <template>
-    <div id="content-body">
-        <div id="topbar">
-            <div id="logo">
-                <TitleGraphic graphic="club-logo" :to="localePath('/')" />
-            </div>
-        </div>
-        <div id="blog-page">
-            <div class="sidebar">
-                <div class="box">
-                    <h2>{{ $t('social-links') }}</h2>
-                    <SocialLinks :top_text="$t('back-to-home')" />
-                    <h2>{{ $t('blogs') }}</h2>
-                    <BlogList />
-                    <h2>{{ $t('projects') }}</h2>
-                    <ButtonLink :link="localePath('/chokuretsu')" type="top-piece" fullwidth color="red" icon="fa6-solid:language">{{ $t('chokuretsu') }}</ButtonLink>
-                    <ButtonLink :link="localePath('/chokuretsu/serial-loops')" type="bottom-piece" fullwidth color="sl-blue" icon="fa6-solid:gear">{{ $t('serial-loops') }}</ButtonLink>
+    <div>
+        <NuxtLayout name="default">
+            <div id="blog-page">
+                <div class="sidebar">
+                    <div class="box">
+                        <h2>{{ $t('social-links') }}</h2>
+                        <SocialLinks type="stack"
+                            :stack-topper="{ link: '/', icon: 'fa6-solid:house', locale: 'back-to-home' }" />
+                        <h2>{{ $t('blogs') }}</h2>
+                        <BlogList />
+                        <h2>{{ $t('projects') }}</h2>
+                        <ButtonLink :link="localePath('/chokuretsu')" type="top-piece" fullwidth color="red"
+                            icon="fa6-solid:language">{{ $t('chokuretsu') }}</ButtonLink>
+                        <ButtonLink :link="localePath('/chokuretsu/serial-loops')" type="bottom-piece" fullwidth
+                            color="sl-blue" icon="fa6-solid:gear">{{ $t('serial-loops') }}</ButtonLink>
+                    </div>
+                </div>
+                <div class="blog">
+                    <div class="box">
+                        <article>
+                            <slot />
+                        </article>
+                    </div>
+                    <ImageModal v-show="showModal" :imageSource="imageSource" @close-modal="showModal = false" />
                 </div>
             </div>
-            <div class="blog">
-                <div class="box">
-                    <article>
-                        <slot />
-                    </article>
-                </div>
-                <ImageModal v-show="showModal" :imageSource="imageSource" @close-modal="showModal = false" />
-            </div>
-        </div>
-        <Footer />
+        </NuxtLayout>
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            showModal: false,
-            imageSource: null,
-        }
-    },
-    mounted() {
-        window.addEventListener('click', function(event) {
-            if (event.target.tagName == 'IMG') {
-                if (event.target.classList.contains('modal-exclude')) {
-                    return;
-                }
-                this.imageSource = event.target.src;
-                this.showModal = true;
+<script setup>
+const { locale } = useI18n()
+const localePath = useLocalePath()
+
+const showModal = ref(false)
+const imageSource = ref(null)
+
+onMounted(() => {
+    window.addEventListener('click', function (event) {
+        if (event.target.tagName == 'IMG') {
+            if (event.target.classList.contains('modal-exclude')) {
+                return
             }
-        }.bind(this));
-    },
-}
+            imageSource.value = event.target.src
+            showModal.value = true
+        }
+    }).bind(this)
+});
 </script>
 
 <style>
-/* Content display */
-#content-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: var(--main-light-gray);
-    background-image: url('/images/haruhi-calisthenic.png');
-    background-repeat: repeat;
-    justify-content: center;
-}
-
-#topbar {
-    margin: 0 auto;
-    padding: 0;
-}
-
-#topbar #logo {
-    max-width: 500px;
-    width: 80vw;
-    padding: 0.5rem;
-}
-
 #blog-page {
     display: flex;
     flex-direction: row;
@@ -96,8 +67,8 @@ export default {
 .blog {
     display: flex;
     flex-direction: column;
-    max-width: 1100px !important;
-    width: 55vw;
+    max-width: 1200px !important;
+    width: 60vw;
 }
 
 .box {
@@ -229,12 +200,14 @@ article table {
     width: fit-content;
 }
 
-article table tbody, article table thead {
+article table tbody,
+article table thead {
     overflow: auto;
 }
 
 /* Cell padding */
-article table td, article table th {
+article table td,
+article table th {
     padding: 0.6rem;
 }
 
@@ -272,5 +245,4 @@ article blockquote {
     padding-left: 1rem;
     margin-left: 0;
     font-style: italic;
-}
-</style>
+}</style>

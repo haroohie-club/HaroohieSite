@@ -1,6 +1,7 @@
 <!-- A page with Haruhi Chokuretsu background styles -->
 <template>
     <div id="content-body">
+        <Navbar />
         <slot />
         <Footer />
     </div>
