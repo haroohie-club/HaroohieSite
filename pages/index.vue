@@ -40,8 +40,8 @@
 const { locale } = useI18n()
 const localePath = useLocalePath()
 definePageMeta({
-    title: 'Haroohie Translation Club',
-    description: 'Welcome to the Haroohie Translation Club! We\'re dedicated to translating games from the Haruhi Suzumiya series into English!',
+    title: $t('index-title'),
+    description: $t('index-description'),
     layout: 'default'
 })
 </script>
