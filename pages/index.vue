@@ -37,11 +37,12 @@
 </template>
 
 <script setup>
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const localePath = useLocalePath()
+
 definePageMeta({
-    title: $t('index-title'),
-    description: $t('index-description'),
+    title: t('index-title'),
+    description: t('index-description'),
     layout: 'default'
 })
 </script>
