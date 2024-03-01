@@ -29,13 +29,21 @@
             </div>
             <div>
                 <h3 class="patcher-header">{{ $t('chokuretsu-rom-patcher-version-select') }}</h3>
-                <label>
-                    <b>{{ $t('chokuretsu-rom-patcher-version') }}</b>
-                    <select id="patcher-version-dropdown">
-                        <option v-for="patch in AVAILABLE_PATCHES(locale)" :value="patch.version">v{{ patch.version }} &mdash; {{ patch.date }}
-                        </option>
-                    </select>
-                </label>
+                <div class="patcher-version-options">
+                    <label>
+                        <b>{{ $t('chokuretsu-rom-patcher-language') }}</b>
+                        <select id="patcher-locale-dropdown" v-model="patchLocale">
+                            <option v-for="pl in AVAILABLE_PATCH_LOCALES" :value="pl">{{ $t(`language-${pl}`) }}</option>
+                        </select>
+                    </label>
+                    <label>
+                        <b>{{ $t('chokuretsu-rom-patcher-version') }}</b>
+                        <select id="patcher-version-dropdown">
+                            <option v-for="patch in AVAILABLE_PATCHES(patchLocale)" :value="patch.version">v{{ patch.version }} &mdash; {{ patch.date }}
+                            </option>
+                        </select>
+                    </label>
+                </div>
                 <div class="patcher-submit">
                     <ButtonLink link="#" color="red" icon="fa6-solid:file-import" @click="patchRom">{{ $t('chokuretsu-rom-patcher-patch-rom') }}</ButtonLink>
                 </div>
@@ -108,13 +116,17 @@
     background-color: var(--main-light-gray);
 }
 
-#patcher-version-dropdown {
-    margin-left: 0.5rem;
-}
-
 select {
     border: black solid 0.15em;
     border-radius: 0.3em;
+    margin-left: 0.5rem;
+}
+
+.patcher-version-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 1.5em 0;
 }
 
 .patcher-submit {
@@ -426,11 +438,13 @@ export default {
 </script>
 
 <script setup>
+const patchLocale = ref('en')
 const { locale } = useI18n({
   useScope: 'local'
 })
-
-if (AVAILABLE_PATCHES(locale.value).length === 0) {
+const { availableLocales } = useI18n()
+const AVAILABLE_PATCH_LOCALES = availableLocales.filter(locale => AVAILABLE_PATCHES(locale).length > 0);
+if (AVAILABLE_PATCHES(patchLocale.value).length === 0) {
     notice.value = 'chokuretsu-rom-patcher-no-patches-available'
 }
 

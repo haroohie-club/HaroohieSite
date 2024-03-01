@@ -122,6 +122,7 @@
     "chokuretsu-rom-patcher-option-recommended": "(Recommended)",
     "chokuretsu-rom-patcher-select-rom": "Select ROM",
     "chokuretsu-rom-patcher-version-select": "Select version & apply",
+    "chokuretsu-rom-patcher-language": "Language:",
     "chokuretsu-rom-patcher-version": "Version:",
     "chokuretsu-rom-patcher-patch-rom": "Patch ROM",
     "chokuretsu-rom-patcher-sha-calc-failed": "Failed to calculate SHA-256 of your ROM.",
