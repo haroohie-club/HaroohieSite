@@ -41,4 +41,30 @@ nav .content {
     flex-direction: row;
     gap: 1.5rem;
 }
+
+/* Tablet navbar */
+@media screen and (max-width: 950px) {
+    nav {
+        margin: 0.5rem 0;
+    }
+
+    nav .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        width: 90%;
+        justify-content: space-between;
+    }
+}
+
+/* Mobile navbar */
+@media screen and (max-width: 650px) {
+    nav {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0 0 0.5rem 0.5rem;
+    }
+}
 </style>
