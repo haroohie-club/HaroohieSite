@@ -21,7 +21,7 @@ nav {
     background-color: #cccccc55;
     backdrop-filter: blur(0.5rem);
     filter: drop-shadow(0 0 0.5rem #00000055);
-    max-width: 82vw;
+    max-width: 80vw;
 }
 
 nav .content {
@@ -35,11 +35,15 @@ nav .content {
     max-width: 30em;
 }
 
+.content .logo:hover {
+    filter: drop-shadow(0 0 0.5rem #00000055);
+}
+
 .content .menu {
     max-width: 30em;
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 /* Tablet navbar */
