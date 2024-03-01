@@ -1,14 +1,22 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "scopeName": "source.arm",
-  "name": "Arm Assembly",
-  "fileTypes": [
-    "s",
-    "S",
-    "asm",
-    "sx"
-  ],
+  "name": "arm",
   "patterns": [
+    {
+      "include": "#registers"
+    },
+    {
+      "include": "#variables"
+    },
+    {
+      "include": "#numerics"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#comments"
+    },
     {
       "match": "^\\s*[#\\.](define|include|(end|el|else)?if|if(def|ndef)?|else)(\\s+(defined\\(\\w+\\)|\\w+)(\\s+(&&|\\|\\|)\\s+defined\\(\\w+\\)|\\w]+)*)?\\b",
       "name": "meta.preprocessor"
@@ -208,21 +216,6 @@
           "include": "#registers_list"
         }
       ]
-    },
-    {
-      "include": "#registers"
-    },
-    {
-      "include": "#variables"
-    },
-    {
-      "include": "#numerics"
-    },
-    {
-      "include": "#strings"
-    },
-    {
-      "include": "#comments"
     }
   ],
   "repository": {
@@ -339,5 +332,6 @@
         }
       ]
     }
-  }
+  },
+  "scopeName": "source.arm"
 }

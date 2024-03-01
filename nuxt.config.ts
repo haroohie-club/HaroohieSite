@@ -1,5 +1,4 @@
-import { readFileSync } from 'fs'
-import { join } from 'path'
+import { readFileSync } from 'node:fs'
 
 // Nuxt config file (https://nuxt.com/docs/getting-started/configuration)
 export default {
@@ -37,18 +36,17 @@ export default {
     },
 
     content: {
-        // https://content.nuxtjs.org/api/configuration
+        // https://content.nuxt.com/get-started/configuration
         highlight: {
             theme: 'github-light',
-            preload: [
+            langs: [
+                JSON.parse(
+                    readFileSync('./shiki/languages/arm.tmLanguage.json', 'utf-8'),
+                ),
                 'c',
                 'cpp',
                 'csharp',
-                'python',
-                {
-                    name: 'arm',
-                    ...JSON.parse(readFileSync('./tmLanguages/arm.tmLanguage.json', 'utf8'))
-                }
+                'python'
             ]
         }
     },
