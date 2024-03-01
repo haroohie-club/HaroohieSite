@@ -10,7 +10,7 @@
             {{ $t(stackTopper.locale) }}
         </ButtonLink>
         <ButtonLink v-for="social in socials.filter(s => s.display.row)" :icon="social.icon" :href="social.link" rel="me"
-            :rgb-color="social.color" type="mid-piece" fullwidth>
+            :rgb-color="social.color" :type="socials.filter(s => s.display.row).indexOf(social) === (socials.filter(s => s.display.row).length - 1) ? 'bottom-piece' : 'mid-piece'" fullwidth>
             {{ $t(social.locale) }}
         </ButtonLink>
     </div>
