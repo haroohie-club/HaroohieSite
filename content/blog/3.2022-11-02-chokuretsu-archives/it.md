@@ -188,7 +188,7 @@ RAM:02033CEC                 BLE     loc_02033D04
 RAM:02033CF0
 RAM:02033CF0 loc_2033CF0
 RAM:02033CF0                 LDR     R1, =sArchiveFileNames
-RAM:02033CF4                 LDR     R0, =aFileIndexError ; "file index error : [%s],idx=%d\n"
+RAM:02033CF4                 LDR     R0, =aFileIndexError ; "errore indice file : [%s],idx=%d\n"
 RAM:02033CF8                 LDR     R1, [R1,R10,LSL#2]
 RAM:02033CFC                 MOV     R2, R9
 RAM:02033D00                 BL      dbg_printError
@@ -198,7 +198,7 @@ RAM:02033D00                 BL      dbg_printError
 
 Quando si chiama una funzione in un linguaggio di alto livello, si devono specificare i parametri che vengono passati alla funzione. Nell'ARM assembly, questi parametri sono passati impostando dei registri specifici a dei valori specifici – il primo parametro è impostato a R0, il secondo è impostato a R1, ecc. Quindi, sappiamo che questa subroutine `dbg_printError` stamperà quella stringa formattata. La stringa in questione è caricata in R0, il che significa che il primo parametro è la stringa stessa. Il parametro seguente (corrispondente a `%s`) dovrebbe essere caricato in R1, e l'ultimo parametro (corrispondente a `%d`) dovrebbe essere caricato in R2.
 
-I’ve already gone ahead and marked the value getting loaded into R1 as `=sArchiveFileNames` – if we pop over to that address in IDA, we can see why:
+Ho già segnato il valore caricato in R1 con il nome `=sArchiveFileNames` - se noi prendessimo quell'indirizzo in IDA, possiamo vedere il perché:
 
 ![The RAM address of =sArchiveFileNames viewd in IDA showing a list of archive filenames](/images/blog/0003/16_archive_file_names.png)
 
