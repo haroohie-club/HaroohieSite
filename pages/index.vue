@@ -24,7 +24,7 @@
                     </div>
                     <div class="blogs box">
                         <h2>{{ $t('from-the-clubroom') }}</h2>
-                        <BlogPreviewStack limit=4 />
+                        <BlogPreviewStack :limit="4" />
                         <ButtonRow class="view-more">
                             <ButtonLink :link="localePath('/blog')" color="blue" icon="fa6-solid:paper-plane">{{ $t('view-all') }}</ButtonLink>
                             <ButtonLink :link="`${locale == 'en' ? '/' : `/${locale}/`}rss.xml`" color="rss" icon="fa6-solid:rss">{{ $t('feed') }}</ButtonLink>
