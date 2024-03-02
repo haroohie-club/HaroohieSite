@@ -1,8 +1,3 @@
-<script setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
-</script>
 <template>
     <div class="ds">
         <video class="gameplay-video" autoplay loop muted playsinline>
@@ -36,13 +31,16 @@ const { t } = useI18n({
 }
 </style>
 
-<script>
-export default {
-    props: {
-        video: {
-            type: String,
-            required: true
-        }
-    }
-}
+<script setup>
+const { t } = useI18n({
+  useScope: 'local'
+})
+
+const { video } = defineProps({
+  video: {
+    type: String,
+    required: true
+  }
+})
+
 </script>

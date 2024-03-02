@@ -3,7 +3,7 @@
         <label class="shadow" for="locale-select">
             <Icon name="fa6-solid:language" />
         </label>
-        <select class="shadow" id="locale-select" v-model="$i18n.locale">
+        <select class="shadow" id="locale-select" :value="locale" v-model="$i18n.locale">
             <option v-for="l in availableLocales" :value="l">
                 <span>{{ $t(`language-${l}`) }}</span>
                 <span class="lozonge" v-if="locale == l">&nbsp;&#x23F7;</span>

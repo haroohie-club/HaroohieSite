@@ -1,10 +1,3 @@
-<script setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
-const localePath = useLocalePath()
-</script>
-
 <template>
     <div v-if="doc.navigation" class="navigation-buttons">
         <div class="left">
@@ -26,13 +19,15 @@ const localePath = useLocalePath()
 }
 </style>
 
-<script>
-export default {
-    props: {
-        doc: {
-            type: Object,
-            required: true
-        }
-    }
-}
+<script setup>
+const { t } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+const { doc } = defineProps({
+  doc: {
+    type: Object,
+    required: true
+  }
+})
 </script>

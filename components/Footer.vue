@@ -1,10 +1,3 @@
-<script setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
-const localePath = useLocalePath()
-</script>
-
 <template>
     <footer>
         <div id="copyright">
@@ -28,12 +21,11 @@ footer {
 }
 </style>
 
-<script>
-export default {
-    data() {
-        return {
-            current_year: new Date().getFullYear()
-        }
-    }
-}
+<script setup>
+const { t } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+
+const current_year = new Date().getFullYear()
 </script>

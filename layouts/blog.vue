@@ -62,13 +62,13 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     max-width: 250px;
+    width: 60vw;
 }
 
 .blog {
     display: flex;
     flex-direction: column;
-    max-width: 1200px !important;
-    width: 60vw;
+    max-width: 1100px !important;
 }
 
 .box {
