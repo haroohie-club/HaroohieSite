@@ -1,6 +1,6 @@
 ---
-title: &title "The Return of the Chokuretsu ROM Hacking Series!"
-description: &desc "Jonko wanted to make a post on a leap day but didn't have time to finish his blog post in time"
+title: &title "《串联》ROM 破解系列的回归！"
+description: &desc "Jonko 想在闰日发表一篇文章，但他没来得及写完"
 locale: 'zh-hans'
 navigation:
   author: 'Jonko'
@@ -35,8 +35,6 @@ head:
     value: 'summary_large_image'
 ---
 
-I'm hard at work on the next Chokuretsu ROM Hacking blog post. I love weird dates and I really wanted to post it on this year's leap day,
-but it doesn't look like it's going to be ready in time. So instead, I'm making this announcement post so that I at least have a post on
-the 29th. 😎😎😎
+我正在努力地写下一篇关于《串联》ROM 破解的文章。我喜欢奇怪的日期，我真的很想在今年的闰日发布，但看起来我没能按时写完。所以，我发布了这篇公告，这样我至少在 29 号发布了一篇文章。😎😎😎
 
-Please look forward to the real post!
+请期待真正的文章！

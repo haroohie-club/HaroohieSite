@@ -41,7 +41,7 @@ link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true
 type: 'bottom-piece'
 ---
-在 Discord 获取帮助
+Help on Discord
 ::
 
 ### 署名

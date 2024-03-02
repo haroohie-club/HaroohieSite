@@ -41,7 +41,7 @@ link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true
 type: 'bottom-piece'
 ---
-Chiedi aiuto a Discord
+Help on Discord
 ::
 
 ### Attributi

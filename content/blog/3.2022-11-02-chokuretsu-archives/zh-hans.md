@@ -99,27 +99,27 @@ head:
 
 那么，青色高亮显示旁边的数字——上面用绿色高亮显示的数字是什么呢？现在很难说，因为没有明显的模式。然而，我们在这里需要一些命名法，所以我将把绿色和青色高亮的组合称为*魔数*（magic integer），因为它们是模糊的（magic），但起着重要的作用（也是 magic）。第一个魔数从 0x20 到 0x23，这就是为什么它们是“整数”（interger）——准确来说，32 位整数。
 
-## Into the Thick of It, Reprise
-The purpose of the previous section was to demonstrate how to a) identify that a file is an archive and b) use some basic pattern matching to begin reverse-engineering the archive. However, this archive is a little weird and obfuscated – while most archives might simply have a table at the top containing the filename and offset (location in the archive) for each file, this one clearly doesn’t have that. That information is somehow hidden. There are a variety of ways one could deal with this, but for me, the easiest option seemed to be diving back into the assembly again.
+## 深入其中，重演
+上一节的目的是演示如何：a) 确定文件是归档文件；b) 使用一些基本的模式匹配开始对归档文件进行逆向工程。然而，这个归档文件有点奇怪和模糊——虽然大多数归档文件可能只是在头部加入了一个表，其中包含了每个文件的文件名和偏移量（在归档文件中的位置），但这个归档文件显然没有。这些信息在某种程度上被隐藏了。有多种方法可以解决这个问题，但对我来说，最简单的选择似乎是再次回到汇编中。
 
-### File Table Load
-First, we should try to find the code where these archives are parsed. To do this, we’re going to do essentially the same process as we did last time – we’re going to do a memory search to find the archive _header_ (the top of the file, before the files in the archive start) in memory, set a read breakpoint at that memory address, and see what code uses the archive header.
+### 文件表加载
+首先，我们应该尝试找到解析这些归档文件的代码。要做到这一点，我们将执行与上次基本相同的过程——我们将进行内存搜索，以在内存中找到归档文件的*文件头*（文件的顶部，在归档文件中的文件数据之前），在该内存地址设置读取断点，并查看哪些代码使用了归档文件的文件头。
 
-![evt.bin open to 0x20 showing the bytes D1 00 0A 00 highlighted, indicating that these are the bytes we will search for](/images/blog/0003/07_what_we_want.png)
+![打开到 0x20 的 evt.bin，高亮区域显示了 D1 00 0A 00 字节，表示这些是我们将要搜索的字节](/images/blog/0003/07_what_we_want.png)
 
-So, we go back to DeSmuME and search for the four bytes at offset 0x20 (remember, DeSmuME’s memory search expects you to enter the bytes in reverse order, so instead of `D1 00 0A 00` we enter `00 0A 00 D1`)...
+因此，我们回到 DeSmuME，搜索偏移量 0x20 处的四个字节（记住，DeSmuME 的内存搜索要求按相反的顺序输入字节，因此我们输入的不是 `D1 00 0A 00`，而是 `00 0A 00 D1`）……
 
-![DeSmuME's memory search window showing a single result for our search at 0x020F7720](/images/blog/0003/08_memory_search.png)
+![DeSmuME 的内存搜索窗口，显示了我们在 0x020F7720 的搜索结果](/images/blog/0003/08_memory_search.png)
 
-And once again, we’ve found a single hit. So, let’s open up the memory viewer and head to 0x020F7720…
+我们又一次找到了一个匹配。所以，让我们打开内存查看器，转到 0x020F7720……
 
-![DeSmuME's memory viewer showing the memory at 0x020F7720 looking exactly like the header of evt.bin](/images/blog/0003/09_memory_find.png)
+![DeSmuME 的内存查看器，显示了 0x020F7720 处的内存，看起来与 evt.bin 的文件头完全相同](/images/blog/0003/09_memory_find.png)
 
-And it matches the `evt.bin` header exactly! This means that the `evt.bin` header is loaded into 0x020F7700. So now, we’ll load up the game in no$GBA (I was a little hard on no$ last time around, but its debugging tools _are_ very convenient) and set a read breakpoint for 0x020F7700.
+它与 `evt.bin` 的文件头完全匹配！这意味着 `evt.bin` 的文件头被加载到了 0x020F7700 中。所以现在，我们将在 No$GBA 中加载游戏（我上次使用 No$ 的时候有点吃力，但它的调试工具*确实*非常方便），并为 0x020F7700 设置一个读取断点。
 
-![no$GBA hitting a breakpoint at 0x020338C8](/images/blog/0003/10_breakpoint.png)
+![No$GBA 在 0x020338C8 处命中断点](/images/blog/0003/10_breakpoint.png)
 
-Nice, we hit our breakpoint as soon as the game is loaded. This means that the archive headers are loaded on boot. Let’s pull up this subroutine in IDA.
+很好，游戏一加载，我们就命中了断点。这意味着归档文件的文件头是在启动时加载的。让我们在 IDA 中调出这个子程序。
 
 ```arm
 RAM:02033818                 PUSH    {R3-R9,LR}
@@ -134,30 +134,30 @@ RAM:02033838                 STR     R3, [R2]
 RAM:0203383C                 BL      dbg_print20228DC
 ```
 
-Here’s something useful! That `"--- filetbl_load start <%d> ---\n"`{lang='c'} string you see is text that’s hardcoded in the executable program (arm9.bin) itself. 
+我们找到了一些有用的东西！你可以看到的 `"--- filetbl_load start <%d> ---\n"`{lang='c'} 字符串是可执行程序（arm9.bin）本身中硬编码的文本。
 
-`=aFiletblLoadSta` is a name IDA gives to the address that holds that string, so `LDR R0, =aFiletblLoadSta`{lang='arm'} is loading the address of that string into R0. In ARM assembly, R0 is used as the first parameter when calling another subroutine, so the `BL` (branch-link or “call this subroutine”) below uses it as a parameter. Because the string looks a lot like a debug string, we can guess that that function is a debug print function (something that would print text to the console for debugging purposes), which is why we’ve renamed the function here to `dbg_print20228DC`.
+`=aFiletblLoadSta` 是 IDA 为保存该字符串的地址命名的名称，因此 `LDR R0, =aFiletblLoadSta`{lang='arm'} 将该字符串的名称加载到 R0 中。在 ARM 汇编中调用另一个子程序时，R0 被用作第一个参数，因此下面的 `BL`（branch-link，分支链接，或称为“调用此子程序”）将其用作参数。因为这个字符串看起来很像调试字符串，我们可以猜测这个函数是一个调试打印函数（为了调试的目的，它会将文本打印到控制台），这就是为什么我们将这里的函数重命名为 `dbg_print20228DC`。
 
-But more importantly, the fact that this debug string is being printed here tells us what _this function’s name was_ in the original source code: `filetbl_load()`{lang='c'}. From this, we can surmise that this function is designed to load the “file table” from the archive – i.e., it loads the header we were just looking at and that header is the list of files we thought it was! This trick (looking at debug or error strings to figure out what a function does) is something I frequently make use of – without even examining the disassembly in detail, we now have a pretty good idea of what this function does.
+但更重要的是，这个调试字符串被打印到这里的事实告诉我们，*这个函数的名称*在原始源代码中是什么：`filetbl_load()`{lang='c'}。由此，我们可以推测，这个函数的目的是从归档文件中加载“文件表”（file table）——也就是说，它加载了我们刚刚看到的文件头，而该文件头正是我们认为的文件列表！这个技巧（查看调试或错误字符串以了解函数的作用）是我经常使用的东西——甚至不用详细检查反汇编，我们现在就对这个函数的作用有了很好的了解。
 
-### Loading the Magic Integer
-After trying to analyze this routine the way we did the decompression routine, it turns out that this routine is a little bit more abstract. It references a bunch of memory addresses and other things that I don’t have any context for – so let’s get some context and watch what it’s doing in the debugger. After all, our goal here isn’t to necessarily reverse-engineer exactly what this routine is doing (unlike with the decompression routine), it’s to use this routine to understand the structure of the archive file.
+### 加载魔数
+在尝试像我们分析解压缩程序时那样分析这个程序之后，我发现这个程序有点抽象。它引用了一堆内存地址和其他我没有任何上下文的东西——所以让我们获取一些上下文，看看它在调试器中做什么。毕竟，我们在这里的目标不一定是对这个程序所做的事情进行逆向工程（与解压缩程序不同），而是使用这个程序来理解归档文件的结构。
 
-So back to no$GBA then. Stepping forward, we come to this `STR` instruction. `STR R2,[R0, R5]` should store the value of R2 (0x24C, what we’re suspecting is the number of files) in the memory location R0+R5. 
+所以，回到 No$GBA。单步执行，我们来到这个 `STR` 指令。`STR R2,[R0, R5]` 将 R2 的值（0x24C，我们怀疑是文件数）存储在内存位置 R0+R5 中。
 
-![no$GBA debugger with the described str instruction highlighted](/images/blog/0003/11_str_instruction.png)
+![高亮显示所述 str 指令的 No$GBA 调试器](/images/blog/0003/11_str_instruction.png)
 
-![The same screenshot of the no$GBA debugger as before but advanced one instruction, highlighting that the number of files have been stored in memory](/images/blog/0003/12_stored.png)
+![与以前相同的 No$GBA 调试器的屏幕截图，但向前执行了一条指令，高亮显示了内存中存储的文件数](/images/blog/0003/12_stored.png)
 
-After we step over that instruction, we can in fact see that 0x24C got stored in 0x20C1A08 as we would expect. So now, let’s set a read breakpoint for that address to see where _it_ gets referenced.
+在我们执行过该指令之后，我们实际上可以看到 0x24C 被存储在 0x20C1A08 中，就像我们所期望的那样。现在，让我们为该地址设置一个读取断点，看看*它*在哪里被引用。
 
-![no$GBA breakpoint creation dialog showing us setting a read breakpoint at 0x020C1A08](/images/blog/0003/13_second_break.png)
+![no$GBA 的断点创建窗口，显示我们将读取断点设置为 0x020C1A08](/images/blog/0003/13_second_break.png)
 
-We run the game…
+我们运行这个游戏……
 
-![no$GBA debugger showing a breakpoint in a new function](/images/blog/0003/14_new_subroutine.png)
+![No$GBA 调试器，显示在新函数中的断点](/images/blog/0003/14_new_subroutine.png)
 
-And end up in this new subroutine. Navigating to this routine in IDA reveals that it’s very short.
+并在这个新的子程序停止。在 IDA 中导航到这个程序会发现它非常短。
 
 ```arm
 RAM:02033A58 sub_2033A58
@@ -168,11 +168,11 @@ RAM:02033A64                 LDR     R0, [R0,R1]
 RAM:02033A68                 BX      LR
 ```
 
-`BX LR`{lang='arm'} returns us to the subroutine that called this one, so given that we know the previous instruction is the one that loaded 0x24C into R0 (the register that is frequently used as a return value), we might be able to posit that the entire purpose of this subroutine is to load that value from memory. So, let’s rename this function to `arc_getNumFiles` and then step forward and see what called it.
+`BX LR`{lang='arm'} 让我们返回到调用此处的子程序，因此，如果我们知道前一条指令是将 0x24C 加载到 R0（经常用作返回值的寄存器）的指令，我们可能能够假设该子程序的全部目的是从内存加载该值。因此，让我们将此函数重命名为 `arc_getNumFiles`，然后单步执行，看看是什么调用了它。
 
-![no$GBA showing a breakpoint in the caller of the previous subroutine](/images/blog/0003/15_subroutine_caller.png)
+![No$GBA，显示了调用上一个子程序的程序中的断点](/images/blog/0003/15_subroutine_caller.png)
 
-Let’s pop open this section of this subroutine in IDA:
+让我们在 IDA 中弹出此子程序的这一部分：
 
 ```arm
 RAM:02033CCC loc_2033CCC
@@ -194,21 +194,21 @@ RAM:02033CFC                 MOV     R2, R9
 RAM:02033D00                 BL      dbg_printError
 ```
 
-So remember that coming out of `arc_getNumFiles`, R0 was set to (what we’re guessing is) the number of files. We can see that it gets compared to R9 immediately afterwards, and if it’s less than or equal to R9, we branch just past the end of the section I’ve shown. So let’s zero in on R9 – looking earlier up, we can see that R9 is also compared to 0, and if it’s less than or equal to zero we’re branching to loc_2033CF0. That’s the same location that we go to if R9 is greater than R0. If we examine that section, we can see another debug message – `"file index error : [%s],idx=%d\n"`{lang='c'}! For those of you not familiar with C, this is a _format string_ – the `%s` and `%d` indicate parameters to be inserted into the string. `%s` expects a **s**tring and `%d` expects a **d**ecimal number. We determined that the function that the `BL` is branching to is a “print debug error message” function by the fact that the string indicates an error is occurring, but this string gives us even more clues. So at a high level, this section is checking to see that R9 is greater than 0 and less than or equal to the number of files. If it’s not, then it throws an error.
+请记住，在 `arc_getNumFiles` 中，R0 被设置为（我们猜测是）文件数。我们可以看到它随后立即与 R9 进行比较，如果它小于或等于 R9，我们就在跳转到我展示的部分的末尾。因此，让我们将注意力集中在 R9 上——早些时候，我们可以看到 R9 也与 0 进行了比较，如果它小于或等于零，则跳转到 loc_2033CF0。如果 R9 大于 R0，我们将跳转相同的位置。如果检查该部分，我们可以看到另一条调试消息——`"file index error : [%s],idx=%d\n"`{lang='c'}（文件索引错误）！对于不熟悉 C 语言的人介绍一下，这是*格式化*字符串——`%s` 和 `%d` 表示要插入到字符串中的参数。`%s` 需要字符串（**s**tring），`%d` 需要十进制数字（**d**ecimal）。根据字符串指示发生错误的事实，我们确定 `BL` 要跳转到的函数是“打印调试错误消息”的函数，该字符串为我们提供了更多的线索。因此，在较高的级别上，这一节将检查 R9 是否大于 0 并且小于或等于文件数。如果不是，则抛出错误。
 
-When calling a function in a higher-level language, you specify parameters that get passed to the function. In ARM assembly, these parameters are passed by setting specific registers to specific values – the first parameter is set to R0, the second parameter is set to R1, etc. So, we know that this `dbg_printError` subroutine is going to print that format string. The string itself is loaded into R0, meaning that the first parameter is the string itself. The next parameter (corresponding to `%s`) should be loaded into R1, and the final parameter (corresponding to `%d`) should be loaded into R2. 
+在高级语言中调用函数时，可以指定传递给函数的参数。在 ARM 汇编中，通过将特定寄存器设置为特定值来传递这些参数——第一个参数设置为 R0，第二个参数设置为 R1，等等。因此，我们知道这个 `dbg_printError` 子程序将打印该格式的字符串。字符串本身被加载到 R0 中，这意味着第一个参数是字符串本身。下一个参数（对应于 `%s`）应加载到 R1 中，最后一个参数应加载到 R2 中（对应于 `%d`）。
 
-I’ve already gone ahead and marked the value getting loaded into R1 as `=sArchiveFileNames` – if we pop over to that address in IDA, we can see why:
+我已经将加载到 R1 中的值标记为了 `=sArchiveFileNames`——如果我们在 IDA 中跳转到该地址，我们可以看到原因：
 
-![The RAM address of =sArchiveFileNames viewd in IDA showing a list of archive filenames](/images/blog/0003/16_archive_file_names.png)
+![[IDA 中查看的 =sArchiveFileNames 处的内存地址，显示归档文件的文件名列表](/images/blog/0003/16_archive_file_names.png)
 
-It’s a list of our four archive names! So that line that says `LDR R1,[R1, R10, LSL#2]` is going to load the name of the archive in. If we look at R10 in the earlier screenshot, we can see that it’s set to 2. Typically, arrays start from index 0, so that means that index 2 here is going to be `aEvtBin` – `EVT.BIN` is the value of `%s`!
+这是一个包含了四个归档文件名称的列表！因此，`LDR R1,[R1, R10, LSL#2]` 这行将会加载的归档文件的名称。如果我们在前面的屏幕截图中查看 R10，我们可以看到它被设置为 2。通常，数组从索引 0 开始，因此这意味着这里的索引 2 将是 `aEvtBin`——也就是说 `%s` 的值是 `EVT.BIN`！
 
-The next line is `MOV R2,R9` which is moving the value of R9 (our previous register of interest) into R2. From the text of the error message, we can conclude that **R9 stores the file index**, i.e. the position of the file we’re loading in the archive! We also know that the value we thought was the number of files in the archive was indeed that. Furthermore, based on the conditions that lead to the error message, we can also conclude that file indices start at 1 and end at the length of the archive (rather than starting at 0 and ending at `length - 1` as is more common in computing).
+下一行是 `MOV R2,R9`，它将 R9（我们之前感兴趣的寄存器）的值加载到 R2 中。从错误消息的文本中，我们可以得出结论，**R9 存储了文件的索引**，即我们在归档文件中加载的文件的位置！我们还知道，我们认为的值确实是归档文件中的文件数量。此外，根据导致错误消息的条件，我们还可以得出这样的结论：文件索引从 1 开始，到归档文件长度结束（而不是像在计算机中更常见的那样从 0 开始，到 `length - 1` 结束）。
 
 
-### Parsing the Magic Integer
-Let’s continue:
+### 解析魔数
+让我们继续：
 
 ```arm
 RAM:02033D04 loc_2033D04
@@ -219,20 +219,20 @@ RAM:02033D10                 MOV     R1, R9
 RAM:02033D14                 BL      sub_2033A70
 ```
 
-We’re calling `sub_2033A70` with the following parameters:
+我们使用以下参数调用 `sub_2033A70`：
 
-1. R0: The archive number (2 = `evt.bin`)
-2. R1: The archive file index
-3. R2: An address
-4. R3: Another address
+1. R0：归档文件的编号（2 = `evt.bin`）
+2. R1：归档文件中文件的索引
+3. R2：一个地址
+4. R3：另一个地址
 
-In other words:
+换句话说：
 
 ```csharp
 sub_2033A70(2, 0x24C, address1, address2)
 ```
 
-Let’s dive into `sub_2033A70`.
+让我们深入研究 `sub_2033A70`。
 
 ```arm
 RAM:02033A70                 PUSH    {R4,LR}
@@ -257,7 +257,7 @@ RAM:02033AB8                 STR     R0, [R3]
 RAM:02033ABC                 POP     {R4,PC}
 ```
 
-This subroutine isn’t too long, so we should be able to figure out what it’s doing; however, there are a lot of bits where it loads from some memory addresses and I don’t know what’s stored in those addresses. So let’s head back to the debugger.
+这个子程序不太长，所以我们应该能够弄清楚它在做什么；然而，它从一些内存地址加载了许多位，我不知道这些地址中存储了什么。因此，让我们回到调试器。
 
 ![no$GBA with highlights showing instructions for loading the magic integer into the register](/images/blog/0003/17_initial_header_stuff.png)
 
