@@ -19,7 +19,7 @@ Chokuretsu Home
 
 ::button-link
 ---
-color: 'discord'
+rgb-color: '#7289DA'
 icon: 'fa6-brands:discord'
 link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true

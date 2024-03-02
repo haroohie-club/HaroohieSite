@@ -1,10 +1,10 @@
 <!-- A guide page with Haruhi Chokuretsu styling -->
 <template>
     <div id="content-body">
+        <Navbar />
         <div id="guide-body">
             <div class="content">
                 <div id="guide-content">
-                    <TitleGraphic graphic="chokuretsu/game-logo" to="/chokuretsu" />
                     <slot />
                 </div>
             </div>

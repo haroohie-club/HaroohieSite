@@ -1,7 +1,3 @@
-<script setup>
-const { locale } = useI18n()
-</script>
-
 <template>
     <div>
         <NuxtLayout>
@@ -10,9 +6,12 @@ const { locale } = useI18n()
     </div>
 </template>
 
-<script>
+<script setup>
+const { locale, t } = useI18n({
+  useScope: 'local'
+})
+
 definePageMeta({
-    title: 'Haroohie Translation Club - Blog',
     layout: 'blog'
 })
 </script>

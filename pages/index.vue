@@ -1,13 +1,3 @@
-<script setup>
-const { locale } = useI18n()
-const localePath = useLocalePath()
-definePageMeta({
-    title: 'Haroohie Translation Club',
-    description: 'Welcome to the Haroohie Translation Club! We\'re dedicated to translating games from the Haruhi Suzumiya series into English!',
-    layout: 'common'
-})
-</script>
-
 <template>
     <div>
         <NuxtLayout>
@@ -24,7 +14,7 @@ definePageMeta({
                         <h2>{{ $t('about') }}</h2>
                         <ContentDoc :path="`/${locale}`" />
                         <h2>{{ $t('social-links') }}</h2>
-                        <SocialLinks :top_link="localePath('/blog')" top_icon="fa6-solid:paper-plane" :top_text="$t('news-and-blog')" />
+                        <SocialLinks type="stack" :stack-topper="{link:'/blog', locale: 'news-and-blog', icon: 'fa6-solid:paper-plane'}" />
                         <br />
                         <h2>{{ $t('projects') }}</h2>
                         <ButtonLink :link="localePath('/chokuretsu')" type="top-piece" fullwidth color="red" icon="fa6-solid:language">
@@ -34,7 +24,7 @@ definePageMeta({
                     </div>
                     <div class="blogs box">
                         <h2>{{ $t('from-the-clubroom') }}</h2>
-                        <BlogPreviewStack />
+                        <BlogPreviewStack :limit="4" />
                         <ButtonRow class="view-more">
                             <ButtonLink :link="localePath('/blog')" color="blue" icon="fa6-solid:paper-plane">{{ $t('view-all') }}</ButtonLink>
                             <ButtonLink :link="`${locale == 'en' ? '/' : `/${locale}/`}rss.xml`" color="rss" icon="fa6-solid:rss">{{ $t('feed') }}</ButtonLink>
@@ -46,14 +36,23 @@ definePageMeta({
     </div>
 </template>
 
+<script setup>
+const { locale, t } = useI18n()
+const localePath = useLocalePath()
+
+definePageMeta({
+    title: computed(() => t('index-title')),
+    description: computed(() => t('index-description')),
+    layout: 'default'
+})
+</script>
+
 <style scoped>
 #home-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
-    width: 90vw;
     margin: 0 auto;
 }
 

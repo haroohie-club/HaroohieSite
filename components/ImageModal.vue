@@ -6,20 +6,26 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        imageSource: {
-            type: String,
-            required: false
-        }
-    },
-    data() {
-        return {
-            showModal: false
-        }
+<script setup>
+const { imageSource } = defineProps({
+    imageSource: {
+        type: String,
+        required: false
     }
-}
+})
+
+const { emit } = defineEmits(['close-modal'])
+const showModal = ref(false)
+
+watch(imageSource, () => {
+    showModal.value = true
+
+    document.body.style.overflow = 'hidden'
+})
+
+onUnmounted(() => {
+    document.body.style.overflow = 'auto'
+})
 </script>
 
 <style>

@@ -8,11 +8,7 @@ const localePath = useLocalePath()
         <NuxtLayout>
             <template #top>
                 <div id="hero">
-                    <div id="topbar">
-                        <div id="logo">
-                            <TitleGraphic graphic="club-logo" :to="localePath('/')" />
-                        </div>
-                    </div>
+                    <Navbar />
                     <div class="images">
                         <img src="/images/chokuretsu/serial-loops/script-editor.png" :alt="$t('chokuretsu-sl-script-editor-alt')" />
                         <img src="/images/chokuretsu/serial-loops/map-editing.png" :alt="$t('chokuretsu-sl-alt')" />
@@ -52,24 +48,13 @@ definePageMeta({
 </script>
 
 <style scoped>
-#topbar {
-    margin: 0 auto;
-    padding: 0;
-}
-
-#topbar #logo {
-    max-width: 500px;
-    width: 80vw;
-    padding: 0.5rem;
-}
-
 #hero {
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 22.5rem;
+    height: 24rem;
     background: linear-gradient(135deg, var(--sl-blue), var(--sl-green));
     padding-top: 0.8rem;
     margin-bottom: 2rem;

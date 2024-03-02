@@ -1,12 +1,6 @@
-<script setup>
-const { locale } = useI18n({
-  useScope: 'local'
-})
-const localePath = useLocalePath()
-</script>
 <template>
     <a :href="link" :rel="rel">
-        <div :class="'button ' + color + '-color ' + (fullwidth ? 'fullwidth ' : '') + (type ? type : '')">
+        <div :class="`button ${fullwidth ? 'fullwidth' : ''} ${rgbColor ? '' : `${color}-color`} ${type ? type : ''}`" :style="`${rgbColor ? `background-color: ${rgbColor} !important` : ''}`">
             <span v-if="icon">
                 <IconifiedText :icon="icon">
                     <ContentSlot :use="$slots.default" unwrap="p" />
@@ -19,37 +13,43 @@ const localePath = useLocalePath()
     </a>
 </template>
 
-<script>
-import IconifiedText from "./IconifiedText.vue";
-export default {
-    props: {
-        link: {
-            type: String,
-            required: true
-        },
-        color: {
-            type: String,
-            required: true
-        },
-        icon: {
-            type: String,
-            required: false
-        },
-        type: {
-            type: String,
-            required: false
-        },
-        fullwidth: {
-            type: Boolean,
-            required: false
-        },
-        rel: {
-            type: String,
-            required: false
-        }
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+
+const { link, color, icon, type, fullwidth, rel } = defineProps({
+    link: {
+        type: String,
+        required: true
     },
-    components: { IconifiedText }
-}
+    color: {
+        type: String,
+        required: false,
+        default: 'red'
+    },
+    rgbColor: {
+        type: String,
+        required: false
+    },
+    icon: {
+        type: String,
+        required: false
+    },
+    type: {
+        type: String,
+        required: false
+    },
+    fullwidth: {
+        type: Boolean,
+        required: false
+    },
+    rel: {
+        type: String,
+        required: false
+    }
+})
 </script>
 
 <style scoped>
@@ -63,7 +63,6 @@ export default {
     box-sizing: border-box;
 
     /* Shading effects */
-    filter: drop-shadow(0.4vh 0.4vh 0.2vh rgba(0, 0, 0, 0.3));
     box-shadow: inset 0.5vh 0.5vh 0.7vh rgb(0 0 0 / 20%);
 }
 
@@ -97,30 +96,6 @@ export default {
 
 .blue-color {
     background: var(--main-blue);
-}
-
-.discord-color {
-    background: #5865f2;
-}
-
-.twitter-color {
-    background: #1da1f2;
-}
-
-.mastodon-color {
-    background: #313543;
-}
-
-.bluesky-color {
-    background: #00a2ff;
-}
-
-.instagram-color {
-    background: #e1306c;
-}
-
-.facebook-color {
-    background: #3b5998;
 }
 
 .black-color {

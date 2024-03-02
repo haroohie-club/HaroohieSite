@@ -8,11 +8,7 @@ const localePath = useLocalePath()
     <div>
         <NuxtLayout>
             <template #top>
-                <div id="topbar">
-                    <div id="logo">
-                        <TitleGraphic graphic="club-logo" to="/" />
-                    </div>
-                </div>
+                <Navbar />
             </template>
             <ContentDoc :path="`/chokuretsu/serial-loops/docs/${locale}`">
                 <template v-slot="{ doc }">
@@ -42,17 +38,6 @@ const localePath = useLocalePath()
 
 
 <style scoped>
-#topbar {
-    margin: 0 auto;
-    padding: 0;
-}
-
-#topbar #logo {
-    max-width: 500px;
-    width: 80vw;
-    padding: 0.5rem;
-}
-
 #nagato-book {
     display: flex;
     justify-content: center;

@@ -1,3 +1,11 @@
+<template>
+    <NuxtLink :to="localePath(to)" class="title-graphic">
+        <object class="graphic-vector" :data="`/images/${graphic}.svg`">
+            <img class="graphic-image" :src="`/images/${graphic}.png`" alt="Title graphic" />
+        </object>
+    </NuxtLink>
+</template>
+
 <script setup>
 const { locale } = useI18n({
   useScope: 'local'
@@ -5,32 +13,18 @@ const { locale } = useI18n({
 const localePath = useLocalePath()
 </script>
 
-<template>
-    <NuxtLink :to="localePath(to)" class="title-graphic">
-        <object class="graphic-vector" :data="'/images/' + graphic + '.svg'">
-            <img class="graphic-image" :src="'/images/' + graphic + '.png'" alt="Title graphic" />
-        </object>
-    </NuxtLink>
-</template>
-
 <style scoped>
 .title-graphic {
+    filter: drop-shadow(0.12em 0.12rem 0.12rem rgba(0, 0, 0, 0.4));
+    height: auto;
+    max-width: 45em;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.graphic-vector, .graphic-image {
     width: 100%;
-    max-width: 700px;
-    height: min-content;
-    margin: 0 auto;
-    filter: drop-shadow(0.12em 0.12rem 0.12rem rgba(0, 0, 0, 0.4));
-}
-
-.graphic-vector {
-    width: 85%;
-    height: auto;
-}
-
-.graphic-image {
-    width: 85%;
     height: auto;
 }
 </style>

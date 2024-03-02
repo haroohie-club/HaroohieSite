@@ -1,10 +1,3 @@
-<script setup>
-const { locale } = useI18n({
-  useScope: 'local'
-})
-const localePath = useLocalePath()
-const route = useRoute()
-</script>
 <template>
     <div>
         <NuxtLayout>
@@ -12,6 +5,9 @@ const route = useRoute()
                 <ContentDoc :path="`/author/${route.params.author}/${locale}`">
                     <template v-slot="{ doc }">
                         <div v-if="doc.author">
+                            <Head>
+                                <Title>{{ $t('index-title') }} - {{ doc.author.name }}</Title>
+                            </Head>
                             <h1 id="author">{{ doc.author.name }}</h1>
                             <AuthorSocials :author="doc.author" />
                         </div>
@@ -30,9 +26,14 @@ const route = useRoute()
     </div>
 </template>
 
-<script>
+<script setup>
+const { locale } = useI18n({
+  useScope: 'local'
+})
+const localePath = useLocalePath()
+const route = useRoute()
+
 definePageMeta({
-    title: 'Haroohie Translation Club - Author',
     layout: 'blog'
 })
 </script>
