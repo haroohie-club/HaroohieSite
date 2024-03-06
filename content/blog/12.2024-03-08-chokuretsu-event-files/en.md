@@ -42,20 +42,19 @@ At the _very_ beginning of my work on the event files, I had cracked the compres
 
 So this is the first event file in the game (technically it’s the second chronologically and the 360th in the archive, but don’t worry about that right now):
 
-#### 1
-![Event file part 1](/images/blog/0012/01_file01.png)
-#### 2
-![Event file part 2](/images/blog/0012/02_file02.png)
-#### 3
-![Event file part 3](/images/blog/0012/03_file03.png)
-#### 4
-![Event file part 4](/images/blog/0012/04_file04.png)
-#### 5
-![Event file part 5](/images/blog/0012/05_file05.png)
-#### 6
-![Event file part 6](/images/blog/0012/06_file06.png)
-#### 7
-![Event file part 7](/images/blog/0012/07_file07.png)
+::image-gallery
+----
+images: [
+    {url: '/images/blog/0012/01_file01.png', alt: 'Event file part 1'},
+    {url: '/images/blog/0012/02_file02.png', alt: 'Event file part 2'},
+    {url: '/images/blog/0012/03_file03.png', alt: 'Event file part 3'},
+    {url: '/images/blog/0012/04_file04.png', alt: 'Event file part 4'},
+    {url: '/images/blog/0012/05_file05.png', alt: 'Event file part 5'},
+    {url: '/images/blog/0012/06_file06.png', alt: 'Event file part 6'},
+    {url: '/images/blog/0012/07_file07.png', alt: 'Event file part 7'},
+]
+----
+::
 
 That’s it in all its 7.06 KiB of glory. I’m reproducing the entire file here for two reasons – one, so we can reference these images in context (I’ll make sure to link the number you see above each screenshot when referencing something in that image), but also two, so that you can see how intimidating a file like this can look at first glance. That’s a lot of data! But not to worry – we can figure it out!
 
