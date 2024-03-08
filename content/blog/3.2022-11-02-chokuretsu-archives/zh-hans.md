@@ -200,7 +200,7 @@ RAM:02033D00                 BL      dbg_printError
 
 我已经将加载到 R1 中的值标记为了 `=sArchiveFileNames`——如果我们在 IDA 中跳转到该地址，我们可以看到原因：
 
-![[IDA 中查看的 =sArchiveFileNames 处的内存地址，显示归档文件的文件名列表](/images/blog/0003/16_archive_file_names.png)
+![IDA 中查看的 =sArchiveFileNames 处的内存地址，显示归档文件的文件名列表](/images/blog/0003/16_archive_file_names.png)
 
 这是一个包含了四个归档文件名称的列表！因此，`LDR R1,[R1, R10, LSL#2]` 这行将会加载的归档文件的名称。如果我们在前面的屏幕截图中查看 R10，我们可以看到它被设置为 2。通常，数组从索引 0 开始，因此这意味着这里的索引 2 将是 `aEvtBin`——也就是说 `%s` 的值是 `EVT.BIN`！
 
@@ -259,11 +259,11 @@ RAM:02033ABC                 POP     {R4,PC}
 
 这个子程序不太长，所以我们应该能够弄清楚它在做什么；然而，它从一些内存地址加载了许多位，我不知道这些地址中存储了什么。因此，让我们回到调试器。
 
-![no$GBA with highlights showing instructions for loading the magic integer into the register](/images/blog/0003/17_initial_header_stuff.png)
+![No$GBA，高亮了将魔数加载到寄存器的指令](/images/blog/0003/17_initial_header_stuff.png)
 
-After executing a few steps, we can see that the first part of this subroutine is just loading the address of the `evt.bin` header we’ve already found into R0. It’s also setting LR (which is called R14 in no$) to the address (highlighted in cyan) right before the first magic integer (highlighted in green). Interesting! The currently highlighted instruction is `LDR LR, [LR,R1,LSL#2]`{lang='arm'} – this is going to load the value at the address `LR + R1 * 4` into LR. R1, remember, is the file index – therefore, this is loading the magic integer that corresponds to that file index! (Recall that the magic integer array starts at 1 rather than 0, so to make it zero-indexed we need to start from the address directly before the first magic integer.)
+在执行了几个步骤之后，我们可以看到这个子程序的第一部分只是将我们已经找到的 `evt.bin` 的头部的地址加载到 R0 中。它还将 LR（在 No$GBA 中被称为 R14）设置为第一个魔数（以绿色突出显示）之前的地址（以青色突出显示）。有趣！当前高亮的指令是 `LDR LR, [LR,R1,LSL#2]`{lang='arm'}——这条指令把地址 `LR + R1 * 4` 处的值加载到 LR 中。记住，R1 是文件索引——因此，这将加载与该文件索引对应的魔数！（回想一下，魔数数组从 1 开始，而不是从 0 开始，所以要使其为从零开始的索引，我们需要从第一个魔数之前的地址开始。）
 
-In C#, we can represent this as:
+在 C# 中，我们可以将其表示为：
 
 ```csharp
 public void sub_2033A70(int archiveNumber, int index, uint address1, uint address2, byte[] archiveBytes)
@@ -273,18 +273,18 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 }
 ```
 
-![no$GBA showing the magic integer highlighted](/images/blog/0003/18_loaded_magic_integer.png)
+![no$GBA，高亮显示了魔数](/images/blog/0003/18_loaded_magic_integer.png)
 
-The address we should be loading from is `0x020F771C + 0x245 * 4 = 0x20F8030`, and indeed, when we step forward we see that value loaded in. Now that the magic integer is loaded in, let’s see what happens next.
+我们应该加载的地址是 `0x020F771C + 0x245 * 4 = 0x20F8030`，事实上，当我们继续执行时，可以看到该值已加载。现在，魔数已加载，让我们看看接下来会发生什么。
 
-![no$GBA showing the next two components being loaded and their instructions](/images/blog/0003/19_second_header_stuff.png)
+![No$GBA，显示接下来要加载的两个组件及其说明](/images/blog/0003/19_second_header_stuff.png)
 
-The next two instructions load the integers at offsets 0x0C (green) and 0x04 (pink) in `evt.bin` into R1 and R0, respectively. These instructions are then used in some calculations:
+接下来的两条指令将 `evt.bin` 中偏移量为 0x0C（绿色）和 0x04（粉红色）处的整数分别加载到 R1 和 R0 中。这些指令随后用于某些计算：
 
-* `MOV R1, LR,LSR R1`{lang='arm'} – This instruction shifts the magic integer right by the value of R1 (0x11 or 17) and stores the result in R1. Since magic integers are 32-bit integers, this gives us the 15 most-significant bits of the magic integer.
-* `MUL R0, R1, R0`{lang='arm'} – This instruction multiplies R1 by R0 (0x800) and stores the result in R0.
+* `MOV R1, LR,LSR R1`{lang='arm'}——该指令将魔数右移 R1（0x11 或 17）的值，并将结果存储在 R1 中。由于魔数是 32 位整数，这步获得了魔数的最高 15 个有效位。
+* `MUL R0, R1, R0`{lang='arm'}——该指令将 R1 与 R0（0x800）相乘，并将结果存储在 R0 中。
 
-Continuing our C# translation, we have:
+继续翻译为 C#，得到：
 
 ```csharp
 public void sub_2033A70(int archiveNumber, int index, uint address1, uint address2, byte[] archiveBytes)
@@ -298,26 +298,26 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 }
 ```
 
-After executing these two instructions…
+执行完这两条指令后……
 
-![no$GBA showing two instructions highlighted which calculate the file offset from its magic integer](/images/blog/0003/20_find_offset.png)
+![No$GBA，高亮显示了两条指令，它们从其魔数计算文件偏移量](/images/blog/0003/20_find_offset.png)
 
-The value of R0 is now 0x2D5000. Wait a second – we just multiplied the top part of the magic integer (the one we saw consistently increasing!) by 0x800 (which every offset is divisible by). Could we have just calculated a file offset?
+R0 的值现在为 0x2D5000。等一下——我们刚刚将魔数的顶部（我们看到的一直在增加的整数！）乘以 0x800（每个偏移量都可以被其整除）。我们可以计算某个文件偏移量吗？
 
-![CrystalTile2 showing evt.bin at 0x2D5000; above it is a sea of zeros indicating it's the beginning of a file](/images/blog/0003/21_the_offset.png)
+![CrystalTile2，显示 0x2D5000 处的 evt.bin；上面是一片 0 的海洋，表示它是文件的开头](/images/blog/0003/21_the_offset.png)
 
-We did indeed! We just found the routine for calculating the offset of a file given its index! But the magic integer is still loaded into LR, so we’re not done with it yet.
+我们确实做到了！我们刚刚找到了计算给定索引的文件偏移量的程序！但是魔数仍然会被加载到 LR 中，所以我们还没有完成。
 
-The next instruction stores our freshly-calculated offset in memory. The instruction after that loads the starting address of the `evt.bin` header again. After that, we have two instructions that are similar to what we saw before.
+下一条指令将我们新计算的偏移量存储在内存中。之后的指令再次加载 `evt.bin` 头部的起始地址。在那之后，有两个与我们之前看到的类似的指令。
 
-![no$GBA showing the below two instructions highlighted](/images/blog/0003/22_find_magic_length_int.png)
+![No$GBA，高亮显示了以下两个指令](/images/blog/0003/22_find_magic_length_int.png)
 
-This time, we’re loading the values at offsets 0x10 and 0x08 into R1 and R0, respectively. Once again, we’re going to use these values to do some math on the magic integer.
+这一次，我们将偏移量 0x10 和 0x08 处的值分别加载到 R1 和 R0 中。我们将再一次使用这些值对魔数进行一些数学运算。
 
-* `AND R1, LR, R1`{lang='arm'} – this instruction is performing a bitwise-and between the contents of R1 (0x1FFFF) and the magic integer. This effectively gets the 17 least-significant bits of the magic integer (the complement to the 15 most-significant bits we calculated above).
-* `MUL R0, R1, R0`{lang='arm'} – this instruction multiplies R1 by R0 (0x08) and stores the result in R0.
+* `AND R1, LR, R1`{lang='arm'}——该指令将 R1（0x1FFFF）的内容和魔数逐位求和。这有效地得到了魔数的最低 17 个有效位（我们上面计算出的最高 15 个有效位的补码）。
+* `MUL R0, R1, R0`{lang='arm'}——该指令将 R1 与 R0（0x08）相乘，并将结果存储在 R0 中。
 
-In C#:
+写成 C#：
 
 ```csharp
 public void sub_2033A70(int archiveNumber, int index, uint address1, uint address2, byte[] archiveBytes)
@@ -335,11 +335,11 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 }
 ```
 
-The end-result of this calculation is 0x5398.
+此计算的最终结果为 0x5398。
 
-![The special length integer being calculated in no$GBA](/images/blog/0003/23_magic_length_int.png)
+![在 No$GBA 中计算的特殊长度整数](/images/blog/0003/23_magic_length_int.png)
 
-And that’s the end of the function. So we’ve found the offset, but what’s that 0x5398 number? Let’s head back to the caller function in IDA and see if we can figure it out.
+这就是函数的结束。所以我们找到了偏移量，但 0x5398 是什么意思？让我们回到 IDA 中的调用函数，看看我们是否能弄清楚。
 
 ```arm
 RAM:02033D04                 ADD     R2, SP, #0x30+var_28
@@ -372,10 +372,10 @@ RAM:02033D6C                 MOV     R2, R9
 RAM:02033D70                 BL      dbg_print20228DC
 ```
 
-Note the debug string five lines from the bottom (`"read:[%s],idx=%d,ofs=0x%x,sz=%dKB"`{lang='c'}). After the magic integer is processed, we have a debug string explicitly referencing the file index, offset, and _size_. However, 0x5398 is not the length of this file (we know its offset, so we can check its length manually; including padding, the file is 0x5800 bytes in length). So let’s have a look at the one subroutine call in between `arc_processMagicInteger` and that debug string: `sub_201D310`.
+注意倒数第五行的调试字符串（`"read:[%s],idx=%d,ofs=0x%x,sz=%dKB"`{lang='c'}）。处理完魔数后，我们得到了一个调试字符串，显式引用了文件索引、偏移量和*大小*。但是，0x5398 不是这个文件的长度（我们知道它的偏移量，所以我们可以手动检查它的长度；加上填充字节后，文件的长度是 0x5800 字节）。因此，让我们来看看 `arc_processMagicInteger` 和调试字符串之间的一个子程序调用：`sub_201D310`。
 
-### The Unhinged File Length Routine
-Beware, this one’s a long one. Don’t worry about understanding all of it, it’s not really important for the purposes of this article. It’s an extremely obfuscated way of determining file length.
+### 令人精神错乱的文件长度程序
+请小心，这个程序很长。不要担心你不理解所有内容，这对本文的目的来说并不重要。这是一种极其模糊的确定文件长度的方法。
 
 ```arm
 RAM:0201D310                 CMP     R1, #0
@@ -504,28 +504,28 @@ RAM:0201D4EC                 MOV     R1, R3
 RAM:0201D4F0                 BX      LR
 ```
 
-Here it is in all its glory: what I have dubbed the “unhinged file length routine.” That 0x5398 number was indeed not the actual compressed length, but rather an encoded compressed length that was decoded by this routine. A quick FAQ:
+我称之为“令人精神错乱的文件长度程序”。0x5398 这个数字实际上不是实际的压缩后的数组长度，而是被编码后的压缩长度，需要被此程序解码。一个快速的问答：
 
-* Q: Why is there so much repetition in this routine?<br/>
-  A: This is the result of a function of some compilers (including ARM compilers) called _loop unrolling_. Basically, there is a tradeoff made in favor of execution time over program space when the compiler can statically determine how many loops will occur at compile time.
-* Q: What does that mean?<br/>
-  A: Don’t worry, it doesn’t really matter. Point is, that’s a loop, so we can treat it as a loop.
-* Q: I’m seeing a lot of `ADCS` and `SUBCC` instructions here. What’s up with those?<br/>
-  A: `ADCS` is “add with carry, set flags.” Essentially, this means that we add two numbers and, if the previous operation resulted in a “carry,” we add one to the sum. We then set or clear the carry flag depending on whether that addition resulted in a carry. A “carry” here refers to “unsigned overflow” – when a 32-bit integer exceeds its maximum value and loops back around. `SUBCC` is “sub if carry clear.” This means we subtract two numbers if the previous operation did _not_ result in a carry.
-* Q: Why would the devs do it this way?<br/>
-  A: They want to fuck with me specifically.
+* 问：为什么这个程序有这么多重复？<br/>
+  答：这是一些编译器（包括 ARM 编译器）的一个名为*循环展开*的函数的结果。通常情况下，当编译器可以静态地确定编译时将发生多少循环时，会在执行时间与程序空间之间进行权衡。
+* 问：这是什么意思？<br/>
+  答：别担心，这其实并不重要。重点是，这是一个循环，所以我们可以把它当作一个循环。
+* 问：我看到了很多 `ADCS` 和 `SUBCC` 指令。它们是什么意思？<br/>
+  答：`ADCS` 表示“加和并进位，设置标志”。本质上来说，这意味着将两个数字相加，如果上一次运算产生“进位”，我们就在和上加 1。然后，我们根据加和是否导致进位来设置或清除进位标志。这里的“进位”指的是“无符号溢出”——即 32 位整数超过其最大值并循环。`SUBCC` 表示“如果没有进位则相减”。这意味着如果前一个运算没有导致进位，我们令两个数字相减。
+* 问：为什么开发者会这样做？<br/>
+  答：他们他妈的给我添麻烦。
 
-## Out of the Woods
-Whew! That was a lot of assembly. We could keep going down through subroutines, but we’ve accomplished our main task now: we understand a lot about how Shade bin archives work. If we return to our original list of what we expected an archive might have:
+## 走出森林
+哇！这里有很多汇编指令。我们可以继续往下看子程序，但我们现在已经完成了主要任务：我们对 Shade 的二进制归档文件的工作原理有了很多了解。如果我们回顾一下我们最初期望的归档文件可能具有的内容列表：
 
-* We found the number of files (it’s the first four bytes of the archive).
-* While there don’t seem to be obviously-located filenames, we did find the mapping between a file’s _index_ (which appears to be how it’s looked up), its offset, and its compressed length
-* The file data is definitely present and padded to be 0x800-byte aligned.
+* 我们找到了文件的数量（这是归档文件的前四个字节）。
+* 虽然似乎没有明显定位的文件名，但我们确实找到了文件的*索引*（这似乎是它的查找方式）、偏移量和压缩长度之间的映射。
+* 文件数据肯定存在，并且以每 0x800 字节对齐。
 
-Nice! That’s great progress. Let’s see if we can write something to parse the archive now.
+很好！这是一个巨大的进步。让我们看看现在是否可以编写一些东西来解析归档文件。
 
-### Writing Our Own Parser
-Let’s start by thinking about how we want to represent our archive file in C#. There are four different archives, each with their own file type – to me, this screams like a time for a generic class. To begin, we’ll make a generic class to represent files in the archives.
+### 编写我们自己的解析器
+让我们从思考如何在 C# 中表示归档文件开始。有四个不同的归档文件，每个归档文件都有自己的文件类型——对我来说，似乎需要编写一个泛型类。首先，我们将创建一个泛型类来表示归档文件中的文件。
 
 ```csharp
 public partial class FileInArchive
@@ -543,9 +543,9 @@ public partial class FileInArchive
 }
 ```
 
-Pretty basic stuff – we have properties for the magic integer, the index, the offset, and the compressed/uncompressed data. We also have an `Edited` property to indicate if we’ve modified the file or not. Finally, we have a blank constructor for now – we’ll let derived classes implement that.
+这非常基本——有魔数、索引、偏移量和压缩/未压缩数据的属性。我们还有一个 `Edited` 属性，用于指示是否修改了文件。最后，有一个空白构造函数——我们将让派生类实现它。
 
-Now to make the generic archive file:
+现在制作通用的归档文件：
 
 ```csharp
 public class ArchiveFile<T>
@@ -564,7 +564,7 @@ public class ArchiveFile<T>
 }
 ```
 
-All of this is stuff we’ve seen before. Now, to the constructor.
+所有这些都是我们以前见过的。现在，转到构造函数。
 
 ```csharp
 public ArchiveFile(byte[] archiveBytes)
@@ -583,14 +583,14 @@ public ArchiveFile(byte[] archiveBytes)
     }
 ```
 
-Here, we’re just extracting the values we found from the header and then looping through and extracting all the magic integers.
+在这里，我们只是从文件头提取我们找到的值，然后循环并提取所有的魔数。
 
-Before we get to adding files to the archive, we have to convert that compressed length function. I could go through and explain how I converted from the assembly step-by-step, but that would be a lengthy and tedious explanation. So instead, here’s the final code:
+在将文件添加到归档文件之前，我们必须转换压缩长度函数。我可以一步一步地浏览并解释我是如何从汇编代码转换过来的，但这将会非常冗长乏味。因此，以下是最终代码：
 
 ```csharp
 public int GetFileLength(uint magicInteger)
 {
-    // absolutely unhinged routine
+    // 完全精神错乱的函数
     int magicLengthInt = 0x7FF + (int)((magicInteger & (uint)MagicIntegerLsbAnd) * (uint)MagicIntegerLsbMultiplier);
     int standardLengthIncrement = 0x800;
     if (magicLengthInt < standardLengthIncrement)
@@ -647,9 +647,9 @@ public int GetFileLength(uint magicInteger)
 }
 ```
 
-Now we have a function that can determine the compressed length of a file from its magic integer. But here’s the problem – when we save the file, we’ll have to reverse that and go from the compressed length back to the magic integer. How do we accomplish that?
+现在我们得到了一个函数，可以根据文件的魔数来确定文件的压缩长度。但问题是，当我们保存文件时，我们必须将其反转，并从压缩的长度返回到魔数。我们如何做到这一点？
 
-Well, at some point, someone had a program that could do that, but I am not that person. What’s more, this function is way over my head and I have no idea how to even begin trying to reverse it. But it’s not the end of the line for us – remember that the 0x5398 value is only 17-bits in length. That means that the possible values of the encoded integer (i.e. the input to the unhinged file length routine) range from 0 to 0x1FFFF. That’s only 131,072 possible values which in the scope of things isn’t that many. So we just… calculate all the possible encoded values based on file length and add them to a dictionary. (Since these values are constant, we do this only once in the constructor.)
+嗯，在某个时候，有人有一个程序可以做到这一点，但我不是那个人。更重要的是，这个函数超出了我的想象，我甚至不知道如何开始尝试对它逆向。但这对我们来说还不是终点——请记住， 0x5398 值的长度只有 17 位。这意味着被编码的整数的可能值（即，对精神错乱的文件长度函数的输入）的范围是从 0 到 0x1FFFF。这只有 131,072 个可能的值，在这一范围内并没有那么多。所以我们只是……根据文件长度计算所有可能的编码值，并将它们添加到字典中。（由于这些值是常量，因此我们在构造函数中只执行一次。）
 
 ```csharp
 for (int i = 0; i <= MagicIntegerLsbAnd; i++)
@@ -662,20 +662,20 @@ for (int i = 0; i <= MagicIntegerLsbAnd; i++)
 }
 ```
 
-Then when we want a new magic integer, we just do:
+然后，当我们想要一个新的魔数时，我们只需要：
 
 ```csharp
 public uint GetNewMagicInteger(T file, int compressedLength)
 {
     uint offsetComponent = (uint)(file.Offset / MagicIntegerMsbMultiplier) << MagicIntegerMsbShift;
-    int newLength = (compressedLength + 0x7FF) & ~0x7FF; // round to nearest 0x800
+    int newLength = (compressedLength + 0x7FF) & ~0x7FF; // 四舍五入到最接近的 0x800
     int newLengthComponent = LengthToMagicIntegerMap[newLength];
 
     return offsetComponent | (uint)newLengthComponent;
 }
 ```
 
-Finally, we’re ready to start parsing the files. All we have to do is loop through the magic integers, get the file offset and compressed length from each, and then use those to take the file data and initialize a `FileInArchive` derivative.
+最后，我们准备好开始解析文件了。我们所要做的就是循环遍历魔树，从魔数中获得文件偏移量和压缩后的长度，然后使用它们来获取文件数据并初始化 `FileInArchive` 衍生类。
 
 ```csharp
 for (int i = 0; i < MagicIntegers.Count; i++)
@@ -688,7 +688,7 @@ for (int i = 0; i < MagicIntegers.Count; i++)
         T file = new();
         try
         {
-            file = FileManager<T>.FromCompressedData(fileBytes, offset); // Don’t worry about this function, all it’s doing is initializing the file.
+            file = FileManager<T>.FromCompressedData(fileBytes, offset); // 不用担心这个函数，它所做的只是初始化文件。
         }
         catch (IndexOutOfRangeException)
         {
@@ -704,14 +704,14 @@ for (int i = 0; i < MagicIntegers.Count; i++)
 }
 ```
 
-So we have a functional parser now. We can write up a quick GUI to show us how file loading will look and…
+我们现在得到了一个函数解析器。我们可以编写一个快速的 GUI，向我们展示文件加载看起来如何，以及……
 
-![A GUI interface showing the extracted script from the game](/images/blog/0003/24_archive_interface.png)
+![显示从游戏中提取的脚本的 GUI 界面](/images/blog/0003/24_archive_interface.png)
 
-Very nice looking! (The text on the right is a preview of what’s to come – II was working on parsing the event/script files at the same time as I was working on parsing the archives, but we won’t be covering event file reverse-engineering in this post.) So now we can open `evt.bin` and even edit the files inside it. There’s still one step left, though – we have to be able to save the bin archives once we’re done editing them.
+看上去很不错！（右边的文本是对即将到来的事情的预览——我在解析归档文件的同时，也在解析事件/脚本文件，但我不会在这篇文章中讨论事件文件的逆向工程。）所以现在我们可以打开 `evt.bin`，甚至编辑其中的文件。不过，还有一步——我们必须能够在编辑完二进制归档文件后保存它们。
 
-### Saving the Archive
-The ideal way to save the archive is to reconstruct it from scratch, but because there’s data in the header we don’t understand fully we’ll have to settle for editing the header in place. So, we’ll start by just adding the whole header we took while parsing.
+### 保存归档文件
+保存归档文件的理想方法是从头开始重建，但由于头部中有我们不完全理解的数据，我们将不得不接受在适当的位置编辑文件头。因此，我们首先添加在解析时获取的整个文件头。
 
 ```csharp
 public byte[] GetBytes()
@@ -721,7 +721,7 @@ public byte[] GetBytes()
     bytes.AddRange(Header);
 ```
 
-Next, we’re going to loop through all the files and add them to the archive in order. If the file hasn’t been edited, then we’ll just add it directly to the archive. If the file has been edited, though, we’ll have to compress the edited data.
+接下来，我们将遍历所有文件，并按顺序将它们添加到归档文件中。如果文件没有经过编辑，那么我们将直接将其添加到归档文件中。但是，如果文件已被编辑，我们将不得不压缩已编辑的数据。
 
 ```csharp
     for (int i = 0; i < Files.Count; i++)
@@ -738,9 +738,9 @@ Next, we’re going to loop through all the files and add them to the archive in
         bytes.AddRange(compressedBytes);
 ```
 
-Here, we hit a snag – in some cases, the edited file is going to be longer than the original file, right? This will happen more often than we think since my implementation of the compression algorithm is noticeably less efficient than the implementation the developers used, so even files that stay the same size decompressed will end up longer on recompression. The solution to this problem is actually pretty simple, just a bit tedious: we move everything further down.
+在这里，我们遇到了一个障碍——在某些情况下，编辑后的文件会比原始文件长，对吧？这种情况会比我们想象中发生得更频繁，因为我的压缩算法的实现明显不如开发人员使用的实现更高效，所以即使解压后的文件保持相同大小，重新压缩的时间也会更长。这个问题的解决方案实际上很简单，只是有点乏味：我们把所有东西都往下移动。
 
-Why is moving things down tedious? Well it comes back to the magic integers – those contain _offsets_ for each file. By moving the file down, we’re changing its offset, which means the magic integer will change as well. So we need to write code to do that. 
+为什么把东西搬下来很乏味？好吧，这又回到了魔数——它们包含了每个文件的*偏移量*。通过向下移动文件，我们改变了它的偏移量，这意味着魔数也会改变。所以我们需要编写代码来做到这一点。
 
 ```csharp
         if (i < Files.Count - 1) // If we aren’t on the last file
@@ -750,16 +750,16 @@ Why is moving things down tedious? Well it comes back to the magic integers – 
             {
                 bytes.Add(0);
             }
-            // If the current size of the archive we’ve constructed so far is greater than
-            // the next file’s offset, that means we need to adjust the next file’s offset
+            // 如果我们构建的归档文件的当前大小大于下一个文件的偏移量，
+            // 这意味着我们需要调整下一个归档文件的偏移量
             if (bytes.Count > Files[i + 1].Offset)
             {
-                // Calculate how much we need to shift the magic integer by
+                // 计算我们需要将魔数移动多少
                 pointerShift = ((bytes.Count - Files[i + 1].Offset) / MagicIntegerMsbMultiplier) + 1;
             }
             if (pointerShift > 0)
             {
-                // Calculate the new magic integer factoring in pointer shift
+                // 计算指针移位后的新魔数
                 Files[i + 1].Offset = ((Files[i + 1].Offset / MagicIntegerMsbMultiplier) + pointerShift) * MagicIntegerMsbMultiplier;
                 int magicIntegerOffset = FirstMagicIntegerOffset + (i + 1) * 4;
                 uint newMagicInteger = GetNewMagicInteger(Files[i + 1], Files[i + 1].Length);
@@ -768,7 +768,7 @@ Why is moving things down tedious? Well it comes back to the magic integers – 
                 bytes.RemoveRange(magicIntegerOffset, 4);
                 bytes.InsertRange(magicIntegerOffset, BitConverter.GetBytes(Files[i + 1].MagicInteger));
             }
-            // Add file padding
+            // 添加文件填充
             while (bytes.Count < Files[i + 1].Offset)
             {
                 bytes.Add(0);
@@ -776,13 +776,13 @@ Why is moving things down tedious? Well it comes back to the magic integers – 
         }
 ```
 
-Bam. We have working code that will shift the magic integers. So let’s test it – let’s modify a file and save the archive and see if we can change some text.
+砰。我们得到了能用的代码，可以移动魔数。所以，让我们测试一下——修改一个文件并保存存档，看看是否可以更改一些文本。
 
-![Haruhi Suzumiya in the opening lines saying Hello my friend! A lovely day!](/images/blog/0003/25_dialogue_replaced.png)
+![凉宫春日在开场白中说“Hello my friend! A lovely day!”（你好，我的朋友！美好的一天！）](/images/blog/0003/25_dialogue_replaced.png)
 
-I present to you the first text I ever edited into the game. 🥰
+我向你展示了我在游戏中编辑的第一段文字。🥰
 
-If you’re interested in seeing the end-result of the archive code, you can [check out the code on GitHub](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Archive/ArchiveFile.cs)!
+如果你有兴趣查看归档文件代码的最终结果，你可以[在 GitHub 上查看代码](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Archive/ArchiveFile.cs)！
 
-## What’s Next
-We’ve now parsed and repacked the archive successfully. The next thing we’ll talk about is the first files I reverse-engineered: the event files, which contained the script for the game. But before that, I’ll be posting an addendum to these two posts which will contain answers to commonly-asked questions and a few historical notes on the actual process we underwent to get this all working. Thanks for reading and please look forward to it!
+## 下一步是什么
+我们现在已经成功地解析并重新打包了归档文件。接下来我们要讨论的是我逆向工程的第一个文件：事件文件，其中包含游戏的脚本。但在此之前，我将发布这两篇帖子的附录，其中将包含常见问题的答案，以及关于我们实现这一切所经历的实际过程的一些历史笔记。感谢阅读，敬请期待！
