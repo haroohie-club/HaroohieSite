@@ -46,7 +46,7 @@ onMounted(() => {
             imageSource.value = event.target.src
             showModal.value = true
         }
-    }).bind(this)
+    })
 });
 </script>
 

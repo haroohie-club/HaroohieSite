@@ -1,27 +1,32 @@
 <template>
     <div class="gallery">
-        <div class="image" v-for="(img, index) in images">
-            <img v-if="index === currentImage" :src="img.url" :alt="img.alt" />
+        <div class="image">
+            <img v-for="(image, index) in images" :key="index.alt" :alt="image.alt" :src="image.url" :style="{ display: index === currentImage ? 'block' : 'none' }" />
         </div>
         <div class="buttons">
-            <Icon class="change-image" name="fa6-solid:chevron-left" />
+            <div @click="changeImage(-1)">
+                <Icon class="change-image" name="fa6-solid:chevron-left" />
+            </div>
             <span>{{ currentImage + 1 }} / {{ images.length }}</span>
-            <Icon class="change-image" name="fa6-solid:chevron-right" @click="changeImage(1)" />
+            <div @click="changeImage(1)">
+                <Icon class="change-image" name="fa6-solid:chevron-right" />
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
-const currentImage = ref(0);
 const { images } = defineProps({
     images: {
         type: Array,
         required: true
     }
 })
+const currentImage = ref(0);
+// const image = ref(images[currentImage.value]);
 
 const changeImage = (direction) => {
-    if (direction === 1) {
+    if (direction > 0) {
         currentImage.value = currentImage.value === images.length - 1 ? 0 : currentImage.value + 1;
     } else {
         currentImage.value = currentImage.value === 0 ? images.length - 1 : currentImage.value - 1;
