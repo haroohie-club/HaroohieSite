@@ -1,8 +1,3 @@
-<script setup>
-const { locale } = useI18n()
-const localePath = useLocalePath()
-</script>
-
 <!-- Template for serial loop pages -->
 <template>
     <div id="content-body">
@@ -24,6 +19,9 @@ const localePath = useLocalePath()
 </template>
 
 <script setup>
+const { locale } = useI18n()
+const localePath = useLocalePath()
+
 const showModal = ref(false)
 const imageSource = ref(null)
 
