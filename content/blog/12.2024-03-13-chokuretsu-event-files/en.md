@@ -387,7 +387,7 @@ But how do we figure out which of the `FrontPointers` points to the dialogue lin
     for (int i = 0; i < FrontPointers.Count; i++)
     {
         uint pointerValue = IO.ReadUInt(data, FrontPointers[i]);
-        if (pointerValue > 0x10000000 || 0x8596) // 0x8596 is 妹 which is a valid character name, sadly lol
+        if (pointerValue > 0x10000000 || pointerValue == 0x8596) // 0x8596 is 妹 which is a valid character name, sadly lol
         {
             reachedCharacterNames = true;
         }
