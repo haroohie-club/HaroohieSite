@@ -1,12 +1,12 @@
 ---
 title: &title "Chokuretsu ROM Hacking Challenges Part 4 - Event File Excavation"
 description: &desc "Jonko digs into the event files to figure out how to translate the game"
-locale: 'de'
+locale: 'en'
 navigation:
   author: 'Jonko'
   year: 2024
   month: 03
-  day: 05
+  day: 13
   tags: ['chokuretsu', 'romhacking']
   image: '0012/00_thumbnail.png'
 head:
@@ -20,7 +20,7 @@ head:
   - property: 'og:image:alt'
     content: ''
   - property: 'og:url'
-    content: 'https://haroohie.club/blog/2024-03-08-chokuretsu-event-files'
+    content: 'https://haroohie.club/blog/2024-03-15-chokuretsu-event-files'
   - property: 'og:type'
     content: 'article'
   - name: 'twitter:title'
