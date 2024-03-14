@@ -1,8 +1,3 @@
-<script setup>
-const { locale } = useI18n()
-const localePath = useLocalePath()
-</script>
-
 <!-- Template for serial loop pages -->
 <template>
     <div id="content-body">
@@ -23,26 +18,24 @@ const localePath = useLocalePath()
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            showModal: false,
-            imageSource: null,
-        }
-    },
-    mounted() {
-        window.addEventListener('click', function(event) {
-            if (event.target.tagName == 'IMG') {
-                if (event.target.classList.contains('modal-exclude')) {
-                    return;
-                }
-                this.imageSource = event.target.src;
-                this.showModal = true;
+<script setup>
+const { locale } = useI18n()
+const localePath = useLocalePath()
+
+const showModal = ref(false)
+const imageSource = ref(null)
+
+onMounted(() => {
+    window.addEventListener('click', function (event) {
+        if (event.target.tagName == 'IMG') {
+            if (event.target.classList.contains('modal-exclude')) {
+                return
             }
-        }.bind(this));
-    },
-}
+            imageSource.value = event.target.src
+            showModal.value = true
+        }
+    })
+});
 </script>
 
 <style scoped>

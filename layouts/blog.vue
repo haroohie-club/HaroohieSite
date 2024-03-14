@@ -46,7 +46,7 @@ onMounted(() => {
             imageSource.value = event.target.src
             showModal.value = true
         }
-    }).bind(this)
+    })
 });
 </script>
 
@@ -62,13 +62,14 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     max-width: 250px;
-    width: 60vw;
+    width: 26vw;
 }
 
 .blog {
     display: flex;
     flex-direction: column;
     max-width: 1100px !important;
+    width: 61.5vw;
 }
 
 .box {
@@ -245,4 +246,5 @@ article blockquote {
     padding-left: 1rem;
     margin-left: 0;
     font-style: italic;
-}</style>
+}
+</style>
