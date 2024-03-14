@@ -56,7 +56,7 @@ images: [
 ----
 ::
 
-That’s it in all its 7.06 KiB of glory. I’m reproducing the entire file here for two reasons – one, so we can reference these images in context (I’ll make sure to link the number you see above each screenshot when referencing something in that image), but also two, so that you can see how intimidating a file like this can look at first glance. That’s a lot of data! But not to worry – we can figure it out!
+That’s it in all its 7.06 KiB of glory. I’m reproducing the entire file here for two reasons – one, so we can reference these images in context (I’ll make sure to mention the number you see above each screenshot when referencing something in that image), but also two, so that you can see how intimidating a file like this can look at first glance. That’s a lot of data! But not to worry – we can figure it out!
 
 As I mentioned, the above images are screenshots of a hex editor. In case you’ve forgotten how hexadecimal works, here’s a quick summary from the [compression blog post](/blog/2022-10-19-chokuretsu-compression):
 
@@ -81,7 +81,7 @@ When you’re lost, you might ask someone for a pointer, and indeed that’s als
 
 Why do we want to look for pointers? All files have to have some sort of consistent structure and logic – otherwise, computers won’t be able to read them. Pointers are the way that we imbue that structure into a file – a common pattern is to have a header section at the top of the file that has pointers to important places throughout the file. So let’s start at the top.
 
-First of all, we can see pretty clearly from the spacing of the numbers at the top of [the first image](#_1) that these are a series of 32-bit integers. How do I know? Well, it’s the spacing. We’ve got one or two bytes of numbers followed by two or three bytes of zeros repeating over and over again. Since a 32-bit integer is four bytes in length, this suggests that we’re looking at a sequence of that type.
+First of all, we can see pretty clearly from the spacing of the numbers at the top of the first image (#1) that these are a series of 32-bit integers. How do I know? Well, it’s the spacing. We’ve got one or two bytes of numbers followed by two or three bytes of zeros repeating over and over again. Since a 32-bit integer is four bytes in length, this suggests that we’re looking at a sequence of that type.
 
 ![The file header in the hex editor](/images/blog/0012/08_header.png)
 
@@ -103,7 +103,7 @@ Anyway, we’ve got these as integers now. Are any of them pointers?
 
 Immediately we can rule out a few of these. First of all, this file is most likely four-byte-aligned, meaning that data is padded to reach the nearest four bytes. This means that most (if not all) of our pointers are going to end in a multiple of four (0, 4, 8, or C). That first integer, 0x1B, doesn’t match that pattern at all – confirming this, if we go to 0x1B, we end up in the middle of one of our integers.
 
-The next number, though, does match this pattern as it ends in a multiple of four – 0x1A9**8**. If we go down to [that offset](#_7), we can see…
+The next number, though, does match this pattern as it ends in a multiple of four – 0x1A9**8**. If we go down to that offset (image #7), we can see…
 
 ![The end pointers section in the hex editor](/images/blog/0012/09_endpointers.png)
 
@@ -128,7 +128,7 @@ public class EventFile
 }
 ```
 
-This is a good starting point, but it will need some tweaking as we go. In any case, let’s continue: as we move on to the fourth integer at the top of the file, we have yet another pointer: this time, it’s to [lower down in the file](#_7).
+This is a good starting point, but it will need some tweaking as we go. In any case, let’s continue: as we move on to the fourth integer at the top of the file, we have yet another pointer: this time, it’s to lower down in the file (image #7).
 
 ![An unknown section in the hex editor (spoiler alert for those of you with alt text, this is the event file "settings" section!)](/images/blog/0012/11_settings.png)
 
@@ -158,11 +158,11 @@ public class EventFile
 ## Follow Your Passion
 So we’ve discovered a few things here, but I feel like the trail is starting to run cold by just looking at where these front pointers take us. So let’s try something else. The whole goal here is to be able to modify the dialogue in this scene so we can translate it – so let’s take a look at the dialogue lines and see if we can figure out how they work!
 
-Specifically, we’re going to again focus on pointers and see if we can find any that point to the dialogue lines. So let’s scroll down and find the [first dialogue line](#_2) and then search for its offset in the file.
+Specifically, we’re going to again focus on pointers and see if we can find any that point to the dialogue lines. So let’s scroll down and find the first dialogue line (image #2) and then search for its offset in the file.
 
 ![A line of dialogue highlighted in the hex editor](/images/blog/0012/13_dialogue.png)
 
-It looks like this first line starts at 0x47C. Searching for `7C 04` yields one hit up at [0x244](#_1):
+It looks like this first line starts at 0x47C. Searching for `7C 04` yields one hit up at 0x244 (image #1):
 
 ![A DialogueLine structure viewed in the hex editor](/images/blog/0012/14_dialogue_structure.png)
 
