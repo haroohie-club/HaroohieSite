@@ -202,13 +202,13 @@ Ho già segnato il valore caricato in R1 con il nome `=sArchiveFileNames` - se n
 
 ![L'indirizzo RAM di =sArchivesFileNames visto in IDA che mostra una lista dei nomi dei file dell'archivio](/images/blog/0003/16_archive_file_names.png)
 
-It’s a list of our four archive names! So that line that says `LDR R1,[R1, R10, LSL#2]` is going to load the name of the archive in. If we look at R10 in the earlier screenshot, we can see that it’s set to 2. Typically, arrays start from index 0, so that means that index 2 here is going to be `aEvtBin` – `EVT.BIN` is the value of `%s`!
+È una lista dei nomi dei nostri quattro archivi! Quindi quella linea che dice `LDR R1,[R1, R10, LSL#2]` caricherà nel nome dell'archivio. Se diamo un'occhiata ad R10 nello screenshot di prima, possiamo vedere che è impostato a 2. Solitamente, gli array iniziano da 0, il che significa che l'elemento 2 sarà `aEvtBin` – `EVT.BIN` è il valore di `%s`!
 
-The next line is `MOV R2,R9` which is moving the value of R9 (our previous register of interest) into R2. From the text of the error message, we can conclude that **R9 stores the file index**, i.e. the position of the file we’re loading in the archive! We also know that the value we thought was the number of files in the archive was indeed that. Furthermore, based on the conditions that lead to the error message, we can also conclude that file indices start at 1 and end at the length of the archive (rather than starting at 0 and ending at `length - 1` as is more common in computing).
+La prossima linea è `MOV R2,R9` che sposterà il valore di R9 (il nostro precedente resitro d'interesse) in R2. Dal testo del messaggio di errore, possiamo concludere che **R9 contiene l'indice di file**, che è la posizione del file che stiamo caricando nell'archivio! Sappiamo anche che il valore che pensavamo che fosse il numero di file nell'archivio era proprio quello. Inoltre, basandoci sulle condizioni che ci hanno portati a quel messaggio di errore, possiamo anche concludere che gli indici partono da 1 e che finiscono alla lunchezza dell'archivio (invece di iniziare da 0 e finire alla `lunghezza - 1` che è molto più comune nei computer).
 
 
-### Parsing the Magic Integer
-Let’s continue:
+### Analizzare l'Intero Magico
+Continuiamo:
 
 ```arm
 RAM:02033D04 loc_2033D04
@@ -219,20 +219,20 @@ RAM:02033D10                 MOV     R1, R9
 RAM:02033D14                 BL      sub_2033A70
 ```
 
-We’re calling `sub_2033A70` with the following parameters:
+Stiamo chiamando `sub_2033A70` con i seguenti parametri:
 
-1. R0: The archive number (2 = `evt.bin`)
-2. R1: The archive file index
-3. R2: An address
-4. R3: Another address
+1. R0: Il numero di archivio (2 = `evt.bin`)
+2. R1: L'indice dei file nell'archivio
+3. R2: Un indirizzo
+4. R3: Un altro indirizzo
 
-In other words:
+In altre parole:
 
 ```csharp
 sub_2033A70(2, 0x24C, address1, address2)
 ```
 
-Let’s dive into `sub_2033A70`.
+Andiamo a vedere `sub_2033A70`.
 
 ```arm
 RAM:02033A70                 PUSH    {R4,LR}
@@ -261,9 +261,9 @@ After we step over that instruction, we can in fact see that 0x24C got stored in
 0x20C1A08 as we would expect. So now, let’s set a read breakpoint for that
 address to see where _it_ gets referenced.
 
-![no$GBA with highlights showing instructions for loading the magic integer into the register](/images/blog/0003/17_initial_header_stuff.png)
+!|no$GBA che mostra delle istruzioni evidenziate che servono a caricare l'intero magico nel registro|(/images/blog/0003/17_initial_header_stuff.png)
 
-After executing a few steps, we can see that the first part of this subroutine is just loading the address of the `evt.bin` header we’ve already found into R0. It’s also setting LR (which is called R14 in no$) to the address (highlighted in cyan) right before the first magic integer (highlighted in green). Interesting! The currently highlighted instruction is `LDR LR, [LR,R1,LSL#2]`{lang='arm'} – this is going to load the value at the address `LR + R1 * 4` into LR. R1, remember, is the file index – therefore, this is loading the magic integer that corresponds to that file index! (Recall that the magic integer array starts at 1 rather than 0, so to make it zero-indexed we need to start from the address directly before the first magic integer.)
+Dopo aver eseguito questi passaggi, possiamo vedere che la prima parte di questa subroutine serve solo a caricare l'indirizzo dell'header di `evt.bin` che avevamo già trovato in R0. Sta anche impostando LR (Che è chiamato R14 in no$) nell'indirizzo (evidenziato in ciano) subito prima del primo intero magico (evidenziato in verde). Interessante! L'indirizzo attualmente evidenziato è `LDR LR, [LR,R1,LSL#2]`{lang='arm'} – questo caricherà il valore nell'indirizzo `LR + R1 * 4` in LR. R1, bisogna ricordare, è l'indice del file. Quindi, questo caricherà l'intero magico che corrisponde al file di quell'indice! (Tenete presente che l'array dell'intero magico parte da 1 invece che 0, quindi per farlo partire da 0 dobbiamo partire dall'indirizzo subito prima del primo intero magico.)
 
 In C#, we can represent this as:
 
