@@ -32,7 +32,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-[L'ultima volta](/it/blog/2022-10-19-chokuretsu-compression), abbiamo parlato di come ho fatto un reverse-engineering dell'algoritmo di compressione utilizzato in Suzumiya Haruhi no Chokuretsu. Oggi, guarderemo gli archivi che contengono i file di Chokuretsu. Vi chiedo di tenere a mente che mentre io cerco di tenere questi post separati, questo si basa completamente sui concetti fondati la scorsa volta, quindi Vi suggerisco di leggerla per prima! Inoltre, se avete già letto lo scorso post, ti avviso che questo è più po' più lungo e contiene più assembly!
+[L'ultima volta](/it/blog/2022-10-19-chokuretsu-compression), abbiamo parlato di come ho fatto un reverse-engineering dell'algoritmo di compressione utilizzato in Suzumiya Haruhi no Chokuretsu. Oggi, guarderemo gli archivi che contengono i file di Chokuretsu. Ti chiedo di tenere a mente che mentre io cerco di tenere questi post separati, questo si basa completamente sui concetti fondati la scorsa volta, quindi ti suggerisco di leggerla per prima! Inoltre, se avete già letto lo scorso post, ti avviso che questo è più po' più lungo e contiene più assembly!
 
 Grazie alla proliferazione dei file .zip, sarai già a conoscenza degli archivi: sono file che contengono file, solitamente compressi per risparmiare spazio sul disco. Gli archivi più comuni sono i file `.zip`, `.rar`, `.7z` e `.tar.gz`. Chokuretsu utilizza un archivio personalizzato con l'estensione `.bin`. Visto che Shade è lo sviluppatore del gioco, questi file vengono riferiti come "archivi bin Shade" o semplicemente "archivi bin." Iniziamo scegliendo un archivio da guardare.
 
@@ -257,15 +257,13 @@ RAM:02033AB8                 STR     R0, [R3]
 RAM:02033ABC                 POP     {R4,PC}
 ```
 
-After we step over that instruction, we can in fact see that 0x24C got stored in
-0x20C1A08 as we would expect. So now, let’s set a read breakpoint for that
-address to see where _it_ gets referenced.
+Questa subroutine non è troppo lunga, quindi dovremmo essere in grado di capire cosa sta facendo; tuttavia, ci sono molti pezzetti dove carica qualche indirizzo di memoria, e non so cosa contengano quegli indirizzi. Quindi torniamo nel debugger.
 
 !|no$GBA che mostra delle istruzioni evidenziate che servono a caricare l'intero magico nel registro|(/images/blog/0003/17_initial_header_stuff.png)
 
 Dopo aver eseguito questi passaggi, possiamo vedere che la prima parte di questa subroutine serve solo a caricare l'indirizzo dell'header di `evt.bin` che avevamo già trovato in R0. Sta anche impostando LR (Che è chiamato R14 in no$) nell'indirizzo (evidenziato in ciano) subito prima del primo intero magico (evidenziato in verde). Interessante! L'indirizzo attualmente evidenziato è `LDR LR, [LR,R1,LSL#2]`{lang='arm'} – questo caricherà il valore nell'indirizzo `LR + R1 * 4` in LR. R1, bisogna ricordare, è l'indice del file. Quindi, questo caricherà l'intero magico che corrisponde al file di quell'indice! (Tenete presente che l'array dell'intero magico parte da 1 invece che 0, quindi per farlo partire da 0 dobbiamo partire dall'indirizzo subito prima del primo intero magico.)
 
-In C#, we can represent this as:
+In C#, lo possiamo rappresentare così:
 
 ```csharp
 public void sub_2033A70(int archiveNumber, int index, uint address1, uint address2, byte[] archiveBytes)
@@ -275,30 +273,18 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 }
 ```
 
-![no$GBA showing the magic integer highlighted](/images/blog/0003/18_loaded_magic_integer.png)
+!|no$GBA che mostra l'intero magico evidenziato|(/images/blog/0003/18_loaded_magic_integer.png)
 
-The address we should be loading from is `0x020F771C + 0x245 * 4 = 0x20F8030`, and indeed, when we step forward we see that value loaded in. Now that the magic integer is loaded in, let’s see what happens next.
+L'indirizzo che dobbiamo caricare è `0x030F771C + 0x245 * 4 = 0x20F8030`, e naturalmente, quando lo facciamo vediamo quel valore caricato. Ora che l'intero magico è caricato, vediamo cosa succede dopo.
 
-```arm
-RAM:02033A58 sub_2033A58
-RAM:02033A58                 MOV     R1, #0x18
-RAM:02033A5C                 MUL     R1, R0, R1
-RAM:02033A60                 LDR     R0, =dword_20C19D8
-RAM:02033A64                 LDR     R0, [R0,R1]
-RAM:02033A68                 BX      LR
-```
+![no$GBA showing the next two components being loaded and their instructions](/images/blog/0003/19_second_header_stuff.png)
 
-The next two instructions load the integers at offsets 0x0C (green) and 0x04 (pink) in `evt.bin` into R1 and R0, respectively. These instructions are then used in some calculations:
+Le prossime due istruzioni caricano gli interi negli offset 0x0C (verde) e 0x04 (rosa) da `evt.bin` in R1 ed R0, rispettivamente. Queste istruzioni sono poi utilizzate in alcuni calcoli:
 
-* `MOV R1, LR,LSR R1`{lang='arm'} – This instruction shifts the magic integer right by the value of R1 (0x11 or 17) and stores the result in R1. Since magic integers are 32-bit integers, this gives us the 15 most-significant bits of the magic integer.
-* `MUL R0, R1, R0`{lang='arm'} – This instruction multiplies R1 by R0 (0x800) and stores the result in R0.
+* `MOV R1, LR,LSR R1`{lang='arm'}    Questa istruzione sposta l'intero magico a destra in base al valore di R1 (0x11 o 17) e salva il risultato in R1. Visto che gli interi magici sono interi a 32-bit, questo ci dà i 15 bit più importanti dell'intero magico.
+* `MUL R0, R1, R0`{lang='arm'}    Questa istruzione moltiplica R1 per R0 (0x800) e salva il risultato in R0.
 
-`BX LR`{lang='arm'} returns us to the subroutine that called this one, so given
-that we know the previous instruction is the one that loaded 0x24C into R0 (the
-register that is frequently used as a return value), we might be able to posit
-that the entire purpose of this subroutine is to load that value from memory.
-So, let’s rename this function to `arc_getNumFiles` and then step forward and
-see what called it.
+Continuando la nostra traduzione in C#, abbiamo:
 
 ```csharp
 public void sub_2033A70(int archiveNumber, int index, uint address1, uint address2, byte[] archiveBytes)
@@ -312,24 +298,24 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 }
 ```
 
-After executing these two instructions…
+Dopo aver eseguito queste due istruzioni…
 
-![no$GBA showing two instructions highlighted which calculate the file offset from its magic integer](/images/blog/0003/20_find_offset.png)
+!|no$GBA che mostra le due istruzioni evidenziate che calcolano l'offset del file dall'intero magico|(/images/blog/0003/20_find_offset.png)
 
-The value of R0 is now 0x2D5000. Wait a second – we just multiplied the top part of the magic integer (the one we saw consistently increasing!) by 0x800 (which every offset is divisible by). Could we have just calculated a file offset?
+Il valore di R0 è ora 0x2D5000. Aspetta un secondo   abbiamo appena moltiplicato la parte superiore dell'intero magico (quella che abbiamo visto crescere costantemente) per 0x800 (per il quale ogni offset è divisibile). Potremmo aver appena calcolato l'offset di un file?
 
-![CrystalTile2 showing evt.bin at 0x2D5000; above it is a sea of zeros indicating it's the beginning of a file](/images/blog/0003/21_the_offset.png)
+!|CrystalTile2 che mostra evt.bin in 0x2D5000; al di sopra è presente un mare di zeri che indicano l'inizio di un file|(/images/blog/0003/21_the_offset.png)
 
-We did indeed! We just found the routine for calculating the offset of a file given its index! But the magic integer is still loaded into LR, so we’re not done with it yet.
+Lo abbiamo proprio fatto! Abbiamo appena trovato la routine per calcolare l'offset di un file dandogli un indice! Ma l'intero magico non è ancora caricato in LR, quindi non abbiamo ancora finito di utilizzarlo.
 
-The next instruction stores our freshly-calculated offset in memory. The instruction after that loads the starting address of the `evt.bin` header again. After that, we have two instructions that are similar to what we saw before.
+La prossima istruzione contiene il nostro offset appena calcolato in memoria. L'istruzione dopo carica l'indirizzo di partenza dell'header di `evt.bin` di nuovo. Adesso abbiamo due istruzioni che sono simili a quelle che abbiamo visto prima.
 
-![no$GBA showing the below two instructions highlighted](/images/blog/0003/22_find_magic_length_int.png)
+!|no$GBA che mostra le due istruzioni di sotto evidenziate|(/images/blog/0003/22_find_magic_lenght_int.png)
 
-This time, we’re loading the values at offsets 0x10 and 0x08 into R1 and R0, respectively. Once again, we’re going to use these values to do some math on the magic integer.
+Questa volta, caricheremo i valori degli offset 0x10 e 0x08 in R1 ed R0, rispettivamente. Ancora una volta, utilizzeremo questi valori per fare un po' di matematica con l'intero magico.
 
-* `AND R1, LR, R1`{lang='arm'} – this instruction is performing a bitwise-and between the contents of R1 (0x1FFFF) and the magic integer. This effectively gets the 17 least-significant bits of the magic integer (the complement to the 15 most-significant bits we calculated above).
-* `MUL R0, R1, R0`{lang='arm'} – this instruction multiplies R1 by R0 (0x08) and stores the result in R0.
+* `AND R1, LR, R1`{lang='arm'} – questa operazione sta facendo un  bitwise-and tra i contenuti di R1 (0x1FFFF) e l'intero magico. Questo ci dà i 17 bit meno importanti dell'intero magico (i complementi dei 15 bit più importanti che abbiamo calcolato sopra).
+* `MUL R0, R1, R0`{lang='arm'} – questa istruzione moltiplica R1 per R0 (0x08) e inserisce il risultato in R0.
 
 In C#:
 
@@ -349,18 +335,11 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 }
 ```
 
-When calling a function in a higher-level language, you specify parameters that
-get passed to the function. In ARM assembly, these parameters are passed by
-setting specific registers to specific values – the first parameter is set to
-R0, the second parameter is set to R1, etc. So, we know that this
-`dbg_printError` subroutine is going to print that format string. The string
-itself is loaded into R0, meaning that the first parameter is the string itself.
-The next parameter (corresponding to `%s`) should be loaded into R1, and the
-final parameter (corresponding to `%d`) should be loaded into R2.
+Il risultato finale di questo calcolo è 0x5398.
 
-![The special length integer being calculated in no$GBA](/images/blog/0003/23_magic_length_int.png)
+![L'intero con lunghezza speciale calcolato in no$GBA](/images/blog/0003/23_magic_length_int.png)
 
-And that’s the end of the function. So we’ve found the offset, but what’s that 0x5398 number? Let’s head back to the caller function in IDA and see if we can figure it out.
+E questa è la fine della funzione. Quindi ora abbiamo trovato l'offset, ma cos'è quel 0x5398? Torniamo nella funzione di chiamata in IDA e vediamo se riusciamo a scoprirlo.
 
 ```arm
 RAM:02033D04                 ADD     R2, SP, #0x30+var_28
@@ -393,10 +372,10 @@ RAM:02033D6C                 MOV     R2, R9
 RAM:02033D70                 BL      dbg_print20228DC
 ```
 
-Note the debug string five lines from the bottom (`"read:[%s],idx=%d,ofs=0x%x,sz=%dKB"`{lang='c'}). After the magic integer is processed, we have a debug string explicitly referencing the file index, offset, and _size_. However, 0x5398 is not the length of this file (we know its offset, so we can check its length manually; including padding, the file is 0x5800 bytes in length). So let’s have a look at the one subroutine call in between `arc_processMagicInteger` and that debug string: `sub_201D310`.
+Nota le ultime cinque stringhe di debug (`"read:[%s],idx=%d,ofs=0x%x,sz=%dKB"`{lang='c'}). Dopo che l'intero magico viene processato, abbiamo una stringa di debug che fa esplicitamente riferimento all'indice del file, il suo offset, e la sua _dimensione_. Tuttavia, 0x5398 non è la lunghezza di questo file (sappiamo il suo offset, quindi possiamo controllare la sua lunghezza manualmente; incluso il riempimento, il file è 0x5800 byte in lunghezza). Quindi diamo un'occhiata a quella chiamata delle subroutine tra `arc_processMagicInteger` e quella stringa di debug: `sub_201D310`.
 
-### The Unhinged File Length Routine
-Beware, this one’s a long one. Don’t worry about understanding all of it, it’s not really important for the purposes of this article. It’s an extremely obfuscated way of determining file length.
+### La Pazza Routine Per La Lunghezza Dei File
+Fai attenzione, questa parte è abbastanza lunga. Non preoccuparti in caso non dovessi capire tutto, non è così importante per lo scopo di questo articolo. È una maniera estremamente offuscata per determinare la lunghezza di un file.
 
 ```arm
 RAM:0201D310                 CMP     R1, #0
@@ -525,22 +504,25 @@ RAM:0201D4EC                 MOV     R1, R3
 RAM:0201D4F0                 BX      LR
 ```
 
-Here it is in all its glory: what I have dubbed the “unhinged file length routine.” That 0x5398 number was indeed not the actual compressed length, but rather an encoded compressed length that was decoded by this routine. A quick FAQ:
+Eccolo qui, in tutta la sua gloria: quello che ho chiamato la "pazza routine per la lunghezza dei file." Quel 0x5398 non era infatti la sua lunghezza compressa, ma una lunghezza compressa con una codificazione che è stata decodificata da questa routine. Ecco un breve FAQ:
 
-```csharp
-public void sub_2033A70(int archiveNumber, int index, uint address1, uint address2, byte[] archiveBytes)
-{
-    int numFiles = BitConverter.ToInt32(archiveBytes.Take(4).ToArray());
-    uint magicInteger = BitConverter.ToUInt32(archiveBytes.Skip(0x1C + index * 4).Take(4).ToArray());
+* D: Perché questa routine è così ripetitiva?<br/>
+  A: Questo è il risultato di una funzione di alcuni compilatori (tra cui i compilatori di ARM) chiamati _loop unrolling_. Praticamente, c'è una riduzione in favore del tempo di esecuzione rispetto allo spazio del programma quando il compilatore può determinare staticamente quanti loop ci saranno durante la compilazione.
+* D: Cosa significa?<br/>
+  A: Non preoccuparti, non è così importante. Diciamo che, quello è un loop, quindi possiamo trattarlo come un loop.
+* D: Vedo molte istruzioni `ADCS` e `SUBCC`. A cosa servono?<br/>
+  A: `ADCS` significa "add with carry, set flags" ("aumenta con trasporto, imposta flag"). In sintesi, significa che somma due numeri e, se l'operazione precedente è risultata in un "trasporto", Aggiungiamo uno alla somma. Infine impostiamo o riazzeriamo il flag del trasporto in base al caso in cui quell'addizione è risultata in un trasporto o no . Un "trasporto" in questo caso si riferisce ad un  "overflow senza segno" – quando un intero a 32-bit và oltre il suo valore massimo e ritorna al suo valore minimo. `SUBCC` is “sub if carry clear” ("sottrai se trasporto a zero"). Questo significa che sottraiamo due numeri se l'operazione _non_ è risultata in un trasporto.
+* D: Perché gli sviluppatori lo avrebbero fatto così?<br/>
+  A: Vogliono particolarmente rompermi le palle.
 
-## Out of the Woods
-Whew! That was a lot of assembly. We could keep going down through subroutines, but we’ve accomplished our main task now: we understand a lot about how Shade bin archives work. If we return to our original list of what we expected an archive might have:
+## Fuori dalla Foresta
+Phew! Quella era molta assembly. Potremmo continuare a vedere ogni subroutine, ma abbiamo già completato il nostro obiettivo iniziale: abbiamo capito molto sul come gli archivi bin di Shade funzionano. Se torniamo nella nostra lista originale di quello che ci siamo aspettati di trovare in un archivio:
 
-* We found the number of files (it’s the first four bytes of the archive).
-* While there don’t seem to be obviously-located filenames, we did find the mapping between a file’s _index_ (which appears to be how it’s looked up), its offset, and its compressed length
-* The file data is definitely present and padded to be 0x800-byte aligned.
+* Abbiamo trovato il numero di file (sono i primi quattro byte dell'archivio).
+* Mentre non c'era una posizione ovvia dei nomi dei file, abbiamo trovato la mappatura tra l'_indice_ di un file (che sembra essere il modo in cui è cercato), il suo offset, e la sua lunghezza compressa.
+* I dati dei file è decisamente presente e distanziata per essere allineata ogni 0x800 byte.
 
-Nice! That’s great progress. Let’s see if we can write something to parse the archive now.
+Ottimo! Questi sono tanti progressi. Vediamo se possiamo scrivere qualcosa per analizzare l'archivio.
 
 The end-result of this calculation is 0x5398.
 
@@ -560,9 +542,9 @@ public partial class FileInArchive
 }
 ```
 
-Pretty basic stuff – we have properties for the magic integer, the index, the offset, and the compressed/uncompressed data. We also have an `Edited` property to indicate if we’ve modified the file or not. Finally, we have a blank constructor for now – we’ll let derived classes implement that.
+Roba abbastanza basilare – abbiamo le proprietà dell'intero magico, l'indice, l'offset, e i dati compressi/decompressi. Abbiamo anche una proprietà `Edited` per indicare se abbiamo modificato il file oppure no. Infine, abbiamo un costruttore vuoto per ora – Lo faremo implementare dalle classi derivate.
 
-Now to make the generic archive file:
+Ora per fare un file d'archivio generico:
 
 ```csharp
 public class ArchiveFile<T>
@@ -581,7 +563,7 @@ public class ArchiveFile<T>
 }
 ```
 
-All of this is stuff we’ve seen before. Now, to the constructor.
+Tutta questa è roba che abbiamo visto prima. Ora, per il costruttore.
 
 ```csharp
 public ArchiveFile(byte[] archiveBytes)
@@ -600,9 +582,9 @@ public ArchiveFile(byte[] archiveBytes)
     }
 ```
 
-Here, we’re just extracting the values we found from the header and then looping through and extracting all the magic integers.
+Qui, stiamo solo estraendo i valori trovati dall'header per poi fare un ciclo ed estrarre tutti gli interi magici.
 
-Before we get to adding files to the archive, we have to convert that compressed length function. I could go through and explain how I converted from the assembly step-by-step, but that would be a lengthy and tedious explanation. So instead, here’s the final code:
+Prima che arriviamo ad aggiungere i file nell'archivio, dobbiamo convertire quella funzione compressa. Potrei divulgarmi e spiegare come l'ho convertito dall'assembly passo dopo passo, ma sarebbe una spiegazione troppo lunga. Quindi, invece, ecco direttamente il codice:
 
 ```csharp
 public int GetFileLength(uint magicInteger)
@@ -664,7 +646,7 @@ public int GetFileLength(uint magicInteger)
 }
 ```
 
-Now we have a function that can determine the compressed length of a file from its magic integer. But here’s the problem – when we save the file, we’ll have to reverse that and go from the compressed length back to the magic integer. How do we accomplish that?
+Ora abbiamo una funzione che determina la lunghezza compressa di un file in base al suo intero magico. Ma c'è un problema – quando salviamo il file, dobbiamo invertirlo e andare dalla lunghezza compressa all'intero magico. Come lo facciamo?
 
 Well, at some point, someone had a program that could do that, but I am not that person. What’s more, this function is way over my head and I have no idea how to even begin trying to reverse it. But it’s not the end of the line for us – remember that the 0x5398 value is only 17-bits in length. That means that the possible values of the encoded integer (i.e. the input to the unhinged file length routine) range from 0 to 0x1FFFF. That’s only 131,072 possible values which in the scope of things isn’t that many. So we just… calculate all the possible encoded values based on file length and add them to a dictionary. (Since these values are constant, we do this only once in the constructor.)
 
