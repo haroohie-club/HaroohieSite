@@ -71,9 +71,9 @@ Tornando in cima al file – ancora una volta, un sacco di numeri, ma ci sono de
 
 | Numero di Byte | Nome Formale | Nome in C# |
 |---|---|---|
-| 2 | interi a 16-bit | `short`{lang='csharp'} (signed) or `ushort`{lang='csharp'} (non assegnati) |
-| 4 | interi a 32-bit | `int`{lang='csharp'} (signed) or `uint`{lang='csharp'} (non assegnati) |
-| 8 | interi a 64-bit | `long`{lang='csharp'} (signed) or `ulong`{lang='csharp'} (non assegnati) |
+| 2 | interi a 16-bit | `short`{lang='csharp'} (con segno) or `ushort`{lang='csharp'} (senza segno) |
+| 4 | interi a 32-bit | `int`{lang='csharp'} (con segno) or `uint`{lang='csharp'} (senza segno) |
+| 8 | interi a 64-bit | `long`{lang='csharp'} (con segno) or `ulong`{lang='csharp'} (senza segno) |
 
 Ci sono due modi possibili per inserire un intero a 16-bit, tuttavia. Per esempio, prendi 512 (0x200). Potresti scegliere di metterlo iniziando dal _byte più significativo_ (es. `02 00`) o dal _byte meno significativo_ (es. `00 02`). Questa decisione è chimata _endianità_, dove il primo metodo è chiamato "endiano grande" e l'ultimo "endiano piccolo." Frequentemente, la decisione dipende da quello che l'architettura usa; ARM è un'architettura a endiani piccoli, quindi anche questi file saranno probabilmente a endiani piccoli.
 
@@ -277,7 +277,7 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 
 L'indirizzo che dobbiamo caricare è `0x030F771C + 0x245 * 4 = 0x20F8030`, e naturalmente, quando lo facciamo vediamo quel valore caricato. Ora che l'intero magico è caricato, vediamo cosa succede dopo.
 
-![no$GBA showing the next two components being loaded and their instructions](/images/blog/0003/19_second_header_stuff.png)
+![no$GBA che mostra i prossimi due componenti venire caricati e le loro istruzioni[(/images/blog/0003/19_second_header_stuff.png)
 
 Le prossime due istruzioni caricano gli interi negli offset 0x0C (verde) e 0x04 (rosa) da `evt.bin` in R1 ed R0, rispettivamente. Queste istruzioni sono poi utilizzate in alcuni calcoli:
 
@@ -648,7 +648,7 @@ public int GetFileLength(uint magicInteger)
 
 Ora abbiamo una funzione che determina la lunghezza compressa di un file in base al suo intero magico. Ma c'è un problema – quando salviamo il file, dobbiamo invertirlo e andare dalla lunghezza compressa all'intero magico. Come lo facciamo?
 
-Well, at some point, someone had a program that could do that, but I am not that person. What’s more, this function is way over my head and I have no idea how to even begin trying to reverse it. But it’s not the end of the line for us – remember that the 0x5398 value is only 17-bits in length. That means that the possible values of the encoded integer (i.e. the input to the unhinged file length routine) range from 0 to 0x1FFFF. That’s only 131,072 possible values which in the scope of things isn’t that many. So we just… calculate all the possible encoded values based on file length and add them to a dictionary. (Since these values are constant, we do this only once in the constructor.)
+Beh, ad un certo punto, qualcuno aveva un programma per farlo, ma non ero io. Inoltre, questa funzione è troppo per la mia testa e non ho idea neanche di come iniziare a costruirla. Ma non finisce qui per noi – ricordate che il valore 0x5398 ha solo 17-bit di lunghezza. Questo significa che i valori possibili dell'intero codificato (quindi l'input della pazza routine per la lunghezza del file) sono compresi tra 0 e 0x1FFFF. Questi sono solo 131,072 valori possibili, i quali non sono così tanti. Quindi dobbiamo... calcolare tutti i valori codificati possibili basandoci sulla lunghezza del file e aggiungerli in un dizionario. (Visto che questi valori sono costanti, lo facciamo solo una volta nel costruttore.)
 
 ```csharp
 for (int i = 0; i <= MagicIntegerLsbAnd; i++)
@@ -661,7 +661,7 @@ for (int i = 0; i <= MagicIntegerLsbAnd; i++)
 }
 ```
 
-Then when we want a new magic integer, we just do:
+Poi quando vogliamo un nuovo intero magico, facciamo semplicemente:
 
 ```csharp
 public uint GetNewMagicInteger(T file, int compressedLength)
@@ -674,7 +674,7 @@ public uint GetNewMagicInteger(T file, int compressedLength)
 }
 ```
 
-Finally, we’re ready to start parsing the files. All we have to do is loop through the magic integers, get the file offset and compressed length from each, and then use those to take the file data and initialize a `FileInArchive` derivative.
+Infine, siamo pronti ad analizzare i file. Tutto quello che dobbiamo fare è un ciclo tra gli interi magici, trovare l'offset e la lunghezza compressa di ognuno di essi, e usarli per prendere i dati del file e analizzarli in un derivato `FileInArchive`.
 
 ```csharp
 for (int i = 0; i < MagicIntegers.Count; i++)
@@ -687,11 +687,11 @@ for (int i = 0; i < MagicIntegers.Count; i++)
         T file = new();
         try
         {
-            file = FileManager<T>.FromCompressedData(fileBytes, offset); // Don’t worry about this function, all it’s doing is initializing the file.
+            file = FileManager<T>.FromCompressedData(fileBytes, offset); // Non preoccuparti di questa funzione, tutto quello che fà è inizializzare il file.
         }
         catch (IndexOutOfRangeException)
         {
-            Console.WriteLine($"Failed to parse file at 0x{i:X8} due to index out of range exception (most likely during decompression)");
+            Console.WriteLine($"Fallita l'analisi del file in 0x{i:X8} a causa dell'indice fuori dal range (molto probabilmente durante la decompressione)");
         }
         file.Offset = offset;
         file.MagicInteger = MagicIntegers[i];
@@ -703,17 +703,17 @@ for (int i = 0; i < MagicIntegers.Count; i++)
 }
 ```
 
-So we have a functional parser now. We can write up a quick GUI to show us how file loading will look and…
+Quindi ora abbiamo un analizzatore funzionante. Possiamo scrivere velocemente una GUI (Graphics User Interface, l'interfaccia grafica) che ci dice com'è il caricamento del file e…
 
-![A GUI interface showing the extracted script from the game](/images/blog/0003/24_archive_interface.png)
+![Un'interfaccia GUI che mostra lo script estratto dal gioco[(/images/blog/0003/24_archive_interface.png)
 
 Here it is in all its glory: what I have dubbed the “unhinged file length
 routine.” That 0x5398 number was indeed not the actual compressed length, but
 rather an encoded compressed length that was decoded by this routine. A quick
 FAQ:
 
-### Saving the Archive
-The ideal way to save the archive is to reconstruct it from scratch, but because there’s data in the header we don’t understand fully we’ll have to settle for editing the header in place. So, we’ll start by just adding the whole header we took while parsing.
+### Salvare l'archivio
+Il metodo ideale per salvare l'archivio è di ricostruirlo da capo, ma poiché ci sono dei dati nell'header che non capiamo a pieno, dobbiamo limitarci a modificare l'header che abbiamo. Quindi, iniziamo aggiungendo semplicemente l'intero header che abbiamo preso durante l'analisi.
 
 ```csharp
 public byte[] GetBytes()
@@ -723,7 +723,7 @@ public byte[] GetBytes()
     bytes.AddRange(Header);
 ```
 
-Next, we’re going to loop through all the files and add them to the archive in order. If the file hasn’t been edited, then we’ll just add it directly to the archive. If the file has been edited, though, we’ll have to compress the edited data.
+Poi, faremo un ciclo attraverso tutti i file e li aggiungeremo nell'archivio in ordine. Se il file non è stato modificato, allora lo aggiungeremo direttamente nell'archivio. Se il file è stato modificato, invece, dovremo comprimere i dati modificati.
 
 ```csharp
     for (int i = 0; i < Files.Count; i++)
@@ -746,26 +746,26 @@ Next, we’re going to loop through all the files and add them to the archive in
   offset, and its compressed length
 * The file data is definitely present and padded to be 0x800-byte aligned.
 
-Why is moving things down tedious? Well it comes back to the magic integers – those contain _offsets_ for each file. By moving the file down, we’re changing its offset, which means the magic integer will change as well. So we need to write code to do that. 
+Perché spostare sotto le cose è stancante? Beh, ha sempre a che fare con gli interi magici – essi contengono _offset_ per ogni file. Spostando i file al di sotto, gli stiamo cambiando l'offset, il che significa che anche l'intero magico cambierà. Quindi dobbiamo scrivere del codice per farlo. 
 
 ```csharp
-        if (i < Files.Count - 1) // If we aren’t on the last file
+        if (i < Files.Count - 1) // Se non siamo nell'ultimo file
         {
-            int pointerShift = 0; // Assume we’re not going to be shifting offsets at all
-            while (bytes.Count % 0x10 != 0) // ensure our file is 16-byte aligned
+            int pointerShift = 0; // Assumendo che non cambieremo per niente gli offset
+            while (bytes.Count % 0x10 != 0) // si assicura che i file siano allineati a 16-bit
             {
                 bytes.Add(0);
             }
-            // If the current size of the archive we’ve constructed so far is greater than
-            // the next file’s offset, that means we need to adjust the next file’s offset
+            // Se le dimensioni dell'archivio costruito fin'ora sono più grandi 
+            // dell'offset del prossimo file, allora dobbiamo aggiustare quest'ultimo
             if (bytes.Count > Files[i + 1].Offset)
             {
-                // Calculate how much we need to shift the magic integer by
+                // Calcolare di quanto dobbiamo cambiare l'intero magico
                 pointerShift = ((bytes.Count - Files[i + 1].Offset) / MagicIntegerMsbMultiplier) + 1;
             }
             if (pointerShift > 0)
             {
-                // Calculate the new magic integer factoring in pointer shift
+                // Calcolare il nuovo intero magico in base a quanto deve essere cambiato
                 Files[i + 1].Offset = ((Files[i + 1].Offset / MagicIntegerMsbMultiplier) + pointerShift) * MagicIntegerMsbMultiplier;
                 int magicIntegerOffset = FirstMagicIntegerOffset + (i + 1) * 4;
                 uint newMagicInteger = GetNewMagicInteger(Files[i + 1], Files[i + 1].Length);
@@ -774,7 +774,7 @@ Why is moving things down tedious? Well it comes back to the magic integers – 
                 bytes.RemoveRange(magicIntegerOffset, 4);
                 bytes.InsertRange(magicIntegerOffset, BitConverter.GetBytes(Files[i + 1].MagicInteger));
             }
-            // Add file padding
+            // Aggiunge spazio al file
             while (bytes.Count < Files[i + 1].Offset)
             {
                 bytes.Add(0);
@@ -788,11 +788,11 @@ public class ArchiveFile<T>
 {
     public const int FirstMagicIntegerOffset = 0x20;
 
-![Haruhi Suzumiya in the opening lines saying Hello my friend! A lovely day!](/images/blog/0003/25_dialogue_replaced.png)
+![Haruhi Suzumiya nelle frasi iniziali che dice Ciao amico mio! Che bella giornata![(/images/blog/0003/25_dialogue_replaced.png)
 
-I present to you the first text I ever edited into the game. 🥰
+Ti presento il primo testo che ho modificato nel gioco. 🥰
 
-If you’re interested in seeing the end-result of the archive code, you can [check out the code on GitHub](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Archive/ArchiveFile.cs)!
+Se sei interessato nel vedere il risultato finale del codice sull'archivio, puoi [trovarlo su GitHub[(https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Archive/ArchiveFile.cs)!
 
-## What’s Next
-We’ve now parsed and repacked the archive successfully. The next thing we’ll talk about is the first files I reverse-engineered: the event files, which contained the script for the game. But before that, I’ll be posting an addendum to these two posts which will contain answers to commonly-asked questions and a few historical notes on the actual process we underwent to get this all working. Thanks for reading and please look forward to it!
+## Prossimamente
+Abbiamo analizzato e re-impacchettato l'archivio con successo. Il prossimo argomento di cui parleremo riguarda i primi file sul quale ho fatto reverse-engineering: i file degli eventi, che contenevano lo script del gioco. Ma prima di quello, pubblicherò un addendum in questi due post che conterranno le risposte a delle domande spesso chieste e qualche nota nel vero processo sul quale siamo passati per farlo funzionare. Grazie per la lettura!

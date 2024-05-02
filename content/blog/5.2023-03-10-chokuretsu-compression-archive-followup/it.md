@@ -1,6 +1,6 @@
 ---
-title: &title 'Chokuretsu ROM Hacking Challenges Part 3 – Compression & Archive Follow-Up'
-description: &desc 'Jonko responds to feedback and provides more details regarding the compression and archive articles.'
+title: &title 'Sfide nel ROM Hacking di Chokuretsu– Seguito della Compressione & Archivi'
+description: &desc 'Jonko risponde ai feedback e dà più dettagli riguardanti gli aticoli sulla compressione e sugli archivi'
 locale: 'it'
 navigation:
   author: 'Jonko'
@@ -18,7 +18,7 @@ head:
   - property: 'og:image'
     content: &img https://haroohie.club/images/blog/0005/00_thumbnail.png
   - property: 'og:image:alt'
-    content: 'A Nintendo DS featuring Haruhi Suzumiya saying edited text.'
+    content: 'Un Nintendo DS che mostra Suzumiya dire una frase modificata.'
   - property: 'og:url'
     content: 'https://haroohie.club/blog/2023-03-10-chokuretsu-compression-archive-followup'
   - property: 'og:type'
@@ -35,52 +35,30 @@ head:
     value: 'summary_large_image'
 ---
 
-My initial draft of the blog post covering the Shade bin archive files in Chokuretsu was long. Like, really long. There was a lot of stuff I necessarily had to cut in the final version in order to convey how I reverse-engineered the structure of the archive and got file reinsertion working. What’s more, a number of common questions came up in response to the first two posts and I hope to use this post to catalog my answers to some of them.
+La mia bozza iniziale del post sui file di archivio bin Shade era lungo. Tipo, molto lungo. C'era molta roba che ho dovuto necessariamente tagliare nella versione finale per poter parlare di come ho eseguito il reverse-engineering della struttira dell'archivio e far funzionare il reinserimento dei file. Inoltre, un bel po' di domande chieste frequentemente arrivarono in risposta ai primi due post e spero di poter usare questo post per catalogare le mie risposte ad alcune di esse.
 
-## No One Knows What They’re Doing
-When I started writing the archive code, I did so simply wanting to extract files and not understanding the actual structure of the bin archives at all. Thus, I wrote code that simply looked for spacing between files to identify their offsets. Even as I learned more about the archive structure, reverse-engineered the magic integers, and worked on file replacement and eventually file insertion, I kept this very flawed architecture. Impressively, this code actually stuck around _until I wrote the previous blog post_ (lol). It caused a number of bugs – notably, I managed to corrupt a file in the graphics archive because it didn’t have spacing between it and its previous file (i.e. the previous file ended at something like 0x7F8 and it started at 0x800).
+## Nessuno Sa Quello Che Fa
+Quando iniziai a scrivere il codice sull'archivio, l'ho fatto volendo semplicemente estrarre i file e senza capire nulla della struttura dell archivio bin. Quindi, scrissi del codice che cercava semplicemente per gli spazi tra un file e l'altro per identificare i loro offset. Anche mentre imparavo sempre di più sulla struttura degli archivi, il reverse-engineer degli interi magici, e lavorando nella sostituzione dei file ed eventualmente il loro inserimento, continuai quest'architettura piena di problemi. Impressivamente, questo codice rimase tale _fino a quando scrissi il post precedente_ (lol). Ha causato un bel numero di bug, fui pure in grado di corrompere un file nell'archivio della grafica perché non aveva spazi intorno a sé ed il file precedente (il file precedente finiva circa in 0x7F8 e l'altro iniziava in 0x800).
 
-I feel like the previous blog post might have given the impression that things went perfectly from the start and I want to emphasize that they super did not. This is a process of trial and error and constant learning for me – I didn’t even put together that these were archives while I was in the process of reverse-engineering them and was instead calling them “custom filesystems.”
+Credo che il post precedente possa aver dato l'impressione che le cose andarono perfettamente dall'inizio e volevo evidenziare che non è stato assolutamente così. Questo è un processo di prova dopo prova e un insegnamento costante per me – non avevo neanche capito che questi erano archivi mentre ne stavo facendo il reverse-engineering e i stavo invece chiamando "filesystem personalizzati"
 
-![A Discord message reading Custom Filesystem](/images/blog/0005/01_custom_filesystem_blunder.png)
+!|Un messaggio su Discord con scritto Custom Filesystem|(/images/blog/0005/01_custom_filesystem_blunder.png)
 
-It wasn’t until [Ermii](https://www.ermiisoft.net/) politely asked if they were archives that I realized that…yeah, that’s exactly what they were.
+Fu così fino a quando [Ermii](https://www.ermiisoft.net/) chiese gentilmente se erano file di archivio, e lì realizzai che... sì, erano proprio quelli.
 
-## The File Length
-Something I left out of the archive post was the fact that I didn’t reverse-engineer the whole archive at once. The code was written ad-hoc as I figured out particular things here and there. I figured out the offsets before I even realized that the rest of the magic integers encoded for length, so I was replacing files in the archives without changing their lengths accordingly. This resulted in beautiful things like this:
+## La Lunghezza dei File
+Qualcosa di cui non parlai nel post sugli archivi era il fatto che non ho fatto tutto il reverse-engineer dell'intero archivio in una sola volta. Il codice che ho scritto era ad-hoc mentre scoprivo svariate cose qua e là. Ho scoperto gli offset prima ancora di capire che il resto degli interi magici codificavano la lunghezza, quindi stavo rimpiazzando i file negli archivi senza cambiarne la lunghezza. Questo risultò in cose stupende come questa:
 
-It wasn’t until [Ermii](https://www.ermiisoft.net/) politely asked if they were
-archives that I realized that…yeah, that’s exactly what they were.
+!|La schermata principale di Chokuretsu con una significante corruzione sparsi su molteplici elementi della UI|(/images/blog/0005/02_haruohno.png)
 
-Trying to replace the graphics files led to corruption because my compression routine was less efficient than the one the devs used, which meant that the compressed files I was reinserting into the game were longer than expected. I spent a lot of time trying to figure out what was going on before I finally determined the [file length encoding](/blog/2022-11-02-chokuretsu-archives#the-unhinged-file-length-routine).
+Provare a rimpiazzare i file della grafica portava alla corruzione perché la mia routine di compressione risultava meno efficace rispetto a quella che gli sviluppatori avevano utilizzato, il che significa che i file compressi che stavo reinserendo nel gioco erano più lunghi del previsto. Ho passato molto tempo a provare a capire cosa stava succedendo finco a quando non determinai la [codificazione della lunghezza dei file](/it/blog/2022-11-02-chokuretsu-archives#the-unhinged-file-length-routine).
 
-![The Chokuretsu main screen without any corruption and with haruhi cool written over Haruhi's face](/images/blog/0005/03_haruhi_cool.png)
+!|La schermata principale di Chokuretsu senza corruzioni e con haruhi cool scritto sulla faccia di Haruhi|(/images/blog/0005/03_haruhi_cool.png)
 
-Much better!
+Molto meglio!
 
-## Writing Tests
-So there was a lot of trial and error, which meant that I needed to be able to verify that things like the compression routine or archive reinsertion programs were working in a consistent way. A fantastic way to go about this is _writing tests_ and that’s exactly what I did. See a test for the compression implementation I wrote below:
-
-Much better!
-
-	if (!string.IsNullOrEmpty(originalCompressedFile))
-	{
-    	Console.WriteLine($"Original compression ratio: {(double)File.ReadAllBytes(originalCompressedFile).Length / decompressedDataOnDisk.Length * 100}%");
-	}
-	Console.WriteLine($"Our compression ratio: {(double)compressedData.Length / decompressedDataOnDisk.Length * 100}%");
-
-	byte[] decompressedDataInMemory = Helpers.DecompressData(compressedData);
-	File.WriteAllBytes($".\\inputs\\{filePrefix}_prog_decomp.bin", decompressedDataInMemory);
-	Assert.AreEqual(StripZeroes(decompressedDataOnDisk), StripZeroes(decompressedDataInMemory), message: "Failed in implementation.");
-}
-```
-
-This test compresses some data and then decompresses it to validate that the decompressed file is identical to the original one. This was used repeatedly while debugging the compression routine to ensure it was working as I implemented each part of it. Speaking of which…
-
-## The Compression Routine
-I had a number of questions about how I actually implemented the compression routine, so I thought I’d delve into that a bit here.
-
-I think the core process is actually pretty easy to understand: essentially, we’re just reversing what the decompression routine does. For example, when decompressing a file, we might first encounter a byte with the top bit cleared and the second bit set (i.e. `0b01xxxxxx`), which according to [the algorithm we reverse-engineered](/blog/2022-10-19-chokuretsu-compression) means that we take the lower 6 bits and add 4, then repeat the following byte that number of times (e.g., if we encounter `43 05` in the compressed buffer, we would write seven `05` bytes to the decompressed buffer). So, when compressing, we look for four or more repeated bytes in a row – if we encounter that repetition, then we encode the control byte followed by the repeated byte (e.g., if we encounter `05 05 05 05 05 05 05` in the decompressed buffer, we would write `43 05` to the compressed buffer).
+## Scrivendo le Prove
+Quindi ci furono moltissime prove e moltissimi errori, il che significa che dovevo essere in grado di verificare che cose come i programmi della routine di compressione o il reinserimento dell'archivio funzionassero in maniera consistente. Un modo fantastico di farlo è _scrivendo le prove_ ed è esattamente quello che ho fatto. Ecco una prova per l'implementazione della compressione che ho scritto sotto:
 
 ```csharp
 [Test]
@@ -96,16 +74,58 @@ public void CompressionMethodTest(string filePrefix, string decompressedFile, st
 	byte[] compressedData = Helpers.CompressData(decompressedDataOnDisk);
 	File.WriteAllBytes($".\\inputs\\{filePrefix}_prog_comp.bin", compressedData);
 
-## Finding Filenames
-I told a lie of omission about the archive header – there’s more than just the magic integer section! If you scroll down past the magic integers, there’s another section the same length as the previous section and then a section past that which didn’t have a clearly-defined length but whose entries did seem tantalizingly patterned. For basically the entire development of the Chokuretsu utilities, I ignored these two sections entirely – literally skipping over them in the code. 
+	if (!string.IsNullOrEmpty(originalCompressedFile))
+	{
+    	Console.WriteLine($"Criterio Originale di Compressione: {(double)File.ReadAllBytes(originalCompressedFile).Length / decompressedDataOnDisk.Length * 100}%");
+	}
+	Console.WriteLine($"Il Nostro Criterio di Compressione: {(double)compressedData.Length / decompressedDataOnDisk.Length * 100}%");
 
-![A hex editor showing a section of a bin archive file with tons of incomprehensible ASCII text in it](/images/blog/0005/04_filenames_section.png)
+	byte[] decompressedDataInMemory = Helpers.DecompressData(compressedData);
+	File.WriteAllBytes($".\\inputs\\{filePrefix}_prog_decomp.bin", decompressedDataInMemory);
+	Assert.AreEqual(StripZeroes(decompressedDataOnDisk), StripZeroes(decompressedDataInMemory), message: "Implementazione Fallita.");
+}
+```
 
-As I was writing the previous post, I took another look at the latter of these two sections as I found it fascinating. Clearly there was something here – early on, I had commented that these could be filenames, but obviously they appeared to be nonsense…right?
+Questo test comprime un po' di dati e poi li decomprime per validare che la decompressione dei file è identica a quella originale. Questo fu usato ripetutamente durante il debug della routine di compressione per assicurare che funzionasse mentre ne implementavo ogni parte. A proposito di quello…
 
-Now that I was pretty far into the project, though, I had a lot of knowledge at my disposal. I recalled that some of the event files had titles in them like `EV1_000`.
+## La Routine di compressione
+Ho avuto un bel po' di domande su come ho implementato la routine di compressione, quindi ho pensato di parlarne un po' qui.
 
-![A hex editor showing a portion of an event file with the text EV1_001](/images/blog/0005/05_filename.png)
+Penso che il processo di base sia semplice da capire: in pratica, stiamo solamente facendo il reverse-engineering di quello che la routine di decompressione fa. Ad esempio, quando decomprimiamo un file, potremmo incontrare un byte con il primo bit a zero ed il secondo impostato (es. `0b01xxxxxx`), che stando all'algoritmo [del quale abbiamo effettuato il reverse-engineer](/blog/2022-10-19-chokuretsu-compression) significa che prendiamo gli ultimi 6 bit e gli aggiungiamo 4, per poi ripetere quel numero un po' di volte (ad esempio, se dovessimo incontrare `43 05` nel buffer di compressione, dovremmo scrivere sette byte `05` nel buffer di decompressione). Quindi, quando lo comprimiamo, dobbiamo cercare per almeno quattro byte ripetuti di fila – se dovessimo incontrare quella ripetizione, allora codifichiamo il byte di controllo seguito dal byte ripeturo (es. se dovessimo incontrare `05 05 05 05 05 05 05` nel buffer decompresso dovremmo scrivere `43 05` nel buffer compresso).
+
+```csharp
+[Test]
+[TestCase("evt_000", TestVariables.EVT_000_DECOMPRESSED, TestVariables.EVT_000_COMPRESSED)]
+[TestCase("evt_66", TestVariables.EVT_66_DECOMPRESSED, TestVariables.EVT_66_COMPRESSED)]
+[TestCase("evt_memorycard", TestVariables.EVT_MEMORYCARD_DECOMPRESSED, TestVariables.EVT_MEMORYCARD_COMPRESSED, false)]
+[TestCase("grp_c1a", TestVariables.GRP_C1A_DECOMPRESSED, TestVariables.GRP_C1A_COMPRESSED, false)]
+[TestCase("evt_test", TestVariables.EVT_TEST_DECOMPRESSED, TestVariables.GRP_TEST_COMPRESSED)]
+[TestCase("grp_test", TestVariables.GRP_TEST_DECOMPRESSED, TestVariables.GRP_TEST_COMPRESSED)]
+public void CompressionMethodTest(string filePrefix, string decompressedFile, string originalCompressedFile)
+{
+	byte[] decompressedDataOnDisk = File.ReadAllBytes(decompressedFile);
+	byte[] compressedData = Helpers.CompressData(decompressedDataOnDisk);
+	File.WriteAllBytes($".\\inputs\\{filePrefix}_prog_comp.bin", compressedData);
+
+## Trovare i Nomi dei File↵
+Ho trascurato un dettaglio importante riguardo l'header dell'archivio – c'è altro oltre alla sezione dell'intero magico! Scorrendo sotto gli interi magici, c'è un'altra sezione della stessa lunghezza di quella precedente e poi un'altra sezione che non aveva una lunghezza ben definita ma i quali elementi sembravano seguire un pattern. Per praticamente l'intero sviluppo degli strumenti
+per Chokuretsu, ho completamente ignorato queste due sezioni – saltandole letteralmente nel codice.
+
+![Un editor esadecimale
+ che mostra la sezione di un archivio bin con molto testo incomprensibile in ASCII](/images/
+blog/0005/04_filenames_
+section.png)
+
+Mentre stato scrivendo l'ultimo post, stato dando un'altra occhiata a queste due sezioni che ho trovato affascinanti.
+C'era sicuramente qualcosa qui – all'inizio, commentai che potessero essere i nomi dei file, ma ovviamente non sembravano avere un senso…giusto?
+
+Ora che avevo fatto molti progressi nel progetto,
+ però, avevo molta conoscenza a mia disposizione, ricordai che i file degli eventi avevano dei titoli come `EV1_000`.
+
+![Un editor esadecimale
+ che mostra una porzione di un file di evento con il testo EV1_
+001](/images/
+blog/0005/05_filename.png)
 
 So, on a whim, I took all of the “filenames” out and started doing a find/replace in VS Code one letter at at time. Pretty quickly, it became apparent that these were in fact filenames, just ciphered. I wrote a quick routine to decode them and suddenly, browsing through files got a bit easier!
 

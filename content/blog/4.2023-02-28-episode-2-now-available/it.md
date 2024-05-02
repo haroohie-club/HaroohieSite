@@ -1,6 +1,6 @@
 ---
-title: &title 'The Series of Haruhi Suzumiya – Episode 2 is now available!'
-description: &desc 'Version 0.4 of Suzumiya Haruhi no Chokuretsu''s English Patch, which contains the translation of Episode 2: The Unfinished Sonata, is now available for download!'
+title: &title 'La Serie di Haruhi Suzumiya – Episodio 2 è ora disponibile in inglese!'
+description: &desc ' La Versione 0.4 della patch inglese di Suzumiya Haruhi no Chokuretsu', che contiene la traduzione dell'Episodio 2: La Canzone Infinita, è stata rilasciata!'
 locale: 'it'
 navigation:
   author: 'William'
@@ -40,21 +40,21 @@ player, completion tracker and CG viewer. The patch also includes a range of
 script tweaks and improvements. Below you can find a changelog of the most
 notable additions.
 
-The Haroohie Translation Club is excited to announce that **Version 0.4** of The Series of Haruhi Suzumiya English Fan Translation patch is now [available to download](/chokuretsu/patch)! *Episode 2: The Unfinished Sonata* is now available to play in English. Be sure to check out the trailer for this release above, made by the amazingly talented [EricDoesEverything](https://www.youtube.com/@EricDoesEverythingSeries)!
+L'Haroohie Translation Club è felice di annunciare che la **Versione 0.4** de La Serie di Haruhi Suzumiya Traduzione Amatoriale Inglese è ora [disponibile al download](/chokuretsu/patch)! *Episodio 2: La Canzone Infinita* è ora disponibile in inglese. Ricordatevi di guardare il trailer di questo rilascio al di sopra, fatto dal fantastico e talentuoso [EricDoesEverything](https://www.youtube.com/@EricDoesEverythingSeries)!
 
-Alongside the inclusion of Episode 2 in this release, this patch also includes translations for the *Extras Mode* (accessible through the Main Menu), including the content you unlock by completing Episode 1 and 2. This includes the music player, completion tracker and CG viewer. The patch also includes a range of script tweaks and improvements. Below you can find a changelog of the most notable additions.
+Insieme all'inclusione dell'Episodio 2 in questo rilascio, la patch comprende anche le traduzioni per le *Modalità Extra* (accessibili attraverso il Menu Principale), includendo il contenuto sbloccato dopo che gli Episodi 1 e 2 vengono completati. Questo include l'album musicale, il tracciatore dei progressi e il visualizzatore CG. La patch include anche vari miglioramenti agli script. Al di sotto potete trovare una lista di tutte le aggiunte importanti.
 
-## What's in v0.4
-* *Episode 2: The Unfinished Sonata* has been translated and can now be played in English!
-* The extras clubroom mode has been translated, including content for Episodes 1 and 2, including the Music Player, Completion Tracker and Event Viewer
-* Added additional subtitles that will appear on the top screen when Japanese voiced lines are said on group selection and puzzle phase topic selection screens
-* A bug where the dialogue backlog became corrupted after about 50 to 60 entries has been fixed
-* The opening monologue in *Episode 1: The Man-Eating Classroom* has been redone and had a font change
-* The location name graphics on the top screen have been redone with better font kerning and aliasing
-* The game font has had minor spacing adjustments, including the addition of a few new glyphs
+## Novità in v0.4
+* *Episodio 2: La Canzone Infinita* è stato tradotto e può ora essere giocato in inglese!
+* L'aula del club della modalità extra è stata tradotta, includendo i contenuti per gli Episodi 1 e 2, includendo l'Album Musicale, il Tracciatore dei Progressi e un Visualizzatore degli Eventi
+* Aggiunti sottotitoli aggiuntivi che appaiono nello schermo superiore quando le battute doppiate in giapponese sono dette nella selezione dei gruppi e nella scelta degli argomenti durante le fasi puzzle
+* Un bug dove la cronologia del dialogo diventava corrotta dopo 50-60 frasi è stato aggiustato
+* Il monologo nell *Episodio 1: L'Aula Mangiauomini* è stata rifatta è ha avuto un cambiamento del font
+* I nomi dei posti nello schermo superiore è stato rifatto con un migliore anti-alias del font
+* Il font di gioco ha avuto dei piccoli cambiamenti nello spazio tra i caratteri, includento l'aggiunta di alcuni nuovi glifi
 
-## Download the release
-Please check [the guide](/chokuretsu/guide) for how to apply the patch to your Nintendo DS ROM file.
+## Scaricare il rilascio
+Perfavore controlla [la guida](/chokuretsu/guide) per vedere come applicare la patch nel tuo file della ROM Nintendo DS
 
-* [Online ROM patcher](/chokuretsu/patch)
-* [Download patch file](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)
+* [Patcher ROM online](/chokuretsu/patch)
+* [Scarica il file di patch](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)
