@@ -127,7 +127,7 @@ Ora che avevo fatto molti progressi nel progetto,
 001](/images/
 blog/0005/05_filename.png)
 
-So, on a whim, I took all of the “filenames” out and started doing a find/replace in VS Code one letter at at time. Pretty quickly, it became apparent that these were in fact filenames, just ciphered. I wrote a quick routine to decode them and suddenly, browsing through files got a bit easier!
+Quindi, decisi di prendere tutti i "nomi dei file" e iniziai a fare un trova/sostituisci in VS Code una lettera per volta. In poco tempo, divenne apparente che questi erano infatti i nomi, semplicemente cifrati. Scrissi velocemente una routine per decifrarli e improvvisamente, navigare tra i file divenne un po' più facile!
 
 ![An editor with all of the files in dat.bin listed alongside their filenames](/images/blog/0005/06_deciphered_filenames.png)
 
