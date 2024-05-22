@@ -139,5 +139,11 @@
     "chokuretsu-sl-invalid-docs-page": "無效的文件頁面",
     "chokuretsu-sl-invalid-docs-page-desc": "無法在此地址找到文件頁面。",
     "chokuretsu-trailer-footage": "正在展示預告影片的 Nintendo DS",
-    "click-to-filter": "點選以篩選："
+    "click-to-filter": "點選以篩選：",
+    "language-ja": "日本語",
+    "language-de": "Deutsch",
+    "language-en": "English",
+    "language-it": "Italiano",
+    "language-zh-hans": "簡體中文",
+    "language-zh-hant": "繁體中文"
 }
