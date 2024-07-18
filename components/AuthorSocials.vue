@@ -9,6 +9,9 @@
         <NuxtLink v-if="author.instagram" :to="author.instagram" rel="me">
             <IconifiedText icon="fa6-brands:instagram">{{ $t('instagram') }}</IconifiedText>
         </NuxtLink>
+        <NuxtLink v-if="author.threads" :to="author.threads" rel="me">
+            <IconifiedText icon="fa6-brands:threads">{{ $t('threads') }}</IconifiedText>
+        </NuxtLink>
         <NuxtLink v-if="author.github" :to="author.github" rel="me">
             <IconifiedText icon="fa6-brands:github">{{ $t('github') }}</IconifiedText>
         </NuxtLink>

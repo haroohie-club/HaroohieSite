@@ -33,10 +33,43 @@
         }
     },
     {
+        "locale": "tiktok",
+        "icon": "fa6-brands:tiktok",
+        "link": "https://tiktok.com/@haroohie",
+        "color": "#000000",
+        "display": {
+            "nav": true,
+            "row": true,
+            "stack": true
+        }
+    },
+    {
         "locale": "bluesky",
-        "icon": "fa6-solid:cloud",
+        "icon": "fa6-brands:bluesky",
         "link": "https://bsky.app/profile/haroohie.club",
         "color": "#1DA1F2",
+        "display": {
+            "nav": false,
+            "row": true,
+            "stack": true
+        }
+    },
+    {
+        "locale": "threads",
+        "icon": "fa6-brands:threads",
+        "link": "https://threads.net/@haroohie",
+        "color": "#000000",
+        "display": {
+            "nav": false,
+            "row": true,
+            "stack": true
+        }
+    },
+    {
+        "locale": "mastodon",
+        "icon": "fa6-brands:mastodon",
+        "link": "https://mastodon.online/@haroohie",
+        "color": "#563acc",
         "display": {
             "nav": false,
             "row": true,
@@ -50,17 +83,6 @@
         "color": "#E4405F",
         "display": {
             "nav": true,
-            "row": true,
-            "stack": true
-        }
-    },
-    {
-        "locale": "mastodon",
-        "icon": "fa6-brands:mastodon",
-        "link": "https://mastodon.online/@haroohie",
-        "color": "#2b90d9",
-        "display": {
-            "nav": false,
             "row": true,
             "stack": true
         }
