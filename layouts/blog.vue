@@ -68,7 +68,7 @@ onMounted(() => {
 .blog {
     display: flex;
     flex-direction: column;
-    max-width: 1100px !important;
+    max-width: 935px !important;
     width: 61.5vw;
 }
 
