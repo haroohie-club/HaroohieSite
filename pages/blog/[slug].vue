@@ -37,8 +37,12 @@
                                     <ContentRenderer :value="doc.doc" />
                                 </i>
                                 <AuthorSocials :author="doc.doc.author" />
+                                <hr />
                             </template>
                         </ContentDoc>
+                    </div>
+                    <div id="giscus-comments">
+                        <GiscusComments :slug="route.params.slug" :lang="locale" />
                     </div>
                 </template>
                 <template #not-found>

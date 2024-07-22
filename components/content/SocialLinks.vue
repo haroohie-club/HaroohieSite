@@ -9,13 +9,13 @@
         <ButtonLink :link="localePath(stackTopper.link)" color="red" type="top-piece" :icon="stackTopper.icon" fullwidth>
             {{ $t(stackTopper.locale) }}
         </ButtonLink>
-        <ButtonLink v-for="social in socials.filter(s => s.display.row)" :icon="social.icon" :href="social.link" rel="me"
+        <ButtonLink v-for="social in socials.filter(s => s.display.row)" :icon="social.icon" :link="social.link" rel="me"
             :rgb-color="social.color" :type="socials.filter(s => s.display.row).indexOf(social) === (socials.filter(s => s.display.row).length - 1) ? 'bottom-piece' : 'mid-piece'" fullwidth>
             {{ $t(social.locale) }}
         </ButtonLink>
     </div>
     <ButtonRow v-else>
-        <ButtonLink v-for="social in socials.filter(s => s.display.row)" :icon="social.icon" :href="social.link" rel="me"
+        <ButtonLink v-for="social in socials.filter(s => s.display.row)" :icon="social.icon" :link="social.link" rel="me"
             :rgb-color="social.color">
             {{ $t(social.locale) }}
         </ButtonLink>
