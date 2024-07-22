@@ -18,6 +18,9 @@
         <NuxtLink v-if="author.mastodon" :to="author.mastodon" rel="me">
             <IconifiedText icon="fa6-brands:mastodon">{{ $t('mastodon') }}</IconifiedText>
         </NuxtLink>
+        <NuxtLink v-if="author.pixelfed" :to="author.pixelfed" rel="me">
+            <IconifiedText icon="fa6-solid:camera">{{ $t('pixelfed') }}</IconifiedText>
+        </NuxtLink>
         <NuxtLink v-if="author.youtube" :to="author.youtube" rel="me">
             <IconifiedText icon="fa6-brands:youtube">{{ $t('youtube') }}</IconifiedText>
         </NuxtLink>
