@@ -10,4 +10,4 @@ author:
   threads: 'https://threads.net/@jonko0493'
 ---
 
-Jonko 是 Haroohie Translation Club 的項目負責人和 ROM 的主要破解者。
+Jonko 是 Haroohie Translation Club 的專案負責人和 ROM 的主要破解者。
