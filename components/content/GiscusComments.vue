@@ -11,21 +11,23 @@ function fixupChineseLocale(locale) {
 </script>
 
 <template>
-    <Giscus
-        id="comments"
-        repo="haroohie-club/HaroohieSite"
-        repoId="R_kgDOG5Llsw"
-        category="Announcements"
-        categoryId="DIC_kwDOG5Lls84Cc20X"
-        mapping="specific"
-        :term="slug"
-        strict="1"
-        reactionsEnabled="1"
-        emitMetadata="0"
-        inputPosition="top"
-        theme="light"
-        :lang="fixupChineseLocale(lang)"
-    />
+    <div>
+        <Giscus
+            id="comments"
+            repo="haroohie-club/HaroohieSite"
+            repoId="R_kgDOG5Llsw"
+            category="Announcements"
+            categoryId="DIC_kwDOG5Lls84Cc20X"
+            mapping="specific"
+            :term="slug"
+            strict="1"
+            reactionsEnabled="1"
+            emitMetadata="0"
+            inputPosition="top"
+            theme="light"
+            :lang="fixupChineseLocale(lang)"
+        />
+    </div>
 </template>
 
 <script>
