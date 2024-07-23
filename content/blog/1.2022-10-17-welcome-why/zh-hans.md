@@ -4,6 +4,7 @@ description: &desc '对 Haroohie Translation Club 博客的简要介绍，并解
 locale: 'zh-hans'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2022
   month: 10
   day: 17

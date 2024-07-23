@@ -4,6 +4,7 @@ description: &desc '观看 Jonko 在怀旧游戏世界展览会上向现场观�
 locale: 'zh-hans'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2024
   month: 01
   day: 24

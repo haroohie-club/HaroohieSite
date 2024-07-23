@@ -4,6 +4,7 @@ description: &desc 'Jonko 把 Shade 的二进制归档文件放在显微镜下�
 locale: 'zh-hans'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2022
   month: 11
   day: 02

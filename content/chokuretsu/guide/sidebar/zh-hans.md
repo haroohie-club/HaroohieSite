@@ -25,5 +25,5 @@ link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true
 type: 'bottom-piece'
 ---
-Help on Discord
+在 Discord 上寻求帮助
 ::

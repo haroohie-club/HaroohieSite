@@ -4,6 +4,7 @@ description: &desc 'Jonko risponde ai feedback e dà più dettagli riguardanti g
 locale: 'it'
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2023
   month: 03
   day: 10

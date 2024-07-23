@@ -4,6 +4,7 @@ description: &desc "Jonko 想在闰日发表一篇文章，但他没来得及写
 locale: 'zh-hans'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2024
   month: 02
   day: 29

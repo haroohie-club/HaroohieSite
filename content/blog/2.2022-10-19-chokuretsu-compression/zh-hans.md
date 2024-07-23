@@ -4,6 +4,7 @@ description: &desc 'Jonko 深入研究了 Shade 的压缩算法是如何被逆�
 locale: 'zh-hans'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2022
   month: 10
   day: 19
