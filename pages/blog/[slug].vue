@@ -42,10 +42,12 @@
                         </ContentDoc>
                     </div>
                     <div v-if="doc.navigation.translator" id="translator-details">
-                        <ContentDoc :path="`/author/${doc.navigation.author.replace(' ', '-').toLowerCase()}/${locale}`" :head="false">
+                        <div>
+                            {{ $t('translated-by-pre') }}<NuxtLink :to="`/author/${doc.navigation.translator.replace(' ', '-').toLowerCase()}`">{{ doc.navigation.translator }}</NuxtLink>{{ $t('translated-by-post') }}
+                        </div>
+                        <ContentDoc :path="`/author/${doc.navigation.translator.replace(' ', '-').toLowerCase()}/${locale}`" :head="false">
                             <template v-slot="doc">
                                 <i>
-                                    <span>{{ $t('translated-by-pre') }}{{ doc.navigation.translator }}{{ $t('translated-by-post') }}</span>
                                     <ContentRenderer :value="doc.doc" />
                                 </i>
                                 <AuthorSocials :author="doc.doc.author" />

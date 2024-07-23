@@ -6,4 +6,4 @@ author:
   website: 'https://fuyume.neocities.org/'
 ---
 
-Fuyuko is coolio.
+Fuyuko is an aspiring programmer who likes tech from the early 2000s.
