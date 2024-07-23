@@ -12,7 +12,7 @@
                             <div class="meta">
                                 <div class="date">
                                     <IconifiedText icon="fa6-solid:newspaper">
-                                        {{ $t('byline-pre') }}<NuxtLink :to="localePath('/author/' + doc.navigation.author.toLowerCase())">{{
+                                        {{ $t('byline-pre') }}<NuxtLink :to="localePath('/author/' + doc.navigation.author.replace(' ', '-').toLowerCase())">{{
                                             doc.navigation.author }}</NuxtLink>{{ $t('byline-post') }}{{ $t('on-date', { date: $t('date-short', { year: doc.navigation.year, month: $t(getMonth(doc.navigation.month)),
             day: doc.navigation.day }) }) }}
                                     </IconifiedText>
@@ -30,10 +30,22 @@
                         <ContentRenderer :value="doc" />
                     </div>
                     <div id="author-details">
-                        <ContentDoc :path="`/author/${doc.navigation.author.toLowerCase()}/${locale}`" :head="false">
+                        <ContentDoc :path="`/author/${doc.navigation.author.replace(' ', '-').toLowerCase()}/${locale}`" :head="false">
                             <template v-slot="doc">
                                 <hr />
                                 <i>
+                                    <ContentRenderer :value="doc.doc" />
+                                </i>
+                                <AuthorSocials :author="doc.doc.author" />
+                                <hr />
+                            </template>
+                        </ContentDoc>
+                    </div>
+                    <div v-if="doc.navigation.translator" id="translator-details">
+                        <ContentDoc :path="`/author/${doc.navigation.author.replace(' ', '-').toLowerCase()}/${locale}`" :head="false">
+                            <template v-slot="doc">
+                                <i>
+                                    <span>{{ $t('translated-by-pre') }}{{ doc.navigation.translator }}{{ $t('translated-by-post') }}</span>
                                     <ContentRenderer :value="doc.doc" />
                                 </i>
                                 <AuthorSocials :author="doc.doc.author" />

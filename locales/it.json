@@ -45,6 +45,8 @@
     "back-to-blog": "Torna al Blog",
     "byline-pre": "Scritto da ",
     "byline-post": "",
+    "translated-by-pre": "Tradotto da ",
+    "translated-by-post": "",
     "on-date": " il {date}",
     "parenthetical-date": " ({date})",
     "year": "{year}",
