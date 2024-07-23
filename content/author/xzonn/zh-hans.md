@@ -6,4 +6,4 @@ author:
   website: 'https://xzonn.top/'
 ---
 
-Xzonn is cool too.
+Xzonn very cool.
