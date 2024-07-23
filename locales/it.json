@@ -139,5 +139,15 @@
     "chokuretsu-sl-invalid-docs-page": "Pagina di documentazione non valida",
     "chokuretsu-sl-invalid-docs-page-desc": "Non è stato possibile trovare una pagina di documentazione su questo indirizzo.",
     "chokuretsu-trailer-footage": "Nintendo DS che mostra il trailer.",
-    "click-to-filter": "Clicca per filtrare:"
+    "click-to-filter": "Clicca per filtrare:",
+    "language-ja": "日本語",
+    "language-de": "Deutsch",
+    "tiktok": "TikTok",
+    "language-en": "English",
+    "threads": "Threads",
+    "pixelfed": "Pixelfed",
+    "language-it": "Italiano",
+    "pinterest": "Pinterest",
+    "language-zh-hans": "简体中文",
+    "language-zh-hant": "繁體中文"
 }
