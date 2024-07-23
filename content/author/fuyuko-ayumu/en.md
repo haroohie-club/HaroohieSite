@@ -6,4 +6,4 @@ author:
   website: 'https://fuyume.neocities.org/'
 ---
 
-Fuyuko è un'aspirante programmatrice a cui piace la tecnologia dei primi anni 2000.
+Fuyuko is an aspiring programmer who likes tech from the early 2000s.
