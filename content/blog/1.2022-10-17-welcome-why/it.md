@@ -4,6 +4,7 @@ description: &desc "Un'introduzione al blog dell'Haroohie Translation Club ed un
 locale: 'it'
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2022
   month: 10
   day: 17

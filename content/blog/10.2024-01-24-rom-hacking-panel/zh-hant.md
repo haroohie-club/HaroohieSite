@@ -4,6 +4,7 @@ description: &desc '觀看 Jonko 在懷舊遊戲世界展覽會上向現場觀�
 locale: 'zh-hant'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2024
   month: 01
   day: 24

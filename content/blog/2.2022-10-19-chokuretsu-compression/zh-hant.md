@@ -4,6 +4,7 @@ description: &desc 'Jonko 深入研究了 Shade 的壓縮演算法是如何被�
 locale: 'zh-hant'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2022
   month: 10
   day: 19

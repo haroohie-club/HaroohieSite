@@ -145,5 +145,10 @@
     "language-en": "English",
     "language-it": "Italiano",
     "language-zh-hans": "簡體中文",
-    "language-zh-hant": "繁體中文"
+    "language-zh-hant": "繁體中文",
+    "tiktok": "TikTok",
+    "threads": "Threads",
+    "chokuretsu-rom-patcher-language": "語言：",
+    "pixelfed": "Pixelfed",
+    "pinterest": "Pinterest"
 }

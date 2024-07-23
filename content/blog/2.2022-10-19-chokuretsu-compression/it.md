@@ -4,6 +4,7 @@ description: &desc "Jonko parla di come riuscì a decompilare l'algoritmo di com
 locale: 'it'
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2022
   month: 10
   day: 19

@@ -4,6 +4,7 @@ description: &desc "Jonko mette l'archivio bin Shade sotto al microscopio e spie
 locale: 'it'
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2022
   month: 11
   day: 02

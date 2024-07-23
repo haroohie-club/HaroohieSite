@@ -4,6 +4,7 @@ description: &desc 'Jonko 把 Shade 的二進位制歸檔檔案放在顯微鏡�
 locale: 'zh-hant'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2022
   month: 11
   day: 02

@@ -4,6 +4,7 @@ description: &desc " La Versione 0.4 della patch inglese di Suzumiya Haruhi no C
 locale: 'it'
 navigation:
   author: 'William'
+  translator: 'Fuyuko Ayumu'
   year: 2023
   month: 02
   day: 28
