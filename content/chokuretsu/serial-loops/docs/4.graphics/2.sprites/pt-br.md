@@ -1,6 +1,6 @@
 ---
 title: 'Character Sprites'
-locale: 'en'
+locale: 'pt-br'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/character-sprite.png'
   previous: '/chokuretsu/serial-loops/docs/graphics/backgrounds'
