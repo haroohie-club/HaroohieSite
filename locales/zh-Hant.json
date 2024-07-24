@@ -45,6 +45,8 @@
     "back-to-blog": "返回部落格",
     "byline-pre": "由 ",
     "byline-post": " 釋出",
+    "translated-by-pre": "由 ",
+    "translated-by-post": " 翻譯",
     "on-date": "於 {date}",
     "parenthetical-date": "（{date}）",
     "year": "{year} 年",
