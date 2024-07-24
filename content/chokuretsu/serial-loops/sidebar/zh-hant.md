@@ -17,7 +17,7 @@ link: '/chokuretsu/serial-loops/docs'
 fullwidth: true
 type: 'mid-piece'
 ---
-文檔
+文件
 ::
 
 ::button-link
@@ -53,6 +53,6 @@ type: 'bottom-piece'
 Discord
 ::
 
-## 文檔
+## 文件
 ::serial-loops-docs-list
 ::
