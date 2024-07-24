@@ -7,4 +7,4 @@ author:
   website: 'https://xzonn.top/'
 ---
 
-Xzonn is a Nintendo fan who is working on translating Haruhi games into Chinese.
+Xzonn 是任天堂的粉丝，他正在将凉宫春日游戏翻译成中文。
