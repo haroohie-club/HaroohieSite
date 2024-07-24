@@ -5,7 +5,7 @@
         </label>
         <select class="shadow" id="locale-select" :value="locale" v-model="$i18n.locale">
             <option v-for="l in availableLocales" :value="l">
-                <span>{{ $t(`language-${l}`) }}</span>
+                <span>{{ getLanguageName(l) }}</span>
                 <span class="lozonge" v-if="locale == l">&nbsp;&#x23F7;</span>
             </option>
         </select>
@@ -18,6 +18,11 @@ const { locale } = useI18n({
     useScope: 'local'
 })
 const localePath = useLocalePath()
+function getLanguageName(languageCode) {
+    const nameGenerator = new Intl.DisplayNames(languageCode, { type: 'language' });
+    const displayName = nameGenerator.of(languageCode);
+    return displayName[0].toUpperCase() + displayName.substring(1);
+}
 </script>
 
 <style scoped>
