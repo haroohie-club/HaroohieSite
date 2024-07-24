@@ -2,7 +2,6 @@
 author:
   name: 'Fuyuko Ayumu'
   github: 'https://github.com/FuyukoAyumu'
-  twitter: 'https://twitter.com/FuyukoAyumu'
   website: 'https://fuyume.neocities.org/'
 ---
 

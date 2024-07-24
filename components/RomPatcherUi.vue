@@ -33,7 +33,7 @@
                     <label>
                         <b>{{ $t('chokuretsu-rom-patcher-language') }}</b>
                         <select id="patcher-locale-dropdown" v-model="patchLocale">
-                            <option v-for="pl in AVAILABLE_PATCH_LOCALES" :value="pl">{{ $t(`language-${pl}`) }}</option>
+                            <option v-for="pl in AVAILABLE_PATCH_LOCALES" :value="pl">{{ getLanguageName(locale, pl) }}</option>
                         </select>
                     </label>
                     <label>
@@ -456,5 +456,11 @@ for (let i = 0; i < LIBRARIES.length; i++) {
     script.src = LIBRARIES[i];
     script.type = 'text/javascript';
     document.head.appendChild(script);
+}
+
+function getLanguageName(loc, languageCode) {
+    const nameGenerator = new Intl.DisplayNames(loc, { type: 'language' });
+    const displayName = nameGenerator.of(languageCode);
+    return displayName[0].toUpperCase() + displayName.substring(1);
 }
 </script>
