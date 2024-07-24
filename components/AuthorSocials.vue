@@ -24,6 +24,9 @@
         <NuxtLink v-if="author.youtube" :to="author.youtube" rel="me">
             <IconifiedText icon="fa6-brands:youtube">{{ $t('youtube') }}</IconifiedText>
         </NuxtLink>
+        <NuxtLink v-if="author.bilibili" :to="author.bilibili" rel="me">
+            <IconifiedText icon="fa6-brands:bilibili">{{ $t('bilibili') }}</IconifiedText>
+        </NuxtLink>
         <NuxtLink v-if="author.website" :to="author.website" rel="me">
             <IconifiedText icon="fa6-solid:up-right-from-square">{{ $t('website') }}</IconifiedText>
         </NuxtLink>
