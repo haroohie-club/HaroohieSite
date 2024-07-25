@@ -61,7 +61,7 @@ Quindi, mettendo da parte quello, apriamo `evt.bin`. Per prima cosa dobbiamo sco
 
 ![evt.bin aperto in CrystalTile2 che mostra una sezione di zeri sopra 0x2800](/images/blog/0003/02_lots_of_zeros_1.png)
 
-![evt.bin aperto in CrystalTile2 che mostra una sezione di zeri sotto 0x2800](/images/blog/0003/02_lots_of_zeros_2.png)
+![evt.bin aperto in CrystalTile2 che mostra una sezione di zeri sotto 0x2800](/images/blog/0003/03_lots_of_zeros_2.png)
 
 
 Interessante! Dopo aver scorso un bel pezzo di dati, siamo finiti in un campo di zeri, seguito da un altro grande pezzo di dati seguito da un altro campo di zeri e così via. Inoltre, dopo aver scorso dopo la prima parte, ogni grande pezzo di dati sembra partire dopo un multiplo di 0x800 (un po' difficile da capire dalle immagini ma fidati, apri il file e vedrai il pattern). A me, questi sembrano i _dati dei file_ – e in più, ogni file è separato per bene con molto spazio in mezzo.
