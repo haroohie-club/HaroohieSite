@@ -58,7 +58,7 @@ Of course, as well as Episode 3, we've been going back and improving other areas
 * Fixed a bug with on-screen subtitles that could sometimes lead to the game crashing during the Puzzle phase. If you encounter a crash while playing, please get in touch with us on Discord so we can investigate!
 
 ## Scaricare il rilascio
-Perfavore controlla [la guida](/chokuretsu/guide) per vedere come applicare la patch nel tuo file della ROM Nintendo DS
+Perfavore controlla [la guida](/chokuretsu/guide) per vedere come applicare la patch nel tuo file della ROM Nintendo DS.
 
 * [Patcher ROM online](/chokuretsu/patch)
 * [Scarica il file di patch](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)

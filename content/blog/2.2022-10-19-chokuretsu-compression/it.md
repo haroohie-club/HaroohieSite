@@ -54,7 +54,7 @@ Pensando alle mie esperienze in passato, feci qualche investigazione per poi pos
 
 ![Un post del forum che Jonko pubblicò l'Ottobre 23 del 2021. Il testo del post è incluso in una citazione al di sotto."](/images/blog/0002/03_jonko_hinged.png)
 
-> Ciao! Allora, quello non è codice del gioco; sono dati per questa scena. Non so ancora cosa fa tutto questo, ma posso dirti che tutto questo pezzo è compresso e che la subroutine di decompressione è al 0x2026190. Dovrai decomprimerlo prima di poterlo modificare e una volta che è decompresso sarà più facile farsi un'idea di cosa fa ogni parte dandoci un aiuto nel modificarle.
+> Ciao! Allora, quello non è il codice del gioco; sono dati per questa scensi trova in 0x2026190. Dovrai decomprimerlo prima di poterlo modificare e una volta che è decompresso sarà più facile farsi un'idea di cosa fa ogni parte dandoci un aiuto nel modificarle.
 > 
 > Un altra cosa a cui dovrai pensare è una modifica per la larghezza del font (di lunghezza media o variabile). Ci sono alcune linee nel gioco che riempiono tutto il box del testo, e sarebbe impossibile farci stare la traduzione per intero con dei caratteri a piena larghezza, quindi dovrai investigare pure quello.
 
@@ -126,7 +126,7 @@ RAM:020261A0                 BEQ     loc_20262A0
 RAM:020261A4                 TST     R3, #0x80
 RAM:020261A8                 BEQ     loc_2026224
 ```
-Vediamo cosa fa ognuna di queste istruzioni:
+Vediamo cosa fa' ognuna di queste istruzioni:
 
 * `LDRB R3, [R0], #1`{lang='arm'} – Questo carica il byte nell'indirizzo contenuto in R0 (che contiene la posizione attuale nel file) nel registro R3 e poi incrementa R0 di uno (Il che significa che ci spostiamo alla posizione del prossimo byte nel file). Visto che siamo all'inizio del file, questo ne carica il primo byte.
 * `CMP R3, #0`{lang='arm'} ; `BEQ loc_20262A0`{lang='arm'} – `BEQ`{lang='arm'} significa "ramifica se è uguale," ma in realtà significa “ramifica se l'ultimo confronto è pari a zero.” Quindi, significa che se il valore che abbiamo appena caricato è 0, andremo a ramificare fino alla fine della subroutine. Possiamo ignorarlo per ora.
@@ -156,10 +156,9 @@ else
 }
 ```
 
-![IDA with 0202628C highlighted to show the instruction we found
-previously.](/images/blog/0002/09_ida_find.png)
+Fin'ora è abbastanza semplice – stiamo solo controllando se il primo byte è zero.
 
-So we go to the address we found…
+#### Scrittura Diretta
 
 ```arm
 RAM:02026224                 TST     R3, #0x40
@@ -238,8 +237,7 @@ Non sappiamo ancora cosa fa questo valore, ma diventerà chiaro una volta che gu
 * `BGT loc_2026288`{lang='arm'} – Se due passaggi prima R12 era maggiore di 0, andiamo al primo passaggio di questa sezione. Aha - è un loop!
 * `B loc_2026198`{lang='arm'} – Se è minore o pari a 0, torniamo all'inizio della subroutine.
 
-Questo in realtà è super semplice ora che sappiamo che questo è un loop. Il `valore` che stavamo calcolando prima è il numero di byte (`numBytes`) per copiare direttamente dal buffer input al buffer output.
-Quindi possiamo rappresentare questa sezione come:
+Questo in realtà è super semplice ora che sappiamo che questo è un loop. Il `valore` che stavamo calcolando prima è il numero di byte (`numBytes`) per copiare direttamente dal buffer input al buffer output. Quindi possiamo rappresentare questa sezione come:
 
 ```csharp
 for (int i = 0; i < numBytes; i++)
@@ -285,8 +283,7 @@ for (int z = 0; z < compressedData.Length;)
 
 #### Decomprimere un File
 
-Essenzialmente, un algoritmo di compressione opera in questo modo: Un "byte di controllo" viene letto e i primi tre o quattro but determinano le funzioni seguenti.
-Le opzioni di decompressione sono:
+Essenzialmente, un algoritmo di compressione opera in questo modo: Un "byte di controllo" viene letto e i primi tre o quattro but determinano le funzioni seguenti. Le opzioni di decompressione sono:
 * Leggere un certo numero di dati direttamente nel buffer di decompressione
 * Leggere un singolo byte e ripeterlo un certo numero di volte
 * Fare un riferimento ad una posizione particolare nei dati decompressi e copiare in avanti quei byte

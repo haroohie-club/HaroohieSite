@@ -144,7 +144,7 @@ Ma soprattutto, il fatto che questa stringa di debug viene stampata ci dice _qua
 ### Caricare gli Interi Magici
 Dopo aver provato ad analizzare questa routine nello stesso modo della routine di decompressione abbiamo scoperto che questa routine è un po'più astratta. Si riferisce a svariati indirizzi di memoria e altre cose di cui non ne ho il contesto – quindi andiamo a scoprirlo e vediamo quello che fa nel debugger. Dopotutto, il nostro obiettivo non è necessariamente quello di effettuare un reverse-engineering su quello che questa routine fa (al contrario della routine di decompressione), la utilizziamo per capire la struttura del file di archivio.
 
-Quindi tornando in no$GBA. Andando avanti, arriviamo a questa funzione `STR`. `STR R2,[R0, R5]` dovrebbe contenere tutti i valori di R2 (0x24C, quello che sospettiamo sia il numero dei file) nella posizione in memoria R0+R5. 
+Quindi torniamo no$GBA. Andando avanti, arriviamo a questa funzione `STR`. `STR R2,[R0, R5]` dovrebbe contenere tutti i valori di R2 (0x24C, quello che sospettiamo sia il numero dei file) nella posizione in memoria R0+R5. 
 
 ![Il debugger di no$GBA con l'istruzione str descritta evidenziata](/images/blog/0003/11_str_instruction.png)
 
@@ -169,7 +169,7 @@ RAM:02033A64                 LDR     R0, [R0,R1]
 RAM:02033A68                 BX      LR
 ```
 
-`BX LR`{lang='arm'} ci fa tornare alla subroutine che ha chiamato questa, quindi tenendo a mente che sappiamo che l'istruzione precedente è quella di 0x24C caricata in R0 (il registro frequentemente utilizzato come valore di restituzione), potremmo essere in grado di postulare che l'intero scopo di questa subroutine è quella di caricare quel valore nella memoria. Quindi, rinominiamo questa funzione in `arc_getNumFiles` e vediamo cosa l'ha chiamata.
+`BX LR`{lang='arm'} ci fa' tornare alla subroutine che ha chiamato questa, quindi tenendo a mente che sappiamo che l'istruzione precedente è quella di 0x24C caricata in R0 (il registro frequentemente utilizzato come valore di restituzione), potremmo essere in grado di postulare che l'intero scopo di questa subroutine è quella di caricare quel valore nella memoria. Quindi, rinominiamo questa funzione in `arc_getNumFiles` e vediamo cosa l'ha chiamata.
 
 ![no$GBA che mostra un punto d'interruzione nella chiamata della subroutine precedente](/images/blog/0003/15_subroutine_caller.png)
 
@@ -195,9 +195,9 @@ RAM:02033CFC                 MOV     R2, R9
 RAM:02033D00                 BL      dbg_printError
 ```
 
-![no$GBA che arriva a un punto d'interruzione in 0x020338C8](/images/blog/0003/10_breakpoint.png)
+Ricordando che uscendo da `arc_getNumFiles`, R0 era impostato nel valore (che crediamo sia) il numero dei file. Possiamo vedere che viene confrontato con R9 subito dopo, e se è minore o uguale a R9, lo diramiamo dopo la fine della sezione che ho appena mostrato. Quindi azzeriamo R9 – guardando quello che c'è in alto, possiamo vedere che R9 è anche confrontato con 0, e se è minore o uguale a 0 lo diramiamo su loc_2033CF0. È lo stesso punto in cui andiamo se R9 è più grande di R0. Se esaminiamo quella sezione, possiamo vedere un altro messaggio di debug – `"file index error : [%s],idx=%d\n"`{lang='c'}! Per coloro che non sono a conoscenza del linguaggio C, questa è un _formato stringa_ – i `%s` e `%d` indicano i parametri da inserire nella stringa. `%s` si aspetta una **s**tringa e `%d` si aspetta un numero **d**ecimale. Abbiamo determinato che la funzione che il `BL` sta diramando manda una funzione di “stampa del messaggio di errore di debug” dal fatto che la stringa indica che c'è un errore, ma questa stringa ci dà molti più indizi. Quindi in un alto livello, questa sezione controlla se R9 è più grande di 0 e minore o uguale al numero dei file. se non lo è, dà un errore.
 
-Quando si chiama una funzione in un linguaggio di alto livello, si devono specificare i parametri che vengono passati alla funzione. Nell'ARM assembly, questi parametri sono passati impostando dei registri specifici a dei valori specifici – il primo parametro è impostato a R0, il secondo è impostato a R1, ecc. Quindi, sappiamo che questa subroutine `dbg_printError` stamperà quella stringa formattata. La stringa in questione è caricata in R0, il che significa che il primo parametro è la stringa stessa. Il parametro seguente (corrispondente a `%s`) dovrebbe essere caricato in R1, e l'ultimo parametro (corrispondente a `%d`) dovrebbe essere caricato in R2.
+Quando si chiama una funzione in un linguaggio di alto livello, si devono specificare i parametri che vengono passati alla funzione. Nell'ARM assembly, questi parametri sono passati impostando dei registri specifici a dei valori specifici – il primo parametro è impostato a R0, il secondo è impostato a R1, ecc. Quindi, sappiamo che questa subroutine `dbg_printError` stamperà quella stringa formattata. La stringa in questione è caricata in R0, il che significa che il primo parametro è la stringa stessa. Il parametro seguente (corrispondente a `%s`) dovrebbe essere caricato in R1, e l'ultimo parametro (corrispondente a `%d`) dovrebbe essere caricato in R2. 
 
 Ho già segnato il valore caricato in R1 con il nome `=sArchiveFileNames` - se noi prendessimo quell'indirizzo in IDA, possiamo vedere il perché:
 
@@ -282,8 +282,8 @@ L'indirizzo che dobbiamo caricare è `0x030F771C + 0x245 * 4 = 0x20F8030`, e nat
 
 Le prossime due istruzioni caricano gli interi negli offset 0x0C (verde) e 0x04 (rosa) da `evt.bin` in R1 ed R0, rispettivamente. Queste istruzioni sono poi utilizzate in alcuni calcoli:
 
-* `MOV R1, LR,LSR R1`{lang='arm'}    Questa istruzione sposta l'intero magico a destra in base al valore di R1 (0x11 o 17) e salva il risultato in R1. Visto che gli interi magici sono interi a 32-bit, questo ci dà i 15 bit più importanti dell'intero magico.
-* `MUL R0, R1, R0`{lang='arm'}    Questa istruzione moltiplica R1 per R0 (0x800) e salva il risultato in R0.
+* `MOV R1, LR,LSR R1`{lang='arm'} – Questa istruzione sposta l'intero magico a destra in base al valore di R1 (0x11 o 17) e salva il risultato in R1. Visto che gli interi magici sono interi a 32-bit, questo ci dà i 15 bit più importanti dell'intero magico.
+* `MUL R0, R1, R0`{lang='arm'} – Questa istruzione moltiplica R1 per R0 (0x800) e salva il risultato in R0.
 
 Continuando la nostra traduzione in C#, abbiamo:
 
@@ -303,7 +303,7 @@ Dopo aver eseguito queste due istruzioni…
 
 !|no$GBA che mostra le due istruzioni evidenziate che calcolano l'offset del file dall'intero magico|(/images/blog/0003/20_find_offset.png)
 
-Il valore di R0 è ora 0x2D5000. Aspetta un secondo   abbiamo appena moltiplicato la parte superiore dell'intero magico (quella che abbiamo visto crescere costantemente) per 0x800 (per il quale ogni offset è divisibile). Potremmo aver appena calcolato l'offset di un file?
+Il valore di R0 è ora 0x2D5000. Aspetta un secondo – abbiamo appena moltiplicato la parte superiore dell'intero magico (quella che abbiamo visto crescere costantemente) per 0x800 (per il quale ogni offset è divisibile). Potremmo aver appena calcolato l'offset di un file?
 
 !|CrystalTile2 che mostra evt.bin in 0x2D5000; al di sopra è presente un mare di zeri che indicano l'inizio di un file|(/images/blog/0003/21_the_offset.png)
 
@@ -315,7 +315,7 @@ La prossima istruzione contiene il nostro offset appena calcolato in memoria. L'
 
 Questa volta, caricheremo i valori degli offset 0x10 e 0x08 in R1 ed R0, rispettivamente. Ancora una volta, utilizzeremo questi valori per fare un po' di matematica con l'intero magico.
 
-* `AND R1, LR, R1`{lang='arm'} – questa operazione sta facendo un  bitwise-and tra i contenuti di R1 (0x1FFFF) e l'intero magico. Questo ci dà i 17 bit meno importanti dell'intero magico (i complementi dei 15 bit più importanti che abbiamo calcolato sopra).
+* `AND R1, LR, R1`{lang='arm'} – questa operazione sta facendo un bitwise-and tra i contenuti di R1 (0x1FFFF) e l'intero magico. Questo ci dà i 17 bit meno importanti dell'intero magico (i complementi dei 15 bit più importanti che abbiamo calcolato sopra).
 * `MUL R0, R1, R0`{lang='arm'} – questa istruzione moltiplica R1 per R0 (0x08) e inserisce il risultato in R0.
 
 In C#:
@@ -525,7 +525,8 @@ Phew! Quella era molta assembly. Potremmo continuare a vedere ogni subroutine, m
 
 Ottimo! Questi sono tanti progressi. Vediamo se possiamo scrivere qualcosa per analizzare l'archivio.
 
-The end-result of this calculation is 0x5398.
+### Scrivere Il Nostro Analizzatore
+Iniziamo pensando a come vogliamo rappresentare i nostri file di archivio in C#. Ci sono quattro archivi diversi, ognuno con il loro tipo di file – per me, può solo significare che è il momento di una classe generica. Tanto per iniziare, faremo una classe generica per rappresentare i file negli archivi.
 
 ```csharp
 public partial class FileInArchive
@@ -590,7 +591,7 @@ Prima che arriviamo ad aggiungere i file nell'archivio, dobbiamo convertire quel
 ```csharp
 public int GetFileLength(uint magicInteger)
 {
-    // absolutely unhinged routine
+    // routine del tutto pazza
     int magicLengthInt = 0x7FF + (int)((magicInteger & (uint)MagicIntegerLsbAnd) * (uint)MagicIntegerLsbMultiplier);
     int standardLengthIncrement = 0x800;
     if (magicLengthInt < standardLengthIncrement)
@@ -668,7 +669,7 @@ Poi quando vogliamo un nuovo intero magico, facciamo semplicemente:
 public uint GetNewMagicInteger(T file, int compressedLength)
 {
     uint offsetComponent = (uint)(file.Offset / MagicIntegerMsbMultiplier) << MagicIntegerMsbShift;
-    int newLength = (compressedLength + 0x7FF) & ~0x7FF; // round to nearest 0x800
+    int newLength = (compressedLength + 0x7FF) & ~0x7FF; // arrotonda al 0x800 più vicino
     int newLengthComponent = LengthToMagicIntegerMap[newLength];
 
     return offsetComponent | (uint)newLengthComponent;
@@ -708,10 +709,7 @@ Quindi ora abbiamo un analizzatore funzionante. Possiamo scrivere velocemente un
 
 ![Un'interfaccia GUI che mostra lo script estratto dal gioco[(/images/blog/0003/24_archive_interface.png)
 
-Here it is in all its glory: what I have dubbed the “unhinged file length
-routine.” That 0x5398 number was indeed not the actual compressed length, but
-rather an encoded compressed length that was decoded by this routine. A quick
-FAQ:
+Molto bello! (Il testo a destra è un'anteprima di quello che stiamo per fare – Stavo lavorando sull'analisi dei file degli eventi/script allo stesso tempo stavo lavorando nell'analizzare gli archivi, ma non parleremo del reverse-engineering degli eventi in questo post.) Quindi ora possiamo aprire `evt.bin` e anche modificarne i file al suo interno. C'è ancora un passaggio rimasto, però – Dobbiamo essere in grado di salvare gli archivi bin una volta che abbiamo finito di modificarli.
 
 ### Salvare l'archivio
 Il metodo ideale per salvare l'archivio è di ricostruirlo da capo, ma poiché ci sono dei dati nell'header che non capiamo a pieno, dobbiamo limitarci a modificare l'header che abbiamo. Quindi, iniziamo aggiungendo semplicemente l'intero header che abbiamo preso durante l'analisi.
@@ -741,13 +739,9 @@ Poi, faremo un ciclo attraverso tutti i file e li aggiungeremo nell'archivio in 
         bytes.AddRange(compressedBytes);
 ```
 
-* We found the number of files (it’s the first four bytes of the archive).
-* While there don’t seem to be obviously-located filenames, we did find the
-  mapping between a file’s _index_ (which appears to be how it’s looked up), its
-  offset, and its compressed length
-* The file data is definitely present and padded to be 0x800-byte aligned.
+Qui, abbiamo incontrato un ostacolo – in certi casi, il file modificato sarà più lungo del file originale, vero? Questo succederà più spesso di quel che pensiamo visto che la mia implementazione dell'algoritmo di compressione è molto meno efficace, quindi anche i file che sono della stessa dimensione quando sono decompressi, saranno più grandi dopo la ricompressione. La soluzione a questo problema è molto semplice, ma è un po' una seccatura: spostiamo tutto sotto.
 
-Perché spostare sotto le cose è stancante? Beh, ha sempre a che fare con gli interi magici – essi contengono _offset_ per ogni file. Spostando i file al di sotto, gli stiamo cambiando l'offset, il che significa che anche l'intero magico cambierà. Quindi dobbiamo scrivere del codice per farlo. 
+Perché spostare sotto le cose è seccante? Beh, ha sempre a che fare con gli interi magici – essi contengono _offset_ per ogni file. Spostando i file al di sotto, gli stiamo cambiando l'offset, il che significa che anche l'intero magico cambierà. Quindi dobbiamo scrivere del codice per farlo. 
 
 ```csharp
         if (i < Files.Count - 1) // Se non siamo nell'ultimo file
@@ -783,11 +777,7 @@ Perché spostare sotto le cose è stancante? Beh, ha sempre a che fare con gli i
         }
 ```
 
-```csharp
-public class ArchiveFile<T>
-    where T : FileInArchive, new()
-{
-    public const int FirstMagicIntegerOffset = 0x20;
+Bum. Abbiamo il codice funzionante che sposterà gli interi magici. Quindi proviamolo– modifichiamo un file e salviamo l'archivio per vedere se possiamo cambiare del testo.
 
 ![Haruhi Suzumiya nelle frasi iniziali che dice Ciao amico mio! Che bella giornata![(/images/blog/0003/25_dialogue_replaced.png)
 

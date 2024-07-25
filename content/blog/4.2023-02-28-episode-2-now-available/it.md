@@ -34,12 +34,11 @@ head:
     value: 'summary_large_image'
 ---
 
-Alongside the inclusion of Episode 2 in this release, this patch also includes
-translations for the *Extras Mode* (accessible through the Main Menu), including
-the content you unlock by completing Episode 1 and 2. This includes the music
-player, completion tracker and CG viewer. The patch also includes a range of
-script tweaks and improvements. Below you can find a changelog of the most
-notable additions.
+::youtube-video
+----
+video: pHG2uxj2CwA
+----
+::
 
 L'Haroohie Translation Club è felice di annunciare che la **Versione 0.4** de La Serie di Haruhi Suzumiya Traduzione Amatoriale Inglese è ora [disponibile al download](/chokuretsu/patch)! *Episodio 2: La Canzone Infinita* è ora disponibile in inglese. Ricordatevi di guardare il trailer di questo rilascio al di sopra, fatto dal fantastico e talentuoso [EricDoesEverything](https://www.youtube.com/@EricDoesEverythingSeries)!
 
@@ -55,7 +54,7 @@ Insieme all'inclusione dell'Episodio 2 in questo rilascio, la patch comprende an
 * Il font di gioco ha avuto dei piccoli cambiamenti nello spazio tra i caratteri, includento l'aggiunta di alcuni nuovi glifi
 
 ## Scaricare il rilascio
-Perfavore controlla [la guida](/chokuretsu/guide) per vedere come applicare la patch nel tuo file della ROM Nintendo DS
+Perfavore controlla [la guida](/chokuretsu/guide) per vedere come applicare la patch nel tuo file della ROM Nintendo DS.
 
 * [Patcher ROM online](/chokuretsu/patch)
 * [Scarica il file di patch](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)
