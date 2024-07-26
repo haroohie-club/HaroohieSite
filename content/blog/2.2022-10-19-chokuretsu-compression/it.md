@@ -54,7 +54,7 @@ Pensando alle mie esperienze in passato, feci qualche investigazione per poi pos
 
 ![Un post del forum che Jonko pubblicò l'Ottobre 23 del 2021. Il testo del post è incluso in una citazione al di sotto."](/images/blog/0002/03_jonko_hinged.png)
 
-> Ciao! Allora, quello non è il codice del gioco; sono dati per questa scensi trova in 0x2026190. Dovrai decomprimerlo prima di poterlo modificare e una volta che è decompresso sarà più facile farsi un'idea di cosa fa ogni parte dandoci un aiuto nel modificarle.
+> Ciao! Allora, quello non è codice del gioco; sono dati per questa scena. Non so ancora cosa fa tutto questo, ma posso dirti che tutto questo pezzo è compresso e che la subroutine di decompressione è al 0x2026190. Dovrai decomprimerlo prima di poterlo modificare e una volta che è decompresso sarà più facile farsi un'idea di cosa fa ogni parte dandoci un aiuto nel modificarle.
 > 
 > Un altra cosa a cui dovrai pensare è una modifica per la larghezza del font (di lunghezza media o variabile). Ci sono alcune linee nel gioco che riempiono tutto il box del testo, e sarebbe impossibile farci stare la traduzione per intero con dei caratteri a piena larghezza, quindi dovrai investigare pure quello.
 
