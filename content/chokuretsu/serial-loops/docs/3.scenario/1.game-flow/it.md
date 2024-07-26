@@ -32,6 +32,4 @@ As with script commands, scenario commands can be added and removed with the + a
 
 The entire scenario can be cleared using the rocket ship button. Individual commands can be edited (changing the command itself as well as its single parameter) in the editor panel to the right.
 
-The entire scenario can be cleared using the rocket ship button. Individual
-commands can be edited (changing the command itself as well as its single
-parameter) in the editor panel to the right.
+![Scenario Editing](/images/chokuretsu/serial-loops/scenario-editing.png)

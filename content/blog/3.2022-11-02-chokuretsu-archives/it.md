@@ -169,7 +169,7 @@ RAM:02033A64                 LDR     R0, [R0,R1]
 RAM:02033A68                 BX      LR
 ```
 
-`BX LR`{lang='arm'} ci fa' tornare alla subroutine che ha chiamato questa, quindi tenendo a mente che sappiamo che l'istruzione precedente è quella di 0x24C caricata in R0 (il registro frequentemente utilizzato come valore di restituzione), potremmo essere in grado di postulare che l'intero scopo di questa subroutine è quella di caricare quel valore nella memoria. Quindi, rinominiamo questa funzione in `arc_getNumFiles` e vediamo cosa l'ha chiamata.
+`BX LR`{lang='arm'} ci fa tornare alla subroutine che ha chiamato questa, quindi tenendo a mente che sappiamo che l'istruzione precedente è quella di 0x24C caricata in R0 (il registro frequentemente utilizzato come valore di restituzione), potremmo essere in grado di postulare che l'intero scopo di questa subroutine è quella di caricare quel valore nella memoria. Quindi, rinominiamo questa funzione in `arc_getNumFiles` e vediamo cosa l'ha chiamata.
 
 ![no$GBA che mostra un punto d'interruzione nella chiamata della subroutine precedente](/images/blog/0003/15_subroutine_caller.png)
 
@@ -260,7 +260,7 @@ RAM:02033ABC                 POP     {R4,PC}
 
 Questa subroutine non è troppo lunga, quindi dovremmo essere in grado di capire cosa sta facendo; tuttavia, ci sono molti pezzetti dove carica qualche indirizzo di memoria, e non so cosa contengano quegli indirizzi. Quindi torniamo nel debugger.
 
-!|no$GBA che mostra delle istruzioni evidenziate che servono a caricare l'intero magico nel registro|(/images/blog/0003/17_initial_header_stuff.png)
+![no$GBA che mostra delle istruzioni evidenziate che servono a caricare l'intero magico nel registro](/images/blog/0003/17_initial_header_stuff.png)
 
 Dopo aver eseguito questi passaggi, possiamo vedere che la prima parte di questa subroutine serve solo a caricare l'indirizzo dell'header di `evt.bin` che avevamo già trovato in R0. Sta anche impostando LR (Che è chiamato R14 in no$) nell'indirizzo (evidenziato in ciano) subito prima del primo intero magico (evidenziato in verde). Interessante! L'indirizzo attualmente evidenziato è `LDR LR, [LR,R1,LSL#2]`{lang='arm'} – questo caricherà il valore nell'indirizzo `LR + R1 * 4` in LR. R1, bisogna ricordare, è l'indice del file. Quindi, questo caricherà l'intero magico che corrisponde al file di quell'indice! (Tenete presente che l'array dell'intero magico parte da 1 invece che 0, quindi per farlo partire da 0 dobbiamo partire dall'indirizzo subito prima del primo intero magico.)
 
@@ -274,11 +274,11 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 }
 ```
 
-!|no$GBA che mostra l'intero magico evidenziato|(/images/blog/0003/18_loaded_magic_integer.png)
+![no$GBA che mostra l'intero magico evidenziato](/images/blog/0003/18_loaded_magic_integer.png)
 
 L'indirizzo che dobbiamo caricare è `0x030F771C + 0x245 * 4 = 0x20F8030`, e naturalmente, quando lo facciamo vediamo quel valore caricato. Ora che l'intero magico è caricato, vediamo cosa succede dopo.
 
-![no$GBA che mostra i prossimi due componenti venire caricati e le loro istruzioni[(/images/blog/0003/19_second_header_stuff.png)
+![no$GBA che mostra i prossimi due componenti venire caricati e le loro istruzioni](/images/blog/0003/19_second_header_stuff.png)
 
 Le prossime due istruzioni caricano gli interi negli offset 0x0C (verde) e 0x04 (rosa) da `evt.bin` in R1 ed R0, rispettivamente. Queste istruzioni sono poi utilizzate in alcuni calcoli:
 
@@ -301,17 +301,17 @@ public void sub_2033A70(int archiveNumber, int index, uint address1, uint addres
 
 Dopo aver eseguito queste due istruzioni…
 
-!|no$GBA che mostra le due istruzioni evidenziate che calcolano l'offset del file dall'intero magico|(/images/blog/0003/20_find_offset.png)
+![no$GBA che mostra le due istruzioni evidenziate che calcolano l'offset del file dall'intero magico](/images/blog/0003/20_find_offset.png)
 
 Il valore di R0 è ora 0x2D5000. Aspetta un secondo – abbiamo appena moltiplicato la parte superiore dell'intero magico (quella che abbiamo visto crescere costantemente) per 0x800 (per il quale ogni offset è divisibile). Potremmo aver appena calcolato l'offset di un file?
 
-!|CrystalTile2 che mostra evt.bin in 0x2D5000; al di sopra è presente un mare di zeri che indicano l'inizio di un file|(/images/blog/0003/21_the_offset.png)
+![CrystalTile2 che mostra evt.bin in 0x2D5000; al di sopra è presente un mare di zeri che indicano l'inizio di un file](/images/blog/0003/21_the_offset.png)
 
 Lo abbiamo proprio fatto! Abbiamo appena trovato la routine per calcolare l'offset di un file dandogli un indice! Ma l'intero magico non è ancora caricato in LR, quindi non abbiamo ancora finito di utilizzarlo.
 
 La prossima istruzione contiene il nostro offset appena calcolato in memoria. L'istruzione dopo carica l'indirizzo di partenza dell'header di `evt.bin` di nuovo. Adesso abbiamo due istruzioni che sono simili a quelle che abbiamo visto prima.
 
-!|no$GBA che mostra le due istruzioni di sotto evidenziate|(/images/blog/0003/22_find_magic_lenght_int.png)
+![no$GBA che mostra le due istruzioni di sotto evidenziate](/images/blog/0003/22_find_magic_lenght_int.png)
 
 Questa volta, caricheremo i valori degli offset 0x10 e 0x08 in R1 ed R0, rispettivamente. Ancora una volta, utilizzeremo questi valori per fare un po' di matematica con l'intero magico.
 
@@ -779,11 +779,11 @@ Perché spostare sotto le cose è seccante? Beh, ha sempre a che fare con gli in
 
 Bum. Abbiamo il codice funzionante che sposterà gli interi magici. Quindi proviamolo– modifichiamo un file e salviamo l'archivio per vedere se possiamo cambiare del testo.
 
-![Haruhi Suzumiya nelle frasi iniziali che dice Ciao amico mio! Che bella giornata![(/images/blog/0003/25_dialogue_replaced.png)
+![Haruhi Suzumiya nelle frasi iniziali che dice Ciao amico mio! Che bella giornata!](/images/blog/0003/25_dialogue_replaced.png)
 
 Ti presento il primo testo che ho modificato nel gioco. 🥰
 
-Se sei interessato nel vedere il risultato finale del codice sull'archivio, puoi [trovarlo su GitHub[(https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Archive/ArchiveFile.cs)!
+Se sei interessato nel vedere il risultato finale del codice sull'archivio, puoi [trovarlo su GitHub](https://github.com/haroohie-club/ChokuretsuTranslationUtility/blob/main/HaruhiChokuretsuLib/Archive/ArchiveFile.cs)!
 
 ## Prossimamente
 Abbiamo analizzato e re-impacchettato l'archivio con successo. Il prossimo argomento di cui parleremo riguarda i primi file sul quale ho fatto reverse-engineering: i file degli eventi, che contenevano lo script del gioco. Ma prima di quello, pubblicherò un addendum in questi due post che conterranno le risposte a delle domande spesso chieste e qualche nota nel vero processo sul quale siamo passati per farlo funzionare. Grazie per la lettura!

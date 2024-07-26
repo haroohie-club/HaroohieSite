@@ -126,7 +126,7 @@ RAM:020261A0                 BEQ     loc_20262A0
 RAM:020261A4                 TST     R3, #0x80
 RAM:020261A8                 BEQ     loc_2026224
 ```
-Vediamo cosa fa' ognuna di queste istruzioni:
+Vediamo cosa fa ognuna di queste istruzioni:
 
 * `LDRB R3, [R0], #1`{lang='arm'} – Questo carica il byte nell'indirizzo contenuto in R0 (che contiene la posizione attuale nel file) nel registro R3 e poi incrementa R0 di uno (Il che significa che ci spostiamo alla posizione del prossimo byte nel file). Visto che siamo all'inizio del file, questo ne carica il primo byte.
 * `CMP R3, #0`{lang='arm'} ; `BEQ loc_20262A0`{lang='arm'} – `BEQ`{lang='arm'} significa "ramifica se è uguale," ma in realtà significa “ramifica se l'ultimo confronto è pari a zero.” Quindi, significa che se il valore che abbiamo appena caricato è 0, andremo a ramificare fino alla fine della subroutine. Possiamo ignorarlo per ora.
