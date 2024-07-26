@@ -1,6 +1,6 @@
 ---
 title: Patch ROM - Suzumiya Haruhi No Chokuretsu Translation (Nintendo DS)
-description: Online ROM patcher for applying the patch of Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
+description: Online ROM patcher for applying the translation patches of Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
 ---
 
 ## Patch ROM
