@@ -48,13 +48,9 @@ This command makes macOS allow the application to be run.
 Additionally, to apply ASM hacks, you'll need to install either **Make** or **Docker**. Make is automatically installed when using the Debian and RPM
 packages we distribute, so you don't need to worry about this step if you're using either of those.
 
-## General Prerequisites
-### devkitARM
-Before you run Serial Loops, you'll need to also install **devkitARM**. The
-devkitPro organization (which distributes devkitARM) has detailed installation
-instructions [on their website](https://devkitpro.org/wiki/Getting_Started).
-When deciding which workloads to install, ensure you at least install the NDS
-Development workload, as that's what contains devkitARM.
+Currently, the Docker path is **only supported on Windows** due to operating system and framework limitations. It is possible to get Docker running
+just fine on Linux distros by running SerialLoops as root (e.g. `sudo SerialLoops`), but it's easier to just use Make. On macOS, there is no known
+way of getting the Docker path to work, so you will have to use Make.
 
 * [Make](https://www.gnu.org/software/make/) is the software used to assemble assembly hacks. Installing Make allows you to build the hacks
   directly on your system.

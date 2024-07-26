@@ -13,7 +13,8 @@ The following document explains what every command in the game does.
 * Time in these commands is always defined in terms of _frames_. The game assumes a frame is 1/30 of a second, i.e. 30 frames per second. Thus, to wait one second,
 one would `WAIT` for 30 frames.
 
-Displays the "Main Topic -> Avoid" graphics.
+## `AVOID_DISP`
+**Parameters**: None
 
 Displays the "Main Topic -> Avoid" graphics.
 
@@ -84,15 +85,14 @@ scrolls the background in a DEFINED direction.
 * `Fade In Time (Frames)`: Time in frames that the BGM will fade in
 * `Fade Out Time (Frames)`: Time in frames that the BGM will fade out
 
-When a background that is larger than the screen is shown (such as
-`TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the
-background in a DEFINED direction.
+Plays or stops background music.
 
 
 ## `CHESS_CLEAR_ANNOTATIONS`
 **Parameters**: None
 
-Clears all chessboard annotations. Unused.
+## `CHESS_CLEAR_ANNOTATIONS`
+**Parameters**: None
 
 
 Plays or stops background music.
@@ -130,9 +130,7 @@ Crosses out spaces on the chessboard with a red X. If a space is already crossed
 * `Piece 3`: A space containing a piece whose potential moves to highlight
 * `Piece 4`: A space containing a piece whose potential moves to highlight
 
-## `CHESS_TOGGLE_CROSS`
-**Parameters**:
-* `Cross Space 0-15`: The spaces to place/remove a cross on
+Highlights the potential moves of a piece in red. If a piece has already been highlighted, this command unhighlights it.
 
 
 ## `CHESS_VGOTO`
@@ -141,21 +139,24 @@ Crosses out spaces on the chessboard with a red X. If a space is already crossed
 * `Miss Block`: Script block to go to if the chess game is failed
 * `Miss 2 Block`: Script block to go to if the chess game is failed in some unused way
 
-Monitors for the end of the chess game and then jumps to a specified script block depending on the outcome.
-
-
-Highlights the potential moves of a piece in red. If a piece has already been
-highlighted, this command unhighlights it.
-
-Highlights spaces on the chessboard in yellow. If a space is already highlighted, this command unhighlights it.
-
-
 ## `CHESS_VGOTO`
 **Parameters**:
 * `Clear Block`: Script block to go to if the chess game is cleared
 * `Miss Block`: Script block to go to if the chess game is failed
-* `Miss 2 Block`: Script block to go to if the chess game is failed in some
-  unused way
+* `Miss 2 Block`: Script block to go to if the chess game is failed in some unused way
+
+
+## `CHESS_TOGGLE_HIGHLIGHT`
+**Parameters**:
+* `Highlight Space 0-15`: The spaces to highlight
+
+Highlights spaces on the chessboard in yellow. If a space is already highlighted, this command unhighlights it.
+
+
+## `CHIBI_EMOTE`
+**Parameters**:
+* `Chibi`: The chibi to emote
+* `Emote`: The emote that should be shown
 
 This command displays an emote in a speech bubble above a [chibi](../graphics/chibis) figure on the top screen.
 
@@ -166,14 +167,16 @@ This command displays an emote in a speech bubble above a [chibi](../graphics/ch
 * `Enter/Exit`: Specifies whether the chibi is entering or exiting
 * `Delay (Frames)`: Specifies the number of frames after which the chibi should enter or exit
 
-Specifies a [chibi](../graphics/chibis) figure to enter or exit the top screen. To be used by this command, a chibi must have
-a walk cycle (animation 01) in addition to its default idle animation (animation 00).
-
-
-## `CHIBI_EMOTE`
+## `CHIBI_ENTEREXIT`
 **Parameters**:
-* `Chibi`: The chibi to emote
-* `Emote`: The emote that should be shown
+* `Chibi`: Specifies the chibi to enter or exit
+* `Enter/Exit`: Specifies whether the chibi is entering or exiting
+* `Delay (Frames)`: Specifies the number of frames after which the chibi should enter or exit
+
+
+## `CONFETTI`
+**Parameters**:
+* `Visible`: If true turns confetti on. If false, turns it off.
 
 Displays falling confetti on the top screen.
 
@@ -193,9 +196,7 @@ Displays falling confetti on the top screen.
 * `Don't Clear Text`: If true, continues displaying the next dialogue line in the same box
 * `No Lip Flap`: Manually disables lip flaps for dialogue that would otherwise have them
 
-## `CONFETTI`
-**Parameters**:
-* `Visible`: If true turns confetti on. If false, turns it off.
+Displays a line of dialogue and/or manipulates [character sprites](../graphics/sprites). Can optionally play a [voiced line](../sound/voice).
 
 A couple of notes on sprites:
 * Sprites are associated with a speaker
@@ -230,13 +231,20 @@ The colors available with the `#P` operator:
 **Parameters**:
 * `Episode Header`: The index of the title texture to use, i.e. 1 = Episode 1, 2 = Episode 2, 3 = Episode 3, 4 = Episode 4, 5 = Episode 5, 6 = Epilogue (if you want to be really clever, -1 is the main menu title)
 
+The colors available with the `#P` operator:
+| Operator | Color |
+|----------|-------|
+| `#P00` | Standard white text |
+| `#P01` | Yellow text like in Kyon's monologue |
+| `#P02` | Slightly off-white text |
+| `#P03` | Gray-ish text |
+| `#P04` | Lavendar text used for the Info speaker |
+| `#P05` | Red, used for mentioning topics |
+| `#P06` | Faded gray |
+| `#P07` | Black |
+
+
 Sets the upper screen to be an episode title texture.
-
-
-## `FLAG`
-**Parameters**:
-* `Flag`: The flag to set or clear
-* `Set`: 1 = set, 0 = clear
 
 Sets or clears a flag.
 
@@ -255,16 +263,9 @@ Sets a global variable to a specified value. Only used in one place so it's diff
 Jumps to a particular script section.
 
 
-## `HARUHI_METER`
-**Parameters**:
-* `Add`: The value to add to the Haruhi Meter (positive values move the meter toward Distracted while negative values move it toward Focused)
-* `Set`: The value to set the Haruhi Meter at (does not show the meter)
+Jumps to a particular script section.
 
-## `EPHEADER`
-**Parameters**:
-* `Episode Header`: The index of the title texture to use, i.e. 1 = Episode 1, 2
-  = Episode 2, 3 = Episode 3, 4 = Episode 4, 5 = Episode 5, 6 = Epilogue (if you
-  want to be really clever, -1 is the main menu title)
+Modifies the value of the Haruhi Meter. The meter minimum is 0 (corresponding to 10%) and the meter maximum is 9 (corresponding to 100%).
 
 
 ## `HARUHI_METER_NOSHOW`
@@ -280,17 +281,25 @@ Adds to the Haruhi Meter without showing the Haruhi Meter UI (the sound effects 
 Stops script execution until input is received from the player. 
 
 
-## `INIT_READ_FLAG`
-**Parameters**: None
+Adds to the Haruhi Meter without showing the Haruhi Meter UI (the sound effects are still played). Unused in the game.
 
 Unknown, unused in the game.
 
 
+Stops script execution until input is received from the player. 
+
+Ends investigation mode and returns to the main visual novel format of the game. Automatically fades screen to black.
+
+
+## `ITEM_DISPIMG`
+**Parameters**:
+* `Item`: The item to display
+* `X`
+* `Y`
+
 ## `GOTO`
 **Parameters**:
 * `Script Section`: The section to jump to
-
-Jumps to a particular script section.
 
 
 ## `HARUHI_METER`
@@ -300,12 +309,6 @@ Jumps to a particular script section.
 * `Set`: The value to set the Haruhi Meter at (does not show the meter)
 
 Displays the specified item image. Under certain circumstances, this should work; however, it seems this soft locks the game most of the time. Unused.
-
-
-Adds to the Haruhi Meter without showing the Haruhi Meter UI (the sound effects
-are still played). Unused in the game.
-
-Starts investigation mode. Automatically fades screen in from black.
 
 
 ## `KBG_DISP`
@@ -319,8 +322,7 @@ Displays a particular "kinetic" (my word) [background](../graphics/backgrounds) 
 **Parameters**:
 * `Map`: The map to load
 
-## `INVEST_END`
-**Parameters**: None
+Loads an isometric map for usage by [`INVEST_START`](#invest_start).
 
 ## `MODIFY_FRIENDSHIP`
 **Parameters**:
@@ -344,36 +346,32 @@ levels start at 1 and persist throughout a playthrough. They can be referenced i
 Ends the scene and moves to the next one as listed in the Scenario item.
 
 
-Starts investigation mode. Automatically fades screen in from black.
-
-Displays a particular "kinetic" (my word) [background](../graphics/backgrounds)
-on the top screen. Must be of type `KINETIC_SCREEN`.
-
-
-## `NOOP2`
+## `NOOP1`
 **Parameters**: None.
 
-Displays a particular "kinetic" (my word) [background](../graphics/backgrounds)
-on the top screen. Must be of type `KINETIC_SCREEN`.
+Does nothing.
+
+
+Starts investigation mode. Automatically fades screen in from black.
+
+Does nothing.
 
 
 ## `NOOP3`
 **Parameters**: None.
 
-Displays a particular "kinetic" (my word) [background](../graphics/backgrounds)
-on the top screen. Must be of type `KINETIC_SCREEN`.
+Does nothing.
 
 
 ## `OP_MODE` 
 **Parameters**: None
 
-Suppresses the top screen UI, disables dialogue skipping, and marks the center of the screen as the position the Kyon chibi walks to, and sends the Kyon chibi out. Used only in the opening text crawl.
+## `NOOP3`
+**Parameters**: None.
 
 
-Modifies a character's "Friendship Level" by adding a particular value to it.
-The value can be positive or negative. Friendship levels start at 1 and persist
-throughout a playthrough. They can be referenced in conditionals with the
-following variable names:
+## `OP_MODE` 
+**Parameters**: None
 
 
 ## `PIN_MNL`
@@ -382,6 +380,14 @@ following variable names:
 
 Draws a dialogue line as monologue over all other dialogue. Undone by completing a chess game.
 
+
+## `REMOVED`
+Removed in the final version of the game (not referenced in any scripts.)
+
+
+## `SCENE_GOTO`
+**Parameters**:
+* `Scene`: Name of the script file to go to
 
 ## `NEXT_SCENE`
 **Parameters**: None
@@ -392,13 +398,6 @@ Draws a dialogue line as monologue over all other dialogue. Undone by completing
 * `Scene`: Name of the script file to go to
 
 Does nothing.
-
-
-## `SCENE_GOTO2`
-**Parameters**:
-* `Scene`: Name of the script file to go to
-
-Behaves as [`SCENE_GOTO`](#scene_goto), except this command does not clear a flag before jumping. Otherwise, they seem to be identical.
 
 
 ## `SCREEN_FADEIN`
@@ -413,14 +412,15 @@ Behaves as [`SCENE_GOTO`](#scene_goto), except this command does not clear a fla
 Causes the screen to fade in.
 
 
-## `PALEFFECT`
+## `SCREEN_FADEOUT`
 **Parameters**:
-* `Mode`: The palette effect to be applied (available effects are default,
-  inverted, grayscale, sepia, and dimmed)
-* `Time (Frames)`: The time in frames that the BG's palette will take to switch
-  to transition to the effect palette
-* `Unknown`: This clearly does things when looking at the assembly/decomp, but I
-  don't know what it's doing precisely
+* `Fade Time (Frames)`: The length of the fade in frames
+* `Fade out Percentage`: The percentage darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means that the screen will be 50%
+  brighter than full black when the fade is complete); only respected by color fades
+* `Custom Color`: The color the fade will be if `Color` is set to `CUSTOM`
+* `Location`: The screen(s) the fade will be applied to
+* `Color`: Either black, white, or the custom color defined by `Custom Color`; this parameter must match that of the subsequent
+  [`SCREEN_FADEIN`](#screen_fadein) call
 
 Causes the screen to fade out.
 
@@ -444,12 +444,14 @@ Flashes the screen a specified color for a specified amount of time.
 Shakes the bottom screen.
 
 
-## `SCENE_GOTO2`
+## `SCREEN_SHAKE`
 **Parameters**:
-* `Scene`: Name of the script file to go to
+* `Duration (Frames)`: Effect duration in frames (if -1, shakes indefinitely)
+* `Horizontal Intensity`: Intensity of the shake in the horizontal direction
+* `Vertical Intensity`: Intensity of the shake in the vertical direction
 
-Behaves as [`SCENE_GOTO`](#scene_goto), except this command does not clear a
-flag before jumping. Otherwise, they seem to be identical.
+Stops screen shaking from a [`SCREEN_SHAKE`](#screen_shake) command. (Used when the `Duration` parameter of said [`SCREEN_SHAKE`](#screen_shake)
+is set to -1).
 
 
 ## `SELECT`
@@ -476,30 +478,22 @@ Presents the player with a series of choices that branch the dialogue tree. Choi
 Modifies the displayed place name.
 
 
-## `SCREEN_FADEOUT`
+## `SET_PLACE`
 **Parameters**:
-* `Fade Time (Frames)`: The length of the fade in frames
-* `Fade out Percentage`: The percentage darkness to fade into (where 0 is fully
-  bright and 100 is fully dark; e.g. 50 means that the screen will be 50%
-  brighter than full black when the fade is complete); only respected by color
-  fades
-* `Custom Color`: The color the fade will be if `Color` is set to `CUSTOM`
-* `Location`: The screen(s) the fade will be applied to
-* `Color`: Either black, white, or the custom color defined by `Custom Color`;
-  this parameter must match that of the subsequent
-  [`SCREEN_FADEIN`](#screen_fadein) call
+* `Display?`: Whether to display the location graphic or not
+* `Place`: The place to display
 
-Causes the screen to fade out.
+Modifies the displayed place name.
 
 
-## `SCREEN_FLASH`
-**Parameters**:
-* `Fade In Time (Frames)`: Time for the fade in portion of the flash in frames
-* `Hold Time (Frames)`: Time to hold on the flash color in frames
-* `Fade Out Time (Frames)`: Time for the fade out portion of the flash in frames
-* `Color`: The color of the flash
+## `SND_PLAY`
+**Parameters**: 
+* `Sound`: The sound to be played from `snd.bin`
+* `Mode`: Whether to start or stop the sound
+* `Volume`: The volume of the sound
+* `Crossfade Time (Frames)`: Time in frames that the sound will crossfade; only can be used when changing the volume of the same sound
 
-Flashes the screen a specified color for a specified amount of time.
+Plays a sound from the SDAT `snd.bin`.
 
 ## `STOP`
 **Parameters**: None
@@ -518,14 +512,17 @@ Shows/hides the dialogue box. Note that plenty of other commands already do one 
 **Parameters**:
 * `Topic`: The topic to give the player
 
-Give the player a particular topic.
+## `STOP`
+**Parameters**: None
 
 
 ## `TRANS_OUT`
 **Parameters**:
 * `Transition`: The transition to use
 
-Plays a transition to black.
+## `TOGGLE_DIALOGUE` 
+**Parameters**:
+* `Show`: Whether to show the dialogue box or not
 
 ## `TRANS_IN`
 **Parameters**:
@@ -540,8 +537,7 @@ Plays a transition from black into the scene.
 Unused in the game, unknown what this does.
 
 
-## `VCE_PLAY`
-* `Voice Line`: The voiced line to play
+Plays a transition to black.
 
 Plays a voice file.
 
@@ -551,14 +547,18 @@ Plays a voice file.
 * `Conditional`: The conditional to check
 * `Script Section`: The script section to jump to
 
-Goes to a specified script section if a specified conditional is true.
+## `UNKNOWN0A`
+**Parameters**: None
 
 ## `WAIT` 
 **Parameters**:
 * `Time (Frames)`: The number of frames to wait
 
-Waits a particular number of frames.
+## `VCE_PLAY`
+* `Voice Line`: The voiced line to play
 
-Plays a sound from the SDAT `snd.bin`.
+## `WAIT_CANCEL`
+**Parameters**:
+* `Time (Frames)`: The number of frames to wait.
 
 A command nearly identical to [`WAIT`](#wait), but allows for the wait to be canceled with a button press or screen tap.

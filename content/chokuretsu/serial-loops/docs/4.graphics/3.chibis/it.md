@@ -7,10 +7,8 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics/places'
 ---
 
-The current version of Serial Loops only allows you to view chibis, not edit
-them, so the documentation here will be sparse. In a future update, Serial Loops
-will be capable of fully editing chibis and this documentation will be updated
-to be more complete.
+The current version of Serial Loops only allows you to view chibis, not edit them, so the documentation here will be sparse.
+In a future update, Serial Loops will be capable of fully editing chibis and this documentation will be updated to be more complete.
 
 ## Overview
 Chibis are small animated sprites used on the top screen during regular visual novel segments and controlled/interacted with during the
