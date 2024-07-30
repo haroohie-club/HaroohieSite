@@ -5,4 +5,4 @@ author:
   website: 'https://fuyume.neocities.org/'
 ---
 
-Fuyuko 是一位有志向的程式設計師，他喜歡 21 世紀初的技術。
+Fuyuko is an aspiring programmer who likes tech from the early 2000s.

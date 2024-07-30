@@ -7,11 +7,10 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics'
 ---
 
-The current version of Serial Loops only allows you to view puzzle items, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing items and this documentation will be updated to be more complete.
+Con la versione attuale di Serial Loops, non è possibile modificare gli oggetti da usare nei puzzle, ma solo vederli. Quando sarà possibile, con un futuro aggiornamento, documenteremo qua come fare.
 
-## Overview
-Puzzles are used in the aptly-named puzzle phase of the game, where Kyon walks around on a map finding and erasing singularities.
+## Analisi
+Stiamo parlando di oggetti da utilizzare durante le fasi puzzle, le quali dove Kyon esplora una stanza per cancellare delle anomalie.
 
 ## In Serial Loops
 The puzzle editor lets you view the contents of puzzles, including their associated main [topics](../misc/topics), an ASCII representation of the

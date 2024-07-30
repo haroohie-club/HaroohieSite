@@ -7,27 +7,26 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/scenario/puzzles'
 ---
 
-The current version of Serial Loops only allows you to view maps, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing maps and this documentation will be updated to be more complete.
+Al momento puoi solo ispezionare le mappe, non puoi alterarle. In un futuro aggiornamento, sarà possibile cambiare le
+Mappe e, assieme ad esso, arriveranno istruzioni per per come fare.
 
 ## Overview
 
-In Chokuretsu, there are two different kinds of maps &ndash; investigation maps and puzzle maps. Investigation maps are used during
-the investigation phase while puzzle maps are used for puzzle phases.
+Nel gioco esistono due mappe, mappe dove si indaga e quelle dove si gioca.
 
 ## In Serial Loops
-In Serial Loops, map items can be opened and viewed. Additionally, the starting pathing overlay and starting camera location can be optionally
-toggled on.
+Nel programma potrai aprire e vedere le varie mappe di gioco. Inoltre, il punto di partenza e la posizione della telecamera possono essere
+cambiate.
 
 ![Map editor](/images/chokuretsu/serial-loops/map-editing.png)
 
-### Pathing Map Overlay
-The pathing map overlay toggle allows viewing the map's internal understanding of which spaces are accessible.
+### Vedere le mappe
+In questa sezione potrai visualizzare la mappa e capire quali caselle sono accessibili.
 
-| Space Color | Meaning |
+| Colore casella | Significato |
 |-------------|---------|
-| Red | Impassable |
-| Cyan | **Puzzle**: Impassable but singularity can spawn<br/>**Investigation**: Unknown, seems to indicate unused "exits" |
-| Green | Passable |
+| Rosso | Impraticabile |
+| Ciano | **Puzzle**:Impraticabile ma le entità vi possono nascere<br/>**Investigazione**: Sconosciuto, forse sono delle "uscite" inutilizzate |
+| Verde | Praticabili |
 
 ![Pathing overlay](/images/chokuretsu/serial-loops/map-pathing-overlay.png)
