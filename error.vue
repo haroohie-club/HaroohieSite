@@ -8,7 +8,7 @@
     <div class="error" v-else-if="error.statusCode == 500">
         <h2>Error {{ error.statusCode }} - Internal Error</h2>
         <p>This error can be caused by the uBlock Origin filter "Fanboy's Annoyance." Please consider disabling this filter or disabling uBlock Origin on this site.</p>
-        <p>If you don't have this filter enabled, please report this issue to us!</p>
+        <p>If you don't have this filter enabled, try refreshing the page (possibly a few times). If that still doesn't work, please [report this issue to us](https://github.com/haroohie-club/HaroohieSite/issues)!</p>
     </div>
     <div class="error" v-else>
         <h2>Error {{ error.statusCode }}</h2>
