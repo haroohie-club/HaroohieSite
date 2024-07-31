@@ -205,15 +205,15 @@ Android 上最好的 DS 模擬器是 [DraStic](https://play.google.com/store/app
 3. 當程式載入時，選擇螢幕左側的 DS 圖示。
 4. 選擇以下選項：
     - 在“Base ROM”（基本 ROM）下拉列表中，選擇“Mario Kart DS (US)”（馬力歐卡丁車 DS 美版）或“Mario Kart DS (EU)”（馬力歐卡丁車 DS 歐版）（取決於主機所在的區域；如果區域不是美國或歐洲，只需選擇其中一個，這並不重要）。
-    - 點擊“Enter CKey”（輸入 CKey）按鈕。單擊“Read from otp.bin”（從otp.bin讀取），然後選擇 SD 卡上的 otp.bin 文件，該文件是安裝自定義固件時作爲 NAND 轉儲過程的一部分創建的。如果你因爲某些原因沒有這個文件，你需要找到 Wii U 通用密鑰，然後手動寫入。
-    - 點擊“Enter TKey”（輸入 TKey）按鈕。現在，你需要輸入你選擇的區域的《馬力歐卡丁車 DS》的 title key。除了在網上查找外，沒有什麼簡單的方法可以得到它。請確保輸入了所選區域的《馬力歐卡丁車 DS》的 title key。
-    - 點擊“ROM PATH”（ROM 路徑）旁邊的“Choose File”（選擇文件），然後選擇已打補丁的《涼宮春日的串聯》ROM 文件。
-    - 在“Icon Image”（圖標圖像）框中，點擊“Create File”（創建文件）。下載[此圖像](/images/chokurestu/virtual-console-icon.png)（或使用你自制的），並通過“Select File”（選擇文件）選擇它。請隨意定製外觀，這是將出現在 Wii U 系統菜單上的圖標。然後，點擊“Finish”（完成）。
-    - 在“TV Image”（電視圖像）框中，點擊“Create File”（創建文件），輸入遊戲名稱（“涼宮春日的串聯”）、發佈年份（2009 年）和玩家數量（1）。然後爲圖標圖像選擇相同的文件（或者選擇你自己的！）。然後，點擊“Finish”（完成）。
+    - 點選“Enter CKey”（輸入 CKey）按鈕。單擊“Read from otp.bin”（從otp.bin讀取），然後選擇 SD 卡上的 otp.bin 檔案，該檔案是安裝自定義韌體時作為 NAND 轉儲過程的一部分建立的。如果你因為某些原因沒有這個檔案，你需要找到 Wii U 通用金鑰，然後手動寫入。
+    - 點選“Enter TKey”（輸入 TKey）按鈕。現在，你需要輸入你選擇的區域的《馬力歐卡丁車 DS》的 title key。除了在網上查詢外，沒有什麼簡單的方法可以得到它。請確保輸入了所選區域的《馬力歐卡丁車 DS》的 title key。
+    - 點選“ROM PATH”（ROM 路徑）旁邊的“Choose File”（選擇檔案），然後選擇已打補丁的《涼宮春日的串聯》ROM 檔案。
+    - 在“Icon Image”（圖示影像）框中，點選“Create File”（建立檔案）。下載[此影像](/images/chokuretsu/virtual-console-icon.png)（或使用你自制的），並透過“Select File”（選擇檔案）選擇它。請隨意定製外觀，這是將出現在 Wii U 系統選單上的圖示。然後，點選“Finish”（完成）。
+    - 在“TV Image”（電檢視像）框中，點選“Create File”（建立檔案），輸入遊戲名稱（“涼宮春日的串聯”）、釋出年份（2009 年）和玩家數量（1）。然後為圖示影像選擇相同的檔案（或者選擇你自己的！）。然後，點選“Finish”（完成）。
     - 在“Game Name”（遊戲名稱）框中輸入：`涼宮春日的串聯`
-    - 你還可以向啓動遊戲時出現在 Wii U 菜單上的界面添加其他一些藝術作品，例如啓動圖像和啓動聲音。
-5. 完成後，點擊“Inject”（注入）。你的 ROM 將被注入到 Wii U WUP 遊戲中。
-6. 完成後，點擊“WUP Installable”（WUP 可安裝）。等待它打包爲 WUP 格式，然後點擊“Copy to SD”（複製到 SD 卡）。你的 WUP 文件將被複制到 Wii U 上正確的目錄中，因此你可以使用 WUP Installer GX2 將其添加到系統中。
+    - 你還可以向啟動遊戲時出現在 Wii U 選單上的介面新增其他一些藝術作品，例如啟動影像和啟動聲音。
+5. 完成後，點選“Inject”（注入）。你的 ROM 將被注入到 Wii U WUP 遊戲中。
+6. 完成後，點選“WUP Installable”（WUP 可安裝）。等待它打包為 WUP 格式，然後點選“Copy to SD”（複製到 SD 卡）。你的 WUP 檔案將被複制到 Wii U 上正確的目錄中，因此你可以使用 WUP Installer GX2 將其新增到系統中。
 7. 從電腦中取出 SD 卡，然後將其放回 Wii U 中。
 
 #### 第 3 部分：使用 WUP Installer GX2 安裝 WUP

@@ -64,7 +64,7 @@ head:
 ![在 CrystalTile2 中開啟的 evt.bin，顯示 0x2800 以下的一段 0](/images/blog/0003/03_lots_of_zeros_2.png)
 
 
-Interesting! After we scroll past a large chunk of data, we end up in a field of zeros, followed by another large chunk of data and then another field of zeros and so on. What’s more, after we scroll past the first bit, each of the large chunks of data seems to start on a multiple of 0x800 (hard to get that sense from two images, but trust me, crack open the files and you’ll see the pattern). To me, this looks like the _file data_ – and what’s more, each file is neatly spaced with padding in between.
+有趣！當我們滾動經過一大塊資料後，我們最終會進入一個包含 0 的區域，然後是另一大塊資料，然後是一個包含 0 的區域，以此類推。更重要的是，當我們滾動過第一段之後，每一大塊資料似乎都以 0x800 的倍數開始（很難從兩個影像中獲得這種感覺，但相信我，如果你開啟檔案，你就會看到這種模式）。對我來說，這看起來像*檔案資料*——而且，每個檔案之間都有整齊的填充。
 
 ![在 CrystalTile2 中開啟的 evt.bin，顯示了 0x0000 處。前兩個位元組以紅色高亮，從 0x22 開始每隔四個位元組間隔的位元組模式以青色高亮](/images/blog/0003/04_cyan_numbers.png)
 
