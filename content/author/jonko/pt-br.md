@@ -11,4 +11,4 @@ author:
   pixelfed: 'https://gram.social/i/web/profile/720048688300269620'
 ---
 
-Jonko is the project lead and main ROM hacker for the Haroohie Translation Club.
+Jonko é o líder do projeto e principal ROM hacker do Haroohie Translation Club.

@@ -4,4 +4,4 @@ description: The homepage of the Haroohie Translation Club, translators of Haruh
 locale: pt-br
 ---
 
-We're the Haroohie Translation Club&mdash;dedicated to translating the Haruhi Suzumiya games into English!
+Somos o Haroohie Translation Club&mdash;dedicado a traduzir os jogos da Haruhi Suzumiya para o Inglês!

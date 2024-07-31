@@ -9,27 +9,27 @@ navigation:
 The game's flow can be edited with the _Scenario_ editor. The scenario is essentially a list of commands which execute in order to load various game
 components. The commands are explained in the following table:
 
-## Scenario Commands
-| Command | Description |
+## Comandi scena
+| Comando | Descrizione |
 |---------|-------------|
-| `NEW_GAME` | This command defines where the "New Game" menu item takes the player. For example, if `NEW_GAME 5` defines where selecting _New Game_ &rarr; _Episode 5_ will take the player. |
-| `SAVE` | This command prompts the user to save the game. |
-| `LOAD_SCENE` | This command loads a particular script file. |
-| `PUZZLE_PHASE` | This command starts a particular puzzle phase. |
-| `ROUTE_SELECT` | This command starts a particular group selection. |
-| `STOP` | This command stops the game. It is not actually used. |
-| `SAVE2` | This command also prompts the user to save the game. The difference between this command and `SAVE` are unknown. |
-| `TOPICS` | This command displays which topics the player has collected over the previous scene(s) following group selection. |
-| `COMPANION_SELECT` | This loads a companion selection screen, allowing the player to select which Brigade member will accompany Haruhi during the puzzle phase. |
-| `PLAY_VIDEO` | Plays a video; 0 plays the OP and 1 plays the ED. |
-| `NOP` | Does nothing |
-| `UNKNOWN0B` | This command is used but its function is currently unknown. |
-| `UNLOCK` | Unlocks particular functionality. The exact mapping between the parameter specified and which functionality is unlocked is currently unknown. |
-| `END` | Ends the scenario and returns to the title screen. |
+| `NEW_GAME` | Con questo comando ti permette di cambiare dove ti porterà il menu "New Game". Per esempio, `NEW_GAME 5`ti farà inziare dal quinto episodio |
+| `SAVE` | Questo comando ti permette di salvare. |
+| `LOAD_SCENE` | Questo comando ti permette di caricare lo script che più ti aggrada. |
+| `PUZZLE_PHASE` | Questo comando farà partire una fase puzzle. |
+| `ROUTE_SELECT` | Questo comando ti fa partire dalla divisione dei compiti. |
+| `STOP` | Questo comando fa bloccare il gioco. Non serve a molto. |
+| `SAVE2` | Anche con questo comando potrai salvare. Non sappiamo ancora la differenza con il comando`SAVE`|
+| `TOPICS` | Con questo comando potrai vedere tutte le discussioni che hai sbloccato. |
+| `COMPANION_SELECT` | Potrai caricare la schermata di "scelta del compagno" facendo scegliere quale personaggio farà da compagnia ad Haruhi durante le fasi puzzle. |
+| `PLAY_VIDEO` | Riproduce un video, 0 mostra la sigla d'apertura, 1 riproduce i crediti. |
+| `NOP` | Non fa nulla |
+| `UNKNOWN0B` | Funzione sconosciuta. |
+| `UNLOCK` | Sblocca alcune cose. Ancora non sappiamo cosa sblocchi di preciso. |
+| `END` | Torna alla schermata del titolo. |
 
 ## Editing
-As with script commands, scenario commands can be added and removed with the + and garbage can buttons above the command list. 
+Gli script dei comandi e scenari possono essere aggiunti o tolti, grazie alle icone + e del cestino, sopra la lista dei comandi.
 
-The entire scenario can be cleared using the rocket ship button. Individual commands can be edited (changing the command itself as well as its single parameter) in the editor panel to the right.
+Cliccando sul razzo cancellerai tutti gli script. Puoi modificare gli script individualmente (sia tutto il comando o solo un singolo parametro) nel pannello a sinistra.
 
 ![Scenario Editing](/images/chokuretsu/serial-loops/scenario-editing.png)

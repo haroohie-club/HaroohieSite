@@ -7,38 +7,31 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics'
 ---
 
-The current version of Serial Loops only allows you to view group selections, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing group selections and this documentation will be updated to be more complete.
+Al momento, puoi solo vedere le scelte possibili del gruppo, non puoi modificarle. In futuro sarà possibile modificarle, quando accadrà, torna qui per vedere questi appunti aggiornati.
 
-## Overview
-Group selection items represent the sections of the game where you divide up the SOS Brigade to accomplish different tasks. The group selections are
-triggered in game when the `GROUP_SELECTION` [Scenario](./game-flow) command is called. It brings up the following screen:
+## Spiegazione
+In questa sezione vengono rappresentati gli istanti dove dovrai divere i personaggi per fargli svolgere dei compiti. Nel gioco, vengono segnalate quando viene menzionato nel codice il comando `GROUP_SELECTION` [Scenario](./game-flow). Ti porterà alla seguente schermata :
 
 ![Task assignment screenshot](/images/chokuretsu/screenshots/task-assignment.png)
 
-On this screen, there are two to four boxes of different colors labeled A through D. These boxes represent the possible **tasks** characters can be
-sent to do by dragging their character portraits into the box.
+In questa pagina ci saranno dalle 2 alle 4 scelte, marchiate con lettere che vanno dalla "A" alla "D". Le scelte rappresentano i **compiti* che i personaggi dovranno svolgere, per fare una scelta, trascina l'icona del personaggio sul riquadro che desideri.
 
-Every possible group of characters in a particular task defines a **route** for that task. Note that routes are defined as a subset of the tasks,
-not as a property of the overall distribution of characters between all tasks (i.e., routes only depend on the characters in a particular task
-and are independent of the character distribution in other tasks).
+Ogni gruppo farà la sua **strada** per completare quel compito. I percorsi sono composti da un sottoinsieme di compiti,
+e non tutte le strade hanno le stesse proprietà (Dipende tutto dai personaggi ai quali affiderai i compiti).
 
 ## In Serial Loops
-The current group selection editor allows you to view the following properties:
+L'editor della divisione dei gruppi ti permette di vedere le seguenti caratteristiche:
 
-* The two to four **tasks** available as part of the group selection. In the editor, you can see the title of the task as well as:
-  - Whether Haruhi is present for that task (Haruhi's character portrait appears locked on the task when she is present)
-  - If there is a required brigade member for that task (either a specific character locked in or just requiring a brigade member to be sent)
-  - The "future tense" description of the task, which is seen on the group selection screen
-  - The "past tense" description of the task, which is seen on the topics recap screen
-  - The hardcoded "optimal group" &ndash; this doesn't seem to have a mechanical effect, but it's the group of characters that gather the most topics
-    when they are sent on that task _without_ Kyon
-  - The hardcoded "worst group" &ndash; again, no mechanical effect as far as we know, but it's the group of character that gather the least topics
-    when they are sent on that task _without_ Kyon
-* Inside each task are the descriptions of each **route** available in that task. In addition to the route's title (which can be seen in-game in Kyon's   
-  dialogue bubble when the route is selected with Kyon present), the editor allows you to observe the following properties:
+* All'interno dell'editor troverai i seguenti parametri:
+  - Se Haruhi è presente o meno(Non è possibile spostare la sua icona)
+  - Se è obbligatorio o meno mandare un personaggio a fare una determinata mansione.
+  - Una descrizione di quello che farai.
+  - Una descrizione di quello che hai fatto.
+  - La possibilità di vedere quale sia la combinazione migliore per ogni singolo compito (sia con o senza Kyon).
+  - La possibilità di vedere quale sia la combinazione peggiore per ogni singolo compito (sia con o senza Kyon).
+* Troverai anche una descrizione per quello che accadrà in quella strada. Troverai anche il nome del percorso:
   - The script associated with the topic &ndash; this is the script that will be loaded the selected group (including Kyon) is sent on this task
-  - Characters involved &ndash; the list of characters involved in this topic
-  - Kyonless-topics &ndash; these are the topics gathered by the group when they are sent on that task _without_ Kyon
+  - I personaggi coinvolti in quella discussione.
+  - Se la discussione è senza Kyon, avvengono se Kyon non è assieme ad Haruhi.
 
 ![Group selections editor](/images/chokuretsu/serial-loops/group-selections-editor.png)
