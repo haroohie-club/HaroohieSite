@@ -53,7 +53,7 @@ tuttora impossibile far partire il Docker, quindi usa solo Make.
     - Make comes preinstalled on many Linux distributions. If it is not installed on yours, you will likely be able to install it with your package
       as simply as `[packagemanger] install make` from a terminal.
   
-  To test if make is installed properly, type `make --verison` into a terminal and see if it produces the version of make.
+  To test if make is installed properly, type `make --version` into a terminal and see if it produces the version of make.
 * If you would rather not install Make, or if it is not working properly, you can instead run it through a Docker container. To do this, you should
   install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or the Docker Engine. Ensure the Docker engine is running and make sure
   to check the "Use Docker for ASM Hacks" option in Preferences. You may want to occasionally clean up containers created by Serial Loops, as it will
