@@ -11,4 +11,4 @@ author:
   pixelfed: 'https://gram.social/i/web/profile/720048688300269620'
 ---
 
-Jonko 是 Haroohie Translation Club 的專案負責人和 ROM 的主要破解者。
+Jonko 是 Haroohie Translation Club 的項目負責人和 ROM 的主要破解者。

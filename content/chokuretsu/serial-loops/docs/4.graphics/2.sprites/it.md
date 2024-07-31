@@ -7,19 +7,18 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics/chibis'
 ---
 
-The current version of Serial Loops only allows you to view character sprites, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing character sprites and this documentation will be updated to be more complete.
+Nella versione attuale di Serial Loops, non puoi modificare gli sprite, ma solo vederli. Quando sarà possibile farlo, aggiungeremo delle istruzioni
+in questa pagina.
 
-## Overview
+## Analisi
 
-A character sprite is a sprite representing a character that is used in dialogue when speaking to that character. Each sprite has three components:
+Gli sprite vengono usati per rappresentare i personaggi durante i dialoghi. Ogni sprite è composto da tre parti:
 
-1. A body
-2. A mouth (animated for lip movements while speaking)
-3. Eyes (animated for blinking)
+1. Corpo
+2. Bocca (Si anima per il labiale dei personaggi)
+3. Occhi (Si animano per il battito delle ciglia)
 
-Character sprites are controlled by the [`DIALOGUE`](../scripts/commands#dialogue) command in script files.
+Gli sprite vengono controllati dal comando [`DIALOGUE`](../scripts/commands#dialogue) negli script.
 
 ## In Serial Loops
-In the current version of Serial Loops, character sprites can be opened so their animations can be viewed. Additionally, they can be exported either
-as a series of frames (which will be the format for editing them in future versions) or as an animated GIF.
+Al momento puoi solo vedere gli sprite dei personaggi per vederli. Inoltre, puoi esportarli sia fotogramma per fotogramma (daremo le istruzioni per come modificarli in futuro) o come file animato in estensione GIF.

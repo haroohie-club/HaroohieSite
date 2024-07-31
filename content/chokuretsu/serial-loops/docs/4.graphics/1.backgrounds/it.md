@@ -7,20 +7,22 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics/sprites'
 ---
 
-Backgrounds are used to display visual novel backgrounds as well as CGs (**c**omputer **g**raphics; a common term for full screen art in visual novels
-that isn't overlaid with sprites). They can be viewed and edited through the background editor.
+Gli sfondi vengono usati durante i dialoghi dei personaggi. È possibile modificare questi sfondi grazie all'editor apposta.
 
-## Replacing
-Backgrounds can easily be replaced in the background editor. Simply press the "Replace" button and select a new image file from disk. This will open the built-in crop & scale  tool to let you size your image to fit the standard set of background sizes (see below).
+## Rimpiazzare
+È possibile cambiare gli sfondi grazie all'editor apposta. Per farlo, clicca il tasto "Sostituisci" e scegli un'immagine dal tuo computer. Si aprirà uno strumento
+per modificare e scalare le immagini per ridimensionarle per il gioco.
 
-### Crop and Scale
-You can use the built-in Crop and Scale tool on imported images to scale it and select the area of the image you wish to replace the original graphic with.
+### Scalare
+Puoi usare lo strumento per modificare e importare le immagini, starà a te scegliere quale immagine sostituire quella vecchia con quella nuova.
 
 ![Crop and Scale tool](/images/chokuretsu/serial-loops/crop-and-scale.png)
 
-Once an image file has been selected after choosing "Replace,"" a box overlay cut-out will be layered over the imported bitmap. Using the mouse, you can click and drag this box to change the area of your crop. If you hold the `CONTROL` key, dragging with the mouse will instead move the image. You can also use both the numeric stepper boxes on the right hand side of the menu or the arrow keys to fine-tune the image's position. To reset the position of the image, press the "Apply" button in the "Position Image" section.
+Una volta scelta l'immagine clicca "Sostituisci", apparirà una finestra. Usando il mouse, puoi modificare l'immagine trascinandola dentro la finestra, puoi anche scalarla dentro la finestra. Tenendo premuto CRTL e trascinando il mouse sposterai l'immagine. Puoi anche usare il tastierino numerico o le freccette
+per aggiustare l'immagine. Per ripristinare la posizione dell'immagine, premi "Applica" nella sezione "Posizione immagine".
 
-Finally, to scale the image, hold `CONTROL` and use your mouse's scroll wheel, or use the numeric steppers also positioned on the right hand side of the menu. To automatically scale an image to fit within the box, press the "Apply" button in the "Scale Image" section. By default, scaling an image will preserve the imported image's aspect ratio; to unlock this association, uncheck the "Preserve Aspect Ratio" check box.
+Per ridimensionare l'immagine, premi CTRL e, usando la rotellina del mouse o il tastierino numerico, naviga nel menù. Per dimensionare l'immagine per farcela stare dentro i limiti del gioco, premi "Applica" nella sezione "Scala immagine". Di base, un'immagine manterrà le sue proporzioni, per rimuovere questa
+caratteristica, rimuovi il check da "Mantieni proporzioni".
 
 ![Background editing](/images/chokuretsu/serial-loops/background-editing.png)
 
@@ -34,5 +36,5 @@ Finally, to scale the image, hold `CONTROL` and use your mouse's scroll wheel, o
 | `TEX_CG_WIDE`        | 512x192              | Displayed on bottom screen, but wider than the full screen (scrolled with `BG_SCROLL`)                   |
 | `TEX_CG_SINGLE`      | 256x256              | Displayed on bottom screen, but taller than bottom screen (scrolled with `BG_SCROLL`)                  |
 
-## CG Titles
-Many CGs have titles associated with them that are shown in the Extras CG viewer. Where this is the case, a text box will be shown letting you modify the title.
+## CG
+Le immagini CG (Computer Graphics, termine molto usato nel campo delle visual novel), hanno dei titles che si possono trovare nel album di gioco. Se sarà possibile ti verrà data la possibilità di modificare i loro nomi.

@@ -7,17 +7,16 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/scripts/investigation-phase'
 ---
 
-Also on the right side of the editor are three tabs with three separate editors &ndash; Starting Chibis, Map Characters, and Choices.
-This document will cover Starting Chibis and Choices, while the next document will cover the Map Characters tab.
+Sulla tua destra troverai tre tabelle con le loro caratteristiche; Chibi che appaino, Mappa, e Scelte.
+Qua parleremo dei Chibi e delle scelte.
 
-## Starting Chibis
-The first tab of the bunch is the Starting Chibis tab &ndash; this allows you to edit the chibis that will appear on the top screen when the
-scene is loaded. Over the course of the script, the [`CHIBI_ENTEREXIT`](./commands#chibi_enterexit) command can modify which chibis are on the top screen.
+## Chibi
+La prima casella è quella dei Chibi; Questa ti farà vedere quali Chibi appariranno sullo schermo superiore. Il comando [`CHIBI_ENTEREXIT`](./commands#chibi_enterexit) ti aiuterà a modificare gli omini che appariranno in alto.
 
 ![Script editor - starting chibis](/images/chokuretsu/serial-loops/script-starting-chibis.png)
 
-## Choices
-The choices tab contains the list of choices that can be used by [`SELECT`](./commands#select) commands. Choices can be added or deleted, and
-each choice's text and associated script section can be edited.
+## Scelte
+La lista delle scelte si può modificare con il comando [`SELECT`](./commands#select). Le scelte si posso aggiungere oppure togliere.
+Lo script, in quel caso, andrà modificato.
 
 ![Script editor - choices](/images/chokuretsu/serial-loops/script-choices.png)

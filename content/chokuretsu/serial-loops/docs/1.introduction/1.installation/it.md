@@ -7,50 +7,41 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/introduction/getting-started'
 ---
 
-Serial Loops is available for Windows, macOS, and Linux. You can get the latest release from [here](https://github.com/haroohie-club/SerialLoops/releases/latest).
+Serial Loops è disponibile per Windows, macOS e Linux. Scarica l'ultima versione [qui](https://github.com/haroohie-club/SerialLoops/releases/latest).
 
 ## Windows
-For Windows, we currently only distribute a "portable" style app in a zip file.
-This means there is no installer; instead, you simply extract Serial Loops to a
-folder and begin editing. In the future, we plan to offer a standard installer
-experience.
+La versione Windows, al momento, è portatile, il che significa, che non è installabile;
+Dovrai estrare i file del programma in una cartella che più ti aggrada. Abbiamo in mente di
+rilasciare un installer del programma in futuro.
 
 ## macOS
-For macOS, we provide DMGs for both Intel (x64) and Apple Silicon (ARM) devices. To use these, you simply open the DMG
-and drag the application to the Applications folder. However, because we don't codesign Serial Loops, there is one
-additional step: you'll need to open your terminal and run the following command:
+Per macOS, abbiamo delle versioni sia per dispositivi Intel (x64) e Apple Silicon (ARM). Per utilizzarli, apri il DMG
+e trascina il programma nella cartella delle applicazioni. Sfortunatamente, Serial Loops non gira nativamente
+su questo sistema, quindi dovrai fare un passo aggiuntivo, apri il terminale e digita il seguente comando:
 ```
 xattr -cr /Applications/SerialLoops.Mac.app
 ```
-This command makes macOS allow the application to be run.
+Questo comando permetterà di far partire il programma senza problemi.
 
 ## Linux
-* On Debian-based Linux distros (e.g. Debian & Ubuntu), the application can be installed using the Debian package we distribute. Simply run
-  `sudo apt -f ./SerialLoops-{version}_amd64.deb` to install it.
-* On Red Hat-based Linux distros (e.g. Fedora, RHEL, and CentOS), the application can be installed using the RPM package we distribute. Simply run
-  `sudo dnf install ./SerialLoops-{version}1.fc38.x86_64.rpm` to install it.
-* For other Linux distros, we distribute portable binaries in a tar.gz file. After extracting the files to a location
-  of your preference, make sure you install [OpenAL](https://www.openal.org/) through the appropriate process for your distro.
+* Per le distro basate su Debian (Come debian o Ubuntu) il programma si installa con il pacchetto debian creato da noi. Digita
+  `sudo apt -f ./SerialLoops-{version}_amd64.deb` Per installarlo.
+* Per le distro Red Hat (Come Fedora o CentOS) il programma si scarica con il pacchetto RPM creato da noi. Digita
+  `sudo dnf install ./SerialLoops-{version}1.fc38.x86_64.rpm` per installarlo.
+* Per le altre distro, usa i file in estensione tar.gz. Una volta estratti i file
+  Assicurati di installare [OpenAL](https://www.openal.org/) per far partire il programma.
 
-## Linux
-* On Debian-based Linux distros (e.g. Debian & Ubuntu), the application can be
-  installed using the Debian package we distribute. Simply run `sudo apt -f
-  ./SerialLoops-{version}_amd64.deb` to install it.
-* On Red Hat-based Linux distros (e.g. Fedora, RHEL, and CentOS), the
-  application can be installed using the RPM package we distribute. Simply run
-  `sudo dnf install ./SerialLoops-{version}1.fc38.x86_64.rpm` to install it.
-* For other Linux distros, we distribute portable binaries in a tar.gz file.
-  After extracting the files to a location of your preference, make sure you
-  install [OpenAL](https://www.openal.org/) through the appropriate process for
-  your distro.
+## Prerequisiti
+### devkitARM
+Prima di avviare Serial Loops, dovrai installare **devkitARM**. [La pagina della devkitPro organization](https://devkitpro.org/wiki/Getting_Started) (la quale distribuisce i devkitARM) spiega perfettamente come fare. Assicurati di installare i file di NDS Development workload.
 
 ### Make or Docker
-Additionally, to apply ASM hacks, you'll need to install either **Make** or **Docker**. Make is automatically installed when using the Debian and RPM
-packages we distribute, so you don't need to worry about this step if you're using either of those.
+Per utilizzare le ASM hacks, dovrai installare entrambi **Make** or **Docker**. Make viene installato automaticamente su le distro Debian e RPM
+Quindi, ignora questi passi se ti trovi su uno di quei sistemi.
 
-Currently, the Docker path is **only supported on Windows** due to operating system and framework limitations. It is possible to get Docker running
-just fine on Linux distros by running SerialLoops as root (e.g. `sudo SerialLoops`), but it's easier to just use Make. On macOS, there is no known
-way of getting the Docker path to work, so you will have to use Make.
+La versione Docker è **disponibile solo su Windows** per colpa dei limiti dei sistemi operativi. È possibile far partire il Docker
+su Linux, avviando il programma dalla root (e.g. `sudo SerialLoops`), ma usare solo Make semplifica di più le cose. Su macOS è
+tuttora impossibile far partire il Docker, quindi usa solo Make.
 
 * [Make](https://www.gnu.org/software/make/) is the software used to assemble assembly hacks. Installing Make allows you to build the hacks
   directly on your system.
@@ -70,9 +61,9 @@ way of getting the Docker path to work, so you will have to use Make.
     - On Windows, though, you will additionally need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en/windows/wsl/install).
       From an admin PowerShell or Terminal window (Winkey + X + A), simply type `wsl --install` to install it.
 
-In general, Make is recommended, but it can be more difficult to get working on Windows systems sometimes. In this case, feel free to use Docker.
+In parole povere, Make è obbligatorio da installare, ma è difficile da usare su Windows. In quel caso, utilizza la versione Docker.
 
-### A Nintendo DS Emulator
-Finally, to be able to test your game, you'll want a Nintendo DS emulator installed. Our team recommends [melonDS](https://melonds.kuribo64.net/).
+### Un emulatore del Nintendo DS.
+Per poter provare le tue modifiche apportate alla ROM, ti servirà un emulatore. Noi ti consigliamo [melonDS](https://melonds.kuribo64.net/).
 
-After you've installed Serial Loops, devkitARM, and either Docker or Make, you're ready to get started!
+Una volta che avrai installato tutto, iniziamo a divertirci!
