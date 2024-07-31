@@ -709,7 +709,7 @@ for (int i = 0; i < MagicIntegers.Count; i++)
 
 ![显示从游戏中提取的脚本的 GUI 界面](/images/blog/0003/24_archive_interface.png)
 
-看上去很不错！（右边的文本是对即将到来的事情的预览——我在解析归档文件的同时，也在解析事件/脚本文件，但我不会在这篇文章中讨论事件文件的逆向工程。）所以现在我们可以打开 `evt.bin`，甚至编辑其中的文件。不过，还有一步——我们必须能够在编辑完二进制归档文件后保存它们。
+Very nice looking! (The text on the right is a preview of what’s to come – I was working on parsing the event/script files at the same time as I was working on parsing the archives, but we won’t be covering event file reverse-engineering in this post.) So now we can open `evt.bin` and even edit the files inside it. There’s still one step left, though – we have to be able to save the bin archives once we’re done editing them.
 
 ### 保存归档文件
 保存归档文件的理想方法是从头开始重建，但由于头部中有我们不完全理解的数据，我们将不得不接受在适当的位置编辑文件头。因此，我们首先添加在解析时获取的整个文件头。
