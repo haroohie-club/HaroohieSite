@@ -709,7 +709,7 @@ for (int i = 0; i < MagicIntegers.Count; i++)
 
 ![顯示從遊戲中提取的指令碼的 GUI 介面](/images/blog/0003/24_archive_interface.png)
 
-Very nice looking! (The text on the right is a preview of what’s to come – I was working on parsing the event/script files at the same time as I was working on parsing the archives, but we won’t be covering event file reverse-engineering in this post.) So now we can open `evt.bin` and even edit the files inside it. There’s still one step left, though – we have to be able to save the bin archives once we’re done editing them.
+看上去很不錯！（右邊的文字是對即將到來的事情的預覽——我在解析歸檔檔案的同時，也在解析事件/指令碼檔案，但我不會在這篇文章中討論事件檔案的逆向工程。）所以現在我們可以開啟 `evt.bin`，甚至編輯其中的檔案。不過，還有一步——我們必須能夠在編輯完二進位制歸檔檔案後儲存它們。
 
 ### 儲存歸檔檔案
 儲存歸檔檔案的理想方法是從頭開始重建，但由於頭部中有我們不完全理解的資料，我們將不得不接受在適當的位置編輯檔案頭。因此，我們首先新增在解析時獲取的整個檔案頭。
