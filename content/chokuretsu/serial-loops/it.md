@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops - Level Editor for Suzumiya Haruhi no Chokuretsu'
-description: &desc 'Serial Loops is a level editor for Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.'
+title: &title 'Serial Loops - Editor per Suzumiya Haruhi no Chokuretsu'
+description: &desc 'Serial Loops è un editor per Suzumiya Haruhi no Chokuretsu (La Serie di Haruhi Suzumiya), per Windows, Mac and Linux.'
 navigation:
   image: 'script-editor.png'
 head:
@@ -30,7 +30,7 @@ head:
 ---
 <b class="sl-header">An editing suite for Suzumiya Haruhi no Chokuretsu</b> 
 
-Serial Loops is an editing suite for [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.
+Serial Loops è un editor per [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (La Serie di Haruhi Suzumiya), disponibile per Windows, Mac and Linux.
 
 <br />
 <br />
@@ -44,7 +44,7 @@ limit: 2
 ::
 
 ## Downloads
-Downloads are available for Windows, macOS (Intel and Apple Silicon) and Linux (RPM & Debian packages) [on GitHub](https://github.com/haroohie-club/SerialLoops/release). We offer both release (recommended) and nightly pre-release builds.
+Il programma è disponibile per Windows, macOS (sia per Intel che Apple Silicon) e Linux (RPM & Debian packages) [su GitHub](https://github.com/haroohie-club/SerialLoops/release). Disponibile sia per tutti che per gli sviluppatori (nightly).
 
 
 ::button-link
@@ -53,13 +53,13 @@ color: 'sl-blue'
 icon: 'fa6-solid:download'
 link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
 ---
-Download Latest
+Scarica ultima versione
 ::
 
 
 ## Bugs
-Please file bugs on our [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Please include the following information:
-* The platform you are running Serial Loops on
-* The version of the Chokuretsu ROM you are using (Japanese, patched English ROM, etc.)
-* A description of the steps required to reproduce the issue
-* The relevant logs for the issue (can be found in ~/SerialLoops/Logs)
+Segnala eventuali bug su [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Includi le seguenti informazioni:
+* Su quale piattaforma gira il Serial Loops
+* La versione della ROM che stai usando (Giapponese, patchata in Italiano, etc.)
+* Una descrizione di tutti i passaggi che hai fatto
+* Un modulo dove viene spiegato l'errore (puoi trovarlo in ~/SerialLoops/Logs)

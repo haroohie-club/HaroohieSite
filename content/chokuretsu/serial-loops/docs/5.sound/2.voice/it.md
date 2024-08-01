@@ -7,10 +7,10 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/misc'
 ---
 
-Voice lines are the spoken lines both for dialogue sections and for various other bits such as the puzzle phase, the group selection screen, and the title screen.
+Le voci dei personaggi vengono udite durante le fasi puzzle, divisione dei compiti e nel menù principale.
 
-## Replacing
-Voice lines can be replaced exactly like [background music](./bgm).
+## Sostituire
+Vale lo stesso procedimento delle [musiche di sottofondo](./bgm).
 
-## Subtitles
-If using the Haroohie Translation Club's English patch v0.6 or higher, voice lines can be given subtitles.
+## Sottotitoli
+Con la patch Inglese (dalla versione 0.6 in su) e quella Italiana è possibile alterare i sottotitoli di gioco.

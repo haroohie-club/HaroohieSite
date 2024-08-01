@@ -7,23 +7,22 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/introduction/project-workflow'
 ---
 
-Upon launching Serial Loops for the first time, you may be greeted with a warning stating that it can't find your devkitARM installation.
-This is okay! It just means that you installed devkitARM in a location that the program isn't expecting. Determine where your devkitARM installation
-is located and save that for a later step.
+Quando avvierai il Serial Loops per la prima volta, potresti accolto da una schermata che dice che devkitARM non è stato installato.
+Niente paura! Significa che il devkitARM è installato in punto dove il programma non riesce a trovarlo. Determina dove si trova il programma
+ci servirà per dopo.
 
-## The Home Screen and Preferences
-Firstly, you'll see the following screen:
+## Schermata di home e preferenze
+Verrai accolto da questa schermata:
 
 ![Serial Loops Home Screen](/images/chokuretsu/serial-loops/home-screen.png)
 
-This is the main home screen for Serial Loops. Before you do anything else, we should go to _File_ &rarr; _Preferences_ (or _SerialLoops_ &rarr; _Preferences_ on macOS) or click the "Preferences" link under the Start heading.
+Questa è la schermata home del programma. Prima di fare qualsiasi cosa, vai su _File_ &rarr; _Preferences_ (oppure _SerialLoops_ &rarr; _Preferences_ se sei su macOS) o clicca su "preferenze".
 
 ![Preferences](/images/chokuretsu/serial-loops/preferences.png)
 
-In this menu, if it's not already set, make sure you set your devkitARM path. Additionally, pick your favorite Nintendo DS emulator and set the path to
-it as the Emulator Path.
+In questo menù, potrai impostare i percorsi per il devkitARM ed anche per l'emulatore del Nintendo DS.
 
-For the remaining settings:
+Per tutto il resto:
 
 * **Use Docker for ASM Hacks** &ndash; Checking this will cause Docker to be used for ASM hacks. If you decided to install Docker rather than make,
   ensure this option is checked.
@@ -36,17 +35,18 @@ For the remaining settings:
 * **Check For Updates On Startup** &ndash; Will check GitHub for new releases of Serial Loops on startup. **Highly recommended to leave this option checked.**
 * **Use Pre-Release Update Channel** &ndash; Will use our nightly builds as the source for updates. **Highly recommended to leave this option unchecked.**
 
-After you've set your preferences, it's time to create a new project.
+Una volta impostato tutto, è ora di creare il progetto.
 
-## Creating a New Project
-To create a new project, click the "New Project" link under the Start heading or go to _File_ &rarr; _New Project_.
+## Creare un nuovo progetto
+Per farlo, clicca su "Nuovo progetto" oppure vai su _File_ &rarr; _New Project_.
 
 ![New project menu](/images/chokuretsu/serial-loops/project-creation.png)
 
-Create a name for your new project and select the language it will be in. (Serial Loops doesn't really care much about the language you choose right now
-unless you pick Japanese in which case it follows different rules for displaying the font). Finally, select the base ROM for your project and hit create.
-Serial Loops will then unpack your ROM and create the directory for your project.
+Dai un nome al tuo progetto e seleziona la lingua di base (Per adesso il Serial Loops, non farà tanto riferimento alla lingua che sceglierai, almeno per
+adesso,
+Almeno che tu scelga Giapponese, in quel caso dovrai seguire delle regole diverse per mostrare il font) scegli la ROM che farà base per il tuo progetto e clicca crea. Serial Loops scompatterà la ROM e andrà a creare una cartella per il progetto.
 
-### A Note on Your Base ROM
-It is highly recommended to use a translated ROM as your base ROM unless you are planning to make a Japanese-language project, in which case you should use the original ROM. Using the English ROM as a base is a great idea as it gives you access to all the modifications we have already made to make the
-game run smoothly in English (or another language that uses a variable-width script) without needing to implement those hacks manually.
+### Attenzione.
+Vi consigliamo vivamente di usare una ROM tradotta come base, a meno che tu non voglia fare un progetto in giapponese, in quel caso puoi usare la ROM
+originale. Usare la ROM in inglese può tornare molto utile dato che ti darà accesso a tutte le modifiche che abbiamo fatto fino ad ora.
+Il gioco gira molto meglio in Inglese (o nelle altre lingue disponibili) senza dover implementare delle modifiche manualmente.

@@ -43,15 +43,15 @@ La versione Docker è **disponibile solo su Windows** per colpa dei limiti dei s
 su Linux, avviando il programma dalla root (e.g. `sudo SerialLoops`), ma usare solo Make semplifica di più le cose. Su macOS è
 tuttora impossibile far partire il Docker, quindi usa solo Make.
 
-* [Make](https://www.gnu.org/software/make/) is the software used to assemble assembly hacks. Installing Make allows you to build the hacks
-  directly on your system.
-    - To install on Windows, you will have to use a terminal and a package manager. Your options are Winget (installed by default on Win10+) or
-      [Chocolatey](https://chocolatey.org/). Open an admin PowerShell or Terminal window (Winkey + X + A) and enter `winget install GnuWin32.make`
-      for Winget or `choco install make` for Chocolatey. If using Winget, you will then have to go into system preferences and add Make to the path.
-    - Installation on macOS can be done through Xcode or Homebrew. If using Xcode, open a terminal and type `xcode-select --install`. If you would
-      rather use Homebrew, open a terminal after installing Homebrew and type `brew install make`.
-    - Make comes preinstalled on many Linux distributions. If it is not installed on yours, you will likely be able to install it with your package
-      as simply as `[packagemanger] install make` from a terminal.
+* [Make](https://www.gnu.org/software/make/) è il programma che viene usato per costruire le assembly hacks. Ti permetterà di costruire le
+   hack direttamente sul tuo sistema.
+    - Per installare il programma su Windows, dovrai usare il terminale ed un package manager. Puoi installare un Winget (da Windows 10 in su) oppure
+      [Chocolatey](https://chocolatey.org/). Come amministratore apri Powershell o il terminale (Winkey + X + A) e digita `winget install GnuWin32.make`
+      per la Winget oppure `choco install make` per la Chocolatey. Se usi il Winget, dovrai accedere su preferenze di sistema e aggiungere Make.
+    - Per installare su macOS si può fare con Xcode oppure Homebrew. Se usi XCode, apri il terminale e digita `xcode-select --install`. Se userai
+      Homebrew, apri il terminale dopo aver installato Homebrew e digita `brew install make`.
+    - Make è preinstallato su quasi tutte le distro di Linux. Se non c'è l'hai, puoi installarlo grazie al nostro package
+      semplicemente digitando `[packagemanger] install make` dal terminale.
   
   To test if make is installed properly, type `make --version` into a terminal and see if it produces the version of make.
 * If you would rather not install Make, or if it is not working properly, you can instead run it through a Docker container. To do this, you should

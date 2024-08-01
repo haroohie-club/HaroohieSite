@@ -1,10 +1,9 @@
 ---
-title: &title "《串聯》ROM 破解系列的迴歸！"
-description: &desc "Jonko 想在閏日發表一篇文章，但他沒來得及寫完"
-locale: 'zh-hant'
+title: &title "The Return of the Chokuretsu ROM Hacking Series!"
+description: &desc "Jonko wanted to make a post on a leap day but didn't have time to finish his blog post in time"
+locale: 'en'
 navigation:
   author: 'Jonko'
-  translator: 'Xzonn'
   year: 2024
   month: 02
   day: 29
@@ -36,6 +35,6 @@ head:
     value: 'summary_large_image'
 ---
 
-我正在努力地寫下一篇關於《串聯》ROM 破解的文章。我喜歡奇怪的日期，我真的很想在今年的閏日釋出，但看起來我沒能按時寫完。所以，我釋出了這篇公告，這樣我至少在 29 號釋出了一篇文章。😎😎😎
-
 請期待真正的文章！
+
+Please look forward to the real post!
