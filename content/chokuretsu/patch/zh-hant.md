@@ -1,6 +1,6 @@
 ---
-title: 給 ROM 打補丁 - 涼宮春日的串聯簡體中文翻譯（Nintendo DS）
-description: 為《涼宮春日的串聯》（涼宮ハルヒの直列）的 ROM 應用漢化補丁的網頁
+title: Patch ROM - Suzumiya Haruhi No Chokuretsu Translation (Nintendo DS)
+description: Online ROM patcher for applying the translation patches of Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
 ---
 
 ## 給 ROM 打補丁
