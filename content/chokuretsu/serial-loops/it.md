@@ -44,7 +44,7 @@ limit: 2
 ::
 
 ## Downloads
-Il programma è disponibile per Windows, macOS (sia per Intel che Apple Silicon) e Linux (RPM & Debian packages) [su GitHub](https://github.com/haroohie-club/SerialLoops/release). Disponibile sia per tutti che per gli sviluppatori (nightly).
+Il programma è disponibile per Windows, macOS (sia per Intel che Apple Silicon) e Linux (RPM & Debian packages) [su GitHub](https://github.com/haroohie-club/SerialLoops/releases). Disponibile sia per tutti che per gli sviluppatori (nightly).
 
 
 ::button-link

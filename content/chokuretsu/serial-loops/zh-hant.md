@@ -44,7 +44,7 @@ limit: 2
 ::
 
 ## 下載
-可以[在 GitHub 上](https://github.com/haroohie-club/SerialLoops/release)下載用於 Windows、macOS（Intel 和 Apple Silicon 晶片）和 Linux（RPM & Debian 包）的軟體。我們提供釋出版（推薦）和 nightly 預釋出版本。
+可以[在 GitHub 上](https://github.com/haroohie-club/SerialLoops/releases)下載用於 Windows、macOS（Intel 和 Apple Silicon 晶片）和 Linux（RPM & Debian 包）的軟體。我們提供釋出版（推薦）和 nightly 預釋出版本。
 
 
 ::button-link
