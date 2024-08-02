@@ -7,7 +7,7 @@ navigation:
   year: 2024
   month: 08
   day: 03
-  tags: ['chokuretsu', 'romhacking', 'chinese', 'non-english']
+  tags: ['chokuretsu', 'romhacking', 'chinese']
   image: '0012/00_thumbnail.png'
 head:
   meta:
