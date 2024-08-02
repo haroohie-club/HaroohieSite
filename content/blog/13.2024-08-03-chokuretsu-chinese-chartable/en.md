@@ -1,5 +1,5 @@
 ---
-title: &title "Chokuretsu ROM Hacking Challenges from China - Character Conundrums!"
+title: &title "Chokuretsu ROM Hacking Challenges from China – Character Conundrums!"
 description: &desc "Xzonn explores how he went about modifying the character table and line height for the Chinese translation of Chokuretsu"
 locale: 'en'
 navigation:
@@ -8,7 +8,7 @@ navigation:
   month: 08
   day: 03
   tags: ['chokuretsu', 'romhacking', 'chinese']
-  image: '0012/00_thumbnail.png'
+  image: '0013/00_thumbnail.png'
 head:
   meta:
   - property: 'og:title'
