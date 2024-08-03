@@ -134,7 +134,7 @@ This problem bothered me for quite a long time. Just changing the size of the ch
 
 At that moment, I happened to look at the build repo of Haroohie Translation Club again and found [a commit](https://github.com/haroohie-club/ChokuretsuTranslationBuild/commit/f8884a8057f38a9f6b0f384acf7bf3f95541a096):
 
-``` plaintext
+```plaintext
 commit f8884a8057f38a9f6b0f384acf7bf3f95541a096
 Author: jonko0493 <email>
 Date: Tue Oct 10 03:51:20 2023 -0700
@@ -148,7 +148,7 @@ I pulled it down, built it locally, merged the modifications related to the exec
 
 Wow, it really output the logs to the console of the emulator. Now it's easy to handle! I generated a very large image, and imported it into the game. Then I found that there was an error message showing the memory was not enough:
 
-``` plaintext
+```plaintext
 memory is not enough[32256Byte]
 --memory report start--
 --use
@@ -166,13 +166,13 @@ free memory size : 11152 11KB
 
 After my calculation, the final address for memory allocation is `0x0221FAB0 + 0x2B90 = 0x02222640` (`11152` in decimal is `0x2B90`). I used the memory tool of DeSmuME to set a write breakpoint, and the last line of texts in the console during the write operation is as follows:
 
-``` plaintext
+```plaintext
 gwork : s: 20e2660 e: 2242664: sz: 140000
 ```
 
 I used IDA to locate this string, then jumped to the calling location, and I found the following assembly code:
 
-``` plaintext
+```arm
 loc_202A980:
 LDR R1, =dword_20A9AC8
 MOV R0, #0x140000
@@ -197,7 +197,7 @@ The first `#0x140000` is likely related to memory allocation, while the latter t
 
 In addition, I found this `#0x140000` in another location as well:
 
-``` plaintext
+```arm
 sub_202E158:
 LDR R0, =dword_20A9AB0
 LDR R1, =dword_20C0D38
