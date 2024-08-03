@@ -200,7 +200,7 @@ When calling a function in a higher-level language, you specify parameters that 
 
 I’ve already gone ahead and marked the value getting loaded into R1 as `=sArchiveFileNames` – if we pop over to that address in IDA, we can see why:
 
-![The RAM address of =sArchiveFileNames viewd in IDA showing a list of archive filenames](/images/blog/0003/16_archive_file_names.png)
+![The RAM address of =sArchiveFileNames viewed in IDA showing a list of archive filenames](/images/blog/0003/16_archive_file_names.png)
 
 It’s a list of our four archive names! So that line that says `LDR R1,[R1, R10, LSL#2]` is going to load the name of the archive in. If we look at R10 in the earlier screenshot, we can see that it’s set to 2. Typically, arrays start from index 0, so that means that index 2 here is going to be `aEvtBin` – `EVT.BIN` is the value of `%s`!
 

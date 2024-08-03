@@ -36,7 +36,7 @@ head:
 Hello all! We hope you're having a great September. Today, we'd like to share a brief progress update with everyone!
 
 ## The Series of Haruhi Suzumiya
-We're pleased to announce that we've reached the incredible milestone of completing all the base translation work for *Suzumiya Haruhi no Chokuertsu* (DS) &mdash; that's all episodes 1-5, plus the extras mode and menus!
+We're pleased to announce that we've reached the incredible milestone of completing all the base translation work for *Suzumiya Haruhi no Chokuretsu* (DS) &mdash; that's all episodes 1-5, plus the extras mode and menus!
 
 ![A pie chart, titled "Full Game Translation Progress 10/09/2023). The pie chart is divided into four slices. 44.4% of strings are "pending edit"; 8.9% of strings are pending TLC; 14.1% of strings are pending review; and 23.5% of strings are ready to ship.](/images/blog/0008/01_translation_progress_chart.png)
 
@@ -55,7 +55,7 @@ Behind the scenes, we've also been working on *Suzumiya Haruhi no Heiretsu* (Wii
 
 One point we've been working on is reverse-engineering the 3D engine and event system to allow us to gather a deeper understanding of how these are structured. This will also enable us to replace certain important graphics, such as the animated 3D game logo.
 
-![The 3D-modeled work-in-progress English logo for The Paralell of Haruhi Suzumiya.](/images/blog/0008/04_heretsu_logo.gif)
+![The 3D-modeled work-in-progress English logo for The Parallel of Haruhi Suzumiya.](/images/blog/0008/04_heretsu_logo.gif)
 
 When we have more to share, we'll also open up the Heiretsu section of this website with more details. Stay tuned!
 
