@@ -23,7 +23,7 @@ head:
     content: 'https://haroohie.club/blog/2023-06-25-serial-loops-0-2-is-out-now'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img

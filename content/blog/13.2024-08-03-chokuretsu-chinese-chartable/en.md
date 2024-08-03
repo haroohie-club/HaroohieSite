@@ -25,7 +25,7 @@ head:
     content: 'article'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img
@@ -125,12 +125,12 @@ The function `scene_renderDialogue` looked very useful, so I took a look with ID
 
 ![The result of disassembly using IDA, where the content related to line height were highlighted in green](/images/blog/0013/01_disassembly.png)
 
-Here, we can roughly see that `cmp r2, #0`, `cmp r2, #0x60`, `cmp r2, #0xa` and `cmp r2, #0x23` are comparing `r2` with certain numbers. `U+000A` is a line break, and there is a statement `mov r0, #0x0e` in the corresponding branch. `0x0e` is 14 in demical, and the line height of text in games is exactly 14 as I mentioned earlier. Then I modified it to `0x10` (16 in decimal), and went back to the game and... perfect! We lucked out here and solved this one almost immediately.
+Here, we can roughly see that `cmp r2, #0`, `cmp r2, #0x60`, `cmp r2, #0xa` and `cmp r2, #0x23` are comparing `r2` with certain numbers. `U+000A` is a line break, and there is a statement `mov r0, #0x0e` in the corresponding branch. `0x0e` is 14 in decimal, and the line height of text in games is exactly 14 as I mentioned earlier. Then I modified it to `0x10` (16 in decimal), and went back to the game and... perfect! We lucked out here and solved this one almost immediately.
 
 ![The result of modifying line height to 16px](/images/blog/0013/02_increased_line_height.png)
 
 ### Expanding the Character Table
-This problem bothered me for quite a long time. Just changing the size of the character table is pointless on its own, as I have to modify the image size at the same time to make it display properly in the game. However, once the image contains approximately 2,500 Chinese characters (with only 300 characters expanded), importing it into the game will result in an error, which is manifested as a white screen after the manufacturers' logos are displayed. Obviously, this is due to the image being too large and causing insufficient memory, but I couldn't think of a better solution at first. Although I had made breakpoints in various places such as loading font image and displaying texts, I still had't figured out how to make the changes.
+This problem bothered me for quite a long time. Just changing the size of the character table is pointless on its own, as I have to modify the image size at the same time to make it display properly in the game. However, once the image contains approximately 2,500 Chinese characters (with only 300 characters expanded), importing it into the game will result in an error, which is manifested as a white screen after the manufacturers' logos are displayed. Obviously, this is due to the image being too large and causing insufficient memory, but I couldn't think of a better solution at first. Although I had made breakpoints in various places such as loading font image and displaying texts, I still hadn't figured out how to make the changes.
 
 At that moment, I happened to look at the build repo of Haroohie Translation Club again and found [a commit](https://github.com/haroohie-club/ChokuretsuTranslationBuild/commit/f8884a8057f38a9f6b0f384acf7bf3f95541a096):
 

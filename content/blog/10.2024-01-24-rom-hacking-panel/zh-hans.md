@@ -24,7 +24,7 @@ head:
     content: 'https://haroohie.club/blog/2024-01-24-rom-hacking-panel'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img

@@ -23,7 +23,7 @@ head:
     content: 'https://haroohie.club/blog/2022-10-26-chokuretsu-archives'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img
