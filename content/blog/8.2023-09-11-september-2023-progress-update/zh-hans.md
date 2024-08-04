@@ -23,7 +23,7 @@ head:
     content: 'https://haroohie.club/blog/2023-09-11-september-2023-progress-update'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img

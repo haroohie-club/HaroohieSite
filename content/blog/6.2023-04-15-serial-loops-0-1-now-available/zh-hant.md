@@ -23,7 +23,7 @@ head:
     content: 'https://haroohie.club/blog/2023-04-16-serial-loops-0-1-now-available'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img

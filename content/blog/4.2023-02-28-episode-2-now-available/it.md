@@ -24,7 +24,7 @@ head:
     content: 'https://haroohie.club/blog/2023-02-28-episode-2-now-available'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img

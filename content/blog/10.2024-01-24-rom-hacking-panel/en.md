@@ -23,7 +23,7 @@ head:
     content: 'https://haroohie.club/blog/2024-01-24-rom-hacking-panel'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img
@@ -39,7 +39,7 @@ this game, you'll likely enjoy giving it a watch!
 
 ### Update
 Thanks to [Xzonn](xzonn.top), who is working with a team to translate Chokuretsu into Chinese, this talk has now been translated into Chinese
-and is available with Chinese subtitles on both YouTube and [Bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
+and is available with Chinese subtitles on both YouTube and [bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
 
 ::youtube-video
 ----

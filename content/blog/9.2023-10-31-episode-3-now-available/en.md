@@ -23,7 +23,7 @@ head:
     content: 'https://haroohie.club/blog/2023-10-31-episode-3-now-available'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img
@@ -53,7 +53,7 @@ Of course, as well as Episode 3, we've been going back and improving other areas
   * Graphics for the clubroom Extras Mode have been added for Episodes 3, 4, and 5.
   * Translated certain CGs for Episode 3
   * Translated chess interface graphics (used in the extras mode and in a later episode)
-* Translated the ending credits movie (you'll see it when we finish Episode 5). Names are now romanized
+* Translated the ending credits movie (you'll see it when we finish Episode 5). Names are now Romanized
 * Fixed a typesetting inconsistency with the lyrics in the credits movie.
 * Fixed a bug with on-screen subtitles that could sometimes lead to the game crashing during the Puzzle phase. If you encounter a crash while playing, please get in touch with us on Discord so we can investigate!
 

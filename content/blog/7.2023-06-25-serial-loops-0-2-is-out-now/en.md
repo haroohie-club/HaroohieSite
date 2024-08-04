@@ -23,7 +23,7 @@ head:
     content: 'https://haroohie.club/blog/2023-06-25-serial-loops-0-2-is-out-now'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img
@@ -57,7 +57,7 @@ Several new features have also been added:
 * Improved the color reduction algorithm so replaced graphics look a lot nicer in-game
 
 ### User interface
-v0.2 also brings a number of UI improvments:
+v0.2 also brings a number of UI improvements:
 * Fixed a number of accuracy issues with the script preview
 * Progress bar dialogs will now always sit atop every other window
 * Added quick search to the main project explorer on the left, to let you quickly filter items by name

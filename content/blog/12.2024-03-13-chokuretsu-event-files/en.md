@@ -1,5 +1,5 @@
 ---
-title: &title "Chokuretsu ROM Hacking Challenges Part 4 - Event File Excavation"
+title: &title "Chokuretsu ROM Hacking Challenges Part 4 – Event File Excavation"
 description: &desc "Jonko digs into the event files to figure out how to translate the game"
 locale: 'en'
 navigation:
@@ -25,7 +25,7 @@ head:
     content: 'article'
   - name: 'twitter:title'
     value: *title
-  - name: 'twitter:descripton'
+  - name: 'twitter:description'
     value: *desc
   - name: 'twitter:image'
     value: *img
