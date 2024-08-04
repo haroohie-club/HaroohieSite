@@ -10,8 +10,8 @@ locale: 'pt-br'
 First things first, regardless of what platform you're playing on, you'll need to buy a copy of the game. You can pick up a copy from a number of vendors, including:
 
 ::two-column-list
-* [PlayAsia](https://www.play-asia.com/suzumiya-haruhi-no-chokuretsu/13/70337q) ([collector's edition](https://www.play-asia.com/suzumiya-haruhi-no-chokuretsu-chou-sos-dandanin-collection/13/70337s))
-* [Search eBay](https://www.ebay.com/sch?&_nkw=Suzumiya+Haruhi+no+Chokuretsu)
+* [PlayAsia](https://www.play-asia.com/suzumiya-haruhi-no-chokuretsu/13/70337q) ([edição de colecionador](https://www.play-asia.com/suzumiya-haruhi-no-chokuretsu-chou-sos-dandanin-collection/13/70337s))
+* [eBay](https://www.ebay.com/sch?&_nkw=Suzumiya+Haruhi+no+Chokuretsu)
 ::
 
 ## I already have a ROM file

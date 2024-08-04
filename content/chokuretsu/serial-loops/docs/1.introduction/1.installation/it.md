@@ -1,5 +1,5 @@
 ---
-title: 'Installation'
+title: 'Come installare il programma'
 locale: 'it'
 navigation:
   faicon: 'fa6-solid:box-open'
@@ -53,13 +53,13 @@ tuttora impossibile far partire il Docker, quindi usa solo Make.
     - Make è preinstallato su quasi tutte le distro di Linux. Se non c'è l'hai, puoi installarlo grazie al nostro package
       semplicemente digitando `[packagemanger] install make` dal terminale.
   
-  To test if make is installed properly, type `make --version` into a terminal and see if it produces the version of make.
-* If you would rather not install Make, or if it is not working properly, you can instead run it through a Docker container. To do this, you should
-  install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or the Docker Engine. Ensure the Docker engine is running and make sure
-  to check the "Use Docker for ASM Hacks" option in Preferences. You may want to occasionally clean up containers created by Serial Loops, as it will
-  create many of them.
-    - On Windows, though, you will additionally need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en/windows/wsl/install).
-      From an admin PowerShell or Terminal window (Winkey + X + A), simply type `wsl --install` to install it.
+  Per vedere se il programma si è installato correttamente, digita `make --version`nel terminale.
+* Se non installare Make oppure non funziona correttamente, puoi utilizzare Docker container. Per fare ciò, dovrai
+     Installare [Docker Desktop](https://www.docker.com/products/docker-desktop/) o il Docker Engine.Assicurati che il programma funzioni e sicurati di
+     attivare l'impostazione "Use Docker for ASM Hacks". Assicurati di cancellare i tanti container che andrà a creare il programma.
+    - Su Windows, qua dovrai ti servirà, in aggiunta [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en/windows/wsl/install).
+
+          Una volta fatto, come amministratore, su Powershell o sul terminale (tasto WIN + X + A) digita `wsl --install` per ultimare l'installazione.
 
 In parole povere, Make è obbligatorio da installare, ma è difficile da usare su Windows. In quel caso, utilizza la versione Docker.
 

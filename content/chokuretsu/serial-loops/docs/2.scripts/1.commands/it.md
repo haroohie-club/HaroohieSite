@@ -1,5 +1,5 @@
 ---
-title: 'Commands'
+title: 'Comandi'
 locale: 'it'
 navigation:
   faicon: 'fa6-solid:code'
@@ -7,171 +7,172 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/scripts/chibis-and-choices'
 ---
 
-The following document explains what every command in the game does.
+In questa pagina verranno illustrati tutti i comandi che ti serviranno per programmare.
 
-## Notes
-* Time in these commands is always defined in terms of _frames_. The game assumes a frame is 1/30 of a second, i.e. 30 frames per second. Thus, to wait one second,
-one would `WAIT` for 30 frames.
+## Nota bene
+* Nei comandi il tempo viene chiamato in _frame_. Il gioco gira a 30 FPS, quindi, se vuoi far aspettare un secondo dovrai
+scrivere `WAIT` per 30 frame.
 
 ## `AVOID_DISP`
-**Parameters**: None
+**Parametro**: Nessuna
 
-Displays the "Main Topic -> Avoid" graphics.
+Mostra le "discussioni principali -> Senza usare le" grafiche.
 
 
 ## `BACK`
-**Parameters**: None
+**Parametro**: Nessuna
 
-When used in the initial script section, starts execution to the first script block. Otherwise, makes the script return to whatever called it (e.g. the puzzle phase)
-or returns you to the investigation phase.
+Se usato all'inizio di una sezione di script, farà partire la prima sezione di quest'ultimi. Altrimenti, fa sì che lo script torni a ciò che lo ha chiamato (ad esempio, la fase puzzle)
+o ritorna alla fase di investigazione.
 
 
 ## `BG_DISP`
-**Parameters**:
-* `Background`: The background to be displayed
+**Parametro**:
+* `Sfondi`: Lo sfondo che viene mostrato
 
-Displays a [background](../graphics/backgrounds) image on the lower screen. The background image can only be of type `TEX_BG`.
+Mostra uno [sfondo](../graphics/backgrounds) sullo schermo inferiore. Le immagini selezionabili sono solo quelle del tipo `TEX_BG`.
 
 
 ## `BG_DISP2`
-While this is listed as a separate command, it uses the same routine as [`BG_DISP`](#bg_disp).
+Nonostante sia un comando diverso, ha la stessa funzione di [`BG_DISP`](#bg_disp).
 
 
 ## `BG_DISPCG`
-**Parameters**:
-* `Background`: The CG background to be displayed
-* `Display from Bottom`: If true, displays the bottom of a tall background (`TEX_CG_SINGLE`); if false, displays the top
+**Parametro**:
+* `Sfondo`: le immagini CG che vengono mostrate
+* `Mostra dal basso`: Se spuntata, verrà mostrata la parte inferiore di un'immagine grande (`TEX_CG_SINGLE`); se non è spuntata, solo la parte alta sarà mostrata
 
-`BG_DISPCG` works as [`BG_DISP`](#bg_disp) but can display a larger variety of textures &ndash; namely, `TEX_CG`, `TEX_CG_DUAL_SCREEN`,
-`TEX_CG_WIDE`, and `TEX_CG_SINGLE` BGs. Notably, these are all CGs as opposed to VN backgrounds. Before displaying a standard BG after calling BG_DISPC,
-one should call [`BG_REVERT`](#bg_revert).
+`BG_DISPCG` funziona come [`BG_DISP`](#bg_disp) ma mostra più texture &ndash; principalmente mostra tali sfondi, `TEX_CG`, `TEX_CG_DUAL_SCREEN`,
+`TEX_CG_WIDE`, e `TEX_CG_SINGLE`. Nota che le CG sono ben diverse dalle immagini VN. Prima di mostrare un'immagine BG, con il comando BG_DISPC,
+digita [`BG_REVERT`](#bg_revert).
 
 
 ## `BG_FADE`
-**Parameters**:
-* `Background`: The background to display as with [`BG_DISP`](#bg_disp)
-* `Background (Temp/CG)`: The index of a background to display as [`BG_DISPCG`](#bg_dispcg); specify instead of `Background`
-* `Fade Time (Frames)`: The time to fade in frames
+**Parametri**:
+* `Sfondi`: Sfondi che vengono mostrati con [`BG_DISP`](#bg_disp)
+* `Sfondi (Temp/CG)`: L'index degli sfondi che appare in [`BG_DISPCG`](#bg_dispcg); specificatamente diversi dai `Sfondi`
+* `Tempo (Frame)`: Quanti frame dura quella scena
 
-Like the other BG display commands but crossfades the background rather than just displaying it.
+Funziona come gli altri comandi ma fa scomparire lo sfondo anziché farlo vedere.
 
 
 ## `BG_REVERT`
-**Parameters**: None
+**Parametri**: Nessuno
 
-Reverts the background to the last call of `BG_DISP` (i.e. undoes any [`BG_FADE`](#bg_fade) or [`BG_DISPCG`](#bg_dispcg) calls).
-This is required before returning to displaying standard `TEX_BG` BGs. Note that if reverting a `TEX_CG_DUAL_SCREEN` BG, [`SET_PLACE`](#set_place)
-must have been used to set the place location and have it displayed.
+Annulla l'ultimo cambiamento fatto agli sfondi `BG_DISP` (attenzione [`BG_FADE`](#bg_fade) e [`BG_DISPCG`](#bg_dispcg) verranno annullati).
+Devi necessariamente digitare questo comando per tornare allo sfondo di prima `TEX_BG`.Se vuoi annullare i cambiamenti alle`TEX_CG_DUAL_SCREEN` BG, 
+[`SET_PLACE`](#set_place) deve essere usato per impostare dove e cosa far apparire.
 
-`BG_REVERT` does something odd to previously displayed CGs that makes attempting to display them again after the `BG_REVERT` crash/freeze/soft lock the game.
-If you need to go back and forth between the same CGs, consider using [`BG_FADE`](#bg_fade).
+`BG_REVERT` cerca di ricaricare le stesse immagini CG, dopo che il comando `BG_REVERT` ha fatto
+crashare/mandare in tilt/bloccare il gioco.
+Se devi muoverti tra le varie CG, usa il comando [`BG_FADE`](#bg_fade).
 
 
 ## `BG_SCROLL`
-**Parameters**:
-* `Scroll Direction`: The direction to scroll the BG
-* `Scroll Speed`: Speed at which to scroll (1 is a good default)
+**Parametri**:
+* `Direzione scorrimento`: Come muoversi tra le varie immagini
+* `Velocità scorrimento`: A quale velocità muoversi (tieni sempre questo parametro su 1)
 
-When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`),
-scrolls the background in a DEFINED direction.
+Se lo schermo deve mostrare un'immagine molto grossa (tipo `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, e `TEX_CG_SINGLE`),
+fai scorrere lo sfondo in maniera PRECISA.
 
 
 ## `BGM_PLAY`
-**Parameters**:
-* `Music`: The background music to start or stop playing
-* `Mode`: Whether to start or stop the music
-* `Volume`: The volume of the BGM (0 is silent, 100 is max)
-* `Fade In Time (Frames)`: Time in frames that the BGM will fade in
-* `Fade Out Time (Frames)`: Time in frames that the BGM will fade out
+**Parametri**:
+* `Music`: Quando far partire o interrompere la musica di sottofondo
+* `Mode`: Quando far partire o interrompere la musica
+* `Volume`: Volume della musica in sottofondo (0 iè il minimo, 100 è il massimo)
+* `Assolvenza (Frames)`: Frame quando la canzone sta per iniziare
+* `Dissolvenza (Frames)`: Frame quando la canzone sta per finire
 
-Plays or stops background music.
+Riproduce o interrompe la musica di sottofondo.
 
 
 ## `CHESS_CLEAR_ANNOTATIONS`
-**Parameters**: None
+**Parametri**: None
 
-Clears all chessboard annotations. Unused.
+Rimuove tutte le annotazioni della scacchiera. Inutilizzato.
 
 
 ## `CHESS_LOAD`
-**Parameters**:
-* `Chess File`: The chess file to load
+**Parametri**:
+* `Scacchi`: Carica i file degli scacchi
 
-Loads a chess file into memory and (if the chess overlay is loaded) places it on the chessboard.
+Carica un file della modalità scacchi dalla memoria (se la sovrapposizione è attiva) lo caricherà sulla scacchiera.
 
 
 ## `CHESS_MOVE`
-**Parameters**:
-* `White Space Begin`: The space where a white piece to move is
-* `White Space End`: The space where the white piece should move to
-* `Black Space Begin`: The space where a black piece to move is
-* `Black Space End`: The space where the black piece should move to
+**Parametri**:
+* `White Space Begin`: La casella di partenza di una pedina bianca
+* `White Space End`: La casella di arrivo di una pedina bianca
+* `Black Space Begin`: La casella di partenza di una pedina nera
+* `Black Space End`: La casella di arrivo di una pedina nera
 
-Moves a piece (or pieces) on the chessboard.
+La traiettoria di spostamento di una pedina.
 
 
 ## `CHESS_RESET`
-**Parameters**: None
+**Parametri**: Nessuno
 
-Resets the chessboard to its original state.
+Riporta la scacchiera ad inizio partita.
 
 
 ## `CHESS_TOGGLE_CROSS`
-**Parameters**:
-* `Cross Space 0-15`: The spaces to place/remove a cross on
+**Parametri**:
+* `Cross Space 0-15`: Spazi sui quali aggiungere/togliere una croce su di essi
 
-Crosses out spaces on the chessboard with a red X. If a space is already crossed out, this command uncrosses it out.
+Rimuove tutti gli spazi con sopra una croce rossa. Se è già stato rimosso, questo comando annulla l'azione.
 
 
 ## `CHESS_TOGGLE_GUIDE`
-**Parameters**:
-* `Piece 1`: A space containing a piece whose potential moves to highlight
-* `Piece 2`: A space containing a piece whose potential moves to highlight
-* `Piece 3`: A space containing a piece whose potential moves to highlight
-* `Piece 4`: A space containing a piece whose potential moves to highlight
+**Parametri**:
+* `Piece 1`: Uno spazio contente un pezzo con le sue possibili mosse
+* `Piece 2`: Uno spazio contente un pezzo con le sue possibili mosse
+* `Piece 3`: Uno spazio contente un pezzo con le sue possibili mosse
+* `Piece 4`: Uno spazio contente un pezzo con le sue possibili mosse
 
-Highlights the potential moves of a piece in red. If a piece has already been highlighted, this command unhighlights it.
+Mostra le possibili mosse di un pezzo in rosso. Se quel pezzo è già evidenziato, il comando disattiverà l'azione.
 
 
 ## `CHESS_VGOTO`
 **Parameters**:
-* `Clear Block`: Script block to go to if the chess game is cleared
-* `Miss Block`: Script block to go to if the chess game is failed
-* `Miss 2 Block`: Script block to go to if the chess game is failed in some unused way
+* `Clear Block`: Script che carica la schermata di vittoria
+* `Miss Block`: Script che carica la schermata di sconfitta
+* `Miss 2 Block`: Script che carica una schermata di sconfitta inutilizzata
 
-Monitors for the end of the chess game and then jumps to a specified script block depending on the outcome.
+Controlla quale schermata caricare una volta finita una partita a scacchi.
 
 
 ## `CHESS_TOGGLE_HIGHLIGHT`
-**Parameters**:
-* `Highlight Space 0-15`: The spaces to highlight
+**Parametri**:
+* `Highlight Space 0-15`: Spazi illuminati
 
-Highlights spaces on the chessboard in yellow. If a space is already highlighted, this command unhighlights it.
+illumina una casella della scacchiera in giallo. Se lo spazio è già segnalato, questo comando disattiverà l'azione.
 
 
 ## `CHIBI_EMOTE`
-**Parameters**:
-* `Chibi`: The chibi to emote
-* `Emote`: The emote that should be shown
+**Parametri**:
+* `Chibi`: Chibi da mostrare
+* `Emote`: L'emozioni che devono fare
 
-This command displays an emote in a speech bubble above a [chibi](../graphics/chibis) figure on the top screen.
+Con questo comando potrai decidere quale emozione far apparire sopra la testa dei [chibi](../graphics/chibis) sullo schermo superiore.
 
 
 ## `CHIBI_ENTEREXIT`
-**Parameters**:
-* `Chibi`: Specifies the chibi to enter or exit
-* `Enter/Exit`: Specifies whether the chibi is entering or exiting
-* `Delay (Frames)`: Specifies the number of frames after which the chibi should enter or exit
+**Parametri**:
+* `Chibi`: Decidere quali chibi devono entrare o uscire di scena
+* `Enter/Exit`: Decidere quando i chibi devono entrare o uscire di scena
+* `Delay (Frames)`: Decidere il numero esatto di fotogrammi quali chibi devono entrare o uscire
 
-Specifies a [chibi](../graphics/chibis) figure to enter or exit the top screen. To be used by this command, a chibi must have
-a walk cycle (animation 01) in addition to its default idle animation (animation 00).
+Decide quando un [chibi](../graphics/chibis) entra o esce di scena. Assicurati, prima di attivare questo comandi, di dare ad un chibi l'animazione di camminata
+(animation 01) assieme a quella dove rimane fermo (animation 00).
 
 
 ## `CONFETTI`
-**Parameters**:
-* `Visible`: If true turns confetti on. If false, turns it off.
+**Parametri**:
+* `Visible`: Se spuntato dei coriandoli appariranno, se non è spuntato non appariranno.
 
-Displays falling confetti on the top screen.
+Decidi se far vedere dei coriandoli che cadono sullo schermo superiore.
 
 
 ## `DIALOGUE`
@@ -189,14 +190,14 @@ Displays falling confetti on the top screen.
 * `Don't Clear Text`: If true, continues displaying the next dialogue line in the same box
 * `No Lip Flap`: Manually disables lip flaps for dialogue that would otherwise have them
 
-Displays a line of dialogue and/or manipulates [character sprites](../graphics/sprites). Can optionally play a [voiced line](../sound/voice).
+Mostra una linea di dialogo e/o cambia gli [Sprite dei personaggi](../graphics/sprites). Possono anche contenere un [testo doppiato](../sound/voice).
 
-A couple of notes on sprites:
-* Sprites are associated with a speaker
-* Sprites will not be displayed unless the first sprite is given an entrance transition
-* After the first sprite is displayed for a speaker, other sprites of that speaker can be switched to without
-  entrance transitions
-* Sprites will not exit unless the sprite is specified with an exit transition
+Piccole note sugli sprite:
+* Gli sprite sono associati con uno speaker
+* Gli sprite non appariranno finché non sarà data un'animazione di entrata al primo della serie
+* Dopo che il primo sprite verrà associato da uno speaker, gli altri personaggi associati con quello speaker possono
+  essere mostrati senza usare transizioni
+* Se non darai agli sprite l'animazione di uscita, il personaggio non uscirà di scena
 
 For dialogue, there are a number of operators available that have different effects:
 | Operator | Example | Effect |
@@ -221,109 +222,109 @@ The colors available with the `#P` operator:
 | `#P07` | Black |
 
 ## `EPHEADER`
-**Parameters**:
-* `Episode Header`: The index of the title texture to use, i.e. 1 = Episode 1, 2 = Episode 2, 3 = Episode 3, 4 = Episode 4, 5 = Episode 5, 6 = Epilogue (if you want to be really clever, -1 is the main menu title)
+**Parametri**:
+* `Episode Header`: Index delle texture dei titoli da usare, i.e. 1 = Episodio 1, 2 = Episodio 2, 3 = Episodio 3, 4 = Episodio 4, 5 = Episodio 5, 6 = Epilogo (Se sei furbo capirai che, -1 è il menù principale)
 
-Sets the upper screen to be an episode title texture.
+Imposta quale schermata del capitolo far apparire sullo schermo superiore.
 
 
 ## `FLAG`
-**Parameters**:
-* `Flag`: The flag to set or clear
-* `Set`: 1 = set, 0 = clear
+**Parametri**:
+* `Flag`: La flag da impostare
+* `Set`: 1 = impostare, 0 = completato
 
-Sets or clears a flag.
+Imposta i parametri delle flag.
 
 
 ## `GLOBAL2D`
-**Parameters**:
-* `Value`: The value to set variable `global2D` to
+**Parametri**:
+* `Value`: Valore da impostare al parametro `global2D`
 
-Sets a global variable to a specified value. Only used in one place so it's difficult to determine what it affects.
+imposta un valore preciso ad una serie di parametri. Ancora non sappiamo bene quali parametri influenzi.
 
 
 ## `GOTO`
-**Parameters**:
-* `Script Section`: The section to jump to
+**Parametri**:
+* `Script Section`: La sezione script da raggiungere
 
-Jumps to a particular script section.
+Passi ad una sezione di script scelta da te.
 
 
 ## `HARUHI_METER`
-**Parameters**:
-* `Add`: The value to add to the Haruhi Meter (positive values move the meter toward Distracted while negative values move it toward Focused)
-* `Set`: The value to set the Haruhi Meter at (does not show the meter)
+**Parametri**:
+* `Add`: Valori da aggiungere al Haruhimetro (Valori positivi portano verso la distrazione, mentre quelli negativi portano alla concentrazione)
+* `Set`: Valori da impostabili al Haruhimetro (Non visibili)
 
-Modifies the value of the Haruhi Meter. The meter minimum is 0 (corresponding to 10%) and the meter maximum is 9 (corresponding to 100%).
+Cambia i valori del Haruhimetro. Il minimo è 0 (indicatore sul 10%) il massimo è 9 (indicatore sul 100%).
 
 
 ## `HARUHI_METER_NOSHOW`
-**Parameters**:
-* `Add`: The value to add to the Haruhi Meter
+**Parametri**:
+* `Add`: Aggiunge valori al Haruhimetro
 
-Adds to the Haruhi Meter without showing the Haruhi Meter UI (the sound effects are still played). Unused in the game.
+Aumenta o diminuisce il valore del Haruhimetro (i suoni si sentono ancora). In gioco non viene utilizzato.
 
 
 ## `HOLD`
-**Parameters**: None
+**Parametri**: Nessuno.
 
-Stops script execution until input is received from the player. 
+Ferma lo scorrere dello script fino a quando il giocatore non interviene. 
 
 
 ## `INIT_READ_FLAG`
-**Parameters**: None
+**Parametri**: Nessuno
 
-Unknown, unused in the game.
+Non sappiamo cosa faccia, inutilizzato in gioco.
 
 
 ## `INVEST_END`
-**Parameters**: None
+**Parametri**: Nessuno
 
-Ends investigation mode and returns to the main visual novel format of the game. Automatically fades screen to black.
+La fase investigazione viene interrotta e si torna in modalità visual novel. Lo schermo diventa nero per alcuni secondi.
 
 
 ## `ITEM_DISPIMG`
-**Parameters**:
-* `Item`: The item to display
+**Parametri**:
+* `Item`: Oggetti da mostrare
 * `X`
 * `Y`
 
-Displays the specified item image. Under certain circumstances, this should work; however, it seems this soft locks the game most of the time. Unused.
+Mostra un oggetto specifico. in certe circostanze, funziona; comunque, c'è rischio di mandare in tilt il gioco. Inutilizzato.
 
 
 ## `INVEST_START`
-**Parameters**:
+**Parametri**:
 * `unknown00`
 * `unknown01`
 * `unknown02`
 * `unknown03`
-* `End Script Section`: The script section that starts with the [`INVEST_END`](#invest_end) command.
+* `End Script Section`: La sezione selezionata che finisce con il comando [`INVEST_END`](#invest_end).
 
-Starts investigation mode. Automatically fades screen in from black.
+Da il via alla modalità investigazione. C'è una transizione su schermo nero.
 
 
 ## `KBG_DISP`
-**Parameters**:
-* `"Kinetic" Background`: The "kinetic" background to display on the top screen
+**Parametri**:
+* `"Kinetic" Background`: Lo sfondo cinetico viene mostrato sullo schermo superiore
 
-Displays a particular "kinetic" (my word) [background](../graphics/backgrounds) on the top screen. Must be of type `KINETIC_SCREEN`.
+Mostra uno (il nome l'ho scelto io) [sfondo cinetico](../graphics/backgrounds) sullo schermo superiore. Deve essere di tipo `KINETIC_SCREEN`.
 
 
 ## `LOAD_ISOMAP`
-**Parameters**:
-* `Map`: The map to load
+**Parametri**:
+* `Map`: Carica la mappa
 
-Loads an isometric map for usage by [`INVEST_START`](#invest_start).
+Carica una mappa isometrica che [`INVEST_START`](#invest_start) deve usare.
 
 ## `MODIFY_FRIENDSHIP`
 **Parameters**:
-* `Character`: The character to modify: Haruhi, Mikuru, Nagato, Koizumi or Tsuruya.
-* `Modify By`: The value to modify the friendship level by for the selected character
+* `Character`: Personaggi che vengono influenzati: Haruhi, Mikuru, Nagato, Koizumi e Tsuruya.
+* `Modify By`: Il livello amicizia da cambiare per i vari personaggi
 
-Modifies a character's "Friendship Level" by adding a particular value to it. The value can be positive or negative. Friendship
-levels start at 1 and persist throughout a playthrough. They can be referenced in conditionals with the following variable names:
+Modifica il "livello amicizia" dei personaggi, aggiungendo un valore specifico. Deve essere positivo o negativo. Il livello amicizia
+iniziale è 1, e continua a cambiare per tutta la durata della partita. Ogni personaggio ha la sua variabile:
 
-| Character | Variable |
+| Personaggio | Variabile |
 |-----------|----------|
 | Haruhi | `HFL` |
 | Mikuru | `MFL` |
@@ -332,59 +333,60 @@ levels start at 1 and persist throughout a playthrough. They can be referenced i
 | Tsuruya | `TFL` |
 
 ## `NEXT_SCENE`
-**Parameters**: None
+**Parametri**: Nessuno
 
-Ends the scene and moves to the next one as listed in the Scenario item.
+Chiude una scena e apre la prossima segnata sullo "Scenario Item".
 
 
 ## `NOOP1`
-**Parameters**: None.
+**Parametri**: Nessuno
 
-Does nothing.
+Non fa nulla.
 
 
 ## `NOOP2`
-**Parameters**: None.
+**Parametri**: Nessuno.
 
-Does nothing.
+Non fa nulla.
 
 
 ## `NOOP3`
-**Parameters**: None.
+**Parametri**: Nessuno.
 
-Does nothing.
+Non fa nulla.
 
 
 ## `OP_MODE` 
-**Parameters**: None
+**Parametri**: Nessuno
 
-Suppresses the top screen UI, disables dialogue skipping, and marks the center of the screen as the position the Kyon chibi walks to, and sends the Kyon chibi out. Used only in the opening text crawl.
+Disattiva l'UI dello schermo superiore, la possibilità di saltare i dialoghi e fa apparire e muovere il Chibi di Kyon al centro dello schermo superiore.
+Usato solo nel prologo.
 
 
 ## `PALEFFECT`
-**Parameters**:
-* `Mode`: The palette effect to be applied (available effects are default, inverted, grayscale, sepia, and dimmed)
-* `Time (Frames)`: The time in frames that the BG's palette will take to switch to transition to the effect palette
-* `Unknown`: This clearly does things when looking at the assembly/decomp, but I don't know what it's doing precisely
+**Parametri**:
+* `Mode`: Le palette da applicare (gli effetti disponibli sono: Defalut, invertita, scala di grigi, seppia e oscurato)
+* `Time (Frames)`: Quanti fotogrammi deve durare la transizione della palette dello sfondo
+* `Unknown`: Il codice dice che fa qualcosa, ma non capiamo cosa
 
 
 ## `PIN_MNL`
-**Parameters**:
-* `Dialogue`: Dialogue line as in the [`DIALOGUE`](#dialogue) command
+**Parametri**:
+* `Dialogue`: Comando che controlla le linee di [`DIALOGO`](#dialogue)
 
-Draws a dialogue line as monologue over all other dialogue. Undone by completing a chess game.
+Crea una linea di dialogo come monologo sopra gli altri dialoghi. Cancellabile dopo aver finito una partita a scacchi.
 
 
 ## `REMOVED`
-Removed in the final version of the game (not referenced in any scripts.)
+Rimosso dalla versione finale (non si trova nulla nel codice.)
 
 
 ## `SCENE_GOTO`
-**Parameters**:
-* `Scene`: Name of the script file to go to
+**Parametri**:
+* `Scene`: Nome dello script da raggiungere
 
-Goes to a particular scene. Note that this scene cannot be just any script file; it must be contained
-within a special array in ARM9 itself; thus, ROM hacks may decide to change the location of this array.
+Ti permette di raggiungere una certa scena. Non può portare a tutte le scene di gioco; ma solo quelle contenute
+in un particolare vettore speciale del ARM9; inoltre, modificare la ROM modificherà i vettori.
 
 
 ## `SCENE_GOTO2`
