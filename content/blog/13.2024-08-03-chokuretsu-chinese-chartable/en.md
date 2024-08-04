@@ -6,7 +6,7 @@ navigation:
   author: 'Xzonn'
   year: 2024
   month: 08
-  day: 03
+  day: 04
   tags: ['chokuretsu', 'romhacking', 'chinese']
   image: '0013/00_thumbnail.png'
 head:
