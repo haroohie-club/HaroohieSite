@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started'
+title: 'Cominciamo'
 locale: 'it'
 navigation:
   faicon: 'fa6-solid:hands'
@@ -24,16 +24,16 @@ In questo menù, potrai impostare i percorsi per il devkitARM ed anche per l'emu
 
 Per tutto il resto:
 
-* **Use Docker for ASM Hacks** &ndash; Checking this will cause Docker to be used for ASM hacks. If you decided to install Docker rather than make,
-  ensure this option is checked.
-* **DevkitARM Docker Tag** &ndash; The [tag](https://hub.docker.com/r/devkitpro/devkitarm/tags) of the devkitARM Docker image to use when using Docker
-  for assembling ASM hacks. Typically, you should leave this as the default value, unless you know what you're doing and want to use a different version
-  of devkitARM.
-* **Auto Re-Open Last Project** &ndash; Re-opens the last project on app start, bypassing the home screen.
-* **Remember Project Workspace** &ndash; Re-opens all the tabs you had open when you last closed the project on re-open.
-* **Remove Missing Projects** &ndash; Will remove missing (i.e. manually deleted) projects from the Recent Projects menu automatically.
-* **Check For Updates On Startup** &ndash; Will check GitHub for new releases of Serial Loops on startup. **Highly recommended to leave this option checked.**
-* **Use Pre-Release Update Channel** &ndash; Will use our nightly builds as the source for updates. **Highly recommended to leave this option unchecked.**
+* **Usare Docker per ASM Hacks** &ndash; Spuntare questa funzione farai in modo che Docker sia usato per le ASM hacks se vorrai installare Docker,
+  assicurati di spuntare questa voce.
+* **DevkitARM Docker Tag** &ndash; Il [tag](https://hub.docker.com/r/devkitpro/devkitarm/tags) del devkitARM si usa per quando dovrai
+  ricostruire la ROM per le ASM hacks. Noi ti consigliamo di lasciare questa opzione spuntata, a me no che tu sappia perfettamente cosa tu stia facendo e vuoi
+  usare un'altra versione del devkitARM.
+* **Ricarica progetto automaticamente** &ndash; Appari davanti all'ultimo progetto aperto, saltando la schermata d'avvio.
+* **Ricorda ultimo progetto** &ndash; Riapre tutte le schede aperte l'ultima volta che si è chiuso il progetto alla riapertura.
+* **Rimuovi progetti mancanti** &ndash; Ti permette di rimuovere i progetti contenuti nella barra dei progetti recenti.
+* **Check For Updates On Startup** &ndash; Il programma controllerà se sono presenti nuove versioni all'avvio. **Ti consigliamo di spuntare questa voce.**
+* **Aggiornamenti pre-rilascio** &ndash; Otterrai le versioni Nightly come aggiornamenti. **Non spuntare questa voce.**
 
 Una volta impostato tutto, è ora di creare il progetto.
 
