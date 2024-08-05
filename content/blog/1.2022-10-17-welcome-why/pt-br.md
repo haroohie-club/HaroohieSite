@@ -1,9 +1,10 @@
 ---
-title: &title 'Welcome! and Why?'
-description: &desc 'An introduction to the Haroohie Translation Club blog and an explanation of our motivations for translating Haruhi games.'
+title: &title 'Bem-vindo(a)! e Por que?'
+description: &desc 'A introdução ao blog do Haroohie Translation Club e nossas motivações para traduzir jogos da Haruhi.'
 locale: 'pt-br'
 navigation:
   author: 'Jonko'
+  translator: 'pigo'
   year: 2022
   month: 10
   day: 17
@@ -37,7 +38,7 @@ head:
 
 Você agora está lendo a primeira postagem do blog do Haroohie Translation Club, o que significa que ou você foi até a última página, ou chegou bem no começo. Meu nome é Jonko, e eu sou o líder do projeto do clube. Por conta do meu cargo, a responsabilidade de escrever a maioria das postagens do blog sobrou pra mim, mas posso garantir que vamos ter outros escritores aqui de vez em quando. Esse blog é o lugar onde tentaremos "abrir o cofre e dar uma olhada no que tem dentro" desse projeto que estamos trabalhando. Vamos dar uma olhada na engenharia reversa que fizemos, examinar a complexidade da tradução do japonês para o inglês, e talvez até aprofundar no mundo dos gerenciamentos de projetos. Mas, antes de tudo isso, nessa primeira postagem do blog, eu gostaria de responder a uma pergunta que sempre é feita: por que?
 
-Por que ficar acordado até tarde discutindo no Discord, decidindo se Nagato deve dizer "Certo" ou "Tudo certo"? Por que tirar férias para fazer engenharia reversa de uma linguagem de script proprietária? Por que dedicar milhares de horas para hackear, para traduzir e para editar os gráficos, a fim de criar patches para jogos que nem os editores consideraram dignos de lançamentos oficiais em outros idiomas?
+Por que ficar acordado até tarde discutindo no Discord, decidindo se a Nagato deveria dizer "Certo" ou "Tudo certo"? Por que tirar férias para fazer engenharia reversa de uma linguagem de script proprietária? Por que dedicar milhares de horas para hackear, para traduzir e para editar os gráficos, a fim de criar patches para jogos que nem os editores consideraram dignos de lançamentos oficiais em outros idiomas?
 
 Pessoalmente, eu descobri sobre ROM hacking por acaso, e também descobri que isso me dá constantemente dopamina. Isso, apesar de tudo, ainda não responde as perguntas mais específicas: por que traduzir, então? Por que traduzir esses jogos especificamente?
 

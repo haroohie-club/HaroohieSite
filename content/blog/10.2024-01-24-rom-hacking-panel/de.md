@@ -1,7 +1,7 @@
 ---
 title: &title 'Recording of Jonko''s "ROM Hacking to Translate a Video Game" Panel Released'
 description: &desc 'Watch Jonko explain some of the challenges of hacking Chokuretsu to a live audience at Retro World Expo'
-locale: 'de'
+locale: 'en'
 navigation:
   author: 'Jonko'
   year: 2024
@@ -39,7 +39,7 @@ this game, you'll likely enjoy giving it a watch!
 
 ### Update
 Thanks to [Xzonn](xzonn.top), who is working with a team to translate Chokuretsu into Chinese, this talk has now been translated into Chinese
-and is available with Chinese subtitles on both YouTube and [Bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
+and is available with Chinese subtitles on both YouTube and [bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
 
 ::youtube-video
 ----

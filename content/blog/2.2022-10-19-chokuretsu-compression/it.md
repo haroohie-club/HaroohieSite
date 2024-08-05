@@ -1,10 +1,9 @@
 ---
-title: &title 'Sfide nel ROM Hacking di Chokuretsu Parte 1 - Craccare un Algoritmo di Compressione!'
-description: &desc "Jonko parla di come riuscì a decompilare l'algoritmo di compressione Shade per modificare Suzumiya Haruhi no Chokuretsu."
-locale: 'it'
+title: &title 'Chokuretsu ROM Hacking Challenges Part 1 – Cracking a Compression Algorithm!'
+description: &desc 'Jonko delves into how the Shade compression algorithm was reverse engineered to hack Suzumiya Haruhi no Chokuretsu.'
+locale: 'en'
 navigation:
   author: 'Jonko'
-  translator: 'Fuyuko Ayumu'
   year: 2022
   month: 10
   day: 19
@@ -19,7 +18,7 @@ head:
   - property: 'og:image'
     content: &img https://haroohie.club/images/blog/0002/00_thumbnail.png
   - property: 'og:image:alt'
-    content: 'Un Nintendo DS con Haruhi Suzumiya che dice del testo modificato.'
+    content: 'A Nintendo DS featuring Haruhi Suzumiya saying edited text.'
   - property: 'og:url'
     content: 'https://haroohie.club/blog/2022-10-19-chokuretsu-compression'
   - property: 'og:type'

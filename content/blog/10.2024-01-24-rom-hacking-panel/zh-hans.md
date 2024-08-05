@@ -1,10 +1,9 @@
 ---
-title: &title 'Jonko 的“对于爱好者翻译电子游戏所需的 ROM 破解”座谈会录像发布了'
-description: &desc '观看 Jonko 在怀旧游戏世界展览会上向现场观众解释破解《串联》的一些挑战'
-locale: 'zh-hans'
+title: &title 'Recording of Jonko''s "ROM Hacking to Translate a Video Game" Panel Released'
+description: &desc 'Watch Jonko explain some of the challenges of hacking Chokuretsu to a live audience at Retro World Expo'
+locale: 'en'
 navigation:
   author: 'Jonko'
-  translator: 'Xzonn'
   year: 2024
   month: 01
   day: 24
@@ -33,10 +32,14 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-大家好！在过去的一年里，我在几场会议的座谈会上介绍了《串联》的 ROM 破解。在康涅狄格州哈特福德的怀旧游戏世界展览会（Retro World Expo）上，[Andy Wolan](https://www.youtube.com/@andywolan)（原索尼克研究小组（Sonic Stuff Research Group）成员）制作了一段座谈会的录像，我现在已经把它发布到了我的 YouTube 频道上。如果你有兴趣听听我们是如何破解这款游戏的，就来看一下吧！
+Hi folks! For the past year, I have been presenting a panel at several different conventions on ROM hacking Chokuretsu.
+At Retro World Expo in Hartford, Connecticut, [Andy Wolan](https://www.youtube.com/@andywolan) (formerly of the Sonic Stuff Research Group)
+made a recording of the panel that I've now posted to my YouTube channel. If you're interested in hearing a bit about how we hacked
+this game, you'll likely enjoy giving it a watch!
 
-### 更新
-感谢 [Xzonn](https://xzonn.top/)（他正在与一个团队合作将《串联》翻译成中文），这个座谈会现在已经被翻译成了中文，并且在 YouTube 和 [Bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/) 上提供了中文字幕！
+### Update
+Thanks to [Xzonn](xzonn.top), who is working with a team to translate Chokuretsu into Chinese, this talk has now been translated into Chinese
+and is available with Chinese subtitles on both YouTube and [bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
 
 ::youtube-video
 ----

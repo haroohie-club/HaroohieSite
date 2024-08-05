@@ -76,7 +76,7 @@
     "next": "Próximo",
     "chokuretsu-rom-patcher-no-patches-available": "Não existem patches disponíveis ainda! Por favor, volte mais tarde!",
     "chokuretsu-sl-script-editor-alt": "Editor de script",
-    "back-to-home": "Voltar a Home",
+    "back-to-home": "Voltar ao Início",
     "discord-server": "Servidor do Discord",
     "heiretsu-completion": "Em Breve",
     "github": "GitHub",
@@ -136,5 +136,16 @@
     "heiretsu-title": "O Paralelo da Haruhi Suzumiya",
     "chokuretsu-rom-patcher-patch-failed-retrieve": "Falha ao obter arquivo de patch.",
     "chokuretsu-rom-patcher-repairing": "Reparando a ROM ruim...",
-    "get-patch": "Obtenha o Patch"
+    "get-patch": "Obtenha o Patch",
+    "chokuretsu-rom-patcher-voice-subs-title": "",
+    "chokuretsu-rom-patcher-fetch-error": "",
+    "chokuretsu-rom-patcher-op-ed-subs-desc": "",
+    "chokuretsu-rom-patcher-voice-subs-desc": "",
+    "translated-by-post": "",
+    "heiretsu-tagline": "",
+    "chokuretsu-rom-patcher-op-ed-subs-alt": "",
+    "byline-post": "",
+    "chokuretsu-rom-patcher-voice-subs-alt": "",
+    "heiretsu-description": "",
+    "chokuretsu-rom-patcher-bad-rom-error": ""
 }

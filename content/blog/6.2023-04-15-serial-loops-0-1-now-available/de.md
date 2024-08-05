@@ -1,7 +1,7 @@
 ---
 title: &title 'Serial Loops v0.1 is now available!'
 description: &desc 'Today we are very exicted to announce the release of the first version of Serial Loops, a new editing suite for Suzumiya Haruhi no Chokuretsu!'
-locale: 'de'
+locale: 'en'
 navigation:
   author: 'William'
   year: 2023
@@ -37,7 +37,7 @@ head:
 
 Hello, everyone! 
 
-Today we're very exicted to announce that we're publicly releasing the first version of [Serial Loops](/chokuretsu/serial-loops) for Windows, macOS and Linux. Serial Loops is a new editor for *Suzumiya Haruhi no Chokuretsu* (The Series of Haruhi Suzumiya), the game we're currently working on [translating to English](/chokuretsu).
+Today we're very excited to announce that we're publicly releasing the first version of [Serial Loops](/chokuretsu/serial-loops) for Windows, macOS and Linux. Serial Loops is a new editor for *Suzumiya Haruhi no Chokuretsu* (The Series of Haruhi Suzumiya), the game we're currently working on [translating to English](/chokuretsu).
 
 ## The road to Serial Loops
 If you've been following our excellent [*Chokuretsu ROM Hacking Challenges*](/blog/2022-10-19-chokuretsu-compression) blog post series, you'll know all about the work Jonko's been doing to reverse engineer the game to enable our English translation patch. First, a bit of background!

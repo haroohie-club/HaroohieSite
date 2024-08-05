@@ -176,19 +176,19 @@ Decidi se far vedere dei coriandoli che cadono sullo schermo superiore.
 
 
 ## `DIALOGUE`
-**Parameters**:
-* `Dialogue`: The dialogue line, composed of a speaker and the dialogue text
-* `Sprite`: The character sprite to display when the dialogue is displayed
-* `Sprite Entrance Transition`: Transition that makes the sprite enter
-* `Sprite Exit/Move Transition`: Transition that makes the sprite exit or moves it around
-* `Sprite Shake`: Applies a shaking effect to the sprite 
-* `Voice Line`: The voice line to play
-* `Text Voice Font`: The voice font to be applied when no voiced line is used, as defined by the dialogue config item
-* `Text Speed`: The speed at which the text is rendered, as defined by the dialogue config item
-* `Text Entrance Effect`: The effect to use as the text is printed to the screen
+**Parametri**:
+* `Dialogue`: linea di dialogo, con interlocutore e il testo
+* `Sprite`: lo sprite al quale viene associato il dialogo
+* `Sprite Entrance Transition`: Transizione che fa entrare uno sprite in scena
+* `Sprite Exit/Move Transition`: Transizione che fa uscire uno sprite di scena
+* `Sprite Shake`: Fa scuotere lo sprite 
+* `Voice Line`: Linea di dialogo da riprodurre
+* `Text Voice Font`: Quando applicare un font quando un dialogo non è doppiato
+* `Text Speed`: Velocità di caricamento di un testo
+* `Text Entrance Effect`: Eventuali effetti da applicare ad un testo
 * `Sprite Layer`: Determines which "layer" a sprite should be rendered on entrance; higher numbers are rendered on top of lower ones
-* `Don't Clear Text`: If true, continues displaying the next dialogue line in the same box
-* `No Lip Flap`: Manually disables lip flaps for dialogue that would otherwise have them
+* `Don't Clear Text`: Se spuntato, il prossimo dialogo verrà mostrato nella stessa nuvoletta di quello precedente
+* `No Lip Flap`: Disabilità il movimento delle labbra
 
 Mostra una linea di dialogo e/o cambia gli [Sprite dei personaggi](../graphics/sprites). Possono anche contenere un [testo doppiato](../sound/voice).
 
@@ -199,27 +199,27 @@ Piccole note sugli sprite:
   essere mostrati senza usare transizioni
 * Se non darai agli sprite l'animazione di uscita, il personaggio non uscirà di scena
 
-For dialogue, there are a number of operators available that have different effects:
-| Operator | Example | Effect |
+Esistono molti effetti da applicare ai dialoghi:
+| Operatore | Esempio | Effetto |
 |----------|---------|--------|
-| `$num` | `$9` | Adjust the speed at which text appears on the screen; used to sync text with voice lines |
-| `#Wnum` | `#W20` | Waits for a number of frames before continuing to show text on the screen |
-| `#Pnum` | `#P5` | Changes the color of the text; the available colors can be seen in the table below |
-| `#DP` | `#DP` | "Dialogue placeholder," doesn't have much of a function |
-| `#SEnum` | `#SE001` | Plays a sound effect as [`SND_PLAY`](#snd_play) |
-| `#SK0` | `#SK0Shake#sk` | Shakes the text; terminated with `#sk` |
+| `$num` | `$9` | Aggiusta la velocità con la quale il testo viene caricato, usalo per sincronizzarlo con un eventuale frase doppiata |
+| `#Wnum` | `#W20` | Fa aspettare un determinato numero di frame prima di mostrare la prossima linea di testo |
+| `#Pnum` | `#P5` | Cambia il colore del testo, i colori disponibili li trovi nella casella sottostante |
+| `#DP` | `#DP` | "Dialoghi di placeholder" Non fanno nulla di speciale |
+| `#SEnum` | `#SE001` | Riproduce un file audio dal file [`SND_PLAY`](#snd_play) |
+| `#SK0` | `#SK0Shake#sk` | Fa scuotere il testo, da determinare con il comando `#sk` |
 
 The colors available with the `#P` operator:
 | Operator | Color |
 |----------|-------|
-| `#P00` | Standard white text |
-| `#P01` | Yellow text like in Kyon's monologue |
-| `#P02` | Slightly off-white text |
-| `#P03` | Gray-ish text |
-| `#P04` | Lavendar text used for the Info speaker |
-| `#P05` | Red, used for mentioning topics |
-| `#P06` | Faded gray |
-| `#P07` | Black |
+| `#P00` | Bianco |
+| `#P01` | Giallo come nei monologhi di Kyon |
+| `#P02` | Bianco spento |
+| `#P03` | Grigio |
+| `#P04` | Lilla, colore usato dal tutorial |
+| `#P05` | Rosso, per menzionare le discussioni |
+| `#P06` | Grigio chiaro |
+| `#P07` | nero|
 
 ## `EPHEADER`
 **Parametri**:
@@ -390,163 +390,164 @@ in un particolare vettore speciale del ARM9; inoltre, modificare la ROM modifich
 
 
 ## `SCENE_GOTO2`
-**Parameters**:
-* `Scene`: Name of the script file to go to
+**Parametri**:
+* `Scene`: Nome dello script da raggiungere
 
-Behaves as [`SCENE_GOTO`](#scene_goto), except this command does not clear a flag before jumping. Otherwise, they seem to be identical.
+Si comporta come [`SCENE_GOTO`](#scene_goto), ma non ripulisce i dati della pagina precedente. Del resto sono uguali.
 
 
 ## `SCREEN_FADEIN`
-**Parameters**:
-* `Fade Time (Frames)`: The length of the fade in frames
-* `Fade In Percentage`: The percentage of darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means the screen will be 50% darker 
-  than full brightness when the fade in is complete); only respected by custom color fades
-* `Location`: The screen(s) the fade will be applied to
-* `Color`: Either black, white, or the custom color set by a previous [`SCREEN_FADEOUT`](#screen_fadeout); this parameter must match
-  that of the previous [`SCREEN_FADEOUT`](#screen_fadeout) call
+**Parametri**:
+* `Fade Time (Frames)`: Quanto dura la transizione dello schermo nero
+* `Fade In Percentage`: Quanto deve essere scuro lo schermo (0 è molto chiaro and 100 è molto scuro; es. 50 significa che lo schermo sarà più scuro del 50% 
+  anziché essere più chiaro); solo le transizioni con colori personalizzati funziona
+* `Location`: le schermate sulle quali applicare le transizioni
+* `Color`: Sia bianco, che nero che qualsiasi altro colore impostato da [`SCREEN_FADEOUT`](#screen_fadeout); deve combaciare
+  con quello della schermata precedente [`SCREEN_FADEOUT`](#screen_fadeout).
 
-Causes the screen to fade in.
+Fa apparire sullo schermo nero una transizione nera.
 
 
 ## `SCREEN_FADEOUT`
-**Parameters**:
-* `Fade Time (Frames)`: The length of the fade in frames
-* `Fade out Percentage`: The percentage darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means that the screen will be 50%
-  brighter than full black when the fade is complete); only respected by color fades
-* `Custom Color`: The color the fade will be if `Color` is set to `CUSTOM`
-* `Location`: The screen(s) the fade will be applied to
-* `Color`: Either black, white, or the custom color defined by `Custom Color`; this parameter must match that of the subsequent
-  [`SCREEN_FADEIN`](#screen_fadein) call
+**Parametri**:
+* `Fade Time (Frames)`: Quanto dura la transizione dello schermo nero
+* `Fade out Percentage`: Quanto deve essere scuro lo schermo (0 è molto chiaro and 100 è molto scuro; es. 50 significa che lo schermo sarà più scuro del 50% 
+  anziché essere più chiaro); solo le transizioni con colori personalizzati funziona
+* `Custom Color`: Il colore che apparirà, a patto che tale `Colore` sia impostato su `Personalizzato`
+* `Location`: le schermate sulle quali applicare le transizioni
+* `Color`: Sia bianco, che nero che qualsiasi altro colore impostato da [`SCREEN_FADEOUT`](#screen_fadeout); deve combaciare
+  con quello della schermata precedente [`SCREEN_FADEIN`](#screen_fadein).
 
-Causes the screen to fade out.
+Fa terminare la transizione sullo schermo nero.
 
 
 ## `SCREEN_FLASH`
-**Parameters**:
-* `Fade In Time (Frames)`: Time for the fade in portion of the flash in frames
-* `Hold Time (Frames)`: Time to hold on the flash color in frames
-* `Fade Out Time (Frames)`: Time for the fade out portion of the flash in frames
-* `Color`: The color of the flash
+**Parametri**:
+* `Fade In Time (Frames)`: Porzione di tempo dove lo schermo inizia a flasha
+* `Hold Time (Frames)`: Per quanto tempo deve durare la flashata con i colori
+* `Fade Out Time (Frames)`: Porzione di tempo dove lo schermo finisce di flashare
+* `Color`: Colore della flashata
 
-Flashes the screen a specified color for a specified amount of time.
+Che colore e che durata dare alle flashate sullo schermo.
 
 
 ## `SCREEN_SHAKE`
-**Parameters**:
-* `Duration (Frames)`: Effect duration in frames (if -1, shakes indefinitely)
-* `Horizontal Intensity`: Intensity of the shake in the horizontal direction
-* `Vertical Intensity`: Intensity of the shake in the vertical direction
+**Parametri**:
+* `Duration (Frames)`: Quanto dura lo scuotersi dello schermo (se si mette -1 come valore, lo schermo non smetterà mai di muoversi)
+* `Horizontal Intensity`: Intensità dei movimenti orizzontali
+* `Vertical Intensity`: Intensità dei movimenti verticali
 
-Shakes the bottom screen.
+Lo schermo inizia a scuotersi.
 
 
 ## `SCREEN_SHAKE_STOP`
-**Parameters**: None
+**Parametri**: Nessuno
 
-Stops screen shaking from a [`SCREEN_SHAKE`](#screen_shake) command. (Used when the `Duration` parameter of said [`SCREEN_SHAKE`](#screen_shake)
-is set to -1).
+Disattiva il comando [`SCREEN_SHAKE`](#screen_shake) . (Da usare se il comando `Duration`[`SCREEN_SHAKE`](#screen_shake)
+è impostato su -1).
 
 
 ## `SELECT`
-**Parameters**:
-* `Option 1`: The first choice to be presented
-* `Option 2`: The second choice to be presented
-* `Option 3`: The third choice to be presented
-* `Option 4`: The fourth choice to be presented
+**Parametri**:
+* `Option 1`: Prima opzione da scegliere
+* `Option 2`: Seconda opzione da scegliere
+* `Option 3`: Terza opzione da scegliere
+* `Option 4`: Quarta opzione da scegliere
 * `unknown08` 
 * `unknown0A` 
 * `unknown0C` 
 * `unknown0E`
 
-Presents the player with a series of choices that branch the dialogue tree. Choices are defined in their own section and have IDs that correspond to labels set in the labels section. When a choice is chosen, this ID is used to select which script block will be jumped to.
+Da al giocatore una scelta da compiere. Le scelte vengono caricate dalla loro sezione tramite il loro ID che risponderanno alla scelta fatta.
+Quando viene compiuta una scelta, l'ID andrà a caricare uno script preciso.
 
-`SELECT` cannot be used in the initial, unnamed script block.
+`SELECT` non si può usare nello script iniziale, senza nome.
 
 
 ## `SET_PLACE`
 **Parameters**:
-* `Display?`: Whether to display the location graphic or not
-* `Place`: The place to display
+* `Display?`: Se mostrare la grafica di una zona o meno
+* `Place`: Posto da mostrare
 
-Modifies the displayed place name.
+Modifica i nomi delle zone
 
 
 ## `SKIP_SCENE`
-**Parameters**:
-* `Scenes to Skip`: Number of scenes that should be skipped
+**Parametri**:
+* `Scenes to Skip`: Quante scene da saltare
 
-Sets up the [`NEXT_SCENE`](#next_scene) command to skip a specified number of scenes as defined in `SCENARIO.S` (evt.bin #580).
+Imposta il comando [`NEXT_SCENE`](#next_scene) per saltare le scene, seguendo le istruzioni all'interno di `SCENARIO.S` (evt.bin #580).
 
 
 ## `SND_PLAY`
-**Parameters**: 
-* `Sound`: The sound to be played from `snd.bin`
-* `Mode`: Whether to start or stop the sound
-* `Volume`: The volume of the sound
-* `Crossfade Time (Frames)`: Time in frames that the sound will crossfade; only can be used when changing the volume of the same sound
+**Parametri**: 
+* `Sound`: Il suono che deve essere preso da `snd.bin`
+* `Mode`: Quando far iniziare o smettere il file audio
+* `Volume`: Il volume del file audio
+* `Crossfade Time (Frames)`: Quando il suono dovrà dissolversi, può essere usato solo per cambiare volume all'effetto
 
-Plays a sound from the SDAT `snd.bin`.
+Riproduce un suono preso dal file `snd.bin`.
 
 ## `STOP`
-**Parameters**: None
+**Parametri**: Nessuno
 
-Stops script execution and soft locks the game. Unused.
+Ferma tutti gli script e fa bloccare il gioco. Inutilizzato.
 
 
 ## `TOGGLE_DIALOGUE` 
-**Parameters**:
-* `Show`: Whether to show the dialogue box or not
+**Parametri**:
+* `Show`: Decide se mostrare il box di dialogo o meno
 
-Shows/hides the dialogue box. Note that plenty of other commands already do one of these (e.g., `DIALOGUE` automatically shows the dialogue box).
+Mostra/nasconde il box di dialogo. Molti di questi comandi fanno già questa cosa (es `DIALOGUE` mostra automaticamente il box).
 
 
 ## `TOPIC_GET`
-**Parameters**:
-* `Topic`: The topic to give the player
+**Parametri**:
+* `Topic`: Le discussioni che vengono date al giocatore
 
-Give the player a particular topic.
+Consegna al giocatore una discussione.
 
 
 ## `TRANS_OUT`
-**Parameters**:
-* `Transition`: The transition to use
+**Parametri**:
+* `Transition`: Transizioni da usare
 
-Plays a transition to black.
+Fa partire una transizione sullo schermo nero.
 
 ## `TRANS_IN`
 **Parameters**:
-* `Transition`: The transition to use
+* `Transition`: Transizione da usare
 
-Plays a transition from black into the scene.
+Parte una transizione che riporta alla scena.
 
 
 ## `UNKNOWN0A`
-**Parameters**: None
+**Parametri**: Nessuno
 
-Unused in the game, unknown what this does.
+Inutilizzato, non sappiamo cosa faccia.
 
 
 ## `VCE_PLAY`
-* `Voice Line`: The voiced line to play
+* `Voice Line`: Fa partire un dialogo doppiato
 
-Plays a voice file.
+Fa partire un file audio doppiato
 
 
 ## `VGOTO`
-**Parameters**:
-* `Conditional`: The conditional to check
-* `Script Section`: The script section to jump to
+**Parametri**:
+* `Conditional`: Condizioni da spuntare
+* `Script Section`: Sezione script da raggiungere
 
-Goes to a specified script section if a specified conditional is true.
+Raggiunge una sezione di script precisa, se la condizione viene spuntata.
 
 ## `WAIT` 
-**Parameters**:
-* `Time (Frames)`: The number of frames to wait
+**Parametri**:
+* `Time (Frames)`: Quanti frame aspettare
 
-Waits a particular number of frames.
+Fa attendere un determinato numero di frame.
 
 ## `WAIT_CANCEL`
-**Parameters**:
-* `Time (Frames)`: The number of frames to wait.
+**Parametri**:
+* `Time (Frames)`: Quanti frame aspettati.
 
-A command nearly identical to [`WAIT`](#wait), but allows for the wait to be canceled with a button press or screen tap.
+Identico al comando [`WAIT`](#wait),ma l'azione si può cancellare toccando lo schermo o premendo un tasto.

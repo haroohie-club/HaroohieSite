@@ -1,24 +1,24 @@
 ---
-title: 'Game Flow'
+title: 'Scorrere del gioco'
 locale: 'it'
 navigation:
   faicon: 'fa6-solid:book-open'
   previous: '/chokuretsu/serial-loops/docs/scenario'
   next: '/chokuretsu/serial-loops/docs/scenario/group-selections'
 ---
-The game's flow can be edited with the _Scenario_ editor. The scenario is essentially a list of commands which execute in order to load various game
-components. The commands are explained in the following table:
+Puoi alterare lo scorrere del gioco grazie all'editor degli _Scenari_ . Gli scenari sono una lista di comandi che dicono cosa far caricare il gioco e
+in che ordine. Nella tabella qua sotto troverai i vari comandi:
 
 ## Comandi scena
 | Comando | Descrizione |
 |---------|-------------|
-| `NEW_GAME` | Con questo comando ti permette di cambiare dove ti porterà il menu "New Game". Per esempio, `NEW_GAME 5`ti farà inziare dal quinto episodio |
+| `NEW_GAME` | Con questo comando ti permette di cambiare dove ti porterà il menu "New Game". Per esempio, `NEW_GAME 5`ti farà iniziare dal quinto episodio |
 | `SAVE` | Questo comando ti permette di salvare. |
 | `LOAD_SCENE` | Questo comando ti permette di caricare lo script che più ti aggrada. |
 | `PUZZLE_PHASE` | Questo comando farà partire una fase puzzle. |
 | `ROUTE_SELECT` | Questo comando ti fa partire dalla divisione dei compiti. |
 | `STOP` | Questo comando fa bloccare il gioco. Non serve a molto. |
-| `SAVE2` | Anche con questo comando potrai salvare. Non sappiamo ancora la differenza con il comando`SAVE`|
+| `SAVE2` | Anche con questo comando potrai salvare. Non sappiamo ancora la differenza con il comando `SAVE`|
 | `TOPICS` | Con questo comando potrai vedere tutte le discussioni che hai sbloccato. |
 | `COMPANION_SELECT` | Potrai caricare la schermata di "scelta del compagno" facendo scegliere quale personaggio farà da compagnia ad Haruhi durante le fasi puzzle. |
 | `PLAY_VIDEO` | Riproduce un video, 0 mostra la sigla d'apertura, 1 riproduce i crediti. |

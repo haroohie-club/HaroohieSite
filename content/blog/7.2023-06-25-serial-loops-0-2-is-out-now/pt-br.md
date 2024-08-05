@@ -1,7 +1,7 @@
 ---
 title: &title 'Serial Loops v0.2 is out now – with more powerful editors and better stability!'
 description: &desc 'The second version of Serial Loops makes the editor even more powerful and intuitive, fixes a ton of bugs, and improves stability!'
-locale: 'pt-br'
+locale: 'en'
 navigation:
   author: 'William'
   year: 2023
@@ -57,7 +57,7 @@ Several new features have also been added:
 * Improved the color reduction algorithm so replaced graphics look a lot nicer in-game
 
 ### User interface
-v0.2 also brings a number of UI improvments:
+v0.2 also brings a number of UI improvements:
 * Fixed a number of accuracy issues with the script preview
 * Progress bar dialogs will now always sit atop every other window
 * Added quick search to the main project explorer on the left, to let you quickly filter items by name
