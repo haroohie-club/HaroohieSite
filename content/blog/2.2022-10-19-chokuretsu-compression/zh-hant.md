@@ -1,10 +1,9 @@
 ---
-title: &title '《串聯》ROM 破解挑戰第 1 部分：破解壓縮演算法！'
-description: &desc 'Jonko 深入研究了 Shade 的壓縮演算法是如何被逆向工程，然後用來破解《涼宮春日的串聯》的。'
+title: &title 'Chokuretsu ROM Hacking Challenges Part 1 – Cracking a Compression Algorithm!'
+description: &desc 'Jonko delves into how the Shade compression algorithm was reverse engineered to hack Suzumiya Haruhi no Chokuretsu.'
 locale: 'zh-hant'
 navigation:
   author: 'Jonko'
-  translator: 'Xzonn'
   year: 2022
   month: 10
   day: 19

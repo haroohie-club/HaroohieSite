@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops - 涼宮春日的串聯關卡編輯器'
-description: &desc 'Serial Loops 是一個用於《涼宮春日的串聯》（涼宮ハルヒの直列）的關卡編輯器，可在 Windows、Mac 和 Linux 上執行。'
+title: &title 'Serial Loops - Level Editor for Suzumiya Haruhi no Chokuretsu'
+description: &desc 'Serial Loops is a level editor for Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.'
 navigation:
   image: 'script-editor.png'
 head:
@@ -12,7 +12,7 @@ head:
   - property: 'og:image'
     content: &img https://haroohie.club/images/chokuretsu/serial-loops/script-editor.png
   - property: 'og:image:alt'
-    content: '顯示著涼宮春日說出已編輯的文字的 Nintendo DS。'
+    content: 'A Nintendo DS featuring Haruhi Suzumiya saying edited text.'
   - property: 'og:url'
     content: 'https://haroohie.club/chokuretsu/serial-loops/'
   - property: 'og:type'
@@ -28,7 +28,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-<b class="sl-header">用於《涼宮春日的串聯》的編輯套件</b> 
+<b class="sl-header">An editing suite for Suzumiya Haruhi no Chokuretsu</b> 
 
 Serial Loops 是一個用於[《涼宮春日的串聯》](/zh-hant/chokuretsu)（涼宮ハルヒの直列）的編輯套件，可在 Windows、Mac 和 Linux 上執行。
 

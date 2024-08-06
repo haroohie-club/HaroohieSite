@@ -1,10 +1,9 @@
 ---
-title: &title '《串聯》ROM 破解挑戰第 2 部分：歸檔檔案考古學'
-description: &desc 'Jonko 把 Shade 的二進位制歸檔檔案放在顯微鏡下，解釋了他是如何開啟它的。'
+title: &title 'Chokuretsu ROM Hacking Challenges Part 2 – Archive Archaeology'
+description: &desc 'Jonko puts the Shade bin archive under the microscope and explains how he figured out how to unpack it.'
 locale: 'zh-hant'
 navigation:
   author: 'Jonko'
-  translator: 'Xzonn'
   year: 2022
   month: 11
   day: 02
@@ -33,7 +32,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-[在上一次](/zh-hant/blog/2022-10-19-chokuretsu-compression)，我們討論了我如何對《涼宮春日的串聯》中使用的壓縮演算法進行逆向工程。今天，我們來看看包含在《串聯》檔案中的歸檔檔案。請注意，雖然我通常會盡量將這些部落格文章分開，但這篇文章絕對是建立在我們上次討論的概念之上的，所以我強烈建議您先閱讀它！此外，如果您是從上篇文章來到這裡的，請注意，這篇文章有點長，包含更多的程式集！
+[Last time](/blog/2022-10-19-chokuretsu-compression), we talked about how I reverse-engineered the compression algorithm used in Suzumiya Haruhi no Chokuretsu. Today, we’ll be taking a look at the archives that contain the Chokuretsu files. Please note that while I’ll generally try to keep these blog posts separate, this one absolutely builds on concepts we discussed last time, so I highly recommend you read it first! Also, if you're returning from the last one, fair warning that this one's a bit longer and contains a lot more assembly!
 
 由於 zip 檔案數量的激增，你可能已經熟悉了歸檔檔案：它們是包含檔案的檔案，通常儲存了壓縮的版本，以幫助節省磁碟空間。常見的歸檔檔案包括 `.zip`、`.rar`、`.7z` 和 `.tar.gz` 檔案。《串聯》使用了副檔名為 `.bin` 的自定義歸檔檔案格式。由於 Shade 是《串聯》的開發商，這些檔案也可以被稱為“Shade 二進位制歸檔檔案”或簡稱為“二進位制歸檔檔案”。讓我們選擇一個歸檔檔案開始研究。
 
@@ -201,7 +200,7 @@ RAM:02033D00                 BL      dbg_printError
 
 我已經將載入到 R1 中的值標記為了 `=sArchiveFileNames`——如果我們在 IDA 中跳轉到該地址，我們可以看到原因：
 
-![IDA 中檢視的 =sArchiveFileNames 處的記憶體地址，顯示歸檔檔案的檔名列表](/images/blog/0003/16_archive_file_names.png)
+![The RAM address of =sArchiveFileNames viewed in IDA showing a list of archive filenames](/images/blog/0003/16_archive_file_names.png)
 
 這是一個包含了四個歸檔檔名稱的列表！因此，`LDR R1,[R1, R10, LSL#2]` 這行將會載入的歸檔檔案的名稱。如果我們在前面的螢幕截圖中檢視 R10，我們可以看到它被設定為 2。通常，陣列從索引 0 開始，因此這意味著這裡的索引 2 將是 `aEvtBin`——也就是說 `%s` 的值是 `EVT.BIN`！
 
