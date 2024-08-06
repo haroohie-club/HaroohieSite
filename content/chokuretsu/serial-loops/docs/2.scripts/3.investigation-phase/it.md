@@ -1,5 +1,5 @@
 ---
-title: 'Investigation Phase'
+title: 'Fase investigazione'
 locale: 'it'
 navigation:
   faicon: 'fa6-solid:magnifying-glass-arrow-right'

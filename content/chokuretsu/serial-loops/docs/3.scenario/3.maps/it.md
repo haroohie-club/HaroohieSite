@@ -1,5 +1,5 @@
 ---
-title: 'Maps'
+title: 'Mappe'
 locale: 'it'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/map.png'

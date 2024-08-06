@@ -1,5 +1,5 @@
 ---
-title: 'Character Sprites'
+title: 'Sprite dei personaggi'
 locale: 'it'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/character-sprite.png'
@@ -21,4 +21,5 @@ Gli sprite vengono usati per rappresentare i personaggi durante i dialoghi. Ogni
 Gli sprite vengono controllati dal comando [`DIALOGUE`](../scripts/commands#dialogue) negli script.
 
 ## In Serial Loops
-Al momento puoi solo vedere gli sprite dei personaggi per vederli. Inoltre, puoi esportarli sia fotogramma per fotogramma (daremo le istruzioni per come modificarli in futuro) o come file animato in estensione GIF.
+Al momento puoi solo vedere gli sprite dei personaggi per vederli. Inoltre, puoi esportarli sia fotogramma per fotogramma (daremo le istruzioni per come
+modificarli in futuro) o come file animato in estensione GIF.

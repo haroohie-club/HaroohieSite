@@ -49,8 +49,7 @@ It wasn’t until [Ermii](https://www.ermiisoft.net/) politely asked if they wer
 ## The File Length
 Something I left out of the archive post was the fact that I didn’t reverse-engineer the whole archive at once. The code was written ad-hoc as I figured out particular things here and there. I figured out the offsets before I even realized that the rest of the magic integers encoded for length, so I was replacing files in the archives without changing their lengths accordingly. This resulted in beautiful things like this:
 
-It wasn’t until [Ermii](https://www.ermiisoft.net/) politely asked if they were
-archives that I realized that…yeah, that’s exactly what they were.
+![The Chokuretsu main screen with significant corruption across multiple UI elements](/images/blog/0005/02_haruohno.png)
 
 Trying to replace the graphics files led to corruption because my compression routine was less efficient than the one the devs used, which meant that the compressed files I was reinserting into the game were longer than expected. I spent a lot of time trying to figure out what was going on before I finally determined the [file length encoding](/blog/2022-11-02-chokuretsu-archives#the-unhinged-file-length-routine).
 
@@ -61,7 +60,19 @@ Much better!
 ## Writing Tests
 So there was a lot of trial and error, which meant that I needed to be able to verify that things like the compression routine or archive reinsertion programs were working in a consistent way. A fantastic way to go about this is _writing tests_ and that’s exactly what I did. See a test for the compression implementation I wrote below:
 
-Much better!
+```csharp
+[Test]
+[TestCase("evt_000", TestVariables.EVT_000_DECOMPRESSED, TestVariables.EVT_000_COMPRESSED)]
+[TestCase("evt_66", TestVariables.EVT_66_DECOMPRESSED, TestVariables.EVT_66_COMPRESSED)]
+[TestCase("evt_memorycard", TestVariables.EVT_MEMORYCARD_DECOMPRESSED, TestVariables.EVT_MEMORYCARD_COMPRESSED, false)]
+[TestCase("grp_c1a", TestVariables.GRP_C1A_DECOMPRESSED, TestVariables.GRP_C1A_COMPRESSED, false)]
+[TestCase("evt_test", TestVariables.EVT_TEST_DECOMPRESSED, TestVariables.GRP_TEST_COMPRESSED)]
+[TestCase("grp_test", TestVariables.GRP_TEST_DECOMPRESSED, TestVariables.GRP_TEST_COMPRESSED)]
+public void CompressionMethodTest(string filePrefix, string decompressedFile, string originalCompressedFile)
+{
+	byte[] decompressedDataOnDisk = File.ReadAllBytes(decompressedFile);
+	byte[] compressedData = Helpers.CompressData(decompressedDataOnDisk);
+	File.WriteAllBytes($".\\inputs\\{filePrefix}_prog_comp.bin", compressedData);
 
 	if (!string.IsNullOrEmpty(originalCompressedFile))
 	{
@@ -82,19 +93,7 @@ I had a number of questions about how I actually implemented the compression rou
 
 I think the core process is actually pretty easy to understand: essentially, we’re just reversing what the decompression routine does. For example, when decompressing a file, we might first encounter a byte with the top bit cleared and the second bit set (i.e. `0b01xxxxxx`), which according to [the algorithm we reverse-engineered](/blog/2022-10-19-chokuretsu-compression) means that we take the lower 6 bits and add 4, then repeat the following byte that number of times (e.g., if we encounter `43 05` in the compressed buffer, we would write seven `05` bytes to the decompressed buffer). So, when compressing, we look for four or more repeated bytes in a row – if we encounter that repetition, then we encode the control byte followed by the repeated byte (e.g., if we encounter `05 05 05 05 05 05 05` in the decompressed buffer, we would write `43 05` to the compressed buffer).
 
-```csharp
-[Test]
-[TestCase("evt_000", TestVariables.EVT_000_DECOMPRESSED, TestVariables.EVT_000_COMPRESSED)]
-[TestCase("evt_66", TestVariables.EVT_66_DECOMPRESSED, TestVariables.EVT_66_COMPRESSED)]
-[TestCase("evt_memorycard", TestVariables.EVT_MEMORYCARD_DECOMPRESSED, TestVariables.EVT_MEMORYCARD_COMPRESSED, false)]
-[TestCase("grp_c1a", TestVariables.GRP_C1A_DECOMPRESSED, TestVariables.GRP_C1A_COMPRESSED, false)]
-[TestCase("evt_test", TestVariables.EVT_TEST_DECOMPRESSED, TestVariables.GRP_TEST_COMPRESSED)]
-[TestCase("grp_test", TestVariables.GRP_TEST_DECOMPRESSED, TestVariables.GRP_TEST_COMPRESSED)]
-public void CompressionMethodTest(string filePrefix, string decompressedFile, string originalCompressedFile)
-{
-	byte[] decompressedDataOnDisk = File.ReadAllBytes(decompressedFile);
-	byte[] compressedData = Helpers.CompressData(decompressedDataOnDisk);
-	File.WriteAllBytes($".\\inputs\\{filePrefix}_prog_comp.bin", compressedData);
+That’s basically the whole process. It gets quite complicated for the “sliding dictionary” that’s characteristic of [LZ compression](https://en.wikipedia.org/wiki/LZ77_and_LZ78) (which I call `lookback`s in my code). For those, I essentially keep a running dictionary of every four byte sequence in the file and check to see if the current four byte sequence is in that dictionary. If it is, I insert the control code for the lookback sequence into the compressed buffer.
 
 ## Finding Filenames
 I told a lie of omission about the archive header – there’s more than just the magic integer section! If you scroll down past the magic integers, there’s another section the same length as the previous section and then a section past that which didn’t have a clearly-defined length but whose entries did seem tantalizingly patterned. For basically the entire development of the Chokuretsu utilities, I ignored these two sections entirely – literally skipping over them in the code. 
@@ -111,10 +110,7 @@ So, on a whim, I took all of the “filenames” out and started doing a find/re
 
 ![An editor with all of the files in dat.bin listed alongside their filenames](/images/blog/0005/06_deciphered_filenames.png)
 
-This test compresses some data and then decompresses it to validate that the
-decompressed file is identical to the original one. This was used repeatedly
-while debugging the compression routine to ensure it was working as I
-implemented each part of it. Speaking of which…
+## Other Random Things
 
 ### The Unhinged File Length Routine Revealed
 Something else fun: after the second blog post, a person named Ethanol dropped into the Haroohie Discord server and dropped the bomb on what the unhinged file length routine actually does:
@@ -131,18 +127,7 @@ Something else fun: after the second blog post, a person named Ethanol dropped i
 
 That’s right, it’s just division. 🙃 I’ve tested this since then and indeed, that’s what it is. A bit faster to just divide than to do my weird thing haha.
 
-I think the core process is actually pretty easy to understand: essentially,
-we’re just reversing what the decompression routine does. For example, when
-decompressing a file, we might first encounter a byte with the top bit cleared
-and the second bit set (i.e. `0b01xxxxxx`), which according to [the algorithm we
-reverse-engineered](/blog/2022-10-19-chokuretsu-compression) means that we take
-the lower 6 bits and add 4, then repeat the following byte that number of times
-(e.g., if we encounter `43 05` in the compressed buffer, we would write seven
-`05` bytes to the decompressed buffer). So, when compressing, we look for four
-or more repeated bytes in a row – if we encounter that repetition, then we
-encode the control byte followed by the repeated byte (e.g., if we encounter `05
-05 05 05 05 05 05` in the decompressed buffer, we would write `43 05` to the
-compressed buffer).
+![A Google Docs comment from my editor, Gordon Ramsay, reading Would you like to apologize to the devs, who you thought were fucking with you specifically](/images/blog/0005/08_apology.png)
 
 At the recommendation of my editor, I’d like to take this opportunity to apologize to the Chokuretsu devs, who were not, in fact, fucking with me specifically in this particular instance.
 
@@ -162,8 +147,7 @@ ahook_02033F00:
     bx lr
 ```
 
-![A hex editor showing a section of a bin archive file with tons of
-incomprehensible ASCII text in it](/images/blog/0005/04_filenames_section.png)
+All this does is change that max length from 0x12000 to 0x16000. An easy fix, but nonetheless an annoying problem to have to find!
 
 ## See You Soon!
 This is a shorter post, but I wanted to make sure I addressed some of the stuff that I left unsaid in the previous posts. Please look forward to the next posts in the series that will delve into how I reverse-engineered specific game files!

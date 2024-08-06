@@ -1,5 +1,5 @@
 ---
-title: 'Group Selections'
+title: 'Divisione dei compiti'
 locale: 'it'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
@@ -16,7 +16,7 @@ In questa sezione vengono rappresentati gli istanti dove dovrai divere i persona
 
 In questa pagina ci saranno dalle 2 alle 4 scelte, marchiate con lettere che vanno dalla "A" alla "D". Le scelte rappresentano i **compiti* che i personaggi dovranno svolgere, per fare una scelta, trascina l'icona del personaggio sul riquadro che desideri.
 
-Ogni gruppo farà la sua **strada** per completare quel compito. I percorsi sono composti da un sottoinsieme di compiti,
+Ogni gruppo farà la sua **strada** che li porterà a compiere il loro obiettivo. I percorsi sono composti da un sottoinsieme di compiti,
 e non tutte le strade hanno le stesse proprietà (Dipende tutto dai personaggi ai quali affiderai i compiti).
 
 ## In Serial Loops
@@ -30,8 +30,8 @@ L'editor della divisione dei gruppi ti permette di vedere le seguenti caratteris
   - La possibilità di vedere quale sia la combinazione migliore per ogni singolo compito (sia con o senza Kyon).
   - La possibilità di vedere quale sia la combinazione peggiore per ogni singolo compito (sia con o senza Kyon).
 * Troverai anche una descrizione per quello che accadrà in quella strada. Troverai anche il nome del percorso:
-  - The script associated with the topic &ndash; this is the script that will be loaded the selected group (including Kyon) is sent on this task
+  - Gli script associati con le discussioni&ndash; verrano caricati una volta fatti i gruppi (anche se viene mandato solo Kyon) 
   - I personaggi coinvolti in quella discussione.
-  - Se la discussione è senza Kyon, avvengono se Kyon non è assieme ad Haruhi.
+  - Se la discussione è senza Kyon, si sbloccano solo se Kyon non è presente in un gruppo.
 
 ![Group selections editor](/images/chokuretsu/serial-loops/group-selections-editor.png)
