@@ -1,9 +1,10 @@
 ---
-title: &title "The Return of the Chokuretsu ROM Hacking Series!"
-description: &desc "Jonko wanted to make a post on a leap day but didn't have time to finish his blog post in time"
+title: &title "《串聯》ROM 破解系列的迴歸！"
+description: &desc "Jonko 想在閏日發表一篇文章，但他沒來得及寫完"
 locale: 'zh-hant'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2024
   month: 02
   day: 29
