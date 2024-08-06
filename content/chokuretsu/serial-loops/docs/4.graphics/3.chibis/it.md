@@ -1,5 +1,5 @@
 ---
-title: 'Chibis'
+title: 'Chibi'
 locale: 'it'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/chibi.png'
@@ -7,28 +7,28 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics/places'
 ---
 
-The current version of Serial Loops only allows you to view chibis, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing chibis and this documentation will be updated to be more complete.
+Nella versione attuale di Serial Loops, puoi solo vedere i chibi, non puoi modificarli in nessun modo.
+In una versione futura, quando sarà possibile, aggiungeremo delle descrizioni per come modificare i chibi.
 
-## Overview
-Chibis are small animated sprites used on the top screen during regular visual novel segments and controlled/interacted with during the
-investigation and puzzle phases.
+## Analisi
+I Chibi sono degli omini che appaiono sullo schermo superiore durante le fasi visual novel del gioco, oppure vengono controllati dal giocatore
+durante le fasi investigazione e puzzle.
 
-Chibis can have a number of animations associated with them:
+I Chibi hanno diverse animazioni associate:
 
 | Animation Number | Description |
 |------------------|-------------|
-| 00 | Default idle animation |
-| 01 | Walk cycle animation |
-| 02 | "Searching" animation (puzzle phase) |
-| 03 | "Cleaning" animation (puzzle phase) |
-| 04 | Lose animation (puzzle phase) |
-| 05 | Win animation (puzzle phase) |
-| 06 | Technique animation (puzzle phase) |
-| 07 | Technique failed animation (puzzle phase) |
-| 08 | Running animation (Haruhi has a different one for this) |
-| 10 | Alternate idle animation |
-| 97-99 | Still poses |
+| 00 | Animazione da fermo |
+| 01 | Animazione da camminata |
+| 02 | Animazione di ricerca (fase puzzle) |
+| 03 | Animazione di pulizia (fase puzzle) |
+| 04 | Animazione di sconfitta (fase puzzle) |
+| 05 | Animazione di vittoria(fase puzzle) |
+| 06 | Animazione mossa speciale (fase puzzle) |
+| 07 | Animazione mossa speciale fallita (fase puzzle) |
+| 08 | Animazione di corsa (Haruhi ne ha una alternativa) |
+| 10 | Animazione da fermo alternativa |
+| 97-99 | Posa statica |
 
 Additionally, each animation can have variants for the direction the chibi is facing (back right, back left, front right, front left), though not all have all directions.
 

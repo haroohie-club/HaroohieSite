@@ -1,5 +1,5 @@
 ---
-title: 'Topics'
+title: 'Discussioni'
 locale: 'it'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/topic.png'

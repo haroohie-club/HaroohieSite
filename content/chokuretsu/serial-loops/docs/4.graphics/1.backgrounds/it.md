@@ -28,12 +28,12 @@ caratteristica, rimuovi il check da "Mantieni proporzioni".
 ### Background sizes
 | Background Type      | Size (WxH in pixels) | Notes                                                                                                  |
 |----------------------|----------------------|--------------------------------------------------------------------------------------------------------|
-| `KINETIC_SCREEN`     | 256x192              | 16 color images, so make sure your image is exceedingly simple                                         |
+| `KINETIC_SCREEN`     | 256x192              | massimo 16 colori, assicurati che le immagini da aggiungere siano semplici                                         |
 | `TEX_BG`             | 256x192              |                                                                                                        |
 | `TEX_CG`             | 256x192              |                                                                                                        |
-| `TEX_CG_DUAL_SCREEN` | 256x512              | Displayed on both screens, but each portion is taller than the full screen (scrolled with `BG_SCROLL`) |
-| `TEX_CG_WIDE`        | 512x192              | Displayed on bottom screen, but wider than the full screen (scrolled with `BG_SCROLL`)                   |
-| `TEX_CG_SINGLE`      | 256x256              | Displayed on bottom screen, but taller than bottom screen (scrolled with `BG_SCROLL`)                  |
+| `TEX_CG_DUAL_SCREEN` | 256x512              | L'immagine appare su ambo gli schermi, ma le immagini sono più alte (naviga con `BG_SCROLL`) |
+| `TEX_CG_WIDE`        | 512x192              | L'immagine appare sullo schermo inferiore, ma è molto più larga (naviga con `BG_SCROLL`)                   |
+| `TEX_CG_SINGLE`      | 256x256              | L'immagine appare sullo schermo inferiore ma è molto più alta, (naviga con `BG_SCROLL`)                  |
 
 ## CG
 Le immagini CG (Computer Graphics, termine molto usato nel campo delle visual novel), hanno dei titles che si possono trovare nel album di gioco. Se sarà possibile ti verrà data la possibilità di modificare i loro nomi.
