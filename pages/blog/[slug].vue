@@ -43,7 +43,7 @@
                     </div>
                     <div v-if="doc.navigation.translator" id="translator-details">
                         <div>
-                            {{ $t('translated-by-pre') }}<NuxtLink :to="`/author/${doc.navigation.translator.replace(' ', '-').toLowerCase()}`">{{ doc.navigation.translator }}</NuxtLink>{{ $t('translated-by-post') }}
+                            {{ $t('translated-by-pre') }}<NuxtLink :to="localePath(`/author/${doc.navigation.translator.replace(' ', '-').toLowerCase()}`)">{{ doc.navigation.translator }}</NuxtLink>{{ $t('translated-by-post') }}
                         </div>
                         <ContentDoc :path="`/author/${doc.navigation.translator.replace(' ', '-').toLowerCase()}/${locale}`" :head="false">
                             <template v-slot="doc">

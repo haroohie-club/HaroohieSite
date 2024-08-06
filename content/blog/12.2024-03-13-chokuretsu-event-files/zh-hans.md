@@ -1,7 +1,7 @@
 ---
 title: &title "Chokuretsu ROM Hacking Challenges Part 4 – Event File Excavation"
 description: &desc "Jonko digs into the event files to figure out how to translate the game"
-locale: 'en'
+locale: 'zh-hans'
 navigation:
   author: 'Jonko'
   year: 2024

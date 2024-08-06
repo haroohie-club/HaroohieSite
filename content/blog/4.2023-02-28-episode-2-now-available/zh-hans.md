@@ -1,7 +1,7 @@
 ---
 title: &title 'The Series of Haruhi Suzumiya – Episode 2 is now available!'
 description: &desc 'Version 0.4 of Suzumiya Haruhi no Chokuretsu''s English Patch, which contains the translation of Episode 2: The Unfinished Sonata, is now available for download!'
-locale: 'en'
+locale: 'zh-hans'
 navigation:
   author: 'William'
   year: 2023
