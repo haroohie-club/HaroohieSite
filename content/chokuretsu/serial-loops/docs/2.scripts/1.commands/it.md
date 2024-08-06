@@ -79,8 +79,8 @@ fai scorrere lo sfondo in maniera PRECISA.
 
 ## `BGM_PLAY`
 **Parametri**:
-* `Music`: Quando far partire o interrompere la musica di sottofondo
-* `Mode`: Quando far partire o interrompere la musica
+* `Musica`: Quando far partire o interrompere la musica di sottofondo
+* `Modalità`: Quando far partire o interrompere la musica
 * `Volume`: Volume della musica in sottofondo (0 iè il minimo, 100 è il massimo)
 * `Assolvenza (Frames)`: Frame quando la canzone sta per iniziare
 * `Dissolvenza (Frames)`: Frame quando la canzone sta per finire
@@ -89,7 +89,7 @@ Riproduce o interrompe la musica di sottofondo.
 
 
 ## `CHESS_CLEAR_ANNOTATIONS`
-**Parametri**: None
+**Parametri**: Nessuno
 
 Rimuove tutte le annotazioni della scacchiera. Inutilizzato.
 
@@ -103,10 +103,10 @@ Carica un file della modalità scacchi dalla memoria (se la sovrapposizione è a
 
 ## `CHESS_MOVE`
 **Parametri**:
-* `White Space Begin`: La casella di partenza di una pedina bianca
-* `White Space End`: La casella di arrivo di una pedina bianca
-* `Black Space Begin`: La casella di partenza di una pedina nera
-* `Black Space End`: La casella di arrivo di una pedina nera
+* `Casella Inizio Bianco`: La casella di partenza di una pedina bianca
+* `Casella Fine Bianco`: La casella di arrivo di una pedina bianca
+* `Casella Inizio Nero`: La casella di partenza di una pedina nera
+* `Casella Fine Nero`: La casella di arrivo di una pedina nera
 
 La traiettoria di spostamento di una pedina.
 
@@ -119,17 +119,17 @@ Riporta la scacchiera ad inizio partita.
 
 ## `CHESS_TOGGLE_CROSS`
 **Parametri**:
-* `Cross Space 0-15`: Spazi sui quali aggiungere/togliere una croce su di essi
+* `Casella Sbarrata 0-15`: Spazi sui quali aggiungere/togliere una croce su di essi
 
 Rimuove tutti gli spazi con sopra una croce rossa. Se è già stato rimosso, questo comando annulla l'azione.
 
 
 ## `CHESS_TOGGLE_GUIDE`
 **Parametri**:
-* `Piece 1`: Uno spazio contente un pezzo con le sue possibili mosse
-* `Piece 2`: Uno spazio contente un pezzo con le sue possibili mosse
-* `Piece 3`: Uno spazio contente un pezzo con le sue possibili mosse
-* `Piece 4`: Uno spazio contente un pezzo con le sue possibili mosse
+* `Pezzo 1`: Uno spazio contente un pezzo con le sue possibili mosse
+* `Pezzo 2`: Uno spazio contente un pezzo con le sue possibili mosse
+* `Pezzo 3`: Uno spazio contente un pezzo con le sue possibili mosse
+* `Pezzo 4`: Uno spazio contente un pezzo con le sue possibili mosse
 
 Mostra le possibili mosse di un pezzo in rosso. Se quel pezzo è già evidenziato, il comando disattiverà l'azione.
 
@@ -145,7 +145,7 @@ Controlla quale schermata caricare una volta finita una partita a scacchi.
 
 ## `CHESS_TOGGLE_HIGHLIGHT`
 **Parametri**:
-* `Highlight Space 0-15`: Spazi illuminati
+* `Indicare Casella 0-15`: Spazi illuminati
 
 illumina una casella della scacchiera in giallo. Se lo spazio è già segnalato, questo comando disattiverà l'azione.
 
@@ -153,7 +153,7 @@ illumina una casella della scacchiera in giallo. Se lo spazio è già segnalato,
 ## `CHIBI_EMOTE`
 **Parametri**:
 * `Chibi`: Chibi da mostrare
-* `Emote`: L'emozioni che devono fare
+* `Emozione`: L'emozione che devono fare
 
 Con questo comando potrai decidere quale emozione far apparire sopra la testa dei [chibi](../graphics/chibis) sullo schermo superiore.
 
@@ -161,8 +161,8 @@ Con questo comando potrai decidere quale emozione far apparire sopra la testa de
 ## `CHIBI_ENTEREXIT`
 **Parametri**:
 * `Chibi`: Decidere quali chibi devono entrare o uscire di scena
-* `Enter/Exit`: Decidere quando i chibi devono entrare o uscire di scena
-* `Delay (Frames)`: Decidere il numero esatto di fotogrammi quali chibi devono entrare o uscire
+* `Entrata/Uscita`: Decidere quando i chibi devono entrare o uscire di scena
+* `Posticipare (Frame)`: Decidere il numero esatto di fotogrammi quali chibi devono entrare o uscire
 
 Decide quando un [chibi](../graphics/chibis) entra o esce di scena. Assicurati, prima di attivare questo comandi, di dare ad un chibi l'animazione di camminata
 (animation 01) assieme a quella dove rimane fermo (animation 00).
@@ -170,25 +170,25 @@ Decide quando un [chibi](../graphics/chibis) entra o esce di scena. Assicurati, 
 
 ## `CONFETTI`
 **Parametri**:
-* `Visible`: Se spuntato dei coriandoli appariranno, se non è spuntato non appariranno.
+* `Fa apparire`: Se spuntato dei coriandoli appariranno, se non è spuntato non appariranno.
 
 Decidi se far vedere dei coriandoli che cadono sullo schermo superiore.
 
 
 ## `DIALOGUE`
 **Parametri**:
-* `Dialogue`: linea di dialogo, con interlocutore e il testo
+* `Dialogo`: linea di dialogo, con interlocutore e il testo
 * `Sprite`: lo sprite al quale viene associato il dialogo
-* `Sprite Entrance Transition`: Transizione che fa entrare uno sprite in scena
-* `Sprite Exit/Move Transition`: Transizione che fa uscire uno sprite di scena
-* `Sprite Shake`: Fa scuotere lo sprite 
-* `Voice Line`: Linea di dialogo da riprodurre
-* `Text Voice Font`: Quando applicare un font quando un dialogo non è doppiato
-* `Text Speed`: Velocità di caricamento di un testo
-* `Text Entrance Effect`: Eventuali effetti da applicare ad un testo
-* `Sprite Layer`: Determines which "layer" a sprite should be rendered on entrance; higher numbers are rendered on top of lower ones
-* `Don't Clear Text`: Se spuntato, il prossimo dialogo verrà mostrato nella stessa nuvoletta di quello precedente
-* `No Lip Flap`: Disabilità il movimento delle labbra
+* `Transizione entrata sprite`: Transizione che fa entrare uno sprite in scena
+* `Transizione Uscita/Movimento sprite`: Transizione che fa uscire uno sprite di scena
+* `Movimento`: Fa scuotere lo sprite
+* `Voci`: Linea di dialogo da riprodurre
+* `Font Testo`: Quando applicare un font quando un dialogo non è doppiato
+* `Velocità Testo`: Velocità di caricamento di un testo
+* `Effetto Caricamento Testo`: Eventuali effetti da applicare ad un testo
+* `Strati Sprite`: Decide quali strati di uno sprite caricare o meno, quelli con il numero più alto avranno priorità su quelli con numero basso
+* `Non Cancellare Testo`: Se spuntato, il prossimo dialogo verrà mostrato nella stessa nuvoletta di quello precedente
+* `No Labbiale`: Disabilità il movimento delle labbra
 
 Mostra una linea di dialogo e/o cambia gli [Sprite dei personaggi](../graphics/sprites). Possono anche contenere un [testo doppiato](../sound/voice).
 
@@ -223,7 +223,7 @@ The colors available with the `#P` operator:
 
 ## `EPHEADER`
 **Parametri**:
-* `Episode Header`: Index delle texture dei titoli da usare, i.e. 1 = Episodio 1, 2 = Episodio 2, 3 = Episodio 3, 4 = Episodio 4, 5 = Episodio 5, 6 = Epilogo (Se sei furbo capirai che, -1 è il menù principale)
+* `Numero Episodio`: Index delle texture dei titoli da usare, i.e. 1 = Episodio 1, 2 = Episodio 2, 3 = Episodio 3, 4 = Episodio 4, 5 = Episodio 5, 6 = Epilogo (Se sei furbo capirai che, -1 è il menù principale)
 
 Imposta quale schermata del capitolo far apparire sullo schermo superiore.
 
@@ -231,36 +231,36 @@ Imposta quale schermata del capitolo far apparire sullo schermo superiore.
 ## `FLAG`
 **Parametri**:
 * `Flag`: La flag da impostare
-* `Set`: 1 = impostare, 0 = completato
+* `Impostare`: 1 = impostare, 0 = completato
 
 Imposta i parametri delle flag.
 
 
 ## `GLOBAL2D`
 **Parametri**:
-* `Value`: Valore da impostare al parametro `global2D`
+* `Valori`: Valore da impostare al parametro `global2D`
 
 imposta un valore preciso ad una serie di parametri. Ancora non sappiamo bene quali parametri influenzi.
 
 
 ## `GOTO`
 **Parametri**:
-* `Script Section`: La sezione script da raggiungere
+* `Sezione Script`: La sezione script da raggiungere
 
 Passi ad una sezione di script scelta da te.
 
 
 ## `HARUHI_METER`
 **Parametri**:
-* `Add`: Valori da aggiungere al Haruhimetro (Valori positivi portano verso la distrazione, mentre quelli negativi portano alla concentrazione)
-* `Set`: Valori da impostabili al Haruhimetro (Non visibili)
+* `Aggiungi`: Valori da aggiungere al Haruhimetro (Valori positivi portano verso la distrazione, mentre quelli negativi portano alla concentrazione)
+* `Impostare`: Valori da impostabili al Haruhimetro (Non visibili)
 
 Cambia i valori del Haruhimetro. Il minimo è 0 (indicatore sul 10%) il massimo è 9 (indicatore sul 100%).
 
 
 ## `HARUHI_METER_NOSHOW`
 **Parametri**:
-* `Add`: Aggiunge valori al Haruhimetro
+* `Aggiungi`: Aggiunge valori al Haruhimetro
 
 Aumenta o diminuisce il valore del Haruhimetro (i suoni si sentono ancora). In gioco non viene utilizzato.
 
@@ -285,7 +285,7 @@ La fase investigazione viene interrotta e si torna in modalità visual novel. Lo
 
 ## `ITEM_DISPIMG`
 **Parametri**:
-* `Item`: Oggetti da mostrare
+* `Oggetti`: Oggetti da mostrare
 * `X`
 * `Y`
 
@@ -294,25 +294,25 @@ Mostra un oggetto specifico. in certe circostanze, funziona; comunque, c'è risc
 
 ## `INVEST_START`
 **Parametri**:
-* `unknown00`
-* `unknown01`
-* `unknown02`
-* `unknown03`
-* `End Script Section`: La sezione selezionata che finisce con il comando [`INVEST_END`](#invest_end).
+* `sconosciuto00`
+* `sconosciuto01`
+* `sconosciuto02`
+* `sconosciuto03`
+* `Fine Sezione Script`: La sezione selezionata che finisce con il comando [`INVEST_END`](#invest_end).
 
 Da il via alla modalità investigazione. C'è una transizione su schermo nero.
 
 
 ## `KBG_DISP`
 **Parametri**:
-* `"Kinetic" Background`: Lo sfondo cinetico viene mostrato sullo schermo superiore
+* `Sfondi "Cinetici"`: Lo sfondo cinetico viene mostrato sullo schermo superiore
 
 Mostra uno (il nome l'ho scelto io) [sfondo cinetico](../graphics/backgrounds) sullo schermo superiore. Deve essere di tipo `KINETIC_SCREEN`.
 
 
 ## `LOAD_ISOMAP`
 **Parametri**:
-* `Map`: Carica la mappa
+* `Mappa`: Carica la mappa
 
 Carica una mappa isometrica che [`INVEST_START`](#invest_start) deve usare.
 
@@ -365,14 +365,14 @@ Usato solo nel prologo.
 
 ## `PALEFFECT`
 **Parametri**:
-* `Mode`: Le palette da applicare (gli effetti disponibli sono: Defalut, invertita, scala di grigi, seppia e oscurato)
-* `Time (Frames)`: Quanti fotogrammi deve durare la transizione della palette dello sfondo
-* `Unknown`: Il codice dice che fa qualcosa, ma non capiamo cosa
+* `Modalità`: Le palette da applicare (gli effetti disponibli sono: Defalut, invertita, scala di grigi, seppia e oscurato)
+* `Tempo (Frame)`: Quanti fotogrammi deve durare la transizione della palette dello sfondo
+* `Sconosciuto`: Il codice dice che fa qualcosa, ma non capiamo cosa
 
 
 ## `PIN_MNL`
 **Parametri**:
-* `Dialogue`: Comando che controlla le linee di [`DIALOGO`](#dialogue)
+* `Dialogo`: Comando che controlla le linee di [`DIALOGO`](#dialogue)
 
 Crea una linea di dialogo come monologo sopra gli altri dialoghi. Cancellabile dopo aver finito una partita a scacchi.
 
@@ -383,7 +383,7 @@ Rimosso dalla versione finale (non si trova nulla nel codice.)
 
 ## `SCENE_GOTO`
 **Parametri**:
-* `Scene`: Nome dello script da raggiungere
+* `Scena`: Nome dello script da raggiungere
 
 Ti permette di raggiungere una certa scena. Non può portare a tutte le scene di gioco; ma solo quelle contenute
 in un particolare vettore speciale del ARM9; inoltre, modificare la ROM modificherà i vettori.
@@ -391,18 +391,18 @@ in un particolare vettore speciale del ARM9; inoltre, modificare la ROM modifich
 
 ## `SCENE_GOTO2`
 **Parametri**:
-* `Scene`: Nome dello script da raggiungere
+* `Scena`: Nome dello script da raggiungere
 
 Si comporta come [`SCENE_GOTO`](#scene_goto), ma non ripulisce i dati della pagina precedente. Del resto sono uguali.
 
 
 ## `SCREEN_FADEIN`
 **Parametri**:
-* `Fade Time (Frames)`: Quanto dura la transizione dello schermo nero
-* `Fade In Percentage`: Quanto deve essere scuro lo schermo (0 è molto chiaro and 100 è molto scuro; es. 50 significa che lo schermo sarà più scuro del 50% 
-  anziché essere più chiaro); solo le transizioni con colori personalizzati funziona
-* `Location`: le schermate sulle quali applicare le transizioni
-* `Color`: Sia bianco, che nero che qualsiasi altro colore impostato da [`SCREEN_FADEOUT`](#screen_fadeout); deve combaciare
+* `Tempo Dissolvenza (Frame)`: Quanto dura la transizione dello schermo nero
+* `Percentuale inizio dissolvenza`: Quanto deve essere scuro lo schermo (0 è molto chiaro and 100 è molto scuro; es. 50 significa che lo schermo sarà più scuro
+  del 50% anziché essere più chiaro); solo le transizioni con colori personalizzati funziona
+* `Zona`: le schermate sulle quali applicare le transizioni
+* `Colore`: Sia bianco, che nero che qualsiasi altro colore impostato da [`SCREEN_FADEOUT`](#screen_fadeout); deve combaciare
   con quello della schermata precedente [`SCREEN_FADEOUT`](#screen_fadeout).
 
 Fa apparire sullo schermo nero una transizione nera.
@@ -410,12 +410,12 @@ Fa apparire sullo schermo nero una transizione nera.
 
 ## `SCREEN_FADEOUT`
 **Parametri**:
-* `Fade Time (Frames)`: Quanto dura la transizione dello schermo nero
-* `Fade out Percentage`: Quanto deve essere scuro lo schermo (0 è molto chiaro and 100 è molto scuro; es. 50 significa che lo schermo sarà più scuro del 50% 
-  anziché essere più chiaro); solo le transizioni con colori personalizzati funziona
-* `Custom Color`: Il colore che apparirà, a patto che tale `Colore` sia impostato su `Personalizzato`
-* `Location`: le schermate sulle quali applicare le transizioni
-* `Color`: Sia bianco, che nero che qualsiasi altro colore impostato da [`SCREEN_FADEOUT`](#screen_fadeout); deve combaciare
+* `Dissolvenza (Frame)`: Quanto dura la transizione dello schermo nero
+* `Percentuale fine dissolvenza`: Quanto deve essere scuro lo schermo (0 è molto chiaro and 100 è molto scuro; es. 50 significa che lo schermo sarà più scuro 
+  del 50% anziché essere più chiaro); solo le transizioni con colori personalizzati funziona
+* `Colori Personalizzati`: Il colore che apparirà, a patto che tale `Colore` sia impostato su `Personalizzato`
+* `Zona`: le schermate sulle quali applicare le transizioni
+* `Colore`: Sia bianco, che nero che qualsiasi altro colore impostato da [`SCREEN_FADEOUT`](#screen_fadeout); deve combaciare
   con quello della schermata precedente [`SCREEN_FADEIN`](#screen_fadein).
 
 Fa terminare la transizione sullo schermo nero.
@@ -423,19 +423,19 @@ Fa terminare la transizione sullo schermo nero.
 
 ## `SCREEN_FLASH`
 **Parametri**:
-* `Fade In Time (Frames)`: Porzione di tempo dove lo schermo inizia a flasha
-* `Hold Time (Frames)`: Per quanto tempo deve durare la flashata con i colori
-* `Fade Out Time (Frames)`: Porzione di tempo dove lo schermo finisce di flashare
-* `Color`: Colore della flashata
+* `Inizio dissolvenza (Frame)`: Porzione di tempo dove lo schermo inizia a flasha
+* `Attesa (Frame)`: Per quanto tempo deve durare la flashata con i colori
+* `Fine Dissolvenza (Frames)`: Porzione di tempo dove lo schermo finisce di flashare
+* `Colore`: Colore della flashata
 
 Che colore e che durata dare alle flashate sullo schermo.
 
 
 ## `SCREEN_SHAKE`
 **Parametri**:
-* `Duration (Frames)`: Quanto dura lo scuotersi dello schermo (se si mette -1 come valore, lo schermo non smetterà mai di muoversi)
-* `Horizontal Intensity`: Intensità dei movimenti orizzontali
-* `Vertical Intensity`: Intensità dei movimenti verticali
+* `Durata (Frame)`: Quanto dura lo scuotersi dello schermo (se si mette -1 come valore, lo schermo non smetterà mai di muoversi)
+* `Intensità Orizzontale`: Intensità dei movimenti orizzontali
+* `Intensità Verticale`: Intensità dei movimenti verticali
 
 Lo schermo inizia a scuotersi.
 
@@ -449,14 +449,14 @@ Disattiva il comando [`SCREEN_SHAKE`](#screen_shake) . (Da usare se il comando `
 
 ## `SELECT`
 **Parametri**:
-* `Option 1`: Prima opzione da scegliere
-* `Option 2`: Seconda opzione da scegliere
-* `Option 3`: Terza opzione da scegliere
-* `Option 4`: Quarta opzione da scegliere
-* `unknown08` 
-* `unknown0A` 
-* `unknown0C` 
-* `unknown0E`
+* `Opzione 1`: Prima opzione da scegliere
+* `Opzione 2`: Seconda opzione da scegliere
+* `Opzione 3`: Terza opzione da scegliere
+* `Opzione 4`: Quarta opzione da scegliere
+* `sconosciuto08` 
+* `sconosciuto0A` 
+* `sconosciuto0C` 
+* `sconosciuto0E`
 
 Da al giocatore una scelta da compiere. Le scelte vengono caricate dalla loro sezione tramite il loro ID che risponderanno alla scelta fatta.
 Quando viene compiuta una scelta, l'ID andrà a caricare uno script preciso.
@@ -474,17 +474,17 @@ Modifica i nomi delle zone
 
 ## `SKIP_SCENE`
 **Parametri**:
-* `Scenes to Skip`: Quante scene da saltare
+* `Salta Scene`: Quante scene da saltare
 
 Imposta il comando [`NEXT_SCENE`](#next_scene) per saltare le scene, seguendo le istruzioni all'interno di `SCENARIO.S` (evt.bin #580).
 
 
 ## `SND_PLAY`
 **Parametri**: 
-* `Sound`: Il suono che deve essere preso da `snd.bin`
-* `Mode`: Quando far iniziare o smettere il file audio
+* `Audio`: Il suono che deve essere preso da `snd.bin`
+* `Modalità`: Quando far iniziare o smettere il file audio
 * `Volume`: Il volume del file audio
-* `Crossfade Time (Frames)`: Quando il suono dovrà dissolversi, può essere usato solo per cambiare volume all'effetto
+* `Dissolvenza Incrociata (Frame)`: Quando il suono dovrà dissolversi, può essere usato solo per cambiare volume all'effetto
 
 Riproduce un suono preso dal file `snd.bin`.
 
@@ -496,21 +496,21 @@ Ferma tutti gli script e fa bloccare il gioco. Inutilizzato.
 
 ## `TOGGLE_DIALOGUE` 
 **Parametri**:
-* `Show`: Decide se mostrare il box di dialogo o meno
+* `Mostra`: Decide se mostrare il box di dialogo o meno
 
 Mostra/nasconde il box di dialogo. Molti di questi comandi fanno già questa cosa (es `DIALOGUE` mostra automaticamente il box).
 
 
 ## `TOPIC_GET`
 **Parametri**:
-* `Topic`: Le discussioni che vengono date al giocatore
+* `Discussioni`: Le discussioni che vengono date al giocatore
 
 Consegna al giocatore una discussione.
 
 
 ## `TRANS_OUT`
 **Parametri**:
-* `Transition`: Transizioni da usare
+* `Transizione`: Transizioni da usare
 
 Fa partire una transizione sullo schermo nero.
 
@@ -535,19 +535,19 @@ Fa partire un file audio doppiato
 
 ## `VGOTO`
 **Parametri**:
-* `Conditional`: Condizioni da spuntare
-* `Script Section`: Sezione script da raggiungere
+* `Condizioni`: Condizioni da spuntare
+* `Sezione Script`: Sezione script da raggiungere
 
 Raggiunge una sezione di script precisa, se la condizione viene spuntata.
 
 ## `WAIT` 
 **Parametri**:
-* `Time (Frames)`: Quanti frame aspettare
+* `Tempo (Frame)`: Quanti frame aspettare
 
 Fa attendere un determinato numero di frame.
 
 ## `WAIT_CANCEL`
 **Parametri**:
-* `Time (Frames)`: Quanti frame aspettati.
+* `Tempo (Frame)`: Quanti frame aspettati.
 
 Identico al comando [`WAIT`](#wait),ma l'azione si può cancellare toccando lo schermo o premendo un tasto.

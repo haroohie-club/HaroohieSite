@@ -1,5 +1,5 @@
 ---
-title: 'Voice Lines'
+title: 'Voci'
 locale: 'it'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/voice.png'
