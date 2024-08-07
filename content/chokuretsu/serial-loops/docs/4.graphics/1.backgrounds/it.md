@@ -26,7 +26,7 @@ caratteristica, rimuovi il check da "Mantieni proporzioni".
 ![Background editing](/images/chokuretsu/serial-loops/background-editing.png)
 
 ### Background sizes
-| Background Type      | Size (WxH in pixels) | Notes                                                                                                  |
+| Tipo di sfondo      | Dimensioni (AxL in pixel) | Note                                                                                                  |
 |----------------------|----------------------|--------------------------------------------------------------------------------------------------------|
 | `KINETIC_SCREEN`     | 256x192              | massimo 16 colori, assicurati che le immagini da aggiungere siano semplici                                         |
 | `TEX_BG`             | 256x192              |                                                                                                        |

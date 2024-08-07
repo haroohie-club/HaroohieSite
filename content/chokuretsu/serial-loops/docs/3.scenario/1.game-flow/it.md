@@ -27,8 +27,8 @@ in che ordine. Nella tabella qua sotto troverai i vari comandi:
 | `UNLOCK` | Sblocca alcune cose. Ancora non sappiamo cosa sblocchi di preciso. |
 | `END` | Torna alla schermata del titolo. |
 
-## Editing
-Gli script dei comandi e scenari possono essere aggiunti o tolti, grazie alle icone + e del cestino, sopra la lista dei comandi.
+## Modificare
+Gli script dei comandi e scenari possono essere aggiunti o tolti, grazie alle icone + e del cestino, sopra la lista dei comandi.  
 
 Cliccando sul razzo cancellerai tutti gli script. Puoi modificare gli script individualmente (sia tutto il comando o solo un singolo parametro) nel pannello a sinistra.
 

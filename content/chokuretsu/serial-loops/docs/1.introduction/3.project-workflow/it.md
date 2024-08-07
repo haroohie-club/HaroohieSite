@@ -52,7 +52,7 @@ Una volta terminato il progetto, potrai distribuirlo. Il modo più facile è dis
 Il programma ha una funzione che ti permette di creare dei file Xdelta da installare. Raggiungi _File_ &rarr; _Esporta patch_ e scegli su quale ROM applicare
 la patch. Noi **ti consigliamo vivamente di usare una ROM giapponese non alterata**, dato che possiede le seguenti hash:
 
-| Algorithm | Hash |
+| Algoritmo | Hash |
 |:---------:|:----:|
 | CRC | `8A58F646` |
 | MD5 | `6536132EFDDD337AA5069E627591FEE5` |
@@ -61,5 +61,6 @@ la patch. Noi **ti consigliamo vivamente di usare una ROM giapponese non alterat
 Facendo così, la gente che vorrà installare la patch, avrà solo bisogno della ROM base (Nota bene: La ROM non deve avere nessun'altra patch installata in precedenza).
 
 ## Cambiare ROM di base
-Alle volte, sarà necessario cambiare ROM &ndash; per esempio, se stavi usando la v0.2 della versione italiana e un domani esce la v0.4. Serial Loops è in grado di gestire questi cambiamenti. Per farlo, seleziona _File_ &rarr; _Cambia ROM di base_ e seleziona la nuova ROM di riferimento.
+Alle volte, sarà necessario cambiare ROM &ndash; per esempio, se stavi usando la v0.2 della versione italiana e un domani esce la v0.4. Serial Loops
+è in grado di gestire questi cambiamenti. Per farlo, seleziona _File_ &rarr; _Cambia ROM di base_ e seleziona la nuova ROM di riferimento.
 Non preoccuparti per i cambiamenti apportati sulla vecchia ROM, Serial Loops li trasferirà su quella nuova!
