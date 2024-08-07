@@ -3,10 +3,28 @@
 <div class="breadcrumb">
     <NuxtLink :to="localePath(link)">
         <IconifiedText v-if="icon" :icon="icon">
-            <slot />
+            <span v-if="path">
+                <ContentDoc :path="path">
+                    <template v-slot="{ doc }">
+                        {{ doc.title }}
+                    </template>
+                </ContentDoc>
+            </span>
+            <span v-else>
+                <slot />
+            </span>
         </IconifiedText>
         <span v-else>
-            <slot />
+            <span v-if="path">
+                <ContentDoc :path="path">
+                    <template v-slot="{ doc }">
+                        {{ doc.title }}
+                    </template>
+                </ContentDoc>
+            </span>
+            <span v-else>
+                <slot />
+            </span>
         </span>
     </NuxtLink>
 </div>
@@ -25,6 +43,10 @@ const props = defineProps({
     icon: {
         type: String,
         required: false
+    },
+    path: {
+        type: String,
+        required: true
     }
 })
 const { locale } = useI18n({
