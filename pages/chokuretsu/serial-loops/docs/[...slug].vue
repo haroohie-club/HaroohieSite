@@ -16,24 +16,15 @@ const route = useRoute()
                         <div class="navigation">
                             <span class="parent-crumb">
                                 <SerialLoopsBreadcrumb v-if="(doc._path.split('/').length > 5)"
-                                    :link="`/chokuretsu/serial-loops/docs/${doc._path.split('/')[4]}`">
-                                    {{ doc._path.split('/')[4].charAt(0).toUpperCase() + doc._path.split('/')[4].slice(1) }}
-                                </SerialLoopsBreadcrumb>
-                                <SerialLoopsBreadcrumb v-else link="/chokuretsu/serial-loops/docs/" icon="fa6-solid:house">
+                                    :link="`/chokuretsu/serial-loops/docs/${doc._path.split('/')[4]}`"
+                                    :path="`/chokuretsu/serial-loops/docs/${doc._path.split('/')[4]}/${locale}`"/>
+                                <SerialLoopsBreadcrumb v-else link="/chokuretsu/serial-loops/docs/" :path="`/chokuretsu/serial-loops/docs/${locale}`" icon="fa6-solid:house">
                                     {{ $t('home') }}
                                 </SerialLoopsBreadcrumb>
                             </span>
                             <span class="contextual-crumbs">
-                                <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :link="doc.navigation.previous"
-                                    icon="fa6-solid:arrow-left">
-                                    {{ doc.navigation.previous.split('/').slice(-1)[0].charAt(0).toUpperCase() +
-                                        doc.navigation.previous.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
-                                </SerialLoopsBreadcrumb>
-                                <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next"
-                                    icon="fa6-solid:arrow-right">
-                                    {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() +
-                                        doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
-                                </SerialLoopsBreadcrumb>
+                                <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :path="`${doc.navigation.previous}/${locale}`" :link="doc.navigation.previous" icon="fa6-solid:arrow-left" />
+                                <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next" :path="`${doc.navigation.next}/${locale}`" icon="fa6-solid:arrow-right" />
                             </span>
                         </div>
                         <div class="title">
@@ -45,16 +36,8 @@ const route = useRoute()
                         </div>
                         <ContentRenderer :value="doc" />
                         <div class="pagination-buttons">
-                            <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :link="doc.navigation.previous"
-                                icon="fa6-solid:arrow-left">
-                                {{ doc.navigation.previous.split('/').slice(-1)[0].charAt(0).toUpperCase() +
-                                    doc.navigation.previous.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
-                            </SerialLoopsBreadcrumb>
-                            <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next"
-                                icon="fa6-solid:arrow-right">
-                                {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() +
-                                    doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
-                            </SerialLoopsBreadcrumb>
+                            <SerialLoopsBreadcrumb v-if="doc.navigation.previous" :link="doc.navigation.previous" :path="`${doc.navigation.previous}/${locale}`" icon="fa6-solid:arrow-left"/>
+                            <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next" :path="`${doc.navigation.next}/${locale}`" icon="fa6-solid:arrow-right"/>
                         </div>
                     </template>
                     <template #not-found>
