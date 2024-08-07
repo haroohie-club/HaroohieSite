@@ -1,5 +1,5 @@
 ---
-title: &title 'Serial Loops - Level Editor for Suzumiya Haruhi no Chokuretsu'
+title: &title 'Serial Loops - Editor di livelli per Suzumiya Haruhi no Chokuretsu'
 description: &desc 'Serial Loops is a level editor for Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.'
 navigation:
   image: 'script-editor.png'
@@ -28,7 +28,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-<b class="sl-header">An editing suite for Suzumiya Haruhi no Chokuretsu</b> 
+<b class="sl-header">Uno strumento per editare Suzumiya Haruhi no Chokuretsu</b> 
 
 Serial Loops è un editor per [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (La Serie di Haruhi Suzumiya), disponibile per Windows, Mac and Linux.
 

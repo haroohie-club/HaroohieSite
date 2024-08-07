@@ -1,5 +1,5 @@
 ---
-title: Backgrounds
+title: Sfondi
 locale: 'it'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/background.png'
