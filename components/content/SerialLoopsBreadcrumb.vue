@@ -3,18 +3,28 @@
 <div class="breadcrumb">
     <NuxtLink :to="localePath(link)">
         <IconifiedText v-if="icon" :icon="icon">
-            <ContentDoc :path="path">
-                <template v-slot="{ doc }">
-                    {{ doc.title }}
-                </template>
-            </ContentDoc>
+            <span v-if="path">
+                <ContentDoc :path="path">
+                    <template v-slot="{ doc }">
+                        {{ doc.title }}
+                    </template>
+                </ContentDoc>
+            </span>
+            <span v-else>
+                <slot />
+            </span>
         </IconifiedText>
         <span v-else>
-            <ContentDoc :path="path">
-                <template v-slot="{ doc }">
-                    {{ doc.title }}
-                </template>
-            </ContentDoc>
+            <span v-if="path">
+                <ContentDoc :path="path">
+                    <template v-slot="{ doc }">
+                        {{ doc.title }}
+                    </template>
+                </ContentDoc>
+            </span>
+            <span v-else>
+                <slot />
+            </span>
         </span>
     </NuxtLink>
 </div>

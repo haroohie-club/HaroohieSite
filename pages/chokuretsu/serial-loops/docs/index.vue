@@ -18,17 +18,11 @@ const localePath = useLocalePath()
                                 {{ $t('chokuretsu-sl-home' )}}
                             </SerialLoopsBreadcrumb>
                             <SerialLoopsBreadcrumb v-if="doc.navigation.next" :link="doc.navigation.next"
-                                icon="fa6-solid:arrow-right">
-                                {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() +
-                                    doc.navigation.next.split('/').slice(-1)[0].slice(1) }}
-                            </SerialLoopsBreadcrumb>
+                                :path="`${doc.navigation.next}/${locale}`" icon="fa6-solid:arrow-right"/>
                         </div>
                         <ContentRenderer :value="doc" />
                         <SerialLoopsBreadcrumb class="next-page" v-if="doc.navigation.next" :link="doc.navigation.next"
-                            icon="fa6-solid:arrow-right">
-                            {{ doc.navigation.next.split('/').slice(-1)[0].charAt(0).toUpperCase() +
-                                doc.navigation.next.split('/').slice(-1)[0].slice(1).replaceAll("-", " ") }}
-                        </SerialLoopsBreadcrumb>
+                            :path="`${doc.navigation.next}/${locale}`" icon="fa6-solid:arrow-right"/>
                     </article>
                 </template>
             </ContentDoc>
