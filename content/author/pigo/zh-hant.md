@@ -5,4 +5,4 @@ author:
   website: 'https://pigo.neocities.org/'
 ---
 
-pigo is a Touhou fan who likes to program things and translate the Haruhi games to Brazilian Portuguese
+pigo 是東方 Project 的粉絲，他喜歡程式設計，而且他正在將涼宮春日遊戲翻譯成巴西葡萄牙語。
