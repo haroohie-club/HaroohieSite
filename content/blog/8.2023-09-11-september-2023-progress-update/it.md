@@ -1,6 +1,6 @@
 ---
-title: &title 'September 2023 Progress Update – Chokuretsu 100% Translated, Heiretsu Progress, & More!'
-description: &desc 'The Haroohie Translation Club share a progress update on their translation projects!'
+title: &title 'Aggiornamento sui Progressi del Settembre 2023 – Chokuretsu Tradotto al 100%, Progressi su Heiretsu, e Altro!'
+description: &desc 'L\'Haroohie Translation Club condivide un rapporto sui progressi dei loro progetti di traduzione!'
 locale: 'it'
 navigation:
   author: 'William'
@@ -33,45 +33,33 @@ head:
     value: 'summary_large_image'
 ---
 
-Hello all! We hope you're having a great September. Today, we'd like to share a brief progress update with everyone!
+Salve a tutti! Speriamo che stiate avendo un grandioso settembre. Oggi, vorremmo condividere con voi un breve aggiornamento sui progressi!
 
-## The Series of Haruhi Suzumiya
-We're pleased to announce that we've reached the incredible milestone of completing all the base translation work for *Suzumiya Haruhi no Chokuretsu* (DS) &mdash; that's all episodes 1-5, plus the extras mode and menus!
+## La Serie di Haruhi Suzumiya
+Siamo lieti di annunciare che abbiamo raggiunto l'incredibile traguardo di completare tutta la traduzione di base per *Suzumiya Haruhi no Chokuretsu* (DS) &mdash; il che include tutti gli episodi 1-5, e in più tutte le modalità e i menu extra!
 
-Of course, translating is just the first step in our quality assurance process!
-We still have a lot of files left to proofread (where editors read through,
-correct typos and unnatural-sounding dialogue), translation check (where a
-second translator has a read through and adjusts the script if needed), and
-review (which is done by project lead, [Jonko](/author/jonko)). Not to mention
-creating the remaining graphics and thorough playtesting! We've also been going
-through and updating some of the earlier files to bring their translation
-quality in-line with our current standards.
+![Un grafico a torta, intitolato "Progresso Traduzione Intera del Gioco 10/09/2023". Il grafico è diviso in quattro spicchi. 44.4% delle stringhe hanno la modifica in sospensione; 8.9% hanno il controllo in sospensione"; 14.1% hanno la correzione in sospensione; e 23.5% delle stringhe sono pronte ad essere rilasciate.](/images/blog/0008/01_translation_progress_chart.png)
 
-Of course, translating is just the first step in our quality assurance process! We still have a lot of files left to proofread (where editors read through, correct typos and unnatural-sounding dialogue), translation check (where a second translator has a read through and adjusts the script if needed), and review (which is done by project lead, [Jonko](/author/jonko)). Not to mention creating the remaining graphics and thorough playtesting! We've also been going through and updating some of the earlier files to bring their translation quality in-line with our current standards.
+Naturalmente, tradurre è solo il primo passo nel nostro processo per una qualità assicurata! Abbiamo ancora molti file che devono essere riletti (dove i nostri editori li rileggono, correggono gli errori ortografici e i dialoghi tradotti in modo innaturale), controllati (dove un secondo traduttore rilegge attentamente e aggiusta lo script se necessario), e correggere (che è fatto dal capo progetto, [Jonko](/it/author/jonko)). Per non parlare della creazione delle immagini rimaste e del playtesting completo! Stiamo anche aggiustando e aggiornando alcuni dei vecchi file per renderlo più in linea con la qualità attuale delle nostre traduzioni.
 
-![The in-game episode header for Episode 3: A Midsummer Graduation, from
-Suzumiya Haruhi no
-Chokuretsu](/images/blog/0008/03_midsummer_graduation_ceremony_header.png)
+![L'intestazione per l'Episodio 3: La Cerimonia Estiva, da Suzumiya Harruhi no Chokuretsu](/images/blog/0008/03_midsummer_graduation_ceremony_header.png)
 
-We're excited to bring you the English translation of *Chapter 3: A Midsummer Graduation* very soon! Stay tuned here and on our socials for the update post!
+Siamo emozionati di portare a voi la traduzione inglese dell'*Episodio 3: La Cerimonia Estiva* molto presto! Restate sintonizzati qui e sui nostri social per il post sull'aggiornamento!
 
-*(P.S. &mdash; have you checked out the editing suite we've built for Chokuretsu, [Serial Loops](/chokuretsu/serial-loops/), yet?!)*
+*(P.S. &mdash; avete dato un'occhiata alla suite di modifica che abbiamo fatto per Chokuretsu, [Serial Loops](/chokuretsu/serial-loops/)?!)*
 
-## The Parallel of Haruhi Suzumiya
-Behind the scenes, we've also been working on *Suzumiya Haruhi no Heiretsu* (Wii). Preliminary work was already in place for replacing the font and graphics, but this month we've began the process of translating the game using our workflow.
+## Il Parallelo di Haruhi Suzumiya
+Dietro le quinte, abbiamo anche lavorato su *Suzumiya Haruhi no Heiretsu* (Wii). I lavori preliminari sono già stati fatti per rimpiazzare il font e la grafica, ma questo mese abbiamo iniziato il processo di tradurre il gioco con il nostro workflow.
 
-![Haruhi Suzumiya standing beside the Oberon cruise liner, in the prologue of Suzumiya Haruhi no Heiretsu. Kyon monologues: "Well then. I'm sure she needs no introduction, but the girl in front of me, rambling on and on and glaring at me despite the midsummer heat, is Haruhi Suzumiya."](/images/blog/0008/02_heiretsu_early_haruhi.png)
+![Haruhi Suzumiya che resta dietro la nave da crocera dell'Oberon, nel prologo di Suzumiya Haruhi no Heiretsu. Kyon monologa: "Well then. I'm sure she needs no introduction, but the girl in front of me, rambling on and on and glaring at me despite the midsummer heat, is Haruhi Suzumiya."](/images/blog/0008/02_heiretsu_early_haruhi.png
 
-One point we've been working on is reverse-engineering the 3D engine and event system to allow us to gather a deeper understanding of how these are structured. This will also enable us to replace certain important graphics, such as the animated 3D game logo.
+Un punto sul quale stiamo lavorando è il reverse-engineering del motore grafico 3D e del sistema degli eventi che ci permette di avere una comprensione più approfondita di come sono strutturati. Questo ci permette anche di sostituire alcune immagini importanti, come il logo animato in 3D.
 
-![The 3D-modeled work-in-progress English logo for The Parallel of Haruhi Suzumiya.](/images/blog/0008/04_heretsu_logo.gif)
+![Il modello 3D non ancora finito del logo inglese per Il Parallelo di Haruhi Suzumiya.](/images/blog/0008/04_heretsu_logo.gif)
 
-When we have more to share, we'll also open up the Heiretsu section of this website with more details. Stay tuned!
+Quando avremo altro da mostrare, apriremo anche la sezione per Heiretsu su questo sito con più dettagli. Restate sintonizzati!
 
-![Haruhi Suzumiya standing beside the Oberon cruise liner, in the prologue of
-Suzumiya Haruhi no Heiretsu. Kyon monologues: "Well then. I'm sure she needs no
-introduction, but the girl in front of me, rambling on and on and glaring at me
-despite the midsummer heat, is Haruhi
-Suzumiya."](/images/blog/0008/02_heiretsu_early_haruhi.png)
+## Nuovi Social
+Abbiamo aggiunto un mucchio di posti nuovi dove potete trovarci per restare aggiornati! Sentitevi liberi di seguirci ovunque voi rendiate la vostra casa su internet cliccando i link nella barra laterale.
 
-Thank you for your continued interest, and be sure to watch this space for more updates!
+Grazie per il vostro continuo interesse, e assicuratevi di controllare questo spazio per altri aggiornamenti!
