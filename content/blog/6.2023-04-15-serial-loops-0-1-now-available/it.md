@@ -4,6 +4,7 @@ description: &desc 'Oggi siamo davvero emozionati di annunciare la prima version
 locale: 'it'
 navigation:
   author: 'William'
+  translator: 'Fuyuko Ayumu'
   year: 2023
   month: 04
   day: 15

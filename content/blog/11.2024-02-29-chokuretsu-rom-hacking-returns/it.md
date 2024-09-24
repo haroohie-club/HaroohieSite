@@ -4,6 +4,7 @@ description: &desc "Jonko voleva fare un post nel giorno bisestie ma non aveva a
 locale: 'it'
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2024
   month: 02
   day: 29
