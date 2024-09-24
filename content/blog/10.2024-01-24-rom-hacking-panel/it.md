@@ -1,6 +1,6 @@
 ---
-title: &title 'Recording of Jonko''s "ROM Hacking to Translate a Video Game" Panel Released'
-description: &desc 'Watch Jonko explain some of the challenges of hacking Chokuretsu to a live audience at Retro World Expo'
+title: &title 'Registrazione del Pannello sul "ROM Hacking per Tradurre un Videogioco" di Jonko rilasciata'
+description: &desc 'Guarda Jonko mentre spiega alcune delle sfide nell'hackerare Chokuretsu ad un pubblico dal vivo alla Retro World Expo'
 locale: 'it'
 navigation:
   author: 'Jonko'
@@ -32,14 +32,11 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-Hi folks! For the past year, I have been presenting a panel at several different conventions on ROM hacking Chokuretsu.
-At Retro World Expo in Hartford, Connecticut, [Andy Wolan](https://www.youtube.com/@andywolan) (formerly of the Sonic Stuff Research Group)
-made a recording of the panel that I've now posted to my YouTube channel. If you're interested in hearing a bit about how we hacked
-this game, you'll likely enjoy giving it a watch!
+Ciao ragazzi! Durante l'anno, ho presentato un pannello in diversi eventi sul ROM Hacking di Chokuretsu.
+Nella Retro World Expo in Hartford, Connecticut, [Andy Wolan](https://www.youtube.com/@andywolan) (formerly of the Sonic Stuff Research Group) ha fatto una registrazione del pannello che ho pubblicato sul mio canale YouTube. Se siete interessati nel sapere un po' come abbiamo hackerato questo gioco, probabilmente ti divertirai a guardare questo video!
 
-### Update
-Thanks to [Xzonn](xzonn.top), who is working with a team to translate Chokuretsu into Chinese, this talk has now been translated into Chinese
-and is available with Chinese subtitles on both YouTube and [bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
+### Aggiornamento
+Grazie a [Xzonn](xzonn.top), che sta lavorando con un team per tradurre Chokuretsu in cinese, questo discorso è stato tradotto in cinese ed è disponibile con i sottotitoli in cinese sia su YouTube che su [bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
 
 ::youtube-video
 ----

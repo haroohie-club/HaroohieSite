@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops v0.2 is out now – with more powerful editors and better stability!'
-description: &desc 'The second version of Serial Loops makes the editor even more powerful and intuitive, fixes a ton of bugs, and improves stability!'
+title: &title 'Serial Loops v0.2 è ora disponibile – con editor più potenti e una migliore affidabilità!'
+description: &desc 'La seconda versione Serial Loops che rende l\'editor ancora più affidabile e intuitivo, aggiusta un sacco di bug, e migliorà la stabilità!'
 locale: 'it'
 navigation:
   author: 'William'
@@ -33,41 +33,41 @@ head:
     value: 'summary_large_image'
 ---
 
-The second version of Serial Loops makes the editor even more powerful and intuitive, fixes a ton of bugs, and improves stability!
+La seconda versione Serial Loops che rende l'editor ancora più affidabile e intuitivo, aggiusta un sacco di bug, e migliorà la stabilità!
 
-We've updated the [documentation](/chokuretsu/serial-loops/), so please go read that in order to learn more about how to use the tool!
+Abbiamo aggiornato la [documentazione](/it/chokuretsu/serial-loops/), quindi perfavore, andate a leggerla per imparare meglio come usare questo strumento!
 
-## Changelog
-### New editors
-The ability to edit several more parts of the game has been added in v0.2:
-* Added the ability to edit subtitle lines that are displayed when voiced lines are played
-* Added the ability to edit "place" items (the top screen locations can have their text changed and graphics will be auto-generated)
-* Added the ability to edit character nameplates, and consolidated dialogue configs into this editor (can change character names and the graphics will be auto-generated)
-* Added topic editing (topics can also be renamed, have their associated scripts changed, can change the weights of time gains in puzzle phase for them)
-* Added the ability to edit and replace system textures (things like the opening screen logos and a bunch of random graphics can now be replaced)
-* Added the ability to edit the user interface text
+## Novità
+### Nuovi editor
+La possibilità di modificare molte più parti del gioco è stata aggiunta in v0.2:
+* Aggiunta l'abilità di modificare i sottotitoli che vengono mostrati quando vengono riprodotte le battute dei personaggi
+* Aggiunta l'abilità di modificare gli elementi dei "posti" (il nome dei posti nello schermo superiore può essere cambiato e la grafica sarà automaticamente generata)
+* Aggiunta l'abilità di modificare i nomi dei personaggi, e consolidare le configurazioni del dialogo in questo editor (può cambiare il nome dei personaggi e la grafica sarà automaticamente generata)
+* Aggiunto l'editor degli argomenti (gli argomenti possono anche essere rinominati, avere i loro script associati cambiati, si può cambiare la quantità di tempo guadagnata nelle fasi dei rompicapi)
+* Aggiunta la possibilità di modificare e sostituire le texture si sistema (cose come i logo all'inizio del gioco e un mucchio di grafica casuale può ora essere rimpiazzata)
+* Aggiunta la possibilità di modificare il testo dell'interfaccia utente
 
-### New features
-Several new features have also been added:
-* Added the ability to rename items for better project organisation
-* Added a new crop/resize dialog that makes replacing graphics much easier from within the editor
-* Added advanced search that allows for finding and filtering items much more easily by a number of different parameters
-* Added the ability to apply common romhacks (such as one to skip the opening movie)
-* Chibi & character sprites can now be exported as bitmap sheets and GIFs
-* Improved the color reduction algorithm so replaced graphics look a lot nicer in-game
+### Nuove funzioni
+Anche molte nuove funzioni sono state aggiunte:
+* Aggiunta la possibilità di rinominare gli elementi per una migliore organizzazione del progetto
+* Aggiunta una nuova finestra per tagliare/ridimensionare che facilita la sostituzione della grafica nell'editor
+* Aggiunta una ricerca avanzata che permette di trovare e filtrare gli elementi molto più facilmente in base ad un numero o altri parametri
+* Aggiunta la possibilità di applicare ROM hack comuni (come quella che permette di saltare la sigla iniziale)
+* Gli sprite dei personaggi e dei chibi possono ora essere esportati in fogli bitmap e GIF
+* Migliorato l'algoritmo di riduzione del colore in modo che la grafica sostituita abbia un aspetto migliore nel gioco
 
-### User interface
-v0.2 also brings a number of UI improvements:
-* Fixed a number of accuracy issues with the script preview
-* Progress bar dialogs will now always sit atop every other window
-* Added quick search to the main project explorer on the left, to let you quickly filter items by name
-* Added the Save button to the main toolbar
-* Added several new icons and updated existing ones to the menu bar
-* Added buttons to quickly re-order commands in the Scenario editor
+### Interfaccia Utente
+v0.2 porta anche un numero di miglioramenti dell'IU:
+* Aggiustati alcuni problemi con la precisione dell'anteprima dello script
+* Le finestre con una barra del progresso saranno sempre in primo piano rispetto alle altre finestre
+* Aggiunta una ricerca veloce all'explorer del progetto principale a sinistra, per poter filtrare velocemente gli elementi in base al nome
+* Aggiunto il pulsante di Salvataggio nella barra degli strumenti principale
+* Aggiunte molte nuove icone e aggiornate quelle già esistenti nella barra del menu
+* Aggiunti i pulsanti per riordinare velocemente i comandi nell'editor degli scenari
 
 ### Linux
-Finally, a few improvements for those running Serial Loops on Linux:
-* Added an RPM package for Fedora/RHEL/CentOS users
-* Improved the deb package for Ubuntu/Debian users
+E infine, ecco alcuni miglioramenti per coloro che usano Serial Loops su Linux:
+* Aggiunto un pacchetto RPM per gli utenti di Fedora/RHEL/CentOS
+* Migliorato il pacchetto deb per gli utenti di Ubuntu/Debian
 
-In addition, a number of bug and crash fixes and general program stability improvements (particularly related to the script editor) have been made for a better and more stable experience! Please enjoy using Serial Loops to create your own Haruhi stories!
+In più, un numero di bug e aggiustamenti per i crash e miglioramenti alla stabilità del programma (particolarmente correlati all'editor di script) sono stati fatti per una migliore esperienza! Continuate a divertirvi ad usare Serial Loops per creare le vostre storie su Haruhi!

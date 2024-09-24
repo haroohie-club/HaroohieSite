@@ -54,7 +54,7 @@ Insieme all'inclusione dell'Episodio 2 in questo rilascio, la patch comprende an
 * Il font di gioco ha avuto dei piccoli cambiamenti nello spazio tra i caratteri, includento l'aggiunta di alcuni nuovi glifi
 
 ## Scaricare il rilascio
-Perfavore controlla [la guida](/chokuretsu/guide) per vedere come applicare la patch nel tuo file della ROM Nintendo DS.
+Perfavore controlla [la guida](/it/chokuretsu/guide) per vedere come applicare la patch sul tuo file della ROM Nintendo DS.
 
 * [Patcher ROM online](/chokuretsu/patch)
 * [Scarica il file di patch](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)

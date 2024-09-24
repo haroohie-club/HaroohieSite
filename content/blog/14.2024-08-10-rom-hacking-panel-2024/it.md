@@ -1,6 +1,6 @@
 ---
-title: &title 'Recording of Jonko''s "ROM Hacking to Translate a Video Game: Reloaded" 2024 Panel Released'
-description: &desc 'Watch Jonko explain some of the challenges of hacking Chokuretsu & Heiretsu to a live audience at Sakura Con 2024'
+title: &title 'Registrazione del pannello sul "ROM Hacking to Translate a Video Game: Ricaricato" 2024 rilasciata'
+description: &desc 'Guarda Jonko spiegare alcune delle sfide nell'hackerare Chokuretsu & Heiretsu ad un pubblico dal vivo al Sakura Con 2024'
 locale: 'it'
 navigation:
   author: 'Jonko'
@@ -33,7 +33,7 @@ head:
     value: 'summary_large_image'
 ---
 
-Hi folks! Last year, I [presented a panel](2024-01-24-rom-hacking-panel) at a couple of different conventions. This year, I retooled the panel to focus on some of the other stuff we work on and presented it at Sakura Con! This year, the panel covers [script reverse-engineering](2024-03-13-chokuretsu-event-files), layout work, and a special segment on reverse-engineering the 3D models for *Suzumiya Haruhi no Heiretsu*. It's pretty fun, so please enjoy it!
+Ciao ragazzi! Lo scorso anno, ho [presentato un pannello](2024-01-24-rom-hacking-panel) in un paio di eventi diversi. Questo anno, ho rifatto il pannello per focalizzarmi sulle altre cose sulla quale abbiamo lavorato e l'ho presentato al Sakura Con! Quest'anno, il pannello copre [il reverse-engineering dello scripting](2024-03-13-chokuretsu-event-files), i lavori sui layout, e un segmento speciale sul reverse-engineeing dei modelli 3D per *Suzumiya Haruhi no Heiretsu*. È stato divertente, quindi godetevelo!
 
 ::youtube-video
 ----
