@@ -5,4 +5,4 @@ author:
   website: 'https://fuyume.neocities.org/'
 ---
 
-Fuyuko è una traduttrice italiana e un'aspirante programmatrice a cui piace la tecnologia dei primi anni 2000.
+Fuyuko is an Italian translator and aspiring programmer who likes tech from the early 2000s.
