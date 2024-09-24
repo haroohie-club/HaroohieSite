@@ -4,6 +4,7 @@ description: &desc "Guarda Jonko mentre spiega alcune delle sfide nell'hackerare
 locale: 'it'
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2024
   month: 01
   day: 24

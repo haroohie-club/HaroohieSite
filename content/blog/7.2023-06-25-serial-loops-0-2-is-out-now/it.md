@@ -4,6 +4,7 @@ description: &desc 'La seconda versione Serial Loops che rende l''editor ancora 
 locale: 'it'
 navigation:
   author: 'William'
+  translator: 'Fuyuko Ayumu'
   year: 2023
   month: 06
   day: 25

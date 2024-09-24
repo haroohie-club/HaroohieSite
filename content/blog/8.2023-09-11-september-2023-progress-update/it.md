@@ -4,6 +4,7 @@ description: &desc 'L''Haroohie Translation Club condivide un rapporto sui progr
 locale: 'it'
 navigation:
   author: 'William'
+  translator: 'Fuyuko Ayumu'
   year: 2023
   month: 9
   day: 11

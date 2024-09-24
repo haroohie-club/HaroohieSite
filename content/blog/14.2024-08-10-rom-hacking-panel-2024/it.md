@@ -4,6 +4,7 @@ description: &desc "Guarda Jonko spiegare alcune delle sfide nell'hackerare Chok
 locale: 'it'
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2024
   month: 08
   day: 10

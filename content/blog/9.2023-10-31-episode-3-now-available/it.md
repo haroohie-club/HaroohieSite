@@ -4,6 +4,7 @@ description: &desc 'Gioca all''Episodio 3: Una Cerimonia Estiva nella Versione 0
 locale: 'it'
 navigation:
   author: 'William'
+  translator: 'Fuyuko Ayumu'
   year: 2023
   month: 10
   day: 31
