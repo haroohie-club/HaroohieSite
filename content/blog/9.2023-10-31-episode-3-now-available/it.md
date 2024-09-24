@@ -1,6 +1,6 @@
 ---
 title: &title 'La Serie di Haruhi Suzumiya – Episodio 3 ora disponibile!'
-description: &desc 'Gioca all\'Episodio 3: Una Cerimonia Estiva nella Versione 0.6 della patch inglese di Suzumiya Haruhi no Chokuretsu, available now!'
+description: &desc 'Gioca all''Episodio 3: Una Cerimonia Estiva nella Versione 0.6 della patch inglese di Suzumiya Haruhi no Chokuretsu, available now!'
 locale: 'it'
 navigation:
   author: 'William'

@@ -5,4 +5,4 @@ author:
   website: 'https://fuyume.neocities.org/'
 ---
 
-Fuyuko 是一位有志向的程序员，他喜欢 21 世纪初的技术。
+Fuyuko is an Italian translator and aspiring programmer who likes tech from the early 2000s.
