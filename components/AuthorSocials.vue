@@ -1,10 +1,10 @@
 <template>
     <div class="author-socials">
-        <NuxtLink v-if="author.twitter" :to="author.twitter" rel="me">
-            <IconifiedText icon="fa6-brands:x-twitter">{{ $t('twitter') }}</IconifiedText>
-        </NuxtLink>
         <NuxtLink v-if="author.bluesky" :to="author.bluesky" rel="me">
             <IconifiedText icon="fa6-brands:bluesky">{{ $t('bluesky') }}</IconifiedText>
+        </NuxtLink>
+        <NuxtLink v-if="author.twitter" :to="author.twitter" rel="me">
+            <IconifiedText icon="fa6-brands:x-twitter">{{ $t('twitter') }}</IconifiedText>
         </NuxtLink>
         <NuxtLink v-if="author.instagram" :to="author.instagram" rel="me">
             <IconifiedText icon="fa6-brands:instagram">{{ $t('instagram') }}</IconifiedText>
