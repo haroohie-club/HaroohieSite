@@ -8,7 +8,7 @@ author:
   mastodon: 'https://eldritch.cafe/@jonko'
   instagram: 'https://instagram.com/jonko0493'
   threads: 'https://threads.net/@jonko0493'
-  pixelfed: 'https://gram.social/i/web/profile/720048688300269620'
+  pixelfed: 'https://pixelfed.social/i/web/profile/721048764794272221'
 ---
 
 Jonko é o líder do projeto e principal ROM hacker do Haroohie Translation Club.

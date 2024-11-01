@@ -11,10 +11,10 @@
         }
     },
     {
-        "locale": "twitter",
-        "icon": "fa6-brands:x-twitter",
-        "link": "https://twitter.com/haroohie",
-        "color": "#111111",
+        "locale": "bluesky",
+        "icon": "fa6-brands:bluesky",
+        "link": "https://bsky.app/profile/haroohie.club",
+        "color": "#1DA1F2",
         "display": {
             "nav": true,
             "row": true,
@@ -33,10 +33,21 @@
         }
     },
     {
-        "locale": "tiktok",
-        "icon": "fa6-brands:tiktok",
-        "link": "https://tiktok.com/@haroohie",
-        "color": "#000000",
+        "locale": "twitter",
+        "icon": "fa6-brands:x-twitter",
+        "link": "https://twitter.com/haroohie",
+        "color": "#111111",
+        "display": {
+            "nav": false,
+            "row": true,
+            "stack": true
+        }
+    },
+    {
+        "locale": "instagram",
+        "icon": "fa6-brands:instagram",
+        "link": "https://instagram.com/haroohie",
+        "color": "#E4405F",
         "display": {
             "nav": true,
             "row": true,
@@ -44,23 +55,12 @@
         }
     },
     {
-        "locale": "bluesky",
-        "icon": "fa6-brands:bluesky",
-        "link": "https://bsky.app/profile/haroohie.club",
-        "color": "#1DA1F2",
-        "display": {
-            "nav": false,
-            "row": true,
-            "stack": true
-        }
-    },
-    {
-        "locale": "threads",
-        "icon": "fa6-brands:threads",
-        "link": "https://threads.net/@haroohie",
+        "locale": "tiktok",
+        "icon": "fa6-brands:tiktok",
+        "link": "https://tiktok.com/@haroohie",
         "color": "#000000",
         "display": {
-            "nav": false,
+            "nav": true,
             "row": true,
             "stack": true
         }
@@ -77,12 +77,12 @@
         }
     },
     {
-        "locale": "instagram",
-        "icon": "fa6-brands:instagram",
-        "link": "https://instagram.com/haroohie",
-        "color": "#E4405F",
+        "locale": "threads",
+        "icon": "fa6-brands:threads",
+        "link": "https://threads.net/@haroohie",
+        "color": "#000000",
         "display": {
-            "nav": true,
+            "nav": false,
             "row": true,
             "stack": true
         }

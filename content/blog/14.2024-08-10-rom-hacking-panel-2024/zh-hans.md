@@ -20,7 +20,7 @@ head:
   - property: 'og:image:alt'
     content: ''
   - property: 'og:url'
-    content: 'https://haroohie.club/blog/2024-08-10-rom-hacking-panel'
+    content: 'https://haroohie.club/blog/2024-08-10-rom-hacking-panel-2024'
   - name: 'twitter:title'
     value: *title
   - name: 'twitter:description'
