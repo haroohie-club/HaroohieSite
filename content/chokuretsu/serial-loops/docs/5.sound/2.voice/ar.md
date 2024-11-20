@@ -1,6 +1,6 @@
 ---
 title: 'Voice Lines'
-locale: 'ar'
+locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/voice.png'
   previous: '/chokuretsu/serial-loops/docs/sound/bgm'
