@@ -1,5 +1,5 @@
 ---
-title: 'Buying the game'
+title: '购买游戏'
 navigation:
   current: '/buying-the-game'
   previous: '/'
