@@ -1,6 +1,6 @@
 ---
 title: 'Characters'
-locale: 'zh-hans'
+locale: 'ar'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/character.png'
   previous: '/chokuretsu/serial-loops/docs/misc'

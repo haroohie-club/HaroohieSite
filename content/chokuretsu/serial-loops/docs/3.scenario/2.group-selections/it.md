@@ -1,6 +1,6 @@
 ---
-title: 'Divisione dei compiti'
-locale: 'it'
+title: 'Group Selections'
+locale: 'ar'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/game-flow'

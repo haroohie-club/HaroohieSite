@@ -1,6 +1,6 @@
 ---
 title: 'Puzzles'
-locale: 'pt-br'
+locale: 'ar'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/puzzle.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/maps'
