@@ -1,8 +1,9 @@
 ---
-title: &title 'Chokuretsu ROM Hacking Challenges Part 2 – Archive Archaeology'
-description: &desc 'Jonko puts the Shade bin archive under the microscope and explains how he figured out how to unpack it.'
+title: &title '《串联》ROM 破解挑战第 2 部分：归档文件考古学'
+description: &desc 'Jonko 把 Shade 的二进制归档文件放在显微镜下，解释了他是如何打开它的。'
 navigation:
   author: 'Jonko'
+  translator: 'Xzonn'
   year: 2022
   month: 11
   day: 02
@@ -31,7 +32,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-[Last time](/blog/2022-10-19-chokuretsu-compression), we talked about how I reverse-engineered the compression algorithm used in Suzumiya Haruhi no Chokuretsu. Today, we’ll be taking a look at the archives that contain the Chokuretsu files. Please note that while I’ll generally try to keep these blog posts separate, this one absolutely builds on concepts we discussed last time, so I highly recommend you read it first! Also, if you're returning from the last one, fair warning that this one's a bit longer and contains a lot more assembly!
+[在上一次](/zh-hans/blog/2022-10-19-chokuretsu-compression)，我们讨论了我如何对《凉宫春日的串联》中使用的压缩算法进行逆向工程。今天，我们来看看包含在《串联》文件中的归档文件。请注意，虽然我通常会尽量将这些博客文章分开，但这篇文章绝对是建立在我们上次讨论的概念之上的，所以我强烈建议您先阅读它！此外，如果您是从上篇文章来到这里的，请注意，这篇文章有点长，包含更多的程序集！
 
 由于 zip 文件数量的激增，你可能已经熟悉了归档文件：它们是包含文件的文件，通常保存了压缩的版本，以帮助节省磁盘空间。常见的归档文件包括 `.zip`、`.rar`、`.7z` 和 `.tar.gz` 文件。《串联》使用了扩展名为 `.bin` 的自定义归档文件格式。由于 Shade 是《串联》的开发商，这些文件也可以被称为“Shade 二进制归档文件”或简称为“二进制归档文件”。让我们选择一个归档文件开始研究。
 
