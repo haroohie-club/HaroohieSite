@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
     const locale = 'zh-hant'
     const docs = await serverQueryContent(event).find();
-    const blogPosts = docs.filter((doc) => doc._path?.includes('/blog/')).filter(b => b.navigation).filter(b => b._path.endsWith(locale))
+    const blogPosts = docs.filter((doc) => doc._path?.includes('/blog/')).filter(b => b.navigation).filter(b => b._path?.endsWith(locale))
         .sort().reverse();
 
     for (const doc of blogPosts) {
