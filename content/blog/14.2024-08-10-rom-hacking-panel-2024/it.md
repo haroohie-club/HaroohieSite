@@ -1,8 +1,9 @@
 ---
-title: &title 'Recording of Jonko''s "ROM Hacking to Translate a Video Game: Reloaded" 2024 Panel Released'
-description: &desc 'Watch Jonko explain some of the challenges of hacking Chokuretsu & Heiretsu to a live audience at Sakura Con 2024'
+title: &title 'Registrazione del pannello sul "ROM Hacking to Translate a Video Game: Ricaricato" 2024 rilasciata'
+description: &desc "Guarda Jonko spiegare alcune delle sfide nell'hackerare Chokuretsu & Heiretsu ad un pubblico dal vivo al Sakura Con 2024"
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2024
   month: 08
   day: 10
