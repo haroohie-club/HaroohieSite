@@ -1,8 +1,9 @@
 ---
-title: &title 'Chokuretsu ROM Hacking Challenges Part 3 – Compression & Archive Follow-Up'
-description: &desc 'Jonko responds to feedback and provides more details regarding the compression and archive articles.'
+title: &title 'Sfide nel ROM Hacking di Chokuretsu– Seguito della Compressione & Archivi'
+description: &desc 'Jonko risponde ai feedback e dà più dettagli riguardanti gli aticoli sulla compressione e sugli archivi'
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2023
   month: 03
   day: 10
@@ -17,7 +18,7 @@ head:
   - property: 'og:image'
     content: &img https://haroohie.club/images/blog/0005/00_thumbnail.png
   - property: 'og:image:alt'
-    content: 'A Nintendo DS featuring Haruhi Suzumiya saying edited text.'
+    content: 'Un Nintendo DS che mostra Suzumiya dire una frase modificata.'
   - property: 'og:url'
     content: 'https://haroohie.club/blog/2023-03-10-chokuretsu-compression-archive-followup'
   - property: 'og:type'
