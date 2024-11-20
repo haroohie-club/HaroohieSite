@@ -1,7 +1,7 @@
 ---
 title: &title 'Chokuretsu ROM Hacking Challenges Part 3 – Compression & Archive Follow-Up'
 description: &desc 'Jonko responds to feedback and provides more details regarding the compression and archive articles.'
-locale: 'en'
+locale: 'ar'
 navigation:
   author: 'Jonko'
   year: 2023

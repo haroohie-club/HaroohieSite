@@ -1,7 +1,7 @@
 ---
 title: &title 'Chokuretsu ROM Hacking Challenges Part 1 – Cracking a Compression Algorithm!'
 description: &desc 'Jonko delves into how the Shade compression algorithm was reverse engineered to hack Suzumiya Haruhi no Chokuretsu.'
-locale: 'en'
+locale: 'ar'
 navigation:
   author: 'Jonko'
   year: 2022
