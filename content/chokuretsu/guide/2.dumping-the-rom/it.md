@@ -1,5 +1,5 @@
 ---
-title: 'Dumping the ROM'
+title: 'Estrarre i dati di gioco'
 navigation:
   current: '/dumping-the-rom'
   previous: '/buying-the-game'
