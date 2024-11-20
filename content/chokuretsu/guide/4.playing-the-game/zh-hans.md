@@ -3,7 +3,6 @@ title: '游玩游戏'
 navigation:
   current: '/playing-the-game'
   previous: '/patching-the-rom'
-locale: 'zh-hans'
 ---
 
 ::guide-notice

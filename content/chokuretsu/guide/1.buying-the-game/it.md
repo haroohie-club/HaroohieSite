@@ -4,7 +4,6 @@ navigation:
   current: '/buying-the-game'
   previous: '/'
   next: '/dumping-the-rom'
-locale: 'it'
 ---
 
 In primis, Indipendetemente da dove giochi, devi procurarti una copia del gioco, ecco dove puoi ottenerla:

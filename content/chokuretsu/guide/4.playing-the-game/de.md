@@ -3,7 +3,6 @@ title: 'Playing the game'
 navigation:
   current: '/playing-the-game'
   previous: '/patching-the-rom'
-locale: 'de'
 ---
 
 ::guide-notice

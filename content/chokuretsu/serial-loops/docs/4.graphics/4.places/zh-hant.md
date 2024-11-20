@@ -1,6 +1,5 @@
 ---
 title: 'Places'
-locale: 'zh-hant'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/place.png'
   previous: '/chokuretsu/serial-loops/docs/graphics/chibis'

@@ -4,7 +4,6 @@ navigation:
   current: '/patching-the-rom'
   previous: '/dumping-the-rom'
   next: '/playing-the-game'
-locale: 'zh-hant'
 ---
 
 當你將卡帶轉儲到 `.nds` 檔案後，就可以透過我們提供的[給 ROM 打補丁](/zh-hant/chokuretsu/patch)工具，或手動下載 `.xdelta` 補丁檔案並使用打補丁軟體（如 [XDeltaUI](https://www.romhacking.net/utilities/598/?device=emu)），輕鬆地給 ROM 檔案打上漢化補丁。

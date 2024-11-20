@@ -4,7 +4,6 @@ navigation:
   current: '/dumping-the-rom'
   previous: '/buying-the-game'
   next: '/patching-the-rom'
-locale: 'zh-hant'
 ---
 
 要轉儲 ROM 檔案，除了需要一份遊戲外，你還需要一臺 Nintendo DS 或 3DS 主機。有些方法需要額外的裝置，例如 SD 卡或能夠設定不安全熱點的移動裝置。

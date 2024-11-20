@@ -4,7 +4,6 @@ navigation:
   current: '/dumping-the-rom'
   previous: '/buying-the-game'
   next: '/patching-the-rom'
-locale: 'zh-hans'
 ---
 
 要转储 ROM 文件，除了需要一份游戏外，你还需要一台 Nintendo DS 或 3DS 主机。有些方法需要额外的设备，例如 SD 卡或能够设置不安全热点的移动设备。

@@ -4,7 +4,6 @@ navigation:
   current: '/dumping-the-rom'
   previous: '/buying-the-game'
   next: '/patching-the-rom'
-locale: 'it'
 ---
 
 Per ottenere la ROM, ti servirà un Nintendo DS o 3DS, per alcuni metodi è richiesta ulteriore attrezzatura, come schede SD o un telefono cellulare in grado di garantire una connessione stabile ad internet.

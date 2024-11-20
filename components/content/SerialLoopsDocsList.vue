@@ -7,7 +7,7 @@ const localePath = useLocalePath()
 <template>
     <div class="docs-list">
         <ContentList path="/chokuretsu/serial-loops/docs" v-slot="{ list }">
-            <div v-for="guide in list.filter(g => g.title !== 'Sidebar').filter(g => g.locale == locale)" :class="'list-item ' + ((guide._path.split('/').length > 6) ? 'indented' : '')" >
+            <div v-for="guide in list.filter(g => g.title !== 'Sidebar').filter(g => g._path.endsWith(locale))" :class="'list-item ' + ((guide._path.split('/').length > 6) ? 'indented' : '')" >
                 <span class="icon">
                     <img v-if="guide.navigation.icon" :src="guide.navigation.icon" />
                     <Icon v-else-if="guide.navigation.faicon" :name="guide.navigation.faicon" />

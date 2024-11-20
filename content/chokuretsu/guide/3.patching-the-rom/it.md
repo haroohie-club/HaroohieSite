@@ -4,7 +4,6 @@ navigation:
   current: '/patching-the-rom'
   previous: '/dumping-the-rom'
   next: '/playing-the-game'
-locale: 'it'
 ---
 
 Una volta ottenuto il file `.nds`, per installare la patch in Italiano puoi farlo con lo strumento disponibile [sul sito](/it/chokuretsu/patch) o utilizzare il file `.xdelta` assieme ad altri programmi, come [XDeltaUI](https://www.romhacking.net/utilities/598/?device=emu).

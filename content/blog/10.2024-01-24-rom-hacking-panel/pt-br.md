@@ -1,7 +1,6 @@
 ---
 title: &title 'Recording of Jonko''s "ROM Hacking to Translate a Video Game" Panel Released'
 description: &desc 'Watch Jonko explain some of the challenges of hacking Chokuretsu to a live audience at Retro World Expo'
-locale: 'pt-br'
 navigation:
   author: 'Jonko'
   year: 2024

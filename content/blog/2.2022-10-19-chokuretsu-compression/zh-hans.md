@@ -1,7 +1,6 @@
 ---
 title: &title '《串联》ROM 破解挑战第 1 部分：破解压缩算法！'
 description: &desc 'Jonko 深入研究了 Shade 的压缩算法是如何被逆向工程，然后用来破解《凉宫春日的串联》的。'
-locale: 'zh-hans'
 navigation:
   author: 'Jonko'
   translator: 'Xzonn'

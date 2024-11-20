@@ -1,7 +1,6 @@
 ---
 title: 涼宮春日的串聯 - 簡體中文翻譯（Nintendo DS）
 description: Nintendo DS 遊戲《涼宮春日的串聯》（涼宮ハルヒの直列）的 ROM 漢化補丁
-locale: 'zh-hant'
 ---
 
 ::chokuretsu-nav
