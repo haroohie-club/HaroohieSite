@@ -1,5 +1,5 @@
 ---
-title: 'Topics'
+title: 'Discussioni'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/topic.png'
   previous: '/chokuretsu/serial-loops/docs/misc/characters'
