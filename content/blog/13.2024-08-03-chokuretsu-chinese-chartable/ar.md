@@ -1,7 +1,6 @@
 ---
 title: &title "Chokuretsu ROM Hacking Challenges from China – Character Conundrums!"
 description: &desc "Xzonn explores how he went about modifying the character table and line height for the Chinese translation of Chokuretsu"
-locale: 'ar'
 navigation:
   author: 'Xzonn'
   year: 2024

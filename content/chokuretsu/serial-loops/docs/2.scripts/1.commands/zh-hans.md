@@ -345,22 +345,19 @@ Ends the scene and moves to the next one as listed in the Scenario item.
 
 Starts investigation mode. Automatically fades screen in from black.
 
-Displays a particular "kinetic" (my word) [background](../graphics/backgrounds)
-on the top screen. Must be of type `KINETIC_SCREEN`.
+Does nothing.
 
 
 ## `NOOP2`
 **Parameters**: None.
 
-Displays a particular "kinetic" (my word) [background](../graphics/backgrounds)
-on the top screen. Must be of type `KINETIC_SCREEN`.
+Does nothing.
 
 
 ## `NOOP3`
 **Parameters**: None.
 
-Displays a particular "kinetic" (my word) [background](../graphics/backgrounds)
-on the top screen. Must be of type `KINETIC_SCREEN`.
+Does nothing.
 
 
 ## `OP_MODE` 

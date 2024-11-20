@@ -6,7 +6,7 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/scenario'
 ---
 
-infine, abbiamo _Map Characters_ tab. Qua potrai modificare dove i personaggi appariranno nella mappa e quali script attivare quando parlerai con loro.
+Infine, abbiamo _Map Characters_ tab. Qua potrai modificare dove i personaggi appariranno nella mappa e quali script attivare quando parlerai con loro.
 Assicurati che Kyon sia sempre presente e che nessuno script sia associato con lui. Inoltre, l'anteprima non renderizza per bene, quindi, alcuni personaggi
 si possono fondere o apparire dietro agli oggetti.
 
