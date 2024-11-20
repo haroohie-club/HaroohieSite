@@ -1,13 +1,13 @@
 ---
-title: 'Scorrere del gioco'
-locale: 'it'
+title: 'Game Flow'
+locale: 'en'
 navigation:
   faicon: 'fa6-solid:book-open'
   previous: '/chokuretsu/serial-loops/docs/scenario'
   next: '/chokuretsu/serial-loops/docs/scenario/group-selections'
 ---
-Puoi alterare lo scorrere del gioco grazie all'editor degli _Scenari_ . Gli scenari sono una lista di comandi che dicono cosa far caricare il gioco e
-in che ordine. Nella tabella qua sotto troverai i vari comandi:
+The game's flow can be edited with the _Scenario_ editor. The scenario is essentially a list of commands which execute in order to load various game
+components. The commands are explained in the following table:
 
 ## Comandi scena
 | Comando | Descrizione |

@@ -1,7 +1,7 @@
 ---
 title: &title 'Chokuretsu ROM Hacking Challenges Part 2 – Archive Archaeology'
 description: &desc 'Jonko puts the Shade bin archive under the microscope and explains how he figured out how to unpack it.'
-locale: 'de'
+locale: 'en'
 navigation:
   author: 'Jonko'
   year: 2022

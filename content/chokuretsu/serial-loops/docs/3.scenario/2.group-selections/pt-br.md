@@ -1,6 +1,6 @@
 ---
 title: 'Group Selections'
-locale: 'pt-br'
+locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/game-flow'

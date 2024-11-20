@@ -1,6 +1,6 @@
 ---
-title: 'Mappe'
-locale: 'it'
+title: 'Maps'
+locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/map.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/group-selections'
