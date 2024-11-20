@@ -1,5 +1,5 @@
 ---
-title: 'Commands'
+title: 'Comandi'
 navigation:
   faicon: 'fa6-solid:code'
   previous: '/chokuretsu/serial-loops/docs/scripts'
@@ -340,19 +340,19 @@ Chiude una scena e apre la prossima segnata sullo "Scenario Item".
 ## `NOOP1`
 **Parametri**: Nessuno
 
-Does nothing.
+Non fa nulla.
 
 
 ## `NOOP2`
 **Parametri**: Nessuno.
 
-Does nothing.
+Non fa nulla.
 
 
 ## `NOOP3`
 **Parametri**: Nessuno.
 
-Does nothing.
+Non fa nulla.
 
 
 ## `OP_MODE` 
