@@ -1,5 +1,5 @@
 ---
-title: 'Patchare la ROM'
+title: 'Patching the ROM'
 navigation:
   current: '/patching-the-rom'
   previous: '/dumping-the-rom'

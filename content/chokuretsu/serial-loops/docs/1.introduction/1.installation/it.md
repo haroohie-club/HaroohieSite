@@ -1,5 +1,5 @@
 ---
-title: 'Come installare il programma'
+title: 'Installation'
 navigation:
   faicon: 'fa6-solid:box-open'
   previous: '/chokuretsu/serial-loops/docs/introduction'

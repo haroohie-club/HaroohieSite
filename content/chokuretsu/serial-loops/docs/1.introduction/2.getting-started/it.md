@@ -1,5 +1,5 @@
 ---
-title: 'Cominciamo'
+title: 'Getting Started'
 navigation:
   faicon: 'fa6-solid:hands'
   previous: '/chokuretsu/serial-loops/docs/introduction/installation'

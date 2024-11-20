@@ -1,5 +1,5 @@
 ---
-title: 'Banco da lavoro'
+title: 'Project Workflow'
 navigation:
   faicon: 'fa6-solid:folder-tree'
   previous: '/chokuretsu/serial-loops/docs/introduction/getting-started'

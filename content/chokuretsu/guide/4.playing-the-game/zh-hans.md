@@ -1,5 +1,5 @@
 ---
-title: '游玩游戏'
+title: 'Playing the game'
 navigation:
   current: '/playing-the-game'
   previous: '/patching-the-rom'

@@ -1,9 +1,8 @@
 ---
-title: &title 'Serial Loops v0.1 è ora disponibile!'
-description: &desc 'Oggi siamo davvero emozionati di annunciare la prima versione di Serial Loops, una nuova suite per modificare Suzumiya Haruhi no Chokuretsu!'
+title: &title 'Serial Loops v0.1 is now available!'
+description: &desc 'Today we are very exicted to announce the release of the first version of Serial Loops, a new editing suite for Suzumiya Haruhi no Chokuretsu!'
 navigation:
   author: 'William'
-  translator: 'Fuyuko Ayumu'
   year: 2023
   month: 04
   day: 15

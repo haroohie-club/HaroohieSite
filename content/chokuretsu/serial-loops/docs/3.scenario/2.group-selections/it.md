@@ -1,5 +1,5 @@
 ---
-title: 'Divisione dei compiti'
+title: 'Group Selections'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/game-flow'

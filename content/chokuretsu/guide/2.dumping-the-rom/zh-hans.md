@@ -1,5 +1,5 @@
 ---
-title: '转储 ROM'
+title: 'Dumping the ROM'
 navigation:
   current: '/dumping-the-rom'
   previous: '/buying-the-game'

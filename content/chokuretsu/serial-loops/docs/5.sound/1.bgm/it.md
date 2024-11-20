@@ -1,5 +1,5 @@
 ---
-title: 'Musica di sottofondo'
+title: 'Background Music'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/bgm.png'
   previous: '/chokuretsu/serial-loops/docs/sound'

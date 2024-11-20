@@ -1,9 +1,8 @@
 ---
-title: &title "Sfide nel ROM Hacking di Chokuretsu Parte 2 - Archeologia dell'archivio"
-description: &desc "Jonko mette l'archivio bin Shade sotto al microscopio e spiega come ha fatto a capire come spachettarlo."
+title: &title 'Chokuretsu ROM Hacking Challenges Part 2 – Archive Archaeology'
+description: &desc 'Jonko puts the Shade bin archive under the microscope and explains how he figured out how to unpack it.'
 navigation:
   author: 'Jonko'
-  translator: 'Fuyuko Ayumu'
   year: 2022
   month: 11
   day: 02
@@ -32,7 +31,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-[L'ultima volta](/it/blog/2022-10-19-chokuretsu-compression), abbiamo parlato di come ho fatto un reverse-engineering dell'algoritmo di compressione utilizzato in Suzumiya Haruhi no Chokuretsu. Oggi, guarderemo gli archivi che contengono i file di Chokuretsu. Ti chiedo di tenere a mente che mentre io cerco di tenere questi post separati, questo si basa completamente sui concetti fondati la scorsa volta, quindi ti suggerisco di leggerla per prima! Inoltre, se avete già letto lo scorso post, ti avviso che questo è più po' più lungo e contiene più assembly!
+[Last time](/blog/2022-10-19-chokuretsu-compression), we talked about how I reverse-engineered the compression algorithm used in Suzumiya Haruhi no Chokuretsu. Today, we’ll be taking a look at the archives that contain the Chokuretsu files. Please note that while I’ll generally try to keep these blog posts separate, this one absolutely builds on concepts we discussed last time, so I highly recommend you read it first! Also, if you're returning from the last one, fair warning that this one's a bit longer and contains a lot more assembly!
 
 Grazie alla proliferazione dei file .zip, sarai già a conoscenza degli archivi: sono file che contengono file, solitamente compressi per risparmiare spazio sul disco. Gli archivi più comuni sono i file `.zip`, `.rar`, `.7z` e `.tar.gz`. Chokuretsu utilizza un archivio personalizzato con l'estensione `.bin`. Visto che Shade è lo sviluppatore del gioco, questi file vengono riferiti come "archivi bin Shade" o semplicemente "archivi bin." Iniziamo scegliendo un archivio da guardare.
 

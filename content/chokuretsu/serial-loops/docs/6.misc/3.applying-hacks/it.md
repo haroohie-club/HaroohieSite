@@ -1,5 +1,5 @@
 ---
-title: 'Applicare delle hack'
+title: 'Applying Hacks'
 navigation:
   faicon: 'fa6-solid:file'
   previous: '/chokuretsu/serial-loops/docs/misc/topics'

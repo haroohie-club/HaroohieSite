@@ -1,9 +1,8 @@
 ---
-title: &title '欢迎！以及为什么？'
-description: &desc '对 Haroohie Translation Club 博客的简要介绍，并解释我们翻译凉宫春日游戏的动机。'
+title: &title 'Welcome! and Why?'
+description: &desc 'An introduction to the Haroohie Translation Club blog and an explanation of our motivations for translating Haruhi games.'
 navigation:
   author: 'Jonko'
-  translator: 'Xzonn'
   year: 2022
   month: 10
   day: 17
