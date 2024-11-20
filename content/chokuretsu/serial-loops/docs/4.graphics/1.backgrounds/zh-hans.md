@@ -1,6 +1,5 @@
 ---
 title: Backgrounds
-locale: 'zh-hans'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/background.png'
   previous: '/chokuretsu/serial-loops/docs/graphics'

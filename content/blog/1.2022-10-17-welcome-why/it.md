@@ -1,7 +1,6 @@
 ---
 title: &title 'Benvenuti! E perché?'
 description: &desc "Un'introduzione al blog dell'Haroohie Translation Club ed una spiegazione dei nostri motivi per tradurre i giochi di Haruhi."
-locale: 'it'
 navigation:
   author: 'Jonko'
   translator: 'Fuyuko Ayumu'

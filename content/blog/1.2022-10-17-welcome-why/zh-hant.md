@@ -1,7 +1,6 @@
 ---
 title: &title '歡迎！以及為什麼？'
 description: &desc '對 Haroohie Translation Club 部落格的簡要介紹，並解釋我們翻譯涼宮春日遊戲的動機。'
-locale: 'zh-hant'
 navigation:
   author: 'Jonko'
   translator: 'Xzonn'

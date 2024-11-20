@@ -1,7 +1,6 @@
 ---
 title: &title 'Jonko 的“对于爱好者翻译电子游戏所需的 ROM 破解”座谈会录像发布了'
 description: &desc '观看 Jonko 在怀旧游戏世界展览会上向现场观众解释破解《串联》的一些挑战'
-locale: 'zh-hans'
 navigation:
   author: 'Jonko'
   translator: 'Xzonn'

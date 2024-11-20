@@ -1,6 +1,5 @@
 ---
 title: 'Comandi'
-locale: 'it'
 navigation:
   faicon: 'fa6-solid:code'
   previous: '/chokuretsu/serial-loops/docs/scripts'

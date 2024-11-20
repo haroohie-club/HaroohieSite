@@ -1,6 +1,5 @@
 ---
 title: 'Chibi & Scelte'
-locale: 'it'
 navigation:
   faicon: 'fa6-solid:question'
   previous: '/chokuretsu/serial-loops/docs/scripts/commands'

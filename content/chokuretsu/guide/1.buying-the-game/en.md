@@ -4,7 +4,6 @@ navigation:
   current: '/buying-the-game'
   previous: '/'
   next: '/dumping-the-rom'
-locale: 'en'
 ---
 
 First things first, regardless of what platform you're playing on, you'll need to buy a copy of the game. You can pick up a copy from a number of vendors, including:

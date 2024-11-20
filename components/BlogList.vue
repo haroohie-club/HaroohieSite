@@ -4,15 +4,15 @@ const localePath = useLocalePath()
 </script>
 <template>
     <ContentList path="/blog" v-slot="{ list }">
-        <div class="year" v-for="year of new Set(list.filter(b => b.navigation).filter(b => b.locale == locale).map(b => b.navigation.year).reverse())">
+        <div class="year" v-for="year of new Set(list.filter(b => b.navigation).filter(b => b._path.endsWith(locale)).map(b => b.navigation.year).reverse())">
             <NuxtLink class="closed" @click.native="toggle(year)" :id="'link-' + year">{{ $t('year', { year: year }) }}</NuxtLink>
             <div class="month" :id="'div-' + year">
-                <div v-for="month of new Set(list.filter(b => b.navigation).filter(b => b.locale == locale).filter(b => b.navigation.year == year).map(b => b.navigation.month).reverse())">
+                <div v-for="month of new Set(list.filter(b => b.navigation).filter(b => b._path.endsWith(locale)).filter(b => b.navigation.year == year).map(b => b.navigation.month).reverse())">
                     <NuxtLink class="closed" @click.native="toggle(year + '-' + month)" :id="'link-' + year + '-' + month">
                         {{ $t(getMonth(month)) }}
                     </NuxtLink>
                     <div class="post" :id="'div-' + year + '-' + month">
-                        <div v-for="blog of list.filter(b => b.navigation).filter(b => b.locale == locale).filter(b => b.navigation.year === year && b.navigation.month === month).reverse()" class="blog-link">
+                        <div v-for="blog of list.filter(b => b.navigation).filter(b => b._path.endsWith(locale)).filter(b => b.navigation.year === year && b.navigation.month === month).reverse()" class="blog-link">
                             <NuxtLink v-if="blog.navigation" :to="localePath(blog._path.substring(0, blog._path.lastIndexOf('/')))">{{ blog.title }}</NuxtLink>
                         </div>
                     </div>

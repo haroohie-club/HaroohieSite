@@ -1,6 +1,5 @@
 ---
 title: 'UI'
-locale: 'it'
 navigation:
   faicon: 'fa6-solid:wrench'
   previous: '/chokuretsu/serial-loops/docs/misc/applying-hacks'

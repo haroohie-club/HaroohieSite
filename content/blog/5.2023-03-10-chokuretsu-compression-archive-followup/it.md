@@ -1,7 +1,6 @@
 ---
 title: &title 'Sfide nel ROM Hacking di Chokuretsu– Seguito della Compressione & Archivi'
 description: &desc 'Jonko risponde ai feedback e dà più dettagli riguardanti gli aticoli sulla compressione e sugli archivi'
-locale: 'it'
 navigation:
   author: 'Jonko'
   translator: 'Fuyuko Ayumu'

@@ -1,6 +1,5 @@
 ---
 title: 'Voci'
-locale: 'it'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/voice.png'
   previous: '/chokuretsu/serial-loops/docs/sound/bgm'

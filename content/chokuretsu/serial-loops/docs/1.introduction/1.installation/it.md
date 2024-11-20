@@ -1,6 +1,5 @@
 ---
 title: 'Come installare il programma'
-locale: 'it'
 navigation:
   faicon: 'fa6-solid:box-open'
   previous: '/chokuretsu/serial-loops/docs/introduction'

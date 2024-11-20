@@ -1,7 +1,6 @@
 ---
 title: &title "Il ritorno della Serie di ROM Hacking di Chokuretsu!"
 description: &desc "Jonko voleva fare un post nel giorno bisestie ma non aveva abbastanza tempo per finirlo"
-locale: 'it'
 navigation:
   author: 'Jonko'
   translator: 'Fuyuko Ayumu'

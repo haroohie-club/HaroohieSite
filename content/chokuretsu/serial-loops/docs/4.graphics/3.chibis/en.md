@@ -1,6 +1,5 @@
 ---
 title: 'Chibis'
-locale: 'en'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/chibi.png'
   previous: '/chokuretsu/serial-loops/docs/graphics/sprites'

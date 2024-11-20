@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="fullstack: nuxt" type="CompoundRunConfigurationType">
+    <toRun name="server: nuxt" type="NodeJSConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>

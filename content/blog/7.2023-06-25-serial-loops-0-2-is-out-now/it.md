@@ -1,7 +1,6 @@
 ---
 title: &title 'Serial Loops v0.2 è ora disponibile – con editor più potenti e una migliore affidabilità!'
 description: &desc 'La seconda versione Serial Loops che rende l''editor ancora più affidabile e intuitivo, aggiusta un sacco di bug, e migliorà la stabilità!'
-locale: 'it'
 navigation:
   author: 'William'
   translator: 'Fuyuko Ayumu'

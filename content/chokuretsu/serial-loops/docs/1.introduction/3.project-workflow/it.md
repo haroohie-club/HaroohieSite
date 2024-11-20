@@ -1,6 +1,5 @@
 ---
 title: 'Banco da lavoro'
-locale: 'it'
 navigation:
   faicon: 'fa6-solid:folder-tree'
   previous: '/chokuretsu/serial-loops/docs/introduction/getting-started'

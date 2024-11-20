@@ -1,7 +1,6 @@
 ---
 title: &title "来自中国的《串联》ROM 破解挑战：字库难题"
 description: &desc "Xzonn 探讨了他如何修改《串联》汉化的码表和行高。"
-locale: 'zh-hans'
 navigation:
   author: 'Xzonn'
   year: 2024

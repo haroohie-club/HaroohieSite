@@ -4,7 +4,6 @@ navigation:
   current: '/buying-the-game'
   previous: '/'
   next: '/dumping-the-rom'
-locale: 'zh-hans'
 ---
 
 首先，无论你在哪个平台上游玩，你都需要购买一份游戏。你可以从许多供应商处购买到，包括：

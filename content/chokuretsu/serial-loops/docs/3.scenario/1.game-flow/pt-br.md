@@ -1,6 +1,5 @@
 ---
 title: 'Game Flow'
-locale: 'pt-br'
 navigation:
   faicon: 'fa6-solid:book-open'
   previous: '/chokuretsu/serial-loops/docs/scenario'

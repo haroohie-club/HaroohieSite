@@ -1,6 +1,5 @@
 ---
 title: 'Project Workflow'
-locale: 'en'
 navigation:
   faicon: 'fa6-solid:folder-tree'
   previous: '/chokuretsu/serial-loops/docs/introduction/getting-started'
