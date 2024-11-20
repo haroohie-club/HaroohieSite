@@ -1,7 +1,7 @@
 ---
 title: &title 'Video: How I Hacked Dragon Ball Kai - ROM Hacking to Translate a Video Game'
 description: &desc 'In the first video in his series on translation-focused ROM hacking, Jonko releases a new video about hacking Dragon Ball Kai so it can be translated!'
-locale: 'en'
+locale: 'ar'
 navigation:
   author: 'Jonko'
   year: 2024
