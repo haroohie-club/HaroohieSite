@@ -1,6 +1,6 @@
 ---
-title: Suzumiya Haruhi no Chokuretsu - English Translation (Nintendo DS) - (The Series of Haruhi Suzumiya)
-description: English Translation ROM patch for Nintendo DS game Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
+title: 凉宫春日的串联 - 简体中文翻译（Nintendo DS）
+description: Nintendo DS 游戏《凉宫春日的串联》（涼宮ハルヒの直列）的 ROM 汉化补丁
 ---
 
 ::chokuretsu-nav
