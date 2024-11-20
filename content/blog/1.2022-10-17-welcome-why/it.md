@@ -1,8 +1,9 @@
 ---
-title: &title 'Welcome! and Why?'
-description: &desc 'An introduction to the Haroohie Translation Club blog and an explanation of our motivations for translating Haruhi games.'
+title: &title 'Benvenuti! E perché?'
+description: &desc "Un'introduzione al blog dell'Haroohie Translation Club ed una spiegazione dei nostri motivi per tradurre i giochi di Haruhi."
 navigation:
   author: 'Jonko'
+  translator: 'Fuyuko Ayumu'
   year: 2022
   month: 10
   day: 17
@@ -17,7 +18,7 @@ head:
   - property: 'og:image'
     content: &img 'https://haroohie.club/images/blog/0001/00_thumbnail.png'
   - name: 'og:image:alt'
-    value: 'The SOS Brigade (Suzumiya Haruhi no Chokuretsu box art)'
+    value: 'La Brigata SOS (Box art di Suzumiya Haruhi no Chokuretsu)'
   - property: 'og:url'
     content: 'https://haroohie.club/blog/2022-10-17-welcome-why'
   - property: 'og:type'
