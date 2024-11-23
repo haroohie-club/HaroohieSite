@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
         image_url: 'https://haroohie.club/images/sos-logo.png',
     })
 
-    const locale = 'de'
+    const locale = 'ar'
     const docs = await serverQueryContent(event).find();
     const blogPosts = docs.filter((doc) => doc._path?.includes('/blog/')).filter(b => b.navigation).filter(b => b._path?.endsWith(locale))
         .sort().reverse();
