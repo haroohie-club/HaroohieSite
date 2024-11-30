@@ -2,6 +2,7 @@
     <footer>
         <div id="copyright">
             <div>{{ $t('website') }} &copy; {{ current_year }}, <NuxtLink :to="localePath('/')">Haroohie Translation Club</NuxtLink></div>
+            <div>{{ $t('license-pre') }}<NuxtLink to="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</NuxtLink>{{ $t('license-post') }}</div>
             <div>{{ $t('original-copyright') }}</div>
         </div>
     </footer>
