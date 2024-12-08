@@ -63,6 +63,7 @@ export default {
             { code: 'fr', iso: 'fr', file: 'locales/fr.json', dir: 'ltr' },
             { code: 'it', iso: 'it-IT', file: 'locales/it.json', dir: 'ltr' },
             { code: 'pt-br', iso: 'pt-BR', file: 'locales/pt-br.json', dir: 'ltr' },
+            { code: 'ru', iso: 'ru', file: 'locales/ru.json', dir: 'ltr' },
             { code: 'zh-hans', iso: 'zh-Hans', file: 'locales/zh-Hans.json', dir: 'ltr' },
             { code: 'zh-hant', iso: 'zh-Hant', file: 'locales/zh-Hant.json', dir: 'ltr' },
         ],
