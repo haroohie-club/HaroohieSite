@@ -94,7 +94,7 @@
         "color": "#00ADFB",
         "display": {
             "nav": false,
-            "row": false,
+            "row": true,
             "stack": true
         }
     },
@@ -105,7 +105,7 @@
         "color": "#1877F2",
         "display": {
             "nav": false,
-            "row": false,
+            "row": true,
             "stack": true
         }
     },
@@ -116,7 +116,7 @@
         "color": "#E71E3D",
         "display": {
             "nav": false,
-            "row": false,
+            "row": true,
             "stack": true
         }
     }
