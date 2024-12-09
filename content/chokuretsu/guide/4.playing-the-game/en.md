@@ -149,6 +149,7 @@ melonDS has a number of advanced features, such as configuring controllers and t
 * iOS / iPadOS Device (iPhone, iPad, iPod Touch)
 
 **Play Using Delta Emulator**
+
 In the past, Apple did not permit emulators officially on their store. However, times have changed and now you can simply download [Delta Emulator](https://faq.deltaemulator.com/) from the [App Store](https://apps.apple.com/us/app/delta-game-emulator/id1048524688).
 
 Simply run Delta Emulator and load the patched ROM file to begin playing.
@@ -164,6 +165,7 @@ There are several options for emulation on Android. [DraStic](https://play.googl
 Download [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic) off the Google Play Store and transfer the patched ROM file over to it via the Android file picker.
 
 **Play using melonDS Android Emulator**
+
 Download [melonDS Android](https://play.google.com/store/apps/details?id=me.magnum.melonds) off the Google Play Store and transfer the patched ROM file over to it via the Android file picker.
 
 **Play using RetroArch Emulator**
