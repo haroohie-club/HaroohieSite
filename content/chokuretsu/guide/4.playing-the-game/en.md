@@ -81,12 +81,12 @@ Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use
 3. Continue following the instructions through to launching the game. Enjoy!
 
 #### Using an NDS Forwarder
-If you would instead like to be able to launch the game directly from the home screen without launching TWiLightMenu++, you can use an NDS forwarder to do so.
+If you would instead like to be able to launch the game directly from the home screen without running TWiLightMenu++, you can use an NDS forwarder to do so.
 
 **Setup**:
 1. Follow steps 1-2 of the setup for TWiLightMenu++ instructions above.
-2. Install the [ndsForwarder](https://github.com/MechanicalDragon0687/ndsForwarder/releases) application either from Universal Updater or by following the instructions to install it manually to your SD card.
-3. Launch the Homebrew Launcher application, then launch NDS Forwarder Generator from that.
+2. Install the [ndsForwarder](https://github.com/MechanicalDragon0687/ndsForwarder/releases) application either from Universal Updater or by following the instructions to install it manually on your SD card.
+3. Boot up your 3DS and run the Homebrew Launcher application, then launch NDS Forwarder Generator from that.
 4. Navigate to the /roms/nds/ folder and select the ROM you placed there. Select "Yes" at the prompt for whether you want to install the forwarder, and then select "OK" when the installation is complete.
 5. Press Start to exit the forwarder generator and then Home Button to return to the home menu. You will be shown the newly installed forwarder on your home screen and can then launch the game directly from that.
 
