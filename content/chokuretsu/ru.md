@@ -18,6 +18,6 @@ description: Перевод ROM патча для Nintendo DS game Suzumiya Haru
 ::blog-tag-stack
 ---
 tag: 'chokuretsu'
-лимит: 2
+limit: 2
 ---
 ::
