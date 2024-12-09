@@ -1,6 +1,6 @@
 ---
 title: &title 'Серия Харухи Судзумии – Эпизод 2 уже доступна!»
-description: &desc '«Версия 0.4 английского патча Suzumiya Haruhi no Chokuretsu», содержащая перевод Эпизода 2: Неоконченная соната, теперь доступна для загрузки!'
+description: &desc "«Версия 0.4 английского патча Suzumiya Haruhi no Chokuretsu», содержащая перевод Эпизода 2: Неоконченная соната, теперь доступна для загрузки!"
 navigation:
   author: 'William'
   year: 2023
