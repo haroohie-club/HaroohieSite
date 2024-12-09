@@ -1,6 +1,6 @@
 ---
-автор:
-  имя: 'Jonko'
+author:
+  name: 'Jonko'
   github: 'https://github.com/jonko0493'
   youtube: 'https://youtube.com/@jonko0493'
   twitter: 'https://twitter.com/jonko0493'
@@ -9,7 +9,7 @@
   instagram: 'https://instagram.com/jonko0493'
   threads: 'https://threads.net/@jonko0493'
   pixelfed: 'https://pixelfed.social/i/web/profile/721048764794272221'
-  сайт: 'https://jonkode.su/'
+  website: 'https://jonkode.su/'
 ---
 
 Jonko — руководитель проекта и главный ROM хакер Клуба Переводчиков Haroohie.
