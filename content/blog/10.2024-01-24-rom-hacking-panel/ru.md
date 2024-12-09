@@ -1,6 +1,6 @@
 ---
 title: &title 'Выпущена запись выступления Jonko «Взлом ROM для перевода видеоигры»
-описание: &desc 'Посмотрите, как Jonko объясняет некоторые трудности взлома Chokuretsu живой аудитории на Retro World Expo'
+description: &desc 'Посмотрите, как Jonko объясняет некоторые трудности взлома Chokuretsu живой аудитории на Retro World Expo'
 navigation:
   author: 'Jonko'
   year: 2024
