@@ -1,22 +1,22 @@
 ---
-title: System Textures
+title: Системные текстуры
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/system-texture.png'
   previous: '/chokuretsu/serial-loops/docs/graphics/places'
   next: '/chokuretsu/serial-loops/docs/sound'
 ---
 
-## Overview
-System Textures represent the textures used for *Chokuretsu*'s user interface (such as buttons and menus) as well as other miscellaneous system graphics (such as text flashes and the Haruhi Meter).
+## Обзор
+Системные текстуры представляют собой текстуры, используемые для пользовательского интерфейса *Chokuretsu* (например, кнопок и меню), а также другой различной системной графики (например, текстовых вспышек и индикатора Харухи).
 
-## In Serial Loops
-Similarly to [backgrounds](/chokuretsu/serial-loops/docs/graphics/backgrounds), System Textures can be exported to a `.png` format, and can be replaced by importing an image from a common format, then scaled to the neccessary size with help from the [Crop & Scale tool](/chokuretsu/serial-loops/docs/graphics/backgrounds#crop-and-scale).
+## В Serial Loops
+Подобно [фонам](/chokuretsu/serial-loops/docs/graphics/backgrounds), системные текстуры можно экспортировать в формат `.png` и заменить, импортировав изображение из обычного формата, а затем масштабировав его до необходимый размер с помощью [инструмента обрезки и масштабирования](/chokuretsu/serial-loops/docs/graphics/backgrounds#crop-and-scale).
 
-Unlike backgrounds, however, the system texture editor presents you with two possible modes of replacement: **Replace** and **Replace with Palette**.
-The first option will replace the image but leave the palette of the image unchanged, simply matching the colors on the image to the palette as best it
-can. The second overwrite the original palette with a new one. Some system textures (particularly UI elements) share palettes with other system textures,
-so replacing the palette can be dangerous and lead to unexpected behavior. For these, you should simply use the **Replace** button. Others, however, have
-unique palettes (like the logos, the title screen, and the various episode headers). For these, you can (and should!) safely use **Replace with Palette**.
-To help you better understand which images are which, the system texture editor provides a visualzation of each texture's palette.
+Однако, в отличие от фонов, системный редактор текстур предоставляет вам два возможных режима замены: **Заменить** и **Заменить с палитрой**.
+Первый вариант заменит изображение, но оставит палитру изображения неизменной, просто сопоставив цвета на изображении с палитрой, насколько это возможно.
+может. Второй перезаписывает исходную палитру новой. Некоторые системные текстуры (особенно элементы пользовательского интерфейса) имеют общие палитры с другими системными текстурами.
+поэтому замена палитры может быть опасной и привести к неожиданному поведению. Для этого вам нужно просто использовать кнопку **Заменить**. У других, однако, есть
+уникальные палитры (например, логотипы, титульный экран и заголовки различных эпизодов). Для этого вы можете (и должны!) безопасно использовать **Заменить палитрой**.
+Чтобы помочь вам лучше понять, какие изображения какие, системный редактор текстур обеспечивает визуализацию палитры каждой текстуры.
 
-![System texture editor](/images/chokuretsu/serial-loops/system-texture-editing.png)
+![Редактор системных текстур](/images/chokuretsu/serial-loops/system-texture-editing.png)

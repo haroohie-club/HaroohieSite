@@ -56,11 +56,11 @@ Of course, as well as Episode 3, we've been going back and improving other areas
 * Fixed a typesetting inconsistency with the lyrics in the credits movie.
 * Fixed a bug with on-screen subtitles that could sometimes lead to the game crashing during the Puzzle phase. If you encounter a crash while playing, please get in touch with us on Discord so we can investigate!
 
-## Download the release
-Please check [the guide](/chokuretsu/guide) for how to apply the patch to your Nintendo DS ROM file.
+## Загрузите релиз
+Пожалуйста, ознакомьтесь с [руководство](/chokuretsu/guide), чтобы узнать, как применить патч ROM к файлу Nintendo DS.
 
-* [Online ROM patcher](/chokuretsu/patch)
-* [Download patch file](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)
+* [Онлайн-патчер ROM](/chokuretsu/patch)
+* [Загрузить файл патча](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)
 
 ## What's next
 We're already hard at work on Episodes 4 and 5! Last month, we finished the full game base translation. Recently we've started "Chokuretsu ~~Fridays~~ Saturdays" to rally together our proofreading and translation check process. Behind the scenes, we're also working on Suzumiya Haruhi no Heiretsu for the Wii, and we've made considerable progress since our [last blog post in September](/blog/2023-09-11-september-2023-progress-update). Stay tuned for more!

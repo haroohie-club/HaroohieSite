@@ -1,6 +1,6 @@
 ---
-title: &title "The Return of the Chokuretsu ROM Hacking Series!"
-description: &desc "Jonko wanted to make a post on a leap day but didn't have time to finish his blog post in time"
+title: &title "Возвращение серии взлома Chokuretsu ROM!»
+description: &desc "Jonko хотел сделать публикацию в високосный день, но не успел вовремя закончить запись в блоге"
 navigation:
   author: 'Jonko'
   year: 2024
@@ -34,8 +34,8 @@ head:
     value: 'summary_large_image'
 ---
 
-I'm hard at work on the next Chokuretsu ROM Hacking blog post. I love weird dates and I really wanted to post it on this year's leap day,
-but it doesn't look like it's going to be ready in time. So instead, I'm making this announcement post so that I at least have a post on
-the 29th. 😎😎😎
+Я усердно работаю над следующей записью в блоге Chokuretsu ROM Hacking. Я люблю странные даты, и мне очень хотелось опубликовать это в високосный день этого года.
+но не похоже, что он будет готов вовремя. Поэтому вместо этого я делаю эту публикацию с объявлением, чтобы у меня был хотя бы пост
+29-ого. 😎😎😎
 
-Please look forward to the real post!
+Пожалуйста, ждите настоящего поста!
