@@ -1,22 +1,22 @@
-# From the Clubroom
+# Из Клуба
 
-The blog of the Haroohie Translation Club! We'll post about the behind-the-scenes of our translation projects!
+Блог Клуба Переводчиков Haroohie! Мы будем публиковать информацию о закулисье наших переводов!
 
-We'll drop a line on our [Discord Server](https://discord.gg/nesRSbpeFM) when we add a new blog entries, so stay tuned!
-If you prefer an [RSS feed](/rss.xml), we have that too!
+Мы напишем на нашем [сервере Discord](https://discord.gg/nesRSbpeFM), когда добавим новые записи в блоге, так что следите за обновлениями!
+Если вы предпочитаете [RSS-канал](/rss.xml), он у нас тоже есть!
 
-::button-link
+::кнопка-ссылка
 ---
-color: 'rss'
-icon: 'fa6-solid:rss'
-link: '/rss.xml'
+цвет: 'rss'
+иконка: 'fa6-solid:rss'
+ссылка: '/rss.xml'
 ---
-Feed
+Поддержать
 ::
 
-## Latest posts
+## Последние посты
 ::blog-preview-stack
 ---
-limit: 1000
+лимит: 1000
 ---
 ::

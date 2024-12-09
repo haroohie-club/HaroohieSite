@@ -8,4 +8,4 @@ author:
   website: 'https://william278.net/'
 ---
 
-William works on graphics, the website, and as a proofreader for the Haroohie Translation Club!
+William работает над графикой, веб-сайтом и корректором в Клубе переводчиков Haroohie!
