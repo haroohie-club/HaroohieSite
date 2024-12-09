@@ -1,6 +1,6 @@
 ---
-title: &title 'The Series of Haruhi Suzumiya – Episode 2 is now available!'
-description: &desc 'Version 0.4 of Suzumiya Haruhi no Chokuretsu''s English Patch, which contains the translation of Episode 2: The Unfinished Sonata, is now available for download!'
+title: &title 'Серия Харухи Судзумии – Эпизод 2 уже доступна!»
+описание: &desc «Версия 0.4 английского патча Suzumiya Haruhi no Chokuretsu», содержащая перевод Эпизода 2: Неоконченная соната, теперь доступна для загрузки!'
 navigation:
   author: 'William'
   year: 2023
@@ -38,21 +38,21 @@ video: pHG2uxj2CwA
 ----
 ::
 
-The Haroohie Translation Club is excited to announce that **Version 0.4** of The Series of Haruhi Suzumiya English Fan Translation patch is now [available to download](/chokuretsu/patch)! *Episode 2: The Unfinished Sonata* is now available to play in English. Be sure to check out the trailer for this release above, made by the amazingly talented [EricDoesEverything](https://www.youtube.com/@EricDoesEverythingSeries)!
+Клуб переводчиков Haroohie рад сообщить, что **версия 0.4** патча английского фанатского перевода «Серия Харухи Судзумии» теперь [доступна для скачивания](/chokuretsu/patch)! *Эпизод 2: Неоконченная соната* теперь доступен на английском языке. Обязательно посмотрите трейлер этого выпуска выше, созданный невероятно талантливым [EricDoesEverything](https://www.youtube.com/@EricDoesEverythingSeries)!
 
-Alongside the inclusion of Episode 2 in this release, this patch also includes translations for the *Extras Mode* (accessible through the Main Menu), including the content you unlock by completing Episode 1 and 2. This includes the music player, completion tracker and CG viewer. The patch also includes a range of script tweaks and improvements. Below you can find a changelog of the most notable additions.
+Помимо включения Эпизода 2 в этот выпуск, этот патч также включает переводы для *Режима дополнений* (доступного через Главное меню), включая контент, который вы разблокируете, пройдя Эпизоды 1 и 2. Сюда входят музыкальный проигрыватель, трекер прогресса и CG viewer. Патч также включает в себя ряд настроек и улучшений скриптов. Ниже вы можете найти список наиболее значительных изменений.
 
-## What's in v0.4
-* *Episode 2: The Unfinished Sonata* has been translated and can now be played in English!
-* The extras clubroom mode has been translated, including content for Episodes 1 and 2, including the Music Player, Completion Tracker and Event Viewer
-* Added additional subtitles that will appear on the top screen when Japanese voiced lines are said on group selection and puzzle phase topic selection screens
-* A bug where the dialogue backlog became corrupted after about 50 to 60 entries has been fixed
-* The opening monologue in *Episode 1: The Man-Eating Classroom* has been redone and had a font change
-* The location name graphics on the top screen have been redone with better font kerning and aliasing
-* The game font has had minor spacing adjustments, including the addition of a few new glyphs
+## Что в версии 0.4
+* *Эпизод 2: Неоконченная соната* переведен, и теперь его можно воспроизводить на английском языке!
+* Был переведен дополнительный режим клубной комнаты, включая контент для эпизодов 1 и 2, включая музыкальный проигрыватель, трекер завершения и просмотр событий.
+* Добавлены дополнительные субтитры, которые будут появляться на верхнем экране, когда озвученные строки произносятся на японском языке на экранах выбора группы и выбора темы фазы головоломки.
+* Исправлена ошибка, из-за которой журнал диалогов повреждался после 50–60 записей.
+* Вступительный монолог в *Эпизоде 1: Класс людоедов* был переделан и в нем изменен шрифт.
+* Графика названия локации на верхнем экране была переработана с улучшенным кёрнингом и псевдонимами шрифтов.
+* В шрифт игры были внесены незначительные изменения, включая добавление нескольких новых глифов
 
-## Download the release
-Please check [the guide](/chokuretsu/guide) for how to apply the patch to your Nintendo DS ROM file.
+## Загрузите релиз
+Пожалуйста, ознакомьтесь с [руководство](/chokuretsu/guide), чтобы узнать, как применить патч ROM к файлу Nintendo DS.
 
-* [Online ROM patcher](/chokuretsu/patch)
-* [Download patch file](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)
+* [Онлайн-патчер ROM](/chokuretsu/patch)
+* [Загрузить файл патча](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)

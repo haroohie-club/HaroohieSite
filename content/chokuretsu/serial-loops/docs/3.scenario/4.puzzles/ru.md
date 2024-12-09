@@ -1,20 +1,20 @@
 ---
-title: 'Puzzles'
+title: 'Головоломки'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/puzzle.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/maps'
   next: '/chokuretsu/serial-loops/docs/graphics'
 ---
 
-The current version of Serial Loops only allows you to view puzzle items, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing items and this documentation will be updated to be more complete.
+Текущая версия Serial Loops позволяет вам только просматривать элементы головоломки, но не редактировать их, поэтому документация здесь будет скудной.
+В будущем обновлении Serial Loops сможет полностью редактировать элементы, и эта документация будет обновлена, став более полной.
 
-## Overview
-Puzzles are used in the aptly-named puzzle phase of the game, where Kyon walks around on a map finding and erasing singularities.
+## Обзор
+Головоломки используются на этапе с метким названием - головоломки , когда Кён ходит по карте, находя и стирая сингулярности.
 
-## In Serial Loops
-The puzzle editor lets you view the contents of puzzles, including their associated main [topics](../misc/topics), an ASCII representation of the
-possible Haruhi Routes for the puzzle, the map the puzzle is played on, and configuration settings for the puzzle including singularity counts,
-quotas, the graphic used to represent singularities, and the time limit.
+## В Serial Loops
+Редактор головоломок позволяет просматривать содержимое головоломок, включая связанные с ними основные [темы](../misc/topics), ASCII-представление
+возможные маршруты Харухи для головоломки, карта, на которой разыгрывается головоломка, и настройки конфигурации головоломки, включая количество сингулярностей,
+квоты, графика, используемая для обозначения особенностей, и ограничение по времени.
 
-![Puzzle editor](/images/chokuretsu/serial-loops/puzzle-editing.png)
+![Редактор головоломок](/images/chokuretsu/serial-loops/puzzle-editing.png)

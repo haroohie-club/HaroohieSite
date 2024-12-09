@@ -1,6 +1,6 @@
 ---
-title: &title "Chokuretsu ROM Hacking Challenges Part 4 – Event File Excavation"
-description: &desc "Jonko digs into the event files to figure out how to translate the game"
+title: &title "Проблемы взлома Chokuretsu ROM, часть 4 – Раскопки файла событий»
+описание: &desc "Jonko копается в файлах событий, чтобы выяснить, как перевести игру"
 navigation:
   author: 'Jonko'
   year: 2024
@@ -34,12 +34,12 @@ head:
     value: 'summary_large_image'
 ---
 
-In my first few posts, I explained how I figured out how to extract files from the different Chokuretsu archives. This post is the start of the next series where we delve into how I reverse-engineered the contents of those files for the purpose of translating the game. Today, we’re covering the backbone of the game’s script – the _event files_. This is intended to serve as both an explanation of how I reverse-engineered these files and an introduction to trying to reverse-engineer files.
+В своих первых нескольких постах я объяснил, как мне удалось извлечь файлы из разных архивов Chokuretsu. Этот пост — начало следующей серии, в которой мы углубимся в то, как я перепроектировал содержимое этих файлов с целью перевода игры. Сегодня мы рассмотрим основу сценария игры — файлы событий. Это предназначено служить как объяснением того, как я реконструировал эти файлы, так и введением в попытку реконструировать файлы.
 
-## A Very Good Place to Start
-At the _very_ beginning of my work on the event files, I had cracked the compression algorithm, but not the archives. This meant I was able to view the files but not yet reinsert them into the game. That’s okay, though! A great place to start when looking at a file is to… well, look at it. Specifically, let's crack open the hex editor and see what we can find.
+## Очень хорошее место чтобы начать
+В самом начале работы над файлами событий я взломал алгоритм сжатия, но не архивы. Это означало, что я мог просматривать файлы, но еще не мог повторно вставить их в игру. Но это нормально! При просмотре файла лучше всего начать с… ну, посмотреть на него. В частности, давайте откроем шестнадцатеричный редактор и посмотрим, что мы сможем найти.
 
-So this is the first event file in the game (technically it’s the second chronologically and the 360th in the archive, but don’t worry about that right now):
+Итак, это первый файл событий в игре (технически он второй в хронологическом порядке и 360-й в архиве, но об этом пока не беспокойтесь):
 
 ::image-gallery
 ----

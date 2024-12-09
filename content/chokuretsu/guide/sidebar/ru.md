@@ -1,7 +1,7 @@
-## Setup guide
-This guide will walk you through getting the patch up-and-running on your system or emulator of choice!
+## Руководство по настройке
+Это руководство поможет вам настроить и запустить патч на вашей системе или выбранном эмуляторе!
 
-### Guide steps
+### Пошаговая инструкция
 ::chokuretsu-guide-list
 ::
 
@@ -25,5 +25,5 @@ link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true
 type: 'bottom-piece'
 ---
-Help on Discord
+Помогите в Discord
 ::

@@ -1,12 +1,12 @@
 ---
-title: 'Investigation Phase'
+title: 'Этап расследования'
 navigation:
   faicon: 'fa6-solid:magnifying-glass-arrow-right'
   previous: '/chokuretsu/serial-loops/docs/scripts/chibis-and-choices'
   next: '/chokuretsu/serial-loops/docs/scenario'
 ---
 
-The final tab is the _Map Characters_ tab. In scripts with an investigation phase, this section allows editing where characters appear on the map and which script section is activated when you talk to them. Ensure that the first chibi you add to the map is Kyon and that he does not have a script associated with him. Also note that the preview does not properly render layers, so some characters may appear to be on top of or in front of objects that
-they will appear behind in-game.
+Последняя вкладка — это вкладка «Символы карты». В скриптах с этапом расследования этот раздел позволяет редактировать, где персонажи появляются на карте и какой раздел скрипта активируется, когда вы с ними разговариваете. Убедитесь, что первым чиби, которого вы добавляете на карту, является Кён, и что с ним не связан сценарий. Также обратите внимание, что при предварительном просмотре слои не отображаются должным образом, поэтому некоторые символы могут оказаться поверх или перед объектами, которые
+появятся позади них в игре.
 
 ![Script editor - map characters](/images/chokuretsu/serial-loops/script-map-characters.png)
