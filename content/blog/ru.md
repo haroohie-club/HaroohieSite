@@ -5,18 +5,18 @@
 Мы напишем на нашем [сервере Discord](https://discord.gg/nesRSbpeFM), когда добавим новые записи в блоге, так что следите за обновлениями!
 Если вы предпочитаете [RSS-канал](/rss.xml), он у нас тоже есть!
 
-::кнопка-ссылка
+::button-link
 ---
-цвет: 'rss'
-иконка: 'fa6-solid:rss'
-ссылка: '/rss.xml'
+color: 'rss'
+icon: 'fa6-solid:rss'
+Link: '/rss.xml'
 ---
-Поддержать
+Feed
 ::
 
 ## Последние посты
 ::blog-preview-stack
 ---
-лимит: 1000
+limit: 1000
 ---
 ::
