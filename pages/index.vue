@@ -21,6 +21,11 @@
                             {{ $t('chokuretsu-patch') }}</ButtonLink>
                         <ButtonLink :link="localePath('/chokuretsu/serial-loops')" type="bottom-piece" fullwidth color="sl-blue"
                             icon="fa6-solid:gear">{{ $t('serial-loops') }}</ButtonLink>
+                        <br />
+                        <h2>{{ t('friends-of-the-club') }}</h2>
+                        <ButtonLink link="https://7.xzonn.top/" fullwidth rgbColor="#0077FF" icon="fa6-solid:7">
+                            {{ $t('chinese-translation') }}
+                        </ButtonLink>
                     </div>
                     <div class="blogs box">
                         <h2>{{ $t('from-the-clubroom') }}</h2>
