@@ -124,7 +124,7 @@ There are a few options for PC DS emulators, but the one we recommend is melonDS
 
 **Setup:**
 
-Simply [download melonDS](https://melonds.kuribo64.net/downloads.php) (**v1.0.0+**) from the project website for your platform (Windows, macOS, Linux) and save it somewhere easily accessible to your computer.
+Simply [download melonDS](https://melonds.kuribo64.net/downloads.php) (**v1.0.0+**) from the project website for your platform (Windows, macOS, or Linux) and save it somewhere easily accessible to your computer. (If you are using macOS, consider placing the melonDS.app folder in your /Applications directory for ease of access.)
 
 If you're running Linux, we also recommend the [official Flatpak](https://flathub.org/apps/net.kuribo64.melonDS) provided on Flathub, though that can sometimes lag behind the direct download releases.
 
@@ -170,7 +170,10 @@ Download [melonDS Android](https://play.google.com/store/apps/details?id=me.magn
 
 **Play using RetroArch Emulator**
 
-Download [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) off the Google Play Store and launch it. Select "Load Core" and then "Download a Core", then select the "Nintendo DS - melonDS DS" core from the list to download it. Go back, and then hit "Load Content" and select your patched ROM file through the RetroArch file picker.
+1. Download [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) off the Google Play Store and launch it.
+  - If you get an error at this step saying that your version of Android is too new to support RetroArch, you will have to download the apk manually from their site. To do this, [click this link](https://buildbot.libretro.com/stable/1.19.1/android/RetroArch.apk) and then launch it. You will have to set several permissions in order to install the apk from an "untrusted source" &ndash; enable these settings by following the instructions on your screen and then launch the apk again to install it to your phone.
+2. Select "Load Core" and then "Download a Core", then select the "Nintendo DS - melonDS DS" core from the list to download it.
+3. Go back, and then hit "Load Content" and select your patched ROM file through the RetroArch file picker.
 
 </div>
 
