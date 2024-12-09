@@ -1,10 +1,10 @@
 ---
-автор:
-  имя: 'Xzonn'
+author:
+  name: 'Xzonn'
   github: 'https://github.com/Xzonn'
   twitter: 'https://twitter.com/Xzonn2000'
   bilibili: 'https://space.bilibili.com/16114399'
-  сайт: 'https://xzonn.top/'
+  website: 'https://xzonn.top/'
 ---
 
 Xzonn — фанат Nintendo, который работает над переводом игр о Харухи на китайский язык.
