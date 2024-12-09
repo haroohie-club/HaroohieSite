@@ -1,5 +1,5 @@
 ---
-title: &title "Проблемы взлома Chokuretsu ROM, часть 4 – Раскопки файла событий»
+title: &title "Проблемы взлома Chokuretsu ROM, часть 4 – Раскопки файла событий"
 description: &desc "Jonko копается в файлах событий, чтобы выяснить, как перевести игру"
 navigation:
   author: 'Jonko'

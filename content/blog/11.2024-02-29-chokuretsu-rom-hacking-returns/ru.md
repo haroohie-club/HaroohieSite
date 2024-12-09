@@ -1,5 +1,5 @@
 ---
-title: &title "Возвращение серии взлома Chokuretsu ROM!»
+title: &title "Возвращение серии взлома Chokuretsu ROM!"
 description: &desc "Jonko хотел сделать публикацию в високосный день, но не успел вовремя закончить запись в блоге"
 navigation:
   author: 'Jonko'
