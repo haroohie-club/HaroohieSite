@@ -9,9 +9,9 @@
 ---
 color: 'rss'
 icon: 'fa6-solid:rss'
-Link: '/rss.xml'
+link: '/rss.xml'
 ---
-Feed
+Поддержать
 ::
 
 ## Последние посты
