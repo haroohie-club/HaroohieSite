@@ -1,23 +1,23 @@
 ---
-title: Suzumiya Haruhi no Chokuretsu - English Translation (Nintendo DS) - (The Series of Haruhi Suzumiya)
-description: English Translation ROM patch for Nintendo DS game Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
+Название: Suzumiya Haruhi no Chokuretsu - Перевод (Nintendo DS) - (The Series of Haruhi Suzumiya)
+Описание: Перевод ROM патча для Nintendo DS game Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
 ---
 
 ::chokuretsu-nav
-## Get the translation
+## Получить перевод
 ::
 
 ## About the game
-Released in 2009 for the Nintendo DS, *Suzumiya Haruhi no Chokuretsu* (*The Series of Haruhi Suzumiya*) is a partially-voiced visual novel/puzzle game based on the Haruhi Suzumiya series!
+*Suzumiya Haruhi no Chokuretsu* (*Серия о Харухи Судзумии*), выпущенная в 2009 году для Nintendo DS, представляет собой частично озвученную визуальную новеллу/игру-головоломку, основанную на серии о Харухи Судзумии!
 
-Play as Kyon as you work with the rest of the SOS Brigade to keep Haruhi from discovering the unnatural phenomena occurring all around you! Set during summer break after the second light novel, the SOS Brigade members must distract Haruhi while she investigates the Seven Wonders of North High and erase the evidence before she finds it.
+Играйте за Кёна и работайте с остальными членами Команды SOS, чтобы не дать Харухи обнаружить необычные явления, происходящие вокруг вас! Действие происходит во время летних каникул после второго тома ранобэ. Члены Бригады SOS должны отвлечь Харухи, пока она исследует Семь чудес Северной школы, и стереть улики, прежде чем она их найдет.
 
-Featuring over 38,000 lines of dialogue and many possible routes, this unofficial translation made by *Haruhi* fans from around the world seeks to make the game accessible to a non-Japanese audience. Please support the series by buying the original games & merch!
+Этот неофициальный перевод, сделанный поклонниками *Харухи* со всего мира, содержит более 38 000 строк диалога и множество возможных концовок и призван сделать игру доступной для неяпонской аудитории. Пожалуйста, поддержите серию, купив оригинальные игры и товары!
 
-## From the translation team
+## От переводчиков
 ::blog-tag-stack
 ---
 tag: 'chokuretsu'
-limit: 2
+лимит: 2
 ---
 ::

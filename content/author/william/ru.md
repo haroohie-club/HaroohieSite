@@ -1,11 +1,11 @@
 ---
-author:
-  name: 'William'
+автор:
+  имя: 'William'
   twitter: 'https://twitter.com/William27528'
   bluesky: 'https://bsky.app/profile/william278.net'
   github: 'https://github.com/WiIIiam278'
   youtube: 'https://www.youtube.com/c/William278'
-  website: 'https://william278.net/'
+  сайт: 'https://william278.net/'
 ---
 
-William works on graphics, the website, and as a proofreader for the Haroohie Translation Club!
+William работает над графикой, веб-сайтом и корректором в Клубе переводчиков Haroohie!

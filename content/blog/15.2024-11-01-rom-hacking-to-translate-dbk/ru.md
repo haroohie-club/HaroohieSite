@@ -32,9 +32,9 @@ head:
     value: 'summary_large_image'
 ---
 
-Hi folks! This is my first YouTube video that isn't just a recording of a panel. It's in the vein of my blog posts I've been making for... two years now? Oh wow, that's a long time.
+Привет, ребята! Это мое первое видео на YouTube, которое не является просто записью выступления. Это в духе моих постов в блоге, которые я делаю уже... два года? Ого, столько времени прошло.
 
-A guy joined our Discord a while back and asked for help hacking the game *Dragon Ball Kai: Ultimate Butouden* and I decided to stream myself hacking the game from scratch. This video is the result of that!
+Некоторое время назад к нам в Дискорд присоединился парень и попросил помочь взломать игру *Dragon Ball Kai: Ultimate Butouden*, и я решил запустить стрим с тем, как взламываю игру с нуля. Это видео - результат этого!
 
 ::youtube-video
 ----
@@ -42,5 +42,5 @@ video: CHE03KiiQ7k
 ----
 ::
 
-As is noted in the description of the video, our friend from the Discord is a Lebanese man who was forced to flee his home due to Israel's invasion of Lebanon. Please consider [supporting BDS](https://bdsmovement.net/get-involved/what-to-boycott)
-and doing what you can to pressure your government to condemn Israel and try to bring an end to their monstrous cruelty.
+Как отмечается в описании к видео, наш друг из Дискорда — ливанец, который был вынужден покинуть свой дом из-за вторжения Израиля в Ливан. Пожалуйста, рассмотрите возможность [поддержки BDS](https://bdsmovement.net/get-involved/what-to-boycott)
+и сделайте всё возможное чтобы оказать давление на ваше правительство, чтобы оно осудило Израиль и попыталось положить конец его чудовищной жестокости.
