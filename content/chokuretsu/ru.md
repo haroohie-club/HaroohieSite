@@ -1,6 +1,6 @@
 ---
-Название: Suzumiya Haruhi no Chokuretsu - Перевод (Nintendo DS) - (The Series of Haruhi Suzumiya)
-Описание: Перевод ROM патча для Nintendo DS game Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
+title: Suzumiya Haruhi no Chokuretsu - Перевод (Nintendo DS) - (The Series of Haruhi Suzumiya)
+description: Перевод ROM патча для Nintendo DS game Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
 ---
 
 ::chokuretsu-nav
