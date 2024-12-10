@@ -5,42 +5,42 @@ navigation:
   previous: '/patching-the-rom'
 ---
 
-Ora che la Patch è installata, è ora di giocare!
+Ora che hai la versione patchata del file ROM, è ora di prepararsi a giocare!
 
 ---
 
 **Scegli dove giocare il gioco:**
 ::guide-platform-filter
 ---
-filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulator']
+filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulatore']
 ---
 
 <div class="platform-filtered platform-nintendo_ds">
 
 ## Giocare su Nintendo DS
-Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart e il più è fatto. Forse già ne possiedi una, se sei arrivato fino qua.
+Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart e il più è fatto. È probabile che tu ne sia già in possesso di una, se hai seguito la guida d'installazione prima.
 
 **Occorrente:**
-* Un sistema DS o DS Lite.
+* Una console Nintendo DS o DS Lite.
 * Una flashcart (come una R4. Inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
-**Procedura:**
-1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore).
-2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
+**Installazione:**
+1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore, se necessario).
+2. Trascina la ROM .nds che hai creato prima nel percorso giusto della memoria della flashcart.
 3. Rimuovi la scheda SD ed infilala nella flashcart, per poi metterla nel DS. Bene, è arrivato il momento di giocare!
 
 </div>
 
 <div class="platform-filtered platform-nintendo_dsi">
 
-## Giocare su Nintendo DSi
-Per poter giocare il titolo sul vostro Nintendo DSi, esistono due metodi. Tramite l'ausilio di una flash cart oppure installando la ROM patchata sulla Scheda SD e utilizzarla grazie a Twilight Menu++
+## Play on Nintendo DSi
+Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Twilight Menu++ on your system
 
-### Using TWiLightMenu (nds-bootstrap)
+### Usando TWilightMenu (nds-bootstrap)
 
 **Occorrente:**
 * Un sistema Nintendo DSi o DSi XL
-* TwilightMenu++ [installato sulla tua console](https://dsi.cfw.guide/). Se hai seguito la guida per modificare il DSi, avrai già questo programma!
+* TwilightMenu++ [installato sulla tua console](https://dsi.cfw.guide/). Se prima hai seguito la guida per l'estrazione della ROM dal Nintendo DSi, avrai già questo programma!
 * Una scheda SD con almeno 2GB di memoria
 * Un computer con lettore di schede SD (o un adattatore USB)
 
@@ -53,20 +53,20 @@ Per poter giocare il titolo sul vostro Nintendo DSi, esistono due metodi. Tramit
 
 ### Tramite flashcard
 **Occorrente:**
-* Un sistema della famiglia DSi o DSi XL
+* Una console Nintendo DSi o DSi XL
 * Una flashcard (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
-**Procedura:**
-1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore).
-2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
-3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel DSi. Bene, è arrivato il momento di giocare!
+**Installazione:**
+1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore, se necessario).
+2. Trascina la ROM .nds che hai creato prima nel percorso giusto della memoria della flashcart.
+3. Rimuovi la scheda SD ed infilala nella flashcart, per poi metterla nel DS. Bene, è arrivato il momento di giocare!
 
 </div>
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-## Giocare su (New) Nintendo 3DS o 2DS
-Giocare su Nintendo 3DS è molto semplice, basta inserire la ROM sulla flash cart o in una cartella precisa della scheda SD e il più è fatto
+## Play on (New) Nintendo 3DS or 2DS
+Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Luma3DS on your system
 
 ### Using TWiLightMenu++
 **Requirements:**

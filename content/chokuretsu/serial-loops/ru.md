@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops - Level Editor for Suzumiya Haruhi no Chokuretsu'
-description: &desc 'Serial Loops is a level editor for Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.'
+title: &title 'Serial Loops - Редактор уровней для Suzumiya Haruhi no Chokuretsu'
+description: &desc 'Serial Loops это редактор уровней для Suzumiya Haruhi no Chokuretsu ), доступный на Windows, Mac и Linux.'
 navigation:
   image: 'script-editor.png'
 head:
@@ -28,14 +28,14 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-<b class="sl-header">An editing suite for Suzumiya Haruhi no Chokuretsu</b> 
+<b class="sl-header">Набор для редактирования Suzumiya Haruhi no Chokuretsu</b> 
 
-Serial Loops is an editing suite for [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.
+Serial Loops — это набор редактирования для [Suzumiya Haruhi no Chokuretsu](/chokuretsu), доступный на Windows, Mac и Linux.
 
 <br />
 <br />
 
-## News
+## Новости
 ::blog-tag-stack
 ---
 tag: 'serial loops'
@@ -43,8 +43,8 @@ limit: 2
 ---
 ::
 
-## Downloads
-Downloads are available for Windows, macOS (Intel and Apple Silicon) and Linux (RPM & Debian packages) [on GitHub](https://github.com/haroohie-club/SerialLoops/releases). We offer both release (recommended) and nightly pre-release builds.
+## Загрузить
+Установка доступны для Windows, macOS (Intel и Apple Silicon) и Linux (пакеты RPM и Debian) [на GitHub] (https://github.com/haroohie-club/SerialLoops/releases). Мы предлагаем как релизные, так и предварительные сборки.
 
 
 ::button-link
@@ -53,13 +53,13 @@ color: 'sl-blue'
 icon: 'fa6-solid:download'
 link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
 ---
-Download Latest
+Скачать последнюю
 ::
 
 
-## Bugs
-Please file bugs on our [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Please include the following information:
-* The platform you are running Serial Loops on
-* The version of the Chokuretsu ROM you are using (Japanese, patched English ROM, etc.)
-* A description of the steps required to reproduce the issue
-* The relevant logs for the issue (can be found in ~/SerialLoops/Logs)
+## Баги
+Пожалуйста, сообщайте о багах в нашем [трекере багов GitHub] (https://github.com/haroohie-club/SerialLoops). Пожалуйста, укажите следующую информацию:
+* Платформа, на которой вы используете Serial Loops.
+* Версия прошивки Chokuretsu, которую вы используете (японская, исправленная английская прошивка и т. д.)
+* Описание действий, необходимых для воспроизведения проблемы.
+* Соответствующие журналы проблемы (можно найти в ~/SerialLoops/Logs)

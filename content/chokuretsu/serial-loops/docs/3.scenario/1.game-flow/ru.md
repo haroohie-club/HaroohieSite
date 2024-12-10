@@ -8,27 +8,27 @@ navigation:
 Ход игры можно редактировать с помощью редактора _Сценариев_. По сути, сценарий представляет собой список команд, которые выполняются для загрузки различных компонентов игры.
 Команды объяснены в следующей таблице:
 
-## Scenario Commands
-| Command | Description |
+## Команды сценария
+| Команда | Описание |
 |---------|-------------|
-| `NEW_GAME` | This command defines where the "New Game" menu item takes the player. For example, if `NEW_GAME 5` defines where selecting _New Game_ &rarr; _Episode 5_ will take the player. |
-| `SAVE` | This command prompts the user to save the game. |
-| `LOAD_SCENE` | This command loads a particular script file. |
-| `PUZZLE_PHASE` | This command starts a particular puzzle phase. |
-| `ROUTE_SELECT` | This command starts a particular group selection. |
-| `STOP` | This command stops the game. It is not actually used. |
-| `SAVE2` | This command also prompts the user to save the game. The difference between this command and `SAVE` are unknown. |
-| `TOPICS` | This command displays which topics the player has collected over the previous scene(s) following group selection. |
-| `COMPANION_SELECT` | This loads a companion selection screen, allowing the player to select which Brigade member will accompany Haruhi during the puzzle phase. |
-| `PLAY_VIDEO` | Plays a video; 0 plays the OP and 1 plays the ED. |
-| `NOP` | Does nothing |
-| `UNKNOWN0B` | This command is used but its function is currently unknown. |
-| `UNLOCK` | Unlocks particular functionality. The exact mapping between the parameter specified and which functionality is unlocked is currently unknown. |
-| `END` | Ends the scenario and returns to the title screen. |
+| `NEW_GAME` | Эта команда определяет, с какого эпизода начнётся новая игра. Например, если `NEW_GAME 5` определяет, где выбрать _Новую игру_ &rarr; _Эпизод 5_ захватит игрока. |
+| `SAVE` | Эта команда предлагает пользователю сохранить игру. |
+| `LOAD_SCENE` | Эта команда загружает определенную сцену. |
+| `PUZZLE_PHASE` | Эта команда запускает определенную фазу головоломки. |
+| `ROUTE_SELECT` | Эта команда запускает выбор конкретной группы. |
+| `STOP` | Эта команда останавливает игру. На самом деле она не используется. |
+| `SAVE2` | Эта команда также предлагает пользователю сохранить игру. Разница между этой командой и просто SAVE неизвестна. |
+| `TOPICS` | Эта команда отображает, какие предметы игрок собрал в предыдущих сценах после выбора группы. |
+| `COMPANION_SELECT` | Эта команда открывает экран выбора компаньона, позволяющий игроку выбрать, какой член бригады будет сопровождать Харухи на этапе головоломки. |
+| `PLAY_VIDEO` | Эта команда воспроизводит видео; 0 играет OP, а 1 играет ED. |
+| `NOP` | Ничего не делает |
+| `UNKNOWN0B` | Эта команда используется, но ее функция на данный момент неизвестна. |
+| `UNLOCK` | Эта команда разблокирует определенные функции. Точное соответствие между указанным параметром и разблокированной функциональностью в настоящее время неизвестно. |
+| `END` | Завершает сценарий и возвращается к начальному экрану. |
 
-## Editing
-As with script commands, scenario commands can be added and removed with the + and garbage can buttons above the command list. 
+## Редактирование
+Как и в случае со скриптами, команды сценария можно добавлять и удалять с помощью кнопок + и корзины над списком команд. 
 
-The entire scenario can be cleared using the rocket ship button. Individual commands can be edited (changing the command itself as well as its single parameter) in the editor panel to the right.
+Весь сценарий можно очистить с помощью кнопки ракеты. Отдельные команды можно редактировать (изменяя саму команду, а также ее отдельный параметр) в панели редактора справа.
 
 ![Scenario Editing](/images/chokuretsu/serial-loops/scenario-editing.png)

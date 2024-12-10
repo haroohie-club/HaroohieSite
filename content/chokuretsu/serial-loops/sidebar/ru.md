@@ -17,7 +17,7 @@ link: '/chokuretsu/serial-loops/docs'
 fullwidth: true
 type: 'mid-piece'
 ---
-Docs
+Документация
 ::
 
 ::button-link
@@ -28,7 +28,7 @@ link: '/chokuretsu'
 fullwidth: true
 type: 'mid-piece'
 ---
-Chokuretsu Patch
+Chokuretsu Патч
 ::
 
 ::button-link
@@ -39,7 +39,7 @@ link: '/'
 fullwidth: true
 type: 'mid-piece'
 ---
-Home
+На главную
 ::
 
 ::button-link
@@ -53,6 +53,6 @@ type: 'bottom-piece'
 Discord
 ::
 
-## Docs
+## Документация
 ::serial-loops-docs-list
 ::

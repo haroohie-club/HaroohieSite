@@ -1,14 +1,14 @@
-## Information
+## Информацияn
 * [Setup guide](/chokuretsu/guide)
 * [Changelogs](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
-### Compatibility Notes
+### Примечания о совместимости
 ::iconified-text
 ---
 icon: fa6-solid:triangle-exclamation
 unwrap: true
 ---
-**DeSmuME** should not be used due to graphical and audio emulation issues. Please use melonDS instead!
+**DeSmuME** не следует использовать из-за проблем с графической и аудиоэмуляцией. Вместо этого используйте melonDS!
 ::
 
 <hr/>
@@ -18,10 +18,10 @@ unwrap: true
 icon: fa6-solid:circle-info
 unwrap: true
 ---
-If you're using **TWiLightMenu** (aka nds-bootstrap), please be sure to launch the game in DSi Mode.
+Если вы используете **TWiLightMenu** (он же nds-bootstrap), обязательно запустите игру в режиме DSi.
 ::
 
-### More links
+### Ссылки
 ::button-link
 ---
 color: 'red'
@@ -44,5 +44,5 @@ type: 'bottom-piece'
 Помогите в Discord
 ::
 
-### Attribution
-Based on [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) by [Marc Robledo](https://www.marcrobledo.com/) (MIT License)
+### Атрибуты
+Основано на [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) от [Marc Robledo](https://www.marcrobledo.com/) (MIT License)
