@@ -1,20 +1,20 @@
 import { serverQueryContent } from "#content/server";
-var RSS = require('rss')
-const ufs = require('url-file-size')
+import RSS from 'rss'
+import ufs from 'url-file-size'
 
 export default defineEventHandler(async (event) => {
+    const locale = 'pt-br'
+    const docs = await serverQueryContent(event).find();
+    const blogPosts = docs.filter((doc) => doc._path?.includes('/blog/')).filter(b => b.navigation).filter(b => b._path?.endsWith(locale))
+        .sort().reverse();
+
     const feed = new RSS({
         title: 'Haroohie Translation Club Blog',
         language: 'en',
         site_url: 'https://haroohie.club/',
-        feed_url: 'https://haroohie.club/rss.xml',
+        feed_url: "https://haroohie.club " + (locale ?? '') + "/rss.xml`",
         image_url: 'https://haroohie.club/images/sos-logo.png',
     })
-
-    const locale = 'de'
-    const docs = await serverQueryContent(event).find();
-    const blogPosts = docs.filter((doc) => doc._path?.includes('/blog/')).filter(b => b.navigation).filter(b => b._path?.endsWith(locale))
-        .sort().reverse();
 
     for (const doc of blogPosts) {
         const lang = doc._path?.substring(doc._path?.lastIndexOf('/'))
@@ -32,6 +32,6 @@ export default defineEventHandler(async (event) => {
     }
 
     const feedString = feed.xml({ indent: true });
-    event.res.setHeader('content-type', 'text/xml');
-    event.res.end(feedString);
+    event.node.res.setHeader('content-type', 'text/xml');
+    event.node.res.end(feedString);
 })

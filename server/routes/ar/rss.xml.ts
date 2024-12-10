@@ -1,6 +1,6 @@
 import { serverQueryContent } from "#content/server";
-var RSS = require('rss')
-const ufs = require('url-file-size')
+import RSS from 'rss'
+import ufs from 'url-file-size'
 
 export default defineEventHandler(async (event) => {
     const feed = new RSS({

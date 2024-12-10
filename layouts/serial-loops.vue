@@ -8,7 +8,7 @@
                     <ProjectLogoHeader icon="serial-loops/icon.png">{{ $t('serial-loops') }}</ProjectLogoHeader>
                 </NuxtLink>
                 <div id="sidebar-inner">
-                    <ContentDoc :path="`chokuretsu/serial-loops/sidebar/${locale}`" :head="false" />
+                    <SerialLoopsSidebar/>
                 </div>
             </div>
             <div id="main" class="column"><slot /></div>
@@ -19,6 +19,8 @@
 </template>
 
 <script setup>
+import SerialLoopsSidebar from '~/components/content/SerialLoopsSidebar.vue';
+
 const { locale } = useI18n()
 const localePath = useLocalePath()
 
