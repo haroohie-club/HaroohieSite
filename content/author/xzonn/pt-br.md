@@ -1,4 +1,5 @@
 ---
+title: 'Xzonn'
 author:
   name: 'Xzonn'
   github: 'https://github.com/Xzonn'

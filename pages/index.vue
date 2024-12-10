@@ -17,14 +17,19 @@
                         <SocialLinks type="stack" :stack-topper="{link:'/blog', locale: 'news-and-blog', icon: 'fa6-solid:paper-plane'}" />
                         <br />
                         <h2>{{ $t('projects') }}</h2>
-                        <ButtonLink :link="localePath('/chokuretsu')" type="top-piece" fullwidth color="red" icon="fa6-solid:language">
-                            {{ $t('chokuretsu-patch') }}</ButtonLink>
-                        <ButtonLink :link="localePath('/chokuretsu/serial-loops')" type="bottom-piece" fullwidth color="sl-blue"
-                            icon="fa6-solid:gear">{{ $t('serial-loops') }}</ButtonLink>
+                        <div>
+                            <ButtonLink :link="localePath('/chokuretsu')" type="top-piece" fullwidth color="red" icon="fa6-solid:language">
+                                {{ $t('chokuretsu-patch') }}</ButtonLink>
+                            <ButtonLink :link="localePath('/chokuretsu/serial-loops')" type="bottom-piece" fullwidth color="sl-blue"
+                                icon="fa6-solid:gear">{{ $t('serial-loops') }}</ButtonLink>
+                        </div>
+                        <br />
+                        <h2>{{ $t('friends-of-the-club') }}</h2>
+                        <FriendsStack/>
                     </div>
                     <div class="blogs box">
                         <h2>{{ $t('from-the-clubroom') }}</h2>
-                        <BlogPreviewStack :limit="4" />
+                        <BlogPreviewStack :limit="5" />
                         <ButtonRow class="view-more">
                             <ButtonLink :link="localePath('/blog')" color="blue" icon="fa6-solid:paper-plane">{{ $t('view-all') }}</ButtonLink>
                             <ButtonLink :link="`${locale == 'en' ? '/' : `/${locale}/`}rss.xml`" color="rss" icon="fa6-solid:rss">{{ $t('feed') }}</ButtonLink>

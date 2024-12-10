@@ -8,13 +8,18 @@
                         <h2>{{ $t('social-links') }}</h2>
                         <SocialLinks type="stack"
                             :stack-topper="{ link: '/', icon: 'fa6-solid:house', locale: 'back-to-home' }" />
-                        <h2>{{ $t('blogs') }}</h2>
-                        <BlogList />
+                        <h2 v-if="!layoutCustomProps.noBlogs">{{ $t('blogs') }}</h2>
+                        <BlogList v-if="!layoutCustomProps.noBlogs" />
                         <h2>{{ $t('projects') }}</h2>
-                        <ButtonLink :link="localePath('/chokuretsu')" type="top-piece" fullwidth color="red"
-                            icon="fa6-solid:language">{{ $t('chokuretsu') }}</ButtonLink>
-                        <ButtonLink :link="localePath('/chokuretsu/serial-loops')" type="bottom-piece" fullwidth
-                            color="sl-blue" icon="fa6-solid:gear">{{ $t('serial-loops') }}</ButtonLink>
+                        <div>                        
+                            <ButtonLink :link="localePath('/chokuretsu')" type="top-piece" fullwidth color="red"
+                                icon="fa6-solid:language">{{ $t('chokuretsu') }}</ButtonLink>
+                            <ButtonLink :link="localePath('/chokuretsu/serial-loops')" type="bottom-piece" fullwidth
+                                color="sl-blue" icon="fa6-solid:gear">{{ $t('serial-loops') }}</ButtonLink>
+                        </div>
+                        <br />
+                        <h2>{{ $t('friends-of-the-club') }}</h2>
+                        <FriendsStack/>
                     </div>
                 </div>
                 <div class="blog">
@@ -33,6 +38,8 @@
 <script setup>
 const { locale } = useI18n()
 const localePath = useLocalePath()
+
+const layoutCustomProps = useAttrs()
 
 const showModal = ref(false)
 const imageSource = ref(null)

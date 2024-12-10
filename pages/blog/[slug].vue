@@ -71,14 +71,15 @@
 </template>
 
 <script setup>
-useHead({
-    titleTemplate: (blogTitle) => {
-        return blogTitle ? `${blogTitle} - Haroohie Translation Club Blog` : `Haroohie Translation Club Blog`;
-    }
-})
 const { locale } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
+
+useHead({
+    titleTemplate: (blogTitle) => {
+        return blogTitle ? `${blogTitle} - Haroohie Translation Club` : "Haroohie Translation Club";
+    }
+})
 </script>
 
 <script>

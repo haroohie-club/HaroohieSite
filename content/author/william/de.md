@@ -1,6 +1,7 @@
 ---
+title: 'Will'
 author:
-  name: 'William'
+  name: 'Will'
   twitter: 'https://twitter.com/William27528'
   bluesky: 'https://bsky.app/profile/william278.net'
   github: 'https://github.com/WiIIiam278'
@@ -8,4 +9,4 @@ author:
   website: 'https://william278.net/'
 ---
 
-William workische on graphics, the website, and as a proofreader for the Haroohie Translation Club!
+Will workische on graphics, the website, and as a proofreader for the Haroohie Translation Club!

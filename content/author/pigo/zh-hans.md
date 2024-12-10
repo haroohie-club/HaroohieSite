@@ -1,4 +1,5 @@
 ---
+title: 'pigo'
 author:
   name: 'pigo'
   github: 'https://github.com/po-dotcom'

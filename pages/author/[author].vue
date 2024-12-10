@@ -5,9 +5,6 @@
                 <ContentDoc :path="`/author/${route.params.author}/${locale}`">
                     <template v-slot="{ doc }">
                         <div v-if="doc.author">
-                            <Head>
-                                <Title>{{ $t('index-title') }} - {{ doc.author.name }}</Title>
-                            </Head>
                             <h1 id="author">{{ doc.author.name }}</h1>
                             <AuthorSocials :author="doc.author" />
                         </div>
@@ -32,6 +29,12 @@ const { locale } = useI18n({
 })
 const localePath = useLocalePath()
 const route = useRoute()
+
+useHead({
+    titleTemplate: (authorTitle) => {
+        return authorTitle ? `${authorTitle} - Haroohie Translation Club` : "Haroohie Translation Club";
+    }
+})
 
 definePageMeta({
     layout: 'blog'
