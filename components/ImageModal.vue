@@ -17,7 +17,7 @@ const { imageSource } = defineProps({
 const { emit } = defineEmits(['close-modal'])
 const showModal = ref(false)
 
-watch(imageSource, () => {
+watch(() => imageSource, () => {
     showModal.value = true
 
     document.body.style.overflow = 'hidden'
