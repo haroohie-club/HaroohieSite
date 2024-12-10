@@ -3,7 +3,7 @@
         <div class="stack">
             <ButtonLink v-for="friend in list.filter(f => f._path.endsWith(locale))" :icon="friend.friend.icon" :link="localePath(friend._path.substring(0, friend._path.lastIndexOf('/')))" rel="me"
                 :rgb-color="friend.friend.color" :type="list.indexOf(friend) === (list.length - 1) ? 'bottom-piece' : (list.indexOf(friend) === 0 ? 'top-piece' : 'mid-piece')" fullwidth>
-                {{ $t(friend.friend.name) }}
+                {{ friend.friend.name }}
             </ButtonLink>
         </div>
     </ContentList>
