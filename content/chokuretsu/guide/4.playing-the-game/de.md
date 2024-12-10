@@ -34,7 +34,7 @@ Playing on the Nintendo DS is as simple as placing the patched ROM onto a flash 
 <div class="platform-filtered platform-nintendo_dsi">
 
 ## Play on Nintendo DSi
-Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched rom onto a SD card and making use of Twilight Menu++ on your system
+Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Twilight Menu++ on your system
 
 ### Using TWiLightMenu (nds-bootstrap)
 
@@ -66,7 +66,7 @@ Playing on the Nintendo DSi can either be done simply through the use of a flash
 <div class="platform-filtered platform-nintendo_3ds">
 
 ## Play on (New) Nintendo 3DS or 2DS
-Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use of a flash cartridge, or putting the patched rom onto a SD card and making use of Luma3DS on your system
+Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Luma3DS on your system
 
 ### Using TWiLightMenu++
 **Requirements:**
