@@ -22,7 +22,7 @@ export default {
   // Pre render the sitemap, 404, and RSS feeds
   nitro: {
       prerender: {
-          routes: ['/sitemap.xml', '/404.html', '/rss.xml', 'de/rss.xml', '/it/rss.xml', '/zh-hans/rss.xml', '/zh-hant/rss.xml']
+          routes: ['/sitemap.xml', '/404.html', '/rss.xml', '/de/rss.xml', '/fr/rss.xml', '/it/rss.xml', '/pt-br/rss.xml', '/ru/rss.xml', '/zh-hans/rss.xml', '/zh-hant/rss.xml']
       }
   },
 
