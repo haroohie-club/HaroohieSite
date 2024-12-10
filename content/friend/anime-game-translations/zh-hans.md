@@ -2,7 +2,7 @@
 title: 'Anime Game Translations'
 friend:
   name: 'Anime Game Translations'
-  original: "Anime Game Translations"
+  original: 'Anime Game Translations'
   icon: 'fa6-solid:gamepad'
   color: '#007733'
   website: 'https://agtteam.net/'

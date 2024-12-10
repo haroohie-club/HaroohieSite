@@ -13,7 +13,7 @@ navigation:
 * [Search eBay](https://www.ebay.com/sch?&_nkw=Suzumiya+Haruhi+no+Chokuretsu)
 ::
 
-## У меня уже естьROM файл
+## У меня уже есть ROM файл
 Если вы уже сделали это и у вас уже есть дамп ROM файла `.nds`, [нажмите здесь, чтобы перейти к разделу исправлений ROM](/chokuretsu/guide/patching-the-rom).
 
 ## Я получил картридж, что дальше?

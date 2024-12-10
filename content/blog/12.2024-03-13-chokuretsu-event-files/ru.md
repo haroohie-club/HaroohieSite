@@ -1,5 +1,5 @@
 ---
-title: &title "Проблемы взлома Chokuretsu ROM, часть 4 – Раскопки файла событий"
+title: &title "Проблемы ромхакинга Chokuretsu, часть 4 – Раскопки файла событий"
 description: &desc "Jonko копается в файлах событий, чтобы выяснить, как перевести игру"
 navigation:
   author: 'Jonko'
@@ -55,9 +55,9 @@ images: [
 ----
 ::
 
-That’s it in all its 7.06 KiB of glory. I’m reproducing the entire file here for two reasons – one, so we can reference these images in context (I’ll make sure to mention the number you see above each screenshot when referencing something in that image), but also two, so that you can see how intimidating a file like this can look at first glance. That’s a lot of data! But not to worry – we can figure it out!
+И всё это уместилось 7,06 КБ. Я воспроизвожу весь файл по двум причинам: первая, чтобы мы могли ссылаться на эти изображения в контексте (я обязательно упомяну номер, который вы видите над каждым снимком экрана, ссылаясь на что-то на этом изображении) и вторая, чтобы вы могли увидеть, как устрашающе может выглядеть на первый взгляд такой файл. Это очень много данных! Но не волнуйтесь – мы разберемся!
 
-As I mentioned, the above images are screenshots of a hex editor. In case you’ve forgotten how hexadecimal works, here’s a quick summary from the [compression blog post](/blog/2022-10-19-chokuretsu-compression):
+Как я уже упоминал, изображения выше — это скриншоты шестнадцатеричного редактора. Если вы забыли, как работает шестнадцатеричное число, вот краткое изложение из [сообщения в блоге о сжатии](/blog/2022-10-19-chokuretsu-compression):
 
 > Hexadecimal is also called base 16 – while we normally use decimal (base 10 – i.e. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) and computers use binary (base 2 – i.e. 0, 1), programmers often use hexadecimal because it allows us to represent a single byte in two characters. When writing numbers, to distinguish the base we often use 0x as a prefix for hex numbers (0x17 is 23 in decimal) and 0b to represent binary numbers (0b0000_0100 is 4 in decimal).
 

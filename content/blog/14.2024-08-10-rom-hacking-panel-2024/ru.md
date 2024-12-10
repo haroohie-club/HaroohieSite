@@ -1,6 +1,6 @@
 ---
-title: &title 'Запись Jonko «Взлом ROM для перевода видеоигры: Reloaded», выпущенная в 2024 году'
-description: &desc 'Посмотрите, как Jonko объясняет некоторые трудности взлома Chokuretsu и Heiretsu перед аудиторией на Sakura Con 2024.'
+title: &title 'Запись Jonko «Ромхакинг для перевода видеоигр: Перезапуск», выпущенная в 2024 году'
+description: &desc 'Посмотрите, как Jonko объясняет некоторые трудности взлома Chokuretsu и Heiretsu на Sakura Con 2024.'
 navigation:
   author: 'Jonko'
   year: 2024
