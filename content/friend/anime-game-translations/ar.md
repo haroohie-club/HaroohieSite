@@ -1,6 +1,7 @@
 ---
+title: 'Anime Game Translations'
 friend:
-  locale: 'anime-game-translations'
+  name: 'Anime Game Translations'
   icon: 'fa6-solid:gamepad'
   color: '#007733'
   website: 'https://agtteam.net/'

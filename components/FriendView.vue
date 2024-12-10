@@ -1,6 +1,6 @@
 <template>
     <NuxtLink :to="friend.website" rel="me">
-        <h1 id="friend">{{ $t(friend.locale) }}</h1>
+        <h1 id="friend">{{ friend.name }}</h1>
     </NuxtLink>
     <h3 v-if="friend.original">{{ friend.original }}</h3>
     <div class="friend-socials">

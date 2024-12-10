@@ -1,6 +1,7 @@
 ---
+title: 'Qi Busiyi Hanhuazu'
 friend:
-  locale: 'qi-busiyi-hanhuazu'
+  name: 'Qi Busiyi Hanhuazu'
   original: '七不思议汉化组'
   icon: 'fa6-solid:7'
   color: '#0077FF'

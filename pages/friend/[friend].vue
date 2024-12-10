@@ -6,9 +6,6 @@
                         <template v-slot="{ doc }">
                             <div class="friend-centered">
                                 <div v-if="doc.friend">
-                                    <Head>
-                                        <Title>{{ $t('index-title') }} - {{ $t(doc.friend.locale) }}</Title>
-                                    </Head>
                                     <FriendView :friend="doc.friend" />
                                 </div>
                                 <ContentRenderer :value="doc" />
@@ -38,6 +35,12 @@ const { locale } = useI18n({
 })
 const localePath = useLocalePath()
 const route = useRoute()
+
+useHead({
+    titleTemplate: (friendTitle) => {
+        return friendTitle ? `${friendTitle} - Haroohie Translation Club` : "Haroohie Translation Club";
+    }
+})
 
 definePageMeta({
     layout: 'blog'
