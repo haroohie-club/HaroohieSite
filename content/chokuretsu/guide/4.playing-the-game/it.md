@@ -33,8 +33,8 @@ Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart
 
 <div class="platform-filtered platform-nintendo_dsi">
 
-## Play on Nintendo DSi
-Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Twilight Menu++ on your system
+## Giocare su Nintendo DSi
+Giocare sul Nintendo DSi è possibile attraverso l'uso di una flashcart o mettendo la ROM patchata in una scheda SD e usando TWilightMenu++ sul tuo sistema
 
 ### Usando TWilightMenu (nds-bootstrap)
 
@@ -65,20 +65,20 @@ Playing on the Nintendo DSi can either be done simply through the use of a flash
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-## Play on (New) Nintendo 3DS or 2DS
-Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Luma3DS on your system
+## Giocare sul (New) Nintendo 3DS o 2DS
+Giocare sul (New) Nintendo 3DS o 2DS è possibile attraverso l'uso di una flashcard, o mettendo la ROM patchata in una scheda SD e utilizzando Luma3DS sul tuo sistema
 
-### Using TWiLightMenu++
-**Requirements:**
-* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Luma3DS custom firmware setup on your system and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
-* SD card with at least 2GB capacity
-* Computer with an SD card reader/USB SD card reader peripheral
+### Usare TWilightMenu++
+**Occorrente:**
+* Una console Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL o New 2DS XL
+* Il custom firmware Luma3DS installato sul tuo sistema insieme ad FBI. Se hai seguito la guida per l'estrazione della ROM dal Nintendo 3DS, probabilmente li hai già installati!
+* Scheda SD con una capacità minima di 2GB
+* Un computer con un lettore di schede SD/una periferica USB di lettura per schede SD
 
 **Procedura:**
 1. Inserisci la scheda SD del tuo 3DS (con Luma3DS installato) nel tuo computer
-2. Segui la guida per installare TwilightMenu con FBI. Quando ti sarà richiesto, trascina la ROM all'intero della cartella corretta.
-3. Continua a seguire le istruzioni fino alla fine. Infine, divertiti!
+2. Segui la guida per installare TwilightMenu utilizzando FBI. Quando ti sarà richiesto, trascina la ROM .nds che hai creato prima all'intero della cartella '/roms/'.
+3. Continua a seguire le istruzioni fino alla fine. Buon divertimento!
 
 #### Using an NDS Forwarder
 If you would instead like to be able to launch the game directly from the home screen without running TWiLightMenu++, you can use an NDS forwarder to do so.
