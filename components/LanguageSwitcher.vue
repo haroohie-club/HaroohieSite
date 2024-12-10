@@ -3,10 +3,10 @@
         <label class="shadow" for="locale-select">
             <Icon name="fa6-solid:language" />
         </label>
-        <select class="shadow" id="locale-select" :value="locale" v-model="$i18n.locale">
+        <select class="shadow" id="locale-select" :value="locale" v-model="$i18n.locale" v-on:change="switchLocale(this.value)">
             <option v-for="l in availableLocales" :value="l">
                 <span>{{ getLanguageName(l) }}</span>
-                <span class="lozonge" v-if="locale == l">&nbsp;&#x23F7;</span>
+                <span class="lozenge" v-if="locale == l">&nbsp;&#x23F7;</span>
             </option>
         </select>
     </form>
@@ -18,6 +18,10 @@ const { locale } = useI18n({
     useScope: 'local'
 })
 const localePath = useLocalePath()
+const switchLocalePath = useSwitchLocalePath()
+function switchLocale(l) {
+    window.location.href = switchLocalePath(l)
+}
 function getLanguageName(languageCode) {
     const nameGenerator = new Intl.DisplayNames(languageCode, { type: 'language' });
     const displayName = nameGenerator.of(languageCode);
