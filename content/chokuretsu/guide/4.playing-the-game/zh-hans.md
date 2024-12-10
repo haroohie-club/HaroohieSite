@@ -33,8 +33,8 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', '模拟器']
 
 <div class="platform-filtered platform-nintendo_dsi">
 
-## Play on Nintendo DSi
-Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Twilight Menu++ on your system
+## 在 Nintendo DSi 上玩
+在 Nintendo DSi 上玩游戏可以简单地通过使用烧录卡来完成，也可以将打好补丁的 ROM 放在 SD 卡上，并在系统上使用 Twilight Menu++。
 
 ### Using TWiLightMenu (nds-bootstrap)
 
@@ -65,8 +65,8 @@ Playing on the Nintendo DSi can either be done simply through the use of a flash
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-## Play on (New) Nintendo 3DS or 2DS
-Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Luma3DS on your system
+## 在 (New) Nintendo 3DS 或 2DS 上玩
+在 (New) Nintendo 3DS 或 2DS 上玩游戏可以简单地通过使用烧录卡来完成，也可以将打好补丁的 ROM 放在 SD 卡上，并在系统上使用 Luma3DS。
 
 ### Using TWiLightMenu++
 **Requirements:**
