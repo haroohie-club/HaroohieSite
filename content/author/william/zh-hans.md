@@ -9,4 +9,4 @@ author:
   website: 'https://william278.net/'
 ---
 
-Will 负责 Haroohie Translation Club 的美工、网站以及校对工作！
+Will works on graphics, the website, and as a proofreader for the Haroohie Translation Club!

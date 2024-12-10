@@ -1,6 +1,6 @@
 ---
-title: &title 'The Series of Haruhi Suzumiya – Episode 3 is now available!'
-description: &desc 'Play Episode 3: A Midsummer Graduation in Version 0.6 of Suzumiya Haruhi no Chokuretsu''s English Patch, available now!'
+title: &title Suzumiua Haruhi no Chokuretsu – Эпизод 3 теперь доступен!'
+description: &desc 'Сыграйте в «Эпизод 3: Выпускной в середине лета» в версии 0.6 английского патча Suzumiya Haruhi no Chokuretsu's, доступного уже сейчас!'
 navigation:
   author: 'William'
   year: 2023
@@ -38,31 +38,31 @@ video: M6zZR2zhEMs
 ----
 ::
 
-Happy Halloween, everyone! We've been cooking at the Haroohie Translation Club and we're now ready to give you a turn at the grill with the release of **Version 0.6** of our Suzumiya Haruhi no Chokuretsu English Fan Translation patch, which translates the game through *Episode 3: A Midsummer Graduation*.
+Всем Счастливого Хэллоуина! Мы готовили в Клубе переводчиков Haroohie и теперь готовы дать вам возможность попробовать наш продукт, выпустив **Версию 0.6** нашего патча с фанатским переводом на английский Suzumiya Haruhi no Chokuretsu, который переводит игру через *Эпизод 3: Выпускной в середине лета*.
 
-A huge thank you to [EricDoesEverything](https://www.youtube.com/@EricDoesEverythingSeries) for once again putting together our (fittingly spooky for October 31) release trailer!
+Огромное спасибо [EricDoesEverything](https://www.youtube.com/@EricDoesEverythingSeries) за то, что в очередной раз собрали наш (довольно жуткий для 31 октября) релизный трейлер!
 
-Of course, as well as Episode 3, we've been going back and improving other areas of our patch too. Take a look at our changelog below!
+Разумеется, как и с 3 Эпизодом, мы улучшили и другие области нашего патча. Взгляните на журнал изменений ниже!
 
-## What's new in v0.6
-* *Episode 3: A Midsummer Graduation* has been translated and can now be played in English!
-* *Episode 1: The Man-Eating Classroom* has had various script rewrites and changes to bring certain sections up to standards with the quality of Episode 3's translation, and to reflect changes in our processes since then.
-  * Smaller changes have also been made to the script of Episode 2.
-* Translated additional graphics
-  * Graphics for the clubroom Extras Mode have been added for Episodes 3, 4, and 5.
-  * Translated certain CGs for Episode 3
-  * Translated chess interface graphics (used in the extras mode and in a later episode)
-* Translated the ending credits movie (you'll see it when we finish Episode 5). Names are now Romanized
-* Fixed a typesetting inconsistency with the lyrics in the credits movie.
-* Fixed a bug with on-screen subtitles that could sometimes lead to the game crashing during the Puzzle phase. If you encounter a crash while playing, please get in touch with us on Discord so we can investigate!
+## Что нового в версии 0.6
+* *Эпизод 3: Выпускной в летнее время* переведен и теперь доступен на английском языке!
+* *Эпизод 1: «Класс людоедов»* подвергся различным изменениям сценария, чтобы привести определенные разделы в соответствие со стандартами качества перевода Эпизода 3, а также отразить изменения в наших процессах с тех пор.
+  * В сценарий Эпизода 2 также были внесены меньшие изменения.
+* Переведена дополнительная графика
+  * Графика для дополнительного режима в клубной комнате была добавлена в эпизоды 3, 4 и 5.
+  * Переведены CG для Эпизода 3.
+  * Переведенная графика шахматного интерфейса (используется в дополнении и в последующих эпизодах)
+* Переведены финальные титры (вы увидите их, когда мы закончим 5-ю серию). Имена теперь романизированы
+* Исправлено несоответствие текстов в титрах.
+* Исправлена ошибка с субтитрами на экране, которая иногда могла привести к сбою игры на этапе головоломки. Если во время игры вы столкнулись с сбоем, свяжитесь с нами в Discord, чтобы мы могли исправить это!
 
 ## Загрузите релиз
-Пожалуйста, ознакомьтесь с [руководство](/chokuretsu/guide), чтобы узнать, как применить патч ROM к файлу Nintendo DS.
+Пожалуйста, ознакомьтесь с [руководство](/chokuretsu/guide), чтобы узнать, как применить ROM патч к файлу Nintendo DS.
 
 * [Онлайн-патчер ROM](/chokuretsu/patch)
 * [Загрузить файл патча](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases/latest)
 
-## What's next
-We're already hard at work on Episodes 4 and 5! Last month, we finished the full game base translation. Recently we've started "Chokuretsu ~~Fridays~~ Saturdays" to rally together our proofreading and translation check process. Behind the scenes, we're also working on Suzumiya Haruhi no Heiretsu for the Wii, and we've made considerable progress since our [last blog post in September](/blog/2023-09-11-september-2023-progress-update). Stay tuned for more!
+## Что дальше
+Мы уже усердно работаем над эпизодами 4 и 5! В прошлом месяце мы завершили полный перевод базы игры. Недавно мы запустили программу «Chokuretsu ~~пятницы~~ субботы», чтобы объединить наши проекты по редактирования и проверки перевода. За кулисами мы также работаем над Suzumiya Haruhi no Heiretsu для Wii и добились значительного прогресса с момента нашей [последней записи в блоге в сентябре](/blog/2023-09-11-september-2023-progress-update). Оставайтесь с нами, чтобы узнать больше!
 
-Thank you!
+Спасибо вам!

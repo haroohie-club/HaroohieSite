@@ -1,17 +1,17 @@
 ---
-title: 'UI Text'
+title: 'Текст Пользовательского интерфейся'
 navigation:
   faicon: 'fa6-solid:wrench'
   previous: '/chokuretsu/serial-loops/docs/misc/applying-hacks'
 ---
 
-Serial Loops has a menu for modifying the core user interface text. The UI text consists of the text that displays on the main menu, CONFIG, file select, and save data management screens, ticker-tape tooltips, and popup prompts.
+Serial Loops имеет меню для изменения основного текста пользовательского интерфейса. Текст пользовательского интерфейса состоит из текста, который отображается в главном меню, на экранах конфига, выбора файла, управления данными сохранения и всплывающих подсказок.
 
-## Editing UI text
-The UI Text editor can be accessed through the "Edit UI Text..." option in the Tools menu.
+## Редактирование текста пользовательского интерфейса
+Доступ к редактору текста пользовательского интерфейса можно получить с помощью параметра «Редактировать текст пользовательского интерфейса...» в меню «Инструменты».
 
-![UI text editor in the tools menu](/images/chokuretsu/serial-loops/tools-menu.png)
+![редактор пользовательского интерфейса в меню инструментов](/images/chokuretsu/serial-loops/tools-menu.png)
 
-Clicking the option will open the UI text editor. This presents a panel detailing every UI text item in the game, each with a label identifying what that string represents. Modify the text in the boxes to your liking, and choose "Save" to apply your changes and update the menu text.
+При нажатии откроется текстовый редактор пользовательского интерфейса. Здесь представлена панель с подробным описанием каждого текстового элемента пользовательского интерфейса в игре, каждый из которых имеет метку, определяющую, что представляет собой эта строка. Измените текст в полях по своему вкусу и нажмите «Сохранить», чтобы применить изменения и обновить текст меню.
 
-![UI text editor](/images/chokuretsu/serial-loops/edit-ui-text.png)
+![редактор текста пользовательского интерфейса](/images/chokuretsu/serial-loops/edit-ui-text.png)

@@ -5,10 +5,6 @@ navigation:
   previous: '/patching-the-rom'
 ---
 
-::guide-notice
-Per chi gioca da emulatore: DeSmuME è sconsigliato per via di problemi d'emulazione.
-::
-
 Ora che la Patch è installata, è ora di giocare!
 
 ---
@@ -40,14 +36,7 @@ Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart
 ## Giocare su Nintendo DSi
 Per poter giocare il titolo sul vostro Nintendo DSi, esistono due metodi. Tramite l'ausilio di una flash cart oppure installando la ROM patchata sulla Scheda SD e utilizzarla grazie a Twilight Menu++
 
-### Utilizzare TWiLightMenu (nds-bootstrap)
-::iconified-text
----
-icon: fa6-solid:circle-info
-unwrap: true
----
-Se stai usando **TWiLightMenu** (nds-bootstrap) assicurati di avviare il gioco in modalità DSi.
-::
+### Using TWiLightMenu (nds-bootstrap)
 
 **Occorrente:**
 * Un sistema Nintendo DSi o DSi XL
@@ -79,17 +68,27 @@ Se stai usando **TWiLightMenu** (nds-bootstrap) assicurati di avviare il gioco i
 ## Giocare su (New) Nintendo 3DS o 2DS
 Giocare su Nintendo 3DS è molto semplice, basta inserire la ROM sulla flash cart o in una cartella precisa della scheda SD e il più è fatto
 
-### Utilizzare TwilightMenu++
-**Occorrente:**
-* Un sistema della famiglia 3DS o 2DS
-* Il custom firmware Luma 3DS e FBI. Se hai seguito la guida per modificare il 3DS, avrai già questi programmi!
-* Una scheda SD con una memoria da almeno 2 GB
-* Un computer con lettore di schede SD (o un adattatore USB)
+### Using TWiLightMenu++
+**Requirements:**
+* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
+* Luma3DS custom firmware setup on your system and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
+* SD card with at least 2GB capacity
+* Computer with an SD card reader/USB SD card reader peripheral
 
 **Procedura:**
 1. Inserisci la scheda SD del tuo 3DS (con Luma3DS installato) nel tuo computer
 2. Segui la guida per installare TwilightMenu con FBI. Quando ti sarà richiesto, trascina la ROM all'intero della cartella corretta.
 3. Continua a seguire le istruzioni fino alla fine. Infine, divertiti!
+
+#### Using an NDS Forwarder
+If you would instead like to be able to launch the game directly from the home screen without running TWiLightMenu++, you can use an NDS forwarder to do so.
+
+**Setup**:
+1. Follow steps 1-2 of the setup for TWiLightMenu++ instructions above.
+2. Install the [ndsForwarder](https://github.com/MechanicalDragon0687/ndsForwarder/releases) application either from Universal Updater or by following the instructions to install it manually on your SD card.
+3. Boot up your 3DS and run the Homebrew Launcher application, then launch NDS Forwarder Generator from that.
+4. Navigate to the /roms/nds/ folder and select the ROM you placed there. Select "Yes" at the prompt for whether you want to install the forwarder, and then select "OK" when the installation is complete.
+5. Press Start to exit the forwarder generator and then Home Button to return to the home menu. You will be shown the newly installed forwarder on your home screen and can then launch the game directly from that.
 
 ### Tramite flashcart
 **Occorrente:**
@@ -107,10 +106,10 @@ Giocare su Nintendo 3DS è molto semplice, basta inserire la ROM sulla flash car
 
 ## Gioca su emulatore
 
-**Scegli su quale sistema vuoi emulare il gioco:**
+**Select the type of emulator you wish to use:**
 ::guide-platform-filter
 ---
-filters: ['Emulatore per PC', 'Emulatore per telefono', 'Virtual console per Wii U']
+filters: ['PC Emulator', 'Mobile Emulator']
 filterSuffix: 'emulator'
 ---
 
@@ -125,17 +124,19 @@ Esistono diversi emulatori del Nintendo DS per PC, noi ti consigliamo d'usare me
 
 **Procedimento:**
 
-Scarica l'ultima versione (**v0.9.4+**) [dal sito ufficiale](https://melonds.kuribo64.net/downloads.php) (fai attenzione e scegli il sistema operativo corretto) e mettilo in una posizione comoda.
+Simply [download melonDS](https://melonds.kuribo64.net/downloads.php) (**v1.0.0+**) from the project website for your platform (Windows, macOS, or Linux) and save it somewhere easily accessible to your computer. (If you are using macOS, consider placing the melonDS.app folder in your /Applications directory for ease of access.)
+
+If you're running Linux, we also recommend the [official Flatpak](https://flathub.org/apps/net.kuribo64.melonDS) provided on Flathub, though that can sometimes lag behind the direct download releases.
 
 **Giocare il gioco:**
 
-Una volta Impostato melonDS devi solo avviare il gioco, per farlo seleziona il gioco tramite la funzione "Open ROM", nel menu in alto.
+With melonDS setup, all you need to do in order to play the game is select "File" &rarr; "Open ROM" in the top menu bar and choose the ROM file you patched earlier. You can also simply drag and drop the ROM file directly on the opened emulator, or associate `.nds` files with melonDS to open them via double clicking.
 
-melonDS ha molte peculiarità in più come impostare il controller e come impostare gli schermi. Per ulteriori informazioni, consulta [sito ufficiale di melonDS](https://melonds.kuribo64.net/).
+melonDS has a number of advanced features, such as configuring controllers and tweaking display settings. You can check out the [melonDS website](https://melonds.kuribo64.net/) for more information.
 
-#### Altri emulatori
-* [DeSmuME](https://desmume.org/)－Sconsigliato per problemi grafici e sonori (ci sono anche problemi durante gli intermezzi).
-* [No$GBA](https://www.nogba.com/)－: Sconsigliato per molti problemi di emulazione, non è molto aggiornato e non è adatto ai principianti dell'emulazione.
+#### Other PC emulators
+* [DeSmuME](https://github.com/TASEmulators/desmume)－The commonly-used older version of DeSMuME is not recommended due to detrimental graphical and sound emulation issues (the latter of which particularly affects voiced lines). However, the latest release seems to run the game fine so long as the software renderer is used for graphics. That being said, melonDS is still recommended over this emulator for its superior accuracy, and especially for Linux where the functionality is much more limited.
+* [no$gba](https://www.nogba.com/)－Not recommended due to severe general emulation accuracy issues. It's also infrequently updated and not very user-friendly.
 
 </div>
 
@@ -143,83 +144,37 @@ melonDS ha molte peculiarità in più come impostare il controller e come impost
 
 ### Emulare su dispositivi mobili
 
-#### Giocare su iOS / iPadOS / tvOS
-*Attenzione: potresti avere dei problemi di emulazione utilizzando RetroArch per iOS, dato che l'emulatore utilizza DeSmuME per il DS, sfortunatamente MelonDS non è ancora stabile per quel sistema.*
+#### Emulate on iOS / iPadOS
+**Requirements:**
+* iOS / iPadOS Device (iPhone, iPad, iPod Touch)
 
-Ti consigliamo di utilizzare RetroArch, che ha DeSmuME incorporato, per emulare il gioco su iOS o Apple TV. Non è necessario modificare il sistema per utilizzare RetroArch (ma potrebbe renderti il lavoro più semplice)
+**Play Using Delta Emulator**
 
-Esistono due metodi per fare ciò. Nel primo è richiesto di usare Cydia impactor per trasferire i file di RetroArch sul tuo dispositivo macOS. Per tutti quelli che usano un dispositivo Mac moderno può tornare utile utilizzare XCode, puoi anche usare un metodo che richiede di costruire RetroArch con XCode e caricarlo sul tuo dispositivo, anche se è più complicato.
+In the past, Apple did not permit emulators officially on their store. However, times have changed and now you can simply download [Delta Emulator](https://faq.deltaemulator.com/) from the [App Store](https://apps.apple.com/us/app/delta-game-emulator/id1048524688).
 
-**Occorrente:**
-* Un dispositivo che supporta iOS oppure iPadOS (iPhone, iPad, iPod Touch)
-* Avere iTunes installato sul tuo PC o Mac oppure un Mac che supporti XCode
+Simply run Delta Emulator and load the patched ROM file to begin playing.
 
-**Metodo consigliato: Installare RetroArch con Cydia Impactor**
-1. Segui questa [guida](https://docs.libretro.com/guides/install-ios/) per installare RetroArch sul tuo dispositivo iOS non modificato tramite Cydua Impactor.
-2. Segui la guida per ["Trasferire i file tramite iTunes"](https://docs.libretro.com/guides/install-ios/?device=emu#content-transfer-via-itunes) atto a trasferire la ROM patchata nella cartella di RetroArch
+#### Emulate on Android
+There are several options for emulation on Android. [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic) has a great interface, is simple to install, and is now free to download. There is also an unofficial [Android port of melonDS](https://play.google.com/store/apps/details?id=me.magnum.melonds) that similarly will run well, but (at time of writing, Dec 2024) is not quite up to date with the PC version of melonDS's feature set. Finally, [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) can run the melonDS DS core which usually maintains exact parity with the PC version of melonDS.
 
-**Metodo che richiede solo Mac: Costruire RetroArch con XCode**
-1. Segui la [guida](https://docs.libretro.com/guides/build-ios/) per installare XCode sul tuo Mac, copia RetroArch dal sito e ricostruiscilo, poi trasferiscilo sul tuo dispositivo.
-2. Trasferisci la ROM patchata sul tuo dispositivo tramite strumenti di terze parti come iFunBox o iExplorer. Se vuoi utilizzare Apple TV, ti verrà dato un indirizzo Web, grazie al quale potrai trasferire la ROM sul dispositivo.
-
-#### Emulare su Android
-Il miglior emulatore DS su Android è [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic), è molto semplice da usare, sfortunatamente costa 4,50€. [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) è una buona alternativa, purtroppo l'emulatore utilizzato è DeSmuME, il quale può dare problemi di emulazione.
-
-**Occorrente:**
-* Un dispositivo Android con Google Play store installato
-* Drastic (4,50€) o RetroArch (Gratuito)
+**Requirements:**
+* Android Device with the Google Play store
 
 **Giocare utilizzando DraStic**
 
 Scarica [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic) dal Google Play Store e trasferisci la ROM patchata sul tuo dispositivo tramite Android file picker.
 
+**Play using melonDS Android Emulator**
+
+Download [melonDS Android](https://play.google.com/store/apps/details?id=me.magnum.melonds) off the Google Play Store and transfer the patched ROM file over to it via the Android file picker.
+
 **Giocare utilizzando RetroArch**
 
-Scarica [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) dal Google Play Store e trasferisci la ROM patchata tramite Android file picker.
-
-</div>
-
-<div class="platform-filtered platform-virtual_console_per_wii_u">
-
-### Emulare il gioco su Wii U grazie alla Virtual Console
-Se possiedi una console Wii U, puoi giocare il titolo grazie all'emulatore per DS sviluppato da Nintendo, per un'emulazione più precisa.
-
-Per fare ciò, dovrai modificare il tuo Wii U. Dovrai usare UWUVCI per convertire la ROM in un file WUP (File installazione di giochi in digitale per Wii U) ed installarlo tramite WUP Installer GX2.
-
-**Occorrente:**
-* Un sistema Wii U connesso ad internet
-* Una scheda SD con almeno 4GB di memoria
-* Un PC con Windows per scaricare UWUVCI
-
-#### Part 1 - Homebrew your Wii U
-1. Segui questa [guida](https://wiiu.hacks.guide/) per installare il CFW (Custom Firmware) Wrapper e Tiramisu sul tuo sistema dalla scheda SD ed ultimare il processo tramite una falla del browser internet.
-2. Continua con [la guida](https://wiiu.hacks.guide/#/tiramisu/finalizing-setup?id=additional-homebrew-apps) per installare l'Homebrew App Store sul tuo sistema.
-3. Avvia l'Homebrew App Store tramite Tiramisu, per farlo, clicca sull'icona de "informazioni di salute e sicurezza" presente sul menu principale.
-4. Una volta sul Homebrew App Store, cerca il programma "WUP Installer GX2 (dovrebbe essere uno dei primi dell'elenco). Installalo sul tuo sistema, seguendo le istruzioni a schermo.
-5. Una volta finito, spegni la console e rimuovi la Scheda SD. Dopodiché reinseriscila nel tuo computer.
-
-#### Parte 2 - Convertire la ROM in un file WUP
-1. Inserisci la tua scheda SD nel tuo computer
-2. Sul tuo PC, installa l'ultima versione di [UWUVCI](https://github.com/stuff-by-3-random-dudes/UWUVCI-AIO-WPF/releases/). Se Windows Defender lo segnala come minaccia, clicca su "più dettagli" e "avvia comunque". Il programma dovrà scaricare degli strumenti atti a funzionare correttamente, ci vorrà un po' di tempo.
-3. Una volta avviato il programma, seleziona l'icona del DS nella schermata in alto a sinistra.
-4. Segui attentamente queste istruzioni:
-        - Come ROM base seleziona "Mario Kart Ds (US)" oppure "Mario Kart Ds (EU)" (Dipende dalla tua regione; se la tua console non è Americana od Europea, scegli quello che vuoi, non è tanto importante)
-        - Seleziona "Enter CKey", poi "Read from otp.bin" e seleziona il file che hai creato poco fa sulla tua scheda SD, dato che quando hai installato il custom firmware ti è stato chiesto di estrapolare la NAND. Se non riesci a trovare il file, dovrai cercare le chiavi del gioco ed inserirle manualmente.
-        - Clicca "enterTKey". Qua dovrai inserire il codice giusto per sbloccare il Mario Kart DS che hai scelto. Assicurati di inserire il codice esatto.
-        - Clicca "Select file", prosegui con "ROM Path" e scegli la ROM patchata de "La serie di Haruhi Suzumiya".
-        - Su "Icon Image", clicca con "Create file". Scarica quest'[immagine](/images/chokuretsu/virtual-console-icon.png) e selezionala con "Select file". personalizza la presentazione come più ti aggrada, quest'icona apparirà sul menù del tuo Wii U. Poi, clicca "finish".
-        - Su "Tv image" clicca "Create file", qua dovrai inserire il nome del gioco su due linee ("La serie di Haruhi","Suzumiya"), l'anno di pubblicazione (2009) e il numero di giocatori (1). Poi, scegli la stessa immagine dell'icona (o mettine pure un'altra). Infine, clicca "finish".
-        - Inserisci nel "Game Name": "La serie di|Haruhi Suzumiya"
-        - Puoi anche personalizzare la schermata come più ti aggrada.
-5. Una volta terminato, clicca "Inject". La ROM verrà convertita in un file WUP.
-6. Finito anche questo, clicca su "WUP Installable". Aspetta che la conversione venga terminata, poi clicca su "Copy to SD". Il tuo file WUP verrà copiato nella cartella esatta.
-7. Rimuovi la scheda SD dal tuo computer ed inseriscila nella console.
-
-#### Parte 3 - Installa il WUP con WUP Installer GX2
-1. Re-inserisci la scheda SD nella console ed accendila.
-2. Avvia WUP Installer GX2, installato in precedenza con Tiramisu
-3. Seleziona il WUP che hai creato in precedenza e segui le istruzioni a schermo per installare il gioco sul menù.
-4. Quando l'installazione è ultimata, puoi avviare il gioco dal menù di sistema.
+1. Download [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) off the Google Play Store and launch it.
+  - If you get an error at this step saying that your version of Android is too new to support RetroArch, you will have to download the apk manually from their site. To do this, [go to their downloads page](https://retroarch.com/?page=platforms) and scroll to the "Android" section. Below "Google Play" and "F-Droid", click "Download" to download the apk and then attempt to launch it. You will have to set several permissions in order to install the apk from an "untrusted source" &ndash; enable these settings by following the instructions on your screen and then launch the apk again to install it to your phone.
+  - You might also consider downloading one of the nightly builds to get a more up-to-date version of the app.
+2. Select "Load Core" and then "Download a Core", then select the "Nintendo DS - melonDS DS" core from the list to download it.
+3. Go back, and then hit "Load Content" and select your patched ROM file through the RetroArch file picker.
 
 </div>
 

@@ -1,12 +1,12 @@
 ---
-title: 'Game Flow'
+title: 'Ход игры'
 navigation:
   faicon: 'fa6-solid:book-open'
   previous: '/chokuretsu/serial-loops/docs/scenario'
   next: '/chokuretsu/serial-loops/docs/scenario/group-selections'
 ---
-The game's flow can be edited with the _Scenario_ editor. The scenario is essentially a list of commands which execute in order to load various game
-components. The commands are explained in the following table:
+Ход игры можно редактировать с помощью редактора _Сценариев_. По сути, сценарий представляет собой список команд, которые выполняются для загрузки различных компонентов игры.
+Команды объяснены в следующей таблице:
 
 ## Scenario Commands
 | Command | Description |
