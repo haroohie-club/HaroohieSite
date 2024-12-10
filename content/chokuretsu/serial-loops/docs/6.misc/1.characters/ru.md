@@ -1,24 +1,24 @@
 ---
-title: 'Characters'
+title: 'Персонажи'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/character.png'
   previous: '/chokuretsu/serial-loops/docs/misc'
   next: '/chokuretsu/serial-loops/docs/misc/topics'
 ---
 
-In Serial Loops, "Characters" define the set of characters that can talk in scripts. Modifying Characters lets you customise the character's name, their dialogue name plate style, their voice font and text display speed.
+В Serial Loops «Персонажи» определяют набор персонажей, которые могут разговаривать в сценариях. Изменение персонажей позволяет настроить имя персонажа, стиль его таблички с именем в диалоге, озвучку и скорость отображения текста.
 
-* **Character name** &mdash; What to display both on the name plate and when referencing this character elsewhere in scripts
-* **Text color** &mdash; The color of the text above the dark gray nameplate
-* **Plate color** &mdash; The accent color of the name plate; typically the same as the Text color
-* **Outline color** &mdash; What color to outline the character's name on the plate with (toggle with the check box)
+* **Имя персонажа** &mdash; Что отображать как на табличке с именем, так и при упоминании этого персонажа
+* **Цвет текста** &mdash; Цвет текста над темно-серой табличкой
+* **Цвет таблички** &mdash; Акцентный цвет именной таблички; обычно совпадает с цветом текста
+* **Цвет контура** &mdash; Каким цветом обвести имя персонажа на табличке (переключается галочкой)
 
-You can also set the text and plate color based on the default colors for each standard character in the base game.
+Вы также можете установить цвет текста и табличек на основе цветов по умолчанию для каждого стандартного персонажа в основной игре.
 
-## Character Names & Nameplates
-Characters are represented by a name, which is displayed on a bitmap name plate above text. Through the Character item editor, you can customise the character's name and how the name plate looks.
+## Имена персонажей и таблички с именами
+Символы представлены именем, которое отображается на растровой табличке над текстом. С помощью редактора элементов персонажа вы можете настроить имя персонажа и внешний вид таблички с именем.
 
-## Voice Font & Text Speed
-The "voice font" is the small beeping sound that is made as text is drawn to the screen when no voiced line is playing. The text speed is controlled by a timer, so the lower the value, the faster the text appears on the screen. The value of the voice font is not understood. Neither of these can currently be edited.
+## Озвучка и скорость текста
+«Реплика» — это небольшой звуковой сигнал, который издается при выводе текста на экран, когда не воспроизводится озвученная строка. Скорость текста контролируется таймером, поэтому чем ниже значение, тем быстрее текст появляется на экране. Значение голосового шрифта не понятно. Ни один из них в настоящее время нельзя редактировать.
 
-![Character editor](/images/chokuretsu/serial-loops/character-editing.png)
+![Редактор персонажей](/images/chokuretsu/serial-loops/character-editing.png)

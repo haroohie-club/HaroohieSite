@@ -5,28 +5,28 @@ navigation:
   previous: '/patching-the-rom'
 ---
 
-Ora che la Patch è installata, è ora di giocare!
+Ora che hai la versione patchata del file ROM, è ora di prepararsi a giocare!
 
 ---
 
 **Scegli dove giocare il gioco:**
 ::guide-platform-filter
 ---
-filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulator']
+filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulatore']
 ---
 
 <div class="platform-filtered platform-nintendo_ds">
 
 ## Giocare su Nintendo DS
-Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart e il più è fatto. Forse già ne possiedi una, se sei arrivato fino qua.
+Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart e il più è fatto. È probabile che tu ne sia già in possesso di una, se hai seguito la guida d'installazione prima.
 
 **Occorrente:**
-* Un sistema DS o DS Lite.
+* Una console Nintendo DS o DS Lite.
 * Una flashcart (come una R4. Inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
-**Procedura:**
-1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore).
-2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
+**Installazione:**
+1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore, se necessario).
+2. Trascina la ROM .nds che hai creato prima nel percorso giusto della memoria della flashcart.
 3. Rimuovi la scheda SD ed infilala nella flashcart, per poi metterla nel DS. Bene, è arrivato il momento di giocare!
 
 </div>
@@ -34,13 +34,13 @@ Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart
 <div class="platform-filtered platform-nintendo_dsi">
 
 ## Giocare su Nintendo DSi
-Per poter giocare il titolo sul vostro Nintendo DSi, esistono due metodi. Tramite l'ausilio di una flash cart oppure installando la ROM patchata sulla Scheda SD e utilizzarla grazie a Twilight Menu++
+Giocare sul Nintendo DSi è possibile attraverso l'uso di una flashcart o mettendo la ROM patchata in una scheda SD e usando TWilightMenu++ sul tuo sistema
 
-### Using TWiLightMenu (nds-bootstrap)
+### Usando TWilightMenu (nds-bootstrap)
 
 **Occorrente:**
 * Un sistema Nintendo DSi o DSi XL
-* TwilightMenu++ [installato sulla tua console](https://dsi.cfw.guide/). Se hai seguito la guida per modificare il DSi, avrai già questo programma!
+* TwilightMenu++ [installato sulla tua console](https://dsi.cfw.guide/). Se prima hai seguito la guida per l'estrazione della ROM dal Nintendo DSi, avrai già questo programma!
 * Una scheda SD con almeno 2GB di memoria
 * Un computer con lettore di schede SD (o un adattatore USB)
 
@@ -53,32 +53,32 @@ Per poter giocare il titolo sul vostro Nintendo DSi, esistono due metodi. Tramit
 
 ### Tramite flashcard
 **Occorrente:**
-* Un sistema della famiglia DSi o DSi XL
+* Una console Nintendo DSi o DSi XL
 * Una flashcard (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
-**Procedura:**
-1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore).
-2. Trascina il gioco in una cartella che hai creato in precedenza. Assicurati di metterla nella cartella giusta.
-3. Rimuovi la scheda SD ed infilala nella flashcard, per poi metterla nel DSi. Bene, è arrivato il momento di giocare!
+**Installazione:**
+1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore, se necessario).
+2. Trascina la ROM .nds che hai creato prima nel percorso giusto della memoria della flashcart.
+3. Rimuovi la scheda SD ed infilala nella flashcart, per poi metterla nel DS. Bene, è arrivato il momento di giocare!
 
 </div>
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-## Giocare su (New) Nintendo 3DS o 2DS
-Giocare su Nintendo 3DS è molto semplice, basta inserire la ROM sulla flash cart o in una cartella precisa della scheda SD e il più è fatto
+## Giocare sul (New) Nintendo 3DS o 2DS
+Giocare sul (New) Nintendo 3DS o 2DS è possibile attraverso l'uso di una flashcard, o mettendo la ROM patchata in una scheda SD e utilizzando Luma3DS sul tuo sistema
 
-### Using TWiLightMenu++
-**Requirements:**
-* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Luma3DS custom firmware setup on your system and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
-* SD card with at least 2GB capacity
-* Computer with an SD card reader/USB SD card reader peripheral
+### Usare TWilightMenu++
+**Occorrente:**
+* Una console Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL o New 2DS XL
+* Il custom firmware Luma3DS installato sul tuo sistema insieme ad FBI. Se hai seguito la guida per l'estrazione della ROM dal Nintendo 3DS, probabilmente li hai già installati!
+* Scheda SD con una capacità minima di 2GB
+* Un computer con un lettore di schede SD/una periferica USB di lettura per schede SD
 
 **Procedura:**
 1. Inserisci la scheda SD del tuo 3DS (con Luma3DS installato) nel tuo computer
-2. Segui la guida per installare TwilightMenu con FBI. Quando ti sarà richiesto, trascina la ROM all'intero della cartella corretta.
-3. Continua a seguire le istruzioni fino alla fine. Infine, divertiti!
+2. Segui la guida per installare TwilightMenu utilizzando FBI. Quando ti sarà richiesto, trascina la ROM .nds che hai creato prima all'intero della cartella '/roms/'.
+3. Continua a seguire le istruzioni fino alla fine. Buon divertimento!
 
 #### Using an NDS Forwarder
 If you would instead like to be able to launch the game directly from the home screen without running TWiLightMenu++, you can use an NDS forwarder to do so.

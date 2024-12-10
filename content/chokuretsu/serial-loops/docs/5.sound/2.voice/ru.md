@@ -1,15 +1,15 @@
 ---
-title: 'Voice Lines'
+title: 'Реплики персонажей'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/voice.png'
   previous: '/chokuretsu/serial-loops/docs/sound/bgm'
   next: '/chokuretsu/serial-loops/docs/misc'
 ---
 
-Voice lines are the spoken lines both for dialogue sections and for various other bits such as the puzzle phase, the group selection screen, and the title screen.
+Реплики персонажей — это фразы как для разделов диалога, так и для различных других частей, таких как фаза головоломки, экран выбора группы и главной страниицы.
 
-## Replacing
-Voice lines can be replaced exactly like [background music](./bgm).
+## Замена
+Реплики можно заменить точно так же, как [фоновую музыка](./bgm).
 
-## Subtitles
-If using the Haroohie Translation Club's English patch v0.6 or higher, voice lines can be given subtitles.
+## Субтитры
+При использовании английского патча версии 0.6 или выше от клуба переводчиков Haroohie реплики могут иметь субтитры.

@@ -1,27 +1,27 @@
 ---
-title: 'Maps'
+title: 'Карты'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/map.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/group-selections'
   next: '/chokuretsu/serial-loops/docs/scenario/puzzles'
 ---
 
-The current version of Serial Loops only allows you to view maps, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing maps and this documentation will be updated to be more complete.
+Текущая версия Serial Loops позволяет вам только просматривать карты, но не редактировать их, поэтому документация здесь будет скудной.
+В будущем обновлении Serial Loops сможет полностью редактировать карты, и эта документация будет обновлена, став более полной.
 
-## Overview
+## Обзор
 
-In Chokuretsu, there are two different kinds of maps &ndash; investigation maps and puzzle maps. Investigation maps are used during
-the investigation phase while puzzle maps are used for puzzle phases.
+В Chokuretsu есть два разных типа карт – карты расследований и карты-головоломки,
+которые используются для соответствующих этапов.
 
-## In Serial Loops
-In Serial Loops, map items can be opened and viewed. Additionally, the starting pathing overlay and starting camera location can be optionally
-toggled on.
+## В Serial Loops
+В Serial Loops элементы карты можно открывать и просматривать. Кроме того, можно включить наложение карты 
+поверх камеры.
 
-![Map editor](/images/chokuretsu/serial-loops/map-editing.png)
+![Редактор карты](/images/chokuretsu/serial-loops/map-editing.png)
 
-### Pathing Map Overlay
-The pathing map overlay toggle allows viewing the map's internal understanding of which spaces are accessible.
+### Наложение карты
+Переключатель наложения карты позволяет увидеть какие пространства доступны.
 
 | Space Color | Meaning |
 |-------------|---------|
@@ -29,4 +29,4 @@ The pathing map overlay toggle allows viewing the map's internal understanding o
 | Cyan | **Puzzle**: Impassable but singularity can spawn<br/>**Investigation**: Unknown, seems to indicate unused "exits" |
 | Green | Passable |
 
-![Pathing overlay](/images/chokuretsu/serial-loops/map-pathing-overlay.png)
+![Наложение пути](/images/chokuretsu/serial-loops/map-pathing-overlay.png)
