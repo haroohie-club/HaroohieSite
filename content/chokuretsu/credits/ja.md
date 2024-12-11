@@ -1,21 +1,21 @@
 ## Haroohie Translation Club
 ::two-column-list
-- **Project Lead**: Jonko
-- **Translation**: Amelia Chaplin, Amanda Sato, Isillor, TimepieceMaster, & toro
-- **ROM Hacking**: Jonko & Ermelber
-- **Graphic Design**: William278 & Cerber
-- **Editing**: Alvy, William278, Chocobo,<br/>Fang, NewGBAXL, & Ziomek
-- **Additional Translation**: kyu, Kanata, & Tensei 
-- **Additional Editing**: Pierce, Cosmix, & Kon
-- **Testing**: Lambsauce, Goblinaro, master117, sarrahkuna, Kuya, & Nateymas
-- **PV Editor**: Hans Harmony
-- **Website**: William278
+- **プロジェクトリーダー**: Jonko
+- **翻訳者**: Amelia Chaplin, Amanda Sato, Isillor, TimepieceMaster, & toro
+- **ROMハッカー**: Jonko & Ermelber
+- **グラフィックデザイナー**: William278 & Cerber
+- **スクリプト編集者**: Alvy, William278, Chocobo,<br/>Fang, NewGBAXL, & Ziomek
+- **他の翻訳者**: kyu, Kanata, & Tensei 
+- **他の編集者**: Pierce, Cosmix, & Kon
+- **テスター**: Lambsauce, Goblinaro, master117, sarrahkuna, Kuya, & Nateymas
+- **PV編集者**: Hans Harmony
+- **ウェブサイト**: William278
 ::
 
-## Stay up-to-date
-If you're interested in helping us translate the Haruhi Suzumiya video games, join our Discord and get in touch!
+## 時代に呼応する
+もし涼宮ハルヒのビデオゲームを翻訳することを手伝うことに興味があったら、Discordに参加して連絡してください！
 
-Even if not, be sure to follow us on Twitter and Mastodon! Plus, join our Discord Server to stay up-to-date with our latest updates, or get help on patching your game. We also post updates and insights from the translation process to [our blog](/blog)!
+もしなくてもなら、ブルースカイかツイッターでフォローを確認してください！あと、最近のアップデートを時代に呼応することかゲームをパッチすることに手伝ってもらうためにDiscordサーバーを参加してください。それに、翻訳プロセスの情報を[ブログ](/ja/blog)でポストします！
 
 <!-- Social media, Discord and blog buttons -->
 :social-links

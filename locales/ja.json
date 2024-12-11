@@ -29,7 +29,7 @@
     "discord-server": "Discordサーバー",
     "discord": "Discord",
     "twitter": "ツイーター",
-    "bluesky": "ブルスカイ",
+    "bluesky": "ブルースカイ",
     "instagram": "インスタグラム",
     "github": "GitHub",
     "mastodon": "マストドン",
@@ -97,13 +97,13 @@
     "chokuretsu-patch-loading": "ロードしている…",
     "chokuretsu-rom-patcher-options": "オプション",
     "chokuretsu-rom-patcher-op-ed-subs-title": "OP・ED字幕",
-    "chokuretsu-rom-patcher-op-ed-subs-alt": "英語字幕やカラオケがあるOPの動画",
-    "chokuretsu-rom-patcher-op-ed-subs-desc": "OPの動画とエンドロールは字幕や日本語カラオケのタイプがあるかのを選びます。",
+    "chokuretsu-rom-patcher-op-ed-subs-alt": "字幕やカラオケがあるOPの動画",
+    "chokuretsu-rom-patcher-op-ed-subs-desc": "OPの動画とエンドロールは字幕や日本語ローマ字カラオケのタイプがあるかのを選びます。",
     "chokuretsu-rom-patcher-op-ed-subs-opt1": "字幕がある",
     "chokuretsu-rom-patcher-op-ed-subs-opt2": "字幕がない",
     "chokuretsu-rom-patcher-voice-subs-title": "ボイスの字幕",
     "chokuretsu-rom-patcher-voice-subs-alt": "字幕があるボイスで解決パート",
-    "chokuretsu-rom-patcher-voice-subs-desc": "解決パートでボイスを補足的な字幕を画面で見せるかのを選びます。",
+    "chokuretsu-rom-patcher-voice-subs-desc": "解決パートでボイスを補足的な翻訳した字幕を画面で見せるかのを選びます。",
     "chokuretsu-rom-patcher-voice-subs-opt1": "字幕がある",
     "chokuretsu-rom-patcher-voice-subs-opt2": "字幕がない",
     "chokuretsu-rom-patcher-option-recommended": "（おすすめ）",
@@ -153,5 +153,6 @@
     "chokuretsu-rom-patcher-get-started": "初めに、ROMファイルを選んでください。",
     "chokuretsu-rom-patcher-patch-rom": "ROMをパッチする",
     "chokuretsu-rom-patcher-bad-rom-warn": "<b>「悪いROMを使っている！悪い！罰金！\"\n</b><br/>選んだROMのSHA-256チェックサムは知っているヘッダやグラフィックのデータ化けがある悪いROMののが同じです。翻訳パッチを付ける前、ROMを直しました。",
-    "chokuretsu-rom-patcher-invalid-rom-error": "無効なROMです。正しいゲームのROMを選び、ダンプの指図を精密に追ったことを確認してください。"
+    "chokuretsu-rom-patcher-invalid-rom-error": "無効なROMです。正しいゲームのROMを選び、ダンプの指図を精密に追ったことを確認してください。",
+    "chokuretsu-page-title": "涼宮ハルヒの直列・英語翻訳（Nintendo DS）"
 }

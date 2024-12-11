@@ -1,6 +1,6 @@
 ---
-title: &title 'September 2023 Progress Update – Chokuretsu 100% Translated, Heiretsu Progress, & More!'
-description: &desc 'The Haroohie Translation Club share a progress update on their translation projects!'
+title: &title 'Прогресс за сентябрь 2023 г.: перевод Последовательностей завершён, прогресс в переводе Параллелей и многое другое'
+description: &desc 'Новости о прогрессе переуодов от клуба переводчиков Haroohie'
 navigation:
   description: *desc
   author: 'William'
@@ -33,10 +33,10 @@ head:
     value: 'summary_large_image'
 ---
 
-Hello all! We hope you're having a great September. Today, we'd like to share a brief progress update with everyone!
+Привет всем! Надеемся, что у вас выдался отличный сентябрь. Сегодня мы хотели бы поделиться с вами краткими новостями о ходе работы!
 
-## The Series of Haruhi Suzumiya
-We're pleased to announce that we've reached the incredible milestone of completing all the base translation work for *Suzumiya Haruhi no Chokuretsu* (DS) &mdash; that's all episodes 1-5, plus the extras mode and menus!
+## Последовательности Харухи Судзумии
+Мы рады сообщить, что прошли невероятный рубеж: завершили всю работу по базовому переводу *Последовательностей Харухи Суджумии* (DS) &mdash; а именно эпизодов с первого по пятый + режим дополнений и меню!
 
 ![A pie chart, titled "Full Game Translation Progress 10/09/2023). The pie chart is divided into four slices. 44.4% of strings are "pending edit"; 8.9% of strings are pending TLC; 14.1% of strings are pending review; and 23.5% of strings are ready to ship.](/images/blog/0008/01_translation_progress_chart.png)
 
@@ -48,8 +48,8 @@ We're excited to bring you the English translation of *Chapter 3: A Midsummer Gr
 
 *(P.S. &mdash; have you checked out the editing suite we've built for Chokuretsu, [Serial Loops](/chokuretsu/serial-loops/), yet?!)*
 
-## The Parallel of Haruhi Suzumiya
-Behind the scenes, we've also been working on *Suzumiya Haruhi no Heiretsu* (Wii). Preliminary work was already in place for replacing the font and graphics, but this month we've began the process of translating the game using our workflow.
+## Параллели Харухи Судзумии
+За кулисами мы также работали над *Параллели Харухи Судзумии* (Wii). Предварительные работы по замене шрифта и графики уже были, в этом же месяце мы начали переводить её
 
 ![Haruhi Suzumiya standing beside the Oberon cruise liner, in the prologue of Suzumiya Haruhi no Heiretsu. Kyon monologues: "Well then. I'm sure she needs no introduction, but the girl in front of me, rambling on and on and glaring at me despite the midsummer heat, is Haruhi Suzumiya."](/images/blog/0008/02_heiretsu_early_haruhi.png)
 
@@ -59,7 +59,7 @@ One point we've been working on is reverse-engineering the 3D engine and event s
 
 When we have more to share, we'll also open up the Heiretsu section of this website with more details. Stay tuned!
 
-## New Socials
-We've added a whole bunch more places you can find us and stay up-to-date! Please feel free to give us a follow wherever you make your home on the internet by clicking the links in the sidebar.
+## Новые соцсети
+Мы добавили еще множество мест, где вы можете отслеживать нас, оставаясь в курсе событий! Ссылки на них мы разместили на боковой панели.
 
-Thank you for your continued interest, and be sure to watch this space for more updates!
+Благодарим вас за проявленный интерес и обязательно следите за обновлениями в этом разделе!

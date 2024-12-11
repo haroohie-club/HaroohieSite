@@ -5,4 +5,4 @@ author:
   discord: sh1eld4561
 ---
 
-sh1eld is interested in the Warhammer 40000 universe and is translating the site into Russian.
+sh1eldさんはウォーハンマー40,000に興味があり、ウェブサイトをロシア語に翻訳しています。

@@ -1,7 +1,7 @@
 ---
-title: 'Jonko'
+title: 'ジョンコ'
 author:
-  name: 'Jonko'
+  name: 'ジョンコ'
   github: 'https://github.com/jonko0493'
   youtube: 'https://youtube.com/@jonko0493'
   twitter: 'https://twitter.com/jonko0493'
@@ -13,4 +13,4 @@ author:
   website: 'https://jonkode.su/'
 ---
 
-Jonko is the project lead and main ROM hacker for the Haroohie Translation Club.
+ジョンコはHaroohie Translation ClubのプロジェクトとROMハッキングのリーダーです。
