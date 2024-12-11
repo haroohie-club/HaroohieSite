@@ -433,7 +433,7 @@ export default {
                 }
             }).then(() => {
                 showNotice('info', 'chokuretsu-rom-patcher-patching-rom', { patch: getFileName() })
-                return applyPatch(patch, romFile, false, localeVal + '-v' + version);
+                return applyPatch(patch, romFile, false, version);
             }).then(patchFile => {
                 saveRomFile(patchFile);
             }).catch((error) => {
