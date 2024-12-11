@@ -262,12 +262,33 @@ function getRomSha(romFile) {
 
 // Gets the name of the file needed to be fetched to patch
 function getFileName() {
+    let dubConfig = document.querySelector('input[name="dub"]:checked').value;
+    if (!getOptionVisibility(dubConfig) || dubConfig == 'nodub') {
+        dubConfig = ''
+    } else {
+        dubConfig += '-'
+    }
     let opEdSubsConfig = document.querySelector('input[name="op-ed-subtitling"]:checked').value;
+    if (!getOptionVisibility(opEdSubsConfig) || dubConfig == 'dubbed') {
+        opEdSubsConfig = ''
+    } else {
+        opEdSubsConfig += '-'
+    }
     let voicedLineConfig = document.querySelector('input[name="voice-lines-subtitling"]:checked').value;
+    if (!getOptionVisibility(voicedLineConfig)) {
+        voicedLineConfig = ''
+    } else {
+        voicedLineConfig += '-'
+    }
+
     let version = getSelectedVersion();
+    let optionString = (dubConfig + opEdSubsConfig + voicedLineConfig);
+    if (optionString.length > 0) {
+        optionString = optionString.substring(0, optionString.length - 1)
+    }
 
     // Possible file names: patch-(subbedoped|cleanoped)-(voicesubs|novoicesubs).xdelta
-    return ('chokuretsu-patch-' + version + '-' + opEdSubsConfig + '-' + voicedLineConfig + '.xdelta');
+    return ('chokuretsu-patch-' + version + '-' + optionString + '.xdelta');
 }
 
 // Returns the versioned patch file with the given name from the GitHub org
