@@ -1,7 +1,7 @@
 ---
-title: 'Will'
+title: 'ウィル'
 author:
-  name: 'Will'
+  name: 'ウィル'
   twitter: 'https://twitter.com/William27528'
   bluesky: 'https://bsky.app/profile/william278.net'
   github: 'https://github.com/WiIIiam278'
@@ -9,4 +9,4 @@ author:
   website: 'https://william278.net/'
 ---
 
-Will works on graphics, the website, and as a proofreader for the Haroohie Translation Club!
+ウィルはHaroohie Translation Clubのためにグラフィックを編集し、ウェブサイトを作り、スクリプトを編集します！

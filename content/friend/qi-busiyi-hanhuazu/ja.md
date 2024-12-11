@@ -1,7 +1,7 @@
 ---
-title: 'Qi Busiyi Hanhuazu'
+title: 'チ・ブシイ・ハンフアズ'
 friend:
-  name: 'Qi Busiyi Hanhuazu'
+  name: 'チ・ブシイ・ハンフアズ'
   original: '七不思议汉化组'
   icon: 'fa6-solid:7'
   color: '#0077FF'
@@ -9,4 +9,4 @@ friend:
   github: 'https://github.com/Qi-Busiyi-Hanhuazu'
 ---
 
-Qi Busiyi Hanhuazu is a group led by [Xzonn](/author/xzonn) dedicated to translating a variety of games (including [Chokuretsu](/chokuretsu)) into Chinese.
+チ・ブシイ・ハンフアズは[Xzonn](/ja/author/xzonn)がリードしている色々なゲーム（[直列](/ja/chokuretsu)あり）を中国語に翻訳する目標があるグループです。

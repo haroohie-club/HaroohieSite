@@ -1,9 +1,9 @@
 ---
-title: 'Fuyuko Ayumu'
+title: '歩冬子'
 author:
-  name: 'Fuyuko Ayumu'
+  name: '歩冬子'
   github: 'https://github.com/FuyukoAyumu'
   website: 'https://fuyume.neocities.org/'
 ---
 
-Fuyuko is an Italian translator and aspiring programmer who likes tech from the early 2000s.
+冬子ちゃんは早２０００年代のテクノロジーが好きなイタリア語翻訳者やなりたいプログラマーです。

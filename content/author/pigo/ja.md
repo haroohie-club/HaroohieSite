@@ -1,9 +1,9 @@
 ---
-title: 'pigo'
+title: 'ぴご'
 author:
-  name: 'pigo'
+  name: 'ぴご'
   github: 'https://github.com/po-dotcom'
   website: 'https://pigo.neocities.org/'
 ---
 
-pigo is a Touhou fan who likes to program things and translate the Haruhi games to Brazilian Portuguese
+ぴごちゃんはコーディングで作りハルヒゲームをブラジルのポルトガル語に翻訳することが好きな東方Projectファンです。

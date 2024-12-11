@@ -1,6 +1,6 @@
 ---
 title: Haroohie Translation Club
-description: The homepage of the Haroohie Translation Club, translators of Haruhi Suzumiya games
+description: 涼宮ハルヒのビデオゲームを翻訳する人々のHaroohie Translation Club（ハルーヒー翻訳クラブ）のホームページです
 ---
 
-We're the Haroohie Translation Club&mdash;dedicated to translating the Haruhi Suzumiya games into various languages!
+私たちはHaroohie Translation Club（ハルーヒー翻訳クラブ）。涼宮ハルヒのゲームを色々な言語に翻訳することが目標です！
