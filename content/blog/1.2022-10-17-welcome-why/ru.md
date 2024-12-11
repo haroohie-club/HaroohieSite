@@ -1,6 +1,6 @@
 ---
-title: &title 'Welcome! and Why?'
-description: &desc 'An introduction to the Haroohie Translation Club blog and an explanation of our motivations for translating Haruhi games.'
+title: &title 'Добро пожаловать! и почему?'
+description: &desc 'Введение в блог Клуба переводчиков Haroohie и объяснение наших мотивов касательно перевода игр по вселенной Харухи.'
 navigation:
   description: *desc
   author: 'Jonko'
