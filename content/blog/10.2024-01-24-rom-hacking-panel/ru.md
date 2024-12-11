@@ -1,6 +1,6 @@
 ---
-title: &title 'Recording of Jonko''s "ROM Hacking to Translate a Video Game" Panel Released'
-description: &desc 'Watch Jonko explain some of the challenges of hacking Chokuretsu to a live audience at Retro World Expo'
+title: &title 'Выпущена запись выступления Jonko «Ромхакинг для перевода видеоигр»'
+description: &desc 'Посмотрите, как Jonko объясняет некоторые трудности взлома Chokuretsu на Retro World Expo'
 navigation:
   description: *desc
   author: 'Jonko'
@@ -32,10 +32,10 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-Hi folks! For the past year, I have been presenting a panel at several different conventions on ROM hacking Chokuretsu.
-At Retro World Expo in Hartford, Connecticut, [Andy Wolan](https://www.youtube.com/@andywolan) (formerly of the Sonic Stuff Research Group)
-made a recording of the panel that I've now posted to my YouTube channel. If you're interested in hearing a bit about how we hacked
-this game, you'll likely enjoy giving it a watch!
+Привет, ребята! В течение прошлого года я представлял панельную дискуссию на нескольких различных конференциях по ромхакингу Chokuretsu.
+На выставке Retro World Expo в Хартфорде, штат Коннектикут, [Энди Волан](https://www.youtube.com/@andywolan) (ранее работал в Sonic Stuff Research Group)
+сделал запись панели, которую сейчас разместил на своем канале YouTube. Если вам интересно услышать немного о том, как мы взломали
+эту игру, вам наверняка понравится ее посмотреть!
 
 ### Обновление
 Благодаря [Xzonn](xzonn.top), который работает с командой над переводом Chokuretsu на китайский язык, этот доклад теперь переведен на китайский язык.
