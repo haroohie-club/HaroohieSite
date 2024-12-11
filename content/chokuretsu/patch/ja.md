@@ -1,8 +1,8 @@
 ---
-title: Patch ROM - Suzumiya Haruhi No Chokuretsu Translation (Nintendo DS)
-description: Online ROM patcher for applying the translation patches of Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
+title: ROMをパッチする・涼宮ハルヒの直列の翻訳（Nintendo DS）
+description: 涼宮ハルヒの直列の翻訳パッチを付けるためのオンラインのROMパッチするプログラムです
 ---
 
-## Patch ROM
+## ROMをパッチする
 
-Please select your dumped _Suzumiya Haruhi no Chokuretsu_ `.nds` ROM file (see the [setup guide](/chokuretsu/guide) for how to get this), choose the options you'd like to use, then click "Patch ROM" to apply the patch.
+涼宮ハルヒの直列のダンプした`.nds` ROMファイルをセレクトして、お好みオプションを選んで、パッチを付けるために「ROMをパッチする」を押してください。
