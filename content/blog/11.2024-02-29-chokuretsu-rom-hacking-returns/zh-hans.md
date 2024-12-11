@@ -2,6 +2,7 @@
 title: &title "《串联》ROM 破解系列的回归！"
 description: &desc "Jonko 想在闰日发表一篇文章，但他没来得及写完"
 navigation:
+  description: *desc
   author: 'Jonko'
   translator: 'Xzonn'
   year: 2024

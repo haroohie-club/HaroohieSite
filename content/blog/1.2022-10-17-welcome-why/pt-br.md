@@ -2,6 +2,7 @@
 title: &title 'Bem-vindo(a)! e Por que?'
 description: &desc 'A introdução ao blog do Haroohie Translation Club e nossas motivações para traduzir jogos da Haruhi.'
 navigation:
+  description: *desc
   author: 'Jonko'
   translator: 'pigo'
   year: 2022

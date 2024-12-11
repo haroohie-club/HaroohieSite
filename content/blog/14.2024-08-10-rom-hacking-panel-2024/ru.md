@@ -2,6 +2,7 @@
 title: &title 'Запись Jonko «Ромхакинг для перевода видеоигр: Перезапуск», выпущенная в 2024 году'
 description: &desc 'Посмотрите, как Jonko объясняет некоторые трудности взлома Chokuretsu и Heiretsu на Sakura Con 2024.'
 navigation:
+  description: *desc
   author: 'Jonko'
   year: 2024
   month: 08

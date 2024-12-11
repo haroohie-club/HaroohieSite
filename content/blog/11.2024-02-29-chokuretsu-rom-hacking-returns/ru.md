@@ -2,6 +2,7 @@
 title: &title "Возвращение серии о ромхакинге Chokuretsu!"
 description: &desc "Jonko хотел сделать публикацию в високосный день, но не успел вовремя закончить запись в блоге"
 navigation:
+  description: *desc
   author: 'Jonko'
   year: 2024
   month: 02

@@ -2,6 +2,7 @@
 title: &title 'Aggiornamento sui Progressi del Settembre 2023 – Chokuretsu Tradotto al 100%, Progressi su Heiretsu, e Altro!'
 description: &desc 'L''Haroohie Translation Club condivide un rapporto sui progressi dei loro progetti di traduzione!'
 navigation:
+  description: *desc
   author: 'William'
   translator: 'Fuyuko Ayumu'
   year: 2023

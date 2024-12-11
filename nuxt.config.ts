@@ -16,10 +16,6 @@ export default {
         }
     },
 
-    plugins: [
-        { src: '~/plugins/vue-matomo.js', mode: 'client' },
-    ],
-
     // Pre render the sitemap, 404, and RSS feeds
     nitro: {
         prerender: {
@@ -88,9 +84,9 @@ export default {
                     templateRoots: [true, 'feedme'],
                     mapping: [
                         ['link', '_path'],
-                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
-                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
-                    ],                
+                        ['date', 'navigation', (nav: any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['description', 'navigation', (nav: any) => `<img src="/images/blog/${nav.image}"/><br/>${nav.description}`],
+                    ],
                     query: {
                         where: [
                             { _path: /^\/blog\/[^\/]+\/en$/ },
@@ -119,9 +115,9 @@ export default {
                     templateRoots: [true, 'feedme'],
                     mapping: [
                         ['link', '_path'],
-                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
-                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
-                    ],                
+                        ['date', 'navigation', (nav: any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['description', 'navigation', (nav: any) => `<img src="/images/blog/${nav.image}"/><br/>${nav.description}`],
+                    ],
                     query: {
                         where: [
                             { _path: /^\/blog\/[^\/]+\/ar$/ },
@@ -150,9 +146,9 @@ export default {
                     templateRoots: [true, 'feedme'],
                     mapping: [
                         ['link', '_path'],
-                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
-                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
-                    ],                
+                        ['date', 'navigation', (nav: any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['description', 'navigation', (nav: any) => `<img src="/images/blog/${nav.image}"/><br/>${nav.description}`],
+                    ],
                     query: {
                         where: [
                             { _path: /^\/blog\/[^\/]+\/de$/ },
@@ -181,9 +177,9 @@ export default {
                     templateRoots: [true, 'feedme'],
                     mapping: [
                         ['link', '_path'],
-                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
-                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
-                    ],                
+                        ['date', 'navigation', (nav: any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['description', 'navigation', (nav: any) => `<img src="/images/blog/${nav.image}"/><br/>${nav.description}`],
+                    ],
                     query: {
                         where: [
                             { _path: /^\/blog\/[^\/]+\/fr$/ },
@@ -212,9 +208,9 @@ export default {
                     templateRoots: [true, 'feedme'],
                     mapping: [
                         ['link', '_path'],
-                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
-                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
-                    ],                
+                        ['date', 'navigation', (nav: any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['description', 'navigation', (nav: any) => `<img src="/images/blog/${nav.image}"/><br/>${nav.description}`],
+                    ],
                     query: {
                         where: [
                             { _path: /^\/blog\/[^\/]+\/it$/ },
@@ -243,9 +239,9 @@ export default {
                     templateRoots: [true, 'feedme'],
                     mapping: [
                         ['link', '_path'],
-                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
-                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
-                    ],                
+                        ['date', 'navigation', (nav: any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['description', 'navigation', (nav: any) => `<img src="/images/blog/${nav.image}"/><br/>${nav.description}`],
+                    ],
                     query: {
                         where: [
                             { _path: /^\/blog\/[^\/]+\/pt-br$/ },
@@ -274,9 +270,9 @@ export default {
                     templateRoots: [true, 'feedme'],
                     mapping: [
                         ['link', '_path'],
-                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
-                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
-                    ],                
+                        ['date', 'navigation', (nav: any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['description', 'navigation', (nav: any) => `<img src="/images/blog/${nav.image}"/><br/>${nav.description}`],
+                    ],
                     query: {
                         where: [
                             { _path: /^\/blog\/[^\/]+\/ru$/ },
@@ -305,9 +301,9 @@ export default {
                     templateRoots: [true, 'feedme'],
                     mapping: [
                         ['link', '_path'],
-                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
-                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
-                    ],                
+                        ['date', 'navigation', (nav: any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['description', 'navigation', (nav: any) => `<img src="/images/blog/${nav.image}"/><br/>${nav.description}`],
+                    ],
                     query: {
                         where: [
                             { _path: /^\/blog\/[^\/]+\/zh-hans$/ },
@@ -336,9 +332,9 @@ export default {
                     templateRoots: [true, 'feedme'],
                     mapping: [
                         ['link', '_path'],
-                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
-                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
-                    ],                
+                        ['date', 'navigation', (nav: any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['description', 'navigation', (nav: any) => `<img src="/images/blog/${nav.image}"/><br/>${nav.description}`],
+                    ],
                     query: {
                         where: [
                             { _path: /^\/blog\/[^\/]+\/zh-hant$/ },

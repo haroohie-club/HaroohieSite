@@ -2,6 +2,7 @@
 title: &title '《串聯》ROM 破解挑戰第 1 部分：破解壓縮演算法！'
 description: &desc 'Jonko 深入研究了 Shade 的壓縮演算法是如何被逆向工程，然後用來破解《涼宮春日的串聯》的。'
 navigation:
+  description: *desc
   author: 'Jonko'
   translator: 'Xzonn'
   year: 2022

@@ -2,6 +2,7 @@
 title: &title 'The Series of Haruhi Suzumiya – Episode 3 is now available!'
 description: &desc 'Play Episode 3: A Midsummer Graduation in Version 0.6 of Suzumiya Haruhi no Chokuretsu''s English Patch, available now!'
 navigation:
+  description: *desc
   author: 'William'
   year: 2023
   month: 10

@@ -2,6 +2,7 @@
 title: &title "Sfide nel ROM Hacking di Chokuretsu Parte 2 - Archeologia dell'archivio"
 description: &desc "Jonko mette l'archivio bin Shade sotto al microscopio e spiega come ha fatto a capire come spachettarlo."
 navigation:
+  description: *desc
   author: 'Jonko'
   translator: 'Fuyuko Ayumu'
   year: 2022

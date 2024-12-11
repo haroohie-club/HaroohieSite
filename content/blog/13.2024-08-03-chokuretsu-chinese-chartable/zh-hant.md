@@ -2,6 +2,7 @@
 title: &title "來自中國的《串聯》ROM 破解挑戰：字型檔難題"
 description: &desc "Xzonn 探討了他如何修改《串聯》漢化的碼錶和行高。"
 navigation:
+  description: *desc
   author: 'Xzonn'
   year: 2024
   month: 08

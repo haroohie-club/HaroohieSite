@@ -2,6 +2,7 @@
 title: &title Suzumiua Haruhi no Chokuretsu – Эпизод 3 теперь доступен!'
 description: &desc 'Сыграйте в «Эпизод 3: Выпускной в середине лета» в версии 0.6 английского патча Suzumiya Haruhi no Chokuretsu''s, доступного уже сейчас!'
 navigation:
+  description: *desc
   author: 'William'
   year: 2023
   month: 10

@@ -2,6 +2,7 @@
 title: &title 'Видео: Как я взломал Dragon Ball Kai - ромхакинг для перевода видеоигр'
 description: &desc 'В первом видео из серии о ромхакинге, ориентированном на перевод, Джонко выпускает новое видео о взломе Dragon Ball Kai, чтобы его можно было перевести!'
 navigation:
+  description: *desc
   author: 'Jonko'
   year: 2024
   month: 11

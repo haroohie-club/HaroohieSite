@@ -2,6 +2,7 @@
 title: &title 'Suzumiya Haruhi no Chokuretsu – Эпизод 2 уже доступна!'
 description: &desc "«Версия 0.4 английского патча Suzumiya Haruhi no Chokuretsu», содержащая перевод Эпизода 2: Неоконченная соната, теперь доступна для загрузки!"
 navigation:
+  description: *desc
   author: 'William'
   year: 2023
   month: 02

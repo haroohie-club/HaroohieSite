@@ -2,6 +2,7 @@
 title: &title '《串联》ROM 破解挑战第 2 部分：归档文件考古学'
 description: &desc 'Jonko 把 Shade 的二进制归档文件放在显微镜下，解释了他是如何打开它的。'
 navigation:
+  description: *desc
   author: 'Jonko'
   translator: 'Xzonn'
   year: 2022

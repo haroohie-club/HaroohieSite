@@ -2,6 +2,7 @@
 title: &title 'Выпущена запись выступления Jonko «Ромхакинг для перевода видеоигр»'
 description: &desc 'Посмотрите, как Jonko объясняет некоторые трудности взлома Chokuretsu на Retro World Expo'
 navigation:
+  description: *desc
   author: 'Jonko'
   year: 2024
   month: 01

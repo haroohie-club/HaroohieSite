@@ -2,6 +2,7 @@
 title: &title 'Registrazione del Pannello sul "ROM Hacking per Tradurre un Videogioco" di Jonko rilasciata'
 description: &desc "Guarda Jonko mentre spiega alcune delle sfide nell'hackerare Chokuretsu ad un pubblico dal vivo alla Retro World Expo"
 navigation:
+  description: *desc
   author: 'Jonko'
   translator: 'Fuyuko Ayumu'
   year: 2024

@@ -2,6 +2,7 @@
 title: &title "Проблемы ромхакинга Chokuretsu, часть 4 – Раскопки файла событий"
 description: &desc "Jonko копается в файлах событий, чтобы выяснить, как перевести игру"
 navigation:
+  description: *desc
   author: 'Jonko'
   year: 2024
   month: 03

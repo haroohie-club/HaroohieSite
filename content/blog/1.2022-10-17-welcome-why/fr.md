@@ -2,6 +2,7 @@
 title: &title 'Welcome! and Why?'
 description: &desc 'An introduction to the Haroohie Translation Club blog and an explanation of our motivations for translating Haruhi games.'
 navigation:
+  description: *desc
   author: 'Jonko'
   year: 2022
   month: 10

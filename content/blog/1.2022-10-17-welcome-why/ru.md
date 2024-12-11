@@ -2,6 +2,7 @@
 title: &title 'Добро пожаловать! и почему?'
 description: &desc 'Введение в блог Клуба переводчиков Haroohie и объяснение наших мотивов касательно перевода игр по вселенной Харухи..'
 navigation:
+  description: *desc
   author: 'Jonko'
   year: 2022
   month: 10

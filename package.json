@@ -16,14 +16,14 @@
     "nitropack": "^2.10.4",
     "nuxt": "^3.10.3",
     "nuxt-feedme": "^1.0.0",
-    "sitemap": "^7.1.1"
+    "sitemap": "^7.1.1",
+    "vue-matomo": "^4.2.0"
   },
   "dependencies": {
     "@giscus/vue": "^3.0.0",
     "nuxt-icon": "^0.4.2",
     "url-file-size": "^1.0.5-1",
     "vue-carousel": "^0.18.0",
-    "vue-gtag-next": "^1.14.0",
-    "vue-matomo": "^4.2.0"
+    "vue-gtag-next": "^1.14.0"
   }
 }

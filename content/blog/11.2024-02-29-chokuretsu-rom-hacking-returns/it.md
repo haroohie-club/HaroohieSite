@@ -2,6 +2,7 @@
 title: &title "Il ritorno della Serie di ROM Hacking di Chokuretsu!"
 description: &desc "Jonko voleva fare un post nel giorno bisestie ma non aveva abbastanza tempo per finirlo"
 navigation:
+  description: *desc
   author: 'Jonko'
   translator: 'Fuyuko Ayumu'
   year: 2024
