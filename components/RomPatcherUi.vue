@@ -227,7 +227,7 @@ function getFileName() {
     let version = getSelectedVersion();
 
     // Possible file names: patch-(subbedoped|cleanoped)-(voicesubs|novoicesubs).xdelta
-    return ('Chokuretsu-patch-' + version + '-' + opEdSubsConfig + '-' + voicedLineConfig + '.xdelta');
+    return ('chokuretsu-patch-' + version + '-' + opEdSubsConfig + '-' + voicedLineConfig + '.xdelta');
 }
 
 // Returns the versioned patch file with the given name from the GitHub org
