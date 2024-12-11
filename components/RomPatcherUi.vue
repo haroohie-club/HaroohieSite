@@ -129,6 +129,7 @@ select {
     border: black solid 0.15em;
     border-radius: 0.3em;
     margin-left: 0.5rem;
+    text-align: center;
 }
 
 .patcher-version-options {
