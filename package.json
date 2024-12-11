@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@giscus/vue": "^3.0.0",
+    "@nuxt/scripts": "^0.9.5",
     "nuxt-icon": "^0.4.2",
     "url-file-size": "^1.0.5-1",
     "vue-carousel": "^0.18.0",

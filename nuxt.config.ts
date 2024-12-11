@@ -4,7 +4,7 @@ const urlBase = "https://haroohie.club"
 // Nuxt config file (https://nuxt.com/docs/getting-started/configuration)
 export default {
     // Modules
-    modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/google-fonts', '@nuxtjs/i18n', 'nuxt-feedme'],
+    modules: ['nuxt-icon', '@nuxt/content', '@nuxt/scripts', '@nuxtjs/google-fonts', '@nuxtjs/i18n', 'nuxt-feedme'],
 
     // Fonts
     googleFonts: {
