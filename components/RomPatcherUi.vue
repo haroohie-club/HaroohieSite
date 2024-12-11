@@ -39,7 +39,7 @@
                     <label>
                         <b>{{ $t('chokuretsu-rom-patcher-version') }}</b>
                         <select id="patcher-version-dropdown">
-                            <option v-for="patch in AVAILABLE_PATCHES(patchLocale)" :value="patch.version">v{{ patch.version }} &mdash; {{ patch.date }}
+                            <option v-for="patch in AVAILABLE_PATCHES(patchLocale)" :value="`${patchLocale}-v${patch.version}`">v{{ patch.version }} &mdash; {{ patch.date }}
                             </option>
                         </select>
                     </label>
@@ -227,7 +227,7 @@ function getFileName() {
     let version = getSelectedVersion();
 
     // Possible file names: patch-(subbedoped|cleanoped)-(voicesubs|novoicesubs).xdelta
-    return ('Chokuretsu-patch-v' + version + '-' + opEdSubsConfig + '-' + voicedLineConfig + '.xdelta');
+    return ('Chokuretsu-patch-' + version + '-' + opEdSubsConfig + '-' + voicedLineConfig + '.xdelta');
 }
 
 // Returns the versioned patch file with the given name from the GitHub org
