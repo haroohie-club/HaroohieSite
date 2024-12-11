@@ -2,25 +2,6 @@
 * [Guida rapida](/it/chokuretsu/guide)
 * [Cambiamenti](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
-### Note sulla compatibilità
-::iconified-text
----
-icon: fa6-solid:triangle-exclamation
-unwrap: true
----
-Non utilizzare **DeSmuME**, per via di problemi grafici e sonori. Siete pregati di usare melonDS!
-::
-
-<hr/>
-
-::iconified-text
----
-icon: fa6-solid:circle-info
-unwrap: true
----
-Se stai usando **TWiLightMenu** (nds-bootstrap) assicurati di avviare il gioco in modalità DSi.
-::
-
 ### More links
 ::button-link
 ---

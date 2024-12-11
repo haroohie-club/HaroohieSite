@@ -2,25 +2,6 @@
 * [指南](/zh-hans/chokuretsu/guide)
 * [更新日志](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
-### 兼容性说明
-::iconified-text
----
-icon: fa6-solid:triangle-exclamation
-unwrap: true
----
-不应使用 **DeSmuME**，因为它具有图形和音频的模拟错误。请改用 melonDS！
-::
-
-<hr/>
-
-::iconified-text
----
-icon: fa6-solid:circle-info
-unwrap: true
----
-如果你正在使用 **TWiLightMenu**（又名 nds-bootstrap），请确保以 DSi 模式运行游戏。
-::
-
 ### 更多链接
 ::button-link
 ---
