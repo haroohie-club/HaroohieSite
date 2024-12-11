@@ -24,7 +24,7 @@
 ## Rimani sempre aggiornato
 Se vuoi aiutarci a tradurre i giochi di Haruhi Suzumiya, contattaci tramite il nostro gruppo Discord!
 
-Oppure, seguici su Twitter, Mastodon e sul nostro gruppo Discord per rimanere sempre aggiornato sui progressi o per darci consigli. Condividiamo informazioni anche [sul blog del sito](/it/blog)!
+Even if not, be sure to follow us on Bluesky or Twitter! Plus, join our Discord Server to stay up-to-date with our latest updates, or get help on patching your game. We also post updates and insights from the translation process to [our blog](/blog)!
 
 <!-- Social media, Discord and blog buttons -->
 :social-links
