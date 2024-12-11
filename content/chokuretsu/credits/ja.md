@@ -15,7 +15,7 @@
 ## 時代に呼応する
 もし涼宮ハルヒのビデオゲームを翻訳することを手伝うことに興味があったら、Discordに参加して連絡してください！
 
-Even if not, be sure to follow us on Bluesky or Twitter! Plus, join our Discord Server to stay up-to-date with our latest updates, or get help on patching your game. We also post updates and insights from the translation process to [our blog](/blog)!
+もしなくてもなら、ブルースカイかツイッターでフォローを確認してください！あと、最近のアップデートを時代に呼応することかゲームをパッチすることに手伝ってもらうためにDiscordサーバーを参加してください。それに、翻訳プロセスの情報を[ブログ](/ja/blog)でポストします！
 
 <!-- Social media, Discord and blog buttons -->
 :social-links
