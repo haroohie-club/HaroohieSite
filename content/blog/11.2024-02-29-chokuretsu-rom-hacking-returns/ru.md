@@ -1,6 +1,6 @@
 ---
-title: &title "The Return of the Chokuretsu ROM Hacking Series!"
-description: &desc "Jonko wanted to make a post on a leap day but didn't have time to finish his blog post in time"
+title: &title "Возвращение серии о ромхакинге Chokuretsu!"
+description: &desc "Jonko хотел сделать публикацию в високосный день, но не успел вовремя закончить запись в блоге"
 navigation:
   description: *desc
   author: 'Jonko'
