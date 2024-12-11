@@ -80,19 +80,19 @@ Giocare sul (New) Nintendo 3DS o 2DS è possibile attraverso l'uso di una flashc
 2. Segui la guida per installare TwilightMenu utilizzando FBI. Quando ti sarà richiesto, trascina la ROM .nds che hai creato prima all'intero della cartella '/roms/'.
 3. Continua a seguire le istruzioni fino alla fine. Buon divertimento!
 
-#### Using an NDS Forwarder
-If you would instead like to be able to launch the game directly from the home screen without running TWiLightMenu++, you can use an NDS forwarder to do so.
+#### Usare un NDS Forwarder
+Se vuoi poter aprire il gioco direttamente dal menu HOME senza dover far partire TWilightMenu++, ti basta usare un NDS forwarder.
 
-**Setup**:
-1. Follow steps 1-2 of the setup for TWiLightMenu++ instructions above.
-2. Install the [ndsForwarder](https://github.com/MechanicalDragon0687/ndsForwarder/releases) application either from Universal Updater or by following the instructions to install it manually on your SD card.
-3. Boot up your 3DS and run the Homebrew Launcher application, then launch NDS Forwarder Generator from that.
-4. Navigate to the /roms/nds/ folder and select the ROM you placed there. Select "Yes" at the prompt for whether you want to install the forwarder, and then select "OK" when the installation is complete.
-5. Press Start to exit the forwarder generator and then Home Button to return to the home menu. You will be shown the newly installed forwarder on your home screen and can then launch the game directly from that.
+**Procedura:**
+1. Segui i passi 1-2 dell'installazione di TWilightMenu++ spiegata sopra.
+2. Installa l'applicazione |ndsForwarder|(https://github.com/MechanicalDragon0687/ndsForwarder/releases) da Universal Updater o seguendo le istruzioni per installarlo manualmente sulla tua scheda SD.
+3. Accendi il tuo 3DS e fai partire l'applicazione Homebrew Launcher, poi avvia NDS Forwarder Generator.
+4. Naviga fino alla cartella '/roms/nds/' e seleziona la ROM che hai messo in essa. Seleziona "Yes" alla schermata in cui ti chiede se vuoi installare il forwarder e seleziona "OK" una volta completata l'installazione.
+5. Premi Start per uscire dal generatore dei forwarder e poi premi il Pulsante HOME per tornare nel menu HOME. Ti verrà mostrato il nuovo forwarder appena installato nella tua schermata home e potrai far partire il gioco direttamente da lì.
 
 ### Tramite flashcart
 **Occorrente:**
-* Un sistema della famiglia 3DS o 2DS
+* Una console Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL o New 2DS XL
 * Una flashcart (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
 
 **Procedura:**
@@ -102,18 +102,18 @@ If you would instead like to be able to launch the game directly from the home s
 
 </div>
 
-<div class="platform-filtered platform-emulator">
+<div class="platform-filtered platform-emulatore">
 
-## Gioca su emulatore
+## Giocare sugli Emulatori
 
-**Select the type of emulator you wish to use:**
+**Seleziona il tipo di emulatore che desideri usare:**
 ::guide-platform-filter
 ---
-filters: ['PC Emulator', 'Mobile Emulator']
+filters:|'Emulatore PC', 'Emulatore Mobile'|
 filterSuffix: 'emulator'
 ---
 
-<div class="platform-filtered platform-emulatore_per_pc">
+<div class="platform-filtered platform-emulatore-pc">
 
 ### Emulare su Windows, MacOS oppure Linux
 Esistono diversi emulatori del Nintendo DS per PC, noi ti consigliamo d'usare melonDS per ottenere delle performance migliori.
@@ -124,9 +124,9 @@ Esistono diversi emulatori del Nintendo DS per PC, noi ti consigliamo d'usare me
 
 **Procedimento:**
 
-Simply [download melonDS](https://melonds.kuribo64.net/downloads.php) (**v1.0.0+**) from the project website for your platform (Windows, macOS, or Linux) and save it somewhere easily accessible to your computer. (If you are using macOS, consider placing the melonDS.app folder in your /Applications directory for ease of access.)
+Devi semplicemente [scaricare melonDS[(https://melonds.kuribo64.net/downloads.php) (**v1.0.0+**) dal sito del loro progetto per la tua piattaforma (Windows, macOS o Linux) e salvarlo in una posizione facilmente accessibile del tuo computer. (Se vuoi usarlo su macOS, è consigliato di spostare la cartella melonDS.app nel tuo percorso /Applications per facilitarvi l'accesso.)
 
-If you're running Linux, we also recommend the [official Flatpak](https://flathub.org/apps/net.kuribo64.melonDS) provided on Flathub, though that can sometimes lag behind the direct download releases.
+Se stai usando Linux, consigliamo anche di usare il [Flatpak ufficiale[(https://flathub.org/apps/net.kuribo64.melonDS) disponibile su Flathub, anche se a volte può essere indietro con le nuove versioni di rilascio.
 
 **Giocare il gioco:**
 
@@ -140,7 +140,7 @@ melonDS has a number of advanced features, such as configuring controllers and t
 
 </div>
 
-<div class="platform-filtered platform-emulatore_per_telefono">
+<div class="platform-filtered platform-emulatore_mobile">
 
 ### Emulare su dispositivi mobili
 
