@@ -73,44 +73,286 @@ export default {
 
     feedme: {
         feeds: {
-            '/rss.xml': { revisit: '6h', type: 'rss2', content: true, lang: 'en' },
-            '/ar/rss.xml': { revisit: '6h', type: 'rss2', content: true, lang: 'ar' },
-            '/de/rss.xml': { revisit: '6h', type: 'rss2', content: true, lang: 'de' },
-            '/fr/rss.xml': { revisit: '6h', type: 'rss2', content: true, lang: 'fr' },
-            '/it/rss.xml': { revisit: '6h', type: 'rss2', content: true, lang: 'it' },
-            '/pt-br/rss.xml': { revisit: '6h', type: 'rss2', content: true, lang: 'pt-br' },
-            '/ru/rss.xml': { revisit: '6h', type: 'rss2', content: true, lang: 'ru' },
-            '/zh-hans/rss.xml': { revisit: '6h', type: 'rss2', content: true, lang: 'zh-hans' },
-            '/zh-hant/rss.xml': { revisit: '6h', type: 'rss2', content: true, lang: 'zh-hant' },
+            '/rss.xml': {
+                feed: {
+                    defaults: {
+                        title: 'The Haroohie Translation Club\'s Blog',
+                        description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
+                        copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
+                        link: urlBase,
+                        id: urlBase,
+                        author: { name: 'The Haroohie Translation Club' },
+                    },
+                },
+                item: {
+                    templateRoots: [true, 'feedme'],
+                    mapping: [
+                        ['link', '_path'],
+                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
+                    ],                
+                    query: {
+                        where: [
+                            { _path: /^\/blog\/[^\/]+\/en$/ },
+                        ]
+                    },
+                },
+                tags: [
+                    [/^(?=\/)/, urlBase],
+                    [/blog\/([^\/]+)\/en/, 'blog/$1'],
+                ],
+                revisit: '6h',
+                content: true
+            },
+            '/ar/rss.xml': {
+                feed: {
+                    defaults: {
+                        title: 'The Haroohie Translation Club\'s Blog',
+                        description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
+                        copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
+                        link: urlBase,
+                        id: urlBase,
+                        author: { name: 'The Haroohie Translation Club' },
+                    },
+                },
+                item: {
+                    templateRoots: [true, 'feedme'],
+                    mapping: [
+                        ['link', '_path'],
+                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
+                    ],                
+                    query: {
+                        where: [
+                            { _path: /^\/blog\/[^\/]+\/ar$/ },
+                        ]
+                    },
+                },
+                tags: [
+                    [/^(?=\/)/, urlBase],
+                    [/blog\/([^\/]+)\/([\w-]+)$/, '$2/blog/$1'],
+                ],
+                revisit: '6h',
+                content: true
+            },
+            '/de/rss.xml': {
+                feed: {
+                    defaults: {
+                        title: 'The Haroohie Translation Club\'s Blog',
+                        description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
+                        copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
+                        link: urlBase,
+                        id: urlBase,
+                        author: { name: 'The Haroohie Translation Club' },
+                    },
+                },
+                item: {
+                    templateRoots: [true, 'feedme'],
+                    mapping: [
+                        ['link', '_path'],
+                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
+                    ],                
+                    query: {
+                        where: [
+                            { _path: /^\/blog\/[^\/]+\/de$/ },
+                        ]
+                    },
+                },
+                tags: [
+                    [/^(?=\/)/, urlBase],
+                    [/blog\/([^\/]+)\/([\w-]+)$/, '$2/blog/$1'],
+                ],
+                revisit: '6h',
+                content: true
+            },
+            '/fr/rss.xml': {
+                feed: {
+                    defaults: {
+                        title: 'The Haroohie Translation Club\'s Blog',
+                        description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
+                        copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
+                        link: urlBase,
+                        id: urlBase,
+                        author: { name: 'The Haroohie Translation Club' },
+                    },
+                },
+                item: {
+                    templateRoots: [true, 'feedme'],
+                    mapping: [
+                        ['link', '_path'],
+                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
+                    ],                
+                    query: {
+                        where: [
+                            { _path: /^\/blog\/[^\/]+\/fr$/ },
+                        ]
+                    },
+                },
+                tags: [
+                    [/^(?=\/)/, urlBase],
+                    [/blog\/([^\/]+)\/([\w-]+)$/, '$2/blog/$1'],
+                ],
+                revisit: '6h',
+                content: true
+            },
+            '/it/rss.xml': {
+                feed: {
+                    defaults: {
+                        title: 'The Haroohie Translation Club\'s Blog',
+                        description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
+                        copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
+                        link: urlBase,
+                        id: urlBase,
+                        author: { name: 'The Haroohie Translation Club' },
+                    },
+                },
+                item: {
+                    templateRoots: [true, 'feedme'],
+                    mapping: [
+                        ['link', '_path'],
+                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
+                    ],                
+                    query: {
+                        where: [
+                            { _path: /^\/blog\/[^\/]+\/it$/ },
+                        ]
+                    },
+                },
+                tags: [
+                    [/^(?=\/)/, urlBase],
+                    [/blog\/([^\/]+)\/([\w-]+)$/, '$2/blog/$1'],
+                ],
+                revisit: '6h',
+                content: true
+            },
+            '/pt-br/rss.xml': {
+                feed: {
+                    defaults: {
+                        title: 'The Haroohie Translation Club\'s Blog',
+                        description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
+                        copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
+                        link: urlBase,
+                        id: urlBase,
+                        author: { name: 'The Haroohie Translation Club' },
+                    },
+                },
+                item: {
+                    templateRoots: [true, 'feedme'],
+                    mapping: [
+                        ['link', '_path'],
+                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
+                    ],                
+                    query: {
+                        where: [
+                            { _path: /^\/blog\/[^\/]+\/pt-br$/ },
+                        ]
+                    },
+                },
+                tags: [
+                    [/^(?=\/)/, urlBase],
+                    [/blog\/([^\/]+)\/([\w-]+)$/, '$2/blog/$1'],
+                ],
+                revisit: '6h',
+                content: true
+            },
+            '/ru/rss.xml': {
+                feed: {
+                    defaults: {
+                        title: 'The Haroohie Translation Club\'s Blog',
+                        description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
+                        copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
+                        link: urlBase,
+                        id: urlBase,
+                        author: { name: 'The Haroohie Translation Club' },
+                    },
+                },
+                item: {
+                    templateRoots: [true, 'feedme'],
+                    mapping: [
+                        ['link', '_path'],
+                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
+                    ],                
+                    query: {
+                        where: [
+                            { _path: /^\/blog\/[^\/]+\/ru$/ },
+                        ]
+                    },
+                },
+                tags: [
+                    [/^(?=\/)/, urlBase],
+                    [/blog\/([^\/]+)\/([\w-]+)$/, '$2/blog/$1'],
+                ],
+                revisit: '6h',
+                content: true
+            },
+            '/zh-hans/rss.xml': {
+                feed: {
+                    defaults: {
+                        title: 'The Haroohie Translation Club\'s Blog',
+                        description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
+                        copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
+                        link: urlBase,
+                        id: urlBase,
+                        author: { name: 'The Haroohie Translation Club' },
+                    },
+                },
+                item: {
+                    templateRoots: [true, 'feedme'],
+                    mapping: [
+                        ['link', '_path'],
+                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
+                    ],                
+                    query: {
+                        where: [
+                            { _path: /^\/blog\/[^\/]+\/zh-hans$/ },
+                        ]
+                    },
+                },
+                tags: [
+                    [/^(?=\/)/, urlBase],
+                    [/blog\/([^\/]+)\/([\w-]+)$/, '$2/blog/$1'],
+                ],
+                revisit: '6h',
+                content: true
+            },
+            '/zh-hant/rss.xml': {
+                feed: {
+                    defaults: {
+                        title: 'The Haroohie Translation Club\'s Blog',
+                        description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
+                        copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
+                        link: urlBase,
+                        id: urlBase,
+                        author: { name: 'The Haroohie Translation Club' },
+                    },
+                },
+                item: {
+                    templateRoots: [true, 'feedme'],
+                    mapping: [
+                        ['link', '_path'],
+                        ['date', 'navigation', (nav : any) => new Date(nav.year, nav.month - 1, nav.day)],
+                        ['image', 'navigation.image', (img : String) => { return { url: '/images/blog/' + img, length: 1111 } }],
+                    ],                
+                    query: {
+                        where: [
+                            { _path: /^\/blog\/[^\/]+\/zh-hant$/ },
+                        ]
+                    },
+                },
+                tags: [
+                    [/^(?=\/)/, urlBase],
+                    [/blog\/([^\/]+)\/([\w-]+)$/, '$2/blog/$1'],
+                ],
+                revisit: '6h',
+                content: true
+            },
         },
-        content: {
-            feed: {
-                defaults: {
-                    title: 'The Haroohie Translation Club\'s Blog',
-                    description: 'Blog posts written by the various staff members of the Haroohie Translation Club',
-                    copyright: `CC-BY-SA 4.0 ${new Date().getFullYear()} by The Haroohie Translation Club`,
-                    link: urlBase,
-                    id: urlBase,
-                    author: { name: 'The Haroohie Translation Club' },
-                },
-            },
-            item: {
-                templateRoots: [true, 'feedme'],
-                mapping: [
-                    ['link', '_path'],
-                    ['image', 'image', (image : any) => image],
-                ],                
-                query: {
-                    where: [
-                        { _path: /^\/blog\/[^\/]+\/en$/ },
-                    ]
-                },
-            },
-            tags: [
-                [/^(?=\/)/, urlBase],
-                [/blog\/([^\/]+)\/en/, 'blog/$1']
-            ]
-        }
     },
 
     compatibilityDate: '2024-12-10'
