@@ -16,7 +16,7 @@
 /* Core style rules (font, bg color) */
 body {
   /* Font and background color */
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', 'Noto Sans SC', sans-serif;
   color: var(--main-dark-gray);
 
   /* Disable margin and padding */

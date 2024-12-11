@@ -13,6 +13,7 @@ export default {
         families: {
             'Nunito': [400, 700],
             'Notica Text': [700],
+            'Noto Sans SC': [400],
         }
     },
 
