@@ -67,5 +67,6 @@ const matomoAnalytics = useScriptMatomoAnalytics({
   // e.g. https://your-url.com/tracker.js & https://your-url.com//matomo.php both exists
   matomoUrl: 'https://matomo.haroohie.club',
   trackPageView: true,
+  siteId: 1,
 })
 </script>
