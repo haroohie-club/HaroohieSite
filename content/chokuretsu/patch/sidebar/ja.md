@@ -2,16 +2,16 @@
 * [セットアップガイド](/ja/chokuretsu/guide)
 * [チェンジログ](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
-### More links
+### 他のリンク
 ::button-link
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/chokuretsu'
+link: '/ja/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---
-Chokuretsu Home
+直列ホーム
 ::
 
 ::button-link
@@ -22,8 +22,8 @@ link: 'https://discord.gg/nesRSbpeFM'
 fullwidth: true
 type: 'bottom-piece'
 ---
-Help on Discord
+Discordで手伝い
 ::
 
-### Attribution
-Based on [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/) by [Marc Robledo](https://www.marcrobledo.com/) (MIT License)
+### アトリビューション
+[Marc Robledo](https://www.marcrobledo.com/)が使った[RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js/)に基づいています（MITライセンス）
