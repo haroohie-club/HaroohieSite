@@ -15,7 +15,7 @@
 ## Следите за новостями
 Если вы хотите помочь нам с переводом видеоигр Харухи Судзумии, присоединяйтесь к нашему Discord серверу и свяжитесь с нами!
 
-Even if not, be sure to follow us on Bluesky or Twitter! Plus, join our Discord Server to stay up-to-date with our latest updates, or get help on patching your game. We also post updates and insights from the translation process to [our blog](/blog)!
+Даже если нет, обязательно подписывайтесь на нас в Bluesky или Twitter! Кроме того, присоединяйтесь к нашему серверу Discord, чтобы быть в курсе последних обновлений или получить помощь по исправлению вашей игры. Мы также публикуем обновления и информацию о процессе перевода в [нашем блоге](/blog)!
 
 <!-- Social media, Discord and blog buttons -->
 :social-links
