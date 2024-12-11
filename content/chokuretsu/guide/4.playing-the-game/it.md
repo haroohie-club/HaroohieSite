@@ -109,7 +109,7 @@ Se vuoi poter aprire il gioco direttamente dal menu HOME senza dover far partire
 **Seleziona il tipo di emulatore che desideri usare:**
 ::guide-platform-filter
 ---
-filters:|'Emulatore PC', 'Emulatore Mobile'|
+filters:['Emulatore PC', 'Emulatore Mobile']
 filterSuffix: 'emulator'
 ---
 
