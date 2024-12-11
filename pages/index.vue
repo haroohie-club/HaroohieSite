@@ -122,8 +122,12 @@ h2 {
     font-weight: bold;
 }
 
-/* Less than 850px */
+/* Less than 940px */
 @media screen and (max-width: 940px) {
+    .box {
+        max-width: 75vw;
+    }
+
     #home-page .newsfeed {
         flex-direction: column-reverse;
     }
