@@ -1,7 +1,7 @@
 ---
-title: '歩冬子'
+title: '歩夢冬子'
 author:
-  name: '歩冬子'
+  name: '歩夢冬子'
   github: 'https://github.com/FuyukoAyumu'
   website: 'https://fuyume.neocities.org/'
 ---

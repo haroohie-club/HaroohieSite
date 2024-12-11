@@ -7,7 +7,7 @@
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/chokuretsu'
+link: '/it/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---

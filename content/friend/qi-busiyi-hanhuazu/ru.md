@@ -9,4 +9,4 @@ friend:
   github: 'https://github.com/Qi-Busiyi-Hanhuazu'
 ---
 
-Qi Busiyi Hanhuazu — это группа, возглавляемая [Xzonn](/author/xzonn), занимающаяся переводом различных игр (включая [Chokuretsu](/chokuretsu)) на китайский язык.
+Qi Busiyi Hanhuazu — это группа, возглавляемая [Xzonn](/ru/author/xzonn), занимающаяся переводом различных игр (включая [Chokuretsu](/ru/chokuretsu)) на китайский язык.
