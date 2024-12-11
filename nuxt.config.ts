@@ -27,7 +27,7 @@ export default {
     // App config
     app: {
         head: {
-            charset: 'utf-16',
+            charset: 'utf-8',
             viewport: 'width=device-width, initial-scale=1',
             title: 'Haroohie Translation Club'
         }
