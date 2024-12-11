@@ -1,6 +1,6 @@
-## Information
-* [Setup guide](/chokuretsu/guide)
-* [Changelogs](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
+## 情報
+* [セットアップガイド](/ja/chokuretsu/guide)
+* [チェンジログ](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
 ### Compatibility Notes
 ::iconified-text
