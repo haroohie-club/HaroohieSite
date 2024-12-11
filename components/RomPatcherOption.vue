@@ -5,27 +5,37 @@ const { locale } = useI18n({
 </script>
 
 <template>
-    <tr>
-        <td class="patcher-option-radio">
-            <div>
-                <label>
-                    <input type="radio" :name="optionName" :value="option1value" checked="" />
-                    {{ option1 }}
-                </label>
-            </div>
-        </td>
-        <td class="patcher-option-radio">
-            <div>
-                <label>
-                    <input type="radio" :name="optionName" :value="option2value" />
-                    {{ option2 }}
-                </label>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align: center">
-            <small>{{ $t('chokuretsu-rom-patcher-option-recommended') }}</small>
+    <tr :id="`${optionName}-opt-row`">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="patcher-option-radio">
+                            <div>
+                                <label>
+                                    <input type="radio" v-on:click="select1Function" :name="optionName" :value="option1value" checked="" v-if="defaultOption == 1" />
+                                    <input type="radio" v-on:click="select1Function" :name="optionName" :value="option1value" v-else />
+                                    {{ option1 }}
+                                </label>
+                            </div>
+                        </td>
+                        <td class="patcher-option-radio">
+                            <div>
+                                <label>
+                                    <input type="radio" v-on:click="select2Function" :name="optionName" :value="option2value" checked="" v-if="defaultOption == 2" />
+                                    <input type="radio" v-on:click="select2Function" :name="optionName" :value="option2value" v-else />
+                                    {{ option2 }}
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td :class="{ hidden: !recommendFirst }" style="text-align: center">
+                            <small>{{ $t('chokuretsu-rom-patcher-option-recommended') }}</small>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </td>
     </tr>
 </template>
@@ -75,6 +85,25 @@ export default {
         option2value: {
             type: String,
             required: true,
+        },
+        defaultOption: {
+            type: Number,
+            required: false,
+            default: 1,
+        },
+        recommendFirst: {
+            type: Boolean,
+            required: false
+        },
+        select1Function: {
+            type: Function,
+            required: false,
+            default: () => {},
+        },
+        select2Function: {
+            type: Function,
+            required: false,
+            default: () => {},
         },
     }
 }
