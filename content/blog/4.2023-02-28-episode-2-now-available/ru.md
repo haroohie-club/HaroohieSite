@@ -1,6 +1,6 @@
 ---
-title: &title 'The Series of Haruhi Suzumiya – Episode 2 is now available!'
-description: &desc 'Version 0.4 of Suzumiya Haruhi no Chokuretsu''s English Patch, which contains the translation of Episode 2: The Unfinished Sonata, is now available for download!'
+title: &title 'Suzumiya Haruhi no Chokuretsu – Эпизод 2 уже доступна!'
+description: &desc "«Версия 0.4 английского патча Suzumiya Haruhi no Chokuretsu», содержащая перевод Эпизода 2: Неоконченная соната, теперь доступна для загрузки!"
 navigation:
   description: *desc
   author: 'William'
