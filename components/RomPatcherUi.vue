@@ -238,10 +238,12 @@ function parsePatchFile(fileName, version) {
     let encodedUri;
     if (!DEBUG_MODE) {
         encodedUri = (CORS_PROXY + 'https://github.com/' + REPO_ORG + '/' + REPO + '/releases/download/' + version + '/' + fileName);
+        backupUri = ('https://haroohie.nyc3.cdn.digitaloceanspaces.com/releases/chokuretsu/' + version + '/' + fileName);
     } else {
         encodedUri = DEBUG_PATCH;
+        backupUri = null;
     }
-    return fetchFile(encodedUri);
+    return fetchFile(encodedUri, backupUri);
 }
 
 function parseRepairFile() {
@@ -249,15 +251,28 @@ function parseRepairFile() {
     return fetchFile(REPAIR_PATCH);
 }
 
-function fetchFile(encodedUri) {
+function fetchFile(encodedUri, backupUri) {
     let fileUri = decodeURI(encodedUri.trim());
     return fetch(fileUri).then(result => result.arrayBuffer()) // Gets the response and returns it as a blob
         .then(arrayBuffer => {
             return arrayBuffer;
         }).catch(function (error) {
-            console.error(error);
-            showNotice('error', 'chokuretsu-rom-patcher-fetch-error' + error.message)
-            return undefined;
+            if (backupUri != null) {
+                console.log('GitHub fetch failed, attempting to download from mirror instead.');
+                let fileUri = decodeURI(backupUri.trim());
+                return fetch(fileUri).then(result => result.arrayBuffer()) // Gets the response and returns it as a blob
+                    .then(arrayBuffer => {
+                        return arrayBuffer;
+                    }).catch(function (error) {
+                        console.error(error);
+                        showNotice('error', 'chokuretsu-rom-patcher-fetch-error' + error.message)
+                        return undefined;
+                    });
+            } else {
+                console.error(error);
+                showNotice('error', 'chokuretsu-rom-patcher-fetch-error' + error.message)
+                return undefined;
+            }
         });
 }
 
