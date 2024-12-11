@@ -109,11 +109,11 @@ Se vuoi poter aprire il gioco direttamente dal menu HOME senza dover far partire
 **Seleziona il tipo di emulatore che desideri usare:**
 ::guide-platform-filter
 ---
-filters:['Emulatore PC', 'Emulatore Mobile']
+filters: ['Emulatore PC', 'Emulatore Mobile']
 filterSuffix: 'emulator'
 ---
 
-<div class="platform-filtered platform-emulatore-pc">
+<div class="platform-filtered platform-emulatore_pc">
 
 ### Emulare su Windows, MacOS oppure Linux
 Esistono diversi emulatori del Nintendo DS per PC, noi ti consigliamo d'usare melonDS per ottenere delle performance migliori.
