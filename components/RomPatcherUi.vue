@@ -150,6 +150,13 @@ select {
 .hidden {
     visibility: collapse;
 }
+
+/* Less than 940px */
+@media screen and (max-width: 940px) {
+    .patcher-menu {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+}
 </style>
 
 <script>
