@@ -1,6 +1,6 @@
 ---
-title: &title "Проблемы ромхакинга Chokuretsu, часть 4 – Раскопки файла событий"
-description: &desc "Jonko копается в файлах событий, чтобы выяснить, как перевести игру"
+title: &title "Chokuretsu ROM Hacking Challenges Part 4 – Event File Excavation"
+description: &desc "Jonko digs into the event files to figure out how to translate the game"
 navigation:
   description: *desc
   author: 'Jonko'
