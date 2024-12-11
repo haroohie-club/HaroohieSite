@@ -2,25 +2,6 @@
 * [Setup guide](/chokuretsu/guide)
 * [Changelogs](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
-### Примечания о совместимости
-::iconified-text
----
-icon: fa6-solid:triangle-exclamation
-unwrap: true
----
-**DeSmuME** не следует использовать из-за проблем с графической и аудиоэмуляцией. Вместо этого используйте melonDS!
-::
-
-<hr/>
-
-::iconified-text
----
-icon: fa6-solid:circle-info
-unwrap: true
----
-Если вы используете **TWiLightMenu** (он же nds-bootstrap), обязательно запустите игру в режиме DSi.
-::
-
 ### Ссылки
 ::button-link
 ---
