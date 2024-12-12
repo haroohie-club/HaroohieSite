@@ -1,29 +1,29 @@
 ---
-title: 'Group Selections'
+title: 'Выбор группы'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/game-flow'
   next: '/chokuretsu/serial-loops/docs/graphics'
 ---
 
-The current version of Serial Loops only allows you to view group selections, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing group selections and this documentation will be updated to be more complete.
+Текущая версия Serial Loops позволяет вам только просматривать выбранные группы, но не редактировать их, поэтому документация здесь будет скудной.
+В будущем с обновлениями Serial Loops позволит полностью редактировать выбранные группы, а эта документация будет дополнена.
 
-## Overview
-Group selection items represent the sections of the game where you divide up the SOS Brigade to accomplish different tasks. The group selections are
-triggered in game when the `GROUP_SELECTION` [Scenario](./game-flow) command is called. It brings up the following screen:
+## Обзор
+Элементы группового выбора представляют собой разделы игры, в которых вы разделяете команду SOS для выполнения различных задач. Групповые выборы
+появляются в игре при использовании команды `GROUP_SELECTION` [Scenario](./game-flow). Появится следующий экран:
 
-![Task assignment screenshot](/images/chokuretsu/screenshots/task-assignment.png)
+![Скриншот назначения задачи](/images/chokuretsu/screenshots/task-assignment.png)
 
-On this screen, there are two to four boxes of different colors labeled A through D. These boxes represent the possible **tasks** characters can be
-sent to do by dragging their character portraits into the box.
+На этом экране есть от двух до четырех полей разного цвета, помеченных буквами от A до D. Эти поля обозначают возможные символы **задач**, на выполнение которых можно отправить персонажей, 
+перетаскивая их портреты в коробку.
 
 Every possible group of characters in a particular task defines a **route** for that task. Note that routes are defined as a subset of the tasks,
 not as a property of the overall distribution of characters between all tasks (i.e., routes only depend on the characters in a particular task
 and are independent of the character distribution in other tasks).
 
-## In Serial Loops
-The current group selection editor allows you to view the following properties:
+##В Serial Loops
+Текущий редактор выбора групп позволяет просматривать следующие свойства:
 
 * The two to four **tasks** available as part of the group selection. In the editor, you can see the title of the task as well as:
   - Whether Haruhi is present for that task (Haruhi's character portrait appears locked on the task when she is present)
