@@ -40,18 +40,19 @@
                 <div class="patcher-version-options">
                     <label>
                         <b>{{ $t('chokuretsu-rom-patcher-language') }}</b>
-                        <select id="patcher-locale-dropdown" v-model="patchLocale">
+                        <select id="patcher-locale-dropdown" v-model="patchLocale" v-on:change="resetSelectedVersion">
                             <option v-for="pl in AVAILABLE_PATCH_LOCALES" :value="pl">{{ getLanguageName(locale, pl) }}</option>
                         </select>
                     </label>
                     <label>
                         <b>{{ $t('chokuretsu-rom-patcher-version') }}</b>
-                        <select id="patcher-version-dropdown">
-                            <option v-for="patch in AVAILABLE_PATCHES(patchLocale)" :value="`${patchLocale}-v${patch.version}`">
+                        <select id="patcher-version-dropdown" v-on:change="patchIndex = getSelectedVersionIndex()">
+                            <option v-for="patch in AVAILABLE_PATCHES(patchLocale)" :value="`${patchLocale}-v${patch.version}`" >
                                 v{{ patch.version }} &mdash; {{ getLocalizedDate(locale, patch.year, patch.month, patch.day) }}
                             </option>
                         </select>
                     </label>
+                    <label id="patcher-version-description" v-bind:innerHTML="$t(AVAILABLE_PATCHES(patchLocale)[patchIndex >= AVAILABLE_PATCHES(patchLocale).length ? 0 : patchIndex]?.description ?? '')" />
                 </div>
                 <div class="patcher-submit">
                     <ButtonLink link="#" color="red" icon="fa6-solid:file-import" @click="patchRom">{{ $t('chokuretsu-rom-patcher-patch-rom') }}</ButtonLink>
@@ -196,6 +197,7 @@ function AVAILABLE_PATCHES(locale) {
                     month: 4,
                     day: 20,
                     options: ['op-ed-subtitling', 'voice-lines-subtitling'],
+                    description: 'en-v0.2-patch-desc',
                 },
                 {
                     version: '0.4',
@@ -203,6 +205,7 @@ function AVAILABLE_PATCHES(locale) {
                     month: 2,
                     day: 28,
                     options: ['op-ed-subtitling', 'voice-lines-subtitling'],
+                    description: 'en-v0.4-patch-desc',
                 },
                 {
                     version: '0.6',
@@ -210,6 +213,7 @@ function AVAILABLE_PATCHES(locale) {
                     month: 10,
                     day: 31,
                     options: ['op-ed-subtitling', 'voice-lines-subtitling'],
+                    description: 'en-v0.6-patch-desc',
                 },
             ].reverse();
         case 'zh-hans':
@@ -220,6 +224,7 @@ function AVAILABLE_PATCHES(locale) {
                     month: 2,
                     day: 2,
                     options: [],
+                    description: 'zh-v0.1-patch-desc',
                 },
             ].reverse();
         default:
@@ -410,6 +415,17 @@ function getSelectedVersion() {
     return document.getElementById('patcher-version-dropdown').value;
 }
 
+function getSelectedVersionIndex() {
+    return document.getElementById('patcher-version-dropdown')?.selectedIndex ?? 0;
+}
+
+function resetSelectedVersion() {
+    let versionDropdown = document.getElementById('patcher-version-dropdown');
+    if (versionDropdown != null) {
+        versionDropdown.selectedIndex = 0;
+    }
+}
+
 export default {
     methods: {
         patchRom: function () {
@@ -511,7 +527,7 @@ export default {
                 }
             }
             let versionDropdown = document.getElementById('patcher-version-dropdown');
-            let patch = AVAILABLE_PATCHES(locale)[versionDropdown?.selectedIndex ?? 0];
+            let patch = AVAILABLE_PATCHES(locale)[(versionDropdown?.selectedIndex ?? 0) >= AVAILABLE_PATCHES(locale).length ? 0 : (versionDropdown?.selectedIndex ?? 0)];
 
             return patch.options.indexOf(opt) >= 0;
         }
@@ -526,6 +542,7 @@ const { locale } = useI18n({
 const { availableLocales } = useI18n()
 const AVAILABLE_PATCH_LOCALES = availableLocales.filter(locale => AVAILABLE_PATCHES(locale).length > 0);
 const patchLocale = AVAILABLE_PATCH_LOCALES.indexOf(locale.value) < 0 ? ref('en') : ref(locale.value)
+const patchIndex = ref(0);
 if (AVAILABLE_PATCHES(patchLocale.value).length === 0) {
     notice.value = 'chokuretsu-rom-patcher-no-patches-available'
 }

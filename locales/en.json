@@ -155,6 +155,11 @@
     "chokuretsu-rom-patcher-patching-rom": "Patching ROM with {patch}...",
     "chokuretsu-rom-patcher-invalid-rom-select": "Invalid ROM selected. Please select a valid <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code> ROM file.",
     "chokuretsu-rom-patcher-no-patches-available": "There are no patches available yet! Please come back soon!",
+    "en-v0.2-patch-desc": "This is the initial release of the English patch of The Series of Haruhi Suzumiya. It fully translates Episode 1 of the game.",
+    "en-v0.4-patch-desc": "The second release of the English patch of The Series of Haruhi Suzumiya. This patch fully translates Episodes 1 and 2 of the game, as well as the Extras mode. Additionally, voiced subtitles have been added to group selection and puzzle phase companion selection screens, and a number of bugs and small graphical changes have been made.",
+    "en-v0.6-patch-desc": "The third release of the English patch of The Series of Haruhi Suzumiya. This patch fully translates Episodes 1 through 3 of the game, including a significant rewrite of the Episode 1 script to adjust it to match parity with Episode 3's quality standards. Additional graphics and the ED credits video have also been translated.",
+    "zh-v0.1-patch-desc": "This is the beta proof-of-concept release for the Chinese patch of The Series of Haruhi Suzumiya, created by <a href=\"/friend/qi-busiyi-hanhuazu\">Qi Busiyi Hanhuazu</a>. A portion of the first episode's script has been translated, but no graphics yet.",
+
     "chokuretsu-sl-home": "Serial Loops Home",
     "chokuretsu-sl-alt": "Serial Loops",
     "chokuretsu-sl-docs": "Docs",
