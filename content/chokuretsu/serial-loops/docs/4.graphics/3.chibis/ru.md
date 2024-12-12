@@ -1,39 +1,39 @@
 ---
-title: 'Chibis'
+title: 'Чиби'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/chibi.png'
   previous: '/chokuretsu/serial-loops/docs/graphics/sprites'
   next: '/chokuretsu/serial-loops/docs/graphics/places'
 ---
 
-The current version of Serial Loops only allows you to view chibis, not edit them, so the documentation here will be sparse.
-In a future update, Serial Loops will be capable of fully editing chibis and this documentation will be updated to be more complete.
+Текущая версия Serial Loops позволяет вам только просматривать чибишей, но не редактировать их, поэтому документация здесь будет скудной.
+В будущем обновлении Serial Loops сможет полностью редактировать чибисов, и эта документация будет обновлена.
 
-## Overview
-Chibis are small animated sprites used on the top screen during regular visual novel segments and controlled/interacted with during the
-investigation and puzzle phases.
+## Обзор
+Чибиши — это небольшие анимированные спрайты, используемые на верхнем экране во время обычных сегментов визуальной новеллы и управляемые/взаимодействующие во время
+фазы расследования и головоломки.
 
-Chibis can have a number of animations associated with them:
+С Чибишами связано несколько анимаций:
 
-| Animation Number | Description |
+| Анимационный номер | Описание |
 |------------------|-------------|
-| 00 | Default idle animation |
-| 01 | Walk cycle animation |
-| 02 | "Searching" animation (puzzle phase) |
-| 03 | "Cleaning" animation (puzzle phase) |
-| 04 | Lose animation (puzzle phase) |
-| 05 | Win animation (puzzle phase) |
-| 06 | Technique animation (puzzle phase) |
-| 07 | Technique failed animation (puzzle phase) |
-| 08 | Running animation (Haruhi has a different one for this) |
-| 10 | Alternate idle animation |
-| 97-99 | Still poses |
+| 00 | Анимация простоя |
+| 01 | Анимация ходьбы |
+| 02 | Анимация «Поиск» (фаза головоломки) |
+| 03 | Анимация «Уборка» (фаза головоломки) |
+| 04 | анимация проигрыша (фаза головоломки) |
+| 05 | Анимация победы (фаза головоломки) |
+| 06 | Техническая анимации (фаза головоломки) |
+| 07 | Неудачная техническая анимация (фаза головоломки) |
+| 08 | Анимация бега (у Харухи есть другая) |
+| 10 | Альтернативная анимация простоя |
+| 97-99 | позирование |
 
-Additionally, each animation can have variants for the direction the chibi is facing (back right, back left, front right, front left), though not all have all directions.
+Кроме того, каждая анимация может иметь варианты направления, в котором смотрит чиби (сзади вправо, сзади слева, спереди справа, спереди слева), хотя не все имеют все направления.
 
-## In Serial Loops
-In the current version of Serial Loops, chibis can be opened and their animations viewed. Animations can be selected with a drop down and the direction 
-faced can be chosen with a series of buttons. In addition to the full animation displayed up top, the individual frames can be seen in a box below.
-Finally, like character sprites, chibis can be exported as a series of frames (for editing in the future) or as an animated GIF.
+## В Serial Loops
+В текущей версии Serial Loops можно открывать чибиша и просматривать его анимацию. Анимацию можно выбрать с помощью раскрывающегося списка, а направление движения можно выбрать с помощью кнопок. 
+Помимо полной анимации, отображаемой вверху, отдельные кадры можно увидеть в поле ниже.
+Наконец, как и спрайты персонажей, чиби можно экспортировать покадрово (для редактирования в будущем) или в GIF-файле.
 
-![Chibi editor](/images/chokuretsu/serial-loops/chibi-editing.png)
+![Редактор Чиби](/images/chokuretsu/serial-loops/chibi-editing.png)

@@ -11,7 +11,7 @@ color: 'rss'
 icon: 'fa6-solid:rss'
 link: '/ru/rss.xml'
 ---
-Лента новостей
+Feed
 ::
 
 ## Последние посты
