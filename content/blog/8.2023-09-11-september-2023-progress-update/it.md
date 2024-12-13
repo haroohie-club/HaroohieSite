@@ -3,7 +3,7 @@ title: &title 'Aggiornamento sui Progressi del Settembre 2023 – Chokuretsu Tra
 description: &desc 'L''Haroohie Translation Club condivide un rapporto sui progressi dei loro progetti di traduzione!'
 navigation:
   description: *desc
-  author: 'William'
+  author: 'Will'
   translator: 'Fuyuko Ayumu'
   year: 2023
   month: 9

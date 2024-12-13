@@ -3,7 +3,7 @@ title: &title 'Serial Loops v0.1 теперь доступна!'
 description: &desc 'Сегодня мы очень рады объявить о выпуске первой версии Serial Loops, нового пакета редактирования для Последовательностей Харухи Судзумии'
 navigation:
   description: *desc
-  author: 'William'
+  author: 'Will'
   year: 2023
   month: 04
   day: 15

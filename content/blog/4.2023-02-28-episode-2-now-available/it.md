@@ -3,7 +3,7 @@ title: &title 'La Serie di Haruhi Suzumiya – Episodio 2 è ora disponibile in 
 description: &desc "La Versione 0.4 della patch inglese di Suzumiya Haruhi no Chokuretsu', che contiene la traduzione dell'Episodio 2: La Canzone Infinita, è stata rilasciata!"
 navigation:
   description: *desc
-  author: 'William'
+  author: 'Will'
   translator: 'Fuyuko Ayumu'
   year: 2023
   month: 02
