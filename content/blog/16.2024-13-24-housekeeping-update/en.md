@@ -37,7 +37,7 @@ Hey folks! It's been all of 2024 without a substantial update on the patches the
 
 ## Chokuretsu Progress
 
-We're still hard at work and progress on Episode 4 has been consistent, if slow-going. For context, here's a graph prepared by our lead translator, Millie, detailing the translation project over the course of the entire project.
+We're still hard at work and progress on Episode 4 has been consistent, if slow-going. For context, here's a graph prepared by our lead translator, Millie, detailing the translation progress over the course of the entire project.
 
 ![Graph showing the rate of translation being very fast for the first three episodes and then significantly slowing for Episode 4](/images/blog/0016/01_translation_rate.png)
 
