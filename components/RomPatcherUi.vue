@@ -5,18 +5,26 @@
             <h3 class="patcher-header">{{ $t('chokuretsu-rom-patcher-options') }}</h3>
             <table id="patcher-options">
                 <tbody>
+                    <RomPatcherOptionDescription :title="$t('chokuretsu-rom-patcher-dub-title')" img="/images/chokuretsu/opening-subtitles.png"
+                        :alt="$t('chokuretsu-rom-patcher-dub-alt')" name="dub" :class="{ hidden: !getOptionVisibility('dub') }">
+                        {{ $t('chokuretsu-rom-patcher-dub-desc') }}
+                    </RomPatcherOptionDescription>
+                    <RomPatcherOption optionName="dub" :option1="$t('chokuretsu-rom-patcher-dub-opt1')" option1value="dubbed" :option2="$t('chokuretsu-rom-patcher-dub-opt2')" option2value="nodub"
+                        defaultOption="2" :select1Function="dubOn" :select2Function="dubOff" :class="{ hidden: !getOptionVisibility('dub') }"/>
+
                     <RomPatcherOptionDescription :title="$t('chokuretsu-rom-patcher-op-ed-subs-title')" img="/images/chokuretsu/opening-subtitles.png"
-                        :alt="$t('chokuretsu-rom-patcher-op-ed-subs-alt')">
+                        :alt="$t('chokuretsu-rom-patcher-op-ed-subs-alt')" name="op-ed-subtitling" :class="{ hidden: !getOptionVisibility('op-ed-subtitling') }">
                         {{ $t('chokuretsu-rom-patcher-op-ed-subs-desc') }}
                     </RomPatcherOptionDescription>
-                    <RomPatcherOption optionName="op-ed-subtitling" :option1="$t('chokuretsu-rom-patcher-op-ed-subs-opt1')" option1value="subbedoped" :option2="$t('chokuretsu-rom-patcher-op-ed-subs-opt2')" option2value="cleanoped" />
+                    <RomPatcherOption optionName="op-ed-subtitling" :option1="$t('chokuretsu-rom-patcher-op-ed-subs-opt1')" option1value="subbedoped" :option2="$t('chokuretsu-rom-patcher-op-ed-subs-opt2')" option2value="cleanoped" recommendFirst 
+                        :class="{ hidden: !getOptionVisibility('op-ed-subtitling') }"/>
 
                     <RomPatcherOptionDescription :title="$t('chokuretsu-rom-patcher-voice-subs-title')"
-                        img="/images/chokuretsu/voiced-line-subtitles.png"
-                        :alt="$t('chokuretsu-rom-patcher-voice-subs-alt')">
+                        img="/images/chokuretsu/voiced-line-subtitles.png" :alt="$t('chokuretsu-rom-patcher-voice-subs-alt')" name="voice-lines-subtitling" :class="{ hidden: !getOptionVisibility('voice-lines-subtitling') }">
                         {{ $t('chokuretsu-rom-patcher-voice-subs-desc') }}
                     </RomPatcherOptionDescription>
-                    <RomPatcherOption optionName="voice-lines-subtitling" :option1="$t('chokuretsu-rom-patcher-voice-subs-opt1')" option1value="voicesubs" :option2="$t('chokuretsu-rom-patcher-voice-subs-opt2')" option2value="novoicesubs" />
+                    <RomPatcherOption optionName="voice-lines-subtitling" :option1="$t('chokuretsu-rom-patcher-voice-subs-opt1')" option1value="voicesubs" :option2="$t('chokuretsu-rom-patcher-voice-subs-opt2')" option2value="novoicesubs" recommendFirst
+                        :class="{ hidden: !getOptionVisibility('voice-lines-subtitling') }" />
                 </tbody>
             </table>
         </div>
@@ -32,17 +40,19 @@
                 <div class="patcher-version-options">
                     <label>
                         <b>{{ $t('chokuretsu-rom-patcher-language') }}</b>
-                        <select id="patcher-locale-dropdown" v-model="patchLocale">
+                        <select id="patcher-locale-dropdown" v-model="patchLocale" v-on:change="resetSelectedVersion">
                             <option v-for="pl in AVAILABLE_PATCH_LOCALES" :value="pl">{{ getLanguageName(locale, pl) }}</option>
                         </select>
                     </label>
                     <label>
                         <b>{{ $t('chokuretsu-rom-patcher-version') }}</b>
-                        <select id="patcher-version-dropdown">
-                            <option v-for="patch in AVAILABLE_PATCHES(patchLocale)" :value="`${patchLocale}-v${patch.version}`">v{{ patch.version }} &mdash; {{ patch.date }}
+                        <select id="patcher-version-dropdown" v-on:change="patchIndex = getSelectedVersionIndex()">
+                            <option v-for="patch in AVAILABLE_PATCHES(patchLocale)" :value="`${patchLocale}-v${patch.version}`" >
+                                v{{ patch.version }} &mdash; {{ getLocalizedDate(locale, patch.year, patch.month, patch.day) }}
                             </option>
                         </select>
                     </label>
+                    <label id="patcher-version-description" v-bind:innerHTML="$t(AVAILABLE_PATCHES(patchLocale)[patchIndex >= AVAILABLE_PATCHES(patchLocale).length ? 0 : patchIndex]?.description ?? '')" />
                 </div>
                 <div class="patcher-submit">
                     <ButtonLink link="#" color="red" icon="fa6-solid:file-import" @click="patchRom">{{ $t('chokuretsu-rom-patcher-patch-rom') }}</ButtonLink>
@@ -120,6 +130,7 @@ select {
     border: black solid 0.15em;
     border-radius: 0.3em;
     margin-left: 0.5rem;
+    text-align: center;
 }
 
 .patcher-version-options {
@@ -135,6 +146,17 @@ select {
 
 .patcher-submit a:hover {
     cursor: pointer;
+}
+
+.hidden {
+    visibility: collapse;
+}
+
+/* Less than 940px */
+@media screen and (max-width: 940px) {
+    .patcher-menu {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
 }
 </style>
 
@@ -171,23 +193,54 @@ function AVAILABLE_PATCHES(locale) {
             return [
                 {
                     version: '0.2',
-                    date: 'April 20, 2022',
-                    lang: 'en'
+                    year: 2022,
+                    month: 4,
+                    day: 20,
+                    options: ['op-ed-subtitling', 'voice-lines-subtitling'],
+                    description: 'en-v0.2-patch-desc',
                 },
                 {
                     version: '0.4',
-                    date: 'February 28, 2023',
-                    lang: 'en'
+                    year: 2023,
+                    month: 2,
+                    day: 28,
+                    options: ['op-ed-subtitling', 'voice-lines-subtitling'],
+                    description: 'en-v0.4-patch-desc',
                 },
                 {
                     version: '0.6',
-                    date: 'October 31, 2023',
-                    lang: 'en'
-                }
+                    year: 2023,
+                    month: 10,
+                    day: 31,
+                    options: ['op-ed-subtitling', 'voice-lines-subtitling'],
+                    description: 'en-v0.6-patch-desc',
+                },
+            ].reverse();
+        case 'zh-hans':
+            return [
+                {
+                    version: '0.1',
+                    year: 2024,
+                    month: 2,
+                    day: 2,
+                    options: [],
+                    description: 'zh-v0.1-patch-desc',
+                },
             ].reverse();
         default:
             return [];
     }
+}
+
+// Option functions (for reducing dub options)
+function dubOn() {
+    document.getElementById('op-ed-subtitling-desc-row').classList.add('hidden');
+    document.getElementById('op-ed-subtitling-opt-row').classList.add('hidden');
+}
+
+function dubOff(){
+    document.getElementById('op-ed-subtitling-desc-row').classList.remove('hidden');
+    document.getElementById('op-ed-subtitling-opt-row').classList.remove('hidden');
 }
 
 // RomPatcher data variables
@@ -222,12 +275,33 @@ function getRomSha(romFile) {
 
 // Gets the name of the file needed to be fetched to patch
 function getFileName() {
+    let dubConfig = document.querySelector('input[name="dub"]:checked').value;
+    if (!getOptionVisibility(dubConfig) || dubConfig == 'nodub') {
+        dubConfig = ''
+    } else {
+        dubConfig += '-'
+    }
     let opEdSubsConfig = document.querySelector('input[name="op-ed-subtitling"]:checked').value;
+    if (!getOptionVisibility(opEdSubsConfig) || dubConfig == 'dubbed') {
+        opEdSubsConfig = ''
+    } else {
+        opEdSubsConfig += '-'
+    }
     let voicedLineConfig = document.querySelector('input[name="voice-lines-subtitling"]:checked').value;
+    if (!getOptionVisibility(voicedLineConfig)) {
+        voicedLineConfig = ''
+    } else {
+        voicedLineConfig += '-'
+    }
+
     let version = getSelectedVersion();
+    let optionString = (dubConfig + opEdSubsConfig + voicedLineConfig);
+    if (optionString.length > 0) {
+        optionString = optionString.substring(0, optionString.length - 1)
+    }
 
     // Possible file names: patch-(subbedoped|cleanoped)-(voicesubs|novoicesubs).xdelta
-    return ('chokuretsu-patch-' + version + '-' + opEdSubsConfig + '-' + voicedLineConfig + '.xdelta');
+    return ('chokuretsu-patch-' + version + '-' + optionString + '.xdelta');
 }
 
 // Returns the versioned patch file with the given name from the GitHub org
@@ -341,6 +415,17 @@ function getSelectedVersion() {
     return document.getElementById('patcher-version-dropdown').value;
 }
 
+function getSelectedVersionIndex() {
+    return document.getElementById('patcher-version-dropdown')?.selectedIndex ?? 0;
+}
+
+function resetSelectedVersion() {
+    let versionDropdown = document.getElementById('patcher-version-dropdown');
+    if (versionDropdown != null) {
+        versionDropdown.selectedIndex = 0;
+    }
+}
+
 export default {
     methods: {
         patchRom: function () {
@@ -432,18 +517,32 @@ export default {
                 showNotice('error', 'chokuretsu-rom-patcher-invalid-rom-select')
                 return;
             }
+        },
+        getOptionVisibility: function (opt) {
+            let locale = document.getElementById('patcher-locale-dropdown')?.value;
+            if (locale == null) {
+                locale = this.$i18n.locale;
+                if (AVAILABLE_PATCHES(locale).length == 0) {
+                    locale = 'en';
+                }
+            }
+            let versionDropdown = document.getElementById('patcher-version-dropdown');
+            let patch = AVAILABLE_PATCHES(locale)[(versionDropdown?.selectedIndex ?? 0) >= AVAILABLE_PATCHES(locale).length ? 0 : (versionDropdown?.selectedIndex ?? 0)];
+
+            return patch.options.indexOf(opt) >= 0;
         }
     }
 }
 </script>
 
 <script setup>
-const patchLocale = ref('en')
 const { locale } = useI18n({
   useScope: 'local'
 })
 const { availableLocales } = useI18n()
 const AVAILABLE_PATCH_LOCALES = availableLocales.filter(locale => AVAILABLE_PATCHES(locale).length > 0);
+const patchLocale = AVAILABLE_PATCH_LOCALES.indexOf(locale.value) < 0 ? ref('en') : ref(locale.value)
+const patchIndex = ref(0);
 if (AVAILABLE_PATCHES(patchLocale.value).length === 0) {
     notice.value = 'chokuretsu-rom-patcher-no-patches-available'
 }
@@ -462,5 +561,23 @@ function getLanguageName(loc, languageCode) {
     const nameGenerator = new Intl.DisplayNames(loc, { type: 'language' });
     const displayName = nameGenerator.of(languageCode);
     return displayName[0].toUpperCase() + displayName.substring(1);
+}
+
+function getLocalizedDate(loc, year, month, day) {
+    let regionLoc = ''
+    switch (loc) {
+        case 'en':
+            regionLoc = 'en-US';
+            break;
+        default:
+            regionLoc = loc;
+            break;
+    }
+    let options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    }
+    return new Intl.DateTimeFormat(regionLoc, options).format(new Date(year, month - 1, day));
 }
 </script>
