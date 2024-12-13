@@ -10,7 +10,7 @@
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/chokuretsu'
+link: '/ru/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---

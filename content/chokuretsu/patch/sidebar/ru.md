@@ -1,5 +1,5 @@
 ## Информацияn
-* [Setup guide](/chokuretsu/guide)
+* [Setup guide](/ru/chokuretsu/guide)
 * [Changelogs](https://github.com/haroohie-club/ChokuretsuTranslationRelease/releases)
 
 ### Ссылки
@@ -7,7 +7,7 @@
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/chokuretsu'
+link: '/ru/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---

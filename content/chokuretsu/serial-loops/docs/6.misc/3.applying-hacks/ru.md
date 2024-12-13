@@ -1,26 +1,26 @@
 ---
-title: 'Applying Hacks'
+title: 'Применение взлома'
 navigation:
   faicon: 'fa6-solid:file'
   previous: '/chokuretsu/serial-loops/docs/misc/topics'
   next: '/chokuretsu/serial-loops/docs/misc/ui-text'
 ---
 
-Serial Loops has a built-in manager for applying useful hacks to your project.
+Serial Loops имеет встроенный менеджер для применения хаков к вашему проекту.
 
-## Apply Hacks menu
-The Apply Hacks menu can be accessed through the "Apply Hacks..." option in the Tools menu.
+## Меню применения взломов
+Доступ к меню «Применить взлом» можно вызвать через опцию «Применить взлом...» в меню «Инструменты».
 
-![Apply Hacks menu in the tools menu](/images/chokuretsu/serial-loops/tools-menu.png)
+![Меню «Применить взлом» в меню инструментов](/images/chokuretsu/serial-loops/tools-menu.png)
 
-The menu presents a list of hacks (see below) and whether they have been applied to the project. Select the hacks you wish to apply, then press SAVE to apply the hack to the project.
+В меню представлен список хаков (см. ниже) и были ли они применены к проекту. Выберите взлом, который вы хотите применить, затем нажмите «СОХРАНИТЬ», чтобы применить его к проекту.
 
-![Apply Hacks menu](/images/chokuretsu/serial-loops/apply-hacks.png)
+![Меню прмиенения взломов](/images/chokuretsu/serial-loops/apply-hacks.png)
 
-### Hacks with Parameters
-Some hacks have parameters you can specify to change the precise behavior of the hack. These parameters persist for the duration the Apply Hacks menu is open, but Serial Loops will
-forget about them as soon as the hacks have been applied. Thus, if you reopen the menu, you will not see your parameter selected. Don't worry though &ndash; the hack with the parameter
-you selected has still been applied!
+### Настройки взломов
+Некоторые хаки имеют параметры, которые вы можете указать, чтобы точно изменить поведение взлома. Эти параметры сохраняются, пока открыто меню «Применить взлом», но Serial Loops забудет о них, как только хаки будут применены.
+Таким образом, если вы снова откроете меню, вы не увидите выбранный вами параметр. Но не волнуйтесь – &ndash; взлом настроен
+Выбранный вами вариант все еще применён!
 
-### Importing Custom Hacks
-Serial Loops supports importing ASM Hacks serialized in the `.slhack` format. To do this through the Apply Hacks menu, choose "Import," and select the `.slhack` file you wish to use.
+### Импорт кастомных хаков
+Serial Loops поддерживает импорт хаков ASM, сериализованных в формате .slhack. Для этого в меню «Применить взлом» выберите «Импорт» и выберите файл `.slhack`, который вы хотите использовать.

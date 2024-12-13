@@ -1,20 +1,20 @@
-## Setup guide
-This guide will walk you through getting the patch up-and-running on your system or emulator of choice!
+## セットアップガイド
+このガイドはゲーム機かエミュレータでパッチ付けたゲームをやり方を説明します！
 
-### Guide steps
+### ガイドの段
 ::chokuretsu-guide-list
 ::
 
-### Guide links
+### ガイドのリンク
 ::button-link
 ---
 color: 'red'
 icon: 'fa6-solid:rotate-left'
-link: '/chokuretsu'
+link: '/ja/chokuretsu'
 fullwidth: true
 type: 'top-piece'
 ---
-Chokuretsu Home
+直列ホーム
 ::
 
 ::button-link

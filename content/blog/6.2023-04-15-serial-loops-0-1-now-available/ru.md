@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops v0.1 is now available!'
-description: &desc 'Today we are very exicted to announce the release of the first version of Serial Loops, a new editing suite for Suzumiya Haruhi no Chokuretsu!'
+title: &title 'Serial Loops v0.1 теперь доступна!'
+description: &desc 'Сегодня мы очень рады объявить о выпуске первой версии Serial Loops, нового пакета редактирования для Последовательностей Харухи Судзумии'
 navigation:
   description: *desc
   author: 'William'
@@ -33,25 +33,25 @@ head:
     value: 'summary_large_image'
 ---
 
-![A screenshot of Serial Loops' script editor](/images/blog/0006/01_serial_loops_script_editing.png)
+![Скриншот редактора скриптов Serial Loops](/images/blog/0006/01_serial_loops_script_editing.png)
 
-Hello, everyone! 
+Привет всем! 
 
-Today we're very excited to announce that we're publicly releasing the first version of [Serial Loops](/chokuretsu/serial-loops) for Windows, macOS and Linux. Serial Loops is a new editor for *Suzumiya Haruhi no Chokuretsu* (The Series of Haruhi Suzumiya), the game we're currently working on [translating to English](/chokuretsu).
+Сегодня мы очень рады сообщить, что публично выпускаем первую версию [Serial Loops](/chokuretsu/serial-loops) для Windows, macOS и Linux. Serial Loops — это новый редактор для *Последовательностей Харухи Судзумии*, игры, над которой мы сейчас работаем [переводя на английский](/ru/chokuretsu).
 
-## The road to Serial Loops
-If you've been following our excellent [*Chokuretsu ROM Hacking Challenges*](/blog/2022-10-19-chokuretsu-compression) blog post series, you'll know all about the work Jonko's been doing to reverse engineer the game to enable our English translation patch. First, a bit of background!
+## Путь к Serial Loops
+Если вы следили за нашей замечательной серией постов в блоге [*Проблемы ромхакинга Последовательностей*](/blog/2022-10-19-chokuretsu-compression), вы будете знать всё о работе, которую Jonko проделал для обратного-инжиниринга игры. чтобы включить наш патч для перевода на английский язык. Сначала немного предыстории!
 
-### Working in Parallel
-As we were wrapping up the work for *Episode 1: The Man-Eating Classroom*, some preliminary work began on starting to understand the inner workings of Chokuretsu's sister game for the Wii, *Suzumiya Haruhi no Heiretsu* (The Parallel of Haruhi Suzumiya). At the time, we knew relatively little about Chokuretsu, and actually had more of an understanding of Heiretsu's internals. Our early work on Heiretsu included reverse-engineering its 3D-environments and scripting engine, the fruits of which yielded an initial prototype of a blender import script for the game's proprietary 3D model format.
+### Работа над Параллелями
+Когда мы завершали работу над *Эпизод 1: Класс-людоед*, началась некоторая предварительная работа по пониманию внутренней работы родственной игры Порследовательностей для Wii, *Параллели Харухи Судзумии*. В то время мы относительно мало знали о Последовательностях и, на самом деле, лучше разбирались во внутреннем устройстве Параллелей. Наша ранняя работа над ними включала в себя обратный-инжиниринг 3D-среды и скриптового движка, результатом которого стал первоначальный прототип скрипта импорта в блендер для собственного формата 3D-модели игры.
 
-![A somewhat janky version of Haruhi Suzumiya imported into the blender window](/images/blog/0006/02_haruhi_blender.png)
+![Несколько неуклюжая версия Харухи Судзумии, импортированная в окно блендера.](/images/blog/0006/02_haruhi_blender.png)
 
-As you can see above, this took a while to get right! As work on Heiretsu progressed, we came to a realisation&mdash;we should *totally* make an editor for this game to let people do their own stuff with it!
+Как вы можете видеть выше, это заняло некоторое время, чтобы всё исправить! По мере продвижения работы над Параллелями мы пришли к выводу, что нам необходимо *полностью* создать редактор для этой игры, чтобы люди могли делать с ним что угодно!
 
-This idea set in motion the start of a project to build *Parallel Loops* (so named after the time-looping in the game). The first version of the Parallel Loops editor tool enables loading Heiretsu's maps into the Unity game engine editor, and modifying character positions to adjust how environments are laid out in game. 
+Эта идея положила начало проекту по созданию *Параллельных циклов* (названных так в честь зацикливания времени в игре). Первая версия инструмента редактора Parallel Loops позволяет загружать карты Параллелей в редактор игрового движка Unity и изменять положения персонажей, чтобы настроить расположение окружения в игре. 
 
-![A picture of Suzumiya Haruhi no Heiretsu's prologue environment, from above, showing the Oberon docked in the harbour](/images/blog/0006/03_parallel_loops_unity.png)
+![Фотография пролога Последовательностей Харухи Судзумии сверху, на которой виден Оберон, пришвартованный в гавани.](/images/blog/0006/03_parallel_loops_unity.png)
 
 Ultimately, our work on Heiretsu as a team had to be put on hold as we decided to focus more time on wrapping up Chokuretsu's first episode. As work on the translation of *Episode 2: The Unfinished Sonata* wrapped up, however, the thought of making an editor re-emerged. By this time, Jonko's efforts had revealed a lot of the unanswered mysteries around Chokuretsu (which we look forward to detailing in future blog posts!).
 
@@ -85,9 +85,9 @@ For more details on what's possible, [check the docs!](/chokuretsu/serial-loops/
 ### Where to from here?
 We've got a lot planned for Serial Loops and we intend to share more about our process of working on it on our blog and in updates, so be sure to [join our Discord](https://discord.gg/nesRSbpeFM) for updates! We plan on releasing nightly builds of Serial Loops with the latest changes as "pre-releases", as well as more distantly-spaced "stable" releases. The in-app update checker will inform you when an update is available for either release channel you wish to use, which you can configure through the preferences window.
 
-![A screenshot of Serial Loops' update checker](/images/blog/0006/06_serial_loops_update_checker.png)
+![Скриншот средства проверки обновлений Serial Loops](/images/blog/0006/06_serial_loops_update_checker.png)
 
 ## How to use it
 Like what you see and want to give Serial Loops a try for yourself? We've made [a new section](/chokuretsu/serial-loops) of our website, including full documentation on how to use it. Serial Loops is available for Windows, macOS and Linux, requiring [devkitARM](https://devkitpro.org/) and a Chokuretsu ROM.
 
-We hope you enjoy editing the game using Serial Loops, and look forward to seeing what you make with it!
+Мы надеемся, что вам понравится редактировать игру с помощью Serial Loops, и с нетерпением ждём возможности увидеть того, что вы с ней сделаете!

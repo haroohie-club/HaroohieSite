@@ -38,26 +38,26 @@ head:
 ## Последовательности Харухи Судзумии
 Мы рады сообщить, что прошли невероятный рубеж: завершили всю работу по базовому переводу *Последовательностей Харухи Суджумии* (DS) &mdash; а именно эпизодов с первого по пятый + режим дополнений и меню!
 
-![A pie chart, titled "Full Game Translation Progress 10/09/2023). The pie chart is divided into four slices. 44.4% of strings are "pending edit"; 8.9% of strings are pending TLC; 14.1% of strings are pending review; and 23.5% of strings are ready to ship.](/images/blog/0008/01_translation_progress_chart.png)
+![Круговая диаграмма под названием «Прогресс полного перевода игры, 09.10.2023»). Круговая диаграмма разделена на четыре части. 44,4% строк «ожидают редактирования»; 8,9% ожидают TLC; 14,1% строк находятся в стадии редактирования. ожидают рассмотрения и 23,5% строк готовы к отправке;](/images/blog/0008/01_translation_progress_chart.png)
 
-Of course, translating is just the first step in our quality assurance process! We still have a lot of files left to proofread (where editors read through, correct typos and unnatural-sounding dialogue), translation check (where a second translator has a read through and adjusts the script if needed), and review (which is done by project lead, [Jonko](/author/jonko)). Not to mention creating the remaining graphics and thorough playtesting! We've also been going through and updating some of the earlier files to bring their translation quality in-line with our current standards.
+Конечно, перевод — это лишь первый шаг в нашем процессе обеспечения качества! Нам еще предстоит проверить множество файлов (когда редакторы их читают, исправлять опечатки и неестественно звучащие диалоги), проверять перевод (когда второй переводчик читает и при необходимости корректирует сценарий) и рецензию (что и делается). автор проекта, [Jonko](/author/jonko)). Не говоря уже о создании остальной графики и тщательном игровом тестировании! Мы также переработали и обновили некоторые из более ранних файлов, чтобы привести качество их перевода в соответствие с нашими текущими стандартами.
 
-![The in-game episode header for Episode 3: A Midsummer Graduation, from Suzumiya Haruhi no Chokuretsu](/images/blog/0008/03_midsummer_graduation_ceremony_header.png)
+![Заголовок внутриигрового эпизода Эпизод 3: Выпускной в летнюю сказку из Последовательностей Харухи Судзумии.](/images/blog/0008/03_midsummer_graduation_ceremony_header.png)
 
-We're excited to bring you the English translation of *Chapter 3: A Midsummer Graduation* very soon! Stay tuned here and on our socials for the update post!
+Мы очень рады представить вам английский перевод *Главы 3: Выпускной в середине лета* очень скоро! Следите за новостями здесь и в наших социальных сетях!
 
-*(P.S. &mdash; have you checked out the editing suite we've built for Chokuretsu, [Serial Loops](/chokuretsu/serial-loops/), yet?!)*
+*(P.S. &mdash; Вы уже ознакомились с набором инструментов для редактирования, который мы создали для Последовательностей, [Serial Loops](/chokuretsu/serial-loops/), так ведь?!)*
 
 ## Параллели Харухи Судзумии
-За кулисами мы также работали над *Параллели Харухи Судзумии* (Wii). Предварительные работы по замене шрифта и графики уже были, в этом же месяце мы начали переводить её
+За кулисами мы также работали над *Параллели Харухи Судзумии* (Wii). Предварительные работы по замене шрифта и графики уже были, в этом месяце мы начали переводить её.
 
-![Haruhi Suzumiya standing beside the Oberon cruise liner, in the prologue of Suzumiya Haruhi no Heiretsu. Kyon monologues: "Well then. I'm sure she needs no introduction, but the girl in front of me, rambling on and on and glaring at me despite the midsummer heat, is Haruhi Suzumiya."](/images/blog/0008/02_heiretsu_early_haruhi.png)
+![Харухи Судзумия стоит рядом с круизным лайнером Оберон в прологе «Параллели Сузумия Харухи». Монолог Кёна: «Ну что ж. Я уверен, что она не нуждается в представлении, но девушка передо мной, которая бессвязно болтает и пристально смотрит на меня, несмотря на летнюю жару, — это Харухи Судзумия."](/images/blog/0008/02_heiretsu_early_haruhi.png)
 
-One point we've been working on is reverse-engineering the 3D engine and event system to allow us to gather a deeper understanding of how these are structured. This will also enable us to replace certain important graphics, such as the animated 3D game logo.
+Одна из задач, над которой мы работаем, — это обратный-инжиниринг 3D-движка и системы событий, чтобы мы могли глубже понять, как они структурированы. Это также позволит нам заменить некоторые важные графические объекты, например анимированный 3D-логотип игры.
 
-![The 3D-modeled work-in-progress English logo for The Parallel of Haruhi Suzumiya.](/images/blog/0008/04_heretsu_logo.gif)
+![Незавершенный английский логотип «Параллели Харухи Судзумии», созданный с помощью 3D-модели.](/images/blog/0008/04_heretsu_logo.gif)
 
-When we have more to share, we'll also open up the Heiretsu section of this website with more details. Stay tuned!
+Когда нам будет чем поделиться, мы также откроем раздел Параллелей на этом веб-сайте с более подробной информацией. Следите за обновлениями!
 
 ## Новые соцсети
 Мы добавили еще множество мест, где вы можете отслеживать нас, оставаясь в курсе событий! Ссылки на них мы разместили на боковой панели.

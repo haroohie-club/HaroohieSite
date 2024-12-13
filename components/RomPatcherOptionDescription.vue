@@ -1,5 +1,5 @@
 <template>
-    <tr>
+    <tr :id="`${name}-desc-row`">
         <td colspan="2">
             <img class="patcher-option-image" :src="img" :alt="alt"/>
             <b>{{ title }}</b>
@@ -15,13 +15,16 @@
     max-height: 96px;
     padding-left: 0.2em;
 }
-
 </style>
 
 <script>
 export default {
     name: 'RomPatcherOptionDescription',
     props: {
+        name : {
+            type: String,
+            required: true,
+        },
         title: {
             type: String,
             required: true,

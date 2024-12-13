@@ -1,29 +1,29 @@
 ---
-title: Backgrounds
+title: Фоны
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/background.png'
   previous: '/chokuretsu/serial-loops/docs/graphics'
   next: '/chokuretsu/serial-loops/docs/graphics/sprites'
 ---
 
-Backgrounds are used to display visual novel backgrounds as well as CGs (**c**omputer **g**raphics; a common term for full screen art in visual novels
-that isn't overlaid with sprites). They can be viewed and edited through the background editor.
+Фоны используются для их отображения в визуальных новеллах, а также в CG (**C**компьютерная **g**графика; общий термин для полноэкранного изображения в визуальных новеллах).
+это не перекрывается спрайтами). Их можно просматривать и редактировать через редактор фонов.
 
-## Replacing
-Backgrounds can easily be replaced in the background editor. Simply press the "Replace" button and select a new image file from disk. This will open the built-in crop & scale  tool to let you size your image to fit the standard set of background sizes (see below).
+## Замена
+Фоны можно легко заменить в редакторе фонов. Просто нажмите кнопку «Заменить» и выберите новый файл изображения с диска. Откроется встроенный инструмент обрезки и масштабирования, позволяющий изменить размер изображения в соответствии со стандартом фона (см. ниже).
 
-### Crop and Scale
-You can use the built-in Crop and Scale tool on imported images to scale it and select the area of the image you wish to replace the original graphic with.
+### Обрезка и масштабирование
+Вы можете использовать встроенный инструмент «Обрезать и масштабировать», чтобы масштабировать импортированные изображения и выбрать область изображения, которой вы хотите заменить исходное.
 
-![Crop and Scale tool](/images/chokuretsu/serial-loops/crop-and-scale.png)
+![Инструмент «Обрезка и масштабирование»](/images/chokuretsu/serial-loops/crop-and-scale.png)
 
-Once an image file has been selected after choosing "Replace,"" a box overlay cut-out will be layered over the imported bitmap. Using the mouse, you can click and drag this box to change the area of your crop. If you hold the `CONTROL` key, dragging with the mouse will instead move the image. You can also use both the numeric stepper boxes on the right hand side of the menu or the arrow keys to fine-tune the image's position. To reset the position of the image, press the "Apply" button in the "Position Image" section.
+После выбора файла изображения чтобы «Заменить» над импортированным растровым изображением будет наложен вырез рамки. Мышкой вы можете перетащить этот блок, чтобы изменить область обрезки. Если вы удерживаете клавишу «CONTROL», вместо этого перетаскивание мышью приведет к перемещению изображения. Вы также можете использовать как числовые поля шага в правой части меню, так и стрелочки для точной настройки положения изображения. Чтобы сбросить положение. изображение, нажмите кнопку «Применить» в разделе «Позиционирование изображения».
 
-Finally, to scale the image, hold `CONTROL` and use your mouse's scroll wheel, or use the numeric steppers also positioned on the right hand side of the menu. To automatically scale an image to fit within the box, press the "Apply" button in the "Scale Image" section. By default, scaling an image will preserve the imported image's aspect ratio; to unlock this association, uncheck the "Preserve Aspect Ratio" check box.
+Наконец, чтобы масштабировать изображение, удерживайте 'CONTROL' и используйте колёсико или воспользуйтесь цифровыми регуляторами, также расположенным в правой части меню. Чтобы автоматически масштабировать изображение по размеру рамки, нажмите кнопку «Применить» в разделе «Масштабировать изображение». По умолчанию масштабирование изображения сохраняет соотношение сторон импортированного изображения; чтобы эта функция сработала, снимите флажок с «Сохранять соотношение сторон».
 
-![Background editing](/images/chokuretsu/serial-loops/background-editing.png)
+![Редактирование фонов](/images/chokuretsu/serial-loops/background-editing.png)
 
-### Background sizes
+### Размеры фонов
 | Background Type      | Size (WxH in pixels) | Notes                                                                                                  |
 |----------------------|----------------------|--------------------------------------------------------------------------------------------------------|
 | `KINETIC_SCREEN`     | 256x192              | 16 color images, so make sure your image is exceedingly simple                                         |
@@ -33,5 +33,5 @@ Finally, to scale the image, hold `CONTROL` and use your mouse's scroll wheel, o
 | `TEX_CG_WIDE`        | 512x192              | Displayed on bottom screen, but wider than the full screen (scrolled with `BG_SCROLL`)                   |
 | `TEX_CG_SINGLE`      | 256x256              | Displayed on bottom screen, but taller than bottom screen (scrolled with `BG_SCROLL`)                  |
 
-## CG Titles
-Many CGs have titles associated with them that are shown in the Extras CG viewer. Where this is the case, a text box will be shown letting you modify the title.
+## заголовки CG
+Многие CG's имеют связанные с ними названия, которые отображаются в средстве просмотра дополнительных CG. В этом случае появится текстовое поле, позволяющее изменить заголовок.
