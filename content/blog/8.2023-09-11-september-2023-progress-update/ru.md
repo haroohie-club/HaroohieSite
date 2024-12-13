@@ -3,7 +3,7 @@ title: &title 'Прогресс за сентябрь 2023 г.: перевод �
 description: &desc 'Новости о прогрессе переуодов от клуба переводчиков Haroohie'
 navigation:
   description: *desc
-  author: 'Will'
+  author: 'William'
   year: 2023
   month: 9
   day: 11
