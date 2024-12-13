@@ -65,7 +65,7 @@ The final update is that we have improved our RSS feed for this very blog&mdash;
 
 ## Parallel Futures
 
-While Chokuretsu remains our primary focus, Millie has plugging away at the Heiretsu translation as well. We don't have a planned release date in mind as we are not going to begin editing/translation checking that project until after Chokuretsu is completed, but so far it's coming along very nicely.
+While Chokuretsu remains our primary focus, Millie has been plugging away at the Heiretsu translation as well. We don't have a planned release date in mind as we are not going to begin editing/translation checking that project until after Chokuretsu is completed, but so far it's coming along very nicely.
 
 ![A screenshot of Heiretsu showing the latest beta version of the translation](/images/blog/0016/02_heiretsu_preview.png)
 
