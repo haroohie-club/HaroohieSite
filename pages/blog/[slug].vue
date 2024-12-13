@@ -5,7 +5,7 @@
                 <template v-slot="{ doc }">
                     <div class="header" v-if="doc.navigation">
                         <div class="brigade-logo">
-                            <img src="/images/sos-logo.png" class="modal-exclude" />
+                            <img src="/images/haroohie-logo.svg" class="modal-exclude" />
                         </div>
                         <div class="info">
                             <h1>{{ doc.title }}</h1>
