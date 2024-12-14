@@ -7,7 +7,7 @@ navigation:
   year: 2024
   month: 11
   day: 01
-  tags: ['chokuretsu', 'dragon-ball', 'romhacking', 'video']
+  tags: ['dragon-ball', 'romhacking', 'video']
   image: '0015/00_thumbnail.png'
 head:
   meta:
