@@ -6,7 +6,7 @@
 - **ROM Hacking**: Jonko & Ermelber
 - **Graphic Design**: William278 & Cerber
 - **Editing**: William278, Alvy, NewGBAXL,<br/>Fang, Ziomek, & Chocobo
-- **Testing**: Lambsauce, Amelia Chaplin, & Goblinaro
+- **Testing**: Lambsauce, Amelia Chaplin, Goblinaro, & gig
 - **Additional Translation**: toro, kyu, Kanata, & Tensei
 - **Additional Editing**: toro, Pierce, Cosmix, & Kon
 - **Additional Testing**: master117, Kuya, Nateymas, & sarrahkuma
