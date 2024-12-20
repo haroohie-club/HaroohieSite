@@ -1,15 +1,17 @@
 ## Haroohie Translation Club
 ::two-column-list
-- **專案負責人**：Jonko
-- **翻譯**：Amelia Chaplin, Amanda Sato, Isillor, TimepieceMaster, & toro
-- **ROM 破解**：Jonko & Ermelber
-- **美工**：William278 & Cerber
-- **編輯**：Alvy, William278, Chocobo,<br/>Fang, NewGBAXL, & Ziomek
-- **補充翻譯**：kyu, Kanata, & Tensei 
-- **補充編輯**：Pierce, Cosmix, & Kon
-- **測試**：Lambsauce, Goblinaro, master117, sarrahkuna, Kuya, & Nateymas
-- **PV 編輯**：Hans Harmony
-- **網站**：William278
+- **專案負責人**: Jonko
+- **Translation Lead**: Amelia Chaplin
+- **翻譯**: Amelia Chaplin, Amanda Sato, TimepieceMaster, Isillor, & thequadehunter
+- **ROM 破解**: Jonko & Ermelber
+- **美工**: William278 & Cerber
+- **編輯**: William278, Alvy, NewGBAXL,<br/>Fang, Ziomek, & Chocobo
+- **測試**: Lambsauce, Amelia Chaplin, Goblinaro, & gig
+- **補充翻譯**: toro, kyu, Kanata, & Tensei
+- **補充編輯**: toro, Pierce, Cosmix, & Kon
+- **補充測試**: master117, Kuya, Nateymas, & sarrahkuma
+- **PV 編輯**: Hans Harmony
+- **網站**: William278
 ::
 
 ## 保持最新
