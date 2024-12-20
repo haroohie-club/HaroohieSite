@@ -1,13 +1,15 @@
 ## Haroohie Translation Club
 ::two-column-list
 - **プロジェクトリーダー**: Jonko
-- **翻訳者**: Amelia Chaplin, Amanda Sato, Isillor, TimepieceMaster, & toro
+- **翻訳リーダー**: Amelia Chaplin
+- **翻訳者**: Amelia Chaplin, Amanda Sato, TimepieceMaster, Isillor, & thequadehunter
 - **ROMハッカー**: Jonko & Ermelber
 - **グラフィックデザイナー**: William278 & Cerber
-- **スクリプト編集者**: Alvy, William278, Chocobo,<br/>Fang, NewGBAXL, & Ziomek
-- **他の翻訳者**: kyu, Kanata, & Tensei 
-- **他の編集者**: Pierce, Cosmix, & Kon
-- **テスター**: Lambsauce, Goblinaro, master117, sarrahkuna, Kuya, & Nateymas
+- **スクリプト編集者**: William278, Alvy, NewGBAXL,<br/>Fang, Ziomek, & Chocobo
+- **テスター**: Lambsauce, Amelia Chaplin, Goblinaro, & gig
+- **他の翻訳者**: toro, kyu, Kanata, & Tensei
+- **他の編集者**: toro, Pierce, Cosmix, & Kon
+- **他のテスター**: master117, Kuya, Nateymas, & sarrahkuma
 - **PV編集者**: Hans Harmony
 - **ウェブサイト**: William278
 ::

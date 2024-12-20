@@ -10,13 +10,15 @@
 ## Staff della patch inglese
 ::two-column-list
 - **Capo Progetto**: Jonko
+- **Capo Traduttori**: Amelia Chaplin
 - **Traduttori**: Amelia Chaplin, Amanda Sato, Isillor, TimepieceMaster, & toro
 - **ROM Hacking**: Jonko & Ermelber
 - **Grafici**: William278 & Cerber
-- **Editing**: Alvy, William278, Chocobo,<br/>Fang, NewGBAXL, & Ziomek
-- **Supporto alla traduzione**: kyu, Kanata, & Tensei 
-- **Supporto all'editing**: Pierce, Cosmix, & Kon
-- **Testing**: Lambsauce, Goblinaro, master117, sarrahkuna, Kuya, & Nateymas
+- **Editing**: William278, Alvy, NewGBAXL,<br/>Fang, Ziomek, & Chocobo
+- **Testing**: Lambsauce, Amelia Chaplin, Goblinaro, & gig
+- **Supporto alla traduzione**: toro, kyu, Kanata, & Tensei
+- **Supporto all'editing**: toro, Pierce, Cosmix, & Kon
+- **Supporto alla testing**: master117, Kuya, Nateymas, & sarrahkuma
 - **PV Editor**: Hans Harmony
 - **Sito Web**: William278
 ::
