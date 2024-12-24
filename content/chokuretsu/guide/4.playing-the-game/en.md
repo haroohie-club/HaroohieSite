@@ -75,7 +75,7 @@ Playing on a (New) Nintendo 3DS or 2DS can either be done through the use of a f
 ### Using TWiLightMenu++
 **Requirements:**
 * Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Luma3DS custom firmware [setup on your system]((https://3ds.hacks.guide)) and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
+* Luma3DS custom firmware [setup on your system](https://3ds.hacks.guide) and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
 * SD card with at least 2GB capacity
 * Computer with an SD card reader/USB SD card reader peripheral
 
