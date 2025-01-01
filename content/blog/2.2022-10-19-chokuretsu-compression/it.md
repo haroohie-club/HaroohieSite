@@ -54,25 +54,25 @@ Pensando alle mie esperienze in passato, feci qualche investigazione per poi pos
 
 ![Un post del forum che Jonko pubblicò l'Ottobre 23 del 2021. Il testo del post è incluso in una citazione al di sotto."](/images/blog/0002/03_jonko_hinged.png)
 
-> Ciao! Allora, quello non è codice del gioco; sono dati per questa scena. Non so ancora cosa fa tutto questo, ma posso dirti che tutto questo pezzo è compresso e che la subroutine di decompressione è al 0x2026190. Dovrai decomprimerlo prima di poterlo modificare e una volta che è decompresso sarà più facile farsi un'idea di cosa fa ogni parte dandoci un aiuto nel modificarle.
+> Ciao! Allora, quello non è codice del gioco; sono dati per questa scena. Non so ancora cosa fa tutto questo, ma posso dirti che tutto questo pezzo è compresso e che la subroutine di decompressione è in 0x2026190. Dovrai decomprimerlo prima di poterlo modificare e una volta che è decompresso sarà più facile farsi un'idea di cosa fa ogni parte dandoci un aiuto nel modificarle.
 > 
-> Un altra cosa a cui dovrai pensare è una modifica per la larghezza del font (di lunghezza media o variabile). Ci sono alcune linee nel gioco che riempiono tutto il box del testo, e sarebbe impossibile farci stare la traduzione per intero con dei caratteri a piena larghezza, quindi dovrai investigare pure quello.
+> Un altra cosa a cui dovrai pensare è una modifica per la larghezza del font (di lunghezza media o variabile). Ci sono alcune linee nel gioco che riempiono tutto il box del testo, e sarebbe impossibile farci stare la traduzione per intero con dei caratteri a piena larghezza, quindi dovrai investigare pure su quello.
 
 Quindi facciamolo passo dopo passo.
 
 ## Compressione
-Come facevo a sapere che questa scena era compressa? Beh, guardando al suo screenshot, possiamo vedere chiaramente come il testo di gioco viene mostrato nell'editor esadecimale (ho marcato un esempio in giallo), ma alcune porzioni di testo mancano -- Per esempio, la parte con "ハルヒの" che ho marcato è rimpiazzata da una sequenza di caratteri più corta che ho marcato in blu.
+Come facevo a sapere che questa scena era compressa? Beh, guardando al suo screenshot, possiamo vedere chiaramente come il testo di gioco viene mostrato nell'editor esadecimale (ho evidenziato un esempio in giallo), ma alcune porzioni di testo mancano -- Per esempio, la parte con "ハルヒの" che ho evidenziato sotto è rimpiazzata da una sequenza di caratteri più corta che ho evidenziato in blu.
 
 ![Screenshot di Chokuretsu posti uno di fianco all'altro. Il primo corrisponde al testo evidenziato in giallo mostrando che il dialogo di Haruhi è presente. Il secondo ha una sezione evidenziata del testo nella ROM, dove apparentemente manca una porzione del testo originale.](/images/blog/0002/04_compression_evidence.png)
 
 Questo è un segno di quello che chiamiamo _run-length encoding_ -- un metodo per comprimere file che si focalizza ad eliminare ripetizioni. Va bene, ora sappiamo che è compresso, e ora cosa facciamo? Sappiamo in nostro obiettivo: **vogliamo rimpiazzare il testo nel file con del testo inglese**. Per farlo, dovremo decomprimere il testo noi stessi in modo da modificare il file. Tuttavia, poiché il gioco si aspetta di avere il testo compresso, dovremo anche ricomprimere il file in modo da reinserirlo nel gioco. Bene, iniziamo.
 
 ## Trovare la Subroutine di Decompressione
-Ora abbiamo moltissime informazioni a nostra disposizione qui. Abbiamo un file del quale sappiamo già che è compresso, abbiamo una buona idea di come diventa una volta decompresso, e sappiamo dove il gioco utilizza quel file. Quindi, carichiamo il gioco in DeSmuME (l'emulatore che, quando scrissi questo, ha il miglior cercatore di memoria) e cercare un po' del testo che appare nel gioco.
+Ora abbiamo moltissime informazioni a nostra disposizione qui. Abbiamo un file del quale sappiamo già che è compresso, abbiamo una buona idea di come diventa una volta decompresso, e sappiamo dove il gioco utilizza quel file. Quindi, carichiamo il gioco in DeSmuME (l'emulatore che, al momento della scrittura, ha la migliore ricerca di memoria) e cercare un po' del testo che appare nel gioco.
 
 ![Ricerca nella RAM su DeSmuME.](/images/blog/0002/05_ram_search.png)
 
-Qui stiamo cercando per 0x81CC82B1 (la ricerca nella RAM di DeSmuME esprime i byte in ordine inverso) che corrisponde alla porzione del “この、” nel testo. Troviamo esattamente un risultato nell'indirizzo 0x0223433C -- fantastico. Andiamo in quell'indirizzo di memoria…
+Qui stiamo cercando 0x81CC82B1 (la ricerca nella RAM di DeSmuME esprime i byte in ordine inverso) che corrisponde alla porzione del “この、” nel testo. Troviamo esattamente un risultato nell'indirizzo 0x0223433C -- fantastico. Andiamo in quell'indirizzo di memoria…
 
 ![Il visualizzatore di memoria di DeSmuME con delle sezioni evidenziate che mostrano come il testo coincide esattamente con il file che stavamo cercando.](/images/blog/0002/06_ram_found.png)
 
@@ -84,7 +84,7 @@ Andremo ad impostare un _breakpoint di lettura_ per 0x0223433C. Come dissi prima
 
 ![Il debugger di no$GBA che arriva al punto menzionato prima. Attualmente è fermo all'istruzione 0202628C.](/images/blog/0002/08_breakpoint_hit.png)
 
-Voilà, abbiamo raggiunto il nostro breakpoint. Il gioco legge da 0x223433C all'istruzione in 0x2026288. Ora dobbiamo aprire il nostro terzo programma, IDA (l'Interactive Disassembler). (È meglio notare che mentre io uso IDA, potete fare la stessa cosa usando Ghidra, un altro disassemblatore comunemente usato che è pure gratis.)
+Voilà, abbiamo raggiunto il nostro breakpoint. Il gioco legge da 0x223433C all'istruzione in 0x2026288. Ora dobbiamo aprire il nostro terzo programma, IDA (l'Interactive Disassembler). (È meglio notare che mentre io uso IDA, potete fare la stessa cosa usando Ghidra, un altro disassemblatore tipicamente usato che è pure gratis.)
 
 Quindi in IDA, utilizziamo il plugin del caricatore di NDS per disassemblare la ROM di Chokuretsu in modo da vedere il codice assembly (spesso riferito come "disassembly") più facilmente. IDA fa qualcosa di abbastanza utile, ossia dividere il codice in subroutine (dette anche "funzioni"), che rende più facile vedere dove il codice inizia e finisce.
 
@@ -108,11 +108,11 @@ Il simulatore finì per essere così:
 Per facilitare i riferimenti, ho annotato le stringhe di codice con dei commenti che mostrano quello che fa ogni istruzione nel disassembly alla quale corrispondono. Una volta completato, sono stato in grado di decomprimere i file in modo nativo! Tuttavia, è abbastanza inefficiente. Quindi proveremo invece a capire questo assembly in modo da renderlo del codice leggibile da un essere umano.
 
 ### Un'Introduzione all'Assembly
-Per farlo, dobbiamo prima capire cos'è l'assembly: assembly è un linguaggio a _livello macchina_, il che significa che è quello che il processore legge per eseguire le istruzioni. Quell'ultima parola è importante -- L'unità più basilare dell'assembly è un'_istruzione_. Ad esempio code come `ADD` (aggiunge due numeri) o `SUB` (sottrare due numeri).
+Per farlo, dobbiamo prima capire cos'è l'assembly: assembly è un linguaggio a _livello macchina_, il che significa che è quello che il processore legge per eseguire le istruzioni. Quell'ultima parola è importante -- L'unità più basilare dell'assembly è un'_istruzione_. Ad esempio cose come `ADD` (somma due numeri) o `SUB` (sottrare due numeri).
 
 Per operare sui valori in assembly, devono prima essere caricati in un _registro_. I registi possono essere visti come "le variabili della CPU" e sono numerati come R0, R1, R2, ecc. Il DS ne ha 15. I valori sono caricati nei registri dalla _memoria_ (detta anche _RAM_), che ha uno spazio largo di binari accessibili che possono essere richiamati dalla CPU velocemente.
 
-Il codice in assembly varia di piattaforma in piattaforma -- più nello specifico, varia in base all'_architettura_ (che può essere vista come la famiglia o il tipo) del microchip. Il DS utilizza l'assembly ARM per il suo eseguibile principale, che è abbastanza comune e ben documentato. Il modo in cui io imparai assembly ARM fu provare a fare il debug dei codici per il Nintendo DS mentre cercavo su un'altra finestra quello che ogni istruzione faceva. Se vuoi dei buoni punti di riferimento per ARM, la [documentazione officiale](https://developer.arm.com/documentation/dui0068/b/ARM-Instruction-Reference) è molto istruttiva, tutta trovo che cercare su Google "ARM \[istruzione che voglio capire meglio\]" funzionare a meraviglia.
+Il codice in assembly varia di piattaforma in piattaforma -- più nello specifico, varia in base all'_architettura_ (che può essere vista come la famiglia o il tipo) del microchip. Il DS utilizza l'ARM assembly per il suo eseguibile principale, che è abbastanza comune e ben documentato. Il modo in cui io imparai ARM assembly fu provare a fare il debug dei codici per il Nintendo DS mentre cercavo su un'altra finestra quello che ogni istruzione faceva. Se vuoi dei buoni punti di riferimento per ARM, la [documentazione officiale](https://developer.arm.com/documentation/dui0068/b/ARM-Instruction-Reference) è molto istruttiva, tuttavia trovo che cercare su Google "ARM \[istruzione che voglio capire meglio\]" funziona a meraviglia.
 
 ### Nel Dettaglio
 
@@ -230,7 +230,7 @@ else
 Non sappiamo ancora cosa fa questo valore, ma diventerà chiaro una volta che guardiamo la prossima sezione.
 
 * `CMP R12, #0`{lang='arm'} ; `BLE loc_2026198`{lang='arm'} – Se il valore calcolato è 0, Torniamo immediatamente all'inizio della funzione.
-* `LDRB R3, [R0], #1`{lang='arm'} – Ormai che ci siamo abituati, andremo a caricare il byte in R3.
+* `LDRB R3, [R0], #1`{lang='arm'} – Come avrai ora capito, andremo a caricare il byte in R3.
 * `SUB R12, R12, #1`{lang='arm'} – Sottraiamo 1 dal valore che abbiamo calcolato prima.
 * `CMP R12, #0`{lang='arm'} – Confrontiamo il valore calcolato prima a 0.
 * `STRB R3, [R1], #1`{lang='arm'} – Mettiamo il valore più recente che abbiamo appena letto nel buffer di dati decompresso e ci spostiamo di uno nel buffer.
@@ -283,7 +283,7 @@ for (int z = 0; z < compressedData.Length;)
 
 #### Decomprimere un File
 
-Essenzialmente, un algoritmo di compressione opera in questo modo: Un "byte di controllo" viene letto e i primi tre o quattro but determinano le funzioni seguenti. Le opzioni di decompressione sono:
+Essenzialmente, un algoritmo di compressione opera in questo modo: Un "byte di controllo" viene letto e i primi tre o quattro bit determinano le funzioni seguenti. Le opzioni di decompressione sono:
 * Leggere un certo numero di dati direttamente nel buffer di decompressione
 * Leggere un singolo byte e ripeterlo un certo numero di volte
 * Fare un riferimento ad una posizione particolare nei dati decompressi e copiare in avanti quei byte
@@ -298,7 +298,7 @@ Ecco lo script decompresso! Fantastico.
 
 #### Creare la Routine di Compressione
 
-Ora che capiamo come funziona l'algoritmo di decompressione per bene possiamo decomprimere tutti i file per sostituire il testo Giapponese in Inglese. Ma se vogliamo reinserirli nel gioco, dobbiamo essere in grado di ricomprimere i file modificati. Quindi dobbiamo implementare una routine di compresione. Non ci sarà una copia in assembly della routine come per la decompressione visto che non è presente nel gioco (i file furono stati compressi alla creazione del gioco, vengono solo decompressi nel gioco). Ma non è un problema - ora che sappiamo come funziona la decompressione, dobbiamo solo invertire il processo per comprimere i file.
+Ora che capiamo come funziona l'algoritmo di decompressione per bene possiamo decomprimere tutti i file per sostituire il testo Giapponese in Inglese. Ma se vogliamo reinserirli nel gioco, dobbiamo essere in grado di ricomprimere i file modificati. Quindi dobbiamo implementare una routine di compresione. Non ci sarà una copia in assembly della routine come per la decompressione visto che non è presente nel gioco (i file sono stati compressi alla creazione del gioco, vengono solo decompressi nel gioco). Ma non è un problema - ora che sappiamo come funziona la decompressione, dobbiamo solo invertire il processo per comprimere i file.
 
 Per esempio, possiamo implementare una modalità di "scrittura diretta" molto facilmente:
 
