@@ -8,36 +8,27 @@ navigation:
 
 Serial Loops is available for Windows, macOS, and Linux. You can get the latest release from [here](https://github.com/haroohie-club/SerialLoops/releases/latest).
 
-## Windows
-For Windows, we currently only distribute a "portable" style app in a zip file. This means there is no installer;
-instead, you simply extract Serial Loops to a folder and begin editing. In the future, we plan to offer a standard
-installer experience.
+## Prerequisites
+It is recommended that you use a distribution of Serial Loops that automatically installs or comes with the necessary prerequisites. For each platform these are:
 
-## macOS
-For macOS, we provide DMGs for both Intel (x64) and Apple Silicon (ARM) devices. To use these, you simply open the DMG
-and drag the application to the Applications folder. However, because we don't codesign Serial Loops, there is one
-additional step: you'll need to open your terminal and run the following command:
-```
-xattr -cr /Applications/SerialLoops.Mac.app
-```
-This command makes macOS allow the application to be run.
+* Linux: Flatpak
+* macOS: Installer
+* Windows: Installer
 
-## Linux
-* On Debian-based Linux distros (e.g. Debian & Ubuntu), the application can be installed using the Debian package we distribute. Simply run
-  `sudo apt -f ./SerialLoops-{version}_amd64.deb` to install it.
-* On Red Hat-based Linux distros (e.g. Fedora, RHEL, and CentOS), the application can be installed using the RPM package we distribute. Simply run
-  `sudo dnf install ./SerialLoops-{version}1.fc38.x86_64.rpm` to install it.
-* For other Linux distros, we distribute portable binaries in a tar.gz file. After extracting the files to a location
-  of your preference, make sure you install [OpenAL](https://www.openal.org/) through the appropriate process for your distro.
+Using these will ensure Serial Loops is ready to use after installation. However, if you would rather use a portable build on Windows/Linux, please check the information on installing
+these prerequisites below.
 
-## General Prerequisites
-### devkitARM
-Before you run Serial Loops, you'll need to also install **devkitARM**. The devkitPro organization (which distributes devkitARM) has detailed
-installation instructions [on their website](https://devkitpro.org/wiki/Getting_Started). When deciding which workloads to install, ensure you at least
-install the NDS Development workload, as that's what contains devkitARM.
+<details>
+    <summary>View prerequisites for non-Flatpak/installer distributions</summary>
 
-### Make or Docker
-Additionally, to apply ASM hacks, you'll need to install either **Make** or **Docker**. Make is automatically installed when using the Debian and RPM
+### Installing devkitARM
+[devkitARM](https://devkitpro.org/wiki/Getting_Started) is required to use Serial Loops on all platforms.
+
+* Using the Windows graphical installer, you can simply select the devkitARM (Nintendo DS) workloads
+* On macOS and Linux, run `sudo dkp-pacman -S nds-dev` from the terminal after installing the devkitPro pacman distribution.
+
+### Installing Make or Docker
+To assemble ASM hacks you want to apply, you will need to decide whether to use Make or Docker. Make is automatically installed when using the Debian and RPM
 packages we distribute, so you don't need to worry about this step if you're using either of those.
 
 Currently, the Docker path is **only supported on Windows** due to operating system and framework limitations. It is possible to get Docker running
@@ -51,20 +42,25 @@ way of getting the Docker path to work, so you will have to use Make.
       for Winget or `choco install make` for Chocolatey. If using Winget, you will then have to go into system preferences and add Make to the path.
     - Installation on macOS can be done through Xcode or Homebrew. If using Xcode, open a terminal and type `xcode-select --install`. If you would
       rather use Homebrew, open a terminal after installing Homebrew and type `brew install make`.
-    - Make comes preinstalled on many Linux distributions. If it is not installed on yours, you will likely be able to install it with your package
-      as simply as `[packagemanger] install make` from a terminal.
-  
-  To test if make is installed properly, type `make --version` into a terminal and see if it produces the version of make.
+    - Make comes preinstalled on many Linux distributions, and if you're using the Debian or RPM package, it was definitely installed when you installed
+      Serial Loops. If you're using the tar.gz it is not installed on yours, you will likely be able to install it as simply as
+      `[packagemanger] install make` from a terminal.
+
+  To test if make is installed properly, type `make --verison` into a terminal and see if it produces the version of make.
 * If you would rather not install Make, or if it is not working properly, you can instead run it through a Docker container. To do this, you should
   install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or the Docker Engine. Ensure the Docker engine is running and make sure
   to check the "Use Docker for ASM Hacks" option in Preferences. You may want to occasionally clean up containers created by Serial Loops, as it will
   create many of them.
-    - On Windows, though, you will additionally need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en/windows/wsl/install).
+    - On Windows, you will additionally need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
       From an admin PowerShell or Terminal window (Winkey + X + A), simply type `wsl --install` to install it.
 
-In general, Make is recommended, but it can be more difficult to get working on Windows systems sometimes. In this case, feel free to use Docker.
+### Installing OpenAL (Linux)
+If you're running on Linux and _not using one of the package releases_ (the `.deb` or `.rpm`), you will also need to install OpenAL which is used for audio processing.
+
+</details>
 
 ### A Nintendo DS Emulator
-Finally, to be able to test your game, you'll want a Nintendo DS emulator installed. Our team recommends [melonDS](https://melonds.kuribo64.net/).
+To test the game easily, you will want to have a Nintendo DS emulator installed. We recommend using [melonDS](https://melonds.kuribo64.net/) for its accuracy.
 
-After you've installed Serial Loops, devkitARM, and either Docker or Make, you're ready to get started!
+## Download & Install
+Once you have installed any necessary prerequisites, to install Serial Loops, download the latest release for your platform from the [Releases tab](https://github.com/haroohie-club/SerialLoops/releases).

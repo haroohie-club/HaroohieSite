@@ -6,11 +6,10 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/scripts/chibis-and-choices'
 ---
 
-The following document explains what every command in the game does.
+The following document explains what every command in the game does. This document is intended for a general audience; for a more detailed, technical explanation of the commands, please reference the [Chokuretsu Translation Utility's wiki](https://github.com/haroohie-club/ChokuretsuTranslationUtility/wiki/Event-File-Commands).
 
 ## Notes
-* Time in these commands is always defined in terms of _frames_. The game assumes a frame is 1/30 of a second, i.e. 30 frames per second. Thus, to wait one second,
-one would `WAIT` for 30 frames.
+* Time in these commands is always defined in terms of _frames_. The game assumes a frame is 1/60 of a second, i.e. 60 frames per second. Thus, to wait one second, one would `WAIT` for 60 frames.
 
 ## `AVOID_DISP`
 **Parameters**: None
@@ -21,8 +20,7 @@ Displays the "Main Topic -> Avoid" graphics.
 ## `BACK`
 **Parameters**: None
 
-When used in the initial script section, starts execution to the first script block. Otherwise, makes the script return to whatever called it (e.g. the puzzle phase)
-or returns you to the investigation phase.
+When used in the initial script section, starts execution to the first script block. Otherwise, makes the script return to whatever called it (e.g. the puzzle phase) or returns you to the investigation phase.
 
 
 ## `BG_DISP`
@@ -41,15 +39,13 @@ While this is listed as a separate command, it uses the same routine as [`BG_DIS
 * `Background`: The CG background to be displayed
 * `Display from Bottom`: If true, displays the bottom of a tall background (`TEX_CG_SINGLE`); if false, displays the top
 
-`BG_DISPCG` works as [`BG_DISP`](#bg_disp) but can display a larger variety of textures &ndash; namely, `TEX_CG`, `TEX_CG_DUAL_SCREEN`,
-`TEX_CG_WIDE`, and `TEX_CG_SINGLE` BGs. Notably, these are all CGs as opposed to VN backgrounds. Before displaying a standard BG after calling BG_DISPC,
-one should call [`BG_REVERT`](#bg_revert).
+`BG_DISPCG` works as [`BG_DISP`](#bg_disp) but can display a larger variety of textures &ndash; namely, `TEX_CG`, `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE` BGs. Notably, these are all CGs as opposed to VN backgrounds. Before displaying a standard BG after calling `BG_DISPCG`, one should call [`BG_REVERT`](#bg_revert).
 
 
 ## `BG_FADE`
 **Parameters**:
 * `Background`: The background to display as with [`BG_DISP`](#bg_disp)
-* `Background (Temp/CG)`: The index of a background to display as [`BG_DISPCG`](#bg_dispcg); specify instead of `Background`
+* `Background (CG)`: The index of a background to display as [`BG_DISPCG`](#bg_dispcg); specify instead of `Background`
 * `Fade Time (Frames)`: The time to fade in frames
 
 Like the other BG display commands but crossfades the background rather than just displaying it.
@@ -59,8 +55,7 @@ Like the other BG display commands but crossfades the background rather than jus
 **Parameters**: None
 
 Reverts the background to the last call of `BG_DISP` (i.e. undoes any [`BG_FADE`](#bg_fade) or [`BG_DISPCG`](#bg_dispcg) calls).
-This is required before returning to displaying standard `TEX_BG` BGs. Note that if reverting a `TEX_CG_DUAL_SCREEN` BG, [`SET_PLACE`](#set_place)
-must have been used to set the place location and have it displayed.
+This is required before returning to displaying standard `TEX_BG` BGs. Note that if reverting a `TEX_CG_DUAL_SCREEN` BG, [`SET_PLACE`](#set_place) must have been used to set the place location and have it displayed.
 
 `BG_REVERT` does something odd to previously displayed CGs that makes attempting to display them again after the `BG_REVERT` crash/freeze/soft lock the game.
 If you need to go back and forth between the same CGs, consider using [`BG_FADE`](#bg_fade).
@@ -71,8 +66,7 @@ If you need to go back and forth between the same CGs, consider using [`BG_FADE`
 * `Scroll Direction`: The direction to scroll the BG
 * `Scroll Speed`: Speed at which to scroll (1 is a good default)
 
-When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`),
-scrolls the background in a DEFINED direction.
+When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the background in a DEFINED direction.
 
 
 ## `BGM_PLAY`
@@ -162,8 +156,7 @@ This command displays an emote in a speech bubble above a [chibi](../graphics/ch
 * `Enter/Exit`: Specifies whether the chibi is entering or exiting
 * `Delay (Frames)`: Specifies the number of frames after which the chibi should enter or exit
 
-Specifies a [chibi](../graphics/chibis) figure to enter or exit the top screen. To be used by this command, a chibi must have
-a walk cycle (animation 01) in addition to its default idle animation (animation 00).
+Specifies a [chibi](../graphics/chibis) figure to enter or exit the top screen. To be used by this command, a chibi must have a walk cycle (animation 01) in addition to its default idle animation (animation 00).
 
 
 ## `CONFETTI`
@@ -281,18 +274,9 @@ Unknown, unused in the game.
 Ends investigation mode and returns to the main visual novel format of the game. Automatically fades screen to black.
 
 
-## `ITEM_DISPIMG`
-**Parameters**:
-* `Item`: The item to display
-* `X`
-* `Y`
-
-Displays the specified item image. Under certain circumstances, this should work; however, it seems this soft locks the game most of the time. Unused.
-
-
 ## `INVEST_START`
 **Parameters**:
-* `unknown00`
+* `Map Characters Set`: The set of map characters to use; in the retail game, this is always 0 as there is only one set of map characters specified for any given script. 
 * `unknown01`
 * `unknown02`
 * `unknown03`
@@ -300,6 +284,14 @@ Displays the specified item image. Under certain circumstances, this should work
 
 Starts investigation mode. Automatically fades screen in from black.
 
+
+## `ITEM_DISPIMG`
+**Parameters**:
+* `Item`: The item to display
+* `Location`: The location on the screen where the item will be displayed
+* `Transition`: The transition by which the item enters the screen
+
+Displays the specified item image. The item system is entirely unused in the game, so this command goes unused as well.
 
 ## `KBG_DISP`
 **Parameters**:
