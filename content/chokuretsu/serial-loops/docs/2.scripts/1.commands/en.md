@@ -311,8 +311,7 @@ Loads an isometric map for usage by [`INVEST_START`](#invest_start).
 * `Character`: The character to modify: Haruhi, Mikuru, Nagato, Koizumi or Tsuruya.
 * `Modify By`: The value to modify the friendship level by for the selected character
 
-Modifies a character's "Friendship Level" by adding a particular value to it. The value can be positive or negative. Friendship
-levels start at 1 and persist throughout a playthrough. They can be referenced in conditionals with the following variable names:
+Modifies a character's "Friendship Level" by adding a particular value to it. The value can be positive or negative. Friendship levels start at 1, have a max of 64, and persist throughout a playthrough. They can be referenced in conditionals with the following variable names:
 
 | Character | Variable |
 |-----------|----------|
@@ -378,11 +377,11 @@ Goes to a particular scene. Note that this scene cannot be just any script file;
 within a special array in ARM9 itself; thus, ROM hacks may decide to change the location of this array.
 
 
-## `SCENE_GOTO2`
+## `SCENE_GOTO_CHESS`
 **Parameters**:
 * `Scene`: Name of the script file to go to
 
-Behaves as [`SCENE_GOTO`](#scene_goto), except this command does not clear a flag before jumping. Otherwise, they seem to be identical.
+Behaves as [`SCENE_GOTO`](#scene_goto) except that it's used to go to scripts that contain chess puzzles.
 
 
 ## `SCREEN_FADEIN`
@@ -391,8 +390,7 @@ Behaves as [`SCENE_GOTO`](#scene_goto), except this command does not clear a fla
 * `Fade In Percentage`: The percentage of darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means the screen will be 50% darker 
   than full brightness when the fade in is complete); only respected by custom color fades
 * `Location`: The screen(s) the fade will be applied to
-* `Color`: Either black, white, or the custom color set by a previous [`SCREEN_FADEOUT`](#screen_fadeout); this parameter must match
-  that of the previous [`SCREEN_FADEOUT`](#screen_fadeout) call
+* `Color`: Either black, white, or the custom color set by a previous [`SCREEN_FADEOUT`](#screen_fadeout); this parameter must match that of the previous [`SCREEN_FADEOUT`](#screen_fadeout) call
 
 Causes the screen to fade in.
 
@@ -400,12 +398,10 @@ Causes the screen to fade in.
 ## `SCREEN_FADEOUT`
 **Parameters**:
 * `Fade Time (Frames)`: The length of the fade in frames
-* `Fade out Percentage`: The percentage darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means that the screen will be 50%
-  brighter than full black when the fade is complete); only respected by color fades
+* `Fade out Percentage`: The percentage darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means that the screen will be 50% brighter than full black when the fade is complete); only respected by color fades
 * `Custom Color`: The color the fade will be if `Color` is set to `CUSTOM`
 * `Location`: The screen(s) the fade will be applied to
-* `Color`: Either black, white, or the custom color defined by `Custom Color`; this parameter must match that of the subsequent
-  [`SCREEN_FADEIN`](#screen_fadein) call
+* `Color`: Either black, white, or the custom color defined by `Custom Color`; this parameter must match that of the subsequent [`SCREEN_FADEIN`](#screen_fadein) call
 
 Causes the screen to fade out.
 
@@ -442,10 +438,10 @@ is set to -1).
 * `Option 2`: The second choice to be presented
 * `Option 3`: The third choice to be presented
 * `Option 4`: The fourth choice to be presented
-* `unknown08` 
-* `unknown0A` 
-* `unknown0C` 
-* `unknown0E`
+* `Display Flag 1`: A flag indicating that Option 1 should be displayed; if -1, the option is always displayed
+* `Display Flag 2`: A flag indicating that Option 2 should be displayed; if -1, the option is always displayed
+* `Display Flag 3`: A flag indicating that Option 3 should be displayed; if -1, the option is always displayed
+* `Display Flag 4`: A flag indicating that Option 4 should be displayed; if -1, the option is always displayed
 
 Presents the player with a series of choices that branch the dialogue tree. Choices are defined in their own section and have IDs that correspond to labels set in the labels section. When a choice is chosen, this ID is used to select which script block will be jumped to.
 
@@ -472,9 +468,16 @@ Sets up the [`NEXT_SCENE`](#next_scene) command to skip a specified number of sc
 * `Sound`: The sound to be played from `snd.bin`
 * `Mode`: Whether to start or stop the sound
 * `Volume`: The volume of the sound
+* `Load Sound`: If true, loads the sound into memory before playing it (necessary when playing a sound for the first time)
 * `Crossfade Time (Frames)`: Time in frames that the sound will crossfade; only can be used when changing the volume of the same sound
 
 Plays a sound from the SDAT `snd.bin`.
+
+
+## `SND_STOP`
+**Parameters**: None
+
+Stops the currently playing sound. Unused in game.
 
 ## `STOP`
 **Parameters**: None
@@ -507,12 +510,6 @@ Plays a transition to black.
 * `Transition`: The transition to use
 
 Plays a transition from black into the scene.
-
-
-## `UNKNOWN0A`
-**Parameters**: None
-
-Unused in the game, unknown what this does.
 
 
 ## `VCE_PLAY`

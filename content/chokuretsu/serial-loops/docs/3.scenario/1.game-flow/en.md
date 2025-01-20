@@ -22,7 +22,7 @@ components. The commands are explained in the following table:
 | `COMPANION_SELECT` | This loads a companion selection screen, allowing the player to select which Brigade member will accompany Haruhi during the puzzle phase. |
 | `PLAY_VIDEO` | Plays a video; 0 plays the OP and 1 plays the ED. |
 | `NOP` | Does nothing |
-| `UNKNOWN0B` | This command is used but its function is currently unknown. |
+| `UNLOCK_ENDINGS` | This command unlocks a character ending scene based on the friendship levels. Used at the end of the game. |
 | `UNLOCK` | Unlocks particular functionality. The exact mapping between the parameter specified and which functionality is unlocked is currently unknown. |
 | `END` | Ends the scenario and returns to the title screen. |
 
