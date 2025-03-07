@@ -21,8 +21,10 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulatore']
 Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart e il più è fatto. È probabile che tu ne sia già in possesso di una, se hai seguito la guida d'installazione prima.
 
 **Occorrente:**
-* Una console Nintendo DS o DS Lite.
-* Una flashcart (come una R4. Inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
+* Console Nintendo DS o DS lite
+* Flashcart (ad esempio una scheda R4)
+* Una scheda SD o microSD, richiesta dalla tua flashcart
+* Un computer con un lettore di schede SD/periferica USB per leggere le schede SD
 
 **Installazione:**
 1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore, se necessario).
@@ -34,15 +36,15 @@ Giocare su Nintendo DS è molto semplice, basta inserire la ROM sulla flash cart
 <div class="platform-filtered platform-nintendo_dsi">
 
 ## Giocare su Nintendo DSi
-Giocare sul Nintendo DSi è possibile attraverso l'uso di una flashcart o mettendo la ROM patchata in una scheda SD e usando TWilightMenu++ sul tuo sistema
+Puoi giocare sul Nintendo DSi o utilizzando una scheda flash o inserendo la ROM patchata su una scheda SD e caricarla tramite TWilightMenu++.
 
-### Usando TWilightMenu (nds-bootstrap)
+### Usando TWiLightMenu++ (nds-bootstrap)
 
 **Occorrente:**
-* Un sistema Nintendo DSi o DSi XL
-* TwilightMenu++ [installato sulla tua console](https://dsi.cfw.guide/). Se prima hai seguito la guida per l'estrazione della ROM dal Nintendo DSi, avrai già questo programma!
-* Una scheda SD con almeno 2GB di memoria
-* Un computer con lettore di schede SD (o un adattatore USB)
+* Console Nintendo DSi or DSi XL
+* Custom Firmware TWilightMenu++ [installato sul tuo sistema](https://dsi.cfw.guide/). se prima hai seguito la guida per il dumping della ROM sul Nintendo DSi, dovresti averlo già fatto!
+* Scheda SD con almeno 2GB di memoria
+* Computer con un lettore di schede SD/periferica USB per leggere le schede SD
 
 **Procedimento:**
 1. Inserisci la scheda SD nel tuo computer
@@ -51,10 +53,12 @@ Giocare sul Nintendo DSi è possibile attraverso l'uso di una flashcart o metten
 4. Riaccendi la console e avvia Twilight Menu++.
 5. Cerca il gioco patchato e avvialo. Buon divertimento!
 
-### Tramite flashcard
+### Usando una scheda flash
 **Occorrente:**
-* Una console Nintendo DSi o DSi XL
-* Una flashcard (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
+* Console Nintendo DSi o DSi XL
+* Flashcart (ad esempio una scheda R4)
+* Una scheda SD o microSD, richiesta dalla tua flashcart
+* Un computer con un lettore di schede SD/periferica USB per leggere le schede SD
 
 **Installazione:**
 1. Inserisci la scheda SD della flash cart nel tuo computer (o usa un adattatore, se necessario).
@@ -65,15 +69,15 @@ Giocare sul Nintendo DSi è possibile attraverso l'uso di una flashcart o metten
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-## Giocare sul (New) Nintendo 3DS o 2DS
-Giocare sul (New) Nintendo 3DS o 2DS è possibile attraverso l'uso di una flashcard, o mettendo la ROM patchata in una scheda SD e utilizzando Luma3DS sul tuo sistema
+## Giocare su (New) Nintendo 3DS o 2DS
+Puoi giocare sul (New) Nintendo 3DS o 2DS usando una scheda flash o inserendo la ROM patchata nella scheda SD e caricarla tramite TWiLightMenu++ o NDS forwarder.
 
-### Usare TWilightMenu++
+### Usando TWiLightMenu++
 **Occorrente:**
-* Una console Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL o New 2DS XL
-* Il custom firmware Luma3DS installato sul tuo sistema insieme ad FBI. Se hai seguito la guida per l'estrazione della ROM dal Nintendo 3DS, probabilmente li hai già installati!
-* Scheda SD con una capacità minima di 2GB
-* Un computer con un lettore di schede SD/una periferica USB di lettura per schede SD
+* Console Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL o New 2DS XL
+* Custom firmware Luma3DS [installato sul tuo sistema](https://dsi.cfw.guide/). se prima hai seguito la guida per il dumping della ROM sul Nintendo 3DS, dovresti averlo già fatto!
+* Scheda SD con almeno 2GB di memoria
+* Computer con un lettore di schede SD/periferica USB per leggere le schede SD
 
 **Procedura:**
 1. Inserisci la scheda SD del tuo 3DS (con Luma3DS installato) nel tuo computer
@@ -90,10 +94,12 @@ Se vuoi poter aprire il gioco direttamente dal menu HOME senza dover far partire
 4. Naviga fino alla cartella '/roms/nds/' e seleziona la ROM che hai messo in essa. Seleziona "Yes" alla schermata in cui ti chiede se vuoi installare il forwarder e seleziona "OK" una volta completata l'installazione.
 5. Premi Start per uscire dal generatore dei forwarder e poi premi il Pulsante HOME per tornare nel menu HOME. Ti verrà mostrato il nuovo forwarder appena installato nella tua schermata home e potrai far partire il gioco direttamente da lì.
 
-### Tramite flashcart
+### Usando una scheda flash
 **Occorrente:**
-* Una console Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL o New 2DS XL
-* Una flashcart (come una R4. inoltre, ti servirà una scheda SD o Micro SD per caricare altri file)
+* Console Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL o New 2DS XL
+* Flashcart (ad esempio una scheda R4)
+* Una scheda SD o microSD, richiesta dalla tua flashcart
+* Un computer con un lettore di schede SD/periferica USB per leggere le schede SD
 
 **Procedura:**
 1. Inserisci la scheda SD della flashcart nel tuo computer (o usa un adattatore).
@@ -126,17 +132,17 @@ Esistono diversi emulatori del Nintendo DS per PC, noi ti consigliamo d'usare me
 
 Devi semplicemente [scaricare melonDS[(https://melonds.kuribo64.net/downloads.php) (**v1.0.0+**) dal sito del loro progetto per la tua piattaforma (Windows, macOS o Linux) e salvarlo in una posizione facilmente accessibile del tuo computer. (Se vuoi usarlo su macOS, è consigliato di spostare la cartella melonDS.app nel tuo percorso /Applications per facilitarvi l'accesso.)
 
-Se stai usando Linux, consigliamo anche di usare il [Flatpak ufficiale[(https://flathub.org/apps/net.kuribo64.melonDS) disponibile su Flathub, anche se a volte può essere indietro con le nuove versioni di rilascio.
+Se lo stai girando su Linux, consigliamo anche il [Flatpak ufficiale](https://flathub.org/apps/net.kuribo64.melonDS) distribuito su Flathub. Il rilascio stabile può a volte rimanere indietro rispetto a quello ufficiale, quindi consigliamo di installarlo dalla repository [flathub-beta](https://docs.flathub.org/docs/for-users/installation/#flathub-beta-repository).
 
 **Giocare il gioco:**
 
-With melonDS setup, all you need to do in order to play the game is select "File" &rarr; "Open ROM" in the top menu bar and choose the ROM file you patched earlier. You can also simply drag and drop the ROM file directly on the opened emulator, or associate `.nds` files with melonDS to open them via double clicking.
+Una volta installato melonDS, tutto quello che devi fare per giocare il gioco è selezionare "File" &rarr; "Open ROM" nella barra del menu in alto e selezionare il file ROM che hai patchato prima. Puoi anche semplicemente trascinare il file direttamente nella finestra dell'emulatore o associare i file `.nds` a melonDS per aprirli tramite doppio click.
 
-melonDS has a number of advanced features, such as configuring controllers and tweaking display settings. You can check out the [melonDS website](https://melonds.kuribo64.net/) for more information.
+melonDS ha un mucchio di funzioni avanzate, come la configurazione dei controller e l'aggiustamento delle impostazioni del display. Puoi anche controllare il [sito di melonDS](https://melonds.kuribo64.net/) per ulteriori informazioni.
 
-#### Other PC emulators
-* [DeSmuME](https://github.com/TASEmulators/desmume)－The commonly-used older version of DeSMuME is not recommended due to detrimental graphical and sound emulation issues (the latter of which particularly affects voiced lines). However, the latest release seems to run the game fine so long as the software renderer is used for graphics. That being said, melonDS is still recommended over this emulator for its superior accuracy, and especially for Linux where the functionality is much more limited.
-* [no$gba](https://www.nogba.com/)－Not recommended due to severe general emulation accuracy issues. It's also infrequently updated and not very user-friendly.
+#### Altri emulatori per PC
+* [DeSmuME](https://github.com/TASEmulators/desmume)－La vecchia versione di DeSmuME tipicamente usata non è consigliata a causa di problemi con l'emulazione della grafica e dell'audio (quest'ultimo in particolare ha effetto sulle battute doppiate). Tuttavia, l'ultima versione sembra far girare il gioco per bene affinché viene utilizzato il renderer del software per la grafica. Detto questo, melonDS è comunque consigliato rispetto a questo emulatore per una maggiore accuratezza, soprattutto su Linux dove la funzionalità e molto più limitata.
+* [no$gba](https://www.nogba.com/)－Non consigliato a causa della bassa accuratezza nell'emulazione. È anche aggiornato poco frequentemente e non molto user-friendly.
 
 </div>
 
@@ -144,37 +150,37 @@ melonDS has a number of advanced features, such as configuring controllers and t
 
 ### Emulare su dispositivi mobili
 
-#### Emulate on iOS / iPadOS
-**Requirements:**
-* iOS / iPadOS Device (iPhone, iPad, iPod Touch)
+#### Emulare su iOS/iPadOS
+**Occorrente:**
+* Dispositivo iOS/iPadOS (iPhone, iPad, iPod Touch)
 
-**Play Using Delta Emulator**
+**Giocare Usando l'Emulatore Delta**
 
-In the past, Apple did not permit emulators officially on their store. However, times have changed and now you can simply download [Delta Emulator](https://faq.deltaemulator.com/) from the [App Store](https://apps.apple.com/us/app/delta-game-emulator/id1048524688).
+In passato, Apple non permetteva gli emulatori nel loro store. Tuttavia, le cose sono cambiate e ora ti basta scaricare [l'Emulatore Delta](https://faq.deltaemulator.com/) attraverso [l'App Store](https://apps.apple.com/us/app/delta-game-emulator/id1048524688).
 
-Simply run Delta Emulator and load the patched ROM file to begin playing.
+Ti basta avviare l'Emulatore Delta e caricare il file ROM patchato per iniziare a giocare.
 
-#### Emulate on Android
-There are several options for emulation on Android. [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic) has a great interface, is simple to install, and is now free to download. There is also an unofficial [Android port of melonDS](https://play.google.com/store/apps/details?id=me.magnum.melonds) that similarly will run well, but (at time of writing, Dec 2024) is not quite up to date with the PC version of melonDS's feature set. Finally, [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) can run the melonDS DS core which usually maintains exact parity with the PC version of melonDS.
+#### Emulare su Android
+Ci sono diverse opzioni per l'emulazione su Android. [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic) ha una buona interfaccia, è semplice da installare ed ora è gratis da installare. C'è anche [una port non ufficiale di melonDS per Android](https://play.google.com/store/apps/details?id=me.magnum.melonds) che gira abbastanza bene, ma (al momento della scrittura, Dicembre 2024) non è aggiornato rispetto alla versione per PC. Infine, [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) può girare il core di melonDS DS che solitamente è al pari della versione per PC di melonDS.
 
-**Requirements:**
-* Android Device with the Google Play store
+**Occorrente:**
+* Dispositivo Android con Google Play Store
 
 **Giocare utilizzando DraStic**
 
 Scarica [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic) dal Google Play Store e trasferisci la ROM patchata sul tuo dispositivo tramite Android file picker.
 
-**Play using melonDS Android Emulator**
+**Giocare usando l'Emulatore Android melonDS**
 
-Download [melonDS Android](https://play.google.com/store/apps/details?id=me.magnum.melonds) off the Google Play Store and transfer the patched ROM file over to it via the Android file picker.
+Scarica [melonDS Android](https://play.google.com/store/apps/details?id=me.magnum.melonds) dal Google Play Store e trasferisci la ROM patchata attraverso l'Android file picker.
 
 **Giocare utilizzando RetroArch**
 
-1. Download [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) off the Google Play Store and launch it.
-  - If you get an error at this step saying that your version of Android is too new to support RetroArch, you will have to download the apk manually from their site. To do this, [go to their downloads page](https://retroarch.com/?page=platforms) and scroll to the "Android" section. Below "Google Play" and "F-Droid", click "Download" to download the apk and then attempt to launch it. You will have to set several permissions in order to install the apk from an "untrusted source" &ndash; enable these settings by following the instructions on your screen and then launch the apk again to install it to your phone.
-  - You might also consider downloading one of the nightly builds to get a more up-to-date version of the app.
-2. Select "Load Core" and then "Download a Core", then select the "Nintendo DS - melonDS DS" core from the list to download it.
-3. Go back, and then hit "Load Content" and select your patched ROM file through the RetroArch file picker.
+1. Scarica [RetroArch](https://play.google.com/store/apps/details?id=com.retroarch) dal Google Play Store e avvialo.
+  -Se in questo passaggio appare un errore che dice che la tua versione di Android è troppo recente per supportare RetroArch, dovrai scaricare manualmente l'APK dal loro sito. Per farlo, [vai nella loro pagina di download](https://retroarch.com/?page=platforms) e scorri fino alla sezione "Android". Sotto "Google Play" ed "F-Droid", clicca "Download" per scaricare l'APK e prova ad avviarlo. Dovrai impostare alcuni permessi per poter installare l'APK da una "fonte non sicura" &ndash; abilita queste impostazioni seguendo le istruzioni sul tuo schermo e avvia di nuovo l'APK per installarlo sul tuo telefono.
+  - Puoi anche scaricare una delle versioni "nightly" per avere una versione più aggiornata dell'app.
+2. Seleziona "Carica Core" e "Scarica un core", poi seleziona il core "Nintendo - DS (melonDS DS)" dalla lista per scaricarlo.
+3. Vai indietro e premi "Carica Contenuto" e seleziona il file ROM patchato attraverso il selettore di file di RetroArch.
 
 </div>
 

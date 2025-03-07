@@ -6,4 +6,4 @@ author:
   website: 'https://pigo.neocities.org/'
 ---
 
-pigo is a Touhou fan who likes to program things and translate the Haruhi games to Brazilian Portuguese
+pigo ist ein Touhou-Fan, der gerne Dinge programmiert und die Haruhi-Spiele in brasilianisches Portugiesisch übersetzt
