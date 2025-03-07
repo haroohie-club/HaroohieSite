@@ -1,133 +1,133 @@
 ---
-title: 'Dumping the ROM'
+title: 'ROM Дампинг'
 navigation:
   current: '/dumping-the-rom'
   previous: '/buying-the-game'
   next: '/patching-the-rom'
 ---
 
-To dump your ROM file, you will need a Nintendo DS or 3DS system in addition to your game. Some methods will require additional peripherals, like an SD card or mobile device capable of making an unsecured hotspot.
+Чтобы создать дамп ROM файла , помимо игры вам понадобится консоль Nintendo DS или 3DS. Для некоторых методов потребуются дополнительные устройства, такие как SD-карта или телефон, способный создать незащищённую точку доступа.
 
 ---
 
-**Select platform to dump the ROM with:**
+**Выберите платформу для дампа ROM файла:**
 ::guide-platform-filter
 ---
 filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS']
 ---
 <div class="platform-filtered platform-nintendo_ds">
 
-### Dumping with a Nintendo DS or DS lite
-There are two ways of dumping the game using a Nintendo DS or Nintendo DS lite system. Both require the use of a Slot-1 (DS cartridge slot) flash cart.
+### Дампинг на Nintendo DS или DS lite
+Существует два способа дампа игры с помощью Nintendo DS или Nintendo DS lite. Оба требуют использования флеш-картриджа в первом слоте (гнездо для картриджа DS).
 
-The first method uses a Wi-Fi hack to dump over File Transfer Protocol (FTP). The second method uses a pair of Slot-1 and Slot-2 (GBA cartridge slot) flash carts to dump the ROM directly.
+Первый метод использует взлом через Wi-Fi для дампа по протоколу передачи файлов (FTP). Второй метод потребует пару флэш-карт в 1 и 2 слоте (слот для картриджа GBA) для прямого ROM дампа .
 
-#### Dump over Wi-Fi
-**Requirements:**
-* Nintendo DS or DS lite console
-* *Suzumiya Haruhi no Chokuretsu*
-* Slot-1 Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
-* Smartphone, tablet or other device that can create an unsecured or WEP-secured Wi-Fi hotspot
-  - Most modern computers aren't able to do this, unfortunately. The best devices for doing this are Android smartphones.
-  - Apple and Windows devices (including the iPhone) are not capable of creating insecure or WEP-secured hotspots.
-* A computer you can use to [download wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/) and connect to said hotspot with
-* A DS game with Wi-Fi support. It doesn't matter that the service has ended. Unfortunately, *Suzumiya Haruhi no Chokuretsu* does not have Wi-Fi support.
+#### Дамп через WI-Fii
+**Требования:**
+* Консоль Nintendo DS или DS lite.
+* *Последовательности Харухи Судзумии*
+* Флэш-картридж в первом слоте (например, картридж R4. Также карта SD или microSD для загрузки на нее данных по мере необходимости)
+* Смартфон, планшет или другое устройство, которое может создавать незащищенную или защищенную WEP точку доступа Wi-Fi.
+  - К сожалению, большинство современных компьютеров не способны на это. Лучшими устройствами для этого являются Android-смартфоны.
+  - Устройства Apple и Windows (включая iPhone) не способны создавать незащищенные или защищенные с помощью WEP точки доступа.
+* Компьютер, который вы можете использовать для [загрузки wooddumper] (https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/) и подключения к указанной точке доступа
+* Игра DS с поддержкой Wi-Fi. Неважно, что поддержка закончилась. К сожалению, *Suzumiya Haruhi no Chokuretsu* не поддерживает Wi-Fi.
 
-**Method:**
-1. Using your smartphone, tablet or other device that can create a wireless hotspot, make an unsecured (no password) or WEP secured hotspot (must be WEP-secured; WPA and other modern encryption standards are not supported by the DS).
-2. On the other computer, [download wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/). Then, connect that computer to the hotspot you just created.
-3. Install the wooddumper.nds (not the Slot 2 version) homebrew app onto the right part of your flash cart via the SD card.
-4. Insert the Nintendo DS game that has Nintendo Wi-Fi connection support and navigate to the menu that allows you to configure your Wi-Fi connection. Connect to the hotspot you made.
-5. Exit the game and remove the cartridge. Now, insert your flash cartridge you just put wooddumper on and navigate to run it on your DS.
-6. Follow the on-screen instructions and insert your *Suzumiya Haruhi no Chokuretsu* cart when prompted. Proceed until you are presented with an IP address to connect to using an FTP client.
-7. Using an FTP client, such as [net2ftp](https://www.net2ftp.com/), a built-in browser one or another such as [FileZilla](https://filezilla-project.org/), enter the IP address into the relevant field. You do not need to specify a username or password.
-8. Copy the .nds ROM file and .txt file to your computer. You can proceed to [patching your ROM](/chokuretsu/guide/patching-the-rom).
+**Метод:**
+1. С помощью смартфона, планшета или другого устройства, способного создать беспроводную точку доступа, создайте незащищенную (без пароля) или защищенную WEP точку доступа (должна быть защищена WEP, поскольку WPA и другие современные стандарты шифрования не поддерживаются DS).
+2. На другом компьютере [загрузите wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/). Затем подключите этот компьютер к только что созданной точке доступа.
+3. Установите wooddumper.nds (не версию для слота 2) в правую часть флэш-картриджа через SD-карту.
+4. Вставьте игру Nintendo DS с поддержкой подключения Nintendo Wi-Fi и перейдите в меню Wi-Fi. Подключитесь к созданной вами точке доступа.
+5. Выходим из игры и вынимаем картридж. Теперь вставьте флэш-картридж, на который вы только что установили Wooddumper, и запустите его на своем DS.
+6. Следуйте инструкциям на экране и вставьте картридж с *Последовательностями Харухи Судзумии*, когда появится соответствующий запрос. Продолжайте, пока вам не будет предоставлен IP-адрес для подключения с помощью FTP-клиента.
+7. Используя FTP-клиент, например [net2ftp](https://www.net2ftp.com/), встроенный браузер тот или иной, например [FileZilla](https://filezilla-project.org/), введите IP-адрес в соответствующее поле. Вам не нужно указывать имя пользователя или пароль.
+8. Скопируйте .nds ROM и .txt файлына свой компьютер. Вы можете приступить к [Rom патчингу](/chokuretsu/guide/patching-the-rom).
 
-#### Dump using dual-slot flash cartridges
-**Requirements:**
-* Nintendo DS or DS lite console
-* *Suzumiya Haruhi no Chokuretsu*
-* Slot-1 (DS slot) Flash cartridge (e.g. R4 cartridge)
-* Slot-2 (GBA slot) Flash cartridge that is compatible with your Slot-1 cart (e.g. E-Link card)
-* SD or microSD cards (or correct connection cables) to load and remove stuff from your flash cartridges, if necessary
-* A computer you can use to download wooddumper
+#### Дамп с использованием двухслотовых флэш-картриджей
+**Требования:**
+* Консоль Nintendo DS или DS lite
+* *Последовательности Харухи Судзумии*
+* Флэш-картридж Slot-1 (слот DS) (например, картридж R4)
+* Флэш-картридж Slot-2 (слот GBA), совместимый с вашим картриджем Slot-1 (например, карта E-Link)
+* Карты SD или microSD (или правильные соединительные кабели) для загрузки и удаления данных с ваших флэш-картриджей, если это необходимо
+* Компьютер, который вы можете использовать для загрузки wooddumper
 
-**Method:**
-1. [Download wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/) on your computer.
-2. Install the wooddumper_slot2.nds homebrew app onto the right part of your Slot-1 flash cart via the SD card.
-3. Insert your Slot-1 and Slot-2 flash carts into your DS.
-4. Open wooddumper via your flash cart.
-5. Follow the on-screen instructions and insert your *Suzumiya Haruhi no Chokuretsu* cart when prompted. Proceed until you see that the dump has completed.
-6. Remove your Slot-2 cart and insert the SD card from it into your PC (or in the case of some carts, connect it directly to your PC)
-7. Copy the .nds ROM file and .txt file to your computer. You can proceed to [patching your ROM](/chokuretsu/guide/patching-the-rom).
+**Метод:**
+1. [Загрузите wooddumper](https://digiex.net/threads/wood-dumper-dump-nintendo-ds-roms-and-save-games-over-wi-fi-with-an-nintendo-ds.14729/) на свой компьютер.
+2. Установите приложение wooddumper_slot2.nds homebrew в правую часть вашего флеш-картриджа Slot-1 с помощью SD-карты.
+3. Вставьте флеш-картриджи Slot-1 и Slot-2 в свой DS.
+4. Откройте wooddumper через флеш-картридж.
+5. Следуйте инструкциям на экране и вставьте картридж *Последовательности Харухи Судзумии*, когда будет предложено. Продолжайте, пока не увидите, что дамп завершен.
+6. Извлеките картридж Slot-2 и вставьте SD-карту из него в ПК (или в случае некоторых картриджей подключите ее напрямую к ПК)
+7. Скопируйте файл .nds ROM и файл .txt на свой компьютер. Вы можете приступить к [патчингу вашего ROM](/chokuretsu/guide/patching-the-rom).
 
 </div>
 
 <div class="platform-filtered platform-nintendo_dsi">
 
-### Dumping with a Nintendo DSi
+### Дампинг с помощью Nintendo DSi
 
-To dump using a Nintendo DSi, we will need to install a Custom Firmware (CFW) onto the system known as Twilight Menu++ and Unlaunch to let us run Godmode9i, which lets us dump the cartridge to an `.nds` file.
+Чтобы сделать дамп с помощью Nintendo DSi, нам понадобится установить на систему пользовательскую прошивку (CFW), известную как Twilight Menu++, и Unlaunch, чтобы запустить Godmode9i, который позволяет нам сделать дамп картриджа в файл `.nds`.
 
-**Requirements:**
-* Nintendo DSi or Nintendo DSi XL console
-* *Suzumiya Haruhi no Chokuretsu*
-* SD card with at least 2GB capacity
-* Computer with an SD card reader/USB SD card reader peripheral
+**Требования:**
+* Консоль Nintendo DSi или Nintendo DSi XL
+* *Последовательности Харухи Судзумии*
+* Карта SD емкостью не менее 2 ГБ
+* Компьютер с устройством чтения карт SD/адаптером для чтения USB SD карт
 
-**Method:**
+**Метод:**
 ::guide-notice
-Please take caution following these steps to avoid bricking your system.
+Пожалуйста, будьте внимательны, чётко следуйте этим шагам, чтобы избежать блокировки вашей системы.
 ::
-1. Follow [the steps on dsi.cfw.guide](https://dsi.cfw.guide/launching-the-exploit.html) to install Twilight Menu++ and Unlaunch onto your DSi.
-2. [Download GodMode9i](https://github.com/DS-Homebrew/GodMode9i/releases) and extract the file using a utility such as 7Zip on Windows or The UnArchiver on macOS.
-3. Remove the SD card from your DSi and insert it into your computer.
-4. Place the extracted GodMode9.nds file anywhere on your SD card.
-5. Insert the SD card back into your DSi.
-6. Insert the *Suzumiya Haruhi no Chokuretsu* game cartridge into your DSi.
-7. Launch Twilight Menu++ as you were shown and run GodMode9i.
-8. Select the "NDS GAMECARD" option.
-9. Press the A Button to select "yes" to dump your cartridge.
-10. When complete, you can turn off your DSi and remove the SD card from the system.
-11. Insert the SD card back into your computer. Navigate to (SD_CARD_ROOT)/gm9i/out/ on your SD card. Copy the .nds file to your computer.
+1. Следуйте [шагам на dsi.cfw.guide](https://dsi.cfw.guide/launching-the-exploit.html), чтобы установить Twilight Menu++ и Unlaunch на ваш DSi.
+2. [Загрузите GodMode9i](https://github.com/DS-Homebrew/GodMode9i/releases) и извлеките файл с помощью утилиты, такой как 7Zip на Windows или The UnArchiver на macOS.
+3. Извлеките SD-карту из вашего DSi и вставьте ее в компьютер.
+4. Поместите извлеченный файл GodMode9.nds в любое место на вашей SD-карте.
+5. Вставьте SD-карту обратно в ваш DSi.
+6. Вставьте картридж с игрой *Suzumiya Haruhi no Chokuretsu* в DSi.
+7. Запустите Twilight Menu++, как вам было показано, и запустите GodMode9i.
+8. Выберите опцию «NDS GAMECARD».
+9. Нажмите кнопку A, чтобы выбрать «да», чтобы сбросить картридж.
+10. После завершения вы можете выключить DSi и извлечь SD-карту из системы.
+11. Вставьте SD-карту обратно в компьютер. Перейдите в (SD_CARD_ROOT)/gm9i/out/ на SD-карте. Скопируйте файл .nds на компьютер.
 
 
 </div>
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-### Dumping with a Nintendo 3DS
+### Дампинг с помощью Nintendo 3DS
 
-To dump using a Nintendo 3DS or 2DS console, we will need to install a Custom Firmware (CFW) onto the system known as Luma3DS and bootstrap9 to let us run Godmode9, which lets us dump the cartridge to an .nds file.
+Чтобы выполнить дамп с помощью консоли Nintendo 3DS или 2DS, нам потребуется установить на систему пользовательскую прошивку (CFW), известную как Luma3DS, и bootstrap9, чтобы запустить Godmode9, который позволяет нам выполнить дамп картриджа в файл .nds.
 
-**Requirements:**
-* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
+**Требования:**
+* Консоль Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL или New 2DS XL
 * *Suzumiya Haruhi no Chokuretsu*
-* SD card with at least 2GB capacity
-* Computer with SD card reader/USB SD card reader peripheral
-  * In some cases, you may need to use a DS or DSi-compatible flash cartridge.
+* Карта SD емкостью не менее 2 ГБ
+* Компьютер с устройством чтения карт SD/адаптером для чтения USB SD карт
+  * В некоторых случаях может потребоваться использовать совместимый с DS или DSi флэш-картридж.
 
-**Method:**
+**Метод:**
 ::guide-notice
-Please take caution following these steps to avoid bricking your system.
+Будьте осторожны, выполняя эти шаги, чтобы избежать блокировки вашей системы.
 ::
-* Follow [the steps on 3ds.hacks.guide](https://3ds.hacks.guide/get-started) to install Luma3DS and bootstrap9 onto your 3DS.
-* Continue following [the guide to install GodMode9](https://3ds.hacks.guide/finalizing-setup) as well as other prerequisite homebrew software onto your 3DS.
-* Power off your console (not just sleep mode, a full power-off)
-* Insert the *Suzumiya Haruhi no Chokuretsu* game cartridge into your 3DS.
-* Hold the START button and press the Power Button to power on the console. This should launch GodMode9. If it doesn't, power off and try again.
-* Use the D-Pad to navigate to `[C:] GAMECART`
-* Press the A Button on `[TitleID].nds` to select it. If prompted to choose a dump type, press the A Button again.
-* Select Copy to 0:/gm9/out on the lower screen to copy the dump to the SD card.
-* When the dump has completed, power off your system and remove the SD card.
-* Insert the SD card back into your computer. Navigate to /gm9/out/ on your SD card. Copy the .nds file to your computer.
+* Следуйте [шагам на 3ds.hacks.guide](https://3ds.hacks.guide/get-started) для установки Luma3DS и bootstrap9 на вашу 3DS.
+* Продолжайте следовать [руководству по установке GodMode9](https://3ds.hacks.guide/finalizing-setup), а также другому необходимому программному обеспечению homebrew на вашу 3DS.
+* Выключите консоль (не просто переведите ее в спящий режим, а полностью отключите)
+* Вставьте игровой картридж *Последовательности Харухи Судзумии* в вашу 3DS.
+* Удерживайте кнопку START и нажмите кнопку питания, чтобы включить консоль. Это должно запустить GodMode9. Если этого не произошло, выключите консоль и повторите попытку.
+* Используйте D-Pad для перехода к `[C:] GAMECART`
+* Нажмите кнопку A на `[TitleID].nds`, чтобы выбрать его. Если будет предложено выбрать тип дампа, нажмите кнопку A еще раз.
+* Выберите Copy to 0:/gm9/out на нижнем экране, чтобы скопировать дамп на SD-карту.
+* После завершения дампа выключите систему и извлеките SD-карту.
+* Вставьте SD-карту обратно в компьютер. Перейдите к /gm9/out/ на SD-карте. Скопируйте файл .nds на компьютер.
 
 </div>
 ::
 
 ---
 
-## Before you proceed
-You should now have dumped your game to a `.nds` ROM file that you can patch. Move this to somewhere easily accessible.
+## Прежде чем продолжить
+Теперь вы должны были выгрузить свою игру в файл ROM `.nds`, который вы можете пропатчить. Переместите его в удобное место.
 
-*ROM dumping information courtesy of [dumping.guide](https://dumping.guide/carts/nintendo/ds), [dsi.cfw.guide](https://dsi.cfw.guide/) & [3ds.hacks.guide](https://3ds.hacks.guide/) contributors.*
+*Информация о ROM дампинге предоставлена участниками [dumping.guide](https://dumping.guide/carts/nintendo/ds), [dsi.cfw.guide](https://dsi.cfw.guide/) и [3ds.hacks.guide](https://3ds.hacks.guide/).*

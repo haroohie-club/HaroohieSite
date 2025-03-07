@@ -35,8 +35,8 @@ head:
     value: 'summary_large_image'
 ---
 
-I'm hard at work on the next Chokuretsu ROM Hacking blog post. I love weird dates and I really wanted to post it on this year's leap day,
-but it doesn't look like it's going to be ready in time. So instead, I'm making this announcement post so that I at least have a post on
-the 29th. 😎😎😎
+Ich arbeite hart am nächsten Chokuretsu ROM Hacking-Blogbeitrag. Ein seltsames Datum liebe ich und wollte deswegen unbedingt
+am diesjährigen Schalttag einen Beitrag veröffentlichen. Aber es sieht nicht so aus, als würde er rechtzeitig fertig werden. Also
+verfasse ich stattdessen diesen Ankündigungsbeitrag, damit ich am 29. wenigstens einen Beitrag habe. 😎😎😎
 
-Please look forward to the real post!
+Freue dich also auf den eigentlichen Beitrag!

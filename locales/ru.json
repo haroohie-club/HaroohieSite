@@ -112,7 +112,7 @@
     "chokuretsu-rom-patcher-repairing": "Восстановление поврежденного ROM...",
     "chokuretsu-rom-patcher-patch-error": "Ошибка применения патча ",
     "chokuretsu-rom-patcher-repair-applied": "Исправление применено!",
-    "chokuretsu-rom-patcher-patching-rom": "Исправление ROM с помощью {patch}...",
+    "chokuretsu-rom-patcher-patching-rom": "ROM патчинг с помощью {patch}...",
     "chokuretsu-rom-patcher-invalid-rom-select": "Выбрано неверное ROM. Пожалуйста, выберите правильный ROM файл <i>Suzumiya Haruhi no Chokuretsu</i> <code>.nds</code>.",
     "chokuretsu-rom-patcher-no-patches-available": "Патчей пока нет! Пожалуйста вернитесь позже!",
     "chokuretsu-sl-script-editor-alt": "Редактор скрипта",
@@ -153,5 +153,14 @@
     "friends-of-the-club": "Друзья клуба",
     "discord": "Discord",
     "chokuretsu-page-title": "Последовательности Харухи Судзумии - Англйиский перевод (Nintendo DS)",
-    "chokuretsu-rom-patcher-op-ed-subs-opt2": "без субтитров"
+    "chokuretsu-rom-patcher-op-ed-subs-opt2": "без субтитров",
+    "en-v0.2-patch-desc": "Это первый выпуск английского патча для Серии о Харухи Судзумии. Он полностью переводит первый эпизод игры.",
+    "chokuretsu-rom-patcher-dub-opt2": "Оригинальная",
+    "chokuretsu-rom-patcher-dub-opt1": "Дублированная",
+    "en-v0.6-patch-desc": "Третий выпуск английского патча Серии о Харухи Судзумии. Этот патч полностью переводит Эпизоды 1–3 игры, включая значительную переписывание сценария Эпизода 1 для приведения его в соответствие со стандартами качества Эпизода 3. Также были переведены дополнительная графика и видео с титрами.",
+    "chokuretsu-rom-patcher-dub-title": "Дубляж голоса",
+    "en-v0.4-patch-desc": "Второй выпуск английского патча Серии о Харухи Судзумии. Этот патч полностью переводит Эпизоды 1 и 2, а также режим Extras. Кроме того, были добавлены озвученные субтитры на экраны выбора группы и выбора компаньона в фазе головоломки, а также был внесен ряд ошибок и небольших графических изменений.",
+    "chokuretsu-rom-patcher-dub-alt": "Дубляж лиинй озвучки",
+    "chokuretsu-rom-patcher-dub-desc": "Настройте, будет ли использоваться фанатский дубляж.",
+    "zh-v0.1-patch-desc": "Это бета-релиз для проверки китайского патча Серии о Харухи Судзумии, созданный <a href=\"/friend/qi-busiyi-hanhuazu\">Qi Busiyi Hanhuazu</a>. Часть сценария первого эпизода переведена, но пока нет графики."
 }
