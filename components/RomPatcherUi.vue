@@ -275,35 +275,28 @@ function getRomSha(romFile) {
 
 // Let's just define it twice, why not, I don't know how to web dev
 function getOptionVisibilityLocal(opt) {
-    let locale = document.getElementById('patcher-locale-dropdown')?.value;
-    if (locale == null) {
-        locale = this.$i18n.locale;
-        if (AVAILABLE_PATCHES(locale).length == 0) {
-            locale = 'en';
-        }
-    }
-    let versionDropdown = document.getElementById('patcher-version-dropdown');
-    let patch = AVAILABLE_PATCHES(locale)[(versionDropdown?.selectedIndex ?? 0) >= AVAILABLE_PATCHES(locale).length ? 0 : (versionDropdown?.selectedIndex ?? 0)];
-
-    return patch.options.indexOf(opt) >= 0;
+    return window.getComputedStyle(opt).visibility !== 'collapse'
 }
 
 // Gets the name of the file needed to be fetched to patch
 function getFileName() {
+    let dubVisible = getOptionVisibilityLocal(document.querySelector('input[name="dub"]:checked'));
     let dubConfig = document.querySelector('input[name="dub"]:checked').value;
-    if (!getOptionVisibilityLocal(dubConfig) || dubConfig == 'nodub') {
+    if (!dubVisible || dubConfig == 'nodub') {
         dubConfig = ''
     } else {
         dubConfig += '-'
     }
+    let opEdSubsVisible = getOptionVisibilityLocal(document.querySelector('input[name="op-ed-subtitling"]:checked'));
     let opEdSubsConfig = document.querySelector('input[name="op-ed-subtitling"]:checked').value;
-    if (!getOptionVisibilityLocal(opEdSubsConfig) || dubConfig == 'dubbed') {
+    if (!opEdSubsVisible || dubConfig == 'dubbed') {
         opEdSubsConfig = ''
     } else {
         opEdSubsConfig += '-'
     }
+    let voicedLineVisbile = getOptionVisibilityLocal(document.querySelector('input[name="voice-lines-subtitling"]:checked'));
     let voicedLineConfig = document.querySelector('input[name="voice-lines-subtitling"]:checked').value;
-    if (!getOptionVisibilityLocal(voicedLineConfig)) {
+    if (!voicedLineVisbile) {
         voicedLineConfig = ''
     } else {
         voicedLineConfig += '-'
@@ -312,11 +305,12 @@ function getFileName() {
     let version = getSelectedVersion();
     let optionString = (dubConfig + opEdSubsConfig + voicedLineConfig);
     if (optionString.length > 0) {
+        optionString = '-' + optionString;
         optionString = optionString.substring(0, optionString.length - 1)
     }
 
     // Possible file names: patch-(subbedoped|cleanoped)-(voicesubs|novoicesubs).xdelta
-    return ('chokuretsu-patch-' + version + '-' + optionString + '.xdelta');
+    return ('chokuretsu-patch-' + version + optionString + '.xdelta');
 }
 
 // Returns the versioned patch file with the given name from the GitHub org
