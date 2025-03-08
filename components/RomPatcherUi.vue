@@ -273,22 +273,37 @@ function getRomSha(romFile) {
         });
 }
 
+// Let's just define it twice, why not, I don't know how to web dev
+function getOptionVisibilityLocal(opt) {
+    let locale = document.getElementById('patcher-locale-dropdown')?.value;
+    if (locale == null) {
+        locale = this.$i18n.locale;
+        if (AVAILABLE_PATCHES(locale).length == 0) {
+            locale = 'en';
+        }
+    }
+    let versionDropdown = document.getElementById('patcher-version-dropdown');
+    let patch = AVAILABLE_PATCHES(locale)[(versionDropdown?.selectedIndex ?? 0) >= AVAILABLE_PATCHES(locale).length ? 0 : (versionDropdown?.selectedIndex ?? 0)];
+
+    return patch.options.indexOf(opt) >= 0;
+}
+
 // Gets the name of the file needed to be fetched to patch
 function getFileName() {
     let dubConfig = document.querySelector('input[name="dub"]:checked').value;
-    if (!getOptionVisibility(dubConfig) || dubConfig == 'nodub') {
+    if (!getOptionVisibilityLocal(dubConfig) || dubConfig == 'nodub') {
         dubConfig = ''
     } else {
         dubConfig += '-'
     }
     let opEdSubsConfig = document.querySelector('input[name="op-ed-subtitling"]:checked').value;
-    if (!getOptionVisibility(opEdSubsConfig) || dubConfig == 'dubbed') {
+    if (!getOptionVisibilityLocal(opEdSubsConfig) || dubConfig == 'dubbed') {
         opEdSubsConfig = ''
     } else {
         opEdSubsConfig += '-'
     }
     let voicedLineConfig = document.querySelector('input[name="voice-lines-subtitling"]:checked').value;
-    if (!getOptionVisibility(voicedLineConfig)) {
+    if (!getOptionVisibilityLocal(voicedLineConfig)) {
         voicedLineConfig = ''
     } else {
         voicedLineConfig += '-'
@@ -309,7 +324,7 @@ function parsePatchFile(fileName, version) {
     showNotice('info', 'chokuretsu-rom-patcher-downloading-patch');
 
     // Download from GitHub
-    let encodedUri;
+    let encodedUri, backupUri;
     if (!DEBUG_MODE) {
         encodedUri = (CORS_PROXY + 'https://github.com/' + REPO_ORG + '/' + REPO + '/releases/download/' + version + '/' + fileName);
         backupUri = ('https://haroohie.nyc3.cdn.digitaloceanspaces.com/releases/chokuretsu/' + version + '/' + fileName);
