@@ -11,12 +11,10 @@ In a future update, Serial Loops will be capable of fully editing maps and this 
 
 ## Overview
 
-In Chokuretsu, there are two different kinds of maps &ndash; investigation maps and puzzle maps. Investigation maps are used during
-the investigation phase while puzzle maps are used for puzzle phases.
+In Chokuretsu, there are two different kinds of maps &ndash; investigation maps and puzzle maps. Investigation maps are used during the investigation phase while puzzle maps are used for puzzle phases.
 
 ## In Serial Loops
-In Serial Loops, map items can be opened and viewed. Additionally, the starting pathing overlay and starting camera location can be optionally
-toggled on.
+In Serial Loops, map items can be opened and viewed. Additionally, the starting pathing overlay and starting camera location can be optionally toggled on.
 
 ![Map editor](/images/chokuretsu/serial-loops/map-editing.png)
 
