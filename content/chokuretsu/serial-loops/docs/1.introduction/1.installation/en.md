@@ -12,8 +12,8 @@ Serial Loops is available for Windows, macOS, and Linux. You can get the latest 
 It is recommended that you use a distribution of Serial Loops that automatically installs or comes with the necessary prerequisites. For each platform these are:
 
 * Linux: Flatpak
-* macOS: Installer
-* Windows: Installer
+* macOS: Installer (also installs devkitARM and Xcode tools for make)
+* Windows: Installer (also installs [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) and is bundled with the Docker installer and devkitPro installer for devkitARM)
 
 Using these will ensure Serial Loops is ready to use after installation. However, if you would rather use a portable build on Windows/Linux, please check the information on installing
 these prerequisites below.
@@ -54,13 +54,18 @@ way of getting the Docker path to work, so you will have to use Make.
     - On Windows, you will additionally need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
       From an admin PowerShell or Terminal window (Winkey + X + A), simply type `wsl --install` to install it.
 
-### Installing OpenAL (Linux)
-If you're running on Linux and _not using one of the package releases_ (the `.deb` or `.rpm`), you will also need to install OpenAL which is used for audio processing.
+### Installing SDL2 (Linux)
+If you're running on Linux and _not using one of the package releases_ (the Flatpak, `.deb`, or `.rpm`), you will also need to install SDL2 which is used for audio processing.
 
 </details>
 
+### Running the installer on macOS
+Because we do not sign our installer, macOS will by default prevent you from running it. In order to give macOS explicit approval to run the file, you will need to open a terminal and run `xattr -cr ~/Downloads/[name_of_installer].pkg`, replacing `[name_of_installer]` with the name of the installer file you downloaded. Every release has the specific command you need to run.
+
 ### A Nintendo DS Emulator
 To test the game easily, you will want to have a Nintendo DS emulator installed. We recommend using [melonDS](https://melonds.kuribo64.net/) for its accuracy.
+
+On Linux, you can install the official [melonDS Flatpak from Flathub](https://flathub.org/apps/net.kuribo64.melonDS) to use as your emulator. We recommend installing it from the [flathub-beta](https://docs.flathub.org/docs/for-users/installation/#flathub-beta-repository) repository as that is where the most up-to-date versions tend to be pushed.
 
 ## Download & Install
 Once you have installed any necessary prerequisites, to install Serial Loops, download the latest release for your platform from the [Releases tab](https://github.com/haroohie-club/SerialLoops/releases).

@@ -3,7 +3,7 @@ title: 'Group Selections'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/game-flow'
-  next: '/chokuretsu/serial-loops/docs/graphics'
+  next: '/chokuretsu/serial-loops/docs/scenario/maps'
 ---
 
 The current version of Serial Loops only allows partial editing of group selections. In a future version of Serial Loops, all aspects of group selections will be editable.
@@ -21,10 +21,9 @@ Every possible group of characters in a particular task defines a **route** for 
 The current group selection editor allows you to view the following properties:
 
 * The two to four **objectives** available as part of the group selection. In the editor, you can see the title and position of the objective as well as whether Haruhi is assigned to that objective and if there are any required brigade members for it. Clicking on the objective reveals:
+  - The title of the objective as an editable field
   - The "future tense" description of the task, which is seen on the group selection screen
   - The "past tense" description of the task, which is seen on the topics recap screen
-  - The hardcoded "optimal group" &ndash; this doesn't seem to have a mechanical effect, but it's the group of characters that gather the most topics when they are sent on that task _without_ Kyon
-  - The hardcoded "worst group" &ndash; again, no mechanical effect as far as we know, but it's the group of character that gather the least topics when they are sent on that task _without_ Kyon
 
 Additionally, inside each objective are the descriptions of each **route** for that objective. In addition to the route's title (which can be seen in-game in Kyon's dialogue bubble when the route is selected with Kyon present), the editor allows you to observe the following properties:
   - The script associated with the topic &ndash; this is the script that will be loaded the selected group (including Kyon) is sent on this task
@@ -32,6 +31,3 @@ Additionally, inside each objective are the descriptions of each **route** for t
   - Kyonless-topics &ndash; these are the topics gathered by the group when they are sent on that task _without_ Kyon
 
 ![Group selections editor](/images/chokuretsu/serial-loops/group-selections-editor.png)
-
-### Editing
-Currently, the title of the objectives and routes can be edited in addition to the future and past descriptions of the objective. Everything else will be editable in future versions of Serial Loops.

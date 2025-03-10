@@ -17,7 +17,8 @@ If at any point you want to revert to the game's original music, you can hit the
 
 ## Adjusting Volume
 Pressing the "Adjust Volume" button brings up a modal for doing just that. Chokuretsu's music is quieter than a lot of other tracks, so being able to tamp
-down the volume is very useful and can be done easily (and visually) from here.
+down the volume is very useful and can be done easily (and visually) from here. For maximum ease of use, one can simply hit the "normalize" button and the
+track will have its volume auto-adjusted to match the average peak loudness of the existing in-game tracks.
 
 ## Managing Track Looping
 Under the hood, Chokuretsu uses the CriWare ADX format for its background music. A primary feature of this format is the ability to encode looping

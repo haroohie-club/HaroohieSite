@@ -3,7 +3,7 @@ title: 'Commands'
 navigation:
   faicon: 'fa6-solid:code'
   previous: '/chokuretsu/serial-loops/docs/scripts'
-  next: '/chokuretsu/serial-loops/docs/scripts/chibis-and-choices'
+  next: '/chokuretsu/serial-loops/docs/scripts/patterns-and-templates'
 ---
 
 The following document explains what every command in the game does. This document is intended for a general audience; for a more detailed, technical explanation of the commands, please reference the [Chokuretsu Translation Utility's wiki](https://github.com/haroohie-club/ChokuretsuTranslationUtility/wiki/Event-File-Commands).
@@ -95,10 +95,8 @@ Loads a chess file into memory and (if the chess overlay is loaded) places it on
 
 ## `CHESS_MOVE`
 **Parameters**:
-* `White Space Begin`: The space where a white piece to move is
-* `White Space End`: The space where the white piece should move to
-* `Black Space Begin`: The space where a black piece to move is
-* `Black Space End`: The space where the black piece should move to
+* `Move 1`: The first move that should be executed
+* `Move 2`: The second move that should be executed (optional)
 
 Moves a piece (or pieces) on the chessboard.
 
@@ -111,20 +109,23 @@ Resets the chessboard to its original state.
 
 ## `CHESS_TOGGLE_CROSS`
 **Parameters**:
-* `Cross Space 0-15`: The spaces to place/remove a cross on
+* `Cross Spaces`: The spaces to place/remove a cross on (select up to 16)
 
 Crosses out spaces on the chessboard with a red X. If a space is already crossed out, this command uncrosses it out.
 
 
 ## `CHESS_TOGGLE_GUIDE`
 **Parameters**:
-* `Piece 1`: A space containing a piece whose potential moves to highlight
-* `Piece 2`: A space containing a piece whose potential moves to highlight
-* `Piece 3`: A space containing a piece whose potential moves to highlight
-* `Piece 4`: A space containing a piece whose potential moves to highlight
+* `Piece`: A space containing a piece whose potential moves to highlight
 
-Highlights the potential moves of a piece in red. If a piece has already been highlighted, this command unhighlights it.
+Highlights the potential moves of a piece in red. If a piece has already been highlighted, this command unhighlights it. Optionally, can specify to clear all guides currently on the board.
 
+
+## `CHESS_TOGGLE_HIGHLIGHT`
+**Parameters**:
+* `Highlight Spaces`: The spaces to highlight (select up to 16)
+
+Highlights spaces on the chessboard in yellow. If a space is already highlighted, this command unhighlights it.
 
 ## `CHESS_VGOTO`
 **Parameters**:
@@ -133,13 +134,6 @@ Highlights the potential moves of a piece in red. If a piece has already been hi
 * `Miss 2 Block`: Script block to go to if the chess game is failed in some unused way
 
 Monitors for the end of the chess game and then jumps to a specified script block depending on the outcome.
-
-
-## `CHESS_TOGGLE_HIGHLIGHT`
-**Parameters**:
-* `Highlight Space 0-15`: The spaces to highlight
-
-Highlights spaces on the chessboard in yellow. If a space is already highlighted, this command unhighlights it.
 
 
 ## `CHIBI_EMOTE`
@@ -169,7 +163,7 @@ Displays falling confetti on the top screen.
 ## `DIALOGUE`
 **Parameters**:
 * `Dialogue`: The dialogue line, composed of a speaker and the dialogue text
-* `Sprite`: The character sprite to display when the dialogue is displayed
+* `Sprite`: The character sprite to display when the dialogue is displayed; this *must be set* for lip flaps to occur!
 * `Sprite Entrance Transition`: Transition that makes the sprite enter
 * `Sprite Exit/Move Transition`: Transition that makes the sprite exit or moves it around
 * `Sprite Shake`: Applies a shaking effect to the sprite 
@@ -186,8 +180,8 @@ Displays a line of dialogue and/or manipulates [character sprites](../graphics/s
 A couple of notes on sprites:
 * Sprites are associated with a speaker
 * Sprites will not be displayed unless the first sprite is given an entrance transition
-* After the first sprite is displayed for a speaker, other sprites of that speaker can be switched to without
-  entrance transitions
+* After the first sprite is displayed for a speaker, other sprites of that speaker can be switched to without entrance transitions
+* Sprites must be be specified for every dialogue command where a character appears on screen; without them, lip flaps & transitions will not take place
 * Sprites will not exit unless the sprite is specified with an exit transition
 
 For dialogue, there are a number of operators available that have different effects:
@@ -265,7 +259,7 @@ Stops script execution until input is received from the player.
 ## `INIT_READ_FLAG`
 **Parameters**: None
 
-Unknown, unused in the game.
+Seems to initialize read flags for the current script; however, it's utility is unknown as it is unused in the game.
 
 
 ## `INVEST_END`
@@ -348,7 +342,7 @@ Does nothing.
 ## `OP_MODE` 
 **Parameters**: None
 
-Suppresses the top screen UI, disables dialogue skipping, and marks the center of the screen as the position the Kyon chibi walks to, and sends the Kyon chibi out. Used only in the opening text crawl.
+Suppresses the top screen UI, shows `BG_KBG04` on the top screen, disables dialogue skipping, and marks the center of the screen as the position the Kyon chibi walks to, and sends the Kyon chibi out. Used only in the opening text crawl.
 
 
 ## `PALEFFECT`

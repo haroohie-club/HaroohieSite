@@ -61,6 +61,6 @@ For your base ROM, we **highly recommend using the clean, original Japanese ROM*
 Doing this means that people trying to patch your game will not need anything other than the clean Japanese ROM (i.e., they won't need to first patch it somewhere else before playing). Serial Loops will detect the hash of the ROM you use when trying to create the patch and ensure that it matches the clean Japanese ROM.
 
 ## Migrating to a New Base ROM
-Sometimes, you may migrate to a new base ROM &ndash; for example, if you're using v0.4 of a translation patch and v0.6 is released.
-Serial Loops is capable of handling such a migration. Simply select _File_ &rarr; _Migrate to new ROM_ and select the new ROM you want as the base for your hack.
+Sometimes, you may migrate to a new base ROM &ndash; for example, if you're using v0.6 of a translation patch and v0.8 is released.
+Serial Loops is capable of handling such a migration. Simply select _Project_ &rarr; _Migrate to new ROM_ and select the new ROM you want as the base for your hack.
 Serial Loops will handle upgrading and building based on this new ROM, bringing all of your changes you've made so far along with you!
