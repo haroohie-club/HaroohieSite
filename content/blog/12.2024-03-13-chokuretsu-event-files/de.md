@@ -35,12 +35,12 @@ head:
     value: 'summary_large_image'
 ---
 
-In my first few posts, I explained how I figured out how to extract files from the different Chokuretsu archives. This post is the start of the next series where we delve into how I reverse-engineered the contents of those files for the purpose of translating the game. Today, we’re covering the backbone of the game’s script – the _event files_. This is intended to serve as both an explanation of how I reverse-engineered these files and an introduction to trying to reverse-engineer files.
+In meinen ersten paar Beiträgen habe ich erklärt, wie ich herausgefunden habe, wie man Dateien aus den verschiedenen Chokuretsu-Archiven extrahiert. Dieser Beitrag ist der Beginn der nächsten Serie, in der wir uns damit befassen, wie ich den Inhalt dieser Dateien zum Zweck der Übersetzung des Spiels reverse-engineered, also zurückentwickelt, habe. Heute behandeln wir das Rückgrat des Spielskripts – die _event files_. Dies soll sowohl als Erklärung dafür dienen, wie ich diese Dateien reverse-engineered habe, als auch als Einführung in das Reverse Engineering von Dateien.
 
-## A Very Good Place to Start
-At the _very_ beginning of my work on the event files, I had cracked the compression algorithm, but not the archives. This meant I was able to view the files but not yet reinsert them into the game. That’s okay, though! A great place to start when looking at a file is to… well, look at it. Specifically, let's crack open the hex editor and see what we can find.
+## Ein sehr guter Ausgangspunkt
+Ganz am Anfang meiner Arbeit an den Event Files hatte ich den Komprimierungsalgorithmus geknackt, aber nicht die Archive. Das bedeutete, dass ich die Dateien zwar ansehen, aber noch nicht wieder ins Spiel einfügen konnte. Aber das ist okay! Ein guter Ausgangspunkt beim Betrachten einer Datei ist, sie sich anzusehen. Genauer gesagt: Öffnen wir den Hex-Editor und schauen, was wir finden können.
 
-So this is the first event file in the game (technically it’s the second chronologically and the 360th in the archive, but don’t worry about that right now):
+Dies ist also die erste Ereignisdatei im Spiel (technisch gesehen ist es chronologisch die zweite und die 360. im Archiv, aber darüber braucht man sich jetzt keine Gedanken zu machen):
 
 ::image-gallery
 ----
@@ -56,19 +56,19 @@ images: [
 ----
 ::
 
-That’s it in all its 7.06 KiB of glory. I’m reproducing the entire file here for two reasons – one, so we can reference these images in context (I’ll make sure to mention the number you see above each screenshot when referencing something in that image), but also two, so that you can see how intimidating a file like this can look at first glance. That’s a lot of data! But not to worry – we can figure it out!
+Das ist es in seiner ganzen Pracht von 7,06 KiB. Ich reproduziere die gesamte Datei hier aus zwei Gründen – erstens, damit wir diese Bilder im Kontext referenzieren können (ich werde darauf achten, die Nummer zu erwähnen, die du über jedem Screenshot siehst, wenn Sie auf etwas in diesem Bild verweisen), aber auch zweitens dass du auf den ersten Blick erkennen kannst, wie einschüchternd eine Datei wie diese wirken kann. Das sind eine Menge Daten! Aber keine Sorge – wir bekommen das hin!
 
-As I mentioned, the above images are screenshots of a hex editor. In case you’ve forgotten how hexadecimal works, here’s a quick summary from the [compression blog post](/blog/2022-10-19-chokuretsu-compression):
+Wie bereits erwähnt, handelt es sich bei den obigen Bildern um Screenshots eines Hex-Editors. Falls du vergessen hast, wie Hexadezimalzahlen funktionieren, finden du hier eine kurze Zusammenfassung aus dem [Komprimierungs-Blogbeitrag](/blog/2022-10-19-chokuretsu-compression):
 
-> Hexadecimal is also called base 16 – while we normally use decimal (base 10 – i.e. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) and computers use binary (base 2 – i.e. 0, 1), programmers often use hexadecimal because it allows us to represent a single byte in two characters. When writing numbers, to distinguish the base we often use 0x as a prefix for hex numbers (0x17 is 23 in decimal) and 0b to represent binary numbers (0b0000_0100 is 4 in decimal).
+> Hexadezimal wird auch Basis 16 genannt – während wir normalerweise Dezimalzahlen (Basis 10 – also 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) verwenden und Computer Binärzahlen (Basis 2 – also 0, 1), verwenden Programmierer häufig Hexadezimalzahlen, da wir damit ein einzelnes Byte in zwei Zeichen darstellen können. Beim Schreiben von Zahlen verwenden wir zur Unterscheidung der Basis häufig 0x als Präfix für Hexadezimalzahlen (0x17 ist 23 im Dezimalsystem) und 0b zur Darstellung von Binärzahlen (0b0000_0100 ist 4 im Dezimalsystem).
 
-A hex editor, therefore, is a program to view and edit the hexadecimal representation of files, meaning it allows us to take a peek and and even modify the raw file data. Neat!
+Ein Hex-Editor ist daher ein Programm zum Anzeigen und Bearbeiten der hexadezimalen Darstellung von Dateien. Das heißt, es ermöglicht uns, einen Blick auf die Rohdateidaten zu werfen und diese sogar zu ändern. Toll!
 
-It’s also worth noting that in the past few posts, I’ve used CrystalTile2 for screenshots. I’ve since discovered [ImHex](https://imhex.werwolv.net/) which I think is fantastic. While it’s not what I used while working on this, I’m going to use it for screenshots anyway. I mention this in part because you might have noticed that there’s two columns of text to the right of the hexadecimal – one in gray/white and one in red/blue/gold. The gray/white one is the hexadecimal interpreted through the *ASCII encoding* while the red/blue/gold column is interpreted through the *Shift-JIS encoding*. If you recall from the compression blog post:
+Es ist auch erwähnenswert, dass ich in den letzten paar Beiträgen CrystalTile2 für Screenshots verwendet habe. Seitdem habe ich [ImHex](https://imhex.werwolv.net/) entdeckt, das ich fantastisch finde. Obwohl es nicht das ist, was ich während der Arbeit daran verwendet habe, werde ich es trotzdem für Screenshots verwenden. Ich erwähne dies teilweise, weil dir vielleicht aufgefallen ist, dass sich rechts neben dem Hexadezimalwert zwei Textspalten befinden – eine in Grau/Weiß und eine in Rot/Blau/Gold. Die grau/weiße Spalte ist der Hexadezimalwert, der durch die *ASCII-Kodierung* interpretiert wird, während die rot/blau/goldene Spalte durch die *Shift-JIS-Kodierung* interpretiert wird. Wenn du dich an den Blogbeitrag zur Komprimierung erinnerst:
 
-> You might be familiar with ASCII, the most basic of encodings – each letter in the alphabet is represented by a single byte. This game uses an encoding called Shift-JIS, which is how Japanese was represented prior to the advent of Unicode.
+> Du kennst vielleicht ASCII, die einfachste Kodierung – jeder Buchstabe des Alphabets wird durch ein einzelnes Byte dargestellt. Dieses Spiel verwendet eine Kodierung namens Shift-JIS, die der Darstellung des Japanischen vor der Einführung von Unicode entspricht.
 
-So ImHex allows us to see both encodings at once in addition to a bunch of other great features, which is why I made the switch!
+Daher ermöglicht uns ImHex, beide Kodierungen gleichzeitig anzuzeigen, und bietet darüber hinaus noch eine Reihe weiterer toller Funktionen. Deshalb habe ich gewechselt!
 
 ## Pointers Point the Way
 When you’re lost, you might ask someone for a pointer, and indeed that’s also what we’re going to look for here. In case you’re not following, I’ve copied this passage from the [archives blog post](/blog/2022-11-02-chokuretsu-archives):

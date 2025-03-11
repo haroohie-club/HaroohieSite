@@ -1,5 +1,5 @@
 ---
-title: 'Исправление ROM'
+title: 'ROM патчинг'
 navigation:
   current: '/patching-the-rom'
   previous: '/dumping-the-rom'
