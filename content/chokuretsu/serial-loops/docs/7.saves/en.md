@@ -17,7 +17,7 @@ in that particular run of the game. Finally, the _quicksave slot_ can be accesse
 the player.
 
 ## Main Editor Screen
-The main editor screen presents you with the three save slots, each of which have a button to edit them and a rocket ship button to clear them.
+The main editor screen presents you with the three save slots, each of which has a button to edit them and a rocket ship button to clear them.
 Additionally, there is a button for editing common save data. Clicking any of the edit buttons brings up a dialog to edit that portion of the
 save file, divided into tabs. All three kinds of save data have a "Flags" tab that will be covered in a separate section at the end.
 
@@ -37,7 +37,7 @@ In addition to the regular character assignments, there are also switches for Ep
 B occurred separately from Objectives C and D.
 
 Finally, there is stored data for the current friendship level with each character. This variable is increased by various in-game actions (obtaining
-character topics, assigning the character to a good/bad objectives during group selection, the [`MODIFY_FRIENDSHIP`](scripts/commands#modify_friendship)
+character topics, assigning the character to good/bad objectives during group selection, the [`MODIFY_FRIENDSHIP`](scripts/commands#modify_friendship)
 command, etc.) and determines some in-game events and unlocks particular game endings.
 
 ## Quicksave Data
@@ -47,7 +47,7 @@ and command that was active when the game was saved. The script preview to the r
 this preview is specified manually, so this is done for convenience.
 
 ## Flags
-As mentioned earlier, all three types of save data have a Flags tab.There are 5120 total flags in the game. The first 100 or so act as scratch flags for
+As mentioned earlier, all three types of save data have a Flags tab. There are 5120 total flags in the game. The first 100 or so act as scratch flags for
 scripts to use to temporarily mark events that occur within the script. After this, flags are associated with various objects in the game such as topics,
 BGMs, CGs, tutorials, and more. Additionally, flags indicate whether certain features have been unlocked. Serial Loops allows for editing _all_ of these
 flags.

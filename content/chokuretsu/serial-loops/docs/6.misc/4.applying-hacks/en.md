@@ -33,7 +33,7 @@ The first step is to click "Select Hack Files" and select *all* the files you ne
 may result in errors!
 
 After you have selected your hack files, give your hack a name and a description. Then, you can select each file and edit its options. Firstly, you should choose whether that file should be
-applied to the main ARM9 binary or an overlay (and if an overlay, which overlay in particular it should be applied to). Afterwards, if there are any unknown symbols you reference in this file,
+applied to the main ARM9 binary or an overlay (and if an overlay, which overlay in particular it should be applied to). Afterward, if there are any unknown symbols you reference in this file,
 you should define their RAM addresses here. Finally, any parameters you have created in the files should be defined here. You are able to define multiple options for each parameter and give
 them a name and value.
 

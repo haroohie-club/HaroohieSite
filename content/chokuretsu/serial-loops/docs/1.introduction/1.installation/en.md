@@ -9,7 +9,7 @@ navigation:
 Serial Loops is available for Windows, macOS, and Linux. You can get the latest release from [here](https://github.com/haroohie-club/SerialLoops/releases/latest).
 
 ## Prerequisites
-It is recommended that you use a distribution of Serial Loops that automatically installs or comes with the necessary prerequisites. For each platform these are:
+It is recommended that you use a distribution of Serial Loops that automatically installs or comes with the necessary prerequisites. For each platform, these are:
 
 * Linux: Flatpak
 * macOS: Installer (also installs devkitARM and Xcode tools for make)

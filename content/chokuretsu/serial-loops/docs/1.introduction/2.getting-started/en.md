@@ -32,7 +32,7 @@ Let's briefly go over the different settings in this menu:
 * **Remove Missing Projects** &ndash; Will remove missing (i.e. manually deleted) projects from the Recent Projects menu automatically.
 
 ### Build
-* **devkitARM Path** &ndash; The path to your devkitARM installation. By default, Serial Loops looks in `C:\devkitPro\devkitARM` on Windows and `/opt/devkitpro/devkitARM` on macOS and Linux systems. If it can't find it one of those locations, you will need to specify it manually here!
+* **devkitARM Path** &ndash; The path to your devkitARM installation. By default, Serial Loops looks in `C:\devkitPro\devkitARM` on Windows and `/opt/devkitpro/devkitARM` on macOS and Linux systems. If it can't find one of those locations, you will need to specify it manually here!
 * **Emulator Path** &ndash; The path to the emulator that will be used after clicking "Build & Run". Set this to your favorite Nintendo DS emulator's executable! As stated previously, our team highly recommends using melonDS.
 * **Emulator Flatpak** *(Linux Only)* &ndash; On Linux systems, instead of specifying the path to the emulator you can instead specify a flatpak to be launched. Serial Loops will automatically look for installed flatpaks on first startup, but otherwise, simply type the ID of the flatpak to launch here (e.g. `net.kuribo64.melonDS`).
 * **Use Docker for ASM Hacks** &ndash; Checking this will cause Docker to be used for ASM hacks. If you decided to install Docker rather than make, ensure this option is checked. (This is the default setup on Windows; on other platforms, you should most likely leave this unchecked.)

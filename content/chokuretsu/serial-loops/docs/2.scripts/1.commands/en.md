@@ -155,7 +155,7 @@ Specifies a [chibi](../graphics/chibis) figure to enter or exit the top screen. 
 
 ## `CONFETTI`
 **Parameters**:
-* `Visible`: If true turns confetti on. If false, turns it off.
+* `Visible`: If true, turns confetti on. If false, turns it off.
 
 Displays falling confetti on the top screen.
 
@@ -181,7 +181,7 @@ A couple of notes on sprites:
 * Sprites are associated with a speaker
 * Sprites will not be displayed unless the first sprite is given an entrance transition
 * After the first sprite is displayed for a speaker, other sprites of that speaker can be switched to without entrance transitions
-* Sprites must be be specified for every dialogue command where a character appears on screen; without them, lip flaps & transitions will not take place
+* Sprites must be specified for every dialogue command where a character appears on screen; without them, lip flaps & transitions will not take place
 * Sprites will not exit unless the sprite is specified with an exit transition
 
 For dialogue, there are a number of operators available that have different effects:
@@ -392,7 +392,7 @@ Causes the screen to fade in.
 ## `SCREEN_FADEOUT`
 **Parameters**:
 * `Fade Time (Frames)`: The length of the fade in frames
-* `Fade out Percentage`: The percentage darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means that the screen will be 50% brighter than full black when the fade is complete); only respected by color fades
+* `Fade out Percentage`: The percentage of darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means that the screen will be 50% brighter than full black when the fade is complete); only respected by color fades
 * `Custom Color`: The color the fade will be if `Color` is set to `CUSTOM`
 * `Location`: The screen(s) the fade will be applied to
 * `Color`: Either black, white, or the custom color defined by `Custom Color`; this parameter must match that of the subsequent [`SCREEN_FADEIN`](#screen_fadein) call

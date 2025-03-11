@@ -13,7 +13,7 @@ In a future update, Serial Loops will be capable of fully editing maps and this 
 In Chokuretsu, there are two different kinds of maps &ndash; investigation maps and puzzle maps. Investigation maps are used during the investigation phase while puzzle maps are used for puzzle phases.
 All maps are composed of _layers_. The three main layers are the background layer, the occlusion layer, and the object layer. These layers are defined by **occlusion**:
 the background layer occludes nothing, the occlusion layer occludes everything, and the object layer occludes on a case-by-case basis. (The background layer can further be subdivided into the "background object layer",
-which is composed of the non-occluding components of the objects.) There are a few additional layers, most notably the "scrolling background" which defines the background that scrolls by in the puzzle phase maps
+which is composed of the non-occluding components of the objects.) There are a few additional layers, most notably the "scrolling background" which defines the background that scrolls by in the puzzle phase maps,
 and the "boundary" which defines the limits of camera movement on the map.
 
 Aside from the graphical layers, the map is also defined by an isometric grid. This grid has an origin point that is defined to be at the top of the map and extends in two directions diagonally.

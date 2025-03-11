@@ -18,7 +18,7 @@ While navigating the items panel and filtering by name through quick search is p
 ![Item search](/images/chokuretsu/serial-loops/item-search.png)
 
 ### Renaming Items
-Items in Serial Loops can be renamed, which lets you provide a more sensible name based on the changes you have made to that item. To rename an item, select the item in the item explorer panel on the lefthand side and press F2. Simply type a new name for the item and then press enter for the new name to take effect.
+Items in Serial Loops can be renamed, which lets you provide a more sensible name based on the changes you have made to that item. To rename an item, select the item in the item explorer panel on the left-hand side and press F2. Simply type a new name for the item and then press enter for the new name to take effect.
 
 ![Item renaming](/images/chokuretsu/serial-loops/item-renaming.png)
 

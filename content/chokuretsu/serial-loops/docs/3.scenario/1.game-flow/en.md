@@ -5,7 +5,7 @@ navigation:
   previous: '/chokuretsu/serial-loops/docs/scenario'
   next: '/chokuretsu/serial-loops/docs/scenario/group-selections'
 ---
-The game's flow can be edited with the _Scenario_ editor. The scenario is essentially a list of commands which execute in order to load various game
+The game's flow can be edited with the _Scenario_ editor. The scenario is essentially a list of commands that are executed in order to load various game
 components. The commands are explained in the following table:
 
 ## Scenario Commands
