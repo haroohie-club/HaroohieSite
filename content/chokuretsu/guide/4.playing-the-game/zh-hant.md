@@ -20,9 +20,11 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', '模擬器']
 ## 在 Nintendo DS 上玩
 在 Nintendo DS 上玩遊戲非常簡單，只需把打好補丁的 ROM 放在燒錄卡上並運行遊戲。如果你按照前面的設定說明了操作，你應該已經有了一張燒錄卡。
 
-**要求：**
-* Nintendo DS 或 DS Lite 主機
-* 燒錄卡（例如 R4 卡。此外，可能還需要 SD 卡或 microSD 卡來載入內容）
+**Requirements:**
+* Nintendo DS or DS lite console
+* Flash cartridge (e.g. R4 cartridge)
+* An SD or microSD card as required by your flash cartridge
+* Computer with an SD card reader/USB SD card reader peripheral
 
 **設定：**
 1. 將 SD 卡從燒錄卡中取出並插入計算機（如果需要，也可以透過正確的資料線連線）
@@ -33,16 +35,16 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', '模擬器']
 
 <div class="platform-filtered platform-nintendo_dsi">
 
-## 在 Nintendo DSi 上玩
-在 Nintendo DSi 上玩遊戲可以簡單地透過使用燒錄卡來完成，也可以將打好補丁的 ROM 放在 SD 卡上，並在系統上使用 Twilight Menu++。
+## Play on Nintendo DSi
+Playing on the Nintendo DSi can either be done through the use of a flash cartridge or putting the patched ROM onto an SD card and launching it through TWiLightMenu++.
 
-### Using TWiLightMenu (nds-bootstrap)
+### Using TWiLightMenu++ (nds-bootstrap)
 
-**要求：**
-* Nintendo DSi 或 DSi LL/XL 主機
-* [在您的系統上設定](https://dsi.cfw.guide/)了 TwilightMenu++ 自定義韌體。如果你之前按照指南在 Nintendo DSi 上轉儲了 ROM，你可能已經完成了！
-* 容量至少為 2GB 的 SD 卡
-* 擁有 SD 卡讀卡器或 USB SD 卡讀卡器外設的計算機
+**Requirements:**
+* Nintendo DSi or DSi XL console
+* TWiLightMenu++ custom firmware [setup on your system](https://dsi.cfw.guide/). If you followed the guide to dumping your ROM on Nintendo DSi earlier, you've probably already done this!
+* SD card with at least 2GB capacity
+* Computer with an SD card reader/USB SD card reader peripheral
 
 **設定：**
 1. 將 DSi 中的 SD 卡插入電腦，
@@ -51,10 +53,12 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', '模擬器']
 4. 將你的 DSi 開機，啟動 Twilight Menu++。
 5. 導航到打過補丁的 .nds ROM 檔案的位置並執行，然後開始遊戲。享受遊戲吧！
 
-### 使用燒錄卡
-**要求：**
-* Nintendo DSi 或 DSi LL/XL 主機
-* 燒錄卡（例如 R4 卡。此外，可能還需要 SD 卡或 microSD 卡來載入內容）
+### Using a flash cartridge
+**Requirements:**
+* Nintendo DSi or DSi XL console
+* Flash cartridge (e.g. R4 cartridge)
+* An SD or microSD card as required by your flash cartridge
+* Computer with an SD card reader/USB SD card reader peripheral
 
 **設定：**
 1. 將 SD 卡從燒錄卡中取出並插入計算機（如果需要，也可以透過正確的資料線連線）
@@ -65,13 +69,13 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', '模擬器']
 
 <div class="platform-filtered platform-nintendo_3ds">
 
-## 在 (New) Nintendo 3DS 或 2DS 上玩
-在 (New) Nintendo 3DS 或 2DS 上玩遊戲可以簡單地透過使用燒錄卡來完成，也可以將打好補丁的 ROM 放在 SD 卡上，並在系統上使用 Luma3DS。
+## Play on (New) Nintendo 3DS or 2DS
+Playing on a (New) Nintendo 3DS or 2DS can either be done through the use of a flash cartridge, or putting the patched ROM onto a SD card launching it through TWiLightMenu++ or NDS forwarder.
 
 ### Using TWiLightMenu++
 **Requirements:**
 * Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Luma3DS custom firmware setup on your system and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
+* Luma3DS custom firmware [setup on your system](https://3ds.hacks.guide) and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
 * SD card with at least 2GB capacity
 * Computer with an SD card reader/USB SD card reader peripheral
 
@@ -90,10 +94,11 @@ If you would instead like to be able to launch the game directly from the home s
 4. Navigate to the /roms/nds/ folder and select the ROM you placed there. Select "Yes" at the prompt for whether you want to install the forwarder, and then select "OK" when the installation is complete.
 5. Press Start to exit the forwarder generator and then Home Button to return to the home menu. You will be shown the newly installed forwarder on your home screen and can then launch the game directly from that.
 
-### 使用燒錄卡
-**要求：**
-* Nintendo 3DS、3DS LL/XL、2DS、New 3DS、New 3DS LL/XL 或 New 2DS LL/XL 主機
-* 燒錄卡（例如 R4 卡。此外，可能還需要 SD 卡或 microSD 卡來載入內容）
+### Using a flash cartridge
+**Requirements:**
+* Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
+* Flash cartridge (e.g. R4 cartridge)
+* An SD or microSD card as required by your flash cartridge
 
 **設定：**
 1. 將 SD 卡從燒錄卡中取出並插入計算機（如果需要，也可以透過正確的資料線連線）
@@ -126,7 +131,7 @@ filterSuffix: 'emulator'
 
 Simply [download melonDS](https://melonds.kuribo64.net/downloads.php) (**v1.0.0+**) from the project website for your platform (Windows, macOS, or Linux) and save it somewhere easily accessible to your computer. (If you are using macOS, consider placing the melonDS.app folder in your /Applications directory for ease of access.)
 
-If you're running Linux, we also recommend the [official Flatpak](https://flathub.org/apps/net.kuribo64.melonDS) provided on Flathub, though that can sometimes lag behind the direct download releases.
+If you're running Linux, we also recommend the [official Flatpak](https://flathub.org/apps/net.kuribo64.melonDS) provided on Flathub. The stable release can sometimes lag behind the official one, so consider installing it from the [flathub-beta](https://docs.flathub.org/docs/for-users/installation/#flathub-beta-repository) repository.
 
 **遊玩遊戲：**
 
