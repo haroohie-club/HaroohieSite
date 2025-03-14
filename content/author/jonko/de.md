@@ -13,4 +13,4 @@ author:
   website: 'https://jonkode.su/'
 ---
 
-Jonko ist eine project lead and main ROM hacker for the Haroohie Translation Club.
+Jonko ist der Projektleiter und Haupt-ROM-Hacker für den Haroohie Translation Club.

@@ -1,20 +1,20 @@
 ---
-title: Suzumiya Haruhi no Chokuretsu - English Translation (Nintendo DS) - (The Series of Haruhi Suzumiya)
-description: English Translation ROM patch for Nintendo DS game Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
+title: Suzumiya Haruhi no Chokuretsu - Englische Übersetzung (Nintendo DS) - (The Series of Haruhi Suzumiya)
+description: Englischer ROM Übersetzungspatch für das Nintendo DS-Spiel Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
 ---
 
 ::chokuretsu-nav
-## Get the translation
+## Hol dir die Übersetzung
 ::
 
 ## About the game
-Released in 2009 for the Nintendo DS, *Suzumiya Haruhi no Chokuretsu* (*The Series of Haruhi Suzumiya*) is a partially-voiced visual novel/puzzle game based on the Haruhi Suzumiya series!
+*Suzumiya Haruhi no Chokuretsu* (*The Series of Haruhi Suzumiya*) erschien 2009 für den Nintendo DS und ist ein teilweise vertontes Visual Novel/Rätselspiel basierend auf der Haruhi Suzumiya-Serie!
 
-Play as Kyon as you work with the rest of the SOS Brigade to keep Haruhi from discovering the unnatural phenomena occurring all around you! Set during summer break after the second light novel, the SOS Brigade members must distract Haruhi while she investigates the Seven Wonders of North High and erase the evidence before she finds it.
+Spiele als Kyon und arbeite mit dem Rest der SOS-Brigade zusammen, um Haruhi davon abzuhalten, die unnatürlichen Phänomene zu entdecken, die überall um Sie herum auftreten! Die Handlung spielt während der Sommerferien nach dem zweiten Light Novel statt. Die Mitglieder der SOS-Brigade müssen Haruhi ablenken, während sie die Sieben Wunder der North High untersucht, und die Beweise vernichten, bevor sie sie findet.
 
-Featuring over 38,000 lines of dialogue and many possible routes, this unofficial translation made by *Haruhi* fans from around the world seeks to make the game accessible to a non-Japanese audience. Please support the series by buying the original games & merch!
+Mit über 38.000 Dialogzeilen und vielen möglichen Routen soll diese inoffizielle Übersetzung von *Haruhi*-Fans aus aller Welt das Spiel einem nicht-japanischen Publikum zugänglich machen. Bitte unterstütze die Serie, indem du die Originalspiele und Merchandise-Artikel kaufst!
 
-## From the translation team
+## Vom Übersetzerteam
 ::blog-tag-stack
 ---
 tag: 'chokuretsu'

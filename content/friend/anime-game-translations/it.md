@@ -2,7 +2,6 @@
 title: 'Anime Game Translations'
 friend:
   name: 'Anime Game Translations'
-  original: 'Anime Game Translations'
   icon: 'fa6-solid:gamepad'
   color: '#007733'
   website: 'https://agtteam.net/'
@@ -12,4 +11,4 @@ friend:
   youtube: 'https://www.youtube.com/channel/UC-F-lUuU7OXUURrPzhyFOOA'
 ---
 
-Anime Game Translations (AGTTeam) is a passionate team responsible for translating a number of classic titles, spanning series such as Naruto, Death Note, Spice and Wolf, Soul Eater, and Neon Genesis Evangelion.
+Anime Game Translations (AGTTeam) è un team appassionato responsabile per la traduzione di svariati titoli classici, a partire da serie come Naruto, Death Note, Spice and Wolf, Soul Eater, e Neon Genesis Evangelion.

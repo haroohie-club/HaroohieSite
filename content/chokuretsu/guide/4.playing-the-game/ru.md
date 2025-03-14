@@ -1,15 +1,15 @@
 ---
-title: 'Playing the game'
+title: 'Играть'
 navigation:
   current: '/playing-the-game'
   previous: '/patching-the-rom'
 ---
 
-Now that you've got the patched ROM file, it's time to get ready to start playing!
+Теперь, когда у вас есть пропатченный ROM файл , пришло время начать игру!
 
 ---
 
-**Select the platform you want to play on:**
+**Выберите платформу на которой будете играть:**
 ::guide-platform-filter
 ---
 filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulator']
@@ -17,30 +17,32 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulator']
 
 <div class="platform-filtered platform-nintendo_ds">
 
-## Play on Nintendo DS
-Playing on the Nintendo DS is as simple as placing the patched ROM onto a flash cartridge and running the game. You probably already have the cartridge if you followed the setup instructions earlier.
+## Играть на Nintendo DS
+Играть на Nintendo DS так же просто, как переместить пропатченный ROM на флэш-картридж и запустить игру. Вероятно, картридж у вас уже есть, если вы ранее следовали инструкциям по установке.
 
-**Requirements:**
-* Nintendo DS or DS lite console
-* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+**Требования:**
+* Консоль Nintendo DS или DS lite
+* Флэш-картридж (например, картридж R4)
+* Карта SD или microSD в зависимости от вашего флэш-картриджа.
+* Компьютер с портом или USB переходник для чтения SD карт
 
 **Setup:**
-1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct cable if required)
-2. Drag over the patched .nds ROM file you previously created into the correct directory on the flash cart's storage.
-3. Disconnect the flash cartridge and insert it into your Nintendo DS. Fire up the game and enjoy!
+1. Вставьте SD-карту из флэш-картриджа в компьютер (или при необходимости подключите ее через кабель).
+2. Перетащите ранее пропатченный .nds ROM файл в правильный каталог на флэш-карте.
+3. Отсоедините флэш-картридж и вставьте его в Nintendo DS. Запустите игру и наслаждайтесь!
 
 </div>
 
 <div class="platform-filtered platform-nintendo_dsi">
 
 ## Play on Nintendo DSi
-Playing on the Nintendo DSi can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Twilight Menu++ on your system
+Playing on the Nintendo DSi can either be done through the use of a flash cartridge or putting the patched ROM onto an SD card and launching it through TWiLightMenu++.
 
-### Using TWiLightMenu (nds-bootstrap)
+### Using TWiLightMenu++ (nds-bootstrap)
 
 **Requirements:**
 * Nintendo DSi or DSi XL console
-* TwilightMenu++ custom firmware [setup on your system](https://dsi.cfw.guide/). If you followed the guide to dumping your ROM on Nintendo DSi earlier, you've probably already done this!
+* TWiLightMenu++ custom firmware [setup on your system](https://dsi.cfw.guide/). If you followed the guide to dumping your ROM on Nintendo DSi earlier, you've probably already done this!
 * SD card with at least 2GB capacity
 * Computer with an SD card reader/USB SD card reader peripheral
 
@@ -54,7 +56,9 @@ Playing on the Nintendo DSi can either be done simply through the use of a flash
 ### Using a flash cartridge
 **Requirements:**
 * Nintendo DSi or DSi XL console
-* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+* Flash cartridge (e.g. R4 cartridge)
+* An SD or microSD card as required by your flash cartridge
+* Computer with an SD card reader/USB SD card reader peripheral
 
 **Setup:**
 1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct adapter if required).
@@ -66,12 +70,12 @@ Playing on the Nintendo DSi can either be done simply through the use of a flash
 <div class="platform-filtered platform-nintendo_3ds">
 
 ## Play on (New) Nintendo 3DS or 2DS
-Playing on a (New) Nintendo 3DS or 2DS can either be done simply through the use of a flash cartridge, or putting the patched ROM onto a SD card and making use of Luma3DS on your system
+Playing on a (New) Nintendo 3DS or 2DS can either be done through the use of a flash cartridge, or putting the patched ROM onto a SD card launching it through TWiLightMenu++ or NDS forwarder.
 
 ### Using TWiLightMenu++
 **Requirements:**
 * Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Luma3DS custom firmware setup on your system and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
+* Luma3DS custom firmware [setup on your system](https://3ds.hacks.guide) and FBI. If you followed the guide to dumping your ROM on Nintendo 3DS earlier, you've probably already done this!
 * SD card with at least 2GB capacity
 * Computer with an SD card reader/USB SD card reader peripheral
 
@@ -93,7 +97,8 @@ If you would instead like to be able to launch the game directly from the home s
 ### Using a flash cartridge
 **Requirements:**
 * Nintendo 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL or New 2DS XL console
-* Flash cartridge (e.g. R4 cartridge. Also, an SD or microSD card to load stuff onto it as required)
+* Flash cartridge (e.g. R4 cartridge)
+* An SD or microSD card as required by your flash cartridge
 
 **Setup:**
 1. Insert your SD card from your flash cartridge into your computer (or connect it through the correct adapter if required).
@@ -126,7 +131,7 @@ There are a few options for PC DS emulators, but the one we recommend is melonDS
 
 Simply [download melonDS](https://melonds.kuribo64.net/downloads.php) (**v1.0.0+**) from the project website for your platform (Windows, macOS, or Linux) and save it somewhere easily accessible to your computer. (If you are using macOS, consider placing the melonDS.app folder in your /Applications directory for ease of access.)
 
-If you're running Linux, we also recommend the [official Flatpak](https://flathub.org/apps/net.kuribo64.melonDS) provided on Flathub, though that can sometimes lag behind the direct download releases.
+If you're running Linux, we also recommend the [official Flatpak](https://flathub.org/apps/net.kuribo64.melonDS) provided on Flathub. The stable release can sometimes lag behind the official one, so consider installing it from the [flathub-beta](https://docs.flathub.org/docs/for-users/installation/#flathub-beta-repository) repository.
 
 **Playing the game:**
 

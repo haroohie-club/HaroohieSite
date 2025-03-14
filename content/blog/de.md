@@ -1,9 +1,9 @@
-# From the Deutsche Clubroom
+# Aus dem Clubraum
 
-The blog of the Haroohie Translation Club! We'll post about the behind-the-scenes of our translation projects!
+Der Blog des Haroohie Translation Clubs! Wir berichten über die Hintergründe unserer Übersetzungsprojekte!
 
-We'll drop a line on our [Discord Server](https://discord.gg/nesRSbpeFM) when we add a new blog entries, so stay tuned!
-If you prefer an [RSS feed](/de/rss.xml), we have that too!
+Wenn wir einen neuen Blogeintrag hinzufügen, hinterlassen wir eine Nachricht auf unserem [Discord-Server](https://discord.gg/nesRSbpeFM), also bleib dran!
+Wenn du einen [RSS-Feed](/rss.xml) bevorzugst, haben wir den auch!
 
 ::button-link
 ---

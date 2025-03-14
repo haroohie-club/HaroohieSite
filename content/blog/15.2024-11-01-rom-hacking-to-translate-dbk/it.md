@@ -1,6 +1,6 @@
 ---
-title: &title 'Video: How I Hacked Dragon Ball Kai - ROM Hacking to Translate a Video Game'
-description: &desc 'In the first video in his series on translation-focused ROM hacking, Jonko releases a new video about hacking Dragon Ball Kai so it can be translated!'
+title: &title 'Video: Come Ho Hackerato Dragon Ball Kai - ROM Hacking per Tradurre un Videogioco'
+description: &desc 'Nel primo video della sua serie sul ROM hacking focalizzato nelle traduzioni, Jonko parla sul come hackerare Dragon Ball Kai per poterlo tradurre!'
 navigation:
   description: *desc
   author: 'Jonko'
@@ -33,9 +33,9 @@ head:
     value: 'summary_large_image'
 ---
 
-Hi folks! This is my first YouTube video that isn't just a recording of a panel. It's in the vein of my blog posts I've been making for... two years now? Oh wow, that's a long time.
+Ciao ragazzi! Questo è il mio primo video di YouTube che non è solo una registrazione dei miei pannelli. È in vena dei post del blog che ho fatto da ... due anni? Oh wow, è un bel po' di tempo.
 
-A guy joined our Discord a while back and asked for help hacking the game *Dragon Ball Kai: Ultimate Butouden* and I decided to stream myself hacking the game from scratch. This video is the result of that!
+Una persona si è unita al nostro Discord un po' di tempo fa per chiedere aiuto nell'hackerare il gioco *Dragon Ball Kai: Ultimate Butouden* e quindi decisi di fare una live mentre hackeravo il gioco da zero. Questo video è il risultato di quello!
 
 ::youtube-video
 ----
@@ -43,5 +43,4 @@ video: CHE03KiiQ7k
 ----
 ::
 
-As is noted in the description of the video, our friend from the Discord is a Lebanese man who was forced to flee his home due to Israel's invasion of Lebanon. Please consider [supporting BDS](https://bdsmovement.net/get-involved/what-to-boycott)
-and doing what you can to pressure your government to condemn Israel and try to bring an end to their monstrous cruelty.
+Come scritto nella descrizione del video, il nostro amico da Discord è un uomo libanese che dovette evacuare la sua casa per colpa dell'invasione dagli israeliani di Libano. Perfavore considerate [di supportare BDS](https://bdsmovement.net/get-involved/what-to-boycott) e fate il possibile per spingere il governo a condannare Israele e provare a portare a termine le loro mostruose crudeltà.
