@@ -2,7 +2,7 @@
 title: 'Tutorials'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/tutorial.png'
-  previous: '/chokuretsu/serial-loops/docs/misc/ui-text'
+  previous: '/chokuretsu/serial-loops/docs/misc/dialogue-colors'
   next: '/chokuretsu/serial-loops/docs/saves'
 ---
 

@@ -189,22 +189,15 @@ For dialogue, there are a number of operators available that have different effe
 |----------|---------|--------|
 | `$num` | `$9` | Adjust the speed at which text appears on the screen; used to sync text with voice lines |
 | `#Wnum` | `#W20` | Waits for a number of frames before continuing to show text on the screen |
-| `#Pnum` | `#P5` | Changes the color of the text; the available colors can be seen in the table below |
+| `#Pnum` | `#P5` | Changes the color (or more specifically the **p**alette) of the text; the available colors can be seen and edited in the [dialogue text color editor](../misc/dialogue-colors) |
 | `#DP` | `#DP` | "Dialogue placeholder," doesn't have much of a function |
 | `#SEnum` | `#SE001` | Plays a sound effect as [`SND_PLAY`](#snd_play) |
 | `#SK0` | `#SK0Shake#sk` | Shakes the text; terminated with `#sk` |
-
-The colors available with the `#P` operator:
-| Operator | Color |
-|----------|-------|
-| `#P00` | Standard white text |
-| `#P01` | Yellow text like in Kyon's monologue |
-| `#P02` | Slightly off-white text |
-| `#P03` | Gray-ish text |
-| `#P04` | Lavendar text used for the Info speaker |
-| `#P05` | Red, used for mentioning topics |
-| `#P06` | Faded gray |
-| `#P07` | Black |
+| `#n` | `Hello#nnew line` | Inserts a line break... but then again, so does a line break |
+| `#xnum` | `#x05` | Adds `num` pixels to the character width spacing (note: overrides our custom font spacing routine in the translation patches!) |
+| `#ynum` | `#y05` | Adds `num` pixels to the line break spacing |
+| `#X` | `#X` | Pins the newline indent to the current character (so the next line will start exactly where the next character is rendered) (works even with translation patch) |
+| `#Ynum` | `#Y30` | Unknown (not implemented in Serial Loops preview) |
 
 ## `EPHEADER`
 **Parameters**:
