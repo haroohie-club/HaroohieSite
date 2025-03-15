@@ -8,6 +8,8 @@ navigation:
 
 Serial Loops has a built-in manager for applying useful hacks to your project.
 
+**NOTE: If you are using the Docker path on Windows (which you most likely are!), ensure that you open Docker Desktop prior to applying hacks!**
+
 ## Apply Hacks Menu
 The Apply Hacks menu can be accessed through the "Apply Hacks..." option in the Tools menu.
 
