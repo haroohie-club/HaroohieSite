@@ -30,6 +30,8 @@ Anytime you edit an item, you can choose to save your changes by clicking _File_
 
 **It is highly recommended that you save frequently as Serial Loops is still in a beta state and may crash!**
 
+![Build and run](/images/chokuretsu/serial-loops/build-and-run.png)
+
 ### A Note on Saving vs Building
 When you save an item, a file is created on disk that represents that item. However, the item is not actually built into the archives until you _build_ the project. Because saving is much faster than building, we recommend that you save frequently and build only when you want to test your project.
 In case you close your project without having built all your files, Serial Loops will auto-detect the existence of saved but uncommitted files and alert you of this on project load, at which point you can build to insert those items into the archives.
