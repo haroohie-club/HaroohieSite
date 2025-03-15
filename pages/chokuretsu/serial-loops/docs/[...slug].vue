@@ -114,7 +114,7 @@ const route = useRoute()
 <script>
 definePageMeta({
     title: 'Serial Loops Docs',
-    description: 'Docs for our Suzumiya Haruhi no Chokuretsu Level Editor',
+    description: 'Docs for our Suzumiya Haruhi no Chokuretsu Editing Suite',
     layout: 'serial-loops'
 })
 </script>
