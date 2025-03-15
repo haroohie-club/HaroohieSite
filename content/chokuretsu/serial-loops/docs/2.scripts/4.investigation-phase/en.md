@@ -16,4 +16,4 @@ Ensure that the first chibi you add to the map is Kyon and that he does not have
 
 The last script editor tab is the _Interactable Objects_ tab. This tab has a list of all the interactable objects (such as the grand piano in episode 2) that have associated script sections when clicked. To view the interactable objects available on a particular map, open it in the [map editor](../scenario/maps). You can select an interactable object and remove it from the list or change its associated script section using the dropdown menu. Finally, you can add interactable objects from the available set on the map via the "Add Interactable Object" button.
 
-![Script editor - interactable objects](/images/chokuretsu/serial-loops/image-here)
+![Script editor - interactable objects](/images/chokuretsu/serial-loops/script-interactables.png)

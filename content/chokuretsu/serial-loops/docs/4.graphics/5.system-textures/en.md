@@ -12,6 +12,8 @@ System Textures represent the textures used for *Chokuretsu*'s user interface (s
 ## In Serial Loops
 Similarly to [backgrounds](/chokuretsu/serial-loops/docs/graphics/backgrounds), System Textures can be exported to a `.png` format, and can be replaced by importing an image from a common format, then scaled to the necessary size with help from the [Crop & Scale tool](/chokuretsu/serial-loops/docs/graphics/backgrounds#crop-and-scale).
 
+![System texture editor](/images/chokuretsu/serial-loops/system-texture-start.png)
+
 Unlike backgrounds, however, the system texture editor presents you with two possible modes of replacement: **Replace** and **Replace with Palette**.
 The first option will replace the image but leave the palette of the image unchanged, simply matching the colors on the image to the palette as best it
 can. The second overwrite the original palette with a new one. Some system textures (particularly UI elements) share palettes with other system textures,

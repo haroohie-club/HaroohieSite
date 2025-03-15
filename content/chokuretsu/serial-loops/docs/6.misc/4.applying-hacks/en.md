@@ -39,6 +39,8 @@ applied to the main ARM9 binary or an overlay (and if an overlay, which overlay 
 you should define their RAM addresses here. Finally, any parameters you have created in the files should be defined here. You are able to define multiple options for each parameter and give
 them a name and value.
 
+![Create Hacks menu](/images/chokuretsu/serial-loops/create-hacks.png)
+
 ### Parameterizing Your Hacks
 You can add parameters to your hacks by inserting `{{parameterNameHere}}` anywhere in your assembly. Serial Loops will automatically detect these and extract them as potential parameters
 and then replace them on hack application.

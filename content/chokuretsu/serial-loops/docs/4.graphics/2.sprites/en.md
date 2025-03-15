@@ -24,6 +24,8 @@ In the current version of Serial Loops, character sprites can be opened so their
 as a series of frames or as an animated GIF. You can also view and change the character the sprite is associated with and toggle whether the sprite is considered
 "large" by the game or not.
 
+![Character Sprite Editor](/images/chokuretsu/serial-loops/chrsprite-editing.png)
+
 Character sprites _can_ be replaced in the current version of Serial Loops, though it is not recommended at this time. The reason for this is that many sprites
 share the *body* component listed above, so currently, changing any individual sprite's body affects all of the sprites that share that same body. In a future version
 of Serial Loops, you will be able to view all the sprites that share the same body and choose to replace them all simultaneously or instead opt to add a new body for

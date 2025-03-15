@@ -39,7 +39,7 @@ In the _Build_ menu, there is also an option to _Build from Scratch_. This optio
 It is primarily used for recovering from corrupt archives or other errors.
 
 ## Project Settings
-Clicking _File_ &rarr; _Project Settings_ will open a dialog that allows you to edit the banner image and game title of your patched ROM. This is what will appear in the Nintendo DS menu when loading your patched ROM.
+Clicking _Project_ &rarr; _Project Settings_ will open a dialog that allows you to edit the banner image and game title of your patched ROM. This is what will appear in the Nintendo DS menu when loading your patched ROM.
 
 ![Project Settings](/images/chokuretsu/serial-loops/project-settings.png)
 
@@ -54,13 +54,20 @@ For your base ROM, we **highly recommend using the clean, original Japanese ROM*
 
 | Algorithm | Hash |
 |:---------:|:----:|
-| CRC | `8A58F646` |
+| CRC-32 | `8A58F646` |
 | MD5 | `6536132EFDDD337AA5069E627591FEE5` |
 | SHA-1 | `81D5C6316DBCEF9F4C51984ADCAAE171124EBB08` |
 
 Doing this means that people trying to patch your game will not need anything other than the clean Japanese ROM (i.e., they won't need to first patch it somewhere else before playing). Serial Loops will detect the hash of the ROM you use when trying to create the patch and ensure that it matches the clean Japanese ROM.
 
+## Renaming, Duplicating, and Deleting Your Project
+Serial Loops contains built in functionality for renaming, duplicating, and deleting your project. These options are all available from the file menu; alternatively, you can right click recent projects on the home screen and make the changes there!
+
+![Renaming a project](/images/chokuretsu/serial-loops/recent-rename.png)
+
 ## Migrating to a New Base ROM
 Sometimes, you may migrate to a new base ROM &ndash; for example, if you're using v0.6 of a translation patch and v0.8 is released.
 Serial Loops is capable of handling such a migration. Simply select _Project_ &rarr; _Migrate to new ROM_ and select the new ROM you want as the base for your hack.
 Serial Loops will handle upgrading and building based on this new ROM, bringing all of your changes you've made so far along with you!
+
+**NOTE: Migration is an irreversible change, so we highly recommend backing up your project by duplicating it before you migrate!**

@@ -38,6 +38,8 @@ Each of the defined layers above can be toggled on and off.
 When interactable objects are toggled on, each interactable object's walk-to tile will be highlighted and the clickable layer entry will be outlined.
 Hovering over this outline will reveal a tooltip with the map's description of that object.
 
+![Interactable objects overlay](/images/chokuretsu/serial-loops/map-interactables.png)
+
 ### Pathing Map Overlay
 The pathing map overlay toggle allows viewing the map's internal understanding of which spaces are accessible.
 

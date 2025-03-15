@@ -9,7 +9,7 @@ navigation:
 Background music items can be opened and played. However, due to limitations with how sound output is implemented, Serial Loops does not allow
 seeking for background tracks. 
 
-![Background music editor](/images/chokuretsu/serial-loops/sound-editing.png)
+![Background music editor with loop editing](/images/chokuretsu/serial-loops/bgm-loop-editing.png)
 
 ## Replacement
 All background music can be replaced with a click of a button. The replacement currently supports conversion from WAV, FLAC, MP3, and OGG (Vorbis) formats.
@@ -19,6 +19,8 @@ If at any point you want to revert to the game's original music, you can hit the
 Pressing the "Adjust Volume" button brings up a modal for doing just that. Chokuretsu's music is quieter than a lot of other tracks, so being able to tamp
 down the volume is very useful and can be done easily (and visually) from here. For maximum ease of use, one can simply hit the "normalize" button and the
 track will have its volume auto-adjusted to match the average peak loudness of the existing in-game tracks.
+
+![Background music volume adjust dialog](/images/chokuretsu/serial-loops/bgm-volume-editing.png)
 
 ## Managing Track Looping
 Under the hood, Chokuretsu uses the CriWare ADX format for its background music. A primary feature of this format is the ability to encode looping

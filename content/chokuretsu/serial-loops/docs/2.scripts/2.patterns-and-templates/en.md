@@ -8,7 +8,7 @@ navigation:
 
 While the previous page covered every command in the game, many of them are frequently used in conjunction with each other. To make keeping track of them easier, we've created multiple **Script Templates** to make the process of creating scripts easier. To apply a template, simply click the "Apply Template" button in the toolbar or go to "Edit" &rarr; "Apply Template" in the menu. This will bring up the following dialog.
 
-![Insert image here]()
+![Script Templates](/images/chokuretsu/serial-loops/script-templates.png)
 
 From here, you can select a template, view information about it, and apply it to the current script.
 
