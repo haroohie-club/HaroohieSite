@@ -66,7 +66,7 @@ If you need to go back and forth between the same CGs, consider using [`BG_FADE`
 * `Scroll Direction`: The direction to scroll the BG
 * `Scroll Speed`: Speed at which to scroll (1 is a good default)
 
-When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the background in a DEFINED direction.
+When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the background in a defined direction.
 
 
 ## `BGM_PLAY`
@@ -363,7 +363,7 @@ Removed in the final version of the game (not referenced in any scripts.)
 * `Scene`: Name of the script file to go to
 
 Goes to a particular scene. Note that this scene cannot be just any script file; it must be contained
-within a special array in ARM9 itself; thus, ROM hacks may decide to change the location of this array.
+within the event table.
 
 
 ## `SCENE_GOTO_CHESS`
@@ -449,7 +449,7 @@ Modifies the displayed place name.
 **Parameters**:
 * `Scenes to Skip`: Number of scenes that should be skipped
 
-Sets up the [`NEXT_SCENE`](#next_scene) command to skip a specified number of scenes as defined in `SCENARIO.S` (evt.bin #580).
+Sets up the [`NEXT_SCENE`](#next_scene) command to skip a specified number of scenes as defined in the [Scenario](../scenario/game-flow).
 
 
 ## `SND_PLAY`
@@ -485,7 +485,14 @@ Shows/hides the dialogue box. Note that plenty of other commands already do one 
 **Parameters**:
 * `Topic`: The topic to give the player
 
-Give the player a particular topic.
+Gives the player a particular topic.
+
+
+## `TRANS_IN`
+**Parameters**:
+* `Transition`: The transition to use
+
+Plays a transition from black into the scene.
 
 
 ## `TRANS_OUT`
@@ -493,12 +500,6 @@ Give the player a particular topic.
 * `Transition`: The transition to use
 
 Plays a transition to black.
-
-## `TRANS_IN`
-**Parameters**:
-* `Transition`: The transition to use
-
-Plays a transition from black into the scene.
 
 
 ## `VCE_PLAY`
