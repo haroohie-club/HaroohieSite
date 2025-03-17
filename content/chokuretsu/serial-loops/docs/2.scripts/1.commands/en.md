@@ -141,7 +141,7 @@ Monitors for the end of the chess game and then jumps to a specified script bloc
 * `Chibi`: The chibi to emote
 * `Emote`: The emote that should be shown
 
-This command displays an emote in a speech bubble above a [chibi](../graphics/chibis) figure on the top screen.
+Displays an emote in a speech bubble above a [chibi](../graphics/chibis) figure on the top screen.
 
 
 ## `CHIBI_ENTEREXIT`
@@ -454,13 +454,13 @@ Sets up the [`NEXT_SCENE`](#next_scene) command to skip a specified number of sc
 
 ## `SND_PLAY`
 **Parameters**: 
-* `Sound`: The sound to be played from `snd.bin`
+* `Sound`: The SFX to be played
 * `Mode`: Whether to start or stop the sound
 * `Volume`: The volume of the sound
 * `Load Sound`: If true, loads the sound into memory before playing it (necessary when playing a sound for the first time)
 * `Crossfade Time (Frames)`: Time in frames that the sound will crossfade; only can be used when changing the volume of the same sound
 
-Plays a sound from the SDAT `snd.bin`.
+Plays a sound effect.
 
 
 ## `SND_STOP`
