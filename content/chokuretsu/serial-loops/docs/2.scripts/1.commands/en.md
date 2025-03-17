@@ -344,6 +344,8 @@ Suppresses the top screen UI, shows `BG_KBG04` on the top screen, disables dialo
 * `Time (Frames)`: The time in frames that the BG's palette will take to switch to transition to the effect palette
 * `Unknown`: This clearly does things when looking at the assembly/decomp, but I don't know what it's doing precisely
 
+Changes the color of currently displayed UI elements using a specified filter.
+
 
 ## `PIN_MNL`
 **Parameters**:
