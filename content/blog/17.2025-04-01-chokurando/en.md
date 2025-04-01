@@ -37,4 +37,4 @@ While randomizers are all the rage, few people are as bold as I am when I imagin
 
 In the spirit of that grand tradition, I present to you "ChokuRando": a randomizer for _Suzumiya Haruhi no Chokuretsu_ (The Series of Haruhi Suzumiya)!
 
-(Happy April Fools' Day! But the randomizer is actually real. I don't recommend using it since we haven't released the full patch yet&mdash;and even when we do, I doubt it will be much fun to play lol&mdash;but you can try it out [here]!)
+(Happy April Fools' Day! But the randomizer is actually real. I don't recommend using it since we haven't released the full patch yet&mdash;and even when we do, I doubt it will be much fun to play lol&mdash;but you can try it out [here](https://github.com/haroohie-club/ChokuRando/releases/tag/0.1)!)
