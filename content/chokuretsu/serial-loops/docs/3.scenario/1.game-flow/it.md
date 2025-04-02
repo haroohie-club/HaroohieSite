@@ -1,34 +1,34 @@
 ---
-title: 'Scorrere del gioco'
+title: 'Game Flow'
 navigation:
   faicon: 'fa6-solid:book-open'
   previous: '/chokuretsu/serial-loops/docs/scenario'
   next: '/chokuretsu/serial-loops/docs/scenario/group-selections'
 ---
-Puoi alterare lo scorrere del gioco grazie all'editor degli _Scenari_ . Gli scenari sono una lista di comandi che dicono cosa far caricare il gioco e
-in che ordine. Nella tabella qua sotto troverai i vari comandi:
+The game's flow can be edited with the _Scenario_ editor. The scenario is essentially a list of commands that are executed in order to load various game
+components. The commands are explained in the following table:
 
-## Comandi scena
-| Comando | Descrizione |
+## Scenario Commands
+| Command | Description |
 |---------|-------------|
-| `NEW_GAME` | Con questo comando ti permette di cambiare dove ti porterà il menu "New Game". Per esempio, `NEW_GAME 5`ti farà iniziare dal quinto episodio |
-| `SAVE` | Questo comando ti permette di salvare. |
-| `LOAD_SCENE` | Questo comando ti permette di caricare lo script che più ti aggrada. |
-| `PUZZLE_PHASE` | Questo comando farà partire una fase puzzle. |
-| `ROUTE_SELECT` | Questo comando ti fa partire dalla divisione dei compiti. |
-| `STOP` | Questo comando fa bloccare il gioco. Non serve a molto. |
-| `SAVE2` | Anche con questo comando potrai salvare. Non sappiamo ancora la differenza con il comando `SAVE`|
-| `TOPICS` | Con questo comando potrai vedere tutte le discussioni che hai sbloccato. |
-| `COMPANION_SELECT` | Potrai caricare la schermata di "scelta del compagno" facendo scegliere quale personaggio farà da compagnia ad Haruhi durante le fasi puzzle. |
-| `PLAY_VIDEO` | Riproduce un video, 0 mostra la sigla d'apertura, 1 riproduce i crediti. |
-| `NOP` | Non fa nulla |
-| `UNKNOWN0B` | Funzione sconosciuta. |
-| `UNLOCK` | Sblocca alcune cose. Ancora non sappiamo cosa sblocchi di preciso. |
-| `END` | Torna alla schermata del titolo. |
+| `NEW_GAME` | This command defines where the "New Game" menu item takes the player. For example, if `NEW_GAME 5` defines where selecting _New Game_ &rarr; _Episode 5_ will take the player. |
+| `SAVE` | This command prompts the user to save the game, creating a checkpoint save. Typically, the first save in an episode is denoted by setting the parameter to `2` and incrementing it for each checkpoint after that. |
+| `LOAD_SCENE` | This command loads a particular script file. |
+| `PUZZLE_PHASE` | This command starts a particular puzzle phase. |
+| `ROUTE_SELECT` | This command starts a particular group selection. |
+| `STOP` | This command stops the game. It is not actually used. |
+| `SAVE2` | This command also prompts the user to save the game. While the precise mechanical differences between this and `SAVE` are not well understood, it is known that it is used after the `UNLOCK` command and before the `NEW_GAME` or `END` commands. This implies that it interacts more directly with the common save than do checkpoint saves. Its parameter is always `0`. |
+| `TOPICS` | This command displays which topics the player has collected over the previous scene(s) following group selection. |
+| `COMPANION_SELECT` | This loads a companion selection screen, allowing the player to select which Brigade member will accompany Haruhi during the puzzle phase. |
+| `PLAY_VIDEO` | Plays a video; 0 plays the OP and 1 plays the ED. |
+| `NOP` | Does nothing |
+| `UNLOCK_ENDINGS` | This command unlocks a character ending scene based on the friendship levels. Used at the end of the game. |
+| `UNLOCK` | Unlocks particular functionality. The exact mapping between the parameter specified and which functionality is unlocked is currently unknown. |
+| `END` | Ends the scenario and returns to the title screen. |
 
 ## Modificare
 Gli script dei comandi e scenari possono essere aggiunti o tolti, grazie alle icone + e del cestino, sopra la lista dei comandi.  
 
-Cliccando sul razzo cancellerai tutti gli script. Puoi modificare gli script individualmente (sia tutto il comando o solo un singolo parametro) nel pannello a sinistra.
+The entire scenario can be cleared using the rocket ship button. Individual commands can be edited in the editor panel to the right.
 
 ![Scenario Editing](/images/chokuretsu/serial-loops/scenario-editing.png)

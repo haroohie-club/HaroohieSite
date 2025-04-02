@@ -1,17 +1,18 @@
 ---
-title: 'Текст Пользовательского интерфейся'
+title: 'UI Text'
 navigation:
   faicon: 'fa6-solid:wrench'
   previous: '/chokuretsu/serial-loops/docs/misc/applying-hacks'
+  next: '/chokuretsu/serial-loops/docs/misc/dialogue-colors'
 ---
 
-Serial Loops имеет меню для изменения основного текста пользовательского интерфейса. Текст пользовательского интерфейса состоит из текста, который отображается в главном меню, на экранах конфига, выбора файла, управления данными сохранения и всплывающих подсказок.
+Serial Loops has a menu for modifying the core user interface text. The UI text consists of the text that displays on the main menu, config, file select, and save data management screens, ticker-tape tooltips, and popup prompts.
 
-## Редактирование текста пользовательского интерфейса
-Доступ к редактору текста пользовательского интерфейса можно получить с помощью параметра «Редактировать текст пользовательского интерфейса...» в меню «Инструменты».
+## Editing UI text
+The UI Text editor can be accessed through the "Edit UI Text..." option in the Tools menu.
 
-![редактор пользовательского интерфейса в меню инструментов](/images/chokuretsu/serial-loops/tools-menu.png)
-
-При нажатии откроется текстовый редактор пользовательского интерфейса. Здесь представлена панель с подробным описанием каждого текстового элемента пользовательского интерфейса в игре, каждый из которых имеет метку, определяющую, что представляет собой эта строка. Измените текст в полях по своему вкусу и нажмите «Сохранить», чтобы применить изменения и обновить текст меню.
+![UI text editor in the tools menu](/images/chokuretsu/serial-loops/tools-menu.png)
 
 ![редактор текста пользовательского интерфейса](/images/chokuretsu/serial-loops/edit-ui-text.png)
+
+![UI text editor](/images/chokuretsu/serial-loops/edit-ui-text.png)

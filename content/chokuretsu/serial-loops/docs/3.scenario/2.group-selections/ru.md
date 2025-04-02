@@ -1,43 +1,33 @@
 ---
-title: 'Выбор группы'
+title: 'Group Selections'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/game-flow'
-  next: '/chokuretsu/serial-loops/docs/graphics'
+  next: '/chokuretsu/serial-loops/docs/scenario/maps'
 ---
 
-Текущая версия Serial Loops позволяет вам только просматривать выбранные группы, но не редактировать их, поэтому документация здесь будет скудной.
-В будущем с обновлениями Serial Loops позволит полностью редактировать выбранные группы, а эта документация будет дополнена.
+The current version of Serial Loops only allows partial editing of group selections. In a future version of Serial Loops, all aspects of group selections will be editable.
 
-## Обзор
-Элементы группового выбора представляют собой разделы игры, в которых вы разделяете команду SOS для выполнения различных задач. Групповые выборы
-появляются в игре при использовании команды `GROUP_SELECTION` [Scenario](./game-flow). Появится следующий экран:
+## Overview
+Group selection items represent the sections of the game where you divide up the SOS Brigade to accomplish different _objectives_. The group selections are triggered in-game when the `GROUP_SELECTION` [Scenario](./game-flow) command is called. It brings up the following screen:
 
-![Скриншот назначения задачи](/images/chokuretsu/screenshots/task-assignment.png)
+![Objective assignment screenshot](/images/chokuretsu/screenshots/task-assignment.png)
 
-На этом экране есть от двух до четырех полей разного цвета, помеченных буквами от A до D. Эти поля обозначают возможные символы **задач**, на выполнение которых можно отправить персонажей, 
-перетаскивая их портреты в коробку.
+On this screen, there are two to four boxes of different colors labeled A through D. These boxes represent the possible **objectives** characters can be sent to complete by dragging their character portraits into the box.
 
-Каждая возможная группа персонажей в конкретной задаче определяет **маршрут** для этой задачи. Обратите внимание, что маршруты определяются как подмножество задач,
-а не как свойство общего распределения персонажей между всеми задачами (т. е. маршруты зависят только от персонажей в конкретной задаче
-и не зависят от распределения персонажей в других задачах).
+Every possible group of characters in a particular task defines a **route** for that task. Note that routes are defined as a subset of the objectives, not as a property of the overall distribution of characters between all tasks (i.e., routes only depend on the characters in the objective Kyon is assigned to and are independent of the character distribution in other objectives). However, the characters assigned to objectives other than the one Kyon is doing are able to collect topics, defined here as "Kyonless topics".
 
 ##В Serial Loops
 Текущий редактор выбора групп позволяет просматривать следующие свойства:
 
-* От двух до четырех **заданий**, доступных как часть выбора группы. В редакторе вы можете увидеть название задания, а также:
-  -Присутствует ли Харухи для этого задания (портрет персонажа Харухи отображается заблокированным на задании, когда она присутствует)
-  -Требуется ли член бригады для этого задания (либо определенный персонаж заблокирован, либо просто требуется отправить члена бригады)
-  -Описание задания в "будущем времени", которое отображается на экране выбора группы
-  -Описание задания в "прошедшем времени", которое отображается на экране обзора тем
-    -"оптимальная группа" &ndash; это, похоже, не имеет механического эффекта, но это группа персонажей, которые собирают больше всего тем,
-  когда они отправляются на это задание _без_ Кёна
-  - "худшая группа" &ndash; опять же, насколько нам известно, никакого механического эффекта, но это группа персонажей, которые собирают меньше всего тем,
-    когда их отправляют на это задание _без_ Кёна
-* Внутри каждого задания есть описания каждого **маршрута**, доступного в этом задании. В дополнение к названию маршрута (которое можно увидеть в игре в диалоговом 
-  пузыре Кёна, когда маршрут выбран с присутствующим Кёном), редактор позволяет вам наблюдать следующие свойства:
-  - Скрипт, связанный с темой &ndash; это скрипт, который будет загружен, когда выбранная группа (включая Кёна) отправляется на это задание
-  - Персонажи, участвующие &ndash; список персонажей, участвующих в этой теме
-  - Темы без Кёна &ndash; это темы, собранные группой, когда их отправляют на это задание _без_ Кёна
+* The two to four **objectives** available as part of the group selection. In the editor, you can see the title and position of the objective as well as whether Haruhi is assigned to that objective and if there are any required brigade members for it. Clicking on the objective reveals:
+  - The title of the objective as an editable field
+  - The "future tense" description of the task, which is seen on the group selection screen
+  - The "past tense" description of the task, which is seen on the topics recap screen
+
+Additionally, inside each objective are the descriptions of each **route** for that objective. In addition to the route's title (which can be seen in-game in Kyon's dialogue bubble when the route is selected with Kyon present), the editor allows you to observe the following properties:
+  - The script associated with the topic &ndash; this is the script that will be loaded for the selected group (including Kyon) is sent on this task
+  - Characters involved &ndash; the list of characters involved in this topic
+  - Kyonless-topics &ndash; these are the topics gathered by the group when they are sent on that task _without_ Kyon
 
 ![Group selections editor](/images/chokuretsu/serial-loops/group-selections-editor.png)

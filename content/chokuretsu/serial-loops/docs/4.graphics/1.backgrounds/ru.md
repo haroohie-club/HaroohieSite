@@ -9,17 +9,16 @@ navigation:
 Фоны используются для их отображения в визуальных новеллах, а также в CG (**C**компьютерная **g**графика; общий термин для полноэкранного изображения в визуальных новеллах).
 это не перекрывается спрайтами). Их можно просматривать и редактировать через редактор фонов.
 
-## Замена
-Фоны можно легко заменить в редакторе фонов. Просто нажмите кнопку «Заменить» и выберите новый файл изображения с диска. Откроется встроенный инструмент обрезки и масштабирования, позволяющий изменить размер изображения в соответствии со стандартом фона (см. ниже).
+## Replacing
+Backgrounds can easily be replaced in the background editor. Simply press the "Replace" button and select a new image file from disk. This will open the built-in crop & scale tool to let you size your image to fit the standard set of background sizes (see below).
 
-### Обрезка и масштабирование
-Вы можете использовать встроенный инструмент «Обрезать и масштабировать», чтобы масштабировать импортированные изображения и выбрать область изображения, которой вы хотите заменить исходное.
+### Crop and Scale
+Once an image file has been selected after choosing "Replace", a box overlay cut-out will be layered over the imported bitmap. Using the mouse, you can click and drag the image to adjust its crop; the portion that is
+uncovered in the box will be the final image. Additionally, you can use the mouse wheel to scale the image up and down. Additionally, you can use the arrow keys to move the image in any direction more precisely.
 
 ![Инструмент «Обрезка и масштабирование»](/images/chokuretsu/serial-loops/crop-and-scale.png)
 
-После выбора файла изображения чтобы «Заменить» над импортированным растровым изображением будет наложен вырез рамки. Мышкой вы можете перетащить этот блок, чтобы изменить область обрезки. Если вы удерживаете клавишу «CONTROL», вместо этого перетаскивание мышью приведет к перемещению изображения. Вы также можете использовать как числовые поля шага в правой части меню, так и стрелочки для точной настройки положения изображения. Чтобы сбросить положение. изображение, нажмите кнопку «Применить» в разделе «Позиционирование изображения».
-
-Наконец, чтобы масштабировать изображение, удерживайте 'CONTROL' и используйте колёсико или воспользуйтесь цифровыми регуляторами, также расположенным в правой части меню. Чтобы автоматически масштабировать изображение по размеру рамки, нажмите кнопку «Применить» в разделе «Масштабировать изображение». По умолчанию масштабирование изображения сохраняет соотношение сторон импортированного изображения; чтобы эта функция сработала, снимите флажок с «Сохранять соотношение сторон».
+Finally, you can press the "Apply" button to scale the image to fit the crop, preserving its aspect ratio.
 
 ![Редактирование фонов](/images/chokuretsu/serial-loops/background-editing.png)
 
