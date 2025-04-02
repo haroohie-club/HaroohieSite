@@ -6,7 +6,7 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics/system-textures'
 ---
 
-Места представляют собой графику местоположения, которая появляется на верхнем экране во время сценариев. Serial Loops поддерживает редактирование их с помощью простого текстового редактора для автоматического создания допустимой графики места.
+Places represent the location graphics that appear on the top screen during scripts. Serial Loops supports editing these through a simple text editor to automatically produce valid place graphics.
 
 ## Обзор
 Места — это графические элементы, отображающие текущее местоположение, в котором происходит сцена. Они отображаются на верхнем экране и

@@ -3,7 +3,7 @@ title: 'Topics'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/topic.png'
   previous: '/chokuretsu/serial-loops/docs/misc/characters'
-  next: '/chokuretsu/serial-loops/docs/misc/applying-hacks'
+  next: '/chokuretsu/serial-loops/docs/misc/chess-puzzles'
 ---
 
 ## Overview

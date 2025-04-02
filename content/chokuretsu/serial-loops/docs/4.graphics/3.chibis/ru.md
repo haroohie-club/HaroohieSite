@@ -6,34 +6,37 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics/places'
 ---
 
-Текущая версия Serial Loops позволяет вам только просматривать чибишей, но не редактировать их, поэтому документация здесь будет скудной.
-В будущем обновлении Serial Loops сможет полностью редактировать чибисов, и эта документация будет обновлена.
-
 ## Обзор
 Чибиши — это небольшие анимированные спрайты, используемые на верхнем экране во время обычных сегментов визуальной новеллы и управляемые/взаимодействующие во время
 фазы расследования и головоломки.
 
 С Чибишами связано несколько анимаций:
 
-| Анимационный номер | Описание |
+| Animation Number | Description |
 |------------------|-------------|
-| 00 | Анимация простоя |
-| 01 | Анимация ходьбы |
-| 02 | Анимация «Поиск» (фаза головоломки) |
-| 03 | Анимация «Уборка» (фаза головоломки) |
-| 04 | анимация проигрыша (фаза головоломки) |
-| 05 | Анимация победы (фаза головоломки) |
-| 06 | Техническая анимации (фаза головоломки) |
-| 07 | Неудачная техническая анимация (фаза головоломки) |
-| 08 | Анимация бега (у Харухи есть другая) |
-| 10 | Альтернативная анимация простоя |
-| 97-99 | позирование |
+| 00 | Default idle animation |
+| 01 | Walk cycle animation |
+| 02 | "Searching" animation (puzzle phase) |
+| 03 | "Cleaning" animation (puzzle phase) |
+| 04 | Lose animation (puzzle phase) |
+| 05 | Win animation (puzzle phase) |
+| 06 | Technique animation (puzzle phase) |
+| 07 | Technique failed animation (puzzle phase) |
+| 08 | Running animation (Haruhi has a different one for this) |
+| 10 | Alternate idle animation |
+| 97-99 | Still poses used for good, neutral, and bad group selection |
 
 Кроме того, каждая анимация может иметь варианты направления, в котором смотрит чиби (сзади вправо, сзади слева, спереди справа, спереди слева), хотя не все имеют все направления.
 
-## В Serial Loops
-В текущей версии Serial Loops можно открывать чибиша и просматривать его анимацию. Анимацию можно выбрать с помощью раскрывающегося списка, а направление движения можно выбрать с помощью кнопок. 
-Помимо полной анимации, отображаемой вверху, отдельные кадры можно увидеть в поле ниже.
-Наконец, как и спрайты персонажей, чиби можно экспортировать покадрово (для редактирования в будущем) или в GIF-файле.
+## In Serial Loops
+In the current version of Serial Loops, chibis can be opened and their animations viewed. Animations can be selected with a drop down and the direction 
+faced can be chosen with a series of buttons. In addition to the full animation displayed up top, the individual frames can be seen in a box below.
+Like character sprites, chibis can be exported as a series of frames (for editing in the future) or as an animated GIF.
+
+Chibis can be fully replaced using the "Replace Frames" button. Simply select a series of images to import (optionally suffixed with the number of frames they should last, e.g. `_30f`)
+and the editor will import them to replace the current animation. After you have imported the animation, you can edit the timing of each frame using the numeric steppers in the frames
+display.
 
 ![Редактор Чиби](/images/chokuretsu/serial-loops/chibi-editing.png)
+
+In a future version of Serial Loops, you will be able to add more chibis and animations for each chibi.

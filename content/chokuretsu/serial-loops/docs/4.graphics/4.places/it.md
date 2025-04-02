@@ -6,7 +6,7 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics/system-textures'
 ---
 
-I posti rappresentano i nomi che appaino sullo schermo superiore durante il caricamento degli script. Serial Loops può cambiare i nomi semplicemente modificando i testi.
+Places represent the location graphics that appear on the top screen during scripts. Serial Loops supports editing these through a simple text editor to automatically produce valid place graphics.
 
 ## Analisi
 I posti sono dei nomi che indicano di preciso dov'è ambientata la scena. Vengono mostrare nello schermo superiore e possono essere scelte con

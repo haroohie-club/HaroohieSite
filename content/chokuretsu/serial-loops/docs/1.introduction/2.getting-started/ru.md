@@ -6,9 +6,8 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/introduction/project-workflow'
 ---
 
-При первом запуске Serial Loops вас может встретить предупреждение о том, что он не может найти вашу установку DevkitARM.
-Это нормально! Это просто означает, что вы установили DevkitARM в место, которое программа не просматривает по умолчанию. Определите, где установлена ваша версия DevkitARM.
-находится и запомните для следующего шага.
+Upon launching Serial Loops for the first time, you may be greeted with a warning stating that it can't find your devkitARM installation.
+This is okay! It just means that you installed devkitARM in a location that the program wasn't expecting. Determine where your devkitARM installation is located and save that for a later step.
 
 ## Главный экран и настройки
 Сначала вы увидите следующий экран:
@@ -19,21 +18,25 @@ navigation:
 
 ![Настройки](/images/chokuretsu/serial-loops/preferences.png)
 
-В этом меню, если оно еще не установлено, убедитесь, что вы указали путь к DevkitARM. Кроме того, выберите свой эмулятор Nintendo DS и укажите путь к нему в 
-поле пути к эмулятору.
+Let's briefly go over the different settings in this menu:
 
-По остальным настройкам:
+### Serial Loops
+* **Language** &ndash; The display language for Serial Loops. Serial Loops is written in English, and the English (United States) version is used as the base for all other languages. If you'd like to contribute to translating Serial Loops, get in touch with us!
+* **Display Font** &ndash; The font used by the Serial Loops UI.
+* **Check For Updates On Startup** &ndash; Will check GitHub for new releases of Serial Loops on startup. **Highly recommended to leave this option checked.**
+* **Use Pre-Release Update Channel** &ndash; Will use our nightly builds as the source for updates. **Highly recommended to leave this option unchecked.**
 
-* **Используйте Docker для взлома ASM** &ndash; Если вы установите этот флажок, Docker будет использоваться для взлома ASM. Если вы решили установить Docker, а не make,
-  убедитесь, что эта опция отмечена.
-* **Тег DevkitARM Docker** &ndash; [тег](https://hub.docker.com/r/devkitpro/devkitarm/tags) образа devkitARM Docker, который будет использоваться при использовании Docker.
-  для сборки ASM-хаков. Обычно вам следует оставить это значение по умолчанию, если только вы не знаете, что делаете, и хотите использовать другую версию.
-  из devkitARM.
-* **Автоматическое повторное открытие последнего проекта** &ndash; Повторно открывает последний проект при запуске приложения, минуя главный экран.
-* **Запомнить рабочую область проекта** &ndash; Повторно открывает все вкладки, которые были открыты при последнем закрытии проекта при повторном открытии.
-* **Удалить недостающие проекты** &ndash; Автоматически удалит отсутствующие (т. е. удаленные вручную) проекты из меню «Последние проекты».
-* **Проверка обновлений при запуске** &ndash; При запуске проверю GitHub на наличие новых выпусков Serial Loops. **Настоятельно рекомендуется оставить этот параметр включенным.**
-* **Использовать канал предварительных обновлений** &ndash; Мы будем использовать наши ночные сборки в качестве источника обновлений. **Настоятельно рекомендуется оставить этот параметр отключенным.**
+### Projects
+* **Auto Re-Open Last Project** &ndash; Re-opens the last project on app start, bypassing the home screen.
+* **Remember Project Workspace** &ndash; Re-opens all the tabs you had open when you last closed the project on re-open.
+* **Remove Missing Projects** &ndash; Will remove missing (i.e. manually deleted) projects from the Recent Projects menu automatically.
+
+### Build
+* **devkitARM Path** &ndash; The path to your devkitARM installation. By default, Serial Loops looks in `C:\devkitPro\devkitARM` on Windows and `/opt/devkitpro/devkitARM` on macOS and Linux systems. If it can't find one of those locations, you will need to specify it manually here!
+* **Emulator Path** &ndash; The path to the emulator that will be used after clicking "Build & Run". Set this to your favorite Nintendo DS emulator's executable! As stated previously, our team highly recommends using melonDS.
+* **Emulator Flatpak** *(Linux Only)* &ndash; On Linux systems, instead of specifying the path to the emulator you can instead specify a flatpak to be launched. Serial Loops will automatically look for installed flatpaks on first startup, but otherwise, simply type the ID of the flatpak to launch here (e.g. `net.kuribo64.melonDS`).
+* **Use Docker for ASM Hacks** &ndash; Checking this will cause Docker to be used for ASM hacks. If you decided to install Docker rather than make, ensure this option is checked. (This is the default setup on Windows; on other platforms, you should most likely leave this unchecked.)
+* **devkitARM Docker Tag** &ndash; The [tag](https://hub.docker.com/r/devkitpro/devkitarm/tags) of the devkitARM Docker image to use when using Docker for assembling ASM hacks. Typically, you should leave this as the default value (`latest`), unless you know what you're doing and want to use a different version of devkitARM.
 
 После того, как вы выставили свои настройки, пришло время создать новый проект.
 
@@ -42,10 +45,11 @@ navigation:
 
 ![Меню нового проекта](/images/chokuretsu/serial-loops/project-creation.png)
 
-Создайте имя для своего нового проекта и выберите язык, на котором он будет работать. (Serial Loops не особо заботится о языке, который вы выбираете прямо сейчас.
-если вы не выберете японский язык, в этом случае применяются другие правила отображения шрифта). Наконец, выберите основной ROM для вашего проекта и нажмите «Создать».
-Затем Serial Loops распакует ваш ROM и создаст директорию для вашего проекта.
+Create a name for your new project and select your project's language. (This should be the language of the base ROM you are using.) Finally, select the base ROM for your project and hit create.
+Serial Loops will then unpack your ROM and create the directory for your project.
 
-### Примечание о вашей базовой прошивке
-Настоятельно рекомендуется использовать переведенный ROM в качестве базового ROM, если вы не планируете создавать проект на японском языке; в этом случае вам следует использовать исходный ROM. Использование английского ROM в качестве основы — отличная идея, поскольку оно дает вам доступ ко всем изменениям, которые мы уже внесли для создания
-игра работает без проблем на английском языке (или на другом языке, использующем скрипты переменной ширины) без необходимости реализации этих хаков вручную.
+### A Note on Your Base ROM
+It is highly recommended to use a translated ROM as your base ROM unless you are planning to make a Japanese-language project, in which case you should use the original ROM. Using the English ROM as a base is a great idea as it gives you access to all the modifications we have already made to make the game run smoothly in English (or another language that uses a variable-width script) without needing to implement those hacks manually.
+
+## Importing a Project
+You may also opt to import someone else's exported *.slzip* project instead of creating your own from scratch. To do this, you can click the _Import Project_ link on the home screen or navigate to _File_ &rarr; _Import Project_. The exported project contains the hash of the base ROM that it was built off of; you should use the same base ROM when importing it.
