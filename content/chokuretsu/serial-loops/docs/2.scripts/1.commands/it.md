@@ -1,16 +1,15 @@
 ---
-title: 'Comandi'
+title: 'Commands'
 navigation:
   faicon: 'fa6-solid:code'
   previous: '/chokuretsu/serial-loops/docs/scripts'
-  next: '/chokuretsu/serial-loops/docs/scripts/chibis-and-choices'
+  next: '/chokuretsu/serial-loops/docs/scripts/patterns-and-templates'
 ---
 
-In questa pagina verranno illustrati tutti i comandi che ti serviranno per programmare.
+The following document explains what every command in the game does. This document is intended for a general audience; for a more detailed, technical explanation of the commands, please reference the [Chokuretsu Translation Utility's wiki](https://github.com/haroohie-club/ChokuretsuTranslationUtility/wiki/Event-File-Commands).
 
-## Nota bene
-* Nei comandi il tempo viene chiamato in _frame_. Il gioco gira a 30 FPS, quindi, se vuoi far aspettare un secondo dovrai
-scrivere `WAIT` per 30 frame.
+## Notes
+* Time in these commands is always defined in terms of _frames_. The game assumes a frame is 1/60 of a second, i.e. 60 frames per second. Thus, to wait one second, one would `WAIT` for 60 frames.
 
 ## `AVOID_DISP`
 **Parametro**: Nessuna
@@ -21,8 +20,7 @@ Mostra le "discussioni principali -> Senza usare le" grafiche.
 ## `BACK`
 **Parametro**: Nessuna
 
-Se usato all'inizio di una sezione di script, farà partire la prima sezione di quest'ultimi. Altrimenti, fa sì che lo script torni a ciò che lo ha chiamato (ad esempio, la fase puzzle)
-o ritorna alla fase di investigazione.
+When used in the initial script section, starts execution to the first script block. Otherwise, makes the script return to whatever called it (e.g. the puzzle phase) or returns you to the investigation phase.
 
 
 ## `BG_DISP`
@@ -41,16 +39,14 @@ Nonostante sia un comando diverso, ha la stessa funzione di [`BG_DISP`](#bg_disp
 * `Sfondo`: le immagini CG che vengono mostrate
 * `Mostra dal basso`: Se spuntata, verrà mostrata la parte inferiore di un'immagine grande (`TEX_CG_SINGLE`); se non è spuntata, solo la parte alta sarà mostrata
 
-`BG_DISPCG` funziona come [`BG_DISP`](#bg_disp) ma mostra più texture &ndash; principalmente mostra tali sfondi, `TEX_CG`, `TEX_CG_DUAL_SCREEN`,
-`TEX_CG_WIDE`, e `TEX_CG_SINGLE`. Nota che le CG sono ben diverse dalle immagini VN. Prima di mostrare un'immagine BG, con il comando BG_DISPC,
-digita [`BG_REVERT`](#bg_revert).
+`BG_DISPCG` works as [`BG_DISP`](#bg_disp) but can display a larger variety of textures &ndash; namely, `TEX_CG`, `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE` BGs. Notably, these are all CGs as opposed to VN backgrounds. Before displaying a standard BG after calling `BG_DISPCG`, one should call [`BG_REVERT`](#bg_revert).
 
 
 ## `BG_FADE`
-**Parametri**:
-* `Sfondi`: Sfondi che vengono mostrati con [`BG_DISP`](#bg_disp)
-* `Sfondi (Temp/CG)`: L'index degli sfondi che appare in [`BG_DISPCG`](#bg_dispcg); specificatamente diversi dai `Sfondi`
-* `Tempo (Frame)`: Quanti frame dura quella scena
+**Parameters**:
+* `Background`: The background to display as with [`BG_DISP`](#bg_disp)
+* `Background (CG)`: The index of a background to display as [`BG_DISPCG`](#bg_dispcg); specify instead of `Background`
+* `Fade Time (Frames)`: The time to fade in frames
 
 Funziona come gli altri comandi ma fa scomparire lo sfondo anziché farlo vedere.
 
@@ -58,9 +54,8 @@ Funziona come gli altri comandi ma fa scomparire lo sfondo anziché farlo vedere
 ## `BG_REVERT`
 **Parametri**: Nessuno
 
-Annulla l'ultimo cambiamento fatto agli sfondi `BG_DISP` (attenzione [`BG_FADE`](#bg_fade) e [`BG_DISPCG`](#bg_dispcg) verranno annullati).
-Devi necessariamente digitare questo comando per tornare allo sfondo di prima `TEX_BG`.Se vuoi annullare i cambiamenti alle`TEX_CG_DUAL_SCREEN` BG, 
-[`SET_PLACE`](#set_place) deve essere usato per impostare dove e cosa far apparire.
+Reverts the background to the last call of `BG_DISP` (i.e. undoes any [`BG_FADE`](#bg_fade) or [`BG_DISPCG`](#bg_dispcg) calls).
+This is required before returning to displaying standard `TEX_BG` BGs. Note that if reverting a `TEX_CG_DUAL_SCREEN` BG, [`SET_PLACE`](#set_place) must have been used to set the place location and have it displayed.
 
 `BG_REVERT` cerca di ricaricare le stesse immagini CG, dopo che il comando `BG_REVERT` ha fatto
 crashare/mandare in tilt/bloccare il gioco.
@@ -72,8 +67,7 @@ Se devi muoverti tra le varie CG, usa il comando [`BG_FADE`](#bg_fade).
 * `Direzione scorrimento`: Come muoversi tra le varie immagini
 * `Velocità scorrimento`: A quale velocità muoversi (tieni sempre questo parametro su 1)
 
-Se lo schermo deve mostrare un'immagine molto grossa (tipo `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, e `TEX_CG_SINGLE`),
-fai scorrere lo sfondo in maniera PRECISA.
+When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the background in a DEFINED direction.
 
 
 ## `BGM_PLAY`
@@ -101,11 +95,9 @@ Carica un file della modalità scacchi dalla memoria (se la sovrapposizione è a
 
 
 ## `CHESS_MOVE`
-**Parametri**:
-* `Casella Inizio Bianco`: La casella di partenza di una pedina bianca
-* `Casella Fine Bianco`: La casella di arrivo di una pedina bianca
-* `Casella Inizio Nero`: La casella di partenza di una pedina nera
-* `Casella Fine Nero`: La casella di arrivo di una pedina nera
+**Parameters**:
+* `Move 1`: The first move that should be executed
+* `Move 2`: The second move that should be executed (optional)
 
 La traiettoria di spostamento di una pedina.
 
@@ -117,21 +109,24 @@ Riporta la scacchiera ad inizio partita.
 
 
 ## `CHESS_TOGGLE_CROSS`
-**Parametri**:
-* `Casella Sbarrata 0-15`: Spazi sui quali aggiungere/togliere una croce su di essi
+**Parameters**:
+* `Cross Spaces`: The spaces to place/remove a cross on (select up to 16)
 
 Rimuove tutti gli spazi con sopra una croce rossa. Se è già stato rimosso, questo comando annulla l'azione.
 
 
 ## `CHESS_TOGGLE_GUIDE`
-**Parametri**:
-* `Pezzo 1`: Uno spazio contente un pezzo con le sue possibili mosse
-* `Pezzo 2`: Uno spazio contente un pezzo con le sue possibili mosse
-* `Pezzo 3`: Uno spazio contente un pezzo con le sue possibili mosse
-* `Pezzo 4`: Uno spazio contente un pezzo con le sue possibili mosse
+**Parameters**:
+* `Piece`: A space containing a piece whose potential moves to highlight
 
-Mostra le possibili mosse di un pezzo in rosso. Se quel pezzo è già evidenziato, il comando disattiverà l'azione.
+Highlights the potential moves of a piece in red. If a piece has already been highlighted, this command unhighlights it. Optionally, can specify to clear all guides currently on the board.
 
+
+## `CHESS_TOGGLE_HIGHLIGHT`
+**Parameters**:
+* `Highlight Spaces`: The spaces to highlight (select up to 16)
+
+illumina una casella della scacchiera in giallo. Se lo spazio è già segnalato, questo comando disattiverà l'azione.
 
 ## `CHESS_VGOTO`
 **Parameters**:
@@ -140,13 +135,6 @@ Mostra le possibili mosse di un pezzo in rosso. Se quel pezzo è già evidenziat
 * `Miss 2 Block`: Script che carica una schermata di sconfitta inutilizzata
 
 Controlla quale schermata caricare una volta finita una partita a scacchi.
-
-
-## `CHESS_TOGGLE_HIGHLIGHT`
-**Parametri**:
-* `Indicare Casella 0-15`: Spazi illuminati
-
-illumina una casella della scacchiera in giallo. Se lo spazio è già segnalato, questo comando disattiverà l'azione.
 
 
 ## `CHIBI_EMOTE`
@@ -163,62 +151,54 @@ Con questo comando potrai decidere quale emozione far apparire sopra la testa de
 * `Entrata/Uscita`: Decidere quando i chibi devono entrare o uscire di scena
 * `Posticipare (Frame)`: Decidere il numero esatto di fotogrammi quali chibi devono entrare o uscire
 
-Decide quando un [chibi](../graphics/chibis) entra o esce di scena. Assicurati, prima di attivare questo comandi, di dare ad un chibi l'animazione di camminata
-(animation 01) assieme a quella dove rimane fermo (animation 00).
+Specifies a [chibi](../graphics/chibis) figure to enter or exit the top screen. To be used by this command, a chibi must have a walk cycle (animation 01) in addition to its default idle animation (animation 00).
 
 
 ## `CONFETTI`
-**Parametri**:
-* `Fa apparire`: Se spuntato dei coriandoli appariranno, se non è spuntato non appariranno.
+**Parameters**:
+* `Visible`: If true, turns confetti on. If false, turns it off.
 
 Decidi se far vedere dei coriandoli che cadono sullo schermo superiore.
 
 
 ## `DIALOGUE`
-**Parametri**:
-* `Dialogo`: linea di dialogo, con interlocutore e il testo
-* `Sprite`: lo sprite al quale viene associato il dialogo
-* `Transizione entrata sprite`: Transizione che fa entrare uno sprite in scena
-* `Transizione Uscita/Movimento sprite`: Transizione che fa uscire uno sprite di scena
-* `Movimento`: Fa scuotere lo sprite
-* `Voci`: Linea di dialogo da riprodurre
-* `Font Testo`: Quando applicare un font quando un dialogo non è doppiato
-* `Velocità Testo`: Velocità di caricamento di un testo
-* `Effetto Caricamento Testo`: Eventuali effetti da applicare ad un testo
-* `Strati Sprite`: Decide quali strati di uno sprite caricare o meno, quelli con il numero più alto avranno priorità su quelli con numero basso
-* `Non Cancellare Testo`: Se spuntato, il prossimo dialogo verrà mostrato nella stessa nuvoletta di quello precedente
-* `No Labbiale`: Disabilità il movimento delle labbra
+**Parameters**:
+* `Dialogue`: The dialogue line, composed of a speaker and the dialogue text
+* `Sprite`: The character sprite to display when the dialogue is displayed; this *must be set* for lip flaps to occur!
+* `Sprite Entrance Transition`: Transition that makes the sprite enter
+* `Sprite Exit/Move Transition`: Transition that makes the sprite exit or moves it around
+* `Sprite Shake`: Applies a shaking effect to the sprite 
+* `Voice Line`: The voice line to play
+* `Text Voice Font`: The voice font to be applied when no voiced line is used, as defined by the dialogue config item
+* `Text Speed`: The speed at which the text is rendered, as defined by the dialogue config item
+* `Text Entrance Effect`: The effect to use as the text is printed to the screen
+* `Sprite Layer`: Determines which "layer" a sprite should be rendered on entrance; higher numbers are rendered on top of lower ones
+* `Don't Clear Text`: If true, continues displaying the next dialogue line in the same box
+* `No Lip Flap`: Manually disables lip flaps for dialogue that would otherwise have them
 
 Mostra una linea di dialogo e/o cambia gli [Sprite dei personaggi](../graphics/sprites). Possono anche contenere un [testo doppiato](../sound/voice).
 
-Piccole note sugli sprite:
-* Gli sprite sono associati con uno speaker
-* Gli sprite non appariranno finché non sarà data un'animazione di entrata al primo della serie
-* Dopo che il primo sprite verrà associato da uno speaker, gli altri personaggi associati con quello speaker possono
-  essere mostrati senza usare transizioni
-* Se non darai agli sprite l'animazione di uscita, il personaggio non uscirà di scena
+A couple of notes on sprites:
+* Sprites are associated with a speaker
+* Sprites will not be displayed unless the first sprite is given an entrance transition
+* After the first sprite is displayed for a speaker, other sprites of that speaker can be switched to without entrance transitions
+* Sprites must be specified for every dialogue command where a character appears on screen; without them, lip flaps & transitions will not take place
+* Sprites will not exit unless the sprite is specified with an exit transition
 
-Esistono molti effetti da applicare ai dialoghi:
-| Operatore | Esempio | Effetto |
+For dialogue, there are a number of operators available that have different effects:
+| Operator | Example | Effect |
 |----------|---------|--------|
-| `$num` | `$9` | Aggiusta la velocità con la quale il testo viene caricato, usalo per sincronizzarlo con un eventuale frase doppiata |
-| `#Wnum` | `#W20` | Fa aspettare un determinato numero di frame prima di mostrare la prossima linea di testo |
-| `#Pnum` | `#P5` | Cambia il colore del testo, i colori disponibili li trovi nella casella sottostante |
-| `#DP` | `#DP` | "Dialoghi di placeholder" Non fanno nulla di speciale |
-| `#SEnum` | `#SE001` | Riproduce un file audio dal file [`SND_PLAY`](#snd_play) |
-| `#SK0` | `#SK0Shake#sk` | Fa scuotere il testo, da determinare con il comando `#sk` |
-
-The colors available with the `#P` operator:
-| Operator | Color |
-|----------|-------|
-| `#P00` | Bianco |
-| `#P01` | Giallo come nei monologhi di Kyon |
-| `#P02` | Bianco spento |
-| `#P03` | Grigio |
-| `#P04` | Lilla, colore usato dal tutorial |
-| `#P05` | Rosso, per menzionare le discussioni |
-| `#P06` | Grigio chiaro |
-| `#P07` | nero|
+| `$num` | `$9` | Adjust the speed at which text appears on the screen; used to sync text with voice lines |
+| `#Wnum` | `#W20` | Waits for a number of frames before continuing to show text on the screen |
+| `#Pnum` | `#P5` | Changes the color (or more specifically the **p**alette) of the text; the available colors can be seen and edited in the [dialogue text color editor](../misc/dialogue-colors) |
+| `#DP` | `#DP` | "Dialogue placeholder," doesn't have much of a function |
+| `#SEnum` | `#SE001` | Plays a sound effect as [`SND_PLAY`](#snd_play) |
+| `#SK0` | `#SK0Shake#sk` | Shakes the text; terminated with `#sk` |
+| `#n` | `Hello#nnew line` | Inserts a line break... but then again, so does a line break |
+| `#xnum` | `#x05` | Adds `num` pixels to the character width spacing (note: overrides our custom font spacing routine in the translation patches!) |
+| `#ynum` | `#y05` | Adds `num` pixels to the line break spacing |
+| `#X` | `#X` | Pins the newline indent to the current character (so the next line will start exactly where the next character is rendered) (works even with translation patch) |
+| `#Ynum` | `#Y30` | Unknown (not implemented in Serial Loops preview) |
 
 ## `EPHEADER`
 **Parametri**:
@@ -273,7 +253,7 @@ Ferma lo scorrere dello script fino a quando il giocatore non interviene.
 ## `INIT_READ_FLAG`
 **Parametri**: Nessuno
 
-Non sappiamo cosa faccia, inutilizzato in gioco.
+Seems to initialize read flags for the current script; however, it's utility is unknown as it is unused in the game.
 
 
 ## `INVEST_END`
@@ -282,25 +262,24 @@ Non sappiamo cosa faccia, inutilizzato in gioco.
 La fase investigazione viene interrotta e si torna in modalità visual novel. Lo schermo diventa nero per alcuni secondi.
 
 
-## `ITEM_DISPIMG`
-**Parametri**:
-* `Oggetti`: Oggetti da mostrare
-* `X`
-* `Y`
-
-Mostra un oggetto specifico. in certe circostanze, funziona; comunque, c'è rischio di mandare in tilt il gioco. Inutilizzato.
-
-
 ## `INVEST_START`
-**Parametri**:
-* `sconosciuto00`
-* `sconosciuto01`
-* `sconosciuto02`
-* `sconosciuto03`
-* `Fine Sezione Script`: La sezione selezionata che finisce con il comando [`INVEST_END`](#invest_end).
+**Parameters**:
+* `Map Characters Set`: The set of map characters to use; in the retail game, this is always 0 as there is only one set of map characters specified for any given script. 
+* `unknown01`
+* `unknown02`
+* `unknown03`
+* `End Script Section`: The script section that starts with the [`INVEST_END`](#invest_end) command.
 
 Da il via alla modalità investigazione. C'è una transizione su schermo nero.
 
+
+## `ITEM_DISPIMG`
+**Parameters**:
+* `Item`: The item to display
+* `Location`: The location on the screen where the item will be displayed
+* `Transition`: The transition by which the item enters the screen
+
+Displays the specified item image. The item system is entirely unused in the game, so this command goes unused as well.
 
 ## `KBG_DISP`
 **Parametri**:
@@ -320,8 +299,7 @@ Carica una mappa isometrica che [`INVEST_START`](#invest_start) deve usare.
 * `Character`: Personaggi che vengono influenzati: Haruhi, Mikuru, Nagato, Koizumi e Tsuruya.
 * `Modify By`: Il livello amicizia da cambiare per i vari personaggi
 
-Modifica il "livello amicizia" dei personaggi, aggiungendo un valore specifico. Deve essere positivo o negativo. Il livello amicizia
-iniziale è 1, e continua a cambiare per tutta la durata della partita. Ogni personaggio ha la sua variabile:
+Modifies a character's "Friendship Level" by adding a particular value to it. The value can be positive or negative. Friendship levels start at 1, have a max of 64, and persist throughout a playthrough. They can be referenced in conditionals with the following variable names:
 
 | Personaggio | Variabile |
 |-----------|----------|
@@ -340,26 +318,25 @@ Chiude una scena e apre la prossima segnata sullo "Scenario Item".
 ## `NOOP1`
 **Parametri**: Nessuno
 
-Non fa nulla.
+Does nothing.
 
 
 ## `NOOP2`
 **Parametri**: Nessuno.
 
-Non fa nulla.
+Does nothing.
 
 
 ## `NOOP3`
 **Parametri**: Nessuno.
 
-Non fa nulla.
+Does nothing.
 
 
 ## `OP_MODE` 
 **Parametri**: Nessuno
 
-Disattiva l'UI dello schermo superiore, la possibilità di saltare i dialoghi e fa apparire e muovere il Chibi di Kyon al centro dello schermo superiore.
-Usato solo nel prologo.
+Suppresses the top screen UI, shows `BG_KBG04` on the top screen, disables dialogue skipping, and marks the center of the screen as the position the Kyon chibi walks to, and sends the Kyon chibi out. Used only in the opening text crawl.
 
 
 ## `PALEFFECT`
@@ -388,34 +365,31 @@ Ti permette di raggiungere una certa scena. Non può portare a tutte le scene di
 in un particolare vettore speciale del ARM9; inoltre, modificare la ROM modificherà i vettori.
 
 
-## `SCENE_GOTO2`
-**Parametri**:
-* `Scena`: Nome dello script da raggiungere
+## `SCENE_GOTO_CHESS`
+**Parameters**:
+* `Scene`: Name of the script file to go to
 
-Si comporta come [`SCENE_GOTO`](#scene_goto), ma non ripulisce i dati della pagina precedente. Del resto sono uguali.
+Behaves as [`SCENE_GOTO`](#scene_goto) except that it's used to go to scripts that contain chess puzzles.
 
 
 ## `SCREEN_FADEIN`
-**Parametri**:
-* `Tempo Dissolvenza (Frame)`: Quanto dura la transizione dello schermo nero
-* `Percentuale inizio dissolvenza`: Quanto deve essere scuro lo schermo (0 è molto chiaro and 100 è molto scuro; es. 50 significa che lo schermo sarà più scuro
-  del 50% anziché essere più chiaro); solo le transizioni con colori personalizzati funziona
-* `Zona`: le schermate sulle quali applicare le transizioni
-* `Colore`: Sia bianco, che nero che qualsiasi altro colore impostato da [`SCREEN_FADEOUT`](#screen_fadeout); deve combaciare
-  con quello della schermata precedente [`SCREEN_FADEOUT`](#screen_fadeout).
+**Parameters**:
+* `Fade Time (Frames)`: The length of the fade in frames
+* `Fade In Percentage`: The percentage of darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means the screen will be 50% darker 
+  than full brightness when the fade in is complete); only respected by custom color fades
+* `Location`: The screen(s) the fade will be applied to
+* `Color`: Either black, white, or the custom color set by a previous [`SCREEN_FADEOUT`](#screen_fadeout); this parameter must match that of the previous [`SCREEN_FADEOUT`](#screen_fadeout) call
 
 Fa apparire sullo schermo nero una transizione nera.
 
 
 ## `SCREEN_FADEOUT`
-**Parametri**:
-* `Dissolvenza (Frame)`: Quanto dura la transizione dello schermo nero
-* `Percentuale fine dissolvenza`: Quanto deve essere scuro lo schermo (0 è molto chiaro and 100 è molto scuro; es. 50 significa che lo schermo sarà più scuro 
-  del 50% anziché essere più chiaro); solo le transizioni con colori personalizzati funziona
-* `Colori Personalizzati`: Il colore che apparirà, a patto che tale `Colore` sia impostato su `Personalizzato`
-* `Zona`: le schermate sulle quali applicare le transizioni
-* `Colore`: Sia bianco, che nero che qualsiasi altro colore impostato da [`SCREEN_FADEOUT`](#screen_fadeout); deve combaciare
-  con quello della schermata precedente [`SCREEN_FADEIN`](#screen_fadein).
+**Parameters**:
+* `Fade Time (Frames)`: The length of the fade in frames
+* `Fade out Percentage`: The percentage of darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means that the screen will be 50% brighter than full black when the fade is complete); only respected by color fades
+* `Custom Color`: The color the fade will be if `Color` is set to `CUSTOM`
+* `Location`: The screen(s) the fade will be applied to
+* `Color`: Either black, white, or the custom color defined by `Custom Color`; this parameter must match that of the subsequent [`SCREEN_FADEIN`](#screen_fadein) call
 
 Fa terminare la transizione sullo schermo nero.
 
@@ -447,15 +421,15 @@ Disattiva il comando [`SCREEN_SHAKE`](#screen_shake) . (Da usare se il comando `
 
 
 ## `SELECT`
-**Parametri**:
-* `Opzione 1`: Prima opzione da scegliere
-* `Opzione 2`: Seconda opzione da scegliere
-* `Opzione 3`: Terza opzione da scegliere
-* `Opzione 4`: Quarta opzione da scegliere
-* `sconosciuto08` 
-* `sconosciuto0A` 
-* `sconosciuto0C` 
-* `sconosciuto0E`
+**Parameters**:
+* `Option 1`: The first choice to be presented
+* `Option 2`: The second choice to be presented
+* `Option 3`: The third choice to be presented
+* `Option 4`: The fourth choice to be presented
+* `Display Flag 1`: A flag indicating that Option 1 should be displayed; if -1, the option is always displayed
+* `Display Flag 2`: A flag indicating that Option 2 should be displayed; if -1, the option is always displayed
+* `Display Flag 3`: A flag indicating that Option 3 should be displayed; if -1, the option is always displayed
+* `Display Flag 4`: A flag indicating that Option 4 should be displayed; if -1, the option is always displayed
 
 Da al giocatore una scelta da compiere. Le scelte vengono caricate dalla loro sezione tramite il loro ID che risponderanno alla scelta fatta.
 Quando viene compiuta una scelta, l'ID andrà a caricare uno script preciso.
@@ -479,13 +453,20 @@ Imposta il comando [`NEXT_SCENE`](#next_scene) per saltare le scene, seguendo le
 
 
 ## `SND_PLAY`
-**Parametri**: 
-* `Audio`: Il suono che deve essere preso da `snd.bin`
-* `Modalità`: Quando far iniziare o smettere il file audio
-* `Volume`: Il volume del file audio
-* `Dissolvenza Incrociata (Frame)`: Quando il suono dovrà dissolversi, può essere usato solo per cambiare volume all'effetto
+**Parameters**: 
+* `Sound`: The sound to be played from `snd.bin`
+* `Mode`: Whether to start or stop the sound
+* `Volume`: The volume of the sound
+* `Load Sound`: If true, loads the sound into memory before playing it (necessary when playing a sound for the first time)
+* `Crossfade Time (Frames)`: Time in frames that the sound will crossfade; only can be used when changing the volume of the same sound
 
 Riproduce un suono preso dal file `snd.bin`.
+
+
+## `SND_STOP`
+**Parameters**: None
+
+Stops the currently playing sound. Unused in game.
 
 ## `STOP`
 **Parametri**: Nessuno
@@ -518,12 +499,6 @@ Fa partire una transizione sullo schermo nero.
 * `Transition`: Transizione da usare
 
 Parte una transizione che riporta alla scena.
-
-
-## `UNKNOWN0A`
-**Parametri**: Nessuno
-
-Inutilizzato, non sappiamo cosa faccia.
 
 
 ## `VCE_PLAY`

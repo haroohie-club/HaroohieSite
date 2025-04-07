@@ -1,15 +1,15 @@
 ---
-title: 'Patterns and Templates'
+title: 'Шаблоны и модели'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/template.png'
   previous: '/chokuretsu/serial-loops/docs/scripts/commands'
   next: '/chokuretsu/serial-loops/docs/scripts/chibis-and-choices'
 ---
 
-While the previous page covered every command in the game, many of them are frequently used in conjunction with each other. To make keeping track of them easier, we've created multiple **Script Templates** to make the process of creating scripts easier. To apply a template, simply click the "Apply Template" button in the toolbar or go to "Edit" &rarr; "Apply Template" in the menu. This will bring up the following dialog.
+Хотя на предыдущей странице были рассмотрены все команды в игре, многие из них часто используются вместе. Чтобы упростить отслеживание, мы создали несколько **Шаблонов скриптов**, для упрощения процесс создания скриптов. Чтобы применить шаблон, просто нажмите кнопку «Применить шаблон» на панели инструментов или перейдите в "Изменить" &rarr; "Применить шаблон" в меню. Это вызовет следующее диалоговое окно.
 
-![Insert image here]()
+![Script Templates](/images/chokuretsu/serial-loops/script-templates.png)
 
-From here, you can select a template, view information about it, and apply it to the current script.
+Здесь вы можете выбрать шаблон, просмотреть информацию о нём и применить его к текущему скрипту.
 
-If you have an idea for your own template, you can simply create it in a blank script and then use the "Generate Template" option from the "Edit" menu to generate the template. This will automatically make the template available for your own use; however, if you think it would be useful for the community, feel free to [create a pull request](https://github.com/haroohie-club/SerialLoops/pulls) in the Serial Loops repo adding your template as a default that we ship with the app!
+Если у вас есть идея для собственного шаблона, вы можете просто создать его в пустом скрипте, а затем использовать опцию «Сгенерировать шаблон» из меню «Изменить», чтобы сгенерировать его. Это автоматически сделает шаблон доступным для вашего собственного использования; однако, если вы считаете, что это будет полезно для сообщества, не стесняйтесь [создать запрос на извлечение](https://github.com/haroohie-club/SerialLoops/pulls) в репозитории Serial Loops, добавив свой шаблон в качестве шаблона по умолчанию, который мы поставляем с приложением!

@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops - Редактор уровней для Последовательностей Харухи Судзумии'
-description: &desc 'Serial Loops это редактор уровней для Последовательностей Харухи Судзумии), доступный на Windows, Mac и Linux.'
+title: &title 'Serial Loops - Набор редактирования для Последовательностей Харухи Судзумии'
+description: &desc 'Serial Loops is an editing suite for Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.'
 navigation:
   image: 'script-editor.png'
 head:
@@ -28,7 +28,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-<b class="sl-header">Набор для редактирования Suzumiya Haruhi no Chokuretsu</b> 
+<b class="sl-header">An editing suite for Suzumiya Haruhi no Chokuretsu</b> 
 
 Serial Loops — это набор редактирования для [Последовательностей Харухи Судзумии](/chokuretsu), доступный на Windows, Mac и Linux.
 
@@ -43,8 +43,8 @@ limit: 2
 ---
 ::
 
-## Загрузить
-Установка доступны для Windows, macOS (Intel и Apple Silicon) и Linux (пакеты RPM и Debian) [на GitHub] (https://github.com/haroohie-club/SerialLoops/releases). Мы предлагаем как релизные, так и предварительные сборки.
+## Установка
+Установка доступна для Windows, macOS (Intel и Apple Silicon) и Linux [на GitHub](https://github.com/haroohie-club/SerialLoops/releases). Мы предлагаем как релизные (рекомендуется), так и пре-релизные сборки.
 
 
 ::button-link
