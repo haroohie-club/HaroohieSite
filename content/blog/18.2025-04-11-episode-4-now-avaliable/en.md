@@ -43,7 +43,7 @@ It's been a long time coming. You've all been very patient. And now... it's here
 
 A huge thank you to Hans Harmony (check out his channel [here](https://www.youtube.com/@ManaSenpaiSeries)) for once again putting together our release trailer!
 
-Of course, as well as Episode 3, we've been going back and improving other areas of our patch too. Take a look at our changelog below!
+Of course, as well as Episode 4, we've been going back and improving other areas of our patch too. Take a look at our changelog below!
 
 ## What's new in v0.8
 * *Episode 4: Big Mum Flower* has been translated and can now be played in English! This was a truly massive undertaking, so please enjoy!
@@ -92,11 +92,8 @@ overhaul of the UI, fixed tons of bugs, and (of course) added a bunch of snazzy 
 * Significant performance boosts in a variety of places
 * Lots of new and convenient installation options: a packaged installer on Windows and macOS as well as a Flatpak on Linux!
 
-<<<<<<< HEAD
-=======
 For more information, check out our [documentation](/chokuretsu/serial-loops)!
 
->>>>>>> v08ReleaseBlog
 ## New Video from Jonko
 Finally, the last announcement: Jonko has published a new video today! Check out the story of how he reverse-engineered Chokuretsu's script files in order to make Serial Loops!
 
