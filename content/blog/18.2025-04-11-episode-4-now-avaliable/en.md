@@ -92,6 +92,11 @@ overhaul of the UI, fixed tons of bugs, and (of course) added a bunch of snazzy 
 * Significant performance boosts in a variety of places
 * Lots of new and convenient installation options: a packaged installer on Windows and macOS as well as a Flatpak on Linux!
 
+<<<<<<< HEAD
+=======
+For more information, check out our [documentation](/chokuretsu/serial-loops)!
+
+>>>>>>> v08ReleaseBlog
 ## New Video from Jonko
 Finally, the last announcement: Jonko has published a new video today! Check out the story of how he reverse-engineered Chokuretsu's script files in order to make Serial Loops!
 
