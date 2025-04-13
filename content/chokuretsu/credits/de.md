@@ -2,16 +2,17 @@
 ::two-column-list
 - **Project Lead**: Jonko
 - **Translation Lead**: Amelia Chaplin
-- **Translation**: Amelia Chaplin, Amanda Sato, TimepieceMaster, Isillor, & thequadehunter
+- **Translation**: Amelia Chaplin, Isillor, Amanda Sato, Quade, & TimepieceMaster
 - **ROM Hacking**: Jonko & Ermelber
-- **Graphic Design**: William278 & Cerber
-- **Editing**: William278, Alvy, NewGBAXL,<br/>Fang, Ziomek, & Chocobo
-- **Testing**: Lambsauce, Amelia Chaplin, Goblinaro, & gig
+- **Graphic Design**: William278
+- **Editing**: KahnerC, William278, Alvy,<br/>Fang, NewGBAXL, & Ziomek
+- **Testing**: Lambsauce, Amelia Chaplin, KahnerC, & Goblinaro
 - **Additional Translation**: toro, kyu, Kanata, & Tensei
-- **Additional Editing**: toro, Pierce, Cosmix, & Kon
+- **Additional Graphics**: Cerber
+- **Additional Editing**: Chocobo, toro, Pierce, Cosmix, Dee, & hamm_slamm
 - **Additional Testing**: master117, Kuya, Nateymas, & sarrahkuma
 - **PV Editor**: Hans Harmony
-- **Website**: William278
+- **Website**: William278 & Jonko
 ::
 
 ## Stay up-to-date

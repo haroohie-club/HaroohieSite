@@ -225,7 +225,7 @@ STR R1, [R0,#8]
 POP {R3,PC}
 ```
 
-I modified this to `#0x160000` as well.
+Я также изменил это на `#0x160000`.
 
 ## Conclusion
 Overall, my research results are largely based on the work of those who came before me. The solutions to several issues were somewhat accidental, but there were still some gains for me. The subsequent work will mainly involve translation. However, researching how to localize the game into Chinese is much more interesting than simply translating texts.

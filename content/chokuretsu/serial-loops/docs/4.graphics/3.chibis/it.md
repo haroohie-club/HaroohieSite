@@ -6,34 +6,38 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics/places'
 ---
 
-Nella versione attuale di Serial Loops, puoi solo vedere i chibi, non puoi modificarli in nessun modo.
-In una versione futura, quando sarà possibile, aggiungeremo delle descrizioni per come modificare i chibi.
-
 ## Analisi
 I Chibi sono degli omini che appaiono sullo schermo superiore durante le fasi visual novel del gioco, oppure vengono controllati dal giocatore
 durante le fasi investigazione e puzzle.
 
 I Chibi hanno diverse animazioni associate:
 
-| ID Animazione | Descrizione |
+| Animation Number | Description |
 |------------------|-------------|
-| 00 | fermo |
-| 01 | camminata |
-| 02 | ricerca (fase puzzle) |
-| 03 | pulizia (fase puzzle) |
-| 04 | sconfitta (fase puzzle) |
-| 05 | vittoria(fase puzzle) |
-| 06 | mossa speciale (fase puzzle) |
-| 07 | mossa speciale fallita (fase puzzle) |
-| 08 | corsa (Haruhi ne ha una alternativa) |
-| 10 | fermo alternativa |
-| 97-99 | Posa statica |
+| 00 | Default idle animation |
+| 01 | Walk cycle animation |
+| 02 | "Searching" animation (puzzle phase) |
+| 03 | "Cleaning" animation (puzzle phase) |
+| 04 | Lose animation (puzzle phase) |
+| 05 | Win animation (puzzle phase) |
+| 06 | Technique animation (puzzle phase) |
+| 07 | Technique failed animation (puzzle phase) |
+| 08 | Running animation (Haruhi has a different one for this) |
+| 10 | Alternate idle animation |
+| 97-99 | Still poses used for good, neutral, and bad group selection |
 
 Inoltre, ogni animazione possiede diverse direzioni (dietro girato a destra, dietro girato a sinistra, avanti girato a destra, avanti girato a sinistra), ma non tutte
 le animazioni hanno queste proprietà.
 
 ## In Serial Loops
-Attualmente, puoi solo aprire i chibi e vedere le loro animazioni, incluso come specchiarle, grazie ad una serie di tasti.
-Inoltre, come con gli sprite dei personaggi, puoi esportarli sia come serie di frame che come file animati di estensione GIF.
+In the current version of Serial Loops, chibis can be opened and their animations viewed. Animations can be selected with a drop down and the direction 
+faced can be chosen with a series of buttons. In addition to the full animation displayed up top, the individual frames can be seen in a box below.
+Like character sprites, chibis can be exported as a series of frames (for editing in the future) or as an animated GIF.
+
+Chibis can be fully replaced using the "Replace Frames" button. Simply select a series of images to import (optionally suffixed with the number of frames they should last, e.g. `_30f`)
+and the editor will import them to replace the current animation. After you have imported the animation, you can edit the timing of each frame using the numeric steppers in the frames
+display.
 
 ![Chibi editor](/images/chokuretsu/serial-loops/chibi-editing.png)
+
+In a future version of Serial Loops, you will be able to add more chibis and animations for each chibi.
