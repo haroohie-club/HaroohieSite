@@ -8,19 +8,16 @@ navigation:
 
 Gli sfondi vengono usati durante i dialoghi dei personaggi. È possibile modificare questi sfondi grazie all'editor apposta.
 
-## Rimpiazzare
-È possibile cambiare gli sfondi grazie all'editor apposta. Per farlo, clicca il tasto "Sostituisci" e scegli un'immagine dal tuo computer. Si aprirà uno strumento
-per modificare e scalare le immagini per ridimensionarle per il gioco.
+## Replacing
+Backgrounds can easily be replaced in the background editor. Simply press the "Replace" button and select a new image file from disk. This will open the built-in crop & scale tool to let you size your image to fit the standard set of background sizes (see below).
 
-### Scalare
-Puoi usare lo strumento per modificare e importare le immagini, starà a te scegliere quale immagine sostituire quella vecchia con quella nuova.
+### Crop and Scale
+Once an image file has been selected after choosing "Replace", a box overlay cut-out will be layered over the imported bitmap. Using the mouse, you can click and drag the image to adjust its crop; the portion that is
+uncovered in the box will be the final image. Additionally, you can use the mouse wheel to scale the image up and down. Additionally, you can use the arrow keys to move the image in any direction more precisely.
 
 ![Crop and Scale tool](/images/chokuretsu/serial-loops/crop-and-scale.png)
 
-Una volta scelta l'immagine clicca "Sostituisci", apparirà una finestra. Usando il mouse, puoi modificare l'immagine trascinandola dentro la finestra, puoi anche scalarla dentro la finestra. Tenendo premuto CRTL e trascinando il mouse sposterai l'immagine. Puoi anche usare il tastierino numerico o le freccette per aggiustare l'immagine. Per ripristinare la posizione dell'immagine, premi "Applica" nella sezione "Posizione immagine".
-
-Per ridimensionare l'immagine, premi CTRL e, usando la rotellina del mouse o il tastierino numerico, naviga nel menù. Per dimensionare l'immagine per farcela stare dentro i limiti del gioco, premi "Applica" nella sezione "Scala immagine". Di base, un'immagine manterrà le sue proporzioni, per rimuovere questa
-caratteristica, rimuovi il check da "Mantieni proporzioni".
+Finally, you can press the "Apply" button to scale the image to fit the crop, preserving its aspect ratio.
 
 ![Background editing](/images/chokuretsu/serial-loops/background-editing.png)
 

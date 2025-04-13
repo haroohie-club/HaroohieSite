@@ -1,19 +1,21 @@
 ---
-title: 'Chess Puzzles'
+title: 'Шахматные головоломки'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/chess-puzzle.png'
   previous: '/chokuretsu/serial-loops/docs/misc/topics'
   next: '/chokuretsu/serial-loops/docs/misc/applying-hacks'
 ---
 
-Chess puzzles can be viewed and partially edited in this version of Serial Loops. A future version of the editor will make them fully modifiable as well as allow for changing the mappings
-to the puzzles in the extras' chess mode.
+Шахматные головоломки можно просматривать и частично редактировать в этой версии Serial Loops. Будущая версия редактора сделает их полностью модифицируемыми, а также позволит изменять отображение
+для головоломок в дополнительном шахматном режиме.
 
-## Overview
-The _chess puzzles_ are a bonus minigame encountered in episode 5 of the story as well as the extras mode. There are 65 unique puzzles in the game but about 100 defined chessboards.
-Some of these boards are used as tutorials, while others simply go unused. Each chess puzzle is defined by the pieces on the board and how they are positioned as well as the number of moves
-and time limit. There is an additional value that is provided but whose function is currently unknown.
+## Обзор
+_Шахматные головоломки_ — это бонусная мини-игра, встречающаяся в эпизоде 5 истории, а также в режиме дополнительных материалов. В игре 65 уникальных головоломок, но около 100 определенных шахматных досок.
+Некоторые из этих досок используются в качестве обучающих, в то время как другие просто остаются неиспользованными. Каждая шахматная головоломка определяется фигурами на доске и тем, как они расположены, а также количеством ходов
+и ограничением по времени. Существует дополнительное значение, которое предоставляется, но функция которого в настоящее время неизвестна.
 
-## In Serial Loops
-Currently, chess pieces can be dragged around the board to edit their position, and the number of moves and time limit can be edited. However, pieces cannot currently be added/removed
-and the mappings between the chess puzzle selection menu and the chess scripts cannot currently be changed.
+## В Serial Loops
+В настоящее время шахматные фигуры можно перетаскивать по доске, чтобы редактировать их положение, а также можно изменять количество ходов и ограничение по времени. Однако в настоящее время фигуры нельзя добавлять/удалять
+и отображение между меню выбора шахматной головоломки и шахматными скриптами в настоящее время нельзя изменить.
+
+![Chess puzzle editor](/images/chokuretsu/serial-loops/chess-puzzle-editing.png)

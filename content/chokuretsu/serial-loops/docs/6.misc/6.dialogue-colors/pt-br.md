@@ -23,3 +23,5 @@ with 16 color pickers, each labeled with the color code they are represented by 
 
 Simply select the color you want, change it, and hit save to modify it. If at any time you want to revert to one of the game's default colors,
 simply click the middle "palette" button on the color picker and select one of the six original colors.
+
+![Edit Dialogue Colors dialog](/images/chokuretsu/serial-loops/dialogue-color-editing.png)

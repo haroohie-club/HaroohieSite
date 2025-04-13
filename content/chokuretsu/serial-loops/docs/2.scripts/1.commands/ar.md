@@ -3,14 +3,13 @@ title: 'Commands'
 navigation:
   faicon: 'fa6-solid:code'
   previous: '/chokuretsu/serial-loops/docs/scripts'
-  next: '/chokuretsu/serial-loops/docs/scripts/chibis-and-choices'
+  next: '/chokuretsu/serial-loops/docs/scripts/patterns-and-templates'
 ---
 
-The following document explains what every command in the game does.
+The following document explains what every command in the game does. This document is intended for a general audience; for a more detailed, technical explanation of the commands, please reference the [Chokuretsu Translation Utility's wiki](https://github.com/haroohie-club/ChokuretsuTranslationUtility/wiki/Event-File-Commands).
 
 ## Notes
-* Time in these commands is always defined in terms of _frames_. The game assumes a frame is 1/30 of a second, i.e. 30 frames per second. Thus, to wait one second,
-one would `WAIT` for 30 frames.
+* Time in these commands is always defined in terms of _frames_. The game assumes a frame is 1/60 of a second, i.e. 60 frames per second. Thus, to wait one second, one would `WAIT` for 60 frames.
 
 ## `AVOID_DISP`
 **Parameters**: None
@@ -21,8 +20,7 @@ Displays the "Main Topic -> Avoid" graphics.
 ## `BACK`
 **Parameters**: None
 
-When used in the initial script section, starts execution to the first script block. Otherwise, makes the script return to whatever called it (e.g. the puzzle phase)
-or returns you to the investigation phase.
+When used in the initial script section, starts execution to the first script block. Otherwise, makes the script return to whatever called it (e.g. the puzzle phase) or returns you to the investigation phase.
 
 
 ## `BG_DISP`
@@ -41,15 +39,13 @@ While this is listed as a separate command, it uses the same routine as [`BG_DIS
 * `Background`: The CG background to be displayed
 * `Display from Bottom`: If true, displays the bottom of a tall background (`TEX_CG_SINGLE`); if false, displays the top
 
-`BG_DISPCG` works as [`BG_DISP`](#bg_disp) but can display a larger variety of textures &ndash; namely, `TEX_CG`, `TEX_CG_DUAL_SCREEN`,
-`TEX_CG_WIDE`, and `TEX_CG_SINGLE` BGs. Notably, these are all CGs as opposed to VN backgrounds. Before displaying a standard BG after calling BG_DISPC,
-one should call [`BG_REVERT`](#bg_revert).
+`BG_DISPCG` works as [`BG_DISP`](#bg_disp) but can display a larger variety of textures &ndash; namely, `TEX_CG`, `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE` BGs. Notably, these are all CGs as opposed to VN backgrounds. Before displaying a standard BG after calling `BG_DISPCG`, one should call [`BG_REVERT`](#bg_revert).
 
 
 ## `BG_FADE`
 **Parameters**:
 * `Background`: The background to display as with [`BG_DISP`](#bg_disp)
-* `Background (Temp/CG)`: The index of a background to display as [`BG_DISPCG`](#bg_dispcg); specify instead of `Background`
+* `Background (CG)`: The index of a background to display as [`BG_DISPCG`](#bg_dispcg); specify instead of `Background`
 * `Fade Time (Frames)`: The time to fade in frames
 
 Like the other BG display commands but crossfades the background rather than just displaying it.
@@ -59,8 +55,7 @@ Like the other BG display commands but crossfades the background rather than jus
 **Parameters**: None
 
 Reverts the background to the last call of `BG_DISP` (i.e. undoes any [`BG_FADE`](#bg_fade) or [`BG_DISPCG`](#bg_dispcg) calls).
-This is required before returning to displaying standard `TEX_BG` BGs. Note that if reverting a `TEX_CG_DUAL_SCREEN` BG, [`SET_PLACE`](#set_place)
-must have been used to set the place location and have it displayed.
+This is required before returning to displaying standard `TEX_BG` BGs. Note that if reverting a `TEX_CG_DUAL_SCREEN` BG, [`SET_PLACE`](#set_place) must have been used to set the place location and have it displayed.
 
 `BG_REVERT` does something odd to previously displayed CGs that makes attempting to display them again after the `BG_REVERT` crash/freeze/soft lock the game.
 If you need to go back and forth between the same CGs, consider using [`BG_FADE`](#bg_fade).
@@ -71,8 +66,7 @@ If you need to go back and forth between the same CGs, consider using [`BG_FADE`
 * `Scroll Direction`: The direction to scroll the BG
 * `Scroll Speed`: Speed at which to scroll (1 is a good default)
 
-When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`),
-scrolls the background in a DEFINED direction.
+When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the background in a DEFINED direction.
 
 
 ## `BGM_PLAY`
@@ -101,10 +95,8 @@ Loads a chess file into memory and (if the chess overlay is loaded) places it on
 
 ## `CHESS_MOVE`
 **Parameters**:
-* `White Space Begin`: The space where a white piece to move is
-* `White Space End`: The space where the white piece should move to
-* `Black Space Begin`: The space where a black piece to move is
-* `Black Space End`: The space where the black piece should move to
+* `Move 1`: The first move that should be executed
+* `Move 2`: The second move that should be executed (optional)
 
 Moves a piece (or pieces) on the chessboard.
 
@@ -117,20 +109,23 @@ Resets the chessboard to its original state.
 
 ## `CHESS_TOGGLE_CROSS`
 **Parameters**:
-* `Cross Space 0-15`: The spaces to place/remove a cross on
+* `Cross Spaces`: The spaces to place/remove a cross on (select up to 16)
 
 Crosses out spaces on the chessboard with a red X. If a space is already crossed out, this command uncrosses it out.
 
 
 ## `CHESS_TOGGLE_GUIDE`
 **Parameters**:
-* `Piece 1`: A space containing a piece whose potential moves to highlight
-* `Piece 2`: A space containing a piece whose potential moves to highlight
-* `Piece 3`: A space containing a piece whose potential moves to highlight
-* `Piece 4`: A space containing a piece whose potential moves to highlight
+* `Piece`: A space containing a piece whose potential moves to highlight
 
-Highlights the potential moves of a piece in red. If a piece has already been highlighted, this command unhighlights it.
+Highlights the potential moves of a piece in red. If a piece has already been highlighted, this command unhighlights it. Optionally, can specify to clear all guides currently on the board.
 
+
+## `CHESS_TOGGLE_HIGHLIGHT`
+**Parameters**:
+* `Highlight Spaces`: The spaces to highlight (select up to 16)
+
+Highlights spaces on the chessboard in yellow. If a space is already highlighted, this command unhighlights it.
 
 ## `CHESS_VGOTO`
 **Parameters**:
@@ -139,13 +134,6 @@ Highlights the potential moves of a piece in red. If a piece has already been hi
 * `Miss 2 Block`: Script block to go to if the chess game is failed in some unused way
 
 Monitors for the end of the chess game and then jumps to a specified script block depending on the outcome.
-
-
-## `CHESS_TOGGLE_HIGHLIGHT`
-**Parameters**:
-* `Highlight Space 0-15`: The spaces to highlight
-
-Highlights spaces on the chessboard in yellow. If a space is already highlighted, this command unhighlights it.
 
 
 ## `CHIBI_EMOTE`
@@ -162,13 +150,12 @@ This command displays an emote in a speech bubble above a [chibi](../graphics/ch
 * `Enter/Exit`: Specifies whether the chibi is entering or exiting
 * `Delay (Frames)`: Specifies the number of frames after which the chibi should enter or exit
 
-Specifies a [chibi](../graphics/chibis) figure to enter or exit the top screen. To be used by this command, a chibi must have
-a walk cycle (animation 01) in addition to its default idle animation (animation 00).
+Specifies a [chibi](../graphics/chibis) figure to enter or exit the top screen. To be used by this command, a chibi must have a walk cycle (animation 01) in addition to its default idle animation (animation 00).
 
 
 ## `CONFETTI`
 **Parameters**:
-* `Visible`: If true turns confetti on. If false, turns it off.
+* `Visible`: If true, turns confetti on. If false, turns it off.
 
 Displays falling confetti on the top screen.
 
@@ -176,7 +163,7 @@ Displays falling confetti on the top screen.
 ## `DIALOGUE`
 **Parameters**:
 * `Dialogue`: The dialogue line, composed of a speaker and the dialogue text
-* `Sprite`: The character sprite to display when the dialogue is displayed
+* `Sprite`: The character sprite to display when the dialogue is displayed; this *must be set* for lip flaps to occur!
 * `Sprite Entrance Transition`: Transition that makes the sprite enter
 * `Sprite Exit/Move Transition`: Transition that makes the sprite exit or moves it around
 * `Sprite Shake`: Applies a shaking effect to the sprite 
@@ -193,8 +180,8 @@ Displays a line of dialogue and/or manipulates [character sprites](../graphics/s
 A couple of notes on sprites:
 * Sprites are associated with a speaker
 * Sprites will not be displayed unless the first sprite is given an entrance transition
-* After the first sprite is displayed for a speaker, other sprites of that speaker can be switched to without
-  entrance transitions
+* After the first sprite is displayed for a speaker, other sprites of that speaker can be switched to without entrance transitions
+* Sprites must be specified for every dialogue command where a character appears on screen; without them, lip flaps & transitions will not take place
 * Sprites will not exit unless the sprite is specified with an exit transition
 
 For dialogue, there are a number of operators available that have different effects:
@@ -202,22 +189,15 @@ For dialogue, there are a number of operators available that have different effe
 |----------|---------|--------|
 | `$num` | `$9` | Adjust the speed at which text appears on the screen; used to sync text with voice lines |
 | `#Wnum` | `#W20` | Waits for a number of frames before continuing to show text on the screen |
-| `#Pnum` | `#P5` | Changes the color of the text; the available colors can be seen in the table below |
+| `#Pnum` | `#P5` | Changes the color (or more specifically the **p**alette) of the text; the available colors can be seen and edited in the [dialogue text color editor](../misc/dialogue-colors) |
 | `#DP` | `#DP` | "Dialogue placeholder," doesn't have much of a function |
 | `#SEnum` | `#SE001` | Plays a sound effect as [`SND_PLAY`](#snd_play) |
 | `#SK0` | `#SK0Shake#sk` | Shakes the text; terminated with `#sk` |
-
-The colors available with the `#P` operator:
-| Operator | Color |
-|----------|-------|
-| `#P00` | Standard white text |
-| `#P01` | Yellow text like in Kyon's monologue |
-| `#P02` | Slightly off-white text |
-| `#P03` | Gray-ish text |
-| `#P04` | Lavendar text used for the Info speaker |
-| `#P05` | Red, used for mentioning topics |
-| `#P06` | Faded gray |
-| `#P07` | Black |
+| `#n` | `Hello#nnew line` | Inserts a line break... but then again, so does a line break |
+| `#xnum` | `#x05` | Adds `num` pixels to the character width spacing (note: overrides our custom font spacing routine in the translation patches!) |
+| `#ynum` | `#y05` | Adds `num` pixels to the line break spacing |
+| `#X` | `#X` | Pins the newline indent to the current character (so the next line will start exactly where the next character is rendered) (works even with translation patch) |
+| `#Ynum` | `#Y30` | Unknown (not implemented in Serial Loops preview) |
 
 ## `EPHEADER`
 **Parameters**:
@@ -272,7 +252,7 @@ Stops script execution until input is received from the player.
 ## `INIT_READ_FLAG`
 **Parameters**: None
 
-Unknown, unused in the game.
+Seems to initialize read flags for the current script; however, it's utility is unknown as it is unused in the game.
 
 
 ## `INVEST_END`
@@ -281,18 +261,9 @@ Unknown, unused in the game.
 Ends investigation mode and returns to the main visual novel format of the game. Automatically fades screen to black.
 
 
-## `ITEM_DISPIMG`
-**Parameters**:
-* `Item`: The item to display
-* `X`
-* `Y`
-
-Displays the specified item image. Under certain circumstances, this should work; however, it seems this soft locks the game most of the time. Unused.
-
-
 ## `INVEST_START`
 **Parameters**:
-* `unknown00`
+* `Map Characters Set`: The set of map characters to use; in the retail game, this is always 0 as there is only one set of map characters specified for any given script. 
 * `unknown01`
 * `unknown02`
 * `unknown03`
@@ -300,6 +271,14 @@ Displays the specified item image. Under certain circumstances, this should work
 
 Starts investigation mode. Automatically fades screen in from black.
 
+
+## `ITEM_DISPIMG`
+**Parameters**:
+* `Item`: The item to display
+* `Location`: The location on the screen where the item will be displayed
+* `Transition`: The transition by which the item enters the screen
+
+Displays the specified item image. The item system is entirely unused in the game, so this command goes unused as well.
 
 ## `KBG_DISP`
 **Parameters**:
@@ -319,8 +298,7 @@ Loads an isometric map for usage by [`INVEST_START`](#invest_start).
 * `Character`: The character to modify: Haruhi, Mikuru, Nagato, Koizumi or Tsuruya.
 * `Modify By`: The value to modify the friendship level by for the selected character
 
-Modifies a character's "Friendship Level" by adding a particular value to it. The value can be positive or negative. Friendship
-levels start at 1 and persist throughout a playthrough. They can be referenced in conditionals with the following variable names:
+Modifies a character's "Friendship Level" by adding a particular value to it. The value can be positive or negative. Friendship levels start at 1, have a max of 64, and persist throughout a playthrough. They can be referenced in conditionals with the following variable names:
 
 | Character | Variable |
 |-----------|----------|
@@ -357,7 +335,7 @@ Does nothing.
 ## `OP_MODE` 
 **Parameters**: None
 
-Suppresses the top screen UI, disables dialogue skipping, and marks the center of the screen as the position the Kyon chibi walks to, and sends the Kyon chibi out. Used only in the opening text crawl.
+Suppresses the top screen UI, shows `BG_KBG04` on the top screen, disables dialogue skipping, and marks the center of the screen as the position the Kyon chibi walks to, and sends the Kyon chibi out. Used only in the opening text crawl.
 
 
 ## `PALEFFECT`
@@ -386,11 +364,11 @@ Goes to a particular scene. Note that this scene cannot be just any script file;
 within a special array in ARM9 itself; thus, ROM hacks may decide to change the location of this array.
 
 
-## `SCENE_GOTO2`
+## `SCENE_GOTO_CHESS`
 **Parameters**:
 * `Scene`: Name of the script file to go to
 
-Behaves as [`SCENE_GOTO`](#scene_goto), except this command does not clear a flag before jumping. Otherwise, they seem to be identical.
+Behaves as [`SCENE_GOTO`](#scene_goto) except that it's used to go to scripts that contain chess puzzles.
 
 
 ## `SCREEN_FADEIN`
@@ -399,8 +377,7 @@ Behaves as [`SCENE_GOTO`](#scene_goto), except this command does not clear a fla
 * `Fade In Percentage`: The percentage of darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means the screen will be 50% darker 
   than full brightness when the fade in is complete); only respected by custom color fades
 * `Location`: The screen(s) the fade will be applied to
-* `Color`: Either black, white, or the custom color set by a previous [`SCREEN_FADEOUT`](#screen_fadeout); this parameter must match
-  that of the previous [`SCREEN_FADEOUT`](#screen_fadeout) call
+* `Color`: Either black, white, or the custom color set by a previous [`SCREEN_FADEOUT`](#screen_fadeout); this parameter must match that of the previous [`SCREEN_FADEOUT`](#screen_fadeout) call
 
 Causes the screen to fade in.
 
@@ -408,12 +385,10 @@ Causes the screen to fade in.
 ## `SCREEN_FADEOUT`
 **Parameters**:
 * `Fade Time (Frames)`: The length of the fade in frames
-* `Fade out Percentage`: The percentage darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means that the screen will be 50%
-  brighter than full black when the fade is complete); only respected by color fades
+* `Fade out Percentage`: The percentage of darkness to fade into (where 0 is fully bright and 100 is fully dark; e.g. 50 means that the screen will be 50% brighter than full black when the fade is complete); only respected by color fades
 * `Custom Color`: The color the fade will be if `Color` is set to `CUSTOM`
 * `Location`: The screen(s) the fade will be applied to
-* `Color`: Either black, white, or the custom color defined by `Custom Color`; this parameter must match that of the subsequent
-  [`SCREEN_FADEIN`](#screen_fadein) call
+* `Color`: Either black, white, or the custom color defined by `Custom Color`; this parameter must match that of the subsequent [`SCREEN_FADEIN`](#screen_fadein) call
 
 Causes the screen to fade out.
 
@@ -450,10 +425,10 @@ is set to -1).
 * `Option 2`: The second choice to be presented
 * `Option 3`: The third choice to be presented
 * `Option 4`: The fourth choice to be presented
-* `unknown08` 
-* `unknown0A` 
-* `unknown0C` 
-* `unknown0E`
+* `Display Flag 1`: A flag indicating that Option 1 should be displayed; if -1, the option is always displayed
+* `Display Flag 2`: A flag indicating that Option 2 should be displayed; if -1, the option is always displayed
+* `Display Flag 3`: A flag indicating that Option 3 should be displayed; if -1, the option is always displayed
+* `Display Flag 4`: A flag indicating that Option 4 should be displayed; if -1, the option is always displayed
 
 Presents the player with a series of choices that branch the dialogue tree. Choices are defined in their own section and have IDs that correspond to labels set in the labels section. When a choice is chosen, this ID is used to select which script block will be jumped to.
 
@@ -480,9 +455,16 @@ Sets up the [`NEXT_SCENE`](#next_scene) command to skip a specified number of sc
 * `Sound`: The sound to be played from `snd.bin`
 * `Mode`: Whether to start or stop the sound
 * `Volume`: The volume of the sound
+* `Load Sound`: If true, loads the sound into memory before playing it (necessary when playing a sound for the first time)
 * `Crossfade Time (Frames)`: Time in frames that the sound will crossfade; only can be used when changing the volume of the same sound
 
 Plays a sound from the SDAT `snd.bin`.
+
+
+## `SND_STOP`
+**Parameters**: None
+
+Stops the currently playing sound. Unused in game.
 
 ## `STOP`
 **Parameters**: None
@@ -515,12 +497,6 @@ Plays a transition to black.
 * `Transition`: The transition to use
 
 Plays a transition from black into the scene.
-
-
-## `UNKNOWN0A`
-**Parameters**: None
-
-Unused in the game, unknown what this does.
 
 
 ## `VCE_PLAY`

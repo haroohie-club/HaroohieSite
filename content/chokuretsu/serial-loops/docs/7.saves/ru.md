@@ -1,53 +1,63 @@
 ---
-title: 'Save Files'
+title: 'Сохранить файлы'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/save.png'
   previous: '/chokuretsu/serial-loops/docs/misc/tutorial-mappings'
 ---
 
-In addition to editing the Chokuretsu ROM, Serial Loops is also able to edit Chokuretsu save files. This can be done either from within
-an opened project (in which case the save will open as a tab) or from the main menu (in which case the save editor will take up the entire window).
-This can be done by going to "File" &rarr; "Edit Save File" or by clicking the "Edit Save File" link on the home screen.
+Помимо редактирования ROM Последовательностей, Serial Loops также может редактировать файлы сохранения Последовательностей. Это можно сделать либо
+из открытого проекта (в этом случае сохранение откроется как вкладка), либо из главного меню (в этом случае редактор сохранений займёт все окно). 
+Это можно сделать, перейдя в «Файл» &rarr; «Изменить файл сохранения» или нажав ссылку «Изменить файл сохранения» на главном экране.
 
-## Overview
-Chokuretsu save files are composed of three primary components: common save data, checkpoint save data, and quicksave data.
-_Common save data_ is the most persistent data: things like configuration and unlocked achievements. The two _checkpoint save slots_
-comprise the next level of persistence: these can be made only when prompted by the scenario and store information about the progress
-in that particular run of the game. Finally, the _quicksave slot_ can be accessed at almost any time throughout the game and allows
-the player.
+## Обзор
+Файлы сохранения Последовательностей состоят из трёх основных компонентов: общие данные сохранения, данные сохранения контрольных точек и данные быстрого сохранения.
+_Общие данные сохранения_ — это самые постоянные данные: такие как конфигурация и разблокированные достижения. Два _слота сохранения контрольных точек_
+составляют следующий уровень сохранения: они могут быть сделаны только по запросу сценария и хранят информацию о прогрессе
+в этом конкретном запуске игры. Наконец, _слот быстрого сохранения_ может быть доступен практически в любое время на протяжении всей игры и позволяет
+игроку.
 
-## Main Editor Screen
-The main editor screen presents you with the three save slots, each of which have a button to edit them and a rocket ship button to clear them.
-Additionally, there is a button for editing common save data. Clicking any of the edit buttons brings up a dialog to edit that portion of the
-save file, divided into tabs. All three kinds of save data have a "Flags" tab that will be covered in a separate section at the end.
+## Главный экран редактора
+Главный экран редактора представляет вам три слота сохранения, каждый из которых имеет кнопку для их редактирования и кнопку ракеты для их очистки.
+Кроме того, есть кнопка для редактирования общих данных сохранения. Нажатие любой из кнопок редактирования вызывает диалоговое окно для редактирования этой части
+файла сохранения, разделенного на вкладки. Все три типа данных сохранения имеют вкладку «Флаги», которая будет рассмотрена в отдельном разделе в конце.
 
-## Common Save Data
-The common save data is divided into two tabs: Config Data and Flags. The Config Data tab is primarily composed of the options seen
-on the configuration screen. However, it additionally has a section for editing the character "power statuses". These represent the level
-of each of the three characters with puzzle phase powers (Asahina, Nagato, and Koizumi), their progress toward leveling up, and how many
-remaining uses of their power they currently have.
+![Save editor](/images/chokuretsu/serial-loops/save-editor-main.png)
 
-## Checkpoint Save Data
-The checkpoint save data is divided into two tabs: Save Data and Flags. The save data contains the time at which the game was saved as well
-as the current position in the scenario and current episode. (Note that this means that the episode number will not be automatically adjusted
-if you change the scenario position to lie in a different episode.)
+## Общие данные сохранения
+Общие данные сохранения разделены на две вкладки: Данные конфигурации и Флаги. Вкладка Данные конфигурации в основном состоит из опций, которые
+видны на экране конфигурации. Однако в ней дополнительно есть раздел для редактирования «статусов силы» персонажа. Они представляют уровень
+каждого из трёх персонажей с силами фазы головоломки (Асахина, Нагато и Коидзуми), их прогресс в повышении уровня и сколько
+оставшихся использований их силы у них в данный момент есть.
 
-There is also data for the character assignment on the most recent group selection (objectives) which is referenced by the game in conditionals.
-In addition to the regular character assignments, there are also switches for Episode 3's split group selection to indicate that Objectives A and
-B occurred separately from Objectives C and D.
+![Common save data editor](/images/chokuretsu/serial-loops/save-editor-common.png)
+
+## Данные сохранения контрольной точки
+Данные сохранения контрольной точки разделены на две вкладки: Данные сохранения и Флаги. Данные сохранения содержат время сохранения игры, а также
+текущую позицию в сценарии и текущем эпизоде. (Обратите внимание, что это означает, что номер эпизода не будет автоматически скорректирован,
+если вы измените позицию сценария на другую.)
 
 Finally, there is stored data for the current friendship level with each character. This variable is increased by various in-game actions (obtaining
 character topics, assigning the character to a good/bad objectives during group selection, the [`MODIFY_FRIENDSHIP`](scripts/commands#modify_friendship)
 command, etc.) and determines some in-game events and unlocks particular game endings.
 
-## Quicksave Data
-The quicksave data is divided into three tabs: Save Data, Script Position, and Flags. Save Data is the same as the checkpoint saves, but the script
-position indicates the exact position in the script that the game was saved at. Specifically, it allows for specifying the exact script, script section,
-and command that was active when the game was saved. The script preview to the right automatically updates as you change these options &ndash; technically,
-this preview is specified manually, so this is done for convenience.
+Наконец, сохраняются данные о текущем уровне дружбы с каждым персонажем. Эта переменная увеличивается различными действиями в игре (получение
+тем персонажей, назначение персонажу хороших/плохих целей во время выбора группы, команда [`MODIFY_FRIENDSHIP`](scripts/commands#modify_friendship)
+и т. д.) и определяет некоторые игровые события и открывает определенные концовки игры.
 
-## Flags
-As mentioned earlier, all three types of save data have a Flags tab.There are 5120 total flags in the game. The first 100 or so act as scratch flags for
-scripts to use to temporarily mark events that occur within the script. After this, flags are associated with various objects in the game such as topics,
-BGMs, CGs, tutorials, and more. Additionally, flags indicate whether certain features have been unlocked. Serial Loops allows for editing _all_ of these
-flags.
+![Checkpoint save data editor](/images/chokuretsu/serial-loops/save-editor-checkpoint.png)
+
+## Данные быстрого сохранения
+Данные быстрого сохранения разделены на три вкладки: Данные сохранения, Положение скрипта и Флаги. Данные сохранения такие же, как и сохранения контрольной точки, но положение скрипта указывает точную
+позицию в скрипте, в которой была сохранена игра. В частности, оно позволяет указать точный скрипт,
+раздел скрипта и команду, которые были активны при сохранении игры. Предварительный просмотр скрипта справа автоматически обновляется по мере изменения этих параметров &ndash; технически,
+этот предварительный просмотр указывается вручную, поэтому это сделано для удобства.
+
+![Quicksave data editor](/images/chokuretsu/serial-loops/save-editor-quicksave.png)
+
+## Флаги
+Как упоминалось ранее, все три типа сохраненных данных имеют вкладку Флаги. Всего в игре 5120 флагов. Первые 100 или около того действуют как временные флаги для
+скриптов, которые временно отмечают события, происходящие в сценарии. После этого флаги связываются с различными объектами в игре, такими как темы,
+BGM, CG, руководства и многое другое. Кроме того, флаги указывают, были ли разблокированы определенные функции. Serial Loops позволяет редактировать _их_.
+
+
+![Save flags data editor](/images/chokuretsu/serial-loops/save-editor-flags.png)

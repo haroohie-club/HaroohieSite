@@ -8,63 +8,64 @@ navigation:
 
 Serial Loops доступен для Windows, macOS и Linux. Вы можете получить последнюю версию [здесь](https://github.com/haroohie-club/SerialLoops/releases/latest).
 
-## Windows
-Для Windows в настоящее время мы распространяем только «портативные» приложения в виде zip-файла. Это означает, что установщика нет;
-вместо этого вы просто извлекаете Serial Loops в папку и начинаете редактирование. В будущем мы планируем предложить стандартный
-вариант установки.
+## Prerequisites
+It is recommended that you use a distribution of Serial Loops that automatically installs or comes with the necessary prerequisites. For each platform, these are:
 
-## macOS
-Для macOS мы предоставляем DMG для устройств Intel (x64) и Apple Silicon (ARM). Чтобы использовать их, просто откройте DMG
-и перетащите приложение в папку «Приложения». Однако, поскольку мы не разрабатываем Serial Loops, есть один
-дополнительный шаг: вам нужно открыть терминал и выполнить следующую команду:
-```
-xattr -cr /Applications/SerialLoops.Mac.app
-```
-Эта команда позволяет macOS разрешить запуск приложения.
+* Linux: Flatpak
+* macOS: Installer (also installs devkitARM and Xcode tools for make)
+* Windows: Installer (also installs [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) and is bundled with the Docker installer and devkitPro installer for devkitARM)
 
-## Linux
-* В дистрибутивах Linux на базе Debian (например, Debian и Ubuntu) приложение можно установить с помощью распространяемого нами пакета Debian. Просто запустите
-  `sudo apt -f ./SerialLoops-{version}_amd64.deb`, чтобы установить его.
-* В дистрибутивах Linux на базе Red Hat (например, Fedora, RHEL и CentOS) приложение можно установить с помощью распространяемого нами пакета RPM. Просто запустите
-  `sudo dnf install ./SerialLoops-{version}1.fc38.x86_64.rpm`, чтобы установить его.
-* Для других дистрибутивов Linux мы распространяем переносимые двоичные файлы в файле tar.gz. После извлечения файлов в папку
-  по вашему желанию, убедитесь, что вы установили [OpenAL](https://www.openal.org/) с помощью процесса, соответствующего вашему дистрибутиву.
+Using these will ensure Serial Loops is ready to use after installation. However, if you would rather use a portable build on Windows/Linux, please check the information on installing
+these prerequisites below.
 
-## Общие предпосылки
-### devkitARM
-Прежде чем запускать Serial Loops, вам также необходимо установить **devkitARM**. Организация devkitPro (распространяющая devkitARM) подробно рассказала
-инструкции по установке [на их веб-сайте] (https://devkitpro.org/wiki/Getting_Started). Прежде чем скачать её, убедитесь, что у вас, как минимум, скачана
-NDS Development, так как она содержит devkitARM.
+<details>
+    <summary>View prerequisites for non-Flatpak/installer distributions</summary>
 
-### Make или Docker
-Кроме того, чтобы применить хаки ASM, вам потребуется установить **Make** или **Docker**. Make автоматически устанавливается при использовании Debian и RPM.
-пакетов, которые мы распространяем, поэтому вам не нужно беспокоиться об этом шаге, если вы используете любой из них.
+### Installing devkitARM
+[devkitARM](https://devkitpro.org/wiki/Getting_Started) is required to use Serial Loops on all platforms.
+
+* Using the Windows graphical installer, you can simply select the devkitARM (Nintendo DS) workloads
+* On macOS and Linux, run `sudo dkp-pacman -S nds-dev` from the terminal after installing the devkitPro pacman distribution.
+
+### Installing Make or Docker
+To assemble ASM hacks you want to apply, you will need to decide whether to use Make or Docker. Make is automatically installed when using the Debian and RPM
+packages we distribute, so you don't need to worry about this step if you're using either of those.
 
 В настоящее время путь Docker **поддерживается только в Windows** из-за ограничений операционной системы и платформы. Docker можно запустить 
 в дистрибутивах Linux, если запустить SerialLoops от имени пользователя с root правами (например, `sudo SerialLoops`), но проще просто использовать Make. В macOS неизвестно
 как заставить Docker работать, поэтому вам придётся использовать Make.
 
-* [Make](https://www.gnu.org/software/make/) — это программное обеспечение, используемое для сборки хаков сборки. Установка Make позволяет вам создавать хаки
-  непосредственно в вашей системе.
-    - Для установки в Windows вам придется использовать терминал и менеджер пакетов. Возможные варианты: Winget (устанавливается по умолчанию на Win10+) или
-      [Chocolatey](https://chocolatey.org/). Откройте окно администратора PowerShell или терминала (Winkey + X + A) и введите `winget install GnuWin32.make`
-      для Winget или «choco install make» для Chocolatey. Если вы используете Winget, вам придется зайти в системные настройки и добавить Make в путь.
-    - Установка на macOS может быть выполнена через Xcode или Homebrew. Если вы используете Xcode, откройте терминал и введите `xcode-select --install`. Если бы вы
-      лучше используйте Homebrew, откройте терминал после установки Homebrew и введите `brew install make`.
-    - Make предустановлен во многих дистрибутивах Linux. Если он не установлен на вашем компьютере, вы, скорее всего, сможете установить его вместе с вашим пакетом.
-      так же просто, как `[менеджер пакетов] установить make` из терминала.
-  
-  Чтобы проверить, правильно ли установлен make, введите `make --version` в терминал и посмотрите, выдаст ли он версию make.
-* Если вы не хотите устанавливать Make или если он работает неправильно, вы можете вместо этого запустить его через Docker. Для этого вам следует
-  установите [Docker Desktop](https://www.docker.com/products/docker-desktop/) или Docker Engine. Убедитесь, что механизм Docker работает, и убедитесь, что
-  чтобы проверить опцию «Использовать Docker для взлома ASM» в настройках. Возможно, вам захочется время от времени очищать папки, созданные Serial Loops, поскольку это будет
-  создавать их в большом колличестве. 
-    - Однако в Windows вам дополнительно потребуется установить [Подсистему Windows для Linux (WSL)] (https://learn.microsoft.com/en/windows/wsl/install).
-      В окне администратора PowerShell или терминала (Winkey + X + A) просто введите `wsl --install`, чтобы установить его.
+* [Make](https://www.gnu.org/software/make/) is the software used to assemble assembly hacks. Installing Make allows you to build the hacks
+  directly on your system.
+    - To install on Windows, you will have to use a terminal and a package manager. Your options are Winget (installed by default on Win10+) or
+      [Chocolatey](https://chocolatey.org/). Open an admin PowerShell or Terminal window (Winkey + X + A) and enter `winget install GnuWin32.make`
+      for Winget or `choco install make` for Chocolatey. If using Winget, you will then have to go into system preferences and add Make to the path.
+    - Installation on macOS can be done through Xcode or Homebrew. If using Xcode, open a terminal and type `xcode-select --install`. If you would
+      rather use Homebrew, open a terminal after installing Homebrew and type `brew install make`.
+    - Make comes preinstalled on many Linux distributions, and if you're using the Debian or RPM package, it was definitely installed when you installed
+      Serial Loops. If you're using the tar.gz it is not installed on yours, you will likely be able to install it as simply as
+      `[packagemanger] install make` from a terminal.
 
-В общем, рекомендуется использовать Make, но иногда бывает сложно начать работу в нём на Windows. В этом случае смело используйте Docker.
+  To test if make is installed properly, type `make --verison` into a terminal and see if it produces the version of make.
+* If you would rather not install Make, or if it is not working properly, you can instead run it through a Docker container. To do this, you should
+  install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or the Docker Engine. Ensure the Docker engine is running and make sure
+  to check the "Use Docker for ASM Hacks" option in Preferences. You may want to occasionally clean up containers created by Serial Loops, as it will
+  create many of them.
+    - On Windows, you will additionally need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
+      From an admin PowerShell or Terminal window (Winkey + X + A), simply type `wsl --install` to install it.
 
-### Эмулятор Nintendo DS
-Наконец, чтобы иметь возможность протестировать свою игру, вам понадобится установить эмулятор Nintendo DS. Наша команда рекомендует [melonDS](https://melonds.kuribo64.net/).
+### Installing SDL2 (Linux)
+If you're running on Linux and _not using one of the package releases_ (the Flatpak, `.deb`, or `.rpm`), you will also need to install SDL2 which is used for audio processing.
 
-После того как вы установили Serial Loops, DevkitARM и Docker или Make, вы готовы начать!
+</details>
+
+### Running the installer on macOS
+Because we do not sign our installer, macOS will by default prevent you from running it. In order to give macOS explicit approval to run the file, you will need to open a terminal and run `xattr -cr ~/Downloads/[name_of_installer].pkg`, replacing `[name_of_installer]` with the name of the installer file you downloaded. Every release has the specific command you need to run.
+
+### A Nintendo DS Emulator
+To test the game easily, you will want to have a Nintendo DS emulator installed. We recommend using [melonDS](https://melonds.kuribo64.net/) for its accuracy.
+
+On Linux, you can install the official [melonDS Flatpak from Flathub](https://flathub.org/apps/net.kuribo64.melonDS) to use as your emulator. We recommend installing it from the [flathub-beta](https://docs.flathub.org/docs/for-users/installation/#flathub-beta-repository) repository as that is where the most up-to-date versions tend to be pushed.
+
+## Download & Install
+Once you have installed any necessary prerequisites, to install Serial Loops, download the latest release for your platform from the [Releases tab](https://github.com/haroohie-club/SerialLoops/releases).

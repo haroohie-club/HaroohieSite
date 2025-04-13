@@ -116,7 +116,7 @@
     "chokuretsu-rom-patcher-applying-patch": "パッチを付けている…",
     "chokuretsu-rom-patcher-patch-error": "パッチを付けながら、エラーがありました：",
     "chokuretsu-rom-patcher-success": "<b>パッチを成功に付けました！</b><br/>ゲームを楽しんでください！",
-    "chokuretsu-rom-patcher-bad-rom-error": "んだROMのSHA-256チェックサムは知っているヘッダやグラフィックのデータ化けがある悪いROMののが同じです。このROMはパッチできない。",
+    "chokuretsu-rom-patcher-bad-rom-error": "選んだROMのSHA-256チェックサムは知っているヘッダやグラフィックのデータ化けがある悪いROMののが同じです。このROMはパッチできない。",
     "chokuretsu-rom-patcher-repairing": "悪いROMを直している…",
     "chokuretsu-rom-patcher-repair-applied": "直すパッチを付けました！",
     "chokuretsu-rom-patcher-repair-error": "（ROM直しながらのエラー）",
@@ -156,5 +156,13 @@
     "chokuretsu-rom-patcher-invalid-rom-error": "無効なROMです。正しいゲームのROMを選び、ダンプの指図を精密に追ったことを確認してください。",
     "chokuretsu-page-title": "涼宮ハルヒの直列・英語翻訳（Nintendo DS）",
     "byline-pre": " ",
-    "translated-by-pre": "翻訳者："
+    "translated-by-pre": "翻訳者：",
+    "en-v0.4-patch-desc": "「涼宮ハルヒの直列」英語パッチの２つ目のリリースです。このパッチは第１エピソードと第２エピソードを完全に翻訳して、エキストラモードも翻訳しています。",
+    "chokuretsu-rom-patcher-dub-title": "吹き替え",
+    "chokuretsu-rom-patcher-dub-alt": "セリフ吹き替え",
+    "chokuretsu-rom-patcher-dub-desc": "セリフの同人吹き替えがあるかを選びます。",
+    "chokuretsu-rom-patcher-dub-opt2": "吹き替えなし",
+    "chokuretsu-rom-patcher-dub-opt1": "吹き替えあり",
+    "en-v0.2-patch-desc": "これは「涼宮ハルヒの直列」英語パッチの最初のリリースです。第１エピソードを完全に翻訳しています。",
+    "en-v0.6-patch-desc": "「鈴宮ハルヒの直列」英語パッチの３つ目のリリースです。このパッチは第１エピソードから第３エピソードまで完全に翻訳して、"
 }
