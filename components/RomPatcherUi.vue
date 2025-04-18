@@ -223,6 +223,14 @@ function AVAILABLE_PATCHES(locale) {
                     options: ['op-ed-subtitling', 'voice-lines-subtitling'],
                     description: 'en-v0.8-patch-desc',
                 },
+                {
+                    version: '0.8.1',
+                    year: 2025,
+                    month: 4,
+                    day: 17,
+                    options: ['op-ed-subtitling', 'voice-lines-subtitling'],
+                    description: 'en-v0.8.1-patch-desc',
+                },
             ].reverse();
         case 'zh-hans':
             return [
