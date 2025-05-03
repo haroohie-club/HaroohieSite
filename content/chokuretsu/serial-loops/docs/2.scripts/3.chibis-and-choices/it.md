@@ -14,8 +14,10 @@ La prima casella è quella dei Chibi; Questa ti farà vedere quali Chibi apparir
 
 ![Script editor - starting chibis](/images/chokuretsu/serial-loops/script-starting-chibis.png)
 
-## Scelte
-La lista delle scelte si può modificare con il comando [`SELECT`](./commands#select). Le scelte si posso aggiungere oppure togliere.
-Lo script, in quel caso, andrà modificato.
+![Script editor - starting chibis](/images/chokuretsu/serial-loops/script-starting-chibis.png)
+
+## Choices
+The choices tab contains the list of choices that can be used by [`SELECT`](./commands#select) commands. 
+Choices can be added or deleted, and each choice's text and associated script section can be edited.
 
 ![Script editor - choices](/images/chokuretsu/serial-loops/script-choices.png)

@@ -1,14 +1,14 @@
 ---
-title: 'Sound Effects'
+title: 'Звуковые Эффекты'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/sfx.png'
   previous: '/chokuretsu/serial-loops/docs/sound/voice'
   next: '/chokuretsu/serial-loops/docs/misc'
 ---
 
-Sound effects cover everything from the beeps of menu interactions to the lengthy cicada chirps of the opening crawl. Additionally, the characters'
-voice fonts are also sound effects.
+Звуковые эффекты охватывают всё: от звуковых сигналов взаимодействия с меню до продолжительного стрекотания цикад во вступительных титрах. Кроме того, озвучка персонажей 
+также является звуковыми эффектами.
 
-## In Serial Loops
-Sound effects can currently be played back in Serial Loops, allowing you to preview an effect before adding it to a script. Additionally, the editor
-allows you to view which bank the SFX belongs to (not incredibly useful at this time) and which groups it belongs to (which determines which scripts can use it).
+## В Serial Loops
+Звуковые эффекты в настоящее время можно воспроизводить в Serial Loops, что позволяет вам предварительно просмотреть эффект перед добавлением его в сценарий. Кроме того, редактор
+позволяет вам просматривать, к какому банку принадлежит SFX (не очень полезно в настоящее время) и к каким группам он принадлежит (что определяет, какие сценарии могут его использовать).

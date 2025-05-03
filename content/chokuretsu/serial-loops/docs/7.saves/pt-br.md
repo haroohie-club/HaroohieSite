@@ -21,23 +21,26 @@ The main editor screen presents you with the three save slots, each of which hav
 Additionally, there is a button for editing common save data. Clicking any of the edit buttons brings up a dialog to edit that portion of the
 save file, divided into tabs. All three kinds of save data have a "Flags" tab that will be covered in a separate section at the end.
 
+![Save editor](/images/chokuretsu/serial-loops/save-editor-main.png)
+
 ## Common Save Data
 The common save data is divided into two tabs: Config Data and Flags. The Config Data tab is primarily composed of the options seen
 on the configuration screen. However, it additionally has a section for editing the character "power statuses". These represent the level
 of each of the three characters with puzzle phase powers (Asahina, Nagato, and Koizumi), their progress toward leveling up, and how many
 remaining uses of their power they currently have.
 
-## Checkpoint Save Data
-The checkpoint save data is divided into two tabs: Save Data and Flags. The save data contains the time at which the game was saved as well
-as the current position in the scenario and current episode. (Note that this means that the episode number will not be automatically adjusted
-if you change the scenario position to lie in a different episode.)
-
-There is also data for the character assignment on the most recent group selection (objectives) which is referenced by the game in conditionals.
-In addition to the regular character assignments, there are also switches for Episode 3's split group selection to indicate that Objectives A and
-B occurred separately from Objectives C and D.
+![Common save data editor](/images/chokuretsu/serial-loops/save-editor-common.png)
 
 Finally, there is stored data for the current friendship level with each character. This variable is increased by various in-game actions (obtaining
 character topics, assigning the character to a good/bad objectives during group selection, the [`MODIFY_FRIENDSHIP`](scripts/commands#modify_friendship)
+command, etc.) and determines some in-game events and unlocks particular game endings.
+
+Finally, there is stored data for the current friendship level with each character. This variable is increased by various in-game actions (obtaining
+character topics, assigning the character to a good/bad objectives during group selection, the [`MODIFY_FRIENDSHIP`](scripts/commands#modify_friendship)
+command, etc.) and determines some in-game events and unlocks particular game endings.
+
+Finally, there is stored data for the current friendship level with each character. This variable is increased by various in-game actions (obtaining
+character topics, assigning the character to good/bad objectives during group selection, the [`MODIFY_FRIENDSHIP`](scripts/commands#modify_friendship)
 command, etc.) and determines some in-game events and unlocks particular game endings.
 
 ## Quicksave Data
@@ -46,8 +49,18 @@ position indicates the exact position in the script that the game was saved at. 
 and command that was active when the game was saved. The script preview to the right automatically updates as you change these options &ndash; technically,
 this preview is specified manually, so this is done for convenience.
 
+## Quicksave Data
+The quicksave data is divided into three tabs: Save Data, Script Position, and Flags. Save Data is the same as the checkpoint saves, but the script
+position indicates the exact position in the script that the game was saved at. Specifically, it allows for specifying the exact script, script section,
+and command that was active when the game was saved. The script preview to the right automatically updates as you change these options &ndash; technically,
+this preview is specified manually, so this is done for convenience.
+
+![Quicksave data editor](/images/chokuretsu/serial-loops/save-editor-quicksave.png)
+
 ## Flags
-As mentioned earlier, all three types of save data have a Flags tab.There are 5120 total flags in the game. The first 100 or so act as scratch flags for
+As mentioned earlier, all three types of save data have a Flags tab. There are 5120 total flags in the game. The first 100 or so act as scratch flags for
 scripts to use to temporarily mark events that occur within the script. After this, flags are associated with various objects in the game such as topics,
 BGMs, CGs, tutorials, and more. Additionally, flags indicate whether certain features have been unlocked. Serial Loops allows for editing _all_ of these
 flags.
+
+![Save flags data editor](/images/chokuretsu/serial-loops/save-editor-flags.png)
