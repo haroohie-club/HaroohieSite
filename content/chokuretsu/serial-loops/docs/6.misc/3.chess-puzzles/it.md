@@ -17,3 +17,5 @@ and time limit. There is an additional value that is provided but whose function
 ## In Serial Loops
 Currently, chess pieces can be dragged around the board to edit their position, and the number of moves and time limit can be edited. However, pieces cannot currently be added/removed
 and the mappings between the chess puzzle selection menu and the chess scripts cannot currently be changed.
+
+![Chess puzzle editor](/images/chokuretsu/serial-loops/chess-puzzle-editing.png)

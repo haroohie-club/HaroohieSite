@@ -6,14 +6,15 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics'
 ---
 
-Con la versione attuale di Serial Loops, non è possibile modificare gli oggetti da usare nei puzzle, ma solo vederli. Quando sarà possibile, con un futuro aggiornamento, documenteremo qua come fare.
+The current version of Serial Loops only allows partial editing of puzzles.
+In a future update, Serial Loops will be capable of fully editing puzzle items and this documentation will be updated to be more complete.
 
 ## Analisi
 Le fasi puzzle sono quei momenti del gioco dove Kyon (o un altro personaggio) esplora una stanza per cancellare delle anomalie.
 
 ## In Serial Loops
-Nell'editor potrai vedere com'è composto il puzzlee e le [discussioni](../misc/topics), associate, con una rappresentazione ASCII
-con tutte le strade che potrà fare Haruhi, la mappa sulla quale ti trovi, tutte le impostazioni del caso, persino quante anomalie saranno presenti sulla mappa,
-e gli sprite da associare alle anomalie.
+The puzzle editor lets you view the contents of puzzles, including their associated main [topics](../misc/topics), an ASCII representation of the
+possible Haruhi Routes for the puzzle, the map the puzzle is played on, and configuration settings for the puzzle including singularity counts,
+quotas, the graphic used to represent singularities, and the time limit. Most of these configuration items can be edited.
 
 ![Puzzle editor](/images/chokuretsu/serial-loops/puzzle-editing.png)

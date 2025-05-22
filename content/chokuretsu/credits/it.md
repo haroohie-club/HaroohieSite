@@ -1,26 +1,18 @@
-## Staff della patch italiana
+## Haroohie Translation Club
 ::two-column-list
-- **Capo Progetto**: Oropuro_49
-- **Traduttori**: Oropuro_49, Fuyuko Ayumu
-- **Grafici**: Fuyuko Ayumu, Oropuro_49
-- **Supporto ai grafici**: Amelia Chaplin, TheXanada96
-- **Testing**: Xalkas_ITA 2K, Axel Axolot
-::
-
-## Staff della patch inglese
-::two-column-list
-- **Capo Progetto**: Jonko
-- **Capo Traduttori**: Amelia Chaplin
-- **Traduttori**: Amelia Chaplin, Amanda Sato, Isillor, TimepieceMaster, & toro
+- **Project Lead**: Jonko
+- **Translation Lead**: Amelia Chaplin
+- **Translation**: Amelia Chaplin, Isillor, Amanda Sato, Quade, & TimepieceMaster
 - **ROM Hacking**: Jonko & Ermelber
-- **Grafici**: William278 & Cerber
-- **Editing**: William278, Alvy, NewGBAXL,<br/>Fang, Ziomek, & Chocobo
-- **Testing**: Lambsauce, Amelia Chaplin, Goblinaro, & gig
-- **Supporto alla traduzione**: toro, kyu, Kanata, & Tensei
-- **Supporto all'editing**: toro, Pierce, Cosmix, & Kon
-- **Supporto alla testing**: master117, Kuya, Nateymas, & sarrahkuma
+- **Graphic Design**: William278
+- **Editing**: KahnerC, William278, Alvy,<br/>Fang, NewGBAXL, & Ziomek
+- **Testing**: Lambsauce, Amelia Chaplin, KahnerC, & Goblinaro
+- **Additional Translation**: toro, kyu, Kanata, & Tensei
+- **Additional Graphics**: Cerber
+- **Additional Editing**: Chocobo, toro, Pierce, Cosmix, Dee, & hamm_slamm
+- **Additional Testing**: master117, Kuya, Nateymas, & sarrahkuma
 - **PV Editor**: Hans Harmony
-- **Sito Web**: William278
+- **Website**: William278 & Jonko
 ::
 
 ## Rimani sempre aggiornato

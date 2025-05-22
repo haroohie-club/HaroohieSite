@@ -1,8 +1,9 @@
 ---
-title: 'UI'
+title: 'UI Text'
 navigation:
   faicon: 'fa6-solid:wrench'
   previous: '/chokuretsu/serial-loops/docs/misc/applying-hacks'
+  next: '/chokuretsu/serial-loops/docs/misc/dialogue-colors'
 ---
 
 Su Serial Loops è possibile modificare l'interfaccia utente. L'UI è composta da il testo che mostra il menù principale, le impostazioni, la selezione del file e

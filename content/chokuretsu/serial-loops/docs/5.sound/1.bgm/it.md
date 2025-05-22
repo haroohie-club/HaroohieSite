@@ -10,15 +10,18 @@ Le musiche di sottofondo possono essere aperte e riprodotte. Comunque, per via d
 permette
 usare la funzione cerca con le musiche. 
 
-![Background music editor](/images/chokuretsu/serial-loops/sound-editing.png)
+![Background music editor with loop editing](/images/chokuretsu/serial-loops/bgm-loop-editing.png)
 
 ## Sostituire
 Tutta la musica può essere sostituita con un click. I formati supportati sono: WAV, FLAC, MP3 e OGG (Vorbis).
 Per ripristinare le tracce originali, clicca il pulsante "Ripristina".
 
-## Aggiustare il volume
-Cliccando "Aggiusta il volume" potrai regolare il volume delle tracce. Il gioco vuole delle tracce con volume molto basso, quindi, abbassare il volume
-può sempre tornare utile ed è molto facile da fare.
+## Adjusting Volume
+Pressing the "Adjust Volume" button brings up a modal for doing just that. Chokuretsu's music is quieter than a lot of other tracks, so being able to tamp
+down the volume is very useful and can be done easily (and visually) from here. For maximum ease of use, one can simply hit the "normalize" button and the
+track will have its volume auto-adjusted to match the average peak loudness of the existing in-game tracks.
+
+![Background music volume adjust dialog](/images/chokuretsu/serial-loops/bgm-volume-editing.png)
 
 ## Funzione di loop
 Chokuretsu usa il formato ADX per le musiche di sottofondo. Una peculiarità di questo formato è la possibilità di programmare un loop direttamente

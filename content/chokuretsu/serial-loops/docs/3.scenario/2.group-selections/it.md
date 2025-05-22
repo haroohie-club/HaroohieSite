@@ -1,36 +1,33 @@
 ---
-title: 'Divisione dei compiti'
+title: 'Group Selections'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/game-flow'
-  next: '/chokuretsu/serial-loops/docs/graphics'
+  next: '/chokuretsu/serial-loops/docs/scenario/maps'
 ---
 
-Al momento, puoi solo vedere le scelte possibili del gruppo, non puoi modificarle. In futuro sarà possibile modificarle, quando accadrà, torna qui per vedere questi appunti aggiornati.
+The current version of Serial Loops only allows partial editing of group selections. In a future version of Serial Loops, all aspects of group selections will be editable.
 
-## Spiegazione
-In questa sezione vengono rappresentati gli istanti dove dovrai divere i personaggi per fargli svolgere dei compiti. Nel gioco, vengono segnalate quando viene menzionato nel codice il comando `GROUP_SELECTION` [Scenario](./game-flow). Ti porterà alla seguente schermata :
+## Overview
+Group selection items represent the sections of the game where you divide up the SOS Brigade to accomplish different _objectives_. The group selections are triggered in-game when the `GROUP_SELECTION` [Scenario](./game-flow) command is called. It brings up the following screen:
 
-![Task assignment screenshot](/images/chokuretsu/screenshots/task-assignment.png)
+![Objective assignment screenshot](/images/chokuretsu/screenshots/task-assignment.png)
 
-In questa pagina ci saranno dalle 2 alle 4 scelte, marchiate con lettere che vanno dalla "A" alla "D". Le scelte rappresentano i **compiti* che i personaggi dovranno svolgere, per fare una scelta, trascina l'icona del personaggio sul riquadro che desideri.
+On this screen, there are two to four boxes of different colors labeled A through D. These boxes represent the possible **objectives** characters can be sent to complete by dragging their character portraits into the box.
 
-Ogni gruppo farà la sua **strada** che li porterà a compiere il loro obiettivo. I percorsi sono composti da un sottoinsieme di compiti,
-e non tutte le strade hanno le stesse proprietà (Dipende tutto dai personaggi ai quali affiderai i compiti).
+Every possible group of characters in a particular task defines a **route** for that task. Note that routes are defined as a subset of the objectives, not as a property of the overall distribution of characters between all tasks (i.e., routes only depend on the characters in the objective Kyon is assigned to and are independent of the character distribution in other objectives). However, the characters assigned to objectives other than the one Kyon is doing are able to collect topics, defined here as "Kyonless topics".
 
 ## In Serial Loops
 L'editor della divisione dei gruppi ti permette di vedere le seguenti caratteristiche:
 
-* All'interno dell'editor troverai i seguenti parametri:
-  - Se Haruhi è presente o meno(Non è possibile spostare la sua icona)
-  - Se è obbligatorio o meno mandare un personaggio a fare una determinata mansione.
-  - Una descrizione di quello che farai.
-  - Una descrizione di quello che hai fatto.
-  - La possibilità di vedere quale sia la combinazione migliore per ogni singolo compito (sia con o senza Kyon).
-  - La possibilità di vedere quale sia la combinazione peggiore per ogni singolo compito (sia con o senza Kyon).
-* Troverai anche una descrizione per quello che accadrà in quella strada. Troverai anche il nome del percorso:
-  - Gli script associati con le discussioni&ndash; verrano caricati una volta fatti i gruppi (anche se viene mandato solo Kyon) 
-  - I personaggi coinvolti in quella discussione.
-  - Se la discussione è senza Kyon, si sbloccano solo se Kyon non è presente in un gruppo.
+* The two to four **objectives** available as part of the group selection. In the editor, you can see the title and position of the objective as well as whether Haruhi is assigned to that objective and if there are any required brigade members for it. Clicking on the objective reveals:
+  - The title of the objective as an editable field
+  - The "future tense" description of the task, which is seen on the group selection screen
+  - The "past tense" description of the task, which is seen on the topics recap screen
+
+Additionally, inside each objective are the descriptions of each **route** for that objective. In addition to the route's title (which can be seen in-game in Kyon's dialogue bubble when the route is selected with Kyon present), the editor allows you to observe the following properties:
+  - The script associated with the topic &ndash; this is the script that will be loaded for the selected group (including Kyon) is sent on this task
+  - Characters involved &ndash; the list of characters involved in this topic
+  - Kyonless-topics &ndash; these are the topics gathered by the group when they are sent on that task _without_ Kyon
 
 ![Group selections editor](/images/chokuretsu/serial-loops/group-selections-editor.png)
