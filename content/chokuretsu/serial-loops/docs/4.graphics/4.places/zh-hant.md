@@ -6,9 +6,7 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/graphics/system-textures'
 ---
 
-Places represent the location graphics that appear in the top screen during
-scripts. Serial Loops supports editing these through a simple text editor to
-automatically produce valid place graphics.
+Places represent the location graphics that appear on the top screen during scripts. Serial Loops supports editing these through a simple text editor to automatically produce valid place graphics.
 
 ## Overview
 Places are the graphics which display the current location that a scene is taking place in. They are displayed on the top screen and

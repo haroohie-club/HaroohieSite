@@ -13,3 +13,5 @@ to explain how various things in the game work. Each tutorial has an associated 
 ## In Serial Loops
 The script associated with each tutorial flag can be remapped by opening the tutorial mappings dialog from "Tools" &rarr; "Edit Tutorial Mappings...".
 Simply use the dropdown box to change the script mapped to the tutorial to your heart's content.
+
+![Edit Tutorial Mappings dialog](/images/chokuretsu/serial-loops/tutorial-mapping-editing.png)
