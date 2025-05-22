@@ -33,6 +33,20 @@ const closeModal = () => {
   emit('close-modal')
 }
 
+// Handle escape key
+onMounted(() => {
+  const handleEscape = (e) => {
+    if (e.key === 'Escape') {
+      closeModal()
+    }
+  }
+  document.addEventListener('keydown', handleEscape)
+
+  onUnmounted(() => {
+    document.removeEventListener('keydown', handleEscape)
+  })
+})
+
 
 </script>
 
