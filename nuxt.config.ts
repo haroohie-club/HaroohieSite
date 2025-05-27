@@ -55,10 +55,8 @@ export default {
             redirectOn: 'root',
         },
         locales: [
-            { code: 'ar', iso: 'ar', file: 'locales/ar.json', dir: 'rtl' },
             { code: 'de', iso: 'de', file: 'locales/de.json', dir: 'ltr' },
             { code: 'en', iso: 'en', file: 'locales/en.json', dir: 'ltr' },
-            { code: 'fr', iso: 'fr', file: 'locales/fr.json', dir: 'ltr' },
             { code: 'it', iso: 'it-IT', file: 'locales/it.json', dir: 'ltr' },
             { code: 'pt-br', iso: 'pt-BR', file: 'locales/pt-br.json', dir: 'ltr' },
             { code: 'ru', iso: 'ru', file: 'locales/ru.json', dir: 'ltr' },
