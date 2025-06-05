@@ -15,8 +15,8 @@
 - **Website**: William278 & Jonko
 ::
 
-## Stay up-to-date
-If you're inscherterst in helping us translate the Haruhi Suzumiya video games, join our Discord and get in touch!
+## Bleib auf dem Laufenden
+Wenn du uns bei der Übersetzung der Haruhi Suzumiya-Videospiele unterstützen möchtest, trete unserem Discord bei und melde dich bei uns!
 
 Even if not, be sure to follow us on Bluesky or Twitter! Plus, join our Discord Server to stay up-to-date with our latest updates, or get help on patching your game. We also post updates and insights from the translation process to [our blog](/blog)!
 

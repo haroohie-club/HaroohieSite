@@ -58,8 +58,8 @@ Scarica ultima versione
 
 
 ## Bugs
-Segnala eventuali bug su [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Includi le seguenti informazioni:
-* Su quale piattaforma gira il Serial Loops
-* La versione della ROM che stai usando (Giapponese, patchata in Italiano, etc.)
-* Una descrizione di tutti i passaggi che hai fatto
-* Un modulo dove viene spiegato l'errore (puoi trovarlo in ~/SerialLoops/Logs)
+Please file bugs on our [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Please include the following information:
+* The platform you are running Serial Loops on
+* The version of the Chokuretsu ROM you are using (Japanese, patched English ROM, etc.)
+* A description of the steps required to reproduce the issue
+* The relevant logs for the issue (can be found with either "View Logs" or "View Crash Logs", both in the File menu, depending on what type of issue it is)

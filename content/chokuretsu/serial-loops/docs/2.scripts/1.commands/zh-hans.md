@@ -66,7 +66,7 @@ If you need to go back and forth between the same CGs, consider using [`BG_FADE`
 * `Scroll Direction`: The direction to scroll the BG
 * `Scroll Speed`: Speed at which to scroll (1 is a good default)
 
-When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the background in a DEFINED direction.
+When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the background in a defined direction.
 
 
 ## `BGM_PLAY`
@@ -143,7 +143,7 @@ Monitors for the end of the chess game and then jumps to a specified script bloc
 * `Miss 2 Block`: Script block to go to if the chess game is failed in some
   unused way
 
-This command displays an emote in a speech bubble above a [chibi](../graphics/chibis) figure on the top screen.
+Displays an emote in a speech bubble above a [chibi](../graphics/chibis) figure on the top screen.
 
 
 ## `CHIBI_ENTEREXIT`
@@ -352,6 +352,8 @@ The value can be positive or negative. Friendship levels start at 1 and persist
 throughout a playthrough. They can be referenced in conditionals with the
 following variable names:
 
+Changes the color of currently displayed UI elements using a specified filter.
+
 
 ## `PIN_MNL`
 **Parameters**:
@@ -368,7 +370,8 @@ Draws a dialogue line as monologue over all other dialogue. Undone by completing
 **Parameters**:
 * `Scene`: Name of the script file to go to
 
-Does nothing.
+Goes to a particular scene. Note that this scene cannot be just any script file; it must be contained
+within the event table.
 
 
 ## `SCENE_GOTO_CHESS`
@@ -464,18 +467,18 @@ Modifies the displayed place name.
   this parameter must match that of the subsequent
   [`SCREEN_FADEIN`](#screen_fadein) call
 
-Causes the screen to fade out.
+Sets up the [`NEXT_SCENE`](#next_scene) command to skip a specified number of scenes as defined in the [Scenario](../scenario/game-flow).
 
 
 ## `SND_PLAY`
 **Parameters**: 
-* `Sound`: The sound to be played from `snd.bin`
+* `Sound`: The SFX to be played
 * `Mode`: Whether to start or stop the sound
 * `Volume`: The volume of the sound
 * `Load Sound`: If true, loads the sound into memory before playing it (necessary when playing a sound for the first time)
 * `Crossfade Time (Frames)`: Time in frames that the sound will crossfade; only can be used when changing the volume of the same sound
 
-Flashes the screen a specified color for a specified amount of time.
+Plays a sound effect.
 
 
 ## `SND_STOP`
@@ -500,7 +503,14 @@ Shows/hides the dialogue box. Note that plenty of other commands already do one 
 **Parameters**:
 * `Topic`: The topic to give the player
 
-Give the player a particular topic.
+Gives the player a particular topic.
+
+
+## `TRANS_IN`
+**Parameters**:
+* `Transition`: The transition to use
+
+Plays a transition from black into the scene.
 
 
 ## `TRANS_OUT`
@@ -508,12 +518,6 @@ Give the player a particular topic.
 * `Transition`: The transition to use
 
 Plays a transition to black.
-
-## `TRANS_IN`
-**Parameters**:
-* `Transition`: The transition to use
-
-Plays a transition from black into the scene.
 
 
 ## `VCE_PLAY`

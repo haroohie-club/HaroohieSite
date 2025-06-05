@@ -29,19 +29,16 @@ these prerequisites below.
 
 ### Installing Make or Docker
 To assemble ASM hacks you want to apply, you will need to decide whether to use Make or Docker. Make is automatically installed when using the Debian and RPM
-packages we distribute, so you don't need to worry about this step if you're using either of those.
+packages we distribute and is bundled in the AppImage, so you don't need to worry about this step if you're using one of those.
 
-La versione Docker è **disponibile solo su Windows** per colpa dei limiti dei sistemi operativi. È possibile far partire il Docker
-su Linux, avviando il programma dalla root (e.g. `sudo SerialLoops`), ma usare solo Make semplifica di più le cose. Su macOS è
-tuttora impossibile far partire il Docker, quindi usa solo Make.
+Currently, the Docker path is **only supported on Windows** due to operating system and framework limitations. It is possible to get Docker running
+just fine on Linux distros by running SerialLoops as root (e.g. `sudo SerialLoops`), but it's easier to just use Make.
 
 * [Make](https://www.gnu.org/software/make/) is the software used to assemble assembly hacks. Installing Make allows you to build the hacks
   directly on your system.
     - To install on Windows, you will have to use a terminal and a package manager. Your options are Winget (installed by default on Win10+) or
       [Chocolatey](https://chocolatey.org/). Open an admin PowerShell or Terminal window (Winkey + X + A) and enter `winget install GnuWin32.make`
       for Winget or `choco install make` for Chocolatey. If using Winget, you will then have to go into system preferences and add Make to the path.
-    - Installation on macOS can be done through Xcode or Homebrew. If using Xcode, open a terminal and type `xcode-select --install`. If you would
-      rather use Homebrew, open a terminal after installing Homebrew and type `brew install make`.
     - Make comes preinstalled on many Linux distributions, and if you're using the Debian or RPM package, it was definitely installed when you installed
       Serial Loops. If you're using the tar.gz it is not installed on yours, you will likely be able to install it as simply as
       `[packagemanger] install make` from a terminal.
@@ -55,7 +52,7 @@ tuttora impossibile far partire il Docker, quindi usa solo Make.
       From an admin PowerShell or Terminal window (Winkey + X + A), simply type `wsl --install` to install it.
 
 ### Installing SDL2 (Linux)
-If you're running on Linux and _not using one of the package releases_ (the Flatpak, `.deb`, or `.rpm`), you will also need to install SDL2 which is used for audio processing.
+If you're running on Linux and _not using one of the package releases_ (the AppImage, `.deb`, or `.rpm`), you will also need to install SDL2 which is used for audio processing.
 
 </details>
 

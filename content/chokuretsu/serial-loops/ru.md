@@ -57,9 +57,9 @@ link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
 ::
 
 
-## Баги
-Пожалуйста, сообщайте о багах в нашем [трекере багов GitHub] (https://github.com/haroohie-club/SerialLoops). Пожалуйста, укажите следующую информацию:
-* Платформа, на которой вы используете Serial Loops.
-* Версия прошивки Последовательностей Харухи Судзумии, которую вы используете (японская, исправленная английская прошивка и т. д.)
-* Описание действий, необходимых для воспроизведения проблемы.
-* Соответствующие журналы проблемы (можно найти в ~/SerialLoops/Logs)
+## Bugs
+Please file bugs on our [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Please include the following information:
+* The platform you are running Serial Loops on
+* The version of the Chokuretsu ROM you are using (Japanese, patched English ROM, etc.)
+* A description of the steps required to reproduce the issue
+* The relevant logs for the issue (can be found with either "View Logs" or "View Crash Logs", both in the File menu, depending on what type of issue it is)
