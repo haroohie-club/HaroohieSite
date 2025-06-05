@@ -11,9 +11,9 @@ navigation:
 
 ![Background music editor with loop editing](/images/chokuretsu/serial-loops/bgm-loop-editing.png)
 
-## Замена
-Всю фоновую музыку можно заменить одним нажатием кнопки. В настоящее время замена поддерживает преобразование из форматов WAV, FLAC, MP3 и OGG (Vorbis).
-Если в какой-то момент вы захотите вернуться к исходной музыке из игры, вы можете нажать кнопку «Восстановить», чтобы сделать это.
+## Replacement
+All background music can be replaced with a click of a button. The replacement currently supports conversion from WAV, FLAC, MP3, and OGG (Vorbis/Opus) formats.
+If at any point you want to revert to the game's original music, you can hit the "Restore" button to do so.
 
 ## Регулировка громкости
 Нажатие кнопки «Регулировка громкости» вызывает окно для её изменения. Музыка в Последовательностях тише, чем у многих других треков, поэтому возможность
