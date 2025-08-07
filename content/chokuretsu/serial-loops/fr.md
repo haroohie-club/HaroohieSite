@@ -62,4 +62,4 @@ Please file bugs on our [GitHub Issues Tracker](https://github.com/haroohie-club
 * The platform you are running Serial Loops on
 * The version of the Chokuretsu ROM you are using (Japanese, patched English ROM, etc.)
 * A description of the steps required to reproduce the issue
-* The relevant logs for the issue (can be found in ~/SerialLoops/Logs)
+* The relevant logs for the issue (can be found with either "View Logs" or "View Crash Logs", both in the File menu, depending on what type of issue it is)
