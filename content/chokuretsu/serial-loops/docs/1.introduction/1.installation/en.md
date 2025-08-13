@@ -6,7 +6,7 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/introduction/getting-started'
 ---
 
-Serial Loops is available for Windows, macOS, and Linux. You can get the latest release from [here](https://github.com/haroohie-club/SerialLoops/releases/latest). On Linux, it also available for download on [Flathub](https://flathub.org/apps/club.haroohie.SerialLoops)
+Serial Loops is available for Windows, macOS, and Linux. You can get the latest release from [here](https://github.com/haroohie-club/SerialLoops/releases/latest). On Linux, it also available for download on [Flathub](https://flathub.org/apps/club.haroohie.SerialLoops).
 
 ## Prerequisites
 It is recommended that you use a distribution of Serial Loops that automatically installs or comes with the necessary prerequisites. For each platform these are:
