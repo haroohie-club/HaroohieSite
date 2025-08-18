@@ -1,5 +1,5 @@
 ---
-title: 'Character Sprites'
+title: '角色精靈'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/character-sprite.png'
   previous: '/chokuretsu/serial-loops/docs/graphics/backgrounds'

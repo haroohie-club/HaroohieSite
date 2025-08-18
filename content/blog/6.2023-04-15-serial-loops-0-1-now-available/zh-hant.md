@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops v0.1 is now available!'
-description: &desc 'Today we are very exicted to announce the release of the first version of Serial Loops, a new editing suite for Suzumiya Haruhi no Chokuretsu!'
+title: &title 'Serial Loops v0.1 現已可用!'
+description: &desc '今天，我們非常興奮地宣佈釋出Serial Loops的第一個版本，這是Suzumiya Haruhi no Chokuretsu的新編輯套件！'
 navigation:
   description: *desc
   author: 'William'

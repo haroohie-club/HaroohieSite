@@ -1,5 +1,5 @@
 ---
-title: 'Chibis'
+title: ' Q版'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/chibi.png'
   previous: '/chokuretsu/serial-loops/docs/graphics/sprites'

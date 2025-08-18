@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops v0.2 is out now – with more powerful editors and better stability!'
-description: &desc 'The second version of Serial Loops makes the editor even more powerful and intuitive, fixes a ton of bugs, and improves stability!'
+title: &title 'Serial Loops v0.2现已推出——具有更强大的编辑器和更棒的稳定性！'
+description: &desc'Serial Loops的第二个版本使编辑器更加强大和直观，修复了大量错误，并提高了稳定性！'
 navigation:
   description: *desc
   author: 'William'
