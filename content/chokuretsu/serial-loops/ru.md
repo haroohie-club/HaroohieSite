@@ -47,13 +47,12 @@ limit: 2
 Установка доступна для Windows, macOS (Intel и Apple Silicon) и Linux [на GitHub](https://github.com/haroohie-club/SerialLoops/releases). Мы предлагаем как релизные (рекомендуется), так и пре-релизные сборки.
 
 
-::button-link
+::loopy-download-stack
 ---
+buttonLink: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
 color: 'sl-blue'
-icon: 'fa6-solid:download'
-link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
+flathubId: 'club.haroohie.SerialLoops'
 ---
-Скачать последнюю версию
 ::
 
 
