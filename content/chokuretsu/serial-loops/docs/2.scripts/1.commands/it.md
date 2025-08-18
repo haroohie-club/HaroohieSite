@@ -67,7 +67,7 @@ Se devi muoverti tra le varie CG, usa il comando [`BG_FADE`](#bg_fade).
 * `Direzione scorrimento`: Come muoversi tra le varie immagini
 * `Velocità scorrimento`: A quale velocità muoversi (tieni sempre questo parametro su 1)
 
-When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the background in a DEFINED direction.
+When a background that is larger than the screen is shown (such as `TEX_CG_DUAL_SCREEN`, `TEX_CG_WIDE`, and `TEX_CG_SINGLE`), scrolls the background in a defined direction.
 
 
 ## `BGM_PLAY`
@@ -142,7 +142,7 @@ Controlla quale schermata caricare una volta finita una partita a scacchi.
 * `Chibi`: Chibi da mostrare
 * `Emozione`: L'emozione che devono fare
 
-Con questo comando potrai decidere quale emozione far apparire sopra la testa dei [chibi](../graphics/chibis) sullo schermo superiore.
+Displays an emote in a speech bubble above a [chibi](../graphics/chibis) figure on the top screen.
 
 
 ## `CHIBI_ENTEREXIT`
@@ -345,6 +345,8 @@ Suppresses the top screen UI, shows `BG_KBG04` on the top screen, disables dialo
 * `Tempo (Frame)`: Quanti fotogrammi deve durare la transizione della palette dello sfondo
 * `Sconosciuto`: Il codice dice che fa qualcosa, ma non capiamo cosa
 
+Changes the color of currently displayed UI elements using a specified filter.
+
 
 ## `PIN_MNL`
 **Parametri**:
@@ -361,8 +363,8 @@ Rimosso dalla versione finale (non si trova nulla nel codice.)
 **Parametri**:
 * `Scena`: Nome dello script da raggiungere
 
-Ti permette di raggiungere una certa scena. Non può portare a tutte le scene di gioco; ma solo quelle contenute
-in un particolare vettore speciale del ARM9; inoltre, modificare la ROM modificherà i vettori.
+Goes to a particular scene. Note that this scene cannot be just any script file; it must be contained
+within the event table.
 
 
 ## `SCENE_GOTO_CHESS`
@@ -449,18 +451,18 @@ Modifica i nomi delle zone
 **Parametri**:
 * `Salta Scene`: Quante scene da saltare
 
-Imposta il comando [`NEXT_SCENE`](#next_scene) per saltare le scene, seguendo le istruzioni all'interno di `SCENARIO.S` (evt.bin #580).
+Sets up the [`NEXT_SCENE`](#next_scene) command to skip a specified number of scenes as defined in the [Scenario](../scenario/game-flow).
 
 
 ## `SND_PLAY`
 **Parameters**: 
-* `Sound`: The sound to be played from `snd.bin`
+* `Sound`: The SFX to be played
 * `Mode`: Whether to start or stop the sound
 * `Volume`: The volume of the sound
 * `Load Sound`: If true, loads the sound into memory before playing it (necessary when playing a sound for the first time)
 * `Crossfade Time (Frames)`: Time in frames that the sound will crossfade; only can be used when changing the volume of the same sound
 
-Riproduce un suono preso dal file `snd.bin`.
+Plays a sound effect.
 
 
 ## `SND_STOP`
@@ -485,7 +487,14 @@ Mostra/nasconde il box di dialogo. Molti di questi comandi fanno già questa cos
 **Parametri**:
 * `Discussioni`: Le discussioni che vengono date al giocatore
 
-Consegna al giocatore una discussione.
+Gives the player a particular topic.
+
+
+## `TRANS_IN`
+**Parameters**:
+* `Transition`: Transizione da usare
+
+Parte una transizione che riporta alla scena.
 
 
 ## `TRANS_OUT`
@@ -493,12 +502,6 @@ Consegna al giocatore una discussione.
 * `Transizione`: Transizioni da usare
 
 Fa partire una transizione sullo schermo nero.
-
-## `TRANS_IN`
-**Parameters**:
-* `Transition`: Transizione da usare
-
-Parte una transizione che riporta alla scena.
 
 
 ## `VCE_PLAY`
