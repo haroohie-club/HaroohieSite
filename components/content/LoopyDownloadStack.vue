@@ -11,10 +11,6 @@
 </template>
 
 <script setup>
-const { locale, t } = useI18n({
-  useScope: 'local'
-})
-
 function fixupLocale(loc) {
     return loc.replace('-han', '-Han').replace('-br', '-BR');
 }

@@ -6,6 +6,15 @@ export default {
     // Modules
     modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/google-fonts', '@nuxtjs/i18n', '@nuxt/scripts'],
 
+    imports: {
+        presets: [
+            {
+                from: 'vue-i18n',
+                imports: ['t', 'locale', 'availableLocales']
+            }
+        ]
+    },
+
     // Fonts
     googleFonts: {
         download: true,
@@ -20,7 +29,7 @@ export default {
     // Pre render the sitemap, 404, and RSS feeds
     nitro: {
         prerender: {
-            routes: ['/404.html', '/rss.xml', '/de/rss.xml', '/fr/rss.xml', '/it/rss.xml', '/pt-br/rss.xml', '/ru/rss.xml', '/zh-hans/rss.xml', '/zh-hant/rss.xml']
+            routes: ['/404.html']
         }
     },
 

@@ -576,10 +576,6 @@ export default {
 </script>
 
 <script setup>
-const { locale } = useI18n({
-  useScope: 'local'
-})
-const { availableLocales } = useI18n()
 const AVAILABLE_PATCH_LOCALES = availableLocales.filter(locale => AVAILABLE_PATCHES(locale).length > 0);
 const patchLocale = AVAILABLE_PATCH_LOCALES.indexOf(locale.value) < 0 ? ref('en') : ref(locale.value)
 const patchIndex = ref(0);

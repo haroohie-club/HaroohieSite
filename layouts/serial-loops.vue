@@ -21,7 +21,6 @@
 <script setup>
 import SerialLoopsSidebar from '~/components/content/SerialLoopsSidebar.vue';
 
-const { locale } = useI18n()
 const localePath = useLocalePath()
 
 const showModal = ref(false)

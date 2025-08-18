@@ -13,10 +13,6 @@
 </template>
 
 <script setup>
-const { availableLocales } = useI18n()
-const { locale } = useI18n({
-    useScope: 'local'
-})
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 function getLanguageName(languageCode) {

@@ -30,9 +30,6 @@
 </style>
 
 <script setup>
-const { locale } = useI18n({
-  useScope: 'local'
-})
 const localePath = useLocalePath()
 const route = useRoute()
 

@@ -1,7 +1,4 @@
 <script setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
 const localePath = useLocalePath()
 </script>
 

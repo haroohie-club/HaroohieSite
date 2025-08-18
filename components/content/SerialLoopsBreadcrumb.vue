@@ -49,9 +49,6 @@ const props = defineProps({
         required: true
     }
 })
-const { locale } = useI18n({
-  useScope: 'local'
-})
 const localePath = useLocalePath()
 </script>
 

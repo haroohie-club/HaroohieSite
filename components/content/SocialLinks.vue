@@ -25,7 +25,6 @@
 <script setup>
 import socials from '/assets/social-links.json'
 
-const { locale } = useI18n()
 const localePath = useLocalePath()
 
 const { type, stackTopper } = defineProps({

@@ -1,5 +1,4 @@
 <script setup>
-const { locale } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
 </script>

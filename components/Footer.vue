@@ -23,9 +23,6 @@ footer {
 </style>
 
 <script setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
 const localePath = useLocalePath()
 
 const current_year = new Date().getFullYear()

@@ -36,7 +36,6 @@
 </template>
 
 <script setup>
-const { locale } = useI18n()
 const localePath = useLocalePath()
 
 const layoutCustomProps = useAttrs()

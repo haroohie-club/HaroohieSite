@@ -20,9 +20,6 @@
 </style>
 
 <script setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
 const localePath = useLocalePath()
 const { doc } = defineProps({
   doc: {

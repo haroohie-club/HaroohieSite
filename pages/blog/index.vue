@@ -7,10 +7,6 @@
 </template>
 
 <script setup>
-const { locale, t } = useI18n({
-  useScope: 'local'
-})
-
 definePageMeta({
     layout: 'blog'
 })

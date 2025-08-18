@@ -1,9 +1,3 @@
-<script setup>
-const { locale } = useI18n({
-  useScope: 'local'
-})
-</script>
-
 <template>
     <tr :id="`${optionName}-opt-row`">
         <td>

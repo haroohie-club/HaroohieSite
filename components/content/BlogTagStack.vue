@@ -1,7 +1,4 @@
 <script setup>
-const { locale } = useI18n({
-  useScope: 'local'
-})
 </script>
 <template>
     <ContentList path="/blog" v-slot="{ list }">

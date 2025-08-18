@@ -32,10 +32,6 @@
 </style>
 
 <script setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
-
 const { video } = defineProps({
   video: {
     type: String,

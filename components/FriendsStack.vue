@@ -1,16 +1,15 @@
 <template>
-    <ContentList path="/friend" v-slot="{ list }">
+    <!-- <ContentList path="/friend" v-slot="{ list }">
         <div class="stack">
             <ButtonLink v-for="friend in list.filter(f => f._path.endsWith(locale))" :icon="friend.friend.icon" :link="localePath(friend._path.substring(0, friend._path.lastIndexOf('/')))" rel="me"
                 :rgb-color="friend.friend.color" :type="list.indexOf(friend) === (list.length - 1) ? 'bottom-piece' : (list.indexOf(friend) === 0 ? 'top-piece' : 'mid-piece')" fullwidth>
                 {{ friend.friend.name }}
             </ButtonLink>
         </div>
-    </ContentList>
+    </ContentList> -->
 </template>
 
 <script setup>
-const { locale } = useI18n()
 const localePath = useLocalePath()
 </script>
 
