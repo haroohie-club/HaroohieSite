@@ -1,5 +1,5 @@
 ---
-title: 'Installation'
+title: '安装'
 navigation:
   faicon: 'fa6-solid:box-open'
   previous: '/chokuretsu/serial-loops/docs/introduction'

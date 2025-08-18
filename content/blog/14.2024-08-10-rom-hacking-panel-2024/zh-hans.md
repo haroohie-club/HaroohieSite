@@ -1,6 +1,6 @@
 ---
-title: &title 'Recording of Jonko''s "ROM Hacking to Translate a Video Game: Reloaded" 2024 Panel Released'
-description: &desc 'Watch Jonko explain some of the challenges of hacking Chokuretsu & Heiretsu to a live audience at Sakura Con 2024'
+title: &title 'Jonko的“ ROM破解以翻译电子游戏:重装” 2024 Panel的录音发布'
+description: &desc '观看Jonko在Sakura Con 2024上向现场观众解释黑客攻击Chokuretsu和Heiretsu的一些挑战'
 navigation:
   description: *desc
   author: 'Jonko'
