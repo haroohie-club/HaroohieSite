@@ -1,16 +1,20 @@
 <template>
-    <ContentList path="/friend" v-slot="{ list }">
+    <ContentRenderer v-if="friends" :value="friends">
         <div class="stack">
-            <ButtonLink v-for="friend in list.filter(f => f._path.endsWith(locale))" :icon="friend.friend.icon" :link="localePath(friend._path.substring(0, friend._path.lastIndexOf('/')))" rel="me"
+            <ButtonLink v-for="friend in friends" :icon="friend.friend.icon" :link="localePath(friend._path.substring(0, friend._path.lastIndexOf('/')))" rel="me"
                 :rgb-color="friend.friend.color" :type="list.indexOf(friend) === (list.length - 1) ? 'bottom-piece' : (list.indexOf(friend) === 0 ? 'top-piece' : 'mid-piece')" fullwidth>
                 {{ friend.friend.name }}
             </ButtonLink>
         </div>
-    </ContentList>
+    </ContentRenderer>
 </template>
 
 <script setup>
 const localePath = useLocalePath()
+const route = useRoute()
+const { data: friends } = await useAsyncData(route.path, () => {
+  return queryCollection(locale + '_friends')
+})
 </script>
 
 <script>

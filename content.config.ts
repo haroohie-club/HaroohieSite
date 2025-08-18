@@ -81,8 +81,119 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: 'en/**/*.md',
-        exclude: [ 'en/blog/posts/**', 'en/chokuretsu/guide/**', 'en/chokuretsu/serial-loops/docs/**' ],
+        exclude: [ 'en/blog/**', 'en/chokuretsu/guide/**', 'en/chokuretsu/serial-loops/docs/**' ],
+        prefix: '/'
       }
+    }),
+    ar_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'ar/**/*.md',
+        exclude: [ 'ar/blog/**', 'ar/chokuretsu/guide/**', 'ar/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+    de_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'de/**/*.md',
+        exclude: [ 'de/blog/**', 'de/chokuretsu/guide/**', 'de/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+    es_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'es/**/*.md',
+        exclude: [ 'es/blog/**', 'es/chokuretsu/guide/**', 'es/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+    fr_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'fr/**/*.md',
+        exclude: [ 'fr/blog/**', 'fr/chokuretsu/guide/**', 'fr/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+    it_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'it/**/*.md',
+        exclude: [ 'it/blog/**', 'it/chokuretsu/guide/**', 'it/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+    ja_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'ja/**/*.md',
+        exclude: [ 'ja/blog/**', 'ja/chokuretsu/guide/**', 'ja/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+    pt_br_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'pt-br/**/*.md',
+        exclude: [ 'pt-br/blog/**', 'pt-br/chokuretsu/guide/**', 'pt-br/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+    ru_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'ru/**/*.md',
+        exclude: [ 'ru/blog/**', 'ru/chokuretsu/guide/**', 'ru/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+    zh_hans_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'zh-hans/**/*.md',
+        exclude: [ 'zh-hans/blog/**', 'zh-hans/chokuretsu/guide/**', 'zh-hans/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+    zh_hant_pages: defineCollection({
+      type: 'page',
+      source: {
+        include: 'zh-hant/**/*.md',
+        exclude: [ 'zh-hant/blog/**', 'zh-hant/chokuretsu/guide/**', 'zh-hant/chokuretsu/serial-loops/docs/**' ],
+      }
+    }),
+
+    en_authors: defineCollection({
+      type: 'data',
+      source: 'en/author/*.yml',
+      schema: authorSchema
+    }),
+
+    en_blogs: defineCollection({
+      type: 'page',
+      source: {
+        include: 'en/blog/**/*.md',
+        exclude: ['index.md'],
+        prefix: '/blog'
+      },
+      schema: blogPostSchema
+    }),
+
+    en_guide: defineCollection({
+      type: 'page',
+      source: {
+        include: 'en/chokuretsu/guide/**/*.md',
+        prefix: '/chokurestu/guide'
+      },
+      schema: chokuGuideSchema
+    }),
+
+    en_sl_docs: defineCollection({
+      type: 'page',
+      source: {
+        include: 'en/chokuretsu/serial-loops/docs/**/*.md',
+        prefix: '/chokurestu/serial-loops/docs'
+      },
+      schema: serialLoopsDocsSchema
+    }),
+
+    en_friends: defineCollection({
+        type: 'data',
+        source: 'en/friend/*.yml',
+        schema: friendSchema
     })
   }
 })

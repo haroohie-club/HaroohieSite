@@ -72,7 +72,10 @@ export default {
             { code: 'zh-hans', iso: 'zh-Hans', file: 'zh-Hans.json', dir: 'ltr' },
             { code: 'zh-hant', iso: 'zh-Hant', file: 'zh-Hant.json', dir: 'ltr' },
         ],
-        defaultLocale: 'en'
+        defaultLocale: 'en',
+        compilation: {
+            strictMessage: false,
+        },
     },
 
     compatibilityDate: '2024-12-10'

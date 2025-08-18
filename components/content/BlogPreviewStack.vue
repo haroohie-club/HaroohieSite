@@ -1,11 +1,16 @@
 <script setup>
+const route = useRoute()
+const { data: blogs } = await useAsyncData(route.path, () => {
+  return queryCollection(locale + '_blogs')
+})
 </script>
+
 <template>
-    <ContentList path="/blog" v-slot="{ list }">
-        <div v-for="blog in list.filter(b => b.navigation).filter(b => b._path.endsWith(locale)).reverse().slice(0, Math.min(list.length, limit))">
+    <ContentRenderer v-if="blogs" :value="blogs">
+        <div v-for="blog in blogs.slice(0, Math.min(blogs.length, limit))">
             <BlogPreview :key="blog.title" :blog="blog" />
         </div>
-    </ContentList>
+    </ContentRenderer>
 </template>
 
 <script>

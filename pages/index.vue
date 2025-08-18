@@ -12,7 +12,7 @@
                 <div class="newsfeed">
                     <div class="socials box">
                         <h2>{{ $t('about') }}</h2>
-                        <ContentDoc :path="`/${locale}`" />
+                        <ContentRenderer v-if="page" :value="page" />
                         <h2>{{ $t('social-links') }}</h2>
                         <SocialLinks type="stack" :stack-topper="{link:'/blog', locale: 'news-and-blog', icon: 'fa6-solid:paper-plane'}" />
                         <br />
@@ -42,7 +42,28 @@
 </template>
 
 <script setup>
+import { withLeadingSlash } from 'ufo'
+import { Collections } from '@nuxt/content'
+import { ContentRenderer } from '#components'
+
+const route = useRoute()
+const slug = computed(() => withLeadingSlash(String(route.params.slug)))
 const localePath = useLocalePath()
+
+const { data: page } = await useAsyncData(route.path, async () => {
+  // Build collection name based on current locale
+  const collection = (locale.value + '_pages');
+  const content = await queryCollection(collection).path(slug.value).first()
+
+  // Optional: fallback to default locale if content is missing
+  if (!content && locale.value !== 'en') {
+    return await queryCollection('en_pages').path(slug.value).first()
+  }
+
+  return content
+}, {
+  watch: [locale], // Refetch when locale changes
+})
 
 definePageMeta({
     title: computed(() => t('index-title')),
