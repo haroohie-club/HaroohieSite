@@ -1,5 +1,5 @@
 ---
-title: &title  2023年9月進度更新——Chokuretsu 100%翻譯，Heiretsu的進步等！
+title: &title  '2023年9月進度更新——Chokuretsu 100%翻譯，Heiretsu的進步等！'
 description: &desc 'Haroohie Translation Club分享翻譯進度專案的更新！'
 navigation:
   description: *desc
