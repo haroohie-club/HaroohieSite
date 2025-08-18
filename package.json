@@ -11,12 +11,9 @@
     "@nuxt/content": "^3.6.3",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^10.0.5",
-    "@nuxtjs/sitemap": "^7.4.3",
     "@types/url-file-size": "^1.0.3",
     "nitropack": "^2.12.4",
     "nuxt": "^4.0.3",
-    "nuxt-feedme": "^1.0.1",
-    "sitemap": "^8.0.0",
     "vue-matomo": "^4.2.0"
   },
   "dependencies": {
