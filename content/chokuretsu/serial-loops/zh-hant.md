@@ -56,9 +56,9 @@ flathubId: 'club.haroohie.SerialLoops'
 ::
 
 
-## Bug 彙報
-請在我們的 [GitHub Issues](https://github.com/haroohie-club/SerialLoops) 上提交錯誤。請提供以下資訊：
-* 執行 Serial Loops 的平臺
-* 你正在使用的《串聯》ROM 的版本（日文版、漢化版 ROM 等）
-* 描述再現問題所需的步驟
-* 該問題的相關日誌（可在 ~/SerialLoops/Logs 中找到）
+## Bugs
+Please file bugs on our [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Please include the following information:
+* The platform you are running Serial Loops on
+* The version of the Chokuretsu ROM you are using (Japanese, patched English ROM, etc.)
+* A description of the steps required to reproduce the issue
+* The relevant logs for the issue (can be found with either "View Logs" or "View Crash Logs", both in the File menu, depending on what type of issue it is)
