@@ -6,63 +6,32 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/introduction/getting-started'
 ---
 
-Serial Loops è disponibile per Windows, macOS e Linux. Scarica l'ultima versione [qui](https://github.com/haroohie-club/SerialLoops/releases/latest).
+Serial Loops is available for Windows, macOS, and Linux. You can get the latest release from [here](https://github.com/haroohie-club/SerialLoops/releases/latest). On Linux, it also available for download on [Flathub](https://flathub.org/apps/club.haroohie.SerialLoops).
 
 ## Prerequisites
-It is recommended that you use a distribution of Serial Loops that automatically installs or comes with the necessary prerequisites. For each platform, these are:
+It is recommended that you use a distribution of Serial Loops that automatically installs or comes with the necessary prerequisites. For each platform these are:
 
-* Linux: Flatpak
-* macOS: Installer (also installs devkitARM and Xcode tools for make)
-* Windows: Installer (also installs [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) and is bundled with the Docker installer and devkitPro installer for devkitARM)
+* Linux: [Flatpak from Flathub](https://flathub.org/apps/club.haroohie.SerialLoops)
+  - The AppImage, deb, and rpm packages are also easy to use, but if you're not sure which to choose, go with the Flatpak
+* macOS: Installer
+* Windows: Installer
 
-Using these will ensure Serial Loops is ready to use after installation. However, if you would rather use a portable build on Windows/Linux, please check the information on installing
-these prerequisites below.
+Using these will ensure Serial Loops is ready to use after installation. However, if you would rather use a portable build on Windows/Linux, please check the information on installing these prerequisites in the next section.
 
-<details>
-    <summary>View prerequisites for non-Flatpak/installer distributions</summary>
+#### Dependencies for Non-Packages Releases
+If you opt to use one of the non-packaged releases on Windows or Linux, you will need to install a few dependencies. These are:
 
-### Installing devkitARM
-[devkitARM](https://devkitpro.org/wiki/Getting_Started) is required to use Serial Loops on all platforms.
+* Clang and LLD from [LLVM](http://llvm.org) (on Windows, it's best to just use the LLVM installer as it will install both of these; on Linux, you can opt to install just the `clang`, `lld`, and possibly `llvm` packages from your package manager)
+* [Ninja](https://ninja-build.org)
+* On Linux, you will also need SDL2
 
-* Using the Windows graphical installer, you can simply select the devkitARM (Nintendo DS) workloads
-* On macOS and Linux, run `sudo dkp-pacman -S nds-dev` from the terminal after installing the devkitPro pacman distribution.
+#### A Nintendo DS Emulator
+To test the game easily, you will want to have a Nintendo DS emulator installed. We recommend using [melonDS](https://melonds.kuribo64.net/) for its accuracy. If you are using the Flatpak release, melonDS comes pre-packaged with it.
 
-### Installing Make or Docker
-To assemble ASM hacks you want to apply, you will need to decide whether to use Make or Docker. Make is automatically installed when using the Debian and RPM
-packages we distribute and is bundled in the AppImage, so you don't need to worry about this step if you're using one of those.
-
-Currently, the Docker path is **only supported on Windows** due to operating system and framework limitations. It is possible to get Docker running
-just fine on Linux distros by running SerialLoops as root (e.g. `sudo SerialLoops`), but it's easier to just use Make.
-
-* [Make](https://www.gnu.org/software/make/) is the software used to assemble assembly hacks. Installing Make allows you to build the hacks
-  directly on your system.
-    - To install on Windows, you will have to use a terminal and a package manager. Your options are Winget (installed by default on Win10+) or
-      [Chocolatey](https://chocolatey.org/). Open an admin PowerShell or Terminal window (Winkey + X + A) and enter `winget install GnuWin32.make`
-      for Winget or `choco install make` for Chocolatey. If using Winget, you will then have to go into system preferences and add Make to the path.
-    - Make comes preinstalled on many Linux distributions, and if you're using the Debian or RPM package, it was definitely installed when you installed
-      Serial Loops. If you're using the tar.gz it is not installed on yours, you will likely be able to install it as simply as
-      `[packagemanger] install make` from a terminal.
-
-  To test if make is installed properly, type `make --verison` into a terminal and see if it produces the version of make.
-* If you would rather not install Make, or if it is not working properly, you can instead run it through a Docker container. To do this, you should
-  install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or the Docker Engine. Ensure the Docker engine is running and make sure
-  to check the "Use Docker for ASM Hacks" option in Preferences. You may want to occasionally clean up containers created by Serial Loops, as it will
-  create many of them.
-    - On Windows, you will additionally need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install).
-      From an admin PowerShell or Terminal window (Winkey + X + A), simply type `wsl --install` to install it.
-
-### Installing SDL2 (Linux)
-If you're running on Linux and _not using one of the package releases_ (the AppImage, `.deb`, or `.rpm`), you will also need to install SDL2 which is used for audio processing.
-
-</details>
+For non-Flatpak Linux releases, you can also install the official [melonDS Flatpak from Flathub](https://flathub.org/apps/net.kuribo64.melonDS) to use as your emulator.
 
 ### Running the installer on macOS
 Because we do not sign our installer, macOS will by default prevent you from running it. In order to give macOS explicit approval to run the file, you will need to open a terminal and run `xattr -cr ~/Downloads/[name_of_installer].pkg`, replacing `[name_of_installer]` with the name of the installer file you downloaded. Every release has the specific command you need to run.
-
-### A Nintendo DS Emulator
-To test the game easily, you will want to have a Nintendo DS emulator installed. We recommend using [melonDS](https://melonds.kuribo64.net/) for its accuracy.
-
-On Linux, you can install the official [melonDS Flatpak from Flathub](https://flathub.org/apps/net.kuribo64.melonDS) to use as your emulator. We recommend installing it from the [flathub-beta](https://docs.flathub.org/docs/for-users/installation/#flathub-beta-repository) repository as that is where the most up-to-date versions tend to be pushed.
 
 ## Download & Install
 Once you have installed any necessary prerequisites, to install Serial Loops, download the latest release for your platform from the [Releases tab](https://github.com/haroohie-club/SerialLoops/releases).
