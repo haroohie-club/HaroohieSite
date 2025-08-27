@@ -109,6 +109,7 @@
     "chokuretsu-download-patch": "Download .xdelta",
     "chokuretsu-sources-tools": "Sources & Tools",
     "chokuretsu-serial-loops": "Serial Loops Editor",
+    "chokuretsu-wrapped": "Chokuretsu Wrapped",
     "chokuretsu-guide-invalid-page": "Invalid guide page",
     "chokuretsu-guide-invalid-page-p": "Could not find a guide page at this address.",
     "chokuretsu-guide-back-to-start": "Back to Start",
@@ -173,5 +174,8 @@
     
     "click-to-filter": "Click to filter:",
 
-    "friends-of-the-club": "Friends of the Club"
+    "friends-of-the-club": "Friends of the Club",
+
+    "chokuretsu-wrapped-explanation": "Chokuretsu Wrapped is a mini-project we're doing that lets you see how the choices you made while playing the game stack up against the choices of others from around the world. Simply upload your completed save file below to see your Chokuretsu Wrapped! (Or, click the link to just view the stats!)",
+    "chokuretsu-wrapped-explanation2": "By a completed save file, we mean a file that started a new game at episode one and has played all the way through the epilogue, saving after it's done. The resulting checkpoint save should show as being for \"Episode 1\" in order to participate!"
 }
