@@ -102,7 +102,7 @@
     "chokuretsu-rom-patcher-op-ed-subs-desc": "Choisissez si le film d'ouverture et les crédits de fin seront sous-titrés avec une police Japonaise romaji pour karaoké.",
     "chokuretsu-rom-patcher-voice-subs-alt": "La phase de puzzle sans la tirade vocale sous-titrée",
     "chokuretsu-rom-patcher-choose-rom-first": "Veuillez choisir une ROM d'abord",
-    "chokuretsu-completion": "Complet à 60%",
+    "chokuretsu-completion": "Complet à 80%",
     "january": "Janvier",
     "august-short": "Aoû",
     "chokuretsu-rom-patcher-op-ed-subs-alt": "Le film d'ouverture avec des sous-titres et un visuel pour karaoké",
@@ -114,5 +114,17 @@
     "chokuretsu-rom-patcher-repair-applied": "Patch de réparation appliqué !",
     "chokuretsu-rom-patcher-repair-error": "(Erreur pendant la réparation de la ROM) ",
     "click-to-filter": "Cliquer pour filtrer :",
-    "friends-of-the-club": "Les Amis du Club"
+    "friends-of-the-club": "Les Amis du Club",
+    "chokuretsu-sl-home": "Page Principale",
+    "chokuretsu-rom-patcher-success": "<b>Patch appliqué avec succés!</b><br/>Profitez bien du jeu!",
+    "chokuretsu-rom-patcher-bad-rom-error": "Le hash SHA-256  de la ROM que vous avez selectionné est celui d'une mauvaise ROM qui circule sur Internet et qui est connue pour contenir des graphismes corrompus et des données \"header\" invalides. Cette ROM ne peut pas être patchée.",
+    "chokuretsu-rom-patcher-invalid-rom-error": "La ROM est invalide. S'il vous plait, veuillez vous assurer que vous avez sélectionné la ROM du bon jeu, et que vous avez attentivement suivi les instructions de dumping qui sont correctes.",
+    "en-v0.2-patch-desc": "Ceci est la sortie initiale du patch anglais de \"The Series of Haruhi Suzumiya\". Il traduit entièrement l'Épisode 1 du jeu.",
+    "april-fools-tag": "poisson d'avril",
+    "chokuretsu-rom-patcher-bad-rom-warn": "<b>\"Vous utilisez une mauvaise ROM ! Une mauvaise ROM ! Penalty !\"\n</b><br/>Le SHA-256 checksum de la ROM que vous avez selectionné est celui d'une mauvaise ROM connue pour contenir des données \"header\" et des graphismes corrompus. Une réparation a été performée sur votre ROM avant que le patch de traduction ne soit appliqué.",
+    "en-v0.4-patch-desc": "La seconde sortie du patch Anglais de \"The Series of Haruhi Suzumiya\". Ce patch traduis entièrement les Épisodes 1 et 2 du jeu, ainsi que le mode Extras. En plus, des sous-titres doublés ont été ajoutés à la phase de sélection du groupe et à la phase de sélection de compagnon du puzzle, et un certain nombre de correction de bugs ainsi que quelques petits changements graphiques on été effectués.",
+    "en-v0.6-patch-desc": "La troisième sorti du patch Anglais de \"The Series of Haruhi Suzumiya\". Ce patch traduis entièrement les Épisodes 1 à 3 du jeu, notamment une réécriture significative du script du premier Épisode pour égaler les standards de qualité appliqué à l'Épisode 3. Des graphismes additionnels ainsi que la vidéo de crédits ED ont aussi été traduits.",
+    "en-v0.8-patch-desc": "La quatrième sortie du patch Anglais de \"The Series of Haruhi Suzumiya\". Ce patch traduis entièrement les Épisodes 1 à 4 du jeu. Il répare aussi un certain nombre de problèmes qui étaient présents dans le jeu originel.",
+    "en-v0.8.1-patch-desc": "La quatrième sortie du patch Anglais de \"The Series of Haruhi Suzumiya\". Ce patch traduis entièrement les Épisodes 1 à 4 du jeu. Il répare aussi un certain nombre de problèmes qui étaient présents dans le jeu originel. En plus, cette version répare un certain nombre de petits problèmes qui étaient présents dans la sortie v0.8",
+    "zh-v0.1-patch-desc": "Ceci est la sortie beta \"Preuve-de-concept\" pour le patch chinois de \"The Series of Haruhi Suzumiya\", créé par <a href=\"/friend/qi-busiyi-hanhuazu\">Qi Busiyi Hanhuazu</a>. Une portion du script du premier episode a été traduite, mais les graphismes n'ont pas encore suivi ."
 }
