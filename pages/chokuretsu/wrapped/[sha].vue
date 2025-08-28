@@ -23,7 +23,7 @@ if (customized && json.hasFriendship) {
         {
             name: t('chokuretsu-wrapped-your-data'),
             type: 'bar',
-            data: [ 10, 1, 5, 7, 8 ],
+            data: [ json.saveData?.haruhiFriendshipLevel, json.saveData?.mikuruFriendshipLevel, json.saveData?.nagatoFriendshipLevel, json.saveData?.koizumiFriendshipLevel, json.saveData?.tsuruyaFriendshipLevel ],
             itemStyle: { color: 'gold' },
             barGap: '20%'
         }
@@ -56,7 +56,6 @@ const friendshipOptions = ref<ECOption>({
         }
     ]
 });
-
 
 const endingOptions = ref<ECOption>({
     title: {
@@ -106,6 +105,216 @@ const topicsObtainedOptions = ref<ECOption>({
         type: 'value'
     }
 })
+
+let haruhiMeterData: any[] = [
+    {
+        value: json.averageHaruhiMeter,
+        name: t('chokuretsu-wrapped-average-data'),
+        title: {
+            offsetCenter: ['0%', '30%']
+        },
+        detail: {
+            valueAnimation: true,
+            offsetCenter: ['0%', '50%']
+        }
+    }
+]
+if (customized) {
+    haruhiMeterData.push({
+        value: json.saveData?.haruhiMeter,
+        name: t('chokuretsu-wrapped-your-data'),
+        title: {
+            offsetCenter: ['0%', '80%']
+        },
+        detail: {
+            valueAnimation: true,
+            offsetCenter: ['0%', '100%']
+        },
+        itemStyle: { color: 'gold' },
+    })
+}
+const haruhiMeterOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-haruhi-meter'),
+        left: 'center',
+    },
+    series: {
+        type: 'gauge',
+        progress: {
+            show: true,
+            width: 18,
+            overlap: false,
+        },
+        axisLine: {
+            lineStyle: {
+                width: 18,
+            }
+        },
+        axisTick: {
+            show: false,
+        },
+        splitLine: {
+            length: 15,
+            lineStyle: {
+                width: 2,
+                color: '#999'
+            },
+        },
+        axisLabel: {
+            distance: 25,
+            color: '#999',
+        },
+        anchor: {
+            show: true,
+            showAbove: true,
+            itemStyle: {
+                borderWidth: 10,
+            },
+        },
+        data: haruhiMeterData,
+    },
+})
+
+const routeMapXAxis = ['Episode 1', 'Episode 2', 'Episode 3A', 'Episode 3B', 'Episode 4A', 'Episode 4B', 'Episode 5'];
+let routeYAxisDict: { name: string, obj: string }[] = []
+const objectives = ['A', 'B', 'C', 'D']
+let routeMapData: any[] = []
+let objective = ''
+let currentY = 0
+for (let i = 0; i < json.routesTaken.length; i++) {
+    for (let j = 0; j < json.routesTaken[i].length; j++) {
+        if (json.routesTaken[i][j].route.objective != objective) {
+            currentY = 1;
+            objective = json.routesTaken[i][j].route.objective;
+        } else {
+            currentY++;
+        }
+        routeYAxisDict.push({ name: json.routesTaken[i][j].route.name, obj: `${objectives[json.routesTaken[i][j].route.objective]}${currentY}` });
+        routeMapData.push(Object({
+            name: t(json.routesTaken[i][j].route.name),
+            value: [ routeMapXAxis[i], `${objectives[json.routesTaken[i][j].route.objective]}${currentY}`, json.routesTaken[i][j].count ],
+        }))
+    }
+}
+let routeMapSeries: any[] = [
+    {
+        type: 'heatmap',
+        data: routeMapData,
+        emphasis: {
+            itemStyle: {
+                borderColor: '#333',
+                borderWidth: 1
+            }
+        },
+        progressive: 1000,
+    }
+];
+if (customized) {
+    let saveRouteData: any[] = []
+    for (let i = 0; i < json.saveData.routesTaken.length; i++) {
+        saveRouteData.push(Object({
+            name: t(json.saveData.routesTaken[i].name),
+            value: [ routeMapXAxis[i], routeYAxisDict.filter(y => y.name == json.saveData.routesTaken[i].name)[0].obj ]
+        }))
+    }
+    routeMapSeries.push({
+        name: t('chokuretsu-wrapped-your-route'),
+        type: 'line',
+        data: saveRouteData,
+        lineStyle: { color: 'goldenrod' }
+    })
+}
+
+const routeMapOption = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-route-map'),
+        left: 'center',
+    },
+    tooltip: {},
+    xAxis: {
+        type: 'category',
+        data: routeMapXAxis,
+    },
+    yAxis: {
+        type: 'category',
+        data: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8'],
+        axisLabel: {
+            show: false
+        }
+    },
+    visualMap: {
+        min: 0,
+        max: json.routesCountMax,
+        calculable: true,
+        realtime: false,
+        left: 'left',
+        inRange: {
+            color: [
+                '#313695',
+                '#4575b4',
+                '#74add1',
+                '#5de9af',
+                '#9df899',
+                '#fffa72',
+                '#fee090',
+                '#fdae61',
+                '#f46d43',
+                '#d73027',
+                '#a50026'
+            ]
+        }
+    },
+    series: routeMapSeries,
+})
+
+let routeByCharactersLegend: any = [ t('chokuretsu-wrapped-average-data') ]
+let routeByCharactersSeries: any = [
+    {
+        name: t('chokuretsu-wrapped-average-data'),
+        type: 'bar',
+        data: Object.values(json.averageRoutesWithCharacter),
+        barGap: '20%',
+    },
+]
+if (customized) {
+    routeByCharactersLegend.push(t('chokuretsu-wrapped-your-data'))
+    routeByCharactersSeries.push(
+        {
+            name: t('chokuretsu-wrapped-your-data'),
+            type: 'bar',
+            data: Object.values(json.saveData?.routesWithCharacter),
+            itemStyle: { color: 'gold' },
+            barGap: '20%'
+        }
+    )
+}
+const routeByCharactersOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-routes-with-char'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        data: routeByCharactersLegend,
+    },
+    series: routeByCharactersSeries,
+    xAxis: [
+        {
+            type: 'category',
+            data: Object.keys(json.averageRoutesWithCharacter).map(c => t(c)),
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ]
+});
 
 const sawGameOverTutorialOptions = ref<ECOption>({
     title: {
@@ -179,92 +388,29 @@ const ep1NumCompSocMembersInterviewedOptions = ref<ECOption>({
     }
 })
 
-const routeMapXAxis = ['Episode 1', 'Episode 2', 'Episode 3A', 'Episode 3B', 'Episode 4A', 'Episode 4B', 'Episode 5'];
-let routeYAxisDict: { name: string, obj: string }[] = []
-const objectives = ['A', 'B', 'C', 'D']
-let routeMapData: any[] = []
-let objective = ''
-let currentY = 0
-for (let i = 0; i < json.routesTaken.length; i++) {
-    for (let j = 0; j < json.routesTaken[i].length; j++) {
-        if (json.routesTaken[i][j].route.objective != objective) {
-            currentY = 1;
-            objective = json.routesTaken[i][j].route.objective;
-        } else {
-            currentY++;
-        }
-        routeYAxisDict.push({ name: json.routesTaken[i][j].route.name, obj: `${objectives[json.routesTaken[i][j].route.objective]}${currentY}` });
-        routeMapData.push(Object({
-            name: t(json.routesTaken[i][j].route.name),
-            value: [ routeMapXAxis[i], `${objectives[json.routesTaken[i][j].route.objective]}${currentY}`, json.routesTaken[i][j].count ],
-        }))
-    }
-}
-let routeMapSeries: any[] = [
-    {
-        type: 'heatmap',
-        data: routeMapData,
-        emphasis: {
-            itemStyle: {
-                borderColor: '#333',
-                borderWidth: 1
-            }
+const ep1RouteOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-route-selection'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: json.routesTaken[0].map((r: { route: any; count: number; }) => Object({
+            name: t(r.route.name),
+            value: r.count,
+            itemStyle: customized && json.saveData?.routesTaken[0].name == r.route.name ? { color: 'gold' } : {},
+        })),
+        label: {
+            show: false,
         },
-        progressive: 1000,
-    }
-];
-if (customized) {
-    let saveRouteData: any[] = []
-    for (let i = 0; i < json.saveData.routesTaken.length; i++) {
-        saveRouteData.push(Object({
-            name: t(json.saveData.routesTaken[i].name),
-            value: [ routeMapXAxis[i], routeYAxisDict.filter(y => y.name == json.saveData.routesTaken[i].name)[0].obj ]
-        }))
-    }
-    routeMapSeries.push({
-        name: t('chokuretsu-wrapped-your-route'),
-        type: 'line',
-        data: saveRouteData,
-        lineStyle: { color: 'goldenrod' }
-    })
-}
-
-const routeMapOption = ref<ECOption>({
-    tooltip: {},
-    xAxis: {
-        type: 'category',
-        data: routeMapXAxis,
+        labelLine: {
+            show: false,
+        },
     },
-    yAxis: {
-        type: 'category',
-        data: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8'],
-        axisLabel: {
-            show: false
-        }
-    },
-    visualMap: {
-        min: 0,
-        max: json.routesCountMax,
-        calculable: true,
-        realtime: false,
-        left: 'left',
-        inRange: {
-            color: [
-                '#313695',
-                '#4575b4',
-                '#74add1',
-                '#5de9af',
-                '#9df899',
-                '#fffa72',
-                '#fee090',
-                '#fdae61',
-                '#f46d43',
-                '#d73027',
-                '#a50026'
-            ]
-        }
-    },
-    series: routeMapSeries,
 })
 
 provide(THEME_KEY, 'light')
@@ -290,6 +436,16 @@ provide(THEME_KEY, 'light')
                         <div>
                             <VChart :option="topicsObtainedOptions" class="normal-chart"/>
                         </div>
+                        <div>
+                            <VChart :option="haruhiMeterOptions" class="normal-chart"/>
+                        </div>
+                    </div>
+                    <h2>{{ t('chokuretsu-wrapped-routes') }}</h2>
+                    <div class="charts">
+                        <VChart :option="routeMapOption" class="large-chart"/>
+                    </div>
+                    <div class="charts">
+                        <VChart :option="routeByCharactersOptions" class="normal-chart"/>
                     </div>
                     <h2>{{ t('chokuretsu-wrapped-ep1') }}</h2>
                     <div class="charts">
@@ -302,10 +458,9 @@ provide(THEME_KEY, 'light')
                         <div>
                             <VChart :option="ep1NumCompSocMembersInterviewedOptions" class="normal-chart"/>
                         </div>
-                    </div>
-                    <h2>{{ t('chokuretsu-wrapped-route-map') }}</h2>
-                    <div class="charts">
-                        <VChart :option="routeMapOption" class="large-chart"/>
+                        <div>
+                            <VChart :option="ep1RouteOptions" class="normal-chart"/>
+                        </div>
                     </div>
                 </div>
                 <div v-else>
