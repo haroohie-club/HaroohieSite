@@ -24,6 +24,7 @@ if (customized && json.hasFriendship) {
             name: t('chokuretsu-wrapped-your-data'),
             type: 'bar',
             data: [ 10, 1, 5, 7, 8 ],
+            itemStyle: { color: 'gold' },
             barGap: '20%'
         }
     )
@@ -178,6 +179,91 @@ const ep1NumCompSocMembersInterviewedOptions = ref<ECOption>({
     }
 })
 
+const routeMapXAxis = ['Episode 1', 'Episode 2', 'Episode 3A', 'Episode 3B', 'Episode 4A', 'Episode 4B', 'Episode 5'];
+let routeYAxisDict: { name: string, obj: string }[] = []
+const objectives = ['A', 'B', 'C', 'D']
+let routeMapData: any[] = []
+let objective = ''
+let currentY = 0
+for (let i = 0; i < json.routesTaken.length; i++) {
+    for (let j = 0; j < json.routesTaken[i].length; j++) {
+        if (json.routesTaken[i][j].route.objective != objective) {
+            currentY = 1;
+            objective = json.routesTaken[i][j].route.objective;
+        } else {
+            currentY++;
+        }
+        routeYAxisDict.push({ name: json.routesTaken[i][j].route.name, obj: `${objectives[json.routesTaken[i][j].route.objective]}${currentY}` });
+        routeMapData.push(Object({
+            name: t(json.routesTaken[i][j].route.name),
+            value: [ routeMapXAxis[i], `${objectives[json.routesTaken[i][j].route.objective]}${currentY}`, json.routesTaken[i][j].count ],
+        }))
+    }
+}
+let routeMapSeries: any[] = [
+    {
+        type: 'heatmap',
+        data: routeMapData,
+        emphasis: {
+            itemStyle: {
+                borderColor: '#333',
+                borderWidth: 1
+            }
+        },
+        progressive: 1000,
+    }
+];
+if (customized) {
+    let saveRouteData: any[] = []
+    for (let i = 0; i < json.saveData.routesTaken.length; i++) {
+        saveRouteData.push(Object({
+            name: t(json.saveData.routesTaken[i].name),
+            value: [ routeMapXAxis[i], routeYAxisDict.filter(y => y.name == json.saveData.routesTaken[i].name)[0].obj ]
+        }))
+    }
+    routeMapSeries.push({
+        name: t('chokuretsu-wrapped-your-route'),
+        type: 'line',
+        data: saveRouteData,
+        lineStyle: { color: 'goldenrod' }
+    })
+}
+
+const routeMapOption = ref<ECOption>({
+    tooltip: {},
+    xAxis: {
+        type: 'category',
+        data: routeMapXAxis,
+    },
+    yAxis: {
+        type: 'category',
+        data: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8'],
+    },
+    visualMap: {
+        min: 0,
+        max: json.routesCountMax,
+        calculable: true,
+        realtime: false,
+        left: 'left',
+        inRange: {
+            color: [
+                '#313695',
+                '#4575b4',
+                '#74add1',
+                '#5de9af',
+                '#9df899',
+                '#fffa72',
+                '#fee090',
+                '#fdae61',
+                '#f46d43',
+                '#d73027',
+                '#a50026'
+            ]
+        }
+    },
+    series: routeMapSeries,
+})
+
 provide(THEME_KEY, 'light')
 </script>
 
@@ -213,6 +299,10 @@ provide(THEME_KEY, 'light')
                         <div>
                             <VChart :option="ep1NumCompSocMembersInterviewedOptions" class="normal-chart"/>
                         </div>
+                    </div>
+                    <h2>{{ t('chokuretsu-wrapped-route-map') }}</h2>
+                    <div class="charts">
+                        <VChart :option="routeMapOption" class="tall-chart"/>
                     </div>
                 </div>
                 <div v-else>
@@ -254,8 +344,16 @@ definePageMeta({
     height: 300px;
 }
 
+.tall-chart {
+    height: 500px;
+}
+
 @media screen and (min-width: 300px) {
     .normal-chart {
+        width: 300px;
+    }
+
+    .tall-chart {
         width: 300px;
     }
 }
@@ -263,10 +361,18 @@ definePageMeta({
     .normal-chart {
         width: 400px;
     }
+
+    .tall-chart {
+        width: 400px;
+    }
 }
 @media screen and (min-width: 500px) {
     .normal-chart {
         width: 500px;
+    }
+
+    .tall-chart {
+        width: 700px;
     }
 }
 </style>
