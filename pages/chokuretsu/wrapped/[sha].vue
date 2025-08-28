@@ -24,7 +24,7 @@ if (customized && json.hasFriendship) {
             name: t('chokuretsu-wrapped-your-data'),
             type: 'bar',
             data: [ 10, 1, 5, 7, 8 ],
-            barGap: '20%',
+            barGap: '20%'
         }
     )
 }
@@ -33,6 +33,12 @@ const friendshipOptions = ref<ECOption>({
         text: t('chokuretsu-wrapped-friendship-level'),
         left: 'center',
     },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
     legend: {
         data: friendshipLegend,
     },
@@ -40,7 +46,7 @@ const friendshipOptions = ref<ECOption>({
     xAxis: [
         {
             type: 'category',
-            data: [ t('chokuretsu-wrapped-haruhi-ending'), t('chokuretsu-wrapped-mikuru-ending'), t('chokuretsu-wrapped-nagato-ending'), t('chokuretsu-wrapped-koizumi-ending'), t('chokuretsu-wrapped-tsuruya-ending') ]
+            data: [ t('chokuretsu-wrapped-haruhi'), t('chokuretsu-wrapped-mikuru'), t('chokuretsu-wrapped-nagato'), t('chokuretsu-wrapped-koizumi'), t('chokuretsu-wrapped-tsuruya') ]
         }
     ],
     yAxis: [
@@ -50,32 +56,129 @@ const friendshipOptions = ref<ECOption>({
     ]
 });
 
+
 const endingOptions = ref<ECOption>({
     title: {
         text: t('chokuretsu-wrapped-ending'),
         left: 'center',
     },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.endingChart).map(k => Object({
+            name: t(k),
+            value: json.endingChart[k],
+            itemStyle: customized && json.saveData?.unlockedEnding == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const topicsObtainedOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-topics'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
     series: {
         type: 'bar',
-        data: Object.values(json.endingChart),
-        barGap: '20%'
+        barWidth: '2%',
+        data: Object.keys(json.topicsObtainedChart).map(k => Object({
+            value: [ parseInt(k), json.topicsObtainedChart[k] ],
+            itemStyle: customized && json.saveData?.topicsObtained == k ? { color: 'gold' } : {},
+        }))
     },
-    xAxis:{
-        type: 'category',
-        data: Object.keys(json.endingChart).map(k => t(k)),
+    xAxis: {
+        type: 'value',
     },
     yAxis: {
         type: 'value'
     }
 })
 
-const initOptions = computed(() => ({
-    height: 300,
-    width: 500,
-}))
+const sawGameOverTutorialOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-game-over-tutorial'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.sawGameOverTutorialChart).map(k => Object({
+            name: t(k),
+            value: json.sawGameOverTutorialChart[k],
+            itemStyle: customized && ((json.saveData?.sawGameOverTutorial && k == 'chokuretsu-wrapped-game-over-saw') || (!json.saveData?.sawGameOverTutorial && k == 'chokuretsu-wrapped-game-over-didnt-see')) ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep1ActivityGuessOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep1-activity'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep1ActivityGuessChart).map(k => Object({
+            name: t(k),
+            value: json.ep1ActivityGuessChart[k],
+            itemStyle: customized && json.saveData?.ep1ActivityGuess == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep1NumCompSocMembersInterviewedOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep1-comp-soc-interviews'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    series: {
+        type: 'bar',
+        barWidth: '20%',
+        data: Object.keys(json.numCompSocMembersInterviewedChart).map(k => Object({
+            value: [ parseInt(k), json.numCompSocMembersInterviewedChart[k] ],
+            itemStyle: customized && json.saveData?.numCompSocMembersInterviewed == k ? { color: 'gold' } : {},
+        })),
+        barGap: '10%',
+    },
+    xAxis: {
+        type: 'value',
+    },
+    yAxis: {
+        type: 'value'
+    }
+})
 
 provide(THEME_KEY, 'light')
-provide(INIT_OPTIONS_KEY, initOptions);
 </script>
 
 <template>
@@ -83,12 +186,33 @@ provide(INIT_OPTIONS_KEY, initOptions);
         <NuxtLayout>
             <div class="center">
                 <h1>{{ customized ? $t('chokuretsu-wrapped-yours') : $t('chokuretsu-wrapped') }}</h1>
-                <div v-if="json != null" class="charts">
-                    <div>
-                        <VChart :option="friendshipOptions"/>
+                <p>
+                    <em>Number of saves submitted: {{ json.numSubmissions }}</em>
+                </p>
+                <div v-if="json != null">
+                    <h2>{{ t('chokuretsu-wrapped-game-stats') }}</h2>
+                    <div class="charts">
+                        <div>
+                            <VChart :option="friendshipOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="endingOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="topicsObtainedOptions" class="normal-chart"/>
+                        </div>
                     </div>
-                    <div>
-                        <VChart :option="endingOptions"/>
+                    <h2>{{ t('chokuretsu-wrapped-ep1') }}</h2>
+                    <div class="charts">
+                        <div>
+                            <VChart :option="sawGameOverTutorialOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep1ActivityGuessOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep1NumCompSocMembersInterviewedOptions" class="normal-chart"/>
+                        </div>
                     </div>
                 </div>
                 <div v-else>
@@ -123,6 +247,26 @@ definePageMeta({
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-basis: content;
+    justify-content: space-around;
+}
+
+.normal-chart {
+    height: 300px;
+}
+
+@media screen and (min-width: 300px) {
+    .normal-chart {
+        width: 300px;
+    }
+}
+@media screen and (min-width: 400px) {
+    .normal-chart {
+        width: 400px;
+    }
+}
+@media screen and (min-width: 500px) {
+    .normal-chart {
+        width: 500px;
+    }
 }
 </style>

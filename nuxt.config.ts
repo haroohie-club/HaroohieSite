@@ -68,7 +68,7 @@ export default {
 
   echarts: {
       renderer: ['svg', 'canvas'],
-      charts: ['BarChart', 'PieChart'],
+      charts: ['BarChart', 'PieChart', 'LineChart'],
       components: ['DatasetComponent', 'GridComponent', 'TooltipComponent', 'TitleComponent', 'LegendComponent'],
       features: ['LabelLayout', 'UniversalTransition'],
   },

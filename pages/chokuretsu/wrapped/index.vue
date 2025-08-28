@@ -40,6 +40,9 @@ async function submit() {
             <div class="center paragraph">
                 <p>{{ t('chokuretsu-wrapped-explanation') }}</p>
                 <p>{{ t('chokuretsu-wrapped-explanation2') }}</p>
+                <div>
+                    <ButtonLink link="results" color="blue" icon="fa6-solid:chart-column">{{ $t('chokuretsu-wrapped-view-results') }}</ButtonLink>
+                </div>
             </div>
 
             <div class="center paragraph">
@@ -73,6 +76,7 @@ definePageMeta({
 }
 
 .input-file {
+    margin: 3em 0 0 0;
     padding: 2em 2vw;
     border: #31343a dashed 0.2em;
     border-radius: 0.8em;
