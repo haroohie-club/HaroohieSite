@@ -238,6 +238,9 @@ const routeMapOption = ref<ECOption>({
     yAxis: {
         type: 'category',
         data: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8'],
+        axisLabel: {
+            show: false
+        }
     },
     visualMap: {
         min: 0,
@@ -302,7 +305,7 @@ provide(THEME_KEY, 'light')
                     </div>
                     <h2>{{ t('chokuretsu-wrapped-route-map') }}</h2>
                     <div class="charts">
-                        <VChart :option="routeMapOption" class="tall-chart"/>
+                        <VChart :option="routeMapOption" class="large-chart"/>
                     </div>
                 </div>
                 <div v-else>
@@ -344,7 +347,7 @@ definePageMeta({
     height: 300px;
 }
 
-.tall-chart {
+.large-chart {
     height: 500px;
 }
 
@@ -353,7 +356,7 @@ definePageMeta({
         width: 300px;
     }
 
-    .tall-chart {
+    .large-chart {
         width: 300px;
     }
 }
@@ -362,7 +365,7 @@ definePageMeta({
         width: 400px;
     }
 
-    .tall-chart {
+    .large-chart {
         width: 400px;
     }
 }
@@ -371,8 +374,8 @@ definePageMeta({
         width: 500px;
     }
 
-    .tall-chart {
-        width: 700px;
+    .large-chart {
+        width: 900px;
     }
 }
 </style>
