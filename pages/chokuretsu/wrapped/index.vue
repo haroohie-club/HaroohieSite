@@ -14,8 +14,8 @@ async function submit() {
         method: "POST",
         body: formData,
     }).then(async (res) => {
-        if (res == 'ERR_NO_SAVE_DATA') {
-            toast.error({ title: 'Error!', message: t('chokuretsu-wrapped-no-save-provided'), timeout: 5000, position: 'center' });
+        if (res == 'ERR_NOT_A_SAVE_FILE') {
+            toast.error({ title: 'Error!', message: t('chokuretsu-wrapped-not-a-save-file'), timeout: 5000, position: 'center' });
             return;
         }
         if (res == 'ERR_INVALID_SAVE') {
@@ -41,7 +41,7 @@ async function submit() {
                 <p>{{ t('chokuretsu-wrapped-explanation') }}</p>
                 <p>{{ t('chokuretsu-wrapped-explanation2') }}</p>
                 <div>
-                    <ButtonLink link="results" color="blue" icon="fa6-solid:chart-column">{{ $t('chokuretsu-wrapped-view-results') }}</ButtonLink>
+                    <ButtonLink :link="localePath('/chokuretsu/wrapped/results')" color="blue" icon="fa6-solid:chart-column">{{ $t('chokuretsu-wrapped-view-results') }}</ButtonLink>
                 </div>
             </div>
 

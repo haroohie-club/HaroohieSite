@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { format } from 'echarts';
+
 const { t } = useI18n()
 const route = useRoute()
 
@@ -17,7 +19,7 @@ let friendshipSeries: any = [
         barGap: '20%',
     },
 ]
-if (customized && json.hasFriendship) {
+if (customized && json.saveData?.hasFriendship) {
     friendshipLegend.push(t('chokuretsu-wrapped-your-data'))
     friendshipSeries.push(
         {
@@ -52,7 +54,9 @@ const friendshipOptions = ref<ECOption>({
     ],
     yAxis: [
         {
-            type: 'value'
+            name: t('chokuretsu-wrapped-friendship-level-axis'),
+            type: 'value',
+            nameLocation: 'middle',
         }
     ]
 });
@@ -92,17 +96,20 @@ const topicsObtainedOptions = ref<ECOption>({
     },
     series: {
         type: 'bar',
-        barWidth: '2%',
         data: Object.keys(json.topicsObtainedChart).map(k => Object({
             value: [ parseInt(k), json.topicsObtainedChart[k] ],
             itemStyle: customized && json.saveData?.topicsObtained == k ? { color: 'gold' } : {},
         }))
     },
     xAxis: {
+        name: t('chokuretsu-wrapped-obtained'),
         type: 'value',
+        nameLocation: 'middle',
     },
     yAxis: {
-        type: 'value'
+        name: t('chokuretsu-wrapped-num-players'),
+        type: 'value',
+        nameLocation: 'middle',
     }
 })
 
@@ -111,24 +118,28 @@ let haruhiMeterData: any[] = [
         value: json.averageHaruhiMeter,
         name: t('chokuretsu-wrapped-average-data'),
         title: {
-            offsetCenter: ['0%', '30%']
+            offsetCenter: ['0%', '60%']
         },
         detail: {
             valueAnimation: true,
-            offsetCenter: ['0%', '50%']
+            offsetCenter: ['0%', '80%'],
+            formatter: (value: number) => `${value}%`
         }
     }
 ]
 if (customized) {
+    haruhiMeterData[0].title.offsetCenter = [ '35%', '80%' ]
+    haruhiMeterData[0].detail.offsetCenter = ['35%', '100%' ]
     haruhiMeterData.push({
         value: json.saveData?.haruhiMeter,
         name: t('chokuretsu-wrapped-your-data'),
         title: {
-            offsetCenter: ['0%', '80%']
+            offsetCenter: ['-35%', '80%']
         },
         detail: {
             valueAnimation: true,
-            offsetCenter: ['0%', '100%']
+            offsetCenter: ['-35%', '100%'],
+            formatter: (value: number) => `${value}%`
         },
         itemStyle: { color: 'gold' },
     })
@@ -176,23 +187,16 @@ const haruhiMeterOptions = ref<ECOption>({
 })
 
 const routeMapXAxis = ['Episode 1', 'Episode 2', 'Episode 3A', 'Episode 3B', 'Episode 4A', 'Episode 4B', 'Episode 5'];
-let routeYAxisDict: { name: string, obj: string }[] = []
-const objectives = ['A', 'B', 'C', 'D']
+let routeYAxisDict: { name: string, idx: number }[] = []
 let routeMapData: any[] = []
-let objective = ''
-let currentY = 0
 for (let i = 0; i < json.routesTaken.length; i++) {
+    let currentY = 0
     for (let j = 0; j < json.routesTaken[i].length; j++) {
-        if (json.routesTaken[i][j].route.objective != objective) {
-            currentY = 1;
-            objective = json.routesTaken[i][j].route.objective;
-        } else {
-            currentY++;
-        }
-        routeYAxisDict.push({ name: json.routesTaken[i][j].route.name, obj: `${objectives[json.routesTaken[i][j].route.objective]}${currentY}` });
+        currentY++;
+        routeYAxisDict.push({ name: json.routesTaken[i][j].route.name, idx: currentY });
         routeMapData.push(Object({
             name: t(json.routesTaken[i][j].route.name),
-            value: [ routeMapXAxis[i], `${objectives[json.routesTaken[i][j].route.objective]}${currentY}`, json.routesTaken[i][j].count ],
+            value: [ routeMapXAxis[i], currentY, json.routesTaken[i][j].count ],
         }))
     }
 }
@@ -202,7 +206,7 @@ let routeMapSeries: any[] = [
         data: routeMapData,
         emphasis: {
             itemStyle: {
-                borderColor: '#333',
+                borderColor: '#aaa',
                 borderWidth: 1
             }
         },
@@ -214,7 +218,7 @@ if (customized) {
     for (let i = 0; i < json.saveData.routesTaken.length; i++) {
         saveRouteData.push(Object({
             name: t(json.saveData.routesTaken[i].name),
-            value: [ routeMapXAxis[i], routeYAxisDict.filter(y => y.name == json.saveData.routesTaken[i].name)[0].obj ]
+            value: [ routeMapXAxis[i], routeYAxisDict.filter(y => y.name == json.saveData.routesTaken[i].name)[0].idx ]
         }))
     }
     routeMapSeries.push({
@@ -237,7 +241,7 @@ const routeMapOption = ref<ECOption>({
     },
     yAxis: {
         type: 'category',
-        data: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8'],
+        data: [...new Set(routeYAxisDict.map(y => y.idx))],
         axisLabel: {
             show: false
         }
@@ -311,7 +315,64 @@ const routeByCharactersOptions = ref<ECOption>({
     ],
     yAxis: [
         {
-            type: 'value'
+            name: t('chokuretsu-wrapped-num-routes'),
+            type: 'value',
+            nameLocation: 'middle',
+        }
+    ]
+});
+
+let routeBySideCharactersLegend: any = [ t('chokuretsu-wrapped-average-data') ]
+let routeBySideCharactersSeries: any = [
+    {
+        name: t('chokuretsu-wrapped-average-data'),
+        type: 'bar',
+        data: Object.values(json.averageRoutesWithSideCharacter),
+        barGap: '20%',
+    },
+]
+if (customized) {
+    routeBySideCharactersLegend.push(t('chokuretsu-wrapped-your-data'))
+    routeBySideCharactersSeries.push(
+        {
+            name: t('chokuretsu-wrapped-your-data'),
+            type: 'bar',
+            data: Object.values(json.saveData?.routesWithSideCharacter),
+            itemStyle: { color: 'gold' },
+            barGap: '20%'
+        }
+    )
+}
+const routeBySideCharactersOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-routes-meeting-side-char'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        data: routeBySideCharactersLegend,
+        bottom: -4,
+    },
+    series: routeBySideCharactersSeries,
+    xAxis: [
+        {
+            type: 'category',
+            data: Object.keys(json.averageRoutesWithSideCharacter).map(c => t(c)),
+            axisLabel: {
+                rotate: 80,
+            },
+        }
+    ],
+    yAxis: [
+        {
+            name: t('chokuretsu-wrapped-num-routes'),
+            type: 'value',
+            nameLocation: 'middle',
         }
     ]
 });
@@ -381,10 +442,14 @@ const ep1NumCompSocMembersInterviewedOptions = ref<ECOption>({
         barGap: '10%',
     },
     xAxis: {
+        name: t('chokuretsu-wrapped-num-interviews'),
         type: 'value',
+        nameLocation: 'middle',
     },
     yAxis: {
-        type: 'value'
+        name: t('chokuretsu-wrapped-num-players'),
+        type: 'value',
+        nameLocation: 'middle',
     }
 })
 
@@ -395,7 +460,8 @@ const ep1RouteOptions = ref<ECOption>({
     },
     tooltip: {
         trigger: 'item',
-        formatter: '{b}: {c} ({d}%)'
+        formatter: '{b}: {c} ({d}%)',
+        position: 'right',
     },
     series: {
         type: 'pie',
@@ -422,7 +488,7 @@ provide(THEME_KEY, 'light')
             <div class="center">
                 <h1>{{ customized ? $t('chokuretsu-wrapped-yours') : $t('chokuretsu-wrapped') }}</h1>
                 <p>
-                    <em>Number of saves submitted: {{ json.numSubmissions }}</em>
+                    <em>{{ t('chokuretsu-wrapped-num-submissions') }}{{ json.numSubmissions }}</em>
                 </p>
                 <div v-if="json != null">
                     <h2>{{ t('chokuretsu-wrapped-game-stats') }}</h2>
@@ -445,10 +511,18 @@ provide(THEME_KEY, 'light')
                         <VChart :option="routeMapOption" class="large-chart"/>
                     </div>
                     <div class="charts">
-                        <VChart :option="routeByCharactersOptions" class="normal-chart"/>
+                        <div>
+                            <VChart :option="routeByCharactersOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="routeBySideCharactersOptions" class="normal-chart"/>
+                        </div>
                     </div>
                     <h2>{{ t('chokuretsu-wrapped-ep1') }}</h2>
                     <div class="charts">
+                        <div>
+                            <VChart :option="ep1RouteOptions" class="normal-chart"/>
+                        </div>
                         <div>
                             <VChart :option="sawGameOverTutorialOptions" class="normal-chart"/>
                         </div>
@@ -457,9 +531,6 @@ provide(THEME_KEY, 'light')
                         </div>
                         <div>
                             <VChart :option="ep1NumCompSocMembersInterviewedOptions" class="normal-chart"/>
-                        </div>
-                        <div>
-                            <VChart :option="ep1RouteOptions" class="normal-chart"/>
                         </div>
                     </div>
                 </div>
