@@ -118,12 +118,15 @@ let topicsObtainedYAxis = []
 let topicsObtainedData = []
 let saveTopicsData: any[] = []
 let topicIdx = 0
+let doBorder = false
+
 for (let y = 0; y <= Math.sqrt(json.topicsObtained.length) && topicIdx < json.topicsObtained.length; y++) {
     for (let x = 0; x <= Math.sqrt(json.topicsObtained.length) && topicIdx < json.topicsObtained.length; x++) {
         topicsObtainedYAxis.push(x);
         topicsObtainedData.push(Object({
             name: `${t(json.topicsObtained[topicIdx].topic.name)} (Episode ${json.topicsObtained[topicIdx].topic.episode}, ${t(`chokuretsu-wrapped-topic-type-${json.topicsObtained[topicIdx].topic.type}`)})`,
-            value: [x, y, json.topicsObtained[topicIdx].count]
+            value: [x, y, json.topicsObtained[topicIdx].count],
+            groupId: t(`chokuretsu-wrapped-topic-type-${json.topicsObtained[topicIdx].topic.type}`)
         }))
         if (customized && json.saveData?.topicsObtained.filter((t: any) => t.flag == json.topicsObtained[topicIdx].topic.flag).length > 0) {
             saveTopicsData.push(Object({
@@ -136,6 +139,7 @@ for (let y = 0; y <= Math.sqrt(json.topicsObtained.length) && topicIdx < json.to
         }
         topicIdx++;
     }
+    doBorder = false;
     topicsObtainedXAxis.push(y);
 }
 let topicsObtainedSeries: any[] = [
@@ -178,7 +182,8 @@ const topicsObtainedOptions = ref<ECOption>({
         data: [...new Set(topicsObtainedYAxis)],
         axisLabel: {
             show: false
-        }
+        },
+        inverse: true,
     },
     visualMap: {
         min: 0,
@@ -336,7 +341,8 @@ const routeMapOption = ref<ECOption>({
         data: [...new Set(routeYAxisDict.map(y => y.idx))],
         axisLabel: {
             show: false
-        }
+        },
+        inverse: true,
     },
     visualMap: {
         min: 0,
@@ -545,6 +551,50 @@ const ep1NumCompSocMembersInterviewedOptions = ref<ECOption>({
     }
 })
 
+const ep1MemoryCardActionOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep1-memory-card-action'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep1MemoryCardChart).map(k => Object({
+            name: t(k),
+            value: json.ep1MemoryCardChart[k],
+            itemStyle: customized && json.saveData?.ep1DidWhatWithMemoryCard == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep1ResolutionOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep1-resolution'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep1ResolutionChart).map(k => Object({
+            name: t(k),
+            value: json.ep1ResolutionChart[k],
+            itemStyle: customized && json.saveData?.ep1Resolution == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
 const ep1RouteOptions = ref<ECOption>({
     title: {
         text: t('chokuretsu-wrapped-route-selection'),
@@ -570,6 +620,33 @@ const ep1RouteOptions = ref<ECOption>({
         },
     },
 })
+
+const ep2RouteOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-route-selection'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)',
+        position: 'right',
+    },
+    series: {
+        type: 'pie',
+        data: json.routesTaken[1].map((r: { route: any; count: number; }) => Object({
+            name: t(r.route.name),
+            value: r.count,
+            itemStyle: customized && json.saveData?.routesTaken[1].name == r.route.name ? { color: 'gold' } : {},
+        })),
+        label: {
+            show: false,
+        },
+        labelLine: {
+            show: false,
+        },
+    },
+})
+
 
 provide(THEME_KEY, 'light')
 </script>
@@ -627,6 +704,27 @@ provide(THEME_KEY, 'light')
                         <div>
                             <VChart :option="ep1NumCompSocMembersInterviewedOptions" class="normal-chart"/>
                         </div>
+                        <div>
+                            <VChart :option="ep1MemoryCardActionOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep1ResolutionOptions" class="normal-chart"/>
+                        </div>
+                    </div>
+                    <h2>{{ t('chokuretsu-wrapped-ep2') }}</h2>
+                    <div class="charts">
+                        <div>
+                            <VChart :option="ep2RouteOptions" class="normal-chart"/>
+                        </div>
+                    </div>
+                    <h2>{{ t('chokuretsu-wrapped-ep3') }}</h2>
+                    <div class="charts">
+                    </div>
+                    <h2>{{ t('chokuretsu-wrapped-ep4') }}</h2>
+                    <div class="charts">
+                    </div>
+                    <h2>{{ t('chokuretsu-wrapped-ep5') }}</h2>
+                    <div class="charts">
                     </div>
                 </div>
                 <div v-else>
