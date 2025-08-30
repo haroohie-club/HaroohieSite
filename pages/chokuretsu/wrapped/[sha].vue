@@ -83,7 +83,7 @@ const endingOptions = ref<ECOption>({
     },
 })
 
-const topicsObtainedOptions = ref<ECOption>({
+const numTopicsObtainedOptions = ref<ECOption>({
     title: {
         text: t('chokuretsu-wrapped-topics'),
         left: 'center',
@@ -98,7 +98,7 @@ const topicsObtainedOptions = ref<ECOption>({
         type: 'bar',
         data: Object.keys(json.topicsObtainedChart).map(k => Object({
             value: [ parseInt(k), json.topicsObtainedChart[k] ],
-            itemStyle: customized && json.saveData?.topicsObtained == k ? { color: 'gold' } : {},
+            itemStyle: customized && json.saveData?.numTopicsObtained == k ? { color: 'gold' } : {},
         }))
     },
     xAxis: {
@@ -111,6 +111,98 @@ const topicsObtainedOptions = ref<ECOption>({
         type: 'value',
         nameLocation: 'middle',
     }
+})
+
+let topicsObtainedXAxis = []
+let topicsObtainedYAxis = []
+let topicsObtainedData = []
+let saveTopicsData: any[] = []
+let topicIdx = 0
+for (let y = 0; y <= Math.sqrt(json.topicsObtained.length) && topicIdx < json.topicsObtained.length; y++) {
+    for (let x = 0; x <= Math.sqrt(json.topicsObtained.length) && topicIdx < json.topicsObtained.length; x++) {
+        topicsObtainedYAxis.push(x);
+        topicsObtainedData.push(Object({
+            name: `${t(json.topicsObtained[topicIdx].topic.name)} (Episode ${json.topicsObtained[topicIdx].topic.episode}, ${t(`chokuretsu-wrapped-topic-type-${json.topicsObtained[topicIdx].topic.type}`)})`,
+            value: [x, y, json.topicsObtained[topicIdx].count]
+        }))
+        if (customized && json.saveData?.topicsObtained.filter((t: any) => t.flag == json.topicsObtained[topicIdx].topic.flag).length > 0) {
+            saveTopicsData.push(Object({
+                name: t(json.topicsObtained[topicIdx].topic.name),
+                value: [x, y],
+                itemStyle: {
+                    color: 'black',
+                },
+            }))
+        }
+        topicIdx++;
+    }
+    topicsObtainedXAxis.push(y);
+}
+let topicsObtainedSeries: any[] = [
+    {
+        type: 'heatmap',
+        data: topicsObtainedData,
+        emphasis: {
+            itemStyle: {
+                borderColor: '#aaa',
+                borderWidth: 1
+            }
+        },
+        progressive: 1000,
+    }
+]
+if (customized) {
+    topicsObtainedSeries.push({
+        name: t('chokuretsu-wrapped-your-data'),
+        type: 'scatter',
+        data: saveTopicsData,
+    })
+}
+const topicsObtainedOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-topics-obtained'),
+        left: 'center',
+    },
+    tooltip: {
+        formatter: '{b}'
+    },
+    xAxis: {
+        type: 'category',
+        data: topicsObtainedXAxis,
+        axisLabel: {
+            show: false
+        }
+    },
+    yAxis: {
+        type: 'category',
+        data: [...new Set(topicsObtainedYAxis)],
+        axisLabel: {
+            show: false
+        }
+    },
+    visualMap: {
+        min: 0,
+        max: Math.max.apply(Math, json.topicsObtained.map((t: any) => t.count)),
+        calculable: true,
+        realtime: false,
+        left: 'left',
+        inRange: {
+            color: [
+                '#313695',
+                '#4575b4',
+                '#74add1',
+                '#5de9af',
+                '#9df899',
+                '#fffa72',
+                '#fee090',
+                '#fdae61',
+                '#f46d43',
+                '#d73027',
+                '#a50026'
+            ]
+        }
+    },
+    series: topicsObtainedSeries,
 })
 
 let haruhiMeterData: any[] = [
@@ -500,10 +592,13 @@ provide(THEME_KEY, 'light')
                             <VChart :option="endingOptions" class="normal-chart"/>
                         </div>
                         <div>
-                            <VChart :option="topicsObtainedOptions" class="normal-chart"/>
+                            <VChart :option="numTopicsObtainedOptions" class="normal-chart"/>
                         </div>
                         <div>
                             <VChart :option="haruhiMeterOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="topicsObtainedOptions" class="large-chart"/>
                         </div>
                     </div>
                     <h2>{{ t('chokuretsu-wrapped-routes') }}</h2>
