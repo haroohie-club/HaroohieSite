@@ -48,7 +48,7 @@ jobs:
           node-version: '22'
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }} && npm i -g nuxt
       - name: Nuxt build
         run: nuxt build
         env:
