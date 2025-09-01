@@ -12,9 +12,9 @@ usare la funzione cerca con le musiche.
 
 ![Background music editor with loop editing](/images/chokuretsu/serial-loops/bgm-loop-editing.png)
 
-## Sostituire
-Tutta la musica può essere sostituita con un click. I formati supportati sono: WAV, FLAC, MP3 e OGG (Vorbis).
-Per ripristinare le tracce originali, clicca il pulsante "Ripristina".
+## Replacement
+All background music can be replaced with a click of a button. The replacement currently supports conversion from WAV, FLAC, MP3, and OGG (Vorbis/Opus) formats.
+If at any point you want to revert to the game's original music, you can hit the "Restore" button to do so.
 
 ## Adjusting Volume
 Pressing the "Adjust Volume" button brings up a modal for doing just that. Chokuretsu's music is quieter than a lot of other tracks, so being able to tamp

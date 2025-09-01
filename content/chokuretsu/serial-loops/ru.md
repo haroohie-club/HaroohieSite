@@ -47,19 +47,18 @@ limit: 2
 Установка доступна для Windows, macOS (Intel и Apple Silicon) и Linux [на GitHub](https://github.com/haroohie-club/SerialLoops/releases). Мы предлагаем как релизные (рекомендуется), так и пре-релизные сборки.
 
 
-::button-link
+::loopy-download-stack
 ---
+buttonLink: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
 color: 'sl-blue'
-icon: 'fa6-solid:download'
-link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
+flathubId: 'club.haroohie.SerialLoops'
 ---
-Скачать последнюю версию
 ::
 
 
 ## Баги
-Пожалуйста, сообщайте о багах в нашем [трекере багов GitHub] (https://github.com/haroohie-club/SerialLoops). Пожалуйста, укажите следующую информацию:
-* Платформа, на которой вы используете Serial Loops.
-* Версия прошивки Последовательностей Харухи Судзумии, которую вы используете (японская, исправленная английская прошивка и т. д.)
-* Описание действий, необходимых для воспроизведения проблемы.
-* Соответствующие журналы проблемы (можно найти в ~/SerialLoops/Logs)
+Пожалуйста, отправляйте сообщения об ошибках на наш [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Пожалуйста, включите следующую информацию:
+* Платформа, на которой вы запускаете Serial Loops
+* Версия используемой вами прошивки Последовательностей (японская, пропатченная английская версия ROM и т. д.)
+* Описание шагов, необходимых для воспроизведения проблемы
+* Соответствующие логи проблемы (их можно найти с помощью «Просмотр журналов» или «Просмотр журналов сбоев», оба в меню «Файл», в зависимости от типа ошибки)

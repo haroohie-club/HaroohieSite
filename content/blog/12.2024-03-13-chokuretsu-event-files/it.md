@@ -1,6 +1,6 @@
 ---
-title: &title "Chokuretsu ROM Hacking Challenges Part 4 – Event File Excavation"
-description: &desc "Jonko digs into the event files to figure out how to translate the game"
+title: &title "Sfide nel ROM Hacking di Chokuretsu Parte 3 – Scavo dei File degli Eventi"
+description: &desc "Jonko approfondisce i file degli eventi per capire come tradurre il gioco"
 navigation:
   description: *desc
   author: 'Jonko'
@@ -35,32 +35,32 @@ head:
     value: 'summary_large_image'
 ---
 
-In my first few posts, I explained how I figured out how to extract files from the different Chokuretsu archives. This post is the start of the next series where we delve into how I reverse-engineered the contents of those files for the purpose of translating the game. Today, we’re covering the backbone of the game’s script – the _event files_. This is intended to serve as both an explanation of how I reverse-engineered these files and an introduction to trying to reverse-engineer files.
+Nei miei primi post, ho spiegato come ho capito il metodo per estrarre i file dai vari archivi di Chokuretsu. Questo post è l'inizio della serie successiva dove vedremo come ho fatto il reverse-engineering dei contenuti di quei file con lo scopo di tradurre il gioco. Oggi, parleremo della base dello script del gioco – i _file degli eventi_. Questo post fa sia da spiegazione di come ho fatto il reverse-engineering di questi file, sia da introduzione sul reverse-engineering dei file in generale.
 
-## A Very Good Place to Start
-At the _very_ beginning of my work on the event files, I had cracked the compression algorithm, but not the archives. This meant I was able to view the files but not yet reinsert them into the game. That’s okay, though! A great place to start when looking at a file is to… well, look at it. Specifically, let's crack open the hex editor and see what we can find.
+## Un Buonissimo Punto per Iniziare
+Al _vero e proprio_ inizio del mio lavoro sui file degli eventi, craccai l'algoritmo di compressione, ma non gli archivi. Questo significa che ero in grado di vedere i file, ma non di reinserirli nel gioco. Però, non è un problema! Un buon punto per iniziare a guardare un file è… beh, guardarlo. In particolare, apriamo l'editor esadecimale e andiamo a vedere quello che troviamo.
 
-So this is the first event file in the game (technically it’s the second chronologically and the 360th in the archive, but don’t worry about that right now):
+Quindi questo è il primo file evento del gioco (tecnicamente sarebbe il secondo in ordine cronologico e il numero 360 nell'archivio, ma al momento non importa):
 
 ::image-gallery
 ----
 images: [
-    {url: '/images/blog/0012/01_file01.png', alt: 'Event file part 1'},
-    {url: '/images/blog/0012/02_file02.png', alt: 'Event file part 2'},
-    {url: '/images/blog/0012/03_file03.png', alt: 'Event file part 3'},
-    {url: '/images/blog/0012/04_file04.png', alt: 'Event file part 4'},
-    {url: '/images/blog/0012/05_file05.png', alt: 'Event file part 5'},
-    {url: '/images/blog/0012/06_file06.png', alt: 'Event file part 6'},
-    {url: '/images/blog/0012/07_file07.png', alt: 'Event file part 7'},
+    {url: '/images/blog/0012/01_file01.png', alt: 'File evento parte 1'},
+    {url: '/images/blog/0012/02_file02.png', alt: 'File evento parte 2'},
+    {url: '/images/blog/0012/03_file03.png', alt: 'File evento parte 3'},
+    {url: '/images/blog/0012/04_file04.png', alt: 'File evento parte 4'},
+    {url: '/images/blog/0012/05_file05.png', alt: 'File evento parte 5'},
+    {url: '/images/blog/0012/06_file06.png', alt: 'File evento parte 6'},
+    {url: '/images/blog/0012/07_file07.png', alt: 'File evento parte 7'},
 ]
 ----
 ::
 
-That’s it in all its 7.06 KiB of glory. I’m reproducing the entire file here for two reasons – one, so we can reference these images in context (I’ll make sure to mention the number you see above each screenshot when referencing something in that image), but also two, so that you can see how intimidating a file like this can look at first glance. That’s a lot of data! But not to worry – we can figure it out!
+Eccolo qui in tutta la sua gloria da 7.06KiB. Sto riproducendo qui il file intero per due motivi – one, so we can reference these images in context (I’ll make sure to mention the number you see above each screenshot when referencing something in that image), but also two, so that you can see how intimidating a file like this can look at first glance. That’s a lot of data! But not to worry – we can figure it out!
 
-As I mentioned, the above images are screenshots of a hex editor. In case you’ve forgotten how hexadecimal works, here’s a quick summary from the [compression blog post](/blog/2022-10-19-chokuretsu-compression):
+Come ho detto prima, le immagini qua sopra sono gli screenshot di un editor esadecimale. In caso vi siate dimenticati come funziona l'esadecimale, ecco un breve riassunto dal [post della compressione](/it/blog/2022-10-19-chokuretsu-compression)
 
-> Hexadecimal is also called base 16 – while we normally use decimal (base 10 – i.e. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) and computers use binary (base 2 – i.e. 0, 1), programmers often use hexadecimal because it allows us to represent a single byte in two characters. When writing numbers, to distinguish the base we often use 0x as a prefix for hex numbers (0x17 is 23 in decimal) and 0b to represent binary numbers (0b0000_0100 is 4 in decimal).
+> L'esadecimale è anche chiamato base 16 – mentre noi usiamo solitamente il decimale (base 10 – ossia 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) e i computer usano il binario (base 2 – ossia 0, 1), i programmatori usano spesso l'esadecimale perché ci permette di rappresentare un singolo byte in due caratteri. Quando scriviamo i numeri, to distinguish the base we often use 0x as a prefix for hex numbers (0x17 is 23 in decimal) and 0b to represent binary numbers (0b0000_0100 is 4 in decimal).
 
 A hex editor, therefore, is a program to view and edit the hexadecimal representation of files, meaning it allows us to take a peek and and even modify the raw file data. Neat!
 

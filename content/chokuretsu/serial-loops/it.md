@@ -47,19 +47,18 @@ limit: 2
 Downloads are available for Windows, macOS (Intel and Apple Silicon) and Linux [on GitHub](https://github.com/haroohie-club/SerialLoops/releases). We offer both release (recommended) and nightly pre-release builds.
 
 
-::button-link
+::loopy-download-stack
 ---
+buttonLink: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
 color: 'sl-blue'
-icon: 'fa6-solid:download'
-link: 'https://github.com/haroohie-club/SerialLoops/releases/latest'
+flathubId: 'club.haroohie.SerialLoops'
 ---
-Scarica ultima versione
 ::
 
 
 ## Bugs
-Segnala eventuali bug su [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Includi le seguenti informazioni:
-* Su quale piattaforma gira il Serial Loops
-* La versione della ROM che stai usando (Giapponese, patchata in Italiano, etc.)
-* Una descrizione di tutti i passaggi che hai fatto
-* Un modulo dove viene spiegato l'errore (puoi trovarlo in ~/SerialLoops/Logs)
+Please file bugs on our [GitHub Issues Tracker](https://github.com/haroohie-club/SerialLoops). Please include the following information:
+* The platform you are running Serial Loops on
+* The version of the Chokuretsu ROM you are using (Japanese, patched English ROM, etc.)
+* A description of the steps required to reproduce the issue
+* The relevant logs for the issue (can be found with either "View Logs" or "View Crash Logs", both in the File menu, depending on what type of issue it is)

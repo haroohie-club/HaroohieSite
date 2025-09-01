@@ -35,61 +35,61 @@ head:
     value: 'summary_large_image'
 ---
 
-Howdy folks! This is the first in a series of blog posts that will delve into the technical challenges involved in translating Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya). These blogs do get quite technical and include things like code samples, but are written to be intelligible to a general audience. If you have any questions or comments, feel free to [tweet at us](https://twitter.com/haroohie)!
+Howdy Leute! Dies ist der erste Beitrag in einer Blogreihe, in der wir uns mit den technischen Herausforderungen bei der Übersetzung von Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya) beschäftigen. Die Beiträge gehen durchaus ins Technische und enthalten zum Beispiel Codebeispiele, sind aber so geschrieben, dass sie auch für ein allgemeines Publikum verständlich bleiben. Wenn ihr Fragen oder Kommentare habt, könnt ihr uns gerne auf [Twitter anschreiben](https://twitter.com/haroohie)!
 
-This whole project started with [two](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-from-japanese-to-english-and-russian-translation-idea.601434/) [posts](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-translation-success-need-advice.601559/) on the GBATemp forum from a user named Cerber (now one of our graphic designers!) asking for help translating an obscure DS game based on the Haruhi series. He had made some progress on finding the script in the game and replacing it with English characters, but was getting stuck on being able to reinsert text fully.
+Dieses ganze Projekt begann mit [zwei](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-from-japanese-to-english-and-russian-translation-idea.601434/) [Posts](https://gbatemp.net/threads/suzumiya-haruhi-no-chokuretsu-nds-translation-success-need-advice.601559/) im GBATemp-Forum von einem Nutzer namens Cerber (heute einer unserer Grafikdesigner!), der um Hilfe bei der Übersetzung eines eher unbekannten DS-Spiels aus dem Haruhi-Universum bat. Er hatte bereits einige Fortschritte gemacht, etwa das Auffinden des Skripts im Spiel und das Ersetzen durch englische Zeichen, kam jedoch nicht weiter, wenn es darum ging, den Text vollständig wieder ins Spiel einzufügen.
 
-![Cerber's DS with Haruhi saying "Today is the" in full-width characters](/images/blog/0002/01_cerber_ds.png)
+![Cerbers DS zeigt Haruhi mit dem Text "Today is the" - komplett in sogenannten Full-Width-Zeichen](/images/blog/0002/01_cerber_ds.png)
 
-What Cerber was doing precisely was opening up the ROM in a hex editor (a tool for modifying binary files directly where each byte is represented as a hexadecimal number) and searching for the text he was seeing in-game. He was able to find the script, but the issue he was having was dealing with what he called “game code” that surrounded the text he was trying to replace – modifying the sections he marked in red broke the game entirely.
+Was Cerber genau machte, war, das ROM in einem Hex-Editor zu öffnen – einem Tool, mit dem man Binärdateien direkt bearbeiten kann, wobei jedes Byte als hexadezimale Zahl dargestellt wird. Dort suchte er nach dem Text, den er im Spiel sah. Er konnte das Skript tatsächlich finden, aber das eigentliche Problem war der Umgang mit dem, was er als „Game Code“ bezeichnete: Abschnitte rund um den Text, die offenbar für das Funktionieren des Spiels wichtig waren. Wenn er diese – in seinem Editor meist rot markierten – Bereiche veränderte, stürzte das Spiel ab oder funktionierte nicht mehr richtig. Das machte das einfache Austauschen von Texten deutlich komplizierter als erwartet.
 
-![A  hex editor with the previous "Today is the" visible while the rest of the file is highlighted in red](/images/blog/0002/02_cerber_hex.png)
+![Ein Hex-Editor mit dem zuvor sichtbaren „Today is the" , während der Rest der Datei rot markiert ist.](/images/blog/0002/02_cerber_hex.png)
 
-A quick explanation of what we’re seeing here: on the left, we have the raw binary in the file, represented as a series of bytes in hexadecimal. Hexadecimal is also called base 16 – while we normally use decimal (base 10 – i.e. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) and computers use binary (base 2 – i.e. 0, 1), programmers often use hexadecimal because it allows us to represent a single byte in two characters. When writing numbers, to distinguish the base we often use 0x as a prefix for hex numbers (0x17 is 23 in decimal) and 0b to represent binary numbers (0b0000_0100 is 4 in decimal).
+Eine kurze Erklärung dazu, was wir hier sehen: Links befindet sich der rohe Binärcode der Datei, dargestellt als eine Reihe von Bytes in hexadezimaler Schreibweise. Hexadezimal bedeutet „Basis 16“ – während wir im Alltag das Dezimalsystem (Basis 10 – also 0 bis 9) verwenden und Computer intern mit Binärzahlen (Basis 2 – also 0 und 1) arbeiten, nutzen Programmierer häufig das Hexadezimalsystem, weil sich damit ein Byte bequem mit zwei Zeichen darstellen lässt. Zur Unterscheidung der Zahlensysteme verwendet man oft bestimmte Präfixe: 0x steht für Hexadezimalzahlen (z. B. ist 0x17 gleich 23 im Dezimalsystem), 0b steht für Binärzahlen (z. B. ist 0b0000_0100 gleich 4 im Dezimalsystem).
 
-The characters on the right represent the bytes we’re seeing on the left interpreted through an _encoding_. You might be familiar with ASCII, the most basic of encodings – each letter in the alphabet is represented by a single byte. This game uses an encoding called Shift-JIS, which is how Japanese was represented prior to the advent of Unicode.
+Die Zeichen auf der rechten Seite stellen die Bytes von links dar – allerdings interpretiert durch eine _Kodierung_. Vielleicht kennst du ASCII – die einfachste und bekannteste Kodierung, bei der jeder Buchstabe des Alphabets durch genau ein Byte dargestellt wird. Dieses Spiel verwendet jedoch eine Kodierung namens Shift-JIS. Dabei handelt es sich um eine ältere japanische Zeichenkodierung, die vor der Einführung von Unicode weit verbreitet war.
 
-Drawing on my past experience, I did some investigation and then posted a perhaps less-than-hinged reply:
+Ausgehend von meiner bisherigen Erfahrung habe ich etwas recherchiert und dann eine vielleicht etwas unüberlegte Antwort gepostet:
 
-![A forum post from Jonko posted on October 23, 2021. The text of the post is included in a block quote below."](/images/blog/0002/03_jonko_hinged.png)
+![Ein Forenbeitrag von Jonko, veröffentlicht am 23. Oktober 2021. Der Text des Beitrags ist im folgenden Blockzitat enthalten."](/images/blog/0002/03_jonko_hinged.png)
 
-> Hi! So that's not game code surrounding it; that's more data for this scene. I don't know what all of it does yet, but I can tell you that this entire chunk is compressed and that the decompression subroutine lives at 0x2026190. You'll have to decompress it before you can begin editing it and once it's decompressed we'll have a better idea of what all the parts do which will give us a leg up on editing it.
+> Hi! Das ist kein Game-Code, der den Text umgibt, sondern eher Daten für diese Szene. Ich weiß noch nicht genau, was es macht, aber ich kann dir sagen, dass dieser gesamte Abschnitt komprimiert ist und dass die Dekomprimierungsroutine bei 0x2026190 liegt. Ihr müsst ihn erst dekomprimieren, bevor ihr mit dem Bearbeiten anfangen könnt. Sobald er dekomprimiert ist, haben wir eine bessere Vorstellung davon, was die einzelnen Teile machen, und das hilft uns beim Bearbeiten.
 > 
-> The other thing you'll need to be thinking about is a font-width hack (half-width or variable-width). There are multiple lines in the game that fill up the entire box and there's no way you're going to be able to fit that in there with full-width characters, so you'll want to investigate that, too.
+> Das andere, worüber ihr nachdenken müsst, ist ein Font-Width-Hack (Halbbreite oder variable Breite). Im Spiel gibt es mehrere Zeilen, die den gesamten Textrahmen füllen, und mit Full-Width-Zeichen wird das einfach nicht passen. Das solltet ihr also auch noch genauer untersuchen.
 
-So let’s go through this point-by-point.
+Also gehen wir das Punkt für Punkt durch.
 
-## Compression
-How did I know that this section was compressed? Well, looking at his screenshot, we can clearly see that the in-game text is showing up in the hex editor (I’ve marked an example in yellow below), but some portions of the text are missing – for example, the “ハルヒの” bit that I’ve marked below is replaced by a shorter character sequence that I’ve highlighted in blue.
+## Kompression
+Woher wusste ich, dass dieser Abschnitt komprimiert ist? Nun, wenn man sich seinen Screenshot ansieht, sieht man deutlich, dass der Ingame-Text im Hex-Editor angezeigt wird (ein Beispiel habe ich unten gelb markiert), aber einige Textstellen fehlen – zum Beispiel der Abschnitt „ハルヒの“, den ich unten blau markiert habe und der durch eine kürzere Zeichenfolge ersetzt ist.
 
-![Side-by-side screenshots of Chokuretsu. The first corresponds to text highlighted in yellow showing that Haruhi's dialogue is present. The second highlights a section of the text in the ROM that is apparently misisng a portion of the in-game text.](/images/blog/0002/04_compression_evidence.png)
+![Side-by-side Screenshots von Chokuretsu. Der erste zeigt den im Spiel sichtbaren Text, der im Hex-Editor gelb markiert ist und Haruhis Dialog enthält. Der zweite hebt einen Bereich im ROM hervor, bei dem offenbar ein Teil des im Spiel sichtbaren Textes fehlt.](/images/blog/0002/04_compression_evidence.png)
 
-This is a sign of what’s called _run-length encoding_ – a method for compressing a file that focuses on eliminating repetition. So okay, now we know it’s compressed – what do we do next? Well, we know our end goal: **we want to replace the text in the file with English-language text**. In order to do that, we will have to be able to decompress the text ourselves in order to edit the file. However, because the game expects the text to be compressed, we will also have to be able to recompress the file so we can reinsert it into the game. Well, let’s get started.
+Das ist ein Hinweis auf sogenannte _Run-Length Encoding_ – eine Kompressionsmethode, die Wiederholungen im Text reduziert. Gut, jetzt wissen wir, dass der Text komprimiert ist – was machen wir als Nächstes? Unser Ziel ist klar: **Wir wollen den Text in der Datei durch englischen Text ersetzen. Dafür müssen wir den Text zunächst selbst dekomprimieren, um die Datei bearbeiten zu können. Da das Spiel aber erwartet, dass der Text komprimiert ist, müssen wir die Datei nach der Bearbeitung auch wieder komprimieren, um sie ins Spiel zurück einzufügen. Also, legen wir los!
 
-## Finding the Decompression Subroutine
-So we actually have a lot of information at our disposal here. We have a file that we know is compressed, we have a pretty good idea of what it decompresses to, and we know where that file is used in-game. So, let’s load the game in DeSmuME (the emulator that, at time of writing, has the best memory searcher) and search for some of the text that appears in-game.
+## Auffinden der Dekomprimierungsroutine
+Tatsächlich haben wir hier schon ziemlich viele Informationen zur Hand. Wir haben eine Datei, von der wir wissen, dass sie komprimiert ist, wir haben eine ziemlich gute Vorstellung davon, wie sie nach der Dekomprimierung aussieht, und wir wissen, wo genau diese Datei im Spiel verwendet wird. Also laden wir das Spiel in DeSmuME (dem Emulator, der zum Zeitpunkt des Schreibens den besten Speichersucher bietet) und suchen nach einem der Texte, die im Spiel angezeigt werden.
 
-![DeSmuME's RAM search.](/images/blog/0002/05_ram_search.png)
+![DeSmuMEs RAM-Suche.](/images/blog/0002/05_ram_search.png)
 
-So here we’re searching for 0x81CC82B1 (DeSmuME’s RAM search expects bytes in reverse-order) which corresponds to a portion of the “この、” in the text. We find exactly one result at address 0x0223433C – brilliant. We go to that memory address…
+Also suchen wir hier nach 0x81CC82B1 (DeSmuME erwartet die Bytes in umgekehrter Reihenfolge im RAM-Sucher), was einem Teil des „この、“ im Text entspricht. Wir finden genau einen Treffer an der Adresse 0x0223433C – großartig. Wir springen zu dieser Speicheradresse…
 
-![DeSmuME's memory viewer with highlighted sections showing that it matches the file we've been looking at exactly.](/images/blog/0002/06_ram_found.png)
+![Der Memory-Viewer von DeSmuME zeigt die hervorgehobenen Bereiche, die exakt mit der Datei übereinstimmen, die wir zuvor untersucht haben.](/images/blog/0002/06_ram_found.png)
 
-And it’s an exact match! We’ve found where the compressed file is loaded into memory. So now, it’s time to open up the worst DS emulator but also the only one with a functional debugger, no$GBA.
+Und es ist ein exakter Treffer! Wir haben gefunden, wo die komprimierte Datei im Speicher geladen wird. Jetzt ist es an der Zeit, den schlechtesten DS-Emulator, aber leider auch den einzigen mit einem funktionierenden Debugger, zu öffnen: no$GBA.
 
-![Setting a breakpoint in no$GBA. The breakpoint being set is "[223433C]?"](/images/blog/0002/07_setting_breakpoint.png)
+![Einen Breakpoint in no$GBA setzen. Der gesetzte Breakpoint ist "[223433C]?"](/images/blog/0002/07_setting_breakpoint.png)
 
-We’re going to set a _read breakpoint_ for 0x0223433C. As I mentioned earlier, the reason we’re using no$ is because it has a debugger, and one of the functions of a debugger is the ability to set _breakpoints_. A debugger allows us to actually step through and see what code is executing when the game plays, and a breakpoint tells the debugger to stop at a certain line of execution. In this case, this read breakpoint tells the debugger to pause execution when the memory address 0x0223433C is read from. The reason we want to do this is that the point at which the compressed file is being accessed in memory is when it’s being decompressed, so this will help us find the decompression subroutine.
+Wir setzen einen _Read-Breakpoint_ bei 0x0223433C. Wie schon erwähnt, benutzen wir no$GBA, weil es über einen Debugger verfügt und eine der wichtigsten Funktionen eines Debuggers ist die Möglichkeit, Breakpoints zu setzen. Ein Debugger erlaubt es uns, Schritt für Schritt zu beobachten, welcher Code beim Ausführen des Spiels gerade läuft. Ein Breakpoint weist den Debugger an, die Ausführung an einer bestimmten Stelle zu pausieren. In diesem Fall bedeutet der Read-Breakpoint, dass der Debugger die Ausführung stoppt, sobald auf die Speicheradresse 0x0223433C zugegriffen wird. Der Grund hierfür liegt darin, dass der Zeitpunkt, an dem auf die komprimierte Datei im Speicher zugegriffen wird, der Zeitpunkt ist, an dem sie dekomprimiert wird. Dies wird uns also dabei helfen, die Dekomprimierungs-Subroutine zu finden.
 
-![no$GBA's debugger hitting the aforementioned breakpoint. It's currently stopped at instruction 0202628C.](/images/blog/0002/08_breakpoint_hit.png)
+![Der Debugger von no$GBA erreicht den oben genannten Haltepunkt. Er wird derzeit bei der Anweisung 0202628C gestoppt.](/images/blog/0002/08_breakpoint_hit.png)
 
-Voila, we’ve hit our breakpoint. The game reads from 0x223433C at the instruction at 0x2026288. It’s time to open our third program, IDA (the Interactive Disassembler). (It’s worth noting that while I use IDA, you can accomplish the same thing in Ghidra, another commonly used disassembler that’s actually free.)
+Voila, wir haben unseren Breakpoint erreicht. Das Spiel liest von 0x223433C aus die Anweisung bei 0x2026288. Es ist Zeit, unser drittes Programm zu öffnen, IDA (den Interactive Disassembler). (Obwohl ich IDA verwende ist es erwähnenswert, dass du dasselbe mit Ghidra erreichen kannst, einem anderen häufig verwendeten und kostenlosen Disassembler.)
 
-So in IDA, we use the NDS loader plugin to disassemble the Chokuretsu ROM so we can view the assembly code (properly referred to as the “disassembly”) more easily. IDA does something very nice which is that it breaks the code apart into subroutines (also sometimes called “functions”), which makes it easier to understand at a glance where code execution starts and stops.
+In IDA verwenden wir daher das NDS-Loader-Plugin, um das Chokuretsu-ROM zu disassemblieren und so den Assemblercode (korrekterweise „Disassemblierung“ genannt) einfacher anzuzeigen. IDA zerlegt den Code in Unterprogramme (manchmal auch „Funktionen“ genannt), wodurch auf einen Blick klar wird, wo die Codeausführung beginnt und endet.
 
 ![IDA with 0202628C highlighted to show the instruction we found previously.](/images/blog/0002/09_ida_find.png)
 
-So we go to the address we found…
+Also gehen wir zu der Adresse, die wir gefunden haben…
 
 ![IDA with a subroutine we've renamed arc_decompress visible.](/images/blog/0002/10_ida_subroutine.png)
 

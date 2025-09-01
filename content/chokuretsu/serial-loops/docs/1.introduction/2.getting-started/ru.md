@@ -6,11 +6,8 @@ navigation:
   next: '/chokuretsu/serial-loops/docs/introduction/project-workflow'
 ---
 
-Upon launching Serial Loops for the first time, you may be greeted with a warning stating that it can't find your devkitARM installation.
-This is okay! It just means that you installed devkitARM in a location that the program wasn't expecting. Determine where your devkitARM installation is located and save that for a later step.
-
-## Главный экран и настройки
-Сначала вы увидите следующий экран:
+## The Home Screen and Preferences
+Upon launching Serial Loops, you'll see the following screen:
 
 ![Домашняя страница Serial Loops](/images/chokuretsu/serial-loops/home-screen.png)
 
@@ -23,8 +20,8 @@ Let's briefly go over the different settings in this menu:
 ### Serial Loops
 * **Language** &ndash; The display language for Serial Loops. Serial Loops is written in English, and the English (United States) version is used as the base for all other languages. If you'd like to contribute to translating Serial Loops, get in touch with us!
 * **Display Font** &ndash; The font used by the Serial Loops UI.
-* **Check For Updates On Startup** &ndash; Will check GitHub for new releases of Serial Loops on startup. **Highly recommended to leave this option checked.**
-* **Use Pre-Release Update Channel** &ndash; Will use our nightly builds as the source for updates. **Highly recommended to leave this option unchecked.**
+* **Check For Updates On Startup** &ndash; Will check GitHub for new releases of Serial Loops on startup. **Highly recommended to leave this option checked.** (On the Flatpak release, this option is disabled as the program will get updates directly from Flathub.)
+* **Use Pre-Release Update Channel** &ndash; Will use our nightly builds as the source for updates. **Highly recommended to leave this option unchecked.** (On the Flatpak release, this option is disabled as the program will get updates directly from Flathub. If you want to use pre-release builds, you will need to use a release other than the Flatpak.)
 
 ### Projects
 * **Auto Re-Open Last Project** &ndash; Re-opens the last project on app start, bypassing the home screen.
@@ -32,11 +29,10 @@ Let's briefly go over the different settings in this menu:
 * **Remove Missing Projects** &ndash; Will remove missing (i.e. manually deleted) projects from the Recent Projects menu automatically.
 
 ### Build
-* **devkitARM Path** &ndash; The path to your devkitARM installation. By default, Serial Loops looks in `C:\devkitPro\devkitARM` on Windows and `/opt/devkitpro/devkitARM` on macOS and Linux systems. If it can't find one of those locations, you will need to specify it manually here!
-* **Emulator Path** &ndash; The path to the emulator that will be used after clicking "Build & Run". Set this to your favorite Nintendo DS emulator's executable! As stated previously, our team highly recommends using melonDS.
-* **Emulator Flatpak** *(Linux Only)* &ndash; On Linux systems, instead of specifying the path to the emulator you can instead specify a flatpak to be launched. Serial Loops will automatically look for installed flatpaks on first startup, but otherwise, simply type the ID of the flatpak to launch here (e.g. `net.kuribo64.melonDS`).
-* **Use Docker for ASM Hacks** &ndash; Checking this will cause Docker to be used for ASM hacks. If you decided to install Docker rather than make, ensure this option is checked. (This is the default setup on Windows; on other platforms, you should most likely leave this unchecked.)
-* **devkitARM Docker Tag** &ndash; The [tag](https://hub.docker.com/r/devkitpro/devkitarm/tags) of the devkitARM Docker image to use when using Docker for assembling ASM hacks. Typically, you should leave this as the default value (`latest`), unless you know what you're doing and want to use a different version of devkitARM.
+* **LLVM Path** &ndash; The path to your LLVM installation. Serial Loops does its best to pre-fill this for you, but if it can't find it, you will need to manually specify it here. Please note that it is expecting to be pointed to something like `/path/to/llvm` and then will access `/path/to/llvm/bin`; therefore, if your llvm installation ends up being `/usr/bin`, pointing it to `/usr` is correct.
+* **Ninja Path** &ndash; The path to your Ninja executable. Serial Loops does its best to auto-fill this, but if it can't find it, you will need to point it in the right direction.
+* **Emulator Path** &ndash; The path to the emulator that will be used after clicking "Build & Run". Set this to your favorite Nintendo DS emulator's executable! As stated previously, our team highly recommends using melonDS. (On the Flatpak release, this option is disabled as melonDS comes bundled with the application.)
+* **Emulator Flatpak** *(Linux Only)* &ndash; On Linux systems, instead of specifying the path to the emulator you can instead specify a flatpak to be launched. Serial Loops will automatically look for installed flatpaks on first startup, but otherwise, simply type the ID of the flatpak to launch here (e.g. `net.kuribo64.melonDS`). (On the Flatpak release, this option is disabled as melonDS comes bundled with the application.)
 
 После того, как вы выставили свои настройки, пришло время создать новый проект.
 

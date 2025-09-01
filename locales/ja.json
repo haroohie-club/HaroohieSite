@@ -14,7 +14,7 @@
     "chokuretsu-description": "Nintendo DSの選択型ストーリーのパズルゲームで３万以上のメッセージを楽しむ！",
     "chokuretsu-poster": "poster-chokuretsu-en.png",
     "chokuretsu-puzzle": "パズル",
-    "chokuretsu-completion": "60％完了",
+    "chokuretsu-completion": "80％完了",
     "heiretsu-description": "フル３Ｄステージやキャラモデルがあり、タイムループしている「冒険」でミステリーを解けますか？",
     "heiretsu-poster": "poster-heiretsu-en.png",
     "heiretsu-adventure": "アドベンチャー",
@@ -164,5 +164,6 @@
     "chokuretsu-rom-patcher-dub-opt2": "吹き替えなし",
     "chokuretsu-rom-patcher-dub-opt1": "吹き替えあり",
     "en-v0.2-patch-desc": "これは「涼宮ハルヒの直列」英語パッチの最初のリリースです。第１エピソードを完全に翻訳しています。",
-    "en-v0.6-patch-desc": "「鈴宮ハルヒの直列」英語パッチの３つ目のリリースです。このパッチは第１エピソードから第３エピソードまで完全に翻訳して、"
+    "en-v0.6-patch-desc": "「鈴宮ハルヒの直列」英語パッチの３つ目のリリースです。このパッチは第１エピソードから第３エピソードまで完全に翻訳して、",
+    "april-fools-tag": "エイプリルフール"
 }
