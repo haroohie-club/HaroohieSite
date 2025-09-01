@@ -691,6 +691,290 @@ const ep2ResolutionOptions = ref<ECOption>({
     },
 })
 
+const ep3aRouteOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-route-selection1'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)',
+        position: 'right',
+    },
+    series: {
+        type: 'pie',
+        data: json.routesTaken[2].map((r: { route: any; count: number; }) => Object({
+            name: t(r.route.name),
+            value: r.count,
+            itemStyle: customized && json.saveData?.routesTaken[2].name == r.route.name ? { color: 'gold' } : {},
+        })),
+        label: {
+            show: false,
+        },
+        labelLine: {
+            show: false,
+        },
+    },
+})
+
+const ep3bRouteOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-route-selection2'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)',
+        position: 'right',
+    },
+    series: {
+        type: 'pie',
+        data: json.routesTaken[3].map((r: { route: any; count: number; }) => Object({
+            name: t(r.route.name),
+            value: r.count,
+            itemStyle: customized && json.saveData?.routesTaken[3].name == r.route.name ? { color: 'gold' } : {},
+        })),
+        label: {
+            show: false,
+        },
+        labelLine: {
+            show: false,
+        },
+    },
+})
+
+const ep3WalkedHomeOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep3-who-walked-you-home'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep3WalkedHomeChart).map(k => Object({
+            name: t(k),
+            value: json.ep3WalkedHomeChart[k],
+            itemStyle: customized && json.saveData?.ep3WhoWalkedYouHome == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep3ResolutionOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep3-resolution'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep3ResolutionChart).map(k => Object({
+            name: t(k),
+            value: json.ep3ResolutionChart[k],
+            itemStyle: customized && json.saveData?.ep3Resolution == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep4aRouteOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-route-selection1'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)',
+        position: 'right',
+    },
+    series: {
+        type: 'pie',
+        data: json.routesTaken[4].map((r: { route: any; count: number; }) => Object({
+            name: t(r.route.name),
+            value: r.count,
+            itemStyle: customized && json.saveData?.routesTaken[4].name == r.route.name ? { color: 'gold' } : {},
+        })),
+        label: {
+            show: false,
+        },
+        labelLine: {
+            show: false,
+        },
+    },
+})
+
+const ep4bRouteOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-route-selection2'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)',
+        position: 'right',
+    },
+    series: {
+        type: 'pie',
+        data: json.routesTaken[5].map((r: { route: any; count: number; }) => Object({
+            name: t(r.route.name),
+            value: r.count,
+            itemStyle: customized && json.saveData?.routesTaken[5].name == r.route.name ? { color: 'gold' } : {},
+        })),
+        label: {
+            show: false,
+        },
+        labelLine: {
+            show: false,
+        },
+    },
+})
+
+const ep4aResolutionOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep4a-resolution'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep4AResolutionChart).map(k => Object({
+            name: t(k),
+            value: json.ep4AResolutionChart[k],
+            itemStyle: customized && json.saveData?.ep4AResolution == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep4bResolutionOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep4b-resolution'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep4BResolutionChart).map(k => Object({
+            name: t(k),
+            value: json.ep4BResolutionChart[k],
+            itemStyle: customized && json.saveData?.ep4BResolution == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep5RouteOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-route-selection'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)',
+        position: 'right',
+    },
+    series: {
+        type: 'pie',
+        data: json.routesTaken[6].map((r: { route: any; count: number; }) => Object({
+            name: t(r.route.name),
+            value: r.count,
+            itemStyle: customized && json.saveData?.routesTaken[6].name == r.route.name ? { color: 'gold' } : {},
+        })),
+        label: {
+            show: false,
+        },
+        labelLine: {
+            show: false,
+        },
+    },
+})
+
+const ep5ChessPuzzleResultOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep5-chess-puzzle-result'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep5ChessPuzzleResultChart).map(k => Object({
+            name: t(k),
+            value: json.ep5ChessPuzzleResultChart[k],
+            itemStyle: customized && json.saveData?.ep5ChessPuzzleResult == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep5ChessTourneyWinnerOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep5-chess-tourney-winner'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep5ChessTourneyWinnerChart).map(k => Object({
+            name: t(k),
+            value: json.ep5ChessTourneyWinnerChart[k],
+            itemStyle: customized && json.saveData?.ep5ChessTourneyWinner == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep5WhoWokeYouUpOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep5-who-woke-you-up'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep5WhoWokeYouUpChart).map(k => Object({
+            name: t(k),
+            value: json.ep5WhoWokeYouUpChart[k],
+            itemStyle: customized && json.saveData?.ep5WhoWokeYouUp == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
 provide(THEME_KEY, 'light')
 </script>
 
@@ -768,12 +1052,48 @@ provide(THEME_KEY, 'light')
                     </div>
                     <h2>{{ t('chokuretsu-wrapped-ep3') }}</h2>
                     <div class="charts">
+                        <div>
+                            <VChart :option="ep3aRouteOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep3bRouteOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep3WalkedHomeOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep3ResolutionOptions" class="normal-chart"/>
+                        </div>
                     </div>
                     <h2>{{ t('chokuretsu-wrapped-ep4') }}</h2>
                     <div class="charts">
+                        <div>
+                            <VChart :option="ep4aRouteOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep4bRouteOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep4aResolutionOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep4bResolutionOptions" class="normal-chart"/>
+                        </div>
                     </div>
                     <h2>{{ t('chokuretsu-wrapped-ep5') }}</h2>
                     <div class="charts">
+                        <div>
+                            <VChart :option="ep5RouteOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep5ChessPuzzleResultOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep5ChessTourneyWinnerOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep5WhoWokeYouUpOptions" class="normal-chart"/>
+                        </div>
                     </div>
                 </div>
                 <div v-else>
