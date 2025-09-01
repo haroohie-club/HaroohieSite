@@ -13,10 +13,15 @@
     "@nuxtjs/i18n": "^8.0.1",
     "@nuxtjs/sitemap": "^5.1.0",
     "@types/url-file-size": "^1.0.3",
+    "echarts": "^6.0.0",
+    "izitoast": "^1.4.0",
     "nitropack": "^2.10.4",
     "nuxt": "^3.10.3",
+    "nuxt-echarts": "^1.0.0",
     "nuxt-feedme": "^1.0.0",
+    "nuxt-toast": "^1.1.4",
     "sitemap": "^7.1.1",
+    "vue-echarts": "^8.0.0-beta.1",
     "vue-matomo": "^4.2.0"
   },
   "dependencies": {

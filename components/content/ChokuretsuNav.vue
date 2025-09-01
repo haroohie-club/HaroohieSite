@@ -29,8 +29,11 @@ const localePath = useLocalePath()
                 <ButtonLink link="https://github.com/haroohie-club" fullwidth type="top-piece" color="black" icon="fa6-brands:github">
                     {{ $t('chokuretsu-sources-tools') }}
                 </ButtonLink>
-                <ButtonLink :link="localePath('/chokuretsu/serial-loops')" fullwidth type="bottom-piece" color="sl-blue" icon="fa6-solid:gear">
+                <ButtonLink :link="localePath('/chokuretsu/serial-loops')" fullwidth type="mid-piece" color="sl-blue" icon="fa6-solid:gear">
                     {{ $t('chokuretsu-serial-loops') }}
+                </ButtonLink>
+                <ButtonLink :link="localePath('/chokuretsu/wrapped')" fullwidth type="bottom-piece" color="purple" icon="fa6-solid:floppy-disk">
+                    {{ $t('chokuretsu-wrapped') }}
                 </ButtonLink>
             </div>
         </div>

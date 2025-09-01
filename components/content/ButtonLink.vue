@@ -113,4 +113,8 @@ const { link, color, icon, type, fullwidth, rel } = defineProps({
 .rss-color {
     background: #ff6600;
 }
+
+.purple-color {
+    background: #880088;
+}
 </style>

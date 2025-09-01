@@ -4,7 +4,7 @@ const urlBase = "https://haroohie.club"
 // Nuxt config file (https://nuxt.com/docs/getting-started/configuration)
 export default {
     // Modules
-    modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/google-fonts', '@nuxtjs/i18n', 'nuxt-feedme', '@nuxt/scripts'],
+    modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/google-fonts', '@nuxtjs/i18n', 'nuxt-feedme', '@nuxt/scripts', 'nuxt-toast', 'nuxt-echarts'],
 
     // Fonts
     googleFonts: {
@@ -55,15 +55,26 @@ export default {
             redirectOn: 'root',
         },
         locales: [
+            { code: 'ar', iso: 'ar', file: 'locales/ar.json', dir: 'rtl' },
+            { code: 'de', iso: 'de', file: 'locales/de.json', dir: 'ltr' },
             { code: 'en', iso: 'en', file: 'locales/en.json', dir: 'ltr' },
             { code: 'es', iso: 'es', file: 'locales/es.json', dir: 'ltr' },
+            { code: 'fr', iso: 'fr', file: 'locales/fr.json', dir: 'ltr' },
             { code: 'it', iso: 'it-IT', file: 'locales/it.json', dir: 'ltr' },
+            { code: 'ja', iso: 'ja', file: 'locales/ja.json', dir: 'ltr' },
             { code: 'pt-br', iso: 'pt-BR', file: 'locales/pt-br.json', dir: 'ltr' },
             { code: 'ru', iso: 'ru', file: 'locales/ru.json', dir: 'ltr' },
             { code: 'zh-hans', iso: 'zh-Hans', file: 'locales/zh-Hans.json', dir: 'ltr' },
             { code: 'zh-hant', iso: 'zh-Hant', file: 'locales/zh-Hant.json', dir: 'ltr' },
         ],
         defaultLocale: 'en'
+    },
+
+    echarts: {
+        renderer: ['svg', 'canvas'],
+        charts: ['BarChart', 'PieChart', 'LineChart', 'ScatterChart', 'HeatmapChart', 'GaugeChart'],
+        components: ['DatasetComponent', 'GridComponent', 'LegendComponent', 'TitleComponent', 'ToolboxComponent', 'TooltipComponent', 'VisualMapComponent'],
+        features: ['LabelLayout', 'UniversalTransition'],
     },
 
     feedme: {
@@ -350,5 +361,11 @@ export default {
         },
     },
 
-    compatibilityDate: '2024-12-10'
+    compatibilityDate: '2024-12-10',
+
+    devtools: {
+        timeline: {
+            enabled: true
+        }
+    }
 };
