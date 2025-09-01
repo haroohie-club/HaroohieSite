@@ -6,7 +6,7 @@ const toast = useToast()
 async function submit() {
     const formData = new FormData();
     formData.append('files', document.getElementById('input-file-sav').files[0].slice(0, 8192))
-    await $fetch("http://localhost:5243/choku-wrapped", {
+    await $fetch("http://api.haroohie.club/choku-wrapped", {
         method: "POST",
         body: formData,
     }).then(async (res) => {

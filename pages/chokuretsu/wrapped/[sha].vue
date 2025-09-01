@@ -7,7 +7,7 @@ const route = useRoute()
 const customized = route.params.sha != 'results';
 const sha = customized ? route.params.sha : '';
 
-const json : any = await $fetch(`http://localhost:5243/choku-wrapped/${sha}`)
+const json : any = await $fetch(`http://api.haroohie.club/choku-wrapped/${sha}`)
 console.log(json);
 
 let friendshipLegend: any = [ t('chokuretsu-wrapped-average-data') ]
