@@ -5,11 +5,7 @@ const toast = useToast()
 
 async function submit() {
     const formData = new FormData();
-    formData.append('files', document.getElementById('input-file-sav').files[0])
-    if (document.getElementById('input-file-sav').files[0].size != 8192) {
-        toast.error({ title: 'Error!', message: t('chokuretsu-wrapped-not-a-valid-save'), timeout: 5000, position: 'center' });
-        return;
-    }
+    formData.append('files', document.getElementById('input-file-sav').files[0].slice(0, 8192))
     await $fetch("http://localhost:5243/choku-wrapped", {
         method: "POST",
         body: formData,

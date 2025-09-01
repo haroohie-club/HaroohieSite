@@ -15,7 +15,7 @@ let friendshipSeries: any = [
     {
         name: t('chokuretsu-wrapped-average-data'),
         type: 'bar',
-        data: [ json.haruhiFriendshipLevel, json.mikuruFriendshipLevel, json.nagatoFriendshipLevel, json.koizumiFriendshipLevel, json.tsuruyaFriendshipLevel ],
+        data: [ json.haruhiFriendshipLevel, json.mikuruFriendshipLevel, json.nagatoFriendshipLevel, json.koizumiFriendshipLevel ],
         barGap: '20%',
     },
 ]
@@ -25,7 +25,7 @@ if (customized && json.saveData?.hasFriendship) {
         {
             name: t('chokuretsu-wrapped-your-data'),
             type: 'bar',
-            data: [ json.saveData?.haruhiFriendshipLevel, json.saveData?.mikuruFriendshipLevel, json.saveData?.nagatoFriendshipLevel, json.saveData?.koizumiFriendshipLevel, json.saveData?.tsuruyaFriendshipLevel ],
+            data: [ json.saveData?.haruhiFriendshipLevel, json.saveData?.mikuruFriendshipLevel, json.saveData?.nagatoFriendshipLevel, json.saveData?.koizumiFriendshipLevel ],
             itemStyle: { color: 'gold' },
             barGap: '20%'
         }
@@ -49,7 +49,7 @@ const friendshipOptions = ref<ECOption>({
     xAxis: [
         {
             type: 'category',
-            data: [ t('chokuretsu-wrapped-haruhi'), t('chokuretsu-wrapped-mikuru'), t('chokuretsu-wrapped-nagato'), t('chokuretsu-wrapped-koizumi'), t('chokuretsu-wrapped-tsuruya') ]
+            data: [ t('chokuretsu-wrapped-haruhi'), t('chokuretsu-wrapped-mikuru'), t('chokuretsu-wrapped-nagato'), t('chokuretsu-wrapped-koizumi') ]
         }
     ],
     yAxis: [
@@ -475,6 +475,32 @@ const routeBySideCharactersOptions = ref<ECOption>({
     ]
 });
 
+const ep1RouteOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-route-selection'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)',
+        position: 'right',
+    },
+    series: {
+        type: 'pie',
+        data: json.routesTaken[0].map((r: { route: any; count: number; }) => Object({
+            name: t(r.route.name),
+            value: r.count,
+            itemStyle: customized && json.saveData?.routesTaken[0].name == r.route.name ? { color: 'gold' } : {},
+        })),
+        label: {
+            show: false,
+        },
+        labelLine: {
+            show: false,
+        },
+    },
+})
+
 const sawGameOverTutorialOptions = ref<ECOption>({
     title: {
         text: t('chokuretsu-wrapped-game-over-tutorial'),
@@ -595,32 +621,6 @@ const ep1ResolutionOptions = ref<ECOption>({
     },
 })
 
-const ep1RouteOptions = ref<ECOption>({
-    title: {
-        text: t('chokuretsu-wrapped-route-selection'),
-        left: 'center',
-    },
-    tooltip: {
-        trigger: 'item',
-        formatter: '{b}: {c} ({d}%)',
-        position: 'right',
-    },
-    series: {
-        type: 'pie',
-        data: json.routesTaken[0].map((r: { route: any; count: number; }) => Object({
-            name: t(r.route.name),
-            value: r.count,
-            itemStyle: customized && json.saveData?.routesTaken[0].name == r.route.name ? { color: 'gold' } : {},
-        })),
-        label: {
-            show: false,
-        },
-        labelLine: {
-            show: false,
-        },
-    },
-})
-
 const ep2RouteOptions = ref<ECOption>({
     title: {
         text: t('chokuretsu-wrapped-route-selection'),
@@ -647,6 +647,49 @@ const ep2RouteOptions = ref<ECOption>({
     },
 })
 
+const ep2FoundTheSecretNoteOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep2-secret-note'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep2FoundTheSecretNoteChart).map(k => Object({
+            name: t(k),
+            value: json.ep2FoundTheSecretNoteChart[k],
+            itemStyle: customized && ((json.saveData?.ep2FoundTheSecretNote && k == 'chokuretsu-wrapped-ep2-found-the-note') || (!json.saveData?.ep2FoundTheSecretNote && k == 'chokuretsu-wrapped-ep2-didnt-find-the-note')) ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
+
+const ep2ResolutionOptions = ref<ECOption>({
+    title: {
+        text: t('chokuretsu-wrapped-ep2-resolution'),
+        left: 'center',
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+    },
+    series: {
+        type: 'pie',
+        data: Object.keys(json.ep2ResolutionChart).map(k => Object({
+            name: t(k),
+            value: json.ep2ResolutionChart[k],
+            itemStyle: customized && json.saveData?.ep2Resolution == k ? { color: 'gold' } : {},
+        }))
+    },
+    legend: {
+        left: 'center'
+    },
+})
 
 provide(THEME_KEY, 'light')
 </script>
@@ -715,6 +758,12 @@ provide(THEME_KEY, 'light')
                     <div class="charts">
                         <div>
                             <VChart :option="ep2RouteOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep2FoundTheSecretNoteOptions" class="normal-chart"/>
+                        </div>
+                        <div>
+                            <VChart :option="ep2ResolutionOptions" class="normal-chart"/>
                         </div>
                     </div>
                     <h2>{{ t('chokuretsu-wrapped-ep3') }}</h2>
