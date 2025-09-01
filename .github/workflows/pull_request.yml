@@ -50,6 +50,6 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Nuxt build
-        run: ${{ steps.detect-package-manager.outputs.manager }} build
+        run: nuxt build
         env:
           NODE_OPTIONS: --max-old-space-size=16384
