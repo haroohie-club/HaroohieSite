@@ -1,6 +1,6 @@
 ---
-title: &title 'Chokuretsu ROM Hacking Challenges Part 3 – Compression & Archive Follow-Up'
-description: &desc 'Jonko responds to feedback and provides more details regarding the compression and archive articles.'
+title: &title 'Défis du ROM Hacking de Chokuretsu Partie 3 – Suite de la Compression & l''Archive '
+description: &desc 'Jonko réponds au feedback et fournis plus de détails concernant la compression et les articles des archives.'
 navigation:
   description: *desc
   author: 'Jonko'
@@ -35,7 +35,7 @@ head:
     value: 'summary_large_image'
 ---
 
-My initial draft of the blog post covering the Shade bin archive files in Chokuretsu was long. Like, really long. There was a lot of stuff I necessarily had to cut in the final version in order to convey how I reverse-engineered the structure of the archive and got file reinsertion working. What’s more, a number of common questions came up in response to the first two posts and I hope to use this post to catalog my answers to some of them.
+Mon brouillon initial du post de blog concernant les fichiers de l'archive bin Shade dans Chokuretsu était long. Genre, vraiment long. Il y avait beaucoup de choses que j'ai nécessairement dû couper dans la version finale afin d'expliquer comment j'ai retrouvé la structure de l'archive et réussi à refaire marcher la réinsertion de fichier par retro-ingénieurie. De plus, un certain nombre de questions fréquentes sont apparues en réponse aux deux premier posts et j'espère pouvoir utiliser ce post pour cataloguer mes réponses à certaines d'entre elles.
 
 ## No One Knows What They’re Doing
 When I started writing the archive code, I did so simply wanting to extract files and not understanding the actual structure of the bin archives at all. Thus, I wrote code that simply looked for spacing between files to identify their offsets. Even as I learned more about the archive structure, reverse-engineered the magic integers, and worked on file replacement and eventually file insertion, I kept this very flawed architecture. Impressively, this code actually stuck around _until I wrote the previous blog post_ (lol). It caused a number of bugs – notably, I managed to corrupt a file in the graphics archive because it didn’t have spacing between it and its previous file (i.e. the previous file ended at something like 0x7F8 and it started at 0x800).

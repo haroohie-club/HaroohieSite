@@ -1,5 +1,5 @@
 ---
-title: 'Save Files'
+title: 'Fichiers de Sauvegarde'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/save.png'
   previous: '/chokuretsu/serial-loops/docs/misc/tutorial-mappings'

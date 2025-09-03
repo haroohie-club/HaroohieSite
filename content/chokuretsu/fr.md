@@ -1,10 +1,10 @@
 ---
-title: Suzumiya Haruhi no Chokuretsu - English Translation (Nintendo DS) - (The Series of Haruhi Suzumiya)
-description: English Translation ROM patch for Nintendo DS game Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
+title: Suzumiya Haruhi no Chokuretsu - Traduction Anglaise (Nintendo DS) - (The Series of Haruhi Suzumiya)
+description: Traduction Anglaise du ROM patch pour le jeu Nintendo DS Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya)
 ---
 
 ::chokuretsu-nav
-## Get the translation
+## Obtenir la traduction
 ::
 
 ## About the game

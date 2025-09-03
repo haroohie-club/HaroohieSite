@@ -1,6 +1,6 @@
 ---
-title: &title 'Welcome! and Why?'
-description: &desc 'An introduction to the Haroohie Translation Club blog and an explanation of our motivations for translating Haruhi games.'
+title: &title 'Bienvenue ! et Pourquoi ?'
+description: &desc 'Une introduction au blog du Club de Traduction de Haroohie et une explication de nos motivations pour la traduction des jeux Haruhi.'
 navigation:
   description: *desc
   author: 'Jonko'
@@ -35,7 +35,7 @@ head:
     value: 'summary_large_image'
 ---
 
-You’re now reading the first Haroohie Translation Club blog post, which either means you scrolled pretty far back or you’re here pretty early. My name is Jonko, and I’m the project lead for the club. As a result of my position, the responsibility of writing most of the blog posts has fallen to me, but I can guarantee we’ll have other writers here from time to time. This blog is where we’re going to try to unscrew the casing and take a look at the internals of this project we’re all working so hard on. We’ll give an insider look at the reverse-engineering and ROM hacking we’ve done, examine the complexities of translating from Japanese to English, and maybe even delve into the world of project management. But before all that, in this first blog post, I’d like to answer a question that often gets asked: why?
+Vous êtes maintenant en train de lire le premier post de blog du Club de Taduction de Haroohie, ce qui veut dire que soit vous avez scrollé assez loin soit vous êtes là assez tôt. Mon nom est Jonko, et je suis le directeur de projet pour ce club. Résultant de ma position, la responsabilité d'écrire la plupart des posts de blog me revient, mais je peux vous garantir que nous aurons d'autres rédacteurs ici de temps en temps. Ce blog est l'endroit ou on va essayer de dévisser la carosserie et jeter un coup d'oeil à la structure interne de ce projet sur lequel nous travaillons tous si dur. Nous donnerons une perspective d'initié à la retro-ingénierie et au ROM hacking que nous avons effectué, examinerons les complexités de la traduction du Japonais à l'Anglais, et peut être même que nous nous plongerons dans le monde du management de projet. Mais avant tout cela, dans ce premier post de blog, j'aimerais répondre à une question qui est souvent posée: Pourquoi?
 
 Why stay up late getting into Discord arguments about whether Nagato should say “Fine” or “It’s fine”? Why take vacation time to reverse-engineer a proprietary scripting language? Why pour thousands of hours into hacking, translating, and graphics editing all to create patches for games that the publishers didn’t think worthy of official international releases?
 

@@ -1,6 +1,6 @@
 ---
-title: &title 'Serial Loops - Editing Suite for Suzumiya Haruhi no Chokuretsu'
-description: &desc 'Serial Loops is an editing suite for Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.'
+title: &title 'Serial Loops - Une Suite d''Édition pour Suzumiya Haruhi no Chokuretsu'
+description: &desc 'Serial Loops est une suite d''édition pour Suzumiya Haruhi no Chokuretsu (The Series of Haruhi Suzumiya), disponible sur Windows, Mac et Linux.'
 navigation:
   image: 'script-editor.png'
 head:
@@ -30,7 +30,7 @@ head:
 ---
 <b class="sl-header">An editing suite for Suzumiya Haruhi no Chokuretsu</b> 
 
-Serial Loops is an editing suite for [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (The Series of Haruhi Suzumiya), available for Windows, Mac and Linux.
+Serial Loops est une suite d'édition pour [Suzumiya Haruhi no Chokuretsu](/chokuretsu) (The Series of Haruhi Suzumiya), disponible sur Windows, Mac et Linux.
 
 <br />
 <br />

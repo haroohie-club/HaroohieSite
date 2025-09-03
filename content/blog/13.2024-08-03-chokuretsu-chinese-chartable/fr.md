@@ -1,6 +1,6 @@
 ---
-title: &title "Chokuretsu ROM Hacking Challenges from China – Character Conundrums!"
-description: &desc "Xzonn explores how he went about modifying the character table and line height for the Chinese translation of Chokuretsu"
+title: &title "Chokuretsu ROM Hacking Challenges from China – Character Conundrums !"
+description: &desc "Xzonn explore comment il en est venu à modifer la table de charactères et la hauteur des lignes pour la traduction Chinoise de Chokuretsu"
 navigation:
   description: *desc
   author: 'Xzonn'

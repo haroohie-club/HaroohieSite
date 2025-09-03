@@ -1,5 +1,5 @@
 ---
-title: 'Chess Puzzles'
+title: 'Puzzles d''Échecs'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/chess-puzzle.png'
   previous: '/chokuretsu/serial-loops/docs/misc/topics'

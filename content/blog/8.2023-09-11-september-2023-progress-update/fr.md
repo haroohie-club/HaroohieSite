@@ -1,6 +1,6 @@
 ---
-title: &title 'September 2023 Progress Update – Chokuretsu 100% Translated, Heiretsu Progress, & More!'
-description: &desc 'The Haroohie Translation Club share a progress update on their translation projects!'
+title: &title 'Mise à jour de Progrès datant de Septembre 2023 – Chokuretsu est 100% Traduit, Heiretsu voit du Progrès, & Plus !'
+description: &desc 'The Club de Traduction de Haruhi partage une mise à jour des progrès sur leurs projets de traduction !'
 navigation:
   description: *desc
   author: 'William'

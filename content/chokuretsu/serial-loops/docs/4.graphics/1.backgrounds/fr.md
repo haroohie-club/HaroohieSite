@@ -1,16 +1,16 @@
 ---
-title: Backgrounds
+title: Arrière-plans
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/background.png'
   previous: '/chokuretsu/serial-loops/docs/graphics'
   next: '/chokuretsu/serial-loops/docs/graphics/sprites'
 ---
 
-Backgrounds are used to display visual novel backgrounds as well as CGs (**c**omputer **g**raphics; a common term for full screen art in visual novels
-that isn't overlaid with sprites). They can be viewed and edited through the background editor.
+Les arrières-plans sont utilisés pour afficher les arrières plans de ce "visual novel" aussi bien que des CGs (**c**omputer **g**raphics ; un terme commun pour de l'art plein-écran/full-screen dans les "visual novels"
+qui n'est pas superposé/overlaid avec des sprites). Ils peuvent être visionnés et édités avec l'éditeur d'arrières plans.
 
 ## Replacing
-Backgrounds can easily be replaced in the background editor. Simply press the "Replace" button and select a new image file from disk. This will open the built-in crop & scale tool to let you size your image to fit the standard set of background sizes (see below).
+Les Arrières-Plans peuvent êtres remplacés avec facilité dans l'éditeur d'arrière-plan. Appuyez simplement sur le bouton "Remplacer" et sélectionnez une nouveau fichier image file depuis votre disque dur. Ceci ouvrira l'outil built-in de crop & scale pour vous permettre de redimensionner votre image pour remplir le set standard de tailles d'arrière-plan (voir ci-dessous).
 
 ### Crop and Scale
 Once an image file has been selected after choosing "Replace", a box overlay cut-out will be layered over the imported bitmap. Using the mouse, you can click and drag the image to adjust its crop; the portion that is

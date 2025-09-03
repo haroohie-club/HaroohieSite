@@ -1,15 +1,15 @@
 ---
-title: 'Getting Started'
+title: 'Pour Débuter'
 navigation:
   faicon: 'fa6-solid:hands'
   previous: '/chokuretsu/serial-loops/docs/introduction/installation'
   next: '/chokuretsu/serial-loops/docs/introduction/project-workflow'
 ---
 
-## The Home Screen and Preferences
-Upon launching Serial Loops, you'll see the following screen:
+## L'Écran d'accueil et vos Préférences
+Une fois Serial Loops lancé, vous apercevrez l'écran suivant :
 
-![Serial Loops Home Screen](/images/chokuretsu/serial-loops/home-screen.png)
+![Écran d'Accueil de Serial Loops](/images/chokuretsu/serial-loops/home-screen.png)
 
 This is the main home screen for Serial Loops. Before you do anything else, we should go to _File_ &rarr; _Preferences_ (or _SerialLoops_ &rarr; _Preferences_ on macOS) or click the "Preferences" link under the Start heading.
 

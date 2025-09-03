@@ -1,5 +1,5 @@
 ---
-title: 'Dialogue Colors'
+title: 'Couleurs de Dialogue'
 navigation:
   faicon: 'fa6-solid:palette'
   previous: '/chokuretsu/serial-loops/docs/misc/ui-text'

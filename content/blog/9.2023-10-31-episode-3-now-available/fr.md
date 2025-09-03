@@ -1,6 +1,6 @@
 ---
-title: &title 'The Series of Haruhi Suzumiya – Episode 3 is now available!'
-description: &desc 'Play Episode 3: A Midsummer Graduation in Version 0.6 of Suzumiya Haruhi no Chokuretsu''s English Patch, available now!'
+title: &title 'The Series of Haruhi Suzumiya – Épisode 3 est maintenant disponible!'
+description: &desc 'Jouer à l''Episode 3: Une remise de diplômes pendant la mi-été dans la Version 0.6 du Patch Anglais de Suzumiya Haruhi no Chokuretsu''s , disponible dès maintenant!'
 navigation:
   description: *desc
   author: 'William'

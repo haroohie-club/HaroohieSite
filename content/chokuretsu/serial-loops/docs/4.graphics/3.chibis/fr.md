@@ -7,8 +7,7 @@ navigation:
 ---
 
 ## Overview
-Chibis are small animated sprites used on the top screen during regular visual novel segments and controlled/interacted with during the
-investigation and puzzle phases.
+Les Chibis sont des petits sprites animés utilisés sur l'écran du haut pendant les segments réguliers du visual novel, et sont controllés/intéragis avec pendant les phases d'investigation et de puzzle.
 
 Chibis can have a number of animations associated with them:
 

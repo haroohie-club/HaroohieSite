@@ -1,5 +1,5 @@
 ---
-title: 'Investigation Phase'
+title: 'La Phase d''Investigation'
 navigation:
   faicon: 'fa6-solid:magnifying-glass-arrow-right'
   previous: '/chokuretsu/serial-loops/docs/scripts/chibis-and-choices'
