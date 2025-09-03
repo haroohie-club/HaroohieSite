@@ -1,6 +1,6 @@
 ---
-title: &title 'Chokuretsu ROM Hacking Challenges Part 2 – Archive Archaeology'
-description: &desc 'Jonko puts the Shade bin archive under the microscope and explains how he figured out how to unpack it.'
+title: &title 'Défis du ROM Hacking de Chokuretsu Partie 2 – Archéologie de l''Archive'
+description: &desc 'Jonko mets l''archive bin Shade sous le microscope et explique comment il a compris la façon de la dépaqueter.'
 navigation:
   description: *desc
   author: 'Jonko'
@@ -32,7 +32,7 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-[Last time](/blog/2022-10-19-chokuretsu-compression), we talked about how I reverse-engineered the compression algorithm used in Suzumiya Haruhi no Chokuretsu. Today, we’ll be taking a look at the archives that contain the Chokuretsu files. Please note that while I’ll generally try to keep these blog posts separate, this one absolutely builds on concepts we discussed last time, so I highly recommend you read it first! Also, if you're returning from the last one, fair warning that this one's a bit longer and contains a lot more assembly!
+[La dernière fois](/blog/2022-10-19-chokuretsu-compression), nous avions parlé de la façon dont j'ai retrouvé l'algorithme de compression utilisé dans Suzumiya Haruhi no Chokuretsu par le processus de rétro-ingénierie. Aujourd'hui, nous allons jeter un coup d'oeil aux archives qui contiennent les fichiers de Chokuretsu. Veuillez noter que même si j'essaye généralement de garder ces posts de blog separés, celui ci repose absolument sur des concepts dont nous avons discuté la dernière fois, donc je recommande fortement que vous le lisiez d'abord! D'ailleurs, si vous revenez du dernier post, je vous avertis que celui ci est plus long et contient beaucoup plus d'assemblée!
 
 Thanks to the proliferation of zip files, you’re likely already familiar with archives: they’re files that contain files, usually compressed versions to help save space on disk. Common archives include `.zip`, `.rar`, `.7z`, and `.tar.gz` files. Chokuretsu uses a custom archive format with the extension `.bin`. Since Shade is the developer of Chokuretsu, these files are referred to as “Shade bin archives” or just “bin archives.” Let’s get started by picking an archive to look at.
 

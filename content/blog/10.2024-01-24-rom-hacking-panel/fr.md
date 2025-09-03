@@ -1,6 +1,6 @@
 ---
-title: &title 'Recording of Jonko''s "ROM Hacking to Translate a Video Game" Panel Released'
-description: &desc 'Watch Jonko explain some of the challenges of hacking Chokuretsu to a live audience at Retro World Expo'
+title: &title "l'Enregistrement du Panel de Jonko, ROM Hacking to Translate a Video Game, est sorti"
+description: &desc "Regardez Jonko expliquer certain des défis du hacking de Chokuretsu à une audience live à l'Expo Retro World"
 navigation:
   description: *desc
   author: 'Jonko'
@@ -32,14 +32,14 @@ head:
   - name: 'twitter:card'
     value: 'summary_large_image'
 ---
-Hi folks! For the past year, I have been presenting a panel at several different conventions on ROM hacking Chokuretsu.
-At Retro World Expo in Hartford, Connecticut, [Andy Wolan](https://www.youtube.com/@andywolan) (formerly of the Sonic Stuff Research Group)
-made a recording of the panel that I've now posted to my YouTube channel. If you're interested in hearing a bit about how we hacked
-this game, you'll likely enjoy giving it a watch!
+Salut à tous ! L'année précédente, j'ai présenté lors d'un panel à plusieurs conventions differentes à propos du ROM hacking de Chokuretsu.
+À Retro World Expo à Hartford, Connecticut, [Andy Wolan](https://www.youtube.com/@andywolan) (ayant fait partie du Sonic Stuff Research Group)
+j'ai effectué un enregistrement du panel que j'ai maintenant posté sur ma chaîne YouTube. Si ça vous intéresse d'écouter un peu comment nous avons hacké
+ce jeu, vous allez probablement aimer jeter y un coup d'oeil !
 
-### Update
-Thanks to [Xzonn](xzonn.top), who is working with a team to translate Chokuretsu into Chinese, this talk has now been translated into Chinese
-and is available with Chinese subtitles on both YouTube and [bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
+### Mise à jour
+Grace à [Xzonn](xzonn.top), qui travaille avec une équipe pour traduire Chokuretsu en Chinois, cette présentation a désormais été traduite en Chinois
+et elle est aussi disponible avec des sous-titres Chinois à la fois sur YouTube et sur [bilbili](https://www.bilibili.com/video/BV1w4421P7Wd/)!
 
 ::youtube-video
 ----

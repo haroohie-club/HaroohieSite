@@ -1,5 +1,5 @@
 ---
-title: 'Sound Effects'
+title: 'Effets Sonores'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/sfx.png'
   previous: '/chokuretsu/serial-loops/docs/sound/voice'

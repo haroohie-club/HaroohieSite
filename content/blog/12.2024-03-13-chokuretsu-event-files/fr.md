@@ -1,6 +1,6 @@
 ---
-title: &title "Chokuretsu ROM Hacking Challenges Part 4 – Event File Excavation"
-description: &desc "Jonko digs into the event files to figure out how to translate the game"
+title: &title "Les Défis du ROM Hacking de Chokuretsu Partie 4 – l'Excavation des Fichiers d'Évènement "
+description: &desc "Jonko étudie les fichiers évènements pour comprendre comment parvenir à traduire le jeu"
 navigation:
   description: *desc
   author: 'Jonko'
@@ -35,7 +35,7 @@ head:
     value: 'summary_large_image'
 ---
 
-In my first few posts, I explained how I figured out how to extract files from the different Chokuretsu archives. This post is the start of the next series where we delve into how I reverse-engineered the contents of those files for the purpose of translating the game. Today, we’re covering the backbone of the game’s script – the _event files_. This is intended to serve as both an explanation of how I reverse-engineered these files and an introduction to trying to reverse-engineer files.
+   In my first few posts, I explained how I figured out how to extract files from the different Chokuretsu archives. This post is the start of the next series where we delve into how I reverse-engineered the contents of those files for the purpose of translating the game. Today, we’re covering the backbone of the game’s script – the _event files_. This is intended to serve as both an explanation of how I reverse-engineered these files and an introduction to trying to reverse-engineer files.
 
 ## A Very Good Place to Start
 At the _very_ beginning of my work on the event files, I had cracked the compression algorithm, but not the archives. This meant I was able to view the files but not yet reinsert them into the game. That’s okay, though! A great place to start when looking at a file is to… well, look at it. Specifically, let's crack open the hex editor and see what we can find.

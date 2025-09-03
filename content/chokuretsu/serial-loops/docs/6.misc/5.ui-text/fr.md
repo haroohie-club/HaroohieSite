@@ -1,5 +1,5 @@
 ---
-title: 'UI Text'
+title: 'Texte d''Interface Utilisateur'
 navigation:
   faicon: 'fa6-solid:wrench'
   previous: '/chokuretsu/serial-loops/docs/misc/applying-hacks'

@@ -1,5 +1,5 @@
 ---
-title: 'Group Selections'
+title: 'Sélections de Groupe'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/group-selection.png'
   previous: '/chokuretsu/serial-loops/docs/scenario/game-flow'

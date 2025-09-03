@@ -8,4 +8,4 @@ author:
   website: 'https://xzonn.top/'
 ---
 
-Xzonn is a Nintendo fan who is working on translating Haruhi games into Chinese.
+Xzonn est un fan de Nintendo qui travaille à traduire les jeux de Haruhi en Chinois.

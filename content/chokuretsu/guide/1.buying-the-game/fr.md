@@ -1,12 +1,12 @@
 ---
-title: 'Buying the game'
+title: 'Acheter le jeu'
 navigation:
   current: '/buying-the-game'
   previous: '/'
   next: '/dumping-the-rom'
 ---
 
-First things first, regardless of what platform you're playing on, you'll need to buy a copy of the game. You can pick up a copy from a number of vendors, including:
+Tout d'abord, peu importe quelle platforme vous utilisez, vous aurez besoin d'acheter une copie du jeu. Vous pouvez acheter une copie depuis un certain nombre de vendeurs, incluant :
 
 ::two-column-list
 * [PlayAsia](https://www.play-asia.com/suzumiya-haruhi-no-chokuretsu/13/70337q) ([collector's edition](https://www.play-asia.com/suzumiya-haruhi-no-chokuretsu-chou-sos-dandanin-collection/13/70337s))

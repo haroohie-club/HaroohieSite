@@ -1,6 +1,6 @@
 ---
-title: &title 'December 2024 Haroohie Housekeeping Update'
-description: &desc 'Jonko debriefs the status of the translation patches as well as provides updates on new website features and upcoming blog posts.'
+title: &title 'Mise à Jour de Décembre 2024, Ménage de Haroohie'
+description: &desc 'Jonko débriefe le statut des patchs de traduction et fournis des mises à jours quant aux nouvelles fonctionalités du site web ainsi que des posts de blogs à venir.'
 navigation:
   description: *desc
   author: 'Jonko'

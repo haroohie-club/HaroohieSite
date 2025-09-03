@@ -1,5 +1,5 @@
 ---
-title: 'Patterns and Templates'
+title: 'Patterns & Templates'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/template.png'
   previous: '/chokuretsu/serial-loops/docs/scripts/commands'

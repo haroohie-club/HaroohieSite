@@ -1,5 +1,5 @@
 ---
-title: 'Commands'
+title: 'Commandes'
 navigation:
   faicon: 'fa6-solid:code'
   previous: '/chokuretsu/serial-loops/docs/scripts'
@@ -9,7 +9,7 @@ navigation:
 The following document explains what every command in the game does. This document is intended for a general audience; for a more detailed, technical explanation of the commands, please reference the [Chokuretsu Translation Utility's wiki](https://github.com/haroohie-club/ChokuretsuTranslationUtility/wiki/Event-File-Commands).
 
 ## Notes
-* Time in these commands is always defined in terms of _frames_. The game assumes a frame is 1/60 of a second, i.e. 60 frames per second. Thus, to wait one second, one would `WAIT` for 60 frames.
+* Le Temps dans ces commandes est toujours défini en terme de _frames_. Le jeu suppose qu'un frame, c'est-à-dire une image, est équivalent à 1/60 de seconde, c'est à dire une fréquence de 60 images pour 1 seconde. Ainsi, pour attendre une seconde, il vous faudrait`ATTENDRE` pendant 60 images.
 
 ## `AVOID_DISP`
 **Parameters**: None

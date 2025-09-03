@@ -1,7 +1,7 @@
 ## Setup guide
-This guide will walk you through getting the patch up-and-running on your system or emulator of choice!
+Ce guide vas vous aider à obtenir et appliquer le patch afin de pouvoir jouer sur la console ou l'émulateur de votre choix!
 
-### Guide steps
+### Étapes du Guide
 ::chokuretsu-guide-list
 ::
 

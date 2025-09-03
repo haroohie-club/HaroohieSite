@@ -1,6 +1,6 @@
 ---
-title: &title 'The Series of Haruhi Suzumiya – Episode 4 Now Available! (And More!)'
-description: &desc 'Play Episode 4: Big Mum Flower in Version 0.8 of Suzumiya Haruhi no Chokuretsu''s English Patch, available now! Also, check out the new version of Serial Loops and the latest ROM hacking video from Jonko!'
+title: &title 'The Series of Haruhi Suzumiya – Épisode 4 est maintenant disponible! (Et Plus!)'
+description: &desc 'Jouez à l''Épisode 4: Grosse Maman Fleur dans la Version 0.8 du Patch Anglais de Suzumiya Haruhi no Chokuretsu''s , disponible maintenant! Aussi, jetez un coup d'oeil à la nouvelle version de Serial Loops et la dernière vidéo de ROM hacking de Jonko!'
 navigation:
   description: *desc
   author: 'Jonko'

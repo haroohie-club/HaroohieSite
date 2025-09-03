@@ -1,12 +1,12 @@
 ---
-title: 'Patching the ROM'
+title: 'Patcher la ROM'
 navigation:
   current: '/patching-the-rom'
   previous: '/dumping-the-rom'
   next: '/playing-the-game'
 ---
 
-Once you've dumped your cartridge to an `.nds` file, patching it with the English Translation can be done easily through the [Patch ROM](/chokuretsu/patch) tool we provide, or by manually downloading the patch `.xdelta` file and using patching software, such as [XDeltaUI](https://www.romhacking.net/utilities/598/?device=emu) to patch your ROM file.
+Une fois que vous avez dumpé votre cartouche et obtenu un fichier`.nds`, patcher ce nouveau fichier avec la Traduction Anglaise peut être fait facilement en utilisant l'outil de [ROM Patch](/chokuretsu/patch) que nous fournissons, ou alors manuellement en téléchargeant le fichier de patch `.xdelta` et en utilisant un logiciel de patching, tel que [XDeltaUI](https://www.romhacking.net/utilities/598/?device=emu) pour patcher votre fichier ROM.
 
 ## Online patcher
 ::guide-notice

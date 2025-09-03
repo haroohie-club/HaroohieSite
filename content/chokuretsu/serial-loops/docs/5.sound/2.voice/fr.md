@@ -1,12 +1,12 @@
 ---
-title: 'Voice Lines'
+title: 'Tirades Doublées'
 navigation:
   icon: '/images/chokuretsu/serial-loops/file-icon/voice.png'
   previous: '/chokuretsu/serial-loops/docs/sound/bgm'
   next: '/chokuretsu/serial-loops/docs/sound/sfx'
 ---
 
-Voice lines are the spoken lines both for dialogue sections and for various other bits such as the puzzle phase, the group selection screen, and the title screen.
+Les tirades doublées sont les tirades qui sont parlées à la fois pour les sections de dialogue et pour d'autres morceaux variés tels que la phase de puzzle, l'écran de sélection de groupe, et l'écran de titre.
 
 ## Replacing
 Voice lines can be replaced exactly like [background music](./bgm).

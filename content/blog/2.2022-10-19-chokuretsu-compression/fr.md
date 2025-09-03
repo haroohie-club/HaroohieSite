@@ -1,6 +1,6 @@
 ---
-title: &title 'Chokuretsu ROM Hacking Challenges Part 1 – Cracking a Compression Algorithm!'
-description: &desc 'Jonko delves into how the Shade compression algorithm was reverse engineered to hack Suzumiya Haruhi no Chokuretsu.'
+title: &title 'Défis du ROM Hacking de Chokuretsu Partie 1 – Cracker un Algorithme de Compression !'
+description: &desc 'Jonko explique comment il a recomposé l''algorithme de compression Shade par rétro-ingénieré pour hacker Suzumiya Haruhi no Chokuretsu.'
 navigation:
   description: *desc
   author: 'Jonko'

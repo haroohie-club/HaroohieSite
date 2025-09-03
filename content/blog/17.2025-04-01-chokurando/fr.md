@@ -1,6 +1,6 @@
 ---
-title: &title 'Introducing ChokuRando: A Chokuretsu Randomizer'
-description: &desc 'Jonko introduces the latest and greatest in gaming: a randomizer for Suzumiya Haruhi no Chokuretsu.'
+title: &title 'Introduisons ChokuRando: Un Randomizer de Chokuretsu '
+description: &desc 'Jonko introduis la dernière et la meilleure évolution dans le domaine du gaming: un randomizer pour Suzumiya Haruhi no Chokuretsu.'
 navigation:
   description: *desc
   author: 'Jonko'
@@ -33,7 +33,7 @@ head:
     value: 'summary_large_image'
 ---
 
-While randomizers are all the rage, few people are as bold as I am when I imagined a future in which even something as story-driven as a visual novel could be randomized. Those few people, however, do include the Kyoto Animation staff that decided to air the first season of _The Melancholy of Haruhi Suzumiya_ anachronologically.
+Même si les randomizers sont à la mode, peu de gens seraient aussi audacieux que moi quand j'ai imaginé un futur dans lequel quelque chose d'aussi focalisé sur la narration et la trame d'une histoire qu'un visual novel pouvait être randomisé, c'est à dire dont le parcours narratif devient aléatoire. Ce peu de gens, cependant, inclue effectivement le personnel de Kyoto Animation qui a decidé de diffuser la première saison de _The Melancholy of Haruhi Suzumiya_ anachroniquement.
 
 In the spirit of that grand tradition, I present to you "ChokuRando": a randomizer for _Suzumiya Haruhi no Chokuretsu_ (The Series of Haruhi Suzumiya)!
 
