@@ -1,6 +1,6 @@
 ---
 title: &title 'Serial Loops v0.2 est mainenant sorti – avec des éditeurs plus puissants et une meilleure stabilité !'
-description: &desc 'La deuxième version de "Serial Loops" rend l'éditeur encore plus puissant et intuitif, répare une tonne de bugs, et améliore la stabilité !'
+description: &desc 'La deuxième version de "Serial Loops" rend l''éditeur encore plus puissant et intuitif, répare une tonne de bugs, et améliore la stabilité !'
 navigation:
   description: *desc
   author: 'William'
