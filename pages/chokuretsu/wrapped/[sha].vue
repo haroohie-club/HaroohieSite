@@ -219,7 +219,7 @@ let haruhiMeterData: any[] = [
         detail: {
             valueAnimation: true,
             offsetCenter: ['0%', '80%'],
-            formatter: (value: number) => `${value}%`
+            formatter: (value: number) => `${value.toFixed(2)}%`
         }
     }
 ]
