@@ -35,7 +35,7 @@ head:
 
 ::youtube-video
 ----
-video: g9lSVKkKCyE
+video: 37pSC1XQ-kU
 ----
 ::
 
@@ -57,7 +57,7 @@ There's also one other quick thing we'd like to show off...
 
 ## Chokuretsu Wrapped
 
-If you're interested in seeing how your game of Chokuretsu stacks up against other players, we now have a cool little site called [Chokuretsu Wrapped](https://haroohie.club/chokuretsu/wrapped).
+If you're interested in seeing how your game of Chokuretsu stacks up against other players, we now have a cool little site called [Chokuretsu Wrapped](/chokuretsu/wrapped).
 
 Simply upload a completed Chokuretsu save and you'll be able to see your choices, stats, and more and compare how they stack up against those of other players.
 
