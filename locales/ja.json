@@ -153,7 +153,6 @@
     "chokuretsu-rom-patcher-get-started": "初めに、ROMファイルを選んでください。",
     "chokuretsu-rom-patcher-patch-rom": "ROMをパッチする",
     "chokuretsu-rom-patcher-bad-rom-warn": "<b>「悪いROMを使っている！悪い！罰金！\"\n</b><br/>選んだROMのSHA-256チェックサムは知っているヘッダやグラフィックのデータ化けがある悪いROMののが同じです。翻訳パッチを付ける前、ROMを直しました。",
-    "chokuretsu-rom-patcher-invalid-rom-error": "無効なROMです。正しいゲームのROMを選び、ダンプの指図を精密に追ったことを確認してください。",
     "chokuretsu-page-title": "涼宮ハルヒの直列・英語翻訳（Nintendo DS）",
     "byline-pre": " ",
     "translated-by-pre": "翻訳者：",

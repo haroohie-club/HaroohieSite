@@ -131,7 +131,6 @@
     "chokuretsu-rom-patcher-repair-applied": "Patch de reparação aplicado!",
     "chokuretsu-rom-patcher-bad-rom-warn": "<b>\"Você está usando uma ROM ruim! Uma ROM ruim! Penalidade!\"\n</b><br/> O SHA-256 checksum da ROM selecionada corresponde a uma ROM que contém dados e gráficos corrompidos. Um reparo foi realizado na sua ROM antes da aplicação dos patches.",
     "original-copyright": "Haruhi Suzumiya, seus jogos originais e relacionados são propriedade da Kadokawa / SEGA / Nagaru Tanigawa / SOS Brigade",
-    "chokuretsu-rom-patcher-invalid-rom-error": "ROM inválida. Verifique se você selecionou a ROM certa e se as instruções foram seguidas corretamente.",
     "chokuretsu-rom-patcher-patching-rom": "Patcheando a ROM com {patch}...",
     "heiretsu-title": "O Paralelo da Haruhi Suzumiya",
     "chokuretsu-rom-patcher-patch-failed-retrieve": "Falha ao obter arquivo de patch.",

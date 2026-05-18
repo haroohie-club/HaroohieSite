@@ -134,7 +134,6 @@
     "chokuretsu-rom-patcher-op-ed-subs-title": "",
     "pixelfed": "Pixelfed",
     "click-to-filter": "",
-    "chokuretsu-rom-patcher-invalid-rom-error": "Ungültige ROM. Bitte stelle sicher, dass du die ROM für das richtige Spiel ausgewählt und die korrekten Dumping-Anweisungen sorgfältig befolgt hast.",
     "chokuretsu-rom-patcher-bad-rom-error": "Der SHA-256-Hash des von dir ausgewählten ROMs stimmt mit dem eines im Internet kursierenden, bekanntermaßen fehlerhaften ROM überein, das beschädigte Grafiken und ungültige Header-Daten enthält. Diese ROM kann nicht gepatcht werden.",
     "chokuretsu-rom-patcher-patching-rom": "ROM mit {patch} patchen...",
     "chokuretsu-chibi-nagato-alt": "",

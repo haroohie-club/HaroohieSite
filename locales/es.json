@@ -130,7 +130,6 @@
     "chokuretsu-rom-patcher-repairing": "Reparando la mala ROM...",
     "chokuretsu-rom-patcher-repair-applied": "¡Parche de reparación aplicado!!",
     "chokuretsu-rom-patcher-repair-error": "(Error reparando la ROM) ",
-    "chokuretsu-rom-patcher-invalid-rom-error": "ROM no válida. Verifica que elegiste la ROM del juego correcto y que seguiste al pie de la letra las instrucciones para extraerla.",
     "chokuretsu-rom-patcher-patching-rom": "Parcheando la ROM con {patch}...",
     "chokuretsu-rom-patcher-no-patches-available": "¡No hay parches disponibles por el momento! ¡Revisa mas tarde!",
     "en-v0.2-patch-desc": "Esta es la versión inicial del parche en inglés de Las Series de Haruhi Suzumiya. Traduce por completo el Episodio 1 del juego.",
