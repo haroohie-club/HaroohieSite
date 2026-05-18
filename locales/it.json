@@ -131,7 +131,6 @@
     "chokuretsu-rom-patcher-repairing": "Riparazione ROM in corso...",
     "chokuretsu-rom-patcher-repair-applied": "Patch di riparazione applicata!",
     "chokuretsu-rom-patcher-repair-error": "(Errore durante la riparazione della ROM) ",
-    "chokuretsu-rom-patcher-invalid-rom-error": "ROM non valida. Assicurati di aver selezionato la ROM giusta e di aver seguito attentamente le istruzioni per la dump.",
     "chokuretsu-rom-patcher-patching-rom": "Patchando la ROM con {patch}...",
     "chokuretsu-rom-patcher-invalid-rom-select": "ROM non valida. Seleziona ROM di <i>Suzumiya Haruhi no Chokuretsu</i><code>.nds</code> valida.",
     "chokuretsu-rom-patcher-no-patches-available": "Non ci sono ancora patch disponibili! Torna presto!",

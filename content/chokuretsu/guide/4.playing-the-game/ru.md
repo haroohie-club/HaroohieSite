@@ -35,10 +35,10 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', 'Emulator']
 
 <div class="platform-filtered platform-nintendo_dsi">
 
-## Play on Nintendo DSi
-Playing on the Nintendo DSi can either be done through the use of a flash cartridge or putting the patched ROM onto an SD card and launching it through TWiLightMenu++.
+Игра на Nintendo DSi
+Играть на Nintendo DSi можно либо с помощью флеш-картриджа, либо записав пропатченный ROM-файл на SD-карту и запустив его через TWiLight Menu++.
 
-### Using TWiLightMenu++ (nds-bootstrap)
+Использование TWiLight Menu++ (nds-bootstrap)
 
 **Requirements:**
 * Nintendo DSi or DSi XL console
@@ -84,8 +84,8 @@ Playing on a (New) Nintendo 3DS or 2DS can either be done through the use of a f
 2. Follow this guide to install TWiLightMenu on your 3DS using FBI. During the part where it asks you to drag over your .nds ROMS, drag your patched ROM .nds file you made earlier into the /roms/ folder.
 3. Continue following the instructions through to launching the game. Enjoy!
 
-#### Using an NDS Forwarder
-If you would instead like to be able to launch the game directly from the home screen without running TWiLightMenu++, you can use an NDS forwarder to do so.
+Использование NDS Forwarder
+Если вы хотите запускать игру напрямую с главного экрана без запуска TWiLight Menu++, вы можете использовать NDS Forwarder.
 
 **Setup**:
 1. Follow steps 1-2 of the setup for TWiLightMenu++ instructions above.

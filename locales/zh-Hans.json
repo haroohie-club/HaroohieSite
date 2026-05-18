@@ -131,7 +131,6 @@
     "chokuretsu-rom-patcher-repairing": "正在修复损坏的 ROM……",
     "chokuretsu-rom-patcher-repair-applied": "修复补丁已应用！",
     "chokuretsu-rom-patcher-repair-error": "（修复 ROM 出现错误）",
-    "chokuretsu-rom-patcher-invalid-rom-error": "无效的 ROM。请确保选择了正确的 ROM，并仔细遵循了正确的转储说明。",
     "chokuretsu-rom-patcher-patching-rom": "正在使用“{patch}”给 ROM 打补丁……",
     "chokuretsu-rom-patcher-invalid-rom-select": "选择了无效的 ROM。请选择有效的《凉宫春日的串联》的 <code>.nds</code> ROM 文件。",
     "chokuretsu-rom-patcher-no-patches-available": "目前还没有可用的补丁！请之后再来！",
