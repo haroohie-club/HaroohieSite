@@ -5,8 +5,8 @@ navigation:
   description: *desc
   author: 'Jonko'
   year: 2026
-  month: 01
-  day: 01
+  month: 06
+  day: 25
   tags: []
   image: '0020/00_thumbnail.png'
 head:
