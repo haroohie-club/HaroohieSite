@@ -27,7 +27,7 @@ filters: ['Nintendo DS', 'Nintendo DSi', 'Nintendo 3DS', '模擬器']
 * Computer with an SD card reader/USB SD card reader peripheral
 
 **設定：**
-1. 將 SD 卡從燒錄卡中取出並插入計算機（如果需要，也可以透過正確的資料線連線）
+1. 將 SD 卡從燒錄卡中取出並插入計算機（如果需要，也可以通過正確的資料線連線）
 2. 將之前建立的打好補丁的 .nds ROM 檔案複製到 SD 卡中正確的目錄裡。
 3. 移除 SD 卡並插回到燒錄卡中，將其插入你的 Nintendo DS 中。啟動遊戲並享受吧！
 
@@ -61,7 +61,7 @@ Playing on the Nintendo DSi can either be done through the use of a flash cartri
 * Computer with an SD card reader/USB SD card reader peripheral
 
 **設定：**
-1. 將 SD 卡從燒錄卡中取出並插入計算機（如果需要，也可以透過正確的資料線連線）
+1. 將 SD 卡從燒錄卡中取出並插入計算機（如果需要，也可以通過正確的資料線連線）
 2. 將之前建立的打好補丁的 .nds ROM 檔案複製到 SD 卡中正確的目錄裡。
 3. 移除 SD 卡並插回到燒錄卡中，將其插入你的 Nintendo DSi 中。啟動遊戲並享受吧！
 
@@ -80,7 +80,7 @@ Playing on a (New) Nintendo 3DS or 2DS can either be done through the use of a f
 * Computer with an SD card reader/USB SD card reader peripheral
 
 **設定：**
-1. 將 3DS 中的 SD 卡（已透過 Luma3DS 破解）插入計算機
+1. 將 3DS 中的 SD 卡（已通過 Luma3DS 破解）插入計算機
 2. 按照本指南使用 FBI 在 3DS 上安裝 TWiLightMenu。當它要求你將 .nds ROM 複製到 SD 卡時，將你之前製作的打好補丁的 .nds ROM 檔案複製到 /roms/ 資料夾中。
 3. 繼續按照說明至啟動遊戲。享受遊戲吧！
 
@@ -101,7 +101,7 @@ If you would instead like to be able to launch the game directly from the home s
 * An SD or microSD card as required by your flash cartridge
 
 **設定：**
-1. 將 SD 卡從燒錄卡中取出並插入計算機（如果需要，也可以透過正確的資料線連線）
+1. 將 SD 卡從燒錄卡中取出並插入計算機（如果需要，也可以通過正確的資料線連線）
 2. 將之前建立的打好補丁的 .nds ROM 檔案複製到 SD 卡中正確的目錄裡。
 3. 移除 SD 卡並插回到燒錄卡中，將其插入你的 Nintendo 3DS 中。啟動遊戲並享受吧！
 
@@ -167,7 +167,7 @@ There are several options for emulation on Android. [DraStic](https://play.googl
 
 **使用 DraStic 模擬器遊玩**
 
-在 Google Play 商店下載 [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic)，並透過 Android 檔案管理器將已打補丁的 ROM 檔案傳輸給它。
+在 Google Play 商店下載 [DraStic](https://play.google.com/store/apps/details?id=com.dsemu.drastic)，並通過 Android 檔案管理器將已打補丁的 ROM 檔案傳輸給它。
 
 **Play using melonDS Android Emulator**
 
